@@ -5,3 +5,8 @@ CD utilise probablement la variable d'environnement $PWD pour les chemins relati
 la commande chdir permet de faire l'equivalent de cd en C
 
 # PWD #
+
+# READLINE #
+Readline est une fonction qui lit de depuis le terminal et la return. Si la ligne est vide ou quelle est NULL, rien n'est ecrit. La ligne est return avec un malloc donc il faut la free.
+La fonction permet des options de navigations dans l'ecriture du texte.
+
