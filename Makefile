@@ -35,6 +35,7 @@ SRC = \
 	main.c \
 
 LIBS = \
+	-lreadline \
 
 #############################################################################################
 #                                                                                           #
@@ -64,10 +65,10 @@ all:
 
 # Create $(NAME) executable
 $(NAME): $(OBJS) $(INCS)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .cpp with there path
-$(P_OBJ)%.o: $(P_SRC)%.cpp $(INCS)
+$(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -c $< -o $@
 

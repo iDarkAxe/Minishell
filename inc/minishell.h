@@ -1,26 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/18 17:10:30 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
+/*   Updated: 2025/03/18 17:10:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <stdlib.h>
+#ifndef MINISHELL_H 
+# define MINISHELL_H
 
-int main(void)
-{
-	char *str;
 
-	str = readline("bonjour : ");
-	if (str)
-		printf("%s", str);
-	free(str);
-}
+#endif 
