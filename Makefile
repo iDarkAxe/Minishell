@@ -33,6 +33,7 @@ INC = \
 # Source files
 SRC = \
 	main.c \
+	signals.c \
 
 LIBS = \
 	-lreadline \
