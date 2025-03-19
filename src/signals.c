@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/19 11:41:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/19 16:11:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	signal_init(void)
 
 	action_receive.sa_sigaction = signal_handler;
 	sigemptyset(&action_receive.sa_mask);
-	action_receive.sa_flags = SA_RESTART | SA_SIGINFO;
+	action_receive.sa_flags = SA_RESTART;
 	sigaction(SIGQUIT, &action_receive, NULL);
 	sigaction(SIGINT, &action_receive, NULL);
 	return (0);
@@ -40,7 +40,7 @@ int	signal_init(void)
  * @brief Signal handler
  * Ctrl+C = SIGINT -> print "^C" and displays a new prompt on a new line.
  * Ctrl+\ = SIGQUIT -> do nothing
- * 
+ *
  * Search for now signals :
  * stty -a | grep -Ewoe '(intr|quit|susp|erase|kill|eof|eol|eol2) = [^;]+';
   stty -a | grep -Ewoe '(swtch|start|stop|susp) = [^;]+';
