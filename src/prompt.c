@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/20 11:02:25 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/03/20 11:15:00 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <libft.h>
+#include "libft.h"
 
 static size_t	ft_strlen_and_choose_c(char *str, char c)
 {
@@ -81,6 +81,7 @@ char	*get_prompt_message(void)
 	return (prompt_message);
 }
 
+//
 // int		main(void)
 // {
 // 	char	*prompt;

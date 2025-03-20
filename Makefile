@@ -20,9 +20,12 @@ P_SRC = src/
 P_OBJ = .obj/
 
 P_INC = inc/
+P_INCS = \
+	$(P_INC) \
+	$(P_LIBFT)inc/
 
 # Libraries directories
-LIBFT_DIR = libft/
+P_LIBFT = libft/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -34,18 +37,15 @@ INC = \
 
 # Source files
 SRC = \
-<<<<<<< HEAD
 	main.c \
 	signals.c \
-=======
 	prompt.c \
->>>>>>> 3e1b5eba9195370dee3d57c84dc708478fe93bc9
 
 LIBS = \
-	-L$(LIBFT_DIR) -lft \
+	-L$(P_LIBFT) -lft \
 	-lreadline
 
-LIBFT = $(LIBFT_DIR)libft.a
+LIBFT = $(P_LIBFT)libft.a
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -62,7 +62,8 @@ P_OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS))
 DEPS = $(OBJS:%.o=%.d)
 
 # List of header files
-INCS = $(addprefix $(P_INC), $(INC))
+INCS = $(addprefix $(P_INC), $(INC)) \
+		$(P_LIBFT)inc/libft.h
 
 #############################################################################################
 #                                                                                           #
@@ -74,17 +75,17 @@ all:
 
 # Create $(NAME) executable
 $(NAME): $(OBJS) $(INCS) $(LIBFT)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS)
 
-# Custom rule to compilate all .cpp with there path
-$(P_OBJ)%.o: $(P_SRC)%.cpp $(INCS)
+# Custom rule to compilate all .c with there path
+$(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -c $< -o $@
 
 force:
 
 $(LIBFT): force
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(P_LIBFT)
 
 #############################################################################################
 #                                                                                           #
@@ -99,6 +100,7 @@ clean:
 
 clean-lib:
 	rm -rfd $(P_LIB)
+	make -C libft fclean
 
 clean-bin:
 	rm -f $(NAME)
