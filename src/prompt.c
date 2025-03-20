@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/20 11:42:52 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:20:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,6 @@ static size_t	ft_strlen_and_choose_c(char *str, char c)
 	while (str && str[i] != c)
 		i++;
 	return (i);
-}
-
-static char	*read_prompt(char *prompt)
-{
-	char	*str;
-
-	str = readline(prompt);
-	return (str);
 }
 
 static char	*get_hostname(void)
@@ -100,7 +92,7 @@ char	*get_prompt_message(void)
 // 	if (!display)
 // 		return (1);
 // 	while (1)
-// 		prompt = read_prompt(display);
+// 		prompt = readline(display);
 // 	free(display);
 // 	free(prompt);
 // 	return (0);
