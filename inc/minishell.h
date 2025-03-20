@@ -13,6 +13,7 @@
 #ifndef MINISHELL_H 
 # define MINISHELL_H
 
-int signal_init(void);
+int 	signal_init(void);
+char	*get_prompt_message(void);
 
 #endif 
