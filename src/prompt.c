@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/18 17:25:18 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/03/20 11:02:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "../libft/inc/libft.h"
+#include "libft.h"
 
 size_t	ft_strlen_and_choose_c(char *str, char c)
 {
@@ -54,7 +54,7 @@ char	*str_two_join(char *str, char *str_2, char *str_3)
 	return (final_str);
 }
 
-static char	*get_user_hostname_and_current_repo(void)
+char	*get_user_hostname_and_current_repo(void)
 {
 	char	*username;
 	char	*display;
@@ -83,17 +83,17 @@ static char	*get_user_hostname_and_current_repo(void)
 	return (display);
 }
 
-int		main(void)
-{
-	char	*prompt;
-	char	*display;
+// int		main(void)
+// {
+// 	char	*prompt;
+// 	char	*display;
 	
-	display = get_user_hostname_and_current_repo();
-	if (!display)
-		return (1);
-	// while (1)
-	prompt = read_prompt(display);
-	free(display);
-	free(prompt);
-	return (0);	
-}
+// 	display = get_user_hostname_and_current_repo();
+// 	if (!display)
+// 		return (1);
+// 	// while (1)
+// 	prompt = read_prompt(display);
+// 	free(display);
+// 	free(prompt);
+// 	return (0);	
+// }
