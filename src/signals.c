@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include <signal.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 static void	signal_handler(int sig, siginfo_t *info, void *context);
 void		free_all(void);

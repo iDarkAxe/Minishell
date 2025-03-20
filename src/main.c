@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 // READLINE
-#include <stdio.h>
-#include <readline/readline.h>
 #include <readline/history.h>
+#include <readline/readline.h>
+#include <stdio.h>
 // OTHER
-#include <stdlib.h>
 #include "minishell.h"
-
+#include <stdlib.h>
 #include <unistd.h>
 
 int	main(void)

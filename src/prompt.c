@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/20 11:35:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/20 13:23:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,11 @@ static size_t	ft_strlen_and_choose_c(char *str, char c)
 	return (i);
 }
 
-static char	*read_prompt(char *prompt)
+static char	*get_hostname(void)
 {
-	char	*str;
-
-	str = readline(prompt);
-	return (str);
-}
-
-static char	*get_hostname_join_message(char *username)
-{
-	char	*display;
 	char	*get_hostname;
-	char	buf[4096];
 	int		fd_hostname;
+	char	buf[4096];
 	size_t	buf_nbc;
 
 	fd_hostname = open("/etc/hostname", O_RDONLY);
@@ -62,11 +53,21 @@ static char	*get_hostname_join_message(char *username)
 	get_hostname = ft_strndup(buf, ft_strlen_and_choose_c(buf, '.'));
 	if (!get_hostname)
 		return (NULL);
-	display = ft_strjoins((char *[]){username, "@", get_hostname, ":",
-			getcwd(buf, 4096), "$ ", NULL});
+	return (get_hostname);
+}
+
+static char	*join_message(char *username)
+{
+	char	*display;
+	char	*hostname;
+	char	buf[4096];
+
+	hostname = get_hostname();
+	display = ft_strjoins((char *[]){username, "@", hostname, ":", getcwd(buf,
+				4096), "$ ", NULL});
 	if (!display)
 		return (NULL);
-	free(get_hostname);
+	free(hostname);
 	return (display);
 }
 
@@ -76,14 +77,13 @@ char	*get_prompt_message(void)
 	char	*prompt_message;
 
 	username = getenv("USER");
-	prompt_message = get_hostname_join_message(username);
+	prompt_message = join_message(username);
 	if (!prompt_message)
 		return (NULL);
 	return (prompt_message);
 }
 
-//
-// int		main(void)
+// int	main(void)
 // {
 // 	char	*prompt;
 // 	char	*display;
@@ -92,7 +92,7 @@ char	*get_prompt_message(void)
 // 	if (!display)
 // 		return (1);
 // 	while (1)
-// 		prompt = read_prompt(display);
+// 		prompt = readline(display);
 // 	free(display);
 // 	free(prompt);
 // 	return (0);
