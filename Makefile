@@ -21,6 +21,8 @@ P_OBJ = .obj/
 
 P_INC = inc/
 
+# Libraries directories
+LIBFT_DIR = libft/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -32,12 +34,18 @@ INC = \
 
 # Source files
 SRC = \
+<<<<<<< HEAD
 	main.c \
 	signals.c \
+=======
+	prompt.c \
+>>>>>>> 3e1b5eba9195370dee3d57c84dc708478fe93bc9
 
 LIBS = \
-	-lreadline \
+	-L$(LIBFT_DIR) -lft \
+	-lreadline
 
+LIBFT = $(LIBFT_DIR)libft.a
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -65,13 +73,18 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS)
+$(NAME): $(OBJS) $(INCS) $(LIBFT)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .cpp with there path
-$(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
+$(P_OBJ)%.o: $(P_SRC)%.cpp $(INCS)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -c $< -o $@
+
+force:
+
+$(LIBFT): force
+	$(MAKE) -C $(LIBFT_DIR)
 
 #############################################################################################
 #                                                                                           #
