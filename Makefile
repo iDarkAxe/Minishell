@@ -32,10 +32,12 @@ INC = \
 
 # Source files
 SRC = \
-	main.c \
+	prompt.c \
 
 LIBS = \
 
+LIBFT_DIR = libft/
+LIBFT := $(LIBFT_DIR)libft.a
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -63,13 +65,18 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(INCS) $(LIBFT)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS) -Llibft/ -lft -lreadline
 
-# Custom rule to compilate all .cpp with there path
-$(P_OBJ)%.o: $(P_SRC)%.cpp $(INCS)
+$(LIBFT): force 
+	$(MAKE) -C $(LIBFT_DIR)
+
+# Custom rule to compilate all .c with there path
+$(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -c $< -o $@
+
+force:
 
 #############################################################################################
 #                                                                                           #
