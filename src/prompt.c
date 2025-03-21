@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/20 13:20:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/21 13:51:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <unistd.h>
+
+char	*get_prompt_message(void);
 
 static size_t	ft_strlen_and_choose_c(char *str, char c)
 {
@@ -34,7 +36,7 @@ static char	*get_hostname(void)
 	char	*get_hostname;
 	int		fd_hostname;
 	char	buf[4096];
-	size_t	buf_nbc;
+	ssize_t	buf_nbc;
 
 	fd_hostname = open("/etc/hostname", O_RDONLY);
 	if (fd_hostname == -1)
