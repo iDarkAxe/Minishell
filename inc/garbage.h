@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 11:13:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/22 13:32:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@ typedef struct s_element
 typedef struct s_garbage
 {
 	size_t		n_elements;
-	t_element	*next;
+	t_element	*head;
 }				t_garbage;
 
 // Function to replace all the malloc by this to use the garbage
 void			*malloc_gb(size_t size);
+void			free_element_gb(void *ptr);
+char			*ft_strjoins_gb(char **str);
+char			*ft_strdup_gb(const char *source);
+char			*ft_strndup_gb(const char *source, size_t len);
 
 // Initialise the garbage and free it's content
 void			garbage_init(void);

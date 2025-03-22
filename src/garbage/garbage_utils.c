@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   garbage_dups.c                                     :+:      :+:    :+:   */
+/*   garbage_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 13:48:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/22 14:28:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "garbage.h"
 #include "libft.h"
+#include "garbage.h"
+#include <stddef.h>
+#include <stdlib.h>
+
+static size_t	count_len_array(char *str[]);
 
 /**
  * @brief Create a copy of source into a new pointer
@@ -66,4 +69,70 @@ char	*ft_strndup_gb(const char *source, size_t len)
 	}
 	pointer[len] = '\0';
 	return (pointer);
+}
+
+/**
+ * @brief Allocates a new string, and returns the result of
+ * a concatenation of all the strings from the array
+ * last argument needs to be NULL.
+ *
+ * @param str Array of strings
+ * @return char* new string
+ */
+char	*ft_strjoins_gb(char **str)
+{
+	size_t	count;
+	size_t	index;
+	size_t	size;
+	char	*new_str;
+
+	new_str = malloc_gb(sizeof(char) * (count_len_array(str) + 1));
+	index = 0;
+	count = 0;
+	while (str != NULL && str[count] != NULL)
+	{
+		size = ft_strlen(str[count]);
+		ft_memcpy(&new_str[index], str[count++], size);
+		index += size;
+	}
+	new_str[index] = '\0';
+	return (new_str);
+}
+
+static size_t	count_len_array(char *str[])
+{
+	size_t	count;
+	size_t	index;
+
+	count = 0;
+	index = 0;
+	while (str != NULL && str[index] != NULL)
+		count += ft_strlen(str[index++]);
+	return (count);
+}
+
+void	free_element_gb(void *ptr)
+{
+	t_garbage	*garbage;
+	t_element	*element;
+	t_element	*previous;
+
+	garbage = get_garbage();
+	element = garbage->head;
+	previous = NULL;
+	while (element != NULL && element->ptr != ptr)
+	{
+		if (element->ptr == ptr)
+		{
+			free(element->ptr);
+			if (previous == NULL)
+				garbage->head = garbage->head->next;
+			else
+				previous->next = element->next;
+			free(element);
+			return ;
+		}
+		previous = element;
+		element = element->next;
+	}
 }

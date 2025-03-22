@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 11:35:54 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/22 14:29:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ void	add_to_garbage(void *ptr)
 	printf("Adding to garbage \t%p\n", ptr);
 	temp = ft_garbagenew(ptr);
 	if (temp == NULL)
-		return ;
+	{
+		free_garbage();
+		write(2, "Error of malloc, exiting.\n", 26);
+		exit(1);
+	}
 	printf("At element \t%p\n", temp);
 	ft_garbageadd_front(garbage, temp);
 	garbage->n_elements++;

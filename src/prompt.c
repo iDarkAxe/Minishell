@@ -6,11 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/21 16:03:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/22 14:33:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "garbage.h"
 #include "libft.h"
+#include "minishell.h"
 #include <fcntl.h>
 #include <readline/history.h>
 #include <readline/readline.h>
@@ -19,7 +21,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-char	*get_prompt_message(void);
+char			*get_prompt_message(void);
 
 static size_t	ft_strlen_and_choose_c(char *str, char c)
 {
@@ -53,6 +55,7 @@ static char	*get_hostname(void)
 	close(fd_hostname);
 	buf[buf_nbc] = '\0';
 	get_hostname = ft_strndup(buf, ft_strlen_and_choose_c(buf, '.'));
+	add_to_garbage(get_hostname);
 	if (!get_hostname)
 		return (NULL);
 	return (get_hostname);
@@ -65,11 +68,12 @@ static char	*join_message(char *username)
 	char	buf[4096];
 
 	hostname = get_hostname();
-	display = ft_strjoins((char *[]){username, "@", hostname, ":", getcwd(buf,
-				4096), "$ ", NULL});
+	display = ft_strjoins((char *[]){username, "@", hostname, ":",
+			getcwd(buf, 4096), "$ ", NULL});
+	add_to_garbage(display);
+	free_element_gb(hostname);
 	if (!display)
 		return (NULL);
-	free(hostname);
 	return (display);
 }
 
@@ -78,10 +82,12 @@ char	*get_prompt_message(void)
 	char	*username;
 	char	*prompt_message;
 
+	if (PROMPT_MESSAGE_CUSTOM == 0)
+		return (ft_strdup_gb("Minishell$ "));
 	username = getenv("USER");
 	prompt_message = join_message(username);
-	if (!prompt_message)
-		return (NULL);
+	if (prompt_message == NULL)
+		return (ft_strdup_gb("Minishell$ "));
 	return (prompt_message);
 }
 

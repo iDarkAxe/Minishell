@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:08:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 13:17:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/22 13:32:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ft_garbageadd_front(t_garbage *garbage, t_element *new)
 {
 	if (new == NULL)
 		return ;
-	new->next = garbage->next;
-	garbage->next = new;
+	new->next = garbage->head;
+	garbage->head = new;
 }
 
 /**
@@ -58,12 +58,12 @@ void	ft_garbageadd_back(t_garbage *garbage, t_element *new)
 
 	if (new == NULL)
 		return ;
-	if (garbage->next == NULL)
+	if (garbage->head == NULL)
 	{
-		garbage->next = new;
+		garbage->head = new;
 		return ;
 	}
-	last = garbage->next;
+	last = garbage->head;
 	while (last->next != NULL)
 		last = last->next;
 	last->next = new;
@@ -86,7 +86,7 @@ int	ft_garbageclear(t_garbage *garbage)
 	t_element	*element;
 	t_element	*temp;
 
-	element = garbage->next;
+	element = garbage->head;
 	while (element != NULL && garbage->n_elements > 0)
 	{
 		temp = element->next;
@@ -96,6 +96,6 @@ int	ft_garbageclear(t_garbage *garbage)
 		element = temp;
 		garbage->n_elements--;
 	}
-	garbage->next = NULL;
+	garbage->head = NULL;
 	return (0);
 }

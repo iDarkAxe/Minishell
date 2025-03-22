@@ -46,7 +46,7 @@ SRC = \
 GARBAGE = \
 	garbage.c \
 	garbage_stack.c \
-	garbage_dups.c
+	garbage_utils.c
 
 LIBS = \
 	-L$(P_LIBFT) -lft \
