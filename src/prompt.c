@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/22 14:33:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/26 13:59:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*get_hostname(void)
 		perror("");
 		return (NULL);
 	}
-	buf_nbc = read(fd_hostname, buf, 25);
+	buf_nbc = read(fd_hostname, buf, 4096 - 1);
 	if (buf_nbc == 0)
 	{
 		perror("");

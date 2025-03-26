@@ -6,16 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/22 14:28:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/26 14:04:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "garbage.h"
+#include "libft.h"
 #include <stddef.h>
+#include <stdio.h>
 #include <stdlib.h>
-
-static size_t	count_len_array(char *str[]);
 
 /**
  * @brief Create a copy of source into a new pointer
@@ -71,46 +70,6 @@ char	*ft_strndup_gb(const char *source, size_t len)
 	return (pointer);
 }
 
-/**
- * @brief Allocates a new string, and returns the result of
- * a concatenation of all the strings from the array
- * last argument needs to be NULL.
- *
- * @param str Array of strings
- * @return char* new string
- */
-char	*ft_strjoins_gb(char **str)
-{
-	size_t	count;
-	size_t	index;
-	size_t	size;
-	char	*new_str;
-
-	new_str = malloc_gb(sizeof(char) * (count_len_array(str) + 1));
-	index = 0;
-	count = 0;
-	while (str != NULL && str[count] != NULL)
-	{
-		size = ft_strlen(str[count]);
-		ft_memcpy(&new_str[index], str[count++], size);
-		index += size;
-	}
-	new_str[index] = '\0';
-	return (new_str);
-}
-
-static size_t	count_len_array(char *str[])
-{
-	size_t	count;
-	size_t	index;
-
-	count = 0;
-	index = 0;
-	while (str != NULL && str[index] != NULL)
-		count += ft_strlen(str[index++]);
-	return (count);
-}
-
 void	free_element_gb(void *ptr)
 {
 	t_garbage	*garbage;
@@ -120,7 +79,7 @@ void	free_element_gb(void *ptr)
 	garbage = get_garbage();
 	element = garbage->head;
 	previous = NULL;
-	while (element != NULL && element->ptr != ptr)
+	while (element != NULL)
 	{
 		if (element->ptr == ptr)
 		{
@@ -133,6 +92,18 @@ void	free_element_gb(void *ptr)
 			return ;
 		}
 		previous = element;
+		element = element->next;
+	}
+}
+
+void	print_garbage(void)
+{
+	t_element	*element;
+
+	element = get_garbage()->head;
+	while (element != NULL)
+	{
+		printf("Element %p has ptr : %p\n", element, element->ptr);
 		element = element->next;
 	}
 }
