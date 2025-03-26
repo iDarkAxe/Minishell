@@ -19,6 +19,7 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 P_SRC = src/
 P_GARBAGE = garbage/
 
+P_PIPEX = pipex/src/
 P_OBJ = .obj/
 
 P_INC = inc/
@@ -31,6 +32,7 @@ P_INCS = \
 # Libraries directories
 P_LIBFT = libft/
 P_PIPEX = pipex/
+P_LIB_PIPEX = pipex/lib/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -39,12 +41,10 @@ P_PIPEX = pipex/
 # Headers
 INC = \
 	minishell.h
-
+	
 # Source files
 SRC = \
-	main.c \
-	signals.c \
-	prompt.c \
+	builtins.c
 
 GARBAGE = \
 	garbage.c \
@@ -52,11 +52,12 @@ GARBAGE = \
 	garbage_utils.c
 
 LIBS = \
-	-L$(P_PIPEX)lib/ -lpipex \
+	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
-	-lreadline
+	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a
+PIPEX = $(P_LIB_PIPEX)libpipex.a
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -76,13 +77,13 @@ DEPS = $(OBJS:%.o=%.d)
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
 		$(P_LIBFT)inc/libft.h
-
+		
 #############################################################################################
 #                                                                                           #
 #                                          RULES                                            #
 #                                                                                           #
 #############################################################################################
-all: 
+all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
@@ -115,6 +116,7 @@ clean:
 clean-lib:
 	rm -rfd $(P_LIB)
 	make -C libft fclean
+	make -C pipex fclean
 
 clean-bin:
 	rm -f $(NAME)
