@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/22 14:10:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/26 14:47:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include <signal.h>
+#include "pipex.h"
 
 int	main(void)
 {
@@ -46,4 +46,5 @@ int	main(void)
 		usleep(500000);
 	}
 	free_garbage();
+	exec(4, (char *[]){"test", "bonjour"}, (char *[]){"test", "bonjour"});
 }

@@ -22,12 +22,15 @@ P_GARBAGE = garbage/
 P_OBJ = .obj/
 
 P_INC = inc/
+
 P_INCS = \
 	$(P_INC) \
-	$(P_LIBFT)inc/
+	$(P_LIBFT)inc/ \
+	$(P_PIPEX)include/
 
 # Libraries directories
 P_LIBFT = libft/
+P_PIPEX = pipex/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -49,6 +52,7 @@ GARBAGE = \
 	garbage_utils.c
 
 LIBS = \
+	-L$(P_PIPEX)lib/ -lpipex \
 	-L$(P_LIBFT) -lft \
 	-lreadline
 
@@ -82,19 +86,21 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS)
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 
 force:
 
 $(LIBFT): force
 	$(MAKE) -C $(P_LIBFT)
 
+$(PIPEX): force
+	$(MAKE) -C $(P_PIPEX)
 #############################################################################################
 #                                                                                           #
 #                                      Other RULES                                          #
