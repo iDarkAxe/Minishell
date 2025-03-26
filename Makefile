@@ -24,9 +24,11 @@ P_OBJ = .obj/
 
 P_INC = inc/
 
+
 P_INCS = \
 	$(P_INC) \
 	$(P_LIBFT)inc/ \
+	$(P_PIPEX)include/ \
 	$(P_PIPEX)include/
 
 # Libraries directories
@@ -89,10 +91,13 @@ all:
 # Create $(NAME) executable
 $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 
 force:
@@ -100,6 +105,8 @@ force:
 $(LIBFT): force
 	$(MAKE) -C $(P_LIBFT)
 
+$(PIPEX): force
+	$(MAKE) -C $(P_PIPEX)
 $(PIPEX): force
 	$(MAKE) -C $(P_PIPEX)
 #############################################################################################
