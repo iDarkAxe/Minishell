@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:55:10 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/20 16:57:22 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:20:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "minishell.h"
+#include "pipex.h"
 
 int	main(int argc, char *argv[], char *envp[])
 {

@@ -24,7 +24,6 @@ P_OBJ = .obj/
 
 P_INC = inc/
 
-
 P_INCS = \
 	$(P_INC) \
 	$(P_LIBFT)inc/ \
@@ -32,6 +31,7 @@ P_INCS = \
 	$(P_PIPEX)include/
 
 # Libraries directories
+P_LIB = lib/
 P_LIBFT = libft/
 P_PIPEX = pipex/
 P_LIB_PIPEX = pipex/lib/
@@ -46,7 +46,10 @@ INC = \
 	
 # Source files
 SRC = \
-	builtins.c
+	main.c \
+	prompt.c \
+	signals.c
+# builtins.c
 
 GARBAGE = \
 	garbage.c \
@@ -91,13 +94,10 @@ all:
 # Create $(NAME) executable
 $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 
 force:
@@ -105,8 +105,6 @@ force:
 $(LIBFT): force
 	$(MAKE) -C $(P_LIBFT)
 
-$(PIPEX): force
-	$(MAKE) -C $(P_PIPEX)
 $(PIPEX): force
 	$(MAKE) -C $(P_PIPEX)
 #############################################################################################
@@ -122,8 +120,8 @@ clean:
 
 clean-lib:
 	rm -rfd $(P_LIB)
-	make -C libft fclean
-	make -C pipex fclean
+	make -C $(P_LIBFT) fclean
+	make -C $(P_PIPEX) fclean
 
 clean-bin:
 	rm -f $(NAME)

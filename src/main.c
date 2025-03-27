@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/26 14:47:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 15:00:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,21 @@
 #include <readline/readline.h>
 #include <stdio.h>
 // OTHER
-#include "minishell.h"
 #include "garbage.h"
+#include "libft.h"
+#include "minishell.h"
+#include "pipex.h"
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "pipex.h"
-
-int	main(void)
+int	main(int argc, char **argv, char **envp)
 {
 	char	*str;
 	char	*prompt;
+	int		pid;
 
+	(void)argc;
+	(void)argv;
 	signal_init();
 	prompt = get_prompt_message();
 	if (prompt == NULL)
@@ -35,16 +38,20 @@ int	main(void)
 		write(2, "Error creating prompt\n", 22);
 		exit(1);
 	}
-	str = readline(prompt);
 	while (1)
 	{
-		if (str)
-			printf("%s\n", str);
-		else
+		str = readline(prompt);
+		if (str == NULL)
 			break ;
-		printf("\n");
-		usleep(500000);
+		if (str[0] == '\0')
+			continue ;
+		add_history(str);
+		add_to_garbage(str);
+		pid = fork();
+		if (pid == 0)
+			execve("/bin/bash", (char *[]){"bash", "-c", str, NULL}, envp);
+		free_element_gb(str);
+		// usleep(10000);
 	}
 	free_garbage();
-	exec(4, (char *[]){"test", "bonjour"}, (char *[]){"test", "bonjour"});
 }
