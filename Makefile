@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/27 13:49:58 by lud-adam          #+#    #+#              #
+#    Updated: 2025/03/27 13:53:55 by lud-adam         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 CC = cc
 CFLAGS = -Wextra -Wall -Werror
@@ -24,7 +36,6 @@ P_OBJ = .obj/
 
 P_INC = inc/
 
-
 P_INCS = \
 	$(P_INC) \
 	$(P_LIBFT)inc/ \
@@ -46,8 +57,10 @@ INC = \
 	
 # Source files
 SRC = \
-	builtins.c
-
+	prompt.c \
+	parsing.c \
+	signals.c
+	
 GARBAGE = \
 	garbage.c \
 	garbage_stack.c \
@@ -91,13 +104,10 @@ all:
 # Create $(NAME) executable
 $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 
 force:
@@ -105,8 +115,6 @@ force:
 $(LIBFT): force
 	$(MAKE) -C $(P_LIBFT)
 
-$(PIPEX): force
-	$(MAKE) -C $(P_PIPEX)
 $(PIPEX): force
 	$(MAKE) -C $(P_PIPEX)
 #############################################################################################

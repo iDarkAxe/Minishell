@@ -19,6 +19,5 @@
 
 int		signal_init(void);
 char	*get_prompt_message(void);
-int		signal_init(void);
 
 #endif 
