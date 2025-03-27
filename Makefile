@@ -1,6 +1,6 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 CC = cc
-CFLAGS = -W -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
@@ -17,15 +17,24 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 #############################################################################################
 # Source directories
 P_SRC = src/
+P_GARBAGE = garbage/
+
+P_PIPEX = pipex/src/
 P_OBJ = .obj/
 
 P_INC = inc/
+
+
 P_INCS = \
 	$(P_INC) \
-	$(P_LIBFT)inc/
+	$(P_LIBFT)inc/ \
+	$(P_PIPEX)include/ \
+	$(P_PIPEX)include/
 
 # Libraries directories
 P_LIBFT = libft/
+P_PIPEX = pipex/
+P_LIB_PIPEX = pipex/lib/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -34,25 +43,31 @@ P_LIBFT = libft/
 # Headers
 INC = \
 	minishell.h
-
+	
 # Source files
 SRC = \
-	main.c \
-	signals.c \
-	prompt.c \
+	builtins.c
+
+GARBAGE = \
+	garbage.c \
+	garbage_stack.c \
+	garbage_utils.c
 
 LIBS = \
+	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
-	-lreadline
+	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a
+PIPEX = $(P_LIB_PIPEX)libpipex.a
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
 #                                                                                           #
 #############################################################################################
 SRCS =	\
-	$(addprefix $(P_SRC), $(SRC)) 
+	$(addprefix $(P_SRC), $(SRC)) \
+	$(addprefix $(P_SRC)$(P_GARBAGE), $(GARBAGE)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
@@ -64,29 +79,36 @@ DEPS = $(OBJS:%.o=%.d)
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
 		$(P_LIBFT)inc/libft.h
-
+		
 #############################################################################################
 #                                                                                           #
 #                                          RULES                                            #
 #                                                                                           #
 #############################################################################################
-all: 
+all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS)
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
 
 force:
 
 $(LIBFT): force
 	$(MAKE) -C $(P_LIBFT)
 
+$(PIPEX): force
+	$(MAKE) -C $(P_PIPEX)
+$(PIPEX): force
+	$(MAKE) -C $(P_PIPEX)
 #############################################################################################
 #                                                                                           #
 #                                      Other RULES                                          #
@@ -101,6 +123,7 @@ clean:
 clean-lib:
 	rm -rfd $(P_LIB)
 	make -C libft fclean
+	make -C pipex fclean
 
 clean-bin:
 	rm -f $(NAME)

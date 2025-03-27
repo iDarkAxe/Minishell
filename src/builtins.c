@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/26 15:42:48 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/03/20 16:55:10 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/03/20 16:57:22 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H 
-# define MINISHELL_H
+#include "../inc/minishell.h"
 
-# ifndef PROMPT_MESSAGE_CUSTOM
-#  define PROMPT_MESSAGE_CUSTOM 1
-# endif
+int	main(int argc, char *argv[], char *envp[])
+{
+	int		i;
 
-int		signal_init(void);
-char	*get_prompt_message(void);
-int		signal_init(void);
-
-#endif 
+	i = 0;
+	while (i < argc - 3)
+	{
+		exec(argc, argv, envp);
+		i++;
+	}
+	return (0);
+}

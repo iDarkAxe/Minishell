@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/19 16:11:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/22 14:14:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "garbage.h"
 
 static void	signal_handler(int sig, siginfo_t *info, void *context);
 void		free_all(void);
@@ -55,12 +56,15 @@ static void	signal_handler(int sig, siginfo_t *info, void *context)
 	(void)info;
 	(void)context;
 	if (sig == SIGQUIT)
-		return ;
+	{
+		free_garbage();
+		exit(1);
+	}
 	else if (sig == SIGINT)
 		return ;
 	else
 	{
-		free_all();
+		free_garbage();
 		exit(1);
 	}
 }

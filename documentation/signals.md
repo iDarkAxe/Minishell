@@ -8,8 +8,6 @@ Version moins pratique que sigaction. On utilise donc sigaction
 
 ## sigaction ##
 
-
-
 ## sigemptyset ##
 
 ```C
