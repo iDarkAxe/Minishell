@@ -48,7 +48,7 @@ static void	check_if_absolute_path(t_data *data, char *pathname)
 	{
 		if (access(pathname, X_OK) == -1 || data->path_is_empty == TRUE)
 		{
-			close(data->fd.outfile);
+			free_and_close_all(data);
 			ft_putstr_fd(pathname, 2);
 			ft_putstr_fd(": No such file or directory\n", 2);
 			exit(EXIT_FAILURE);
