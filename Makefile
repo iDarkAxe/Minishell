@@ -56,6 +56,13 @@ GARBAGE = \
 	garbage_stack.c \
 	garbage_utils.c
 
+TEST = \
+	tests/src/testing_parsing_quotes_double.c \
+	tests/src/tests_pars_sing_fx1.c \
+	tests/src/tests_pars_sing_fx2.c	\
+	tests/src/tests_pars_doub_fx1.c \
+	tests/src/tests_pars_doub_fx2.c	
+
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
@@ -74,10 +81,11 @@ SRCS =	\
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
+OBJS_TEST = $(patsubst tests/src/%.c, tests/.obj/%.o, $(filter %.c, $(TEST))) tests/$(P_OBJ)unity.o
 P_OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS))
 
 # List of depedencies
-DEPS = $(OBJS:%.o=%.d)
+DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
 
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
@@ -111,6 +119,21 @@ $(PIPEX): force
 $(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 	@mkdir -p $(dir $@)
 	ar -rcs $@ $(OBJS)
+
+test: $(OBJS_TEST) tests/unity/*.h $(INCS)
+	@$(MAKE) $(NAME)
+	@$(MAKE) $(P_LIB)libminishell.a
+	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) $(P_SRC)parsing_quotes_double.c $(OBJS_TEST) -I inc/ -I libft/inc -I tests/unity/ -I tests/inc/ -Llibft -lft -Llib -lminishell -Llibft -lft -lreadline
+
+tests/.obj/%.o: tests/src/%.c $(INCS) tests/unity/*.h 
+	@mkdir -p $(dir $@)
+	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I tests/unity -I tests/inc/ -c $< -o $@
+
+tests/.obj/%.o: tests/unity/%.c $(INCS) tests/unity/*.h 
+	@mkdir -p $(dir $@)
+	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I tests/unity -I tests/inc/ -c $< -o $@
+
+
 #############################################################################################
 #                                                                                           #
 #                                      Other RULES                                          #
