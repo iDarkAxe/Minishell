@@ -133,7 +133,6 @@ tests/.obj/%.o: tests/unity/%.c $(INCS) tests/unity/*.h
 	@mkdir -p $(dir $@)
 	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I tests/unity -I tests/inc/ -c $< -o $@
 
-
 #############################################################################################
 #                                                                                           #
 #                                      Other RULES                                          #
