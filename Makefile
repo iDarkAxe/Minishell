@@ -107,6 +107,10 @@ $(LIBFT): force
 
 $(PIPEX): force
 	$(MAKE) -C $(P_PIPEX)
+
+$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+	@mkdir -p $(dir $@)
+	ar -rcs $@ $(OBJS)
 #############################################################################################
 #                                                                                           #
 #                                      Other RULES                                          #
