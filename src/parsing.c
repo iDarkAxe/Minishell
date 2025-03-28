@@ -73,8 +73,8 @@ int	main(int argc, char *argv[], char *envp[])
 		}
 		else
 		{
-			size_env_var = ft_strlen(prompt);
-			get_text = get_env_var(envp, prompt);
+			// size_env_var = ft_strlen(prompt);
+			// get_text = get_env_var(envp, prompt);
 			if (!get_text)
 				return (1);
 			ft_putstr_fd(get_text + size_env_var, 1);
