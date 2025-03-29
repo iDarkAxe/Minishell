@@ -24,14 +24,13 @@ P_OBJ = .obj/
 
 P_INC = inc/
 
-
 P_INCS = \
 	$(P_INC) \
 	$(P_LIBFT)inc/ \
-	$(P_PIPEX)include/ \
-	$(P_PIPEX)include/
+	$(P_PIPEX)include/ 
 
 # Libraries directories
+P_LIB = lib/
 P_LIBFT = libft/
 P_PIPEX = pipex/
 P_LIB_PIPEX = pipex/lib/
@@ -46,12 +45,18 @@ INC = \
 	
 # Source files
 SRC = \
-	builtins.c
+	main.c \
+	prompt.c \
+	signals.c
+# builtins.c
 
 GARBAGE = \
 	garbage.c \
 	garbage_stack.c \
 	garbage_utils.c
+
+TEST = \
+	tests/src/test_pipex.c
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
@@ -71,10 +76,12 @@ SRCS =	\
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
+OBJS_TEST = $(patsubst $(P_SRC), $(P_OBJ), $(filter %.c, $(TEST)))
+# OBJS_TEST = $(patsubst tests/src/%.c, tests/.obj/%.o, $(filter %.c, $(TEST)))
 P_OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS))
 
 # List of depedencies
-DEPS = $(OBJS:%.o=%.d)
+DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
 
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
@@ -104,8 +111,24 @@ $(LIBFT): force
 
 $(PIPEX): force
 	$(MAKE) -C $(P_PIPEX)
-$(PIPEX): force
-	$(MAKE) -C $(P_PIPEX)
+
+$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+	@mkdir -p $(dir $@)
+	ar -rcs $@ $(OBJS)
+
+test: $(OBJS_TEST) $(INCS)
+	@$(MAKE) $(NAME)
+	@$(MAKE) $(P_LIB)libminishell.a
+	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) $(OBJS_TEST) -I inc/ -I libft/inc -I $(P_PIPEX)include -I tests/unity/ -I tests/inc/ -Llibft -lft -Llib -lminishell -Llibft -lft -lreadline
+
+tests/.obj/%.o: tests/src/%.c $(INCS) tests/unity/*.h 
+	@mkdir -p $(dir $@)
+	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I tests/unity -I tests/inc/ -c $< -o $@
+
+tests/.obj/%.o: tests/unity/%.c $(INCS) tests/unity/*.h 
+	@mkdir -p $(dir $@)
+	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I tests/unity -I tests/inc/ -c $< -o $@
+
 #############################################################################################
 #                                                                                           #
 #                                      Other RULES                                          #
@@ -119,8 +142,8 @@ clean:
 
 clean-lib:
 	rm -rfd $(P_LIB)
-	make -C libft fclean
-	make -C pipex fclean
+	make -C $(P_LIBFT) fclean
+	make -C $(P_PIPEX) fclean
 
 clean-bin:
 	rm -f $(NAME)
@@ -182,6 +205,8 @@ debug-print-project:
 	$(call check_var,$(OBJS),"OBJS")
 	$(call check_var,$(INCS),"INCS")
 	$(call check_var,$(LIBS),"LIBS")
+	$(call check_var,$(TEST),"SRCS")
+	$(call check_var,$(OBJS_TEST),"OBJS")
 
 #############################################################################################
 #                                                                                           #
