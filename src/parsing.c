@@ -36,52 +36,77 @@ char	*get_env_var(char *envp[], char *user_var)
 	return (NULL);
 }
 
-int	main(int argc, char *argv[], char *envp[])
+t_bool	detect_pair_quote(char *str, char quote)
 {
-	char	*prompt;
-	char	*display;
-	char	*get_text;
-	size_t	size_env_var;
 	size_t	i;
 
-	if (argc < 1)
-		return (1);
-	(void)argv;
-	(void)envp;
-	get_text = NULL;
 	i = 0;
-	signal_init();
-	display = get_prompt_message();
-	if (!display)
-		return (1);
-	while (1)
+	while (str[i])
 	{
-		prompt = readline(display);
-		if (!prompt)
-			return (1);
-		if (prompt[i] == '\'')
+		if (str[i] == quote)
 		{
 			i++;
-			while (prompt[i] != '\'' && prompt[i])
+			while (str[i])
 			{
+				if (str[i] == quote)
+					return (TRUE);
 				i++;
-				if (prompt[i] == '\'')
-				{
-					ft_putstr_fd(prompt, 1);
-				}
 			}
+			return (FALSE);
 		}
-		else
-		{
-			// size_env_var = ft_strlen(prompt);
-			// get_text = get_env_var(envp, prompt);
-			if (!get_text)
-				return (1);
-			ft_putstr_fd(get_text + size_env_var, 1);
-			ft_putstr_fd("\n", 1);
-		}
+		i++;
 	}
-	free(display);
-	free(prompt);
+	return (FALSE);
+}
+
+int	main(void)
+{
+	char	str[10] = "\'PATH\'";
+
+	if (detect_pair_quote(str, '\'') ==  TRUE)
+		printf("FIND");
+	else
+		printf("NOT FIND");
+
 	return (0);
 }
+
+// int	main(int argc, char *argv[], char *envp[])
+// {
+// 	char	*prompt;
+// 	char	*display;
+// 	// char	*get_text;
+// 	// size_t	size_env_var;
+//
+// 	if (argc < 1)
+// 		return (1);
+// 	(void)argv;
+// 	(void)envp;
+// 	// get_text = NULL;
+// 	signal_init();
+// 	display = get_prompt_message();
+// 	if (!display)
+// 		return (1);
+// 	while (1)
+// 	{
+// 		prompt = readline(display);
+// 		if (!prompt)
+// 			return (1);
+// 		if (detect_pair_quote(prompt, '\'') == TRUE)
+// 			printf("find pair of single quote");
+// 		else
+// 			break ;
+// 		// else
+// 		// {
+// 		// 	size_env_var = ft_strlen(prompt);
+// 		// 	get_text = get_env_var(envp, prompt);
+// 		// 	if (!get_text)
+// 		// 		return (1);
+// 		// 	ft_putstr_fd(get_text + size_env_var, 1);
+// 		// 	ft_putstr_fd("\n", 1);
+// 		// }
+// 	}
+// 	free(display);
+// 	free(prompt);
+// 	return (0);
+// }
