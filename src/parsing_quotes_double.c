@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 09:53:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/31 14:23:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/31 15:32:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,16 @@
 
 char	*ft_remove_near_quotes(char const *str, const char character);
 char	*ft_remove_all_near_quotes(const char *str, const char character);
-size_t	trouve(char *str, char f);
 
+/**
+ * @brief Remove the first iteration of found pair of character
+ * and returns the new string
+ *
+ * @param str string to remove pair from
+ * @param character character to delete
+ * @return char* new string that don't contain the pair,
+ * NULL if no pair to remove
+ */
 char	*ft_remove_near_quotes(const char *str, const char character)
 {
 	char	*start;
@@ -44,6 +52,15 @@ char	*ft_remove_near_quotes(const char *str, const char character)
 	return (start);
 }
 
+/**
+ * @brief Remove the all iteration of found pairs of character
+ * and returns the new string
+ *
+ * @param str string to remove pair from
+ * @param character character to delete
+ * @return char* new string that don't contain the pair,
+ * NULL if ERROR OR no pair found
+ */
 char	*ft_remove_all_near_quotes(const char *str, const char character)
 {
 	char	*temp;
@@ -60,9 +77,7 @@ char	*ft_remove_all_near_quotes(const char *str, const char character)
 		if (new_temp == NULL)
 			return (temp);
 		if (ft_strlen(new_temp) == ft_strlen(temp))
-		{
 			break ;
-		}
 		free_element_gb(temp);
 		temp = new_temp;
 	}
