@@ -1116,8 +1116,8 @@ void UnityAssertFloatSpecial(const UNITY_FLOAT actual,
             is_trait = !UNITY_IS_INF(actual) && !UNITY_IS_NAN(actual);
             break;
 
+        // default: /* including UNITY_FLOAT_INVALID_TRAIT */
         case UNITY_FLOAT_INVALID_TRAIT:  /* Supress warning */
-        default: /* including UNITY_FLOAT_INVALID_TRAIT */
             trait_index = 0;
             trait_names[0] = UnityStrInvalidFloatTrait;
             break;

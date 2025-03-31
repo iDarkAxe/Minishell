@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:25:06 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/28 16:28:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/31 14:19:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	changes_all_double(void)
 	char	*expected;
 	char	*new_str;
 
-	str = "\" \"\" \"\"qwe \"\"\\ \"\"\"qwe \"\" \"";
-	expected = "\" \"\" \"\"qwe \"\"\\ \"qwe  \"";
+	str = "\" \" \"\" \"errqet\" \"\" qweqwgq \"\" \" \"";
+	expected = "\" \"  \"errqet\"  qweqwgq  \" \"";
 	new_str = ft_remove_all_near_quotes(str, '\"');
 	testing_ft_remove_near_quotes(str, expected, new_str);
-	str = "huv\'we\'v\"\"qw\'ev\'\\\'\"\"vrw\'wvr\'\\\'v\'w'\"";
-	expected = "huv\'we\'vqw\'ev\'\\\'vrw\'wvr\'\\\'v\'w'\"";
+	str = "huv\"we\"v\"\"qw\"ev\"\\\"\"\"vrw\"wvr\"\\\"v\"w""";
+	expected = "huv\"we\"vqw\"ev\"\\\"vrw\"wvr\"\\\"v\"w""";
 	new_str = ft_remove_all_near_quotes(str, '\"');
 	testing_ft_remove_near_quotes(str, expected, new_str);
 }
