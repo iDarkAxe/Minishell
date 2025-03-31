@@ -56,7 +56,7 @@ GARBAGE = \
 	garbage_utils.c
 
 TEST = \
-	tests/src/test_pipex.c
+	tests/src/pipex_tests/test_pipex.c
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

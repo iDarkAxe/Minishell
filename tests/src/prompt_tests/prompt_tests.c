@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_pipex.c                                       :+:      :+:    :+:   */
+/*   prompt_tests.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 14:32:21 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/29 14:39:37 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/03/31 14:29:09 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/03/31 15:55:29 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "pipex.h"
+#include "garbage.h"
+#include "libft.h"
+#include "unity.h"
+#include "unity_internals.h"
+#include "tests.h"
 
-int	main(int argc, char *argv[], char *envp[])
+#define DEBUG 0
+
+#ifndef DEBUG
+# define DEBUG 0
+#endif
+
+// set stuff up here
+void	set_up(void)
 {
-	exec(4, (char *[]){"/dev/fd/4", "cat", "/dev/fd/5", NULL}, envp);
-	return (0);
+}
+
+// clean stuff up here
+void	tear_down(void)
+{
+	free_garbage();
+}
+
+int	main(void)
+{
+	UNITY_BEGIN();
+	RUN_TEST();
+	return (UNITY_END());
 }
