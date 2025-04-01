@@ -119,7 +119,7 @@ $(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 test: $(OBJS_TEST) $(INCS)
 	@$(MAKE) $(NAME)
 	@$(MAKE) $(P_LIB)libminishell.a
-	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) $(OBJS_TEST) -I inc/ -I libft/inc -I $(P_PIPEX)include -I tests/unity/ -I tests/inc/ -Llibft -lft -Llib -lminishell -Llibft -lft -lreadline
+	$(CC_DEBUG) -g3 -Weverything -Wall -Wextra $(DEPENDENCIES) $(OBJS_TEST) $(LIBS) -I inc/ -I libft/inc -I $(P_PIPEX)include -I tests/unity/ -I tests/inc/ -Llibft -lft -Llib -lminishell -Llibft -lft -lreadline
 
 tests/.obj/%.o: tests/src/%.c $(INCS) tests/unity/*.h 
 	@mkdir -p $(dir $@)

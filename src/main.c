@@ -46,5 +46,5 @@ int	main(void)
 		usleep(500000);
 	}
 	free_garbage();
-	exec(4, (char *[]){"test", "bonjour"}, (char *[]){"test", "bonjour"});
+	// exec(4, (char *[]){"test", "bonjour"}, (char *[]){"test", "bonjour"});
 }
