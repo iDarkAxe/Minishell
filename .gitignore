@@ -11,6 +11,7 @@
 **/*.gch
 **/*.gdbhistory
 **/minishell
+**/minishell_tests
 **/minishell_evalsheet.pdf
 
 **/*.clang
@@ -25,3 +26,4 @@
 **/resultat
 **/log
 
+pipex/lib/libpipex.a
