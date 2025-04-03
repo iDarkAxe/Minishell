@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/26 14:04:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/03 17:19:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+char	*ft_strndup_gb(const char *source, size_t len);
 
 /**
  * @brief Create a copy of source into a new pointer
@@ -103,7 +105,7 @@ void	print_garbage(void)
 	element = get_garbage()->head;
 	while (element != NULL)
 	{
-		printf("Element %p has ptr : %p\n", element, element->ptr);
+		printf("Element %p has ptr : %p\n", (void *)element, element->ptr);
 		element = element->next;
 	}
 }

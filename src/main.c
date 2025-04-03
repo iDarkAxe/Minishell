@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/27 15:00:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/03 17:16:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	main(int argc, char **argv, char **envp)
 {
 	char	*str;
 	char	*prompt;
-	int		pid;
 
 	(void)argc;
 	(void)argv;
+	(void)envp;
 	signal_init();
 	prompt = get_prompt_message();
 	if (prompt == NULL)
@@ -38,20 +38,10 @@ int	main(int argc, char **argv, char **envp)
 		write(2, "Error creating prompt\n", 22);
 		exit(1);
 	}
-	while (1)
-	{
-		str = readline(prompt);
-		if (str == NULL)
-			break ;
-		if (str[0] == '\0')
-			continue ;
-		add_history(str);
-		add_to_garbage(str);
-		pid = fork();
-		if (pid == 0)
-			execve("/bin/bash", (char *[]){"bash", "-c", str, NULL}, envp);
-		free_element_gb(str);
-		// usleep(10000);
-	}
+	str = readline(prompt);
+	if (str == NULL)
+		return (-1);
+	add_history(str);
+	add_to_garbage(str);
 	free_garbage();
 }
