@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/05 10:45:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/05 16:29:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ typedef struct s_command	t_command;
 typedef struct s_var		t_var;
 typedef struct s_env_vars	t_env_vars;
 typedef struct s_params		t_params;
+
+typedef enum e_file_state	t_file_state;
+
+enum						e_file_state
+{
+	FILE_IN = 0,
+	FILE_OUT = 1
+};
 
 struct						s_tmp
 {
@@ -79,4 +87,15 @@ int							signal_init(void);
 char						*get_prompt_message(void);
 t_tmp						create_tmp(char *path, int nbr_try);
 
+// File Management
+int							build_files_redirection(t_command *command);
+void						*add_file(t_command *command, size_t index,
+								t_file **command_file);
+int							build_files_data(t_command *command);
+char						*ft_trim_word(char *str);
+int							build_file_access(t_file *file);
+
+// DEBUGGING Functions
+void						print_list_files(t_command *command);
+void						print_perm_files(t_command *command);
 #endif

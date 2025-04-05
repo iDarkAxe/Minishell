@@ -58,6 +58,8 @@ SRC = \
 	signals.c \
 	parsing_quotes_double.c \
 	tmp_generator.c \
+	file.c \
+	file_print.c \
 
 # builtins.c
 
