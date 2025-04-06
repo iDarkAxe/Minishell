@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:36:01 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/05 16:50:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/06 16:59:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	testing_file_name(void)
 		return ;
 	ft_bzero(command, sizeof(t_command));
 	command->content = "cat <   fichier <  fichier2  <feur ";
-	build_files_redirection(command);
+	if (build_files_redirection(command) != 0)
+		return ;
 	build_files_data(command);
 	expected = "feur";
 	new_str = command->file_in->name;
@@ -69,7 +70,8 @@ void	testing_file_perms_1(void)
 		return ;
 	ft_bzero(command, sizeof(t_command));
 	command->content = "cat <   fichier <  fichier2  <feur";
-	build_files_redirection(command);
+	if (build_files_redirection(command) != 0)
+		return ;
 	test_create_file("feur", 0666);
 	build_files_data(command);
 	TEST_ASSERT_EQUAL_INT(1, command->file_in->exist);
@@ -89,7 +91,8 @@ void	testing_file_perms_2(void)
 		return ;
 	ft_bzero(command, sizeof(t_command));
 	command->content = "cat <   fichier <  fichier2  <feur";
-	build_files_redirection(command);
+	if (build_files_redirection(command) != 0)
+		return ;
 	test_create_file("fichier2", 0222);
 	build_files_data(command);
 	TEST_ASSERT_EQUAL_INT(1, command->file_in->next->exist);

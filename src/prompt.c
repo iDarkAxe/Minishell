@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/31 18:26:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/06 16:24:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ static char	*make_prompt(char **array)
 	char	buf[4096];
 
 	ptr = ft_strjoins(array);
+	add_to_garbage(ptr);
 	if (ptr == NULL)
 		return (ft_strdup_gb("Minishell$ "));
 	path = getcwd(buf, 4096);

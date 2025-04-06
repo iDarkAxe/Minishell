@@ -59,6 +59,7 @@ SRC = \
 	parsing_quotes_double.c \
 	tmp_generator.c \
 	file.c \
+	file_build.c \
 	file_print.c \
 
 # builtins.c

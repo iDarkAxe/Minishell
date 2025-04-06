@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/05 16:55:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/06 16:53:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "libft.h"
 #include "minishell.h"
 
+/**
+ * @brief Build the file using access and check permissions
+ *
+ * @param file file structure
+ * @return int 0, OK, -1 error
+ */
 int	build_file_access(t_file *file)
 {
 	if (file == NULL || file->name == NULL)
@@ -35,6 +41,12 @@ int	build_file_access(t_file *file)
 	return (0);
 }
 
+/**
+ * @brief Trim the first word detected and remove all the unnecessary 
+ *
+ * @param str string to search the word
+ * @return char* the word found
+ */
 char	*ft_trim_word(char *str)
 {
 	size_t	index;
@@ -56,44 +68,30 @@ char	*ft_trim_word(char *str)
 }
 
 /**
- * @brief
+ * @brief Parse the file structure
  *
- * @param file
- * @return int 0 OK, 1 error
+ * @param file file structure
+ * @return t_file* file given in paramter
  */
-int	build_files_data(t_command *command)
+t_file	*file_parser(t_file *file)
 {
-	t_file	*file;
-
-	if (command == NULL)
-		return (0);
-	file = command->file_in;
-	while (file != NULL)
-	{
-		file->name = ft_trim_word(file->name);
-		build_file_access(file);
-		file = file->next;
-	}
-	file = command->file_out;
-	while (file != NULL)
-	{
-		file->name = ft_trim_word(file->name);
-		build_file_access(file);
-		file = file->next;
-	}
-	return (0);
+	if (file == NULL)
+		return (NULL);
+	file->name = ft_trim_word(file->name);
+	build_file_access(file);
+	return (file);
 }
 
 /**
  * @brief Add a file to the stack given in param
  *
- * @param command
+ * @param command command structure
  * @param index position where a file is detected
  * @param command_file stack to assign a file
  * @return void* NULL if error, command if no stack given,
 	and file if all's good
  */
-void	*add_file(t_command *command, size_t index, t_file **command_file)
+void	*add_file(t_command *command, unsigned int index, t_file **command_file)
 {
 	t_file	*file;
 
@@ -102,9 +100,9 @@ void	*add_file(t_command *command, size_t index, t_file **command_file)
 	if (command_file == NULL)
 		return (command);
 	file = malloc_gb(sizeof(t_file));
-	ft_bzero(file, sizeof(t_file));
 	if (file == NULL)
 		return (NULL);
+	ft_bzero(file, sizeof(t_file));
 	file->name = ft_substr(command->content, index,
 			ft_strlen(command->content));
 	if (file->name == NULL)
@@ -113,42 +111,9 @@ void	*add_file(t_command *command, size_t index, t_file **command_file)
 		return (NULL);
 	}
 	add_to_garbage(file->name);
-	build_file_access(file);
 	file->parsed = 0;
 	if (command_file != NULL)
 		file->next = *command_file;
 	*command_file = file;
 	return (file);
-}
-
-/**
- * @brief Adds files to the file redirection structure
- *
- * @param command
- * @return int
- */
-int	build_files_redirection(t_command *command)
-{
-	size_t	index;
-	t_file	**file;
-
-	if (command == NULL || command->content == NULL)
-		return (1);
-	if (ft_strchr(command->content, '<') == NULL && ft_strchr(command->content,
-			'>') == NULL)
-		return (0);
-	index = 0;
-	while (command->content[index] != '\0')
-	{
-		if (command->content[index] == '<')
-			file = &command->file_in;
-		else if (command->content[index] == '>')
-			file = &command->file_out;
-		else
-			file = NULL;
-		if (add_file(command, index + 1, file) == NULL)
-			return (1);
-		index++;
-	}
-	return (0);
 }
