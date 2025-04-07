@@ -15,6 +15,29 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+t_bool	detect_pair_quote(char *str, char quote)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == quote)
+		{
+			i++;
+			while (str[i])
+			{
+				if (str[i] == quote)
+					return (TRUE);
+				i++;
+			}
+			return (FALSE);
+		}
+		i++;
+	}
+	return (FALSE);
+}
+
 char	*strndup_without_characters(const char *str, size_t size,
 		char character)
 {
@@ -66,14 +89,29 @@ char	*remove_quote(const char *str, const char quote)
 	return (new_str);
 }
 
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	const char	str[] = "\"in\"f\"ile\" \"cat\" \"blabla\"";
-// 	char	*new_str;
-//
-// 	new_str = remove_quote(str, '\"');
-// 	printf("%s\n", new_str);
-// 	free(new_str);
-// 	return (0);
-// }
+char	*clean_string(const char *str)
+{
+	char	*new_str;
+
+	new_str = NULL;
+	if (!str)
+		return (NULL);
+	if ()
+
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	// const char	str[] = "\"in\"f\"ile\" \"cat\" \"blabla\"";
+	// const char	*str = "\"je suis une vache \"awev\"  \'tes\'t";
+	// const char	*str = "je suis une vache \"awev\"";
+	// const char	*str = "je suis une vache \"awev\"  \'tes\'t";
+	const char *str = "\'je suis une vache \"awev\"  \'tes't \'";
+	char	*new_str;
+
+	new_str = remove_quote(str, '\"');
+	printf("%s\n", new_str);
+	free(new_str);
+	return (0);
+}
