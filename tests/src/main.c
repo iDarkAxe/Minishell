@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testing_file.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/05 15:36:01 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/05 16:50:05 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/04/07 15:12:19 by ppontet           #+#    #+#             */
+/*   Updated: 2025/04/07 15:18:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ void	tear_down(void)
 int	main(void)
 {
 	UNITY_BEGIN();
-	RUN_TEST(testing_file_name);
-	RUN_TEST(testing_file_perms_1);
-	RUN_TEST(testing_file_perms_2);
+	RUN_TEST(parsing_tests);
+	RUN_TEST(file_tests);
 	return (UNITY_END());
 }

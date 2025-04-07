@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:21:59 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/05 16:49:54 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/07 15:18:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_remove_all_near_quotes(const char *str, const char character);
 void	testing_ft_remove_near_quotes(char *str, char *expected, char *new_str);
 
 // Parsing pair empty of quotes
+void	parsing_tests(void);
+// Sub-tests
 void	no_changes_single(void);
 void	changes_one_single_1(void);
 void	changes_one_single_2(void);
@@ -32,6 +34,8 @@ void	changes_one_double_4(void);
 void	changes_all_double(void);
 
 // Files
+void	file_tests(void);
+// Sub-tests
 void	testing_file_name(void);
 void	testing_file_perms_1(void);
 void	testing_file_perms_2(void);

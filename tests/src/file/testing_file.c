@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testing_parsing_quotes_double.c                    :+:      :+:    :+:   */
+/*   testing_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 10:33:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/07 15:18:23 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/04/05 15:36:01 by ppontet           #+#    #+#             */
+/*   Updated: 2025/04/07 15:18:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
-#include "libft.h"
-#include "stdlib.h"
+#include "minishell.h"
+#include "tests.h"
 #include "unity.h"
 #include "unity_internals.h"
-#include "tests.h"
+#include <stdio.h>
 
-void	parsing_tests(void)
+void	file_tests(void)
 {
-	RUN_TEST(no_changes_single);
-	RUN_TEST(changes_one_single_1);
-	RUN_TEST(changes_one_single_2);
-	RUN_TEST(changes_one_single_3);
-	RUN_TEST(changes_all_single);
-	RUN_TEST(no_changes_double);
-	RUN_TEST(changes_one_double_1);
-	RUN_TEST(changes_one_double_2);
-	RUN_TEST(changes_one_double_3);
-	RUN_TEST(changes_all_double);
+	RUN_TEST(testing_file_name);
+	RUN_TEST(testing_file_perms_1);
+	RUN_TEST(testing_file_perms_2);
 }

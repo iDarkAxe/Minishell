@@ -20,6 +20,7 @@ P_ROOT = ../
 
 P_SRC = src/
 P_PARSING = parsing_quotes_double/
+P_FILE = file/
 P_UNITY = unity/
 
 P_OBJ = .obj/
@@ -54,14 +55,19 @@ INCS = \
 
 # Source files
 SRC = \
+	main.c \
+
+PARSING = \
+	testing_parsing_quotes_double.c \
+	tests_fx_printing.c \
+	tests_pars_sing_fx1.c \
+	tests_pars_sing_fx2.c	\
+	tests_pars_doub_fx1.c \
+	tests_pars_doub_fx2.c
+
+FILE = \
 	testing_file.c \
 	tests_file.c
-
-# testing_parsing_quotes_double.c \
-# tests_pars_sing_fx1.c \
-# tests_pars_sing_fx2.c	\
-# tests_pars_doub_fx1.c \
-# tests_pars_doub_fx2.c
 
 UNITY_SRC = \
 	unity.c
@@ -82,8 +88,8 @@ PIPEX = $(P_LIB_PIPEX)libpipex.a
 #############################################################################################
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
-
-# $(addprefix $(P_SRC)$(P_PARSING), $(SRC)) \
+	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
+	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
 
 UNITY_SRCS = \
 	$(addprefix $(P_UNITY), $(UNITY_SRC)) \
