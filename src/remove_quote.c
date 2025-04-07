@@ -15,26 +15,15 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-t_bool	detect_pair_quote(char *str, char quote)
+t_bool	detect_pair_quote(const char *str, char quote)
 {
 	size_t	i;
+	size_t	size;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] == quote)
-		{
-			i++;
-			while (str[i])
-			{
-				if (str[i] == quote)
-					return (TRUE);
-				i++;
-			}
-			return (FALSE);
-		}
-		i++;
-	}
+	size = ft_strlen(str);
+	if (str[0] == quote && str[size - 1] == quote)
+		return (TRUE);
 	return (FALSE);
 }
 
@@ -65,6 +54,7 @@ char	*strndup_without_characters(const char *str, size_t size,
 	return (new_str);
 }
 
+
 char	*remove_quote(const char *str, const char quote)
 {
 	char	*new_str;
@@ -89,6 +79,9 @@ char	*remove_quote(const char *str, const char quote)
 	return (new_str);
 }
 
+// si premier quote = premier charactere de la string et si dernier character de str = a la premier quote
+// 	tel remove selon la pair de quote
+
 char	*clean_string(const char *str)
 {
 	char	*new_str;
@@ -96,8 +89,11 @@ char	*clean_string(const char *str)
 	new_str = NULL;
 	if (!str)
 		return (NULL);
-	if ()
-
+	if (detect_pair_quote(str, '\"') == TRUE)
+		new_str = remove_quote(str, '\"');
+	else if (detect_pair_quote(str, '\'') == TRUE)
+		new_str = remove_quote(str, '\'');
+	return (new_str);
 }
 
 #include <stdio.h>
@@ -110,7 +106,7 @@ int	main(void)
 	const char *str = "\'je suis une vache \"awev\"  \'tes't \'";
 	char	*new_str;
 
-	new_str = remove_quote(str, '\"');
+	new_str = clean_string(str);
 	printf("%s\n", new_str);
 	free(new_str);
 	return (0);
