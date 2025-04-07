@@ -57,9 +57,11 @@ INC = \
 	
 # Source files
 SRC = \
-	prompt.c \
-	parsing.c \
-	signals.c
+	remove_quote.c \
+
+	# prompt.c \
+	# parsing.c \
+	# signals.c
 	
 GARBAGE = \
 	garbage.c \
