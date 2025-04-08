@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/27 13:49:58 by lud-adam          #+#    #+#              #
-#    Updated: 2025/03/27 13:53:55 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/04/08 17:01:04 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 # Source directories
 P_SRC = src/
 P_GARBAGE = garbage/
+P_PARSING = parsing/
 
 P_PIPEX = pipex/src/
 P_OBJ = .obj/
@@ -53,16 +54,21 @@ P_LIB_PIPEX = pipex/lib/
 #############################################################################################
 # Headers
 INC = \
-	minishell.h
+	minishell.h \
+	parsing.h
 	
 # Source files
 SRC = \
-	remove_quote.c \
 
 	# prompt.c \
-	# parsing.c \
 	# signals.c
-	
+
+PARSING = \
+	parsing.c \
+	string_pre_cleaning.c \
+	remove_quote.c \
+	ft_split_charset.c \
+
 GARBAGE = \
 	garbage.c \
 	garbage_stack.c \
@@ -83,6 +89,7 @@ PIPEX = $(P_LIB_PIPEX)libpipex.a
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_GARBAGE), $(GARBAGE)) \
+	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

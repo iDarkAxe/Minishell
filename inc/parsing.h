@@ -1,0 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/08 16:52:08 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/04/08 17:08:18 by lud-adam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GARBAGE_H
+# define GARBAGE_H
+
+# include <stddef.h>
+# include "libft.h"
+
+// Functions about quotes
+t_bool	detect_pair_quote(const char *str, char quote);
+char	*strndup_without_characters(const char *str, size_t size, char characters);
+char	*remove_quote(const char *str, const char quote);
+char	*clean_string(const char *str);
+char	*string_pre_cleaning(const char *str);
+
+#endif

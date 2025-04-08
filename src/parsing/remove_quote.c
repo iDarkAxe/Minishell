@@ -6,26 +6,15 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:23:36 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/07 13:21:08 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:39:59 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include "parsing.h"
 #include "libft.h"
 #include <stddef.h>
 #include <stdlib.h>
-
-t_bool	detect_pair_quote(const char *str, char quote)
-{
-	size_t	i;
-	size_t	size;
-
-	i = 0;
-	size = ft_strlen(str);
-	if (str[0] == quote && str[size - 1] == quote)
-		return (TRUE);
-	return (FALSE);
-}
 
 char	*strndup_without_characters(const char *str, size_t size,
 		char character)
@@ -79,35 +68,24 @@ char	*remove_quote(const char *str, const char quote)
 	return (new_str);
 }
 
-// si premier quote = premier charactere de la string et si dernier character de str = a la premier quote
-// 	tel remove selon la pair de quote
-
 char	*clean_string(const char *str)
 {
 	char	*new_str;
+	char	*temp;
 
 	new_str = NULL;
+	temp = NULL;
 	if (!str)
 		return (NULL);
 	if (detect_pair_quote(str, '\"') == TRUE)
-		new_str = remove_quote(str, '\"');
-	else if (detect_pair_quote(str, '\'') == TRUE)
-		new_str = remove_quote(str, '\'');
+	{
+		temp = remove_quote(str, '\"');
+		return (temp);
+	}
+	if (detect_pair_quote(temp, '\'') == TRUE)
+	{
+		new_str = remove_quote(temp, '\'');
+		free(temp);
+	}
 	return (new_str);
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	// const char	str[] = "\"in\"f\"ile\" \"cat\" \"blabla\"";
-	// const char	*str = "\"je suis une vache \"awev\"  \'tes\'t";
-	// const char	*str = "je suis une vache \"awev\"";
-	// const char	*str = "je suis une vache \"awev\"  \'tes\'t";
-	const char *str = "\'je suis une vache \"awev\"  \'tes't \'";
-	char	*new_str;
-
-	new_str = clean_string(str);
-	printf("%s\n", new_str);
-	free(new_str);
-	return (0);
 }
