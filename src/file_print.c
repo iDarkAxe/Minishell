@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:29:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/05 16:29:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/08 17:29:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 void	print_list_files(t_command *command);
 void	print_perm_files(t_command *command);
 
+/**
+ * @brief Print the list of files in the command structure
+ * 
+ * @param command 
+ */
 void	print_list_files(t_command *command)
 {
 	t_file	*file;
@@ -34,6 +39,11 @@ void	print_list_files(t_command *command)
 	}
 }
 
+/**
+ * @brief Print the list of permissions of files in the command structure
+ * 
+ * @param command 
+ */
 void	print_perm_files(t_command *command)
 {
 	t_file	*file;

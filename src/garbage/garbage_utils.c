@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/03 17:19:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/08 17:28:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ char	*ft_strndup_gb(const char *source, size_t len)
 	return (pointer);
 }
 
+/**
+ * @brief Free an element in the garbage collector
+ * 
+ * @param ptr element to free
+ */
 void	free_element_gb(void *ptr)
 {
 	t_garbage	*garbage;
@@ -98,6 +103,10 @@ void	free_element_gb(void *ptr)
 	}
 }
 
+/**
+ * @brief Print the garbage collector
+ * 
+ */
 void	print_garbage(void)
 {
 	t_element	*element;
