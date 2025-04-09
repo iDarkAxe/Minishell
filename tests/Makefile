@@ -61,7 +61,7 @@ PARSING = \
 	testing_parsing_quotes_double.c \
 	tests_fx_printing.c \
 	tests_pars_sing_fx1.c \
-	tests_pars_sing_fx2.c	\
+	tests_pars_sing_fx2.c \
 	tests_pars_doub_fx1.c \
 	tests_pars_doub_fx2.c
 
@@ -86,7 +86,7 @@ PIPEX = $(P_LIB_PIPEX)libpipex.a
 #                                        MANIPULATION                                       #
 #                                                                                           #
 #############################################################################################
-SRCS =	\
+SRCS = \
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
@@ -149,7 +149,7 @@ $(P_OBJ)$(P_UNITY)%.o: $(P_UNITY)%.c
 
 force:
 
-############################################################################################
+#############################################################################################
 #                                                                                           #
 #                                      Other RULES                                          #
 #                                                                                           #
@@ -190,6 +190,7 @@ flcean: fclean
 flcear: fclean
 
 #############################################################################################
+cat -A Makefile | nl
 #                                                                                           #
 #                                           DEBUG                                           #
 #                                                                                           #

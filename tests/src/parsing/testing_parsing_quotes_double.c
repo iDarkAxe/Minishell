@@ -29,4 +29,20 @@ void	parsing_tests(void)
 	RUN_TEST(changes_one_double_2);
 	RUN_TEST(changes_one_double_3);
 	RUN_TEST(changes_all_double);
+	//
+	RUN_TEST(without_quote);
+	RUN_TEST(one_pair_simple);
+	RUN_TEST(one_pair_double);
+	RUN_TEST(quote_simple_not_closed);
+	RUN_TEST(quote_double_not_closed);
+	RUN_TEST(nested_single_quote_in_double);
+	RUN_TEST(nested_double_quote_in_single);
+	RUN_TEST(quote_with_intern_space);
+	RUN_TEST(quote_closed_with_space_all_around_the_string);
+	RUN_TEST(empty_string);
+	RUN_TEST(only_spaces);
+	RUN_TEST(simple_quote_with_a_double_quote_inside);
+	RUN_TEST(double_quote_with_a_single_quote_inside);
+	RUN_TEST(word_and_string_inside_double_quote);
+
 }
