@@ -61,6 +61,7 @@ SRC = \
 	file.c \
 	file_build.c \
 	file_print.c \
+	ft_exit.c \
 
 # builtins.c
 

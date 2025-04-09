@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/06 16:49:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/09 13:37:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,10 @@ int							build_files_data(t_command *command);
 char						*ft_trim_word(char *str);
 int							build_file_access(t_file *file);
 t_file						*file_parser(t_file *file);
+
+// Built-ins
+int							ft_exit(char *str);
+// int ft_exit(int number, char *str);
 
 // DEBUGGING Functions
 void						print_list_files(t_command *command);
