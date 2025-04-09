@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/09 16:29:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/09 17:05:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,16 @@ int	ft_exit(char *str)
 {
 	int	value;
 
-	value = verif_args(str);
-	if (value < 0)
-		return (-value);
 	if (str == NULL)
 	{
 		free_garbage();
 		exit(0);
 	}
-	value = ft_atoi(str);
+	value = verif_args(str);
+	if (value == -1)
+		return (1);
+	if (value != 0)
+		value = ft_atoi(str);
 	free_garbage();
 	exit(value);
 	return (0);
