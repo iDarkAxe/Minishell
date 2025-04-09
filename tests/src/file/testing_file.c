@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtins.c                                         :+:      :+:    :+:   */
+/*   testing_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 16:55:10 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/26 16:20:08 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/04/05 15:36:01 by ppontet           #+#    #+#             */
+/*   Updated: 2025/04/07 15:18:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "garbage.h"
 #include "minishell.h"
-#include "pipex.h"
+#include "tests.h"
+#include "unity.h"
+#include "unity_internals.h"
+#include <stdio.h>
 
-int	main(int argc, char *argv[], char *envp[])
+void	file_tests(void)
 {
-	int		i;
-
-	i = 0;
-	while (i < argc - 3)
-	{
-		exec(argc, argv, envp);
-		i++;
-	}
-	return (0);
+	RUN_TEST(testing_file_name);
+	RUN_TEST(testing_file_perms_1);
+	RUN_TEST(testing_file_perms_2);
 }

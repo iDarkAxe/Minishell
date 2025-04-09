@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/26 13:59:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/06 16:24:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 #include "libft.h"
 #include "minishell.h"
 #include <fcntl.h>
-#include <readline/history.h>
-#include <readline/readline.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <sys/stat.h>
 #include <unistd.h>
 
 char			*get_prompt_message(void);
+static char		*get_hostname(void);
+static char		*make_prompt(char **array);
+static size_t	ft_strlen_and_choose_c(char *str, char c);
 
+/**
+ * @brief Search the index of a character
+ *
+ * @param str str to search from
+ * @param c character searched
+ * @return size_t index of character found OR 0 if not found
+ */
 static size_t	ft_strlen_and_choose_c(char *str, char c)
 {
 	size_t	i;
@@ -33,6 +40,11 @@ static size_t	ft_strlen_and_choose_c(char *str, char c)
 	return (i);
 }
 
+/**
+ * @brief Get the hostname
+ * 
+ * @return char* hostname
+ */
 static char	*get_hostname(void)
 {
 	char	*get_hostname;
@@ -61,34 +73,62 @@ static char	*get_hostname(void)
 	return (get_hostname);
 }
 
-static char	*join_message(char *username)
+/**
+ * @brief Joins and adds the path to prompt
+ * 
+ * @param array element in the prompts
+ * @return char* final prompt
+ */
+static char	*make_prompt(char **array)
 {
-	char	*display;
-	char	*hostname;
+	char	*ptr;
+	char	*ptr2;
+	char	*path;
 	char	buf[4096];
 
-	hostname = get_hostname();
-	display = ft_strjoins((char *[]){username, "@", hostname, ":",
-			getcwd(buf, 4096), "$ ", NULL});
-	add_to_garbage(display);
-	free_element_gb(hostname);
-	if (!display)
-		return (NULL);
-	return (display);
+	ptr = ft_strjoins(array);
+	add_to_garbage(ptr);
+	if (ptr == NULL)
+		return (ft_strdup_gb("Minishell$ "));
+	path = getcwd(buf, 4096);
+	if (path == NULL)
+		return (ft_strdup_gb("Minishell$ "));
+	ptr2 = ft_strjoins((char *[]){ptr, path, "$ ", NULL});
+	free_element_gb(ptr);
+	if (ptr2 == NULL)
+		return (ft_strdup_gb("Minishell$ "));
+	add_to_garbage(ptr2);
+	return (ptr2);
 }
 
+/**
+ * @brief Build the prompt message
+ * If an error occurs, returns the defaut prompt message
+ * 
+ * @return char* prompt message
+ */
 char	*get_prompt_message(void)
 {
+	char	*prompt;
+	char	*hostname;
 	char	*username;
-	char	*prompt_message;
 
 	if (PROMPT_MESSAGE_CUSTOM == 0)
 		return (ft_strdup_gb("Minishell$ "));
-	username = getenv("USER");
-	prompt_message = join_message(username);
-	if (prompt_message == NULL)
+	hostname = get_hostname();
+	if (hostname == NULL)
 		return (ft_strdup_gb("Minishell$ "));
-	return (prompt_message);
+	username = getenv("USER");
+	if (username == NULL)
+	{
+		free_element_gb(hostname);
+		return (ft_strdup_gb("Minishell$ "));
+	}
+	prompt = make_prompt((char *[]){username, "@", hostname, ":", NULL});
+	if (prompt == NULL)
+		return (ft_strdup_gb("Minishell$ "));
+	free_element_gb(hostname);
+	return (prompt);
 }
 
 // int	main(void)

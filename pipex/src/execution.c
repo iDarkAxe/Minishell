@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   execution.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eveil <eveil@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:31:36 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/17 16:46:14 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/06 16:11:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+char	*get_command_with_path(t_data *data, char *command);
 
 char	*get_command_with_path(t_data *data, char *command)
 {
