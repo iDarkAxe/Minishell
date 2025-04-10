@@ -29,7 +29,7 @@ t_bool	detect_pair_quote(const char *str, char quote)
 			count++;
 		i++;
 	}
-	if (count % 2 == 0)
+	if (count > 0 && count % 2 == 0)
 		return (TRUE);
 	return (FALSE);
 }
@@ -43,7 +43,7 @@ char *string_pre_cleaning(const char *str)
 	new_str = ft_strtrim(str, " \t\n\r\u00A0\v\f");
 	if (!new_str || *new_str == '\0')
 		return (NULL);
-	if (detect_pair_quote(str, '"') == FALSE || detect_pair_quote(str, '\'') == FALSE)
+	if (detect_pair_quote(str, '"') == FALSE && detect_pair_quote(str, '\'') == FALSE)
 	{
 		free(new_str);
 		return (NULL);

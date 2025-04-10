@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/27 13:49:58 by lud-adam          #+#    #+#              #
-#    Updated: 2025/04/08 17:01:04 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/04/10 11:37:23 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ P_PIPEX = pipex/src/
 
 P_TESTS = tests/
 P_TESTS_SRC = $(P_TESTS)src/
-P_TESTS_PARSING = parsing_quotes_double/
+P_TESTS_PARSING = parsing/
 
 P_OBJ = .obj/
 P_TESTS_OBJS = $(P_TESTS).obj/
@@ -68,22 +68,21 @@ INC = \
 # Source files
 SRC = \
 
-	# main.c \
 	# prompt.c \
-	# signals.c \
 	# tmp_generator.c \
 	# file.c \
 	# file_build.c \
 	# file_print.c \
-	# signals.c
+	# signals.c \
 	# builtins.c
+
+	# main.c \
 
 PARSING = \
 	parsing.c \
 	string_pre_cleaning.c \
 	remove_quote.c \
 	ft_split_charset.c \
-	parsing_quotes_double.c \
 	
 GARBAGE = \
 	garbage.c \
@@ -151,7 +150,6 @@ $(NAME_TEST): force
 	@$(MAKE) -C $(P_TESTS)
 
 ############################################################################################
->>>>>>> main
 #                                                                                           #
 #                                      Other RULES                                          #
 #                                                                                           #

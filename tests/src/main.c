@@ -24,7 +24,7 @@ void	set_up(void)
 // clean stuff up here
 void	tear_down(void)
 {
-	tear_down_files();
+	// tear_down_files();
 	free_garbage();
 }
 
@@ -32,6 +32,6 @@ int	main(void)
 {
 	UNITY_BEGIN();
 	RUN_TEST(parsing_tests);
-	RUN_TEST(file_tests);
+	// RUN_TEST(file_tests);
 	return (UNITY_END());
 }

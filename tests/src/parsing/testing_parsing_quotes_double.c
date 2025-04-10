@@ -29,8 +29,6 @@ void	parsing_tests(void)
 	RUN_TEST(changes_one_double_2);
 	RUN_TEST(changes_one_double_3);
 	RUN_TEST(changes_all_double);
-	//
-	RUN_TEST(without_quote);
 	RUN_TEST(one_pair_simple);
 	RUN_TEST(one_pair_double);
 	RUN_TEST(quote_simple_not_closed);

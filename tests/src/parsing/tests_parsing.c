@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_parsing.c                                    :+:      :+:    :+:   */
+/*   tests_parsing_minishell.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,13 +11,16 @@
 /* ************************************************************************** */
 
 #include "garbage.h"
+#include "parsing.h"
 #include "libft.h"
 #include "stdlib.h"
 #include "unity.h"
 #include "unity_internals.h"
 #include "tests.h"
 
-void	no_changes_single(void)
+char	*parsing_minishell(const char *str);
+
+void	no_changes(void)
 {
 	char	*str;
 	char	*expected;
@@ -25,9 +28,9 @@ void	no_changes_single(void)
 
 	str = "simple";
 	expected = "simple";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	one_pair_simple(void)
@@ -38,9 +41,9 @@ void	one_pair_simple(void)
 
 	str = "'simple'";
 	expected = "simple";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	one_pair_double(void)
@@ -51,9 +54,9 @@ void	one_pair_double(void)
 
 	str = "\"simple\"";
 	expected = "simple";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	quote_simple_not_closed(void)
@@ -64,9 +67,9 @@ void	quote_simple_not_closed(void)
 
 	str = "\'simple";
 	expected = NULL;
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	quote_double_not_closed(void)
@@ -77,9 +80,9 @@ void	quote_double_not_closed(void)
 
 	str = "\"simple";
 	expected = NULL;
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	nested_single_quote_in_double(void)
@@ -90,9 +93,9 @@ void	nested_single_quote_in_double(void)
 
 	str = "\"in \'the\' middle\"";
 	expected = "in \'the\' middle";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	nested_double_quote_in_single(void)
@@ -103,9 +106,9 @@ void	nested_double_quote_in_single(void)
 
 	str = "\'in \"the\" middle\'";
 	expected = "in \"the\" middle";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	quote_with_intern_space(void)
@@ -116,9 +119,9 @@ void	quote_with_intern_space(void)
 
 	str = "\"   spaced string   \"";
 	expected = "   spaced string   ";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	quote_closed_with_space_all_around_the_string(void)
@@ -129,9 +132,9 @@ void	quote_closed_with_space_all_around_the_string(void)
 
 	str = "\"   spaced string   \"";
 	expected = "   spaced string   ";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	empty_string(void)
@@ -142,9 +145,9 @@ void	empty_string(void)
 
 	str = "\"\"";
 	expected = "";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	only_spaces(void)
@@ -155,9 +158,9 @@ void	only_spaces(void)
 
 	str = "\"   \"";
 	expected = "   ";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	simple_quote_with_a_double_quote_inside(void)
@@ -168,9 +171,9 @@ void	simple_quote_with_a_double_quote_inside(void)
 
 	str = "\'\"\'";
 	expected = "\"";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	double_quote_with_a_single_quote_inside(void)
@@ -181,9 +184,9 @@ void	double_quote_with_a_single_quote_inside(void)
 
 	str = "\"\'\"";
 	expected = "\'";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
 void	word_and_string_inside_double_quote(void)
@@ -194,7 +197,7 @@ void	word_and_string_inside_double_quote(void)
 
 	str = "\"word \"another word\"\"";
 	expected = "word another word";
-	new_str = parsing(str);
+	new_str = parsing_minishell(str);
 	add_to_garbage(new_str);
-	TEST_ASSERT_EQUAL_STRING(str, expected, new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }

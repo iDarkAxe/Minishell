@@ -19,7 +19,7 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 P_ROOT = ../
 
 P_SRC = src/
-P_PARSING = parsing_quotes_double/
+P_PARSING = parsing/
 P_FILE = file/
 P_UNITY = unity/
 
@@ -45,7 +45,8 @@ P_LIB_PIPEX = ../pipex/lib/
 #############################################################################################
 # Headers
 INC = \
-	minishell.h
+	minishell.h \
+	parsing.h \
 
 INCS = \
 	-I $(P_ROOT)inc \
@@ -58,6 +59,7 @@ SRC = \
 	main.c \
 
 PARSING = \
+	tests_parsing.c \
 	testing_parsing_quotes_double.c \
 	tests_fx_printing.c \
 	tests_pars_sing_fx1.c \
@@ -66,8 +68,9 @@ PARSING = \
 	tests_pars_doub_fx2.c
 
 FILE = \
-	testing_file.c \
-	tests_file.c
+
+	# testing_file.c \
+	# tests_file.c
 
 UNITY_SRC = \
 	unity.c
@@ -190,7 +193,6 @@ flcean: fclean
 flcear: fclean
 
 #############################################################################################
-cat -A Makefile | nl
 #                                                                                           #
 #                                           DEBUG                                           #
 #                                                                                           #

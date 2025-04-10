@@ -32,6 +32,20 @@ void	changes_one_double_2(void);
 void	changes_one_double_3(void);
 void	changes_one_double_4(void);
 void	changes_all_double(void);
+void	no_changes(void);
+void	one_pair_simple(void);
+void	one_pair_double(void);
+void	quote_simple_not_closed(void);
+void	quote_double_not_closed(void);
+void	nested_single_quote_in_double(void);
+void	nested_double_quote_in_single(void);
+void	quote_with_intern_space(void);
+void	quote_closed_with_space_all_around_the_string(void);
+void	empty_string(void);
+void	only_spaces(void);
+void	simple_quote_with_a_double_quote_inside(void);
+void	double_quote_with_a_single_quote_inside(void);
+void	word_and_string_inside_double_quote(void);
 
 // Files
 void	file_tests(void);
@@ -41,3 +55,4 @@ void	testing_file_perms_1(void);
 void	testing_file_perms_2(void);
 // TearDown
 void	tear_down_files(void);
+
