@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/27 13:49:58 by lud-adam          #+#    #+#              #
-#    Updated: 2025/04/10 11:37:23 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/04/10 14:34:25 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,18 +67,18 @@ INC = \
 	
 # Source files
 SRC = \
+	main.c \
 
+	# signals.c \
 	# prompt.c \
 	# tmp_generator.c \
 	# file.c \
 	# file_build.c \
 	# file_print.c \
-	# signals.c \
 	# builtins.c
 
-	# main.c \
-
 PARSING = \
+	parsing_quotes_double.c \
 	parsing.c \
 	string_pre_cleaning.c \
 	remove_quote.c \

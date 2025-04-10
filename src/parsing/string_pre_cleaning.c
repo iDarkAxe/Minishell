@@ -13,14 +13,16 @@
 #include "libft.h"
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-t_bool	detect_pair_quote(const char *str, char quote)
+t_bool	detect_pair_quote(const char *str, char quote, t_bool *pair)
 {
 	size_t	i;
 	size_t	count;
 
 	i = 0;
 	count = 0;
+	*pair = FALSE;
 	if (!str)
 		return (FALSE);
 	while (str[i])
@@ -30,20 +32,25 @@ t_bool	detect_pair_quote(const char *str, char quote)
 		i++;
 	}
 	if (count > 0 && count % 2 == 0)
+	{
+		*pair = TRUE;
 		return (TRUE);
+	}
 	return (FALSE);
 }
 
 char *string_pre_cleaning(const char *str)
 {
 	char	*new_str;
+	t_bool	pair;
 
+	pair = FALSE;
 	if (!str)
 		return (NULL);
 	new_str = ft_strtrim(str, " \t\n\r\u00A0\v\f");
 	if (!new_str || *new_str == '\0')
 		return (NULL);
-	if (detect_pair_quote(str, '"') == FALSE && detect_pair_quote(str, '\'') == FALSE)
+	if (detect_pair_quote(str, '"', &pair) == FALSE && detect_pair_quote(str, '\'', &pair) == FALSE)
 	{
 		free(new_str);
 		return (NULL);

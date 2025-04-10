@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 10:33:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/07 15:18:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/10 13:31:42 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,4 @@ void	parsing_tests(void)
 	RUN_TEST(simple_quote_with_a_double_quote_inside);
 	RUN_TEST(double_quote_with_a_single_quote_inside);
 	RUN_TEST(word_and_string_inside_double_quote);
-
 }
