@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:21:59 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/07 15:18:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/11 11:21:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,10 @@ void	testing_file_perms_1(void);
 void	testing_file_perms_2(void);
 // TearDown
 void	tear_down_files(void);
+
+// Built-ins
+// ft_exit()
+// void	ft_exit_tests(void);
+
+// Lexer
+void	lexer_simple(void);

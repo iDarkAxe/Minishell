@@ -19,15 +19,14 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 # Source directories
 P_SRC = src/
 P_GARBAGE = garbage/
+P_LEXER = lexer/
+P_PARSING = parsing/
 
 P_PIPEX = pipex/src/
 
 P_TESTS = tests/
-P_TESTS_SRC = $(P_TESTS)src/
-P_TESTS_PARSING = parsing_quotes_double/
 
 P_OBJ = .obj/
-P_TESTS_OBJS = $(P_TESTS).obj/
 
 P_INC = inc/
 
@@ -70,6 +69,13 @@ GARBAGE = \
 	garbage_stack.c \
 	garbage_utils.c
 
+LEXER = \
+	lexer.c \
+	lexer-utils.c
+
+PARSING = \
+	ft_split_charset.c \
+
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
@@ -85,6 +91,8 @@ PIPEX = $(P_LIB_PIPEX)libpipex.a
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_GARBAGE), $(GARBAGE)) \
+	$(addprefix $(P_SRC)$(P_LEXER), $(LEXER)) \
+	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

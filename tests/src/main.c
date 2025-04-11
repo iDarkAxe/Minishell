@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:12:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/07 15:18:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/11 11:21:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	main(void)
 	UNITY_BEGIN();
 	RUN_TEST(parsing_tests);
 	RUN_TEST(file_tests);
+	RUN_TEST(lexer_simple);
 	return (UNITY_END());
 }
