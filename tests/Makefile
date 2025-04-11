@@ -69,6 +69,12 @@ FILE = \
 	testing_file.c \
 	tests_file.c
 
+LEXER = \
+	testing_lexer.c
+
+FT_EXIT = \
+	testing_ft_exit.c
+
 UNITY_SRC = \
 	unity.c
 
@@ -90,6 +96,8 @@ SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
+	$(addprefix $(P_SRC), $(FT_EXIT)) \
+	$(addprefix $(P_SRC), $(LEXER)) \
 
 UNITY_SRCS = \
 	$(addprefix $(P_UNITY), $(UNITY_SRC)) \
