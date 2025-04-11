@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:23:16 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/10 13:19:04 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:31:02 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include "tests.h"
 
 char	*parsing_minishell(const char *str);
+char	*ft_remove_near_quotes(char const *str, const char character);
+char	*ft_remove_all_near_quotes(const char *str, const char character);
 
 void	no_changes(void)
 {
@@ -176,7 +178,7 @@ void	simple_quote_with_a_double_quote_inside(void)
 	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
-void	double_quote_with_a_s ingle_quote_inside(void)
+void	double_quote_with_a_single_quote_inside(void)
 {
 	char	*str;
 	char	*expected;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/10 15:58:05 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/11 15:42:21 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ int	main(void)
 	// str = "'in \"the\" middle'"; // quotes imbriquées inversées
 	// str = "\"   spaced string   \""; // quote avec espaces internes
 	// str = "   \"trimmed\"   "; // quote bien fermée avec espaces autour
-	str = ""; // chaîne vide
+	// str = ""; // chaîne vide
 	// str = "    "; // que des espaces
 	// str = "'\"'"; // quote simple contenant une quote double
 	// str = "\"'\""; // quote double contenant une quote simple
-	// str = "word \"another word\""; // mot + string entre quote
+	str = "word \"another word\""; // mot + string entre quote
 	// str = "wo\"r\"d";
 
 	result = parsing_minishell(str);
