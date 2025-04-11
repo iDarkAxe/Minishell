@@ -65,12 +65,12 @@ int	main(void)
 	// str = "'in \"the\" middle'"; // quotes imbriquées inversées
 	// str = "\"   spaced string   \""; // quote avec espaces internes
 	// str = "   \"trimmed\"   "; // quote bien fermée avec espaces autour
-	// str = ""; // chaîne vide
+	str = ""; // chaîne vide
 	// str = "    "; // que des espaces
 	// str = "'\"'"; // quote simple contenant une quote double
 	// str = "\"'\""; // quote double contenant une quote simple
 	// str = "word \"another word\""; // mot + string entre quote
-	str = "wo\"r\"d";
+	// str = "wo\"r\"d";
 
 	result = parsing_minishell(str);
 	if (result)
@@ -79,7 +79,10 @@ int	main(void)
 		free(result);
 	}
 	else
+	{
 		printf("❌ Parsing error or NULL result\n");
+		printf("[%s]\n", result);
+	}
 
 	return (0);
 }

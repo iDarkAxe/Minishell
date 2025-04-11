@@ -176,7 +176,7 @@ void	simple_quote_with_a_double_quote_inside(void)
 	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
 
-void	double_quote_with_a_single_quote_inside(void)
+void	double_quote_with_a_s ingle_quote_inside(void)
 {
 	char	*str;
 	char	*expected;

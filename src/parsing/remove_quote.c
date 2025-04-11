@@ -63,6 +63,7 @@ char	*remove_quote(const char *str, const char quote)
 	}
 	size = ft_strlen(str) - count;
 	new_str = strndup_without_characters(str, size, quote);
+	printf("INSIDE REMOVE QUOTE : %s", new_str);
 	if (!new_str)
 		return (NULL);
 	return (new_str);
@@ -79,15 +80,17 @@ char	*clean_string(const char *str)
 	pair = FALSE;
 	if (!str)
 		return (NULL);
-	if (detect_pair_quote(str, '\'', &pair) == TRUE && pair == FALSE)
+	if (detect_pair_quote(str, '\'', &pair) == TRUE)
 	{
-		ft_remove_all_near_quotes(str, '"');
+		// ft_remove_all_near_quotes(str, '"');
 		new_str = remove_quote(str, '\'');
+		// printf("inside detect single quote: %s", new_str);
 		free(temp);
 	}
-	else if (detect_pair_quote(str, '\"', &pair) == TRUE && pair == FALSE)
+	else if (detect_pair_quote(str, '\"', &pair) == TRUE)
 	{
-		ft_remove_all_near_quotes(str, '\'');
+		// ft_remove_all_near_quotes(str, '\'');
+		// printf("inside detect double quote: %s", new_str);
 		new_str = remove_quote(str, '\"');
 		return (new_str);
 	}
