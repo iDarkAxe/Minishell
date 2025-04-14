@@ -42,4 +42,6 @@ void	parsing_tests(void)
 	RUN_TEST(simple_quote_with_a_double_quote_inside);
 	RUN_TEST(double_quote_with_a_single_quote_inside);
 	RUN_TEST(word_and_string_inside_double_quote);
+	RUN_TEST(multiple_double_quote);
+	RUN_TEST(multiple_single_quote);
 }

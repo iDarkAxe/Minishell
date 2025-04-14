@@ -46,6 +46,8 @@ void	only_spaces(void);
 void	simple_quote_with_a_double_quote_inside(void);
 void	double_quote_with_a_single_quote_inside(void);
 void	word_and_string_inside_double_quote(void);
+void	multiple_double_quote(void);
+void	multiple_single_quote(void);
 
 // Files
 void	file_tests(void);

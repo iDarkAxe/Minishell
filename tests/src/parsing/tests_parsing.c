@@ -203,3 +203,30 @@ void	word_and_string_inside_double_quote(void)
 	add_to_garbage(new_str);
 	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 }
+
+void	multiple_double_quote(void)
+{
+	char	*str;
+	char	*expected;
+	char	*new_str;
+
+	str = "\"\"\"word \"\"a\"\"nother word\"\"\"";
+	expected = "word another word";
+	new_str = parsing_minishell(str);
+	add_to_garbage(new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
+}
+
+
+void	multiple_single_quote(void)
+{
+	char	*str;
+	char	*expected;
+	char	*new_str;
+
+	str = "\'\'\'word \'\'a\'\'nother word\'\'\'";
+	expected = "word another word";
+	new_str = parsing_minishell(str);
+	add_to_garbage(new_str);
+	TEST_ASSERT_EQUAL_STRING(expected, new_str);
+}

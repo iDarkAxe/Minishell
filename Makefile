@@ -80,8 +80,6 @@ SRC = \
 PARSING = \
 	parsing_quotes_double.c \
 	parsing.c \
-	string_pre_cleaning.c \
-	remove_quote.c \
 	ft_split_charset.c \
 	
 GARBAGE = \
