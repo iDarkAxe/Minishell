@@ -12,12 +12,12 @@
 
 #include "libft.h"
 #include "minishell.h"
-#include "pipex.h"
 #include "parsing.h"
+#include "pipex.h"
+#include <readline/history.h>
+#include <readline/readline.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include <readline/readline.h>
-#include <readline/history.h>
 
 size_t	count_without_quote(const char *str)
 {
@@ -30,9 +30,9 @@ size_t	count_without_quote(const char *str)
 	quote = 0;
 	while (str && str[i])
 	{
-		if (quote && str[i] == quote)
+		if (quote != 0 && str[i] == quote)
 			quote = 0;
-		else if (!quote && (str[i] == '\'' || str[i] == '\"'))
+		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
 			quote = str[i];
 		else
 			count++;
@@ -50,42 +50,51 @@ static t_bool	has_unclosed_quote(const char *str)
 	quote = 0;
 	while (str && str[i])
 	{
-		if (quote && str[i] == quote)
+		if (quote != 0 && str[i] == quote)
 			quote = 0;
-		else if (!quote && (str[i] == '\'' || str[i] == '\"'))
+		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
 			quote = str[i];
 		i++;
 	}
-	return (quote != 0);
+	if (quote == 0)
+		return (FALSE);
+	return (TRUE);
 }
 
-char	*parsing_minishell(const char *str)
+static char	*remove_quote(const char *str, char *new_str)
 {
-	char	*new_str;
+	char	quote;
 	size_t	i;
 	size_t	j;
-	size_t	count;
-	char	quote;
-
-	if (!str || has_unclosed_quote(str))
-		return (NULL);
+	
 	i = 0;
 	j = 0;
 	quote = 0;
-	count = count_without_quote(str);
-	new_str = malloc((count + 1) * sizeof(char));
-	if (!new_str)
-		return (NULL);
 	while (str && str[i])
 	{
-		if (quote && str[i] == quote)
+		if (quote != 0 && str[i] == quote)
 			quote = 0;
-		else if (!quote && (str[i] == '\'' || str[i] == '\"'))
+		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
 			quote = str[i];
 		else
 			new_str[j++] = str[i];
 		i++;
 	}
 	new_str[j] = '\0';
+	return (new_str);
+}
+
+char	*parsing_minishell(const char *str)
+{
+	char	*new_str;
+	size_t	count;
+
+	if (!str || has_unclosed_quote(str) == TRUE)
+		return (NULL);
+	count = count_without_quote(str);
+	new_str = malloc((count + 1) * sizeof(char));
+	if (!new_str)
+		return (NULL);
+	new_str = remove_quote(str, new_str);
 	return (new_str);
 }

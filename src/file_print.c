@@ -18,8 +18,8 @@ void	print_perm_files(t_command *command);
 
 /**
  * @brief Print the list of files in the command structure
- * 
- * @param command 
+ *
+ * @param command
  */
 void	print_list_files(t_command *command)
 {
@@ -41,8 +41,8 @@ void	print_list_files(t_command *command)
 
 /**
  * @brief Print the list of permissions of files in the command structure
- * 
- * @param command 
+ *
+ * @param command
  */
 void	print_perm_files(t_command *command)
 {

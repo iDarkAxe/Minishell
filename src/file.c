@@ -42,7 +42,7 @@ int	build_file_access(t_file *file)
 }
 
 /**
- * @brief Trim the first word detected and remove all the unnecessary 
+ * @brief Trim the first word detected and remove all the unnecessary
  *
  * @param str string to search the word
  * @return char* the word found

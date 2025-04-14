@@ -17,7 +17,7 @@
 
 /**
  * @brief Get the garbage object
- * 
+ *
  * @return t_garbage* garbage access
  */
 t_garbage	*get_garbage(void)
@@ -29,7 +29,7 @@ t_garbage	*get_garbage(void)
 
 /**
  * @brief Initialize the garbage and sets the values to 0
- * 
+ *
  */
 void	garbage_init(void)
 {
@@ -41,7 +41,7 @@ void	garbage_init(void)
 
 /**
  * @brief Add a pointer to the garbage list
- * 
+ *
  * @param ptr pointer to add
  */
 void	add_to_garbage(void *ptr)
@@ -63,7 +63,7 @@ void	add_to_garbage(void *ptr)
 
 /**
  * @brief Free the garbage
- * 
+ *
  */
 void	free_garbage(void)
 {
@@ -74,11 +74,11 @@ void	free_garbage(void)
 }
 
 /**
- * @brief Replace the original malloc by storing the created adresses 
+ * @brief Replace the original malloc by storing the created adresses
  * into a garbage to remove them afterwards
- * 
+ *
  * @param size number of bytes to allocates
- * @return void* 
+ * @return void*
  */
 void	*malloc_gb(size_t size)
 {

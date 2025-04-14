@@ -15,7 +15,7 @@
 
 int	main(int argc, char *argv[], char *envp[])
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (i < argc - 3)

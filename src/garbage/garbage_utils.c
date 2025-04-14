@@ -74,7 +74,7 @@ char	*ft_strndup_gb(const char *source, size_t len)
 
 /**
  * @brief Free an element in the garbage collector
- * 
+ *
  * @param ptr element to free
  */
 void	free_element_gb(void *ptr)
@@ -105,7 +105,7 @@ void	free_element_gb(void *ptr)
 
 /**
  * @brief Print the garbage collector
- * 
+ *
  */
 void	print_garbage(void)
 {

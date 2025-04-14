@@ -18,12 +18,11 @@
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
-#include "pipex.h"
 #include "parsing.h"
-#include <stdlib.h>
-#include <unistd.h>
+#include "pipex.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 // int	main(int argc, char **argv, char **envp)
 // {
@@ -54,7 +53,7 @@ char	*parsing_minishell(const char *str);
 int	main(void)
 {
 	const char	*str;
-	char	*result;
+	char		*result;
 
 	// str = "simple"; // sans quote
 	// str = "'simple'"; // quote simple bien fermée
@@ -71,7 +70,6 @@ int	main(void)
 	// str = "\"'\""; // quote double contenant une quote simple
 	str = "word \"another word\""; // mot + string entre quote
 	// str = "wo\"r\"d";
-
 	result = parsing_minishell(str);
 	if (result)
 	{
@@ -83,6 +81,5 @@ int	main(void)
 		printf("❌ Parsing error or NULL result\n");
 		printf("[%s]\n", result);
 	}
-
 	return (0);
 }

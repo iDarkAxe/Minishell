@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 #include <stdlib.h>
 
 t_bool	is_charset(char c, char *charset)
@@ -38,7 +38,8 @@ static size_t	count_words(char const *s, char *charset)
 	i = 0;
 	while (s && s[i] != '\0')
 	{
-		if (is_charset(s[i], charset) == FALSE && (is_charset(s[i + 1], charset) == TRUE || s[i + 1] == '\0'))
+		if (is_charset(s[i], charset) == FALSE && (is_charset(s[i + 1],
+					charset) == TRUE || s[i + 1] == '\0'))
 			count++;
 		i++;
 	}
@@ -101,7 +102,7 @@ char	**ft_split_charset(const char *s, char *charset)
 		return (final_array);
 	while (j < size)
 	{
-		while (is_charset(s[i],charset) == TRUE)
+		while (is_charset(s[i], charset) == TRUE)
 			i++;
 		final_array[j] = ft_strdupp(s, charset, &i);
 		if (!final_array[j])
