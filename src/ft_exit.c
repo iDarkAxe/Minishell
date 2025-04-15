@@ -6,13 +6,42 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/09 17:05:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 11:48:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "libft.h"
 #include <stdlib.h>
+
+int			ft_exit(char *str);
+static int	verif_args(char *str);
+
+// TODO AJOUTER LE RETOUR ($?) s'il y a trop d'arguments
+
+/**
+ * @brief Function to exit the program
+ * 
+ * @param str argument of the exit function
+ * @return int value if argument invalid
+ */
+int	ft_exit(char *str)
+{
+	int	value;
+
+	if (str == NULL)
+	{
+		free_garbage();
+		exit(0);
+	}
+	value = verif_args(str);
+	if (value == -1)
+		return (1);
+	if (value != 0)
+		value = ft_atoi(str);
+	free_garbage();
+	exit(value);
+}
 
 /**
  * @brief Verify that the argument of exit are acceptable
@@ -41,33 +70,6 @@ static int	verif_args(char *str)
 		}
 		count++;
 	}
-	return (0);
-}
-
-// TODO AJOUTER LE RETOUR ($?) s'il y a trop d'arguments
-
-/**
- * @brief Function to exit the program
- * 
- * @param str argument of the exit function
- * @return int value if argument invalid
- */
-int	ft_exit(char *str)
-{
-	int	value;
-
-	if (str == NULL)
-	{
-		free_garbage();
-		exit(0);
-	}
-	value = verif_args(str);
-	if (value == -1)
-		return (1);
-	if (value != 0)
-		value = ft_atoi(str);
-	free_garbage();
-	exit(value);
 	return (0);
 }
 

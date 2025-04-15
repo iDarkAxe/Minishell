@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:10:41 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/03 17:25:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 16:52:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,15 @@ t_tmp	create_tmp(char *path, int nbr_try)
 		return (tmp);
 	if (access(tmp.name, F_OK) == 0)
 	{
-		free(tmp.name);
+		free_element_gb(tmp.name);
 		tmp = create_tmp(path, nbr_try);
 		return (tmp);
 	}
-	tmp.fd = open(tmp.name, O_RDONLY | O_CREAT);
-	if (tmp.fd == 0)
+	tmp.fd = open(tmp.name, O_RDWR | O_CREAT, 0666);
+	if (tmp.fd < 0)
 	{
-		tmp.fd = -2;
+		free_element_gb(tmp.name);
+		tmp = create_tmp(path, nbr_try);
 		return (tmp);
 	}
 	return (tmp);
@@ -79,12 +80,12 @@ static t_tmp	try_create_tmp(char *path)
 	}
 	tmp.name = ft_strjoins((char *[]){path, "minishell_tmp_", name, NULL});
 	free_element_gb(name);
-	add_to_garbage(tmp.name);
 	if (tmp.name == NULL)
 	{
 		tmp.fd = -1;
 		return (tmp);
 	}
+	add_to_garbage(tmp.name);
 	return (tmp);
 }
 

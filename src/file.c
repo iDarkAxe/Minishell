@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/09 16:49:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 17:42:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,28 @@ t_file	*file_parser(t_file *file)
 {
 	if (file == NULL)
 		return (NULL);
+	if (file->is_heredoc == 1)
+	{
+		file->tmp = malloc_gb(sizeof(t_tmp) * 1);
+		if (file->tmp == NULL)
+			return (NULL);
+		*file->tmp = create_tmp(TMP_PATH, 3);
+		if (file->tmp->fd == -1)
+		{
+			free_element_gb(file->tmp);
+			write(2, "Error: tmp file creation\n", 25);
+			return (NULL);
+		}
+		read_heredoc(file->tmp, file->name);
+	}
 	file->name = ft_trim_word(file->name);
 	build_file_access(file);
 	return (file);
 }
 
 /**
- * @brief Add a file to the stack given in param
+ * @brief Add a file to the stack given in param,
+ * each file added is at the beginning of the stack (reverse order)
  *
  * @param command command structure
  * @param index position where a file is detected
@@ -93,26 +108,28 @@ t_file	*file_parser(t_file *file)
  * @return void* NULL if error, command if no stack given,
 	and file if all's good
  */
-void	*add_file(t_command *command, unsigned int index, t_file **command_file)
+void	*add_file(t_command *command, t_token *token, t_file **command_file)
 {
 	t_file	*file;
 
-	if (command == NULL || command->content == NULL)
+	if (command == NULL || token->str == NULL)
 		return (NULL);
 	if (command_file == NULL)
 		return (command);
-	file = malloc_gb(sizeof(t_file));
+	file = ft_calloc(sizeof(t_file), 1);
 	if (file == NULL)
 		return (NULL);
-	ft_bzero(file, sizeof(t_file));
-	file->name = ft_substr(command->content, index,
-			ft_strlen(command->content));
+	add_to_garbage(file);
+	file->name = token->next->str;
 	if (file->name == NULL)
 	{
 		free_element_gb(file);
 		return (NULL);
 	}
-	add_to_garbage(file->name);
+	if (ft_strncmp(token->str, "<<", 2) == 0)
+		file->is_heredoc = 1;
+	else if (ft_strncmp(token->str, ">>", 2) == 0)
+		file->is_append = 1;
 	file->parsed = 0;
 	if (command_file != NULL)
 		file->next = *command_file;

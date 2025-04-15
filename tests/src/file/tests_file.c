@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:36:01 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/06 16:59:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 17:23:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,24 @@ void	testing_file_name(void)
 	t_command	*command;
 	char		*expected;
 	char		*new_str;
+	char		*line;
+	char		**tokens;
 
-	command = malloc_gb(sizeof(t_command));
-	if (command == NULL)
-		return ;
-	ft_bzero(command, sizeof(t_command));
-	command->content = "cat <   fichier <  fichier2  <feur ";
-	if (build_files_redirection(command) != 0)
-		return ;
-	build_files_data(command);
+	line = " <   fichier <<  fichier2 cat   <feur  ";
+	tokens = lexer(line);
+	TEST_ASSERT_NOT_NULL(tokens);
+	command = tokeniser(tokens);
+	print_command(command);
+	TEST_ASSERT_NOT_NULL(command);
+	TEST_ASSERT_FALSE_MESSAGE(build_files_redirection(command),
+		"Error in build_files_redirection");
+	TEST_ASSERT_FALSE_MESSAGE(build_files_data(command),
+		"Error in build_files_data");
 	expected = "feur";
 	new_str = command->file_in->name;
 	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 	expected = "fichier2";
 	new_str = command->file_in->next->name;
-	TEST_ASSERT_EQUAL_STRING(expected, new_str);
-	expected = "fichier";
-	new_str = command->file_in->next->next->name;
 	TEST_ASSERT_EQUAL_STRING(expected, new_str);
 	free_garbage();
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 11:58:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 17:22:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,13 @@ struct							s_file
 {
 	t_file						*next;
 	char						*name;
+	t_tmp						*tmp;
 	t_bool						parsed;
 	t_bool						exist;
 	t_bool						perm_read;
 	t_bool						perm_write;
 	t_bool						is_heredoc;
+	t_bool						is_append;
 };
 
 struct							s_command
@@ -110,12 +112,13 @@ t_tmp							create_tmp(char *path, int nbr_try);
 
 // File Management
 int								build_files_redirection(t_command *command);
-void							*add_file(t_command *command,
-									unsigned int index, t_file **command_file);
+void							*add_file(t_command *command, t_token *token,
+									t_file **command_file);
 int								build_files_data(t_command *command);
 char							*ft_trim_word(char *str);
 int								build_file_access(t_file *file);
 t_file							*file_parser(t_file *file);
+char							*read_heredoc(t_tmp *tmp, char *delimiteur);
 
 // Lexer
 char							*ft_substr_end(char const *src,
