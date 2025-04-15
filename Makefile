@@ -61,6 +61,8 @@ SRC = \
 	file_build.c \
 	file_print.c \
 	ft_exit.c \
+	tokens.c \
+	command-utils.c
 
 # builtins.c
 
@@ -115,13 +117,21 @@ all:
 
 # Create $(NAME) executable
 $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS)
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS); then \
+		echo "$(Green)Creating executable $@$(Color_Off)"; \
+	else \
+		echo "$(Red)Error creating $@$(Color_Off)"; \
+	fi
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@
-
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@; then \
+		echo "$(Cyan)Compiling $<$(Color_Off)"; \
+	else \
+		echo "$(Red)Error creating $@$(Color_Off)"; \
+	fi
+	
 force:
 
 $(LIBFT): force
@@ -132,7 +142,8 @@ $(PIPEX): force
 
 $(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 	@mkdir -p $(dir $@)
-	ar -rcs $@ $(OBJS)
+	@echo "$(Green)Creating library $@$(Color_Off)"
+	@ar -rcs $@ $(OBJS)
 
 $(NAME_TEST): force
 	@$(MAKE) -C $(P_TESTS)
@@ -145,15 +156,14 @@ $(NAME_TEST): force
 # Rules for clean up
 clean:
 	rm -rfd $(P_OBJ)
-	rm -rfd $(P_TESTS_OBJS)
 	rm -rfd $(OBJS)
-	rm -rfd $(OBJS_TEST)
 	rm -rfd $(DEPS)
 
 clean-lib:
 	rm -rfd $(P_LIB)
-	make -C $(P_LIBFT) fclean
-	make -C $(P_PIPEX) fclean
+	@$(MAKE) -C $(P_LIBFT) fclean
+	@$(MAKE) -C $(P_PIPEX) fclean
+	@$(MAKE) -C tests fclean
 
 clean-bin:
 	rm -f $(NAME)

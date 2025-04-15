@@ -133,27 +133,28 @@ LIBS = \
 #                                          RULES                                            #
 #                                                                                           #
 #############################################################################################
+# Create $(NAME) executable
 all:
 	@$(MAKE) $(NAME)
 
-# Create $(NAME) executable
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	@$(MAKE) -C $(P_ROOT)
+$(NAME): 
+	@$(MAKE) $(OBJS)
 	@$(MAKE) -C ../ lib/libminishell.a
 	@$(MAKE) -C $(P_ROOT)libft
 	@$(MAKE) -C $(P_ROOT)pipex
-	$(CC) $(CFLAGS) $^ -o $@ $(LIBS)
+	@echo "$(Green)Creating Executable $@$(Color_Off)"
+	@$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDENCIES) $(INCS) -c $< -o $@
+	@echo "$(Cyan)Compiling $<$(Color_Off)"
+	@$(CC) $(CFLAGS) $(DEPENDENCIES) $(INCS) -c $< -o $@
 
 $(P_OBJ)$(P_UNITY)%.o: $(P_UNITY)%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DEPENDENCIES) $(INCS) -c $< -o $@
+	@echo "$(Cyan)Compiling $<$(Color_Off)"
+	@$(CC) $(CFLAGS) $(DEPENDENCIES) $(INCS) -c $< -o $@
 
 force:
 

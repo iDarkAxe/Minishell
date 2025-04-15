@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
+#    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 11:11:52 by lud-adam          #+#    #+#              #
-#    Updated: 2025/03/26 13:34:29 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/04/14 16:39:02 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,13 +42,21 @@ all: $(P_PIPEX_LIB)libpipex.a
 
 $(P_PIPEX_LIB)libpipex.a: $(OBJ)
 	@mkdir -p $(P_PIPEX_LIB)
-	ar -rcs $(P_PIPEX_LIB)libpipex.a $^
+	@if ar -rcs $(P_PIPEX_LIB)libpipex.a $^; then \
+		echo "$(Green)Creating library $@$(Color_Off)"; \
+	else \
+		echo "$(Red)Error creating $@$(Color_Off)"; \
+	fi
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC_DIR)pipex.h Makefile $(LIBFT)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INC) -MMD -MP -c $< -o $@
+	@if $(CC) $(CFLAGS) $(INC) -MMD -MP -c $< -o $@; then \
+		echo "$(Cyan)Compiling $<$(Color_Off)"; \
+	else \
+		echo "$(Red)Error creating $@$(Color_Off)"; \
+	fi
 
-$(LIBFT): force 	
+$(LIBFT): force
 	$(MAKE) -C $(LIBFT_DIR)
 
 force: 
@@ -63,6 +71,11 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean $(NAME)
+
+Color_Off=\033[0m       # Text Reset
+Cyan=\033[0;36m
+Green=\033[0;32m
+
 
 -include $(DEP)
 
