@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:30:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:40:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,43 +23,32 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void	print_env_vars(t_env_vars *env);
+t_command	*tokeniser(char **tokens);
 
-void	print_env_vars(t_env_vars *env)
+int	main(void)
 {
-	t_var		*var;
-	t_params	*param;
+	t_command	*command;
+	char		*line;
+	char		**tokens;
 
-	if (!env)
-		return ;
-	var = env->head_var;
-	while (var)
+	line = "cat \"'my file.txt'\" < infile << eof >> outfile | gr\"ep\" hello \
+	>> 	 out.txt |grep \"test\" > file";
+	tokens = lexer(line);
+	if (tokens == NULL)
 	{
-		printf("%s=", var->value);
-		param = var->head_params;
-		while (param)
-		{
-			printf("%s", param->value);
-			if (param->next)
-				printf(":");
-			param = param->next;
-		}
-		printf("\n");
-		var = var->next;
+		free_garbage();
+		write(2, "Error creating tokens\n", 22);
+		exit(1);
 	}
-}
-
-// for (int i = 0; envp[i] != NULL; i++)
-// 	printf("%s\n", envp[i]);
-int	main(int argc, char **argv, char **envp)
-{
-	t_env_vars	*env;
-
-	(void)argc;
-	(void)argv;
-	(void)env;
-	env = get_env(envp);
-	print_env_vars(env);
+	command = tokeniser(tokens);
+	if (!command)
+	{
+		free_garbage();
+		write(2, "Error creating command structure\n", 33);
+		exit(1);
+	}
+	print_command(command);
 	free_garbage();
+	return (0);
 	return (0);
 }

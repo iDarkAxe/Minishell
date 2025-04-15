@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/11 15:39:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 10:49:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "minishell.h"
 #define MAX_TOKENS 1024
 
-static void	init_lexer_state(t_lexer_state *lex_st, const char *line);
+static char	**init_lexer_state(t_lexer_state *lex_st, const char *line);
 static void	handle_space(t_lexer_state *lex_st);
 static void	handle_quote(t_lexer_state *lex_st, char quote_type);
 static void	handle_operator(t_lexer_state *lex_st);
@@ -36,7 +36,8 @@ char	**lexer(const char *line)
 {
 	t_lexer_state	lex_st;
 
-	init_lexer_state(&lex_st, line);
+	if (init_lexer_state(&lex_st, line) == NULL)
+		return (NULL);
 	while (lex_st.line[lex_st.i] != '\0')
 	{
 		if (ft_isspace(lex_st.line[lex_st.i]) && !lex_st.in_single_quote
@@ -67,11 +68,14 @@ char	**lexer(const char *line)
  * @param lex_st pointer to the lexer structure
  * @param line line to verify
 */
-static void	init_lexer_state(t_lexer_state *lex_st, const char *line)
+static char	**init_lexer_state(t_lexer_state *lex_st, const char *line)
 {
 	ft_bzero(lex_st, sizeof(t_lexer_state));
 	lex_st->line = line;
 	lex_st->tokens = malloc_gb(sizeof(char *) * MAX_TOKENS);
+	if (lex_st->tokens == NULL)
+		return (NULL);
+	return (lex_st->tokens);
 }
 
 /**

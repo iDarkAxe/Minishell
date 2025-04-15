@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:38:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:39:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_var			t_var;
 typedef struct s_env_vars		t_env_vars;
 typedef struct s_params			t_params;
 typedef struct s_lexer_state	t_lexer_state;
+typedef struct s_token			t_token;
 
 // typedef enum e_file_state	t_file_state;
 
@@ -57,6 +58,8 @@ struct							s_file
 
 struct							s_command
 {
+	struct s_command			*next;
+	t_token						*tokens;
 	char						*content;
 	char						*command;
 	t_file						*file_in;
@@ -96,6 +99,12 @@ struct							s_lexer_state
 	const char					*line;
 };
 
+struct							s_token
+{
+	char						*str;
+	struct s_token				*next;
+};
+
 int								signal_init(void);
 char							*get_prompt_message(void);
 t_tmp							create_tmp(char *path, int nbr_try);
@@ -122,4 +131,6 @@ int								ft_exit(char *str);
 // DEBUGGING Functions
 void							print_list_files(t_command *command);
 void							print_perm_files(t_command *command);
+ssize_t							print_command(t_command *command);
+
 #endif
