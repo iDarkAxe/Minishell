@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 10:49:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 11:24:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ static char	**init_lexer_state(t_lexer_state *lex_st, const char *line);
 static void	handle_space(t_lexer_state *lex_st);
 static void	handle_quote(t_lexer_state *lex_st, char quote_type);
 static void	handle_operator(t_lexer_state *lex_st);
-
-// TODO Remplacer par un split_charset, et recoller les bouts séparés
 
 /**
  * @brief Create tokens (small chunks) a line with the quotes and operators

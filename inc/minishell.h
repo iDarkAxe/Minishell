@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:39:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:40:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ struct							s_params
 
 struct							s_lexer_state
 {
-	int							i;
-	int							j;
-	int							start;
+	unsigned int				i;
+	unsigned int				j;
+	unsigned int				start;
 	t_bool						in_single_quote;
 	t_bool						in_double_quote;
 	char						**tokens;
@@ -123,6 +123,7 @@ char							*ft_substr_end(char const *src,
 									unsigned int start, size_t end);
 int								is_operator_char(char c);
 char							**lexer(const char *line);
+t_command						*tokeniser(char **tokens);
 
 // Built-ins
 int								ft_exit(char *str);
