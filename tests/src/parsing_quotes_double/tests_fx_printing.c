@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:13:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/07 15:15:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 13:49:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "libft.h"
 #include "unity.h"
 #include "unity_internals.h"
-
-#define DEBUG 0
 
 #ifndef DEBUG
 # define DEBUG 0

@@ -2,7 +2,7 @@
 
 ## Basics ##
 
-The file redirections are tested before the execution of the command. Each file is tested from left to right, one by one.
+The file redirections are tested before the execution of the command. Each file is tested from left to right in theory, one by one, if there's a heredoc, it's tested BEFORE other types.
 
 ```sh
 $> ls -l
@@ -91,6 +91,21 @@ $>cat infile
 contenu du fichier infile
 $>cat outfile
 contenu du fichier infile
+```
+
+Same thing when it's not the first in the line, but as Here-Docs has priority, it's created before anything else and not used in the following case.
+
+```sh
+$> ls -l outfile infile
+---------- 1 ppontet 2024_lyon 80 Apr  8 10:54 infile2
+$>cat < infile << eof < infile2 >> outfile
+>heredoc
+>eof
+bash: infile: No such file or directory
+$>cat infile2
+contenu du fichier infile2
+$>cat outfile
+cat: outfile: No such file or directory
 ```
 
 ## Outfile ##

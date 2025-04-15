@@ -61,7 +61,8 @@ SRC = \
 	file_print.c \
 	ft_exit.c \
 	tokens.c \
-	command-utils.c
+	command-utils.c \
+	ft_print_fd.c \
 
 # builtins.c
 
