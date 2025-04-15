@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:01:21 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 11:50:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 13:09:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	is_operator_char(char c)
 {
 	return (c == '|' || c == '<' || c == '>');
 }
+
 /**
  * @brief Allocate memory for a string and copy the content from src
  *
@@ -38,7 +39,7 @@ int	is_operator_char(char c)
 char	*ft_substr_end(char const *src, unsigned int start, size_t end)
 {
 	size_t		len;
-	char	*s;
+	char		*s;
 
 	len = end - start;
 	s = malloc_gb(len + 1);
