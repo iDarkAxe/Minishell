@@ -64,6 +64,8 @@ SRC = \
 	tokens.c \
 	command-utils.c \
 	ft_print_fd.c \
+	ft_free.c \
+	heredoc.c \
 
 # builtins.c
 
