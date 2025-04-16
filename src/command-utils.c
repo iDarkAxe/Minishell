@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:08:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 10:49:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 10:25:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ssize_t	print_command(t_command *command)
 	t_token		*token;
 
 	if (!command)
-		return (write(2, "No command to print\n", 20));
+		return (print_fd(2, "No command to print\n"));
 	cmd = command;
 	while (cmd)
 	{

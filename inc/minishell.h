@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:41:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:42:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,16 @@ struct							s_token
 
 int								signal_init(void);
 char							*get_prompt_message(void);
-t_tmp							create_tmp(char *path, int nbr_try);
+
+ssize_t							print_fd(int fd, const char *str);
+ssize_t							printn_fd(int fd, const char *str, size_t len);
 
 // File Management
 int								build_files_redirection(t_command *command);
 void							*add_file(t_command *command, t_token *token,
 									t_file **command_file);
 int								build_files_data(t_command *command);
+t_tmp							create_tmp(char *path, int nbr_try);
 char							*ft_trim_word(char *str);
 int								build_file_access(t_file *file);
 t_file							*file_parser(t_file *file);

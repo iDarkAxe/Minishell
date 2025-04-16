@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:41:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:42:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "libft.h"
 #include <stdlib.h>
+#include "minishell.h"
 
 int			ft_exit(char *str);
 static int	verif_args(char *str);
@@ -58,14 +59,14 @@ static int	verif_args(char *str)
 	{
 		if (ft_isspace(str[count]) != 0)
 		{
-			write(2, "minishell: exit: too many arguments\n", 37);
+			print_fd(2, "minishell: exit: too many arguments\n");
 			return (-1);
 		}
 		if (ft_isdigit(str[count]) == 0)
 		{
-			write(2, "minishell: exit: ", 17);
-			write(2, str, ft_strlen(str));
-			write(2, ": numeric argument required\n", 28);
+			print_fd(2, "minishell: exit: ");
+			print_fd(2, str);
+			print_fd(2, ": numeric argument required\n");
 			return (2);
 		}
 		count++;
