@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 10:34:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 11:06:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,8 @@ char							**lexer(const char *line);
 t_command						*tokeniser(char **tokens);
 
 // Built-ins
-int								ft_exit(char *str);
+int								ft_exit(char **array);
+
 // int ft_exit(int number, char *str);
 
 // DEBUGGING Functions

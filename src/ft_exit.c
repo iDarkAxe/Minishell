@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 10:27:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 11:07:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,36 @@
 #include <stdlib.h>
 #include "minishell.h"
 
-int			ft_exit(char *str);
-static int	verif_args(char *str);
+int			ft_exit(char **array);
+static int	verif_args(char **array);
 
 // TODO AJOUTER LE RETOUR ($?) s'il y a trop d'arguments
 
 /**
  * @brief Function to exit the program
  * 
- * @param str argument of the exit function
+ * @param array argument of the exit function
  * @return int value if argument invalid
  */
-int	ft_exit(char *str)
+int	ft_exit(char **array)
 {
 	int	value;
 
-	if (str == NULL)
+	if (array == NULL || array[0] == NULL)
 	{
 		free_garbage();
 		exit(0);
 	}
-	value = verif_args(str);
+	if (array[1] != NULL)
+	{
+		print_fd(2, "minishell: exit: too many arguments\n");
+		return (-1);
+	}
+	value = verif_args(array);
 	if (value == -1)
 		return (1);
-	if (value != 0)
-		value = ft_atoi(str);
+	if (value == 0)
+		value = ft_atoi(array[0]);
 	free_garbage();
 	exit(value);
 }
@@ -47,35 +52,34 @@ int	ft_exit(char *str)
 /**
  * @brief Verify that the argument of exit are acceptable
  * 
- * @param str argument of the exit function
+ * @param array argument of the exit function
  * @return int negative if invalid, otherwise it's valid
  */
-static int	verif_args(char *str)
+static int	verif_args(char **array)
 {
 	size_t	count;
 
 	count = 0;
-	while (str != NULL && str[count] != '\0')
+	while (array != NULL && array[0] != NULL && array[0][count] != '\0')
 	{
-		if (ft_isspace(str[count]) != 0)
+		if (ft_isspace(array[0][count]) != 0)
 		{
 			print_fd(2, "minishell: exit: too many arguments\n");
 			return (-1);
 		}
-		if (ft_isdigit(str[count]) == 0)
+		if (ft_isdigit(array[0][count++]) != 1)
 		{
 			print_fd(2, "minishell: exit: ");
-			print_fd(2, str);
+			print_fd(2, array[0]);
 			print_fd(2, ": numeric argument required\n");
 			return (2);
 		}
-		count++;
 	}
 	return (0);
 }
 
 // #include <stdio.h>
-
+// #include <stdlib.h>
 // /*
 // Génère des allocations qui sont attrapées par le garbage collector, 
 // il ne devrait pas y a voir de leak.
@@ -93,7 +97,7 @@ static int	verif_args(char *str)
 // 		add_to_garbage(str);
 // 		count++;
 // 	}
-// 	if (ft_exit("10 10") != 0)
+// 	if (ft_exit((char *[]){"10", NULL}) != 0)
 // 		printf("L'exit est annulé  car l\'input est invalide\n");
 // 	free_garbage();
 // }
