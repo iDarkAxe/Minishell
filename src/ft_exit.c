@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:42:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:44:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int			ft_exit(char **array);
 static int	verif_args(char **array);
+static int	ft_strtoull(char *str);
 
 // TODO AJOUTER LE RETOUR ($?) s'il y a trop d'arguments
 
@@ -44,9 +45,9 @@ int	ft_exit(char **array)
 	if (value == -1)
 		return (1);
 	if (value == 0)
-		value = ft_atoi(array[0]);
+		value = ft_strtoull(array[0]);
 	free_garbage();
-	exit(value);
+	exit((unsigned char)value);
 }
 
 /**
@@ -76,6 +77,37 @@ static int	verif_args(char **array)
 		}
 	}
 	return (0);
+}
+
+/**
+ * @brief Specific strtoll for exit
+ * Returns 2 if long long max value is exceeded
+ * 
+ * @param nptr string to search numbers
+ * @return int 
+ */
+static int	ft_strtoull(char *nptr)
+{
+	long long	number;
+	long long	overflow_tester;
+
+	number = 0;
+	while (*nptr != '\0' && (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'
+			|| *nptr == '\r' || *nptr == '\v' || *nptr == '\f'))
+		nptr++;
+	while (*nptr != '\0' && *nptr >= '0' && *nptr <= '9')
+	{
+		overflow_tester = number;
+		number = number * 10 + *nptr++ - '0';
+		if (overflow_tester > number)
+		{
+			print_fd(2, "minishell: exit: ");
+			print_fd(2, nptr);
+			print_fd(2, ": numeric argument required\n");
+			return (2);
+		}
+	}
+	return ((int)number);
 }
 
 // #include <stdio.h>

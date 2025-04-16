@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 17:05:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 10:29:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 11:21:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ssize_t	printn_fd(int fd, const char *str, size_t len)
 	if (count == -1)
 	{
 		perror("write");
-		ft_exit("1");
+		ft_exit((char *[]){"1", NULL});
 	}
 	return (count);
 }
