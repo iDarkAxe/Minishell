@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
-#include "garbage.h"
 #include <fcntl.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 static char		*ft_random(void);
 static t_tmp	try_create_tmp(char *path);
 
 /**
- * @brief Create a tmp file, verify if it already exist, 
+ * @brief Create a tmp file, verify if it already exist,
  * tries to open it to verify permissions, and returns the result
- * 
+ *
  * @param path path where to create the file
  * @param nbr_try number of try to create a tmp file
  * @return t_tmp structure with the path+name of created name
@@ -58,7 +58,7 @@ t_tmp	create_tmp(char *path, int nbr_try)
 
 /**
  * @brief Try to generate a name of a temporary file
- * 
+ *
  * @param path path where to create the file
  * @return t_tmp structure with the path+name of created name
  */
@@ -90,7 +90,7 @@ static t_tmp	try_create_tmp(char *path)
 
 /**
  * @brief Generator of random string of numbers
- * 
+ *
  * @return char* array of digits
  */
 static char	*ft_random(void)

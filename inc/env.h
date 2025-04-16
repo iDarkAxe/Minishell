@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/14 13:03:51 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/04/14 13:06:02 by lud-adam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ENV_H
+# define ENV_H
+
+# include <stddef.h>
+# include "minishell.h"
+
+typedef struct s_var		t_var;
+typedef struct s_env_vars	t_env_vars;
+typedef struct s_params		t_params;
+
+struct s_env_vars
+{
+	t_var	*head_var;
+	size_t	count;
+};
+
+struct s_var
+{
+	t_var		*next;
+	char		*value;
+	t_params	*head_params;
+	size_t		count;
+};
+
+struct s_params
+{
+	t_params	*next;
+	char		*value;
+};
+
+size_t		ft_strlen_choose_c(const char *str, char c);
+t_env_vars	get_env(char *envp[]);
+
+# endif
+

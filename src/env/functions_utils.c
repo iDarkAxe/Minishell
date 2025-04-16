@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtins.c                                         :+:      :+:    :+:   */
+/*   functions_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 16:55:10 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/03/26 16:20:08 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/04/14 13:03:19 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "pipex.h"
+#include <stddef.h>
 
-int	main(int argc, char *argv[], char *envp[])
+size_t	ft_strlen_choose_c(const char *str, char c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < argc - 3)
-	{
-		exec(argc, argv, envp);
+	if (!str)
+		return (0);
+	while (str[i] && str[i] != c)
 		i++;
-	}
-	return (0);
+	return (i);
 }

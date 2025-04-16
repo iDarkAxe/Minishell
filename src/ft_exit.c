@@ -16,7 +16,7 @@
 
 /**
  * @brief Verify that the argument of exit are acceptable
- * 
+ *
  * @param str argument of the exit function
  * @return int negative if invalid, otherwise it's valid
  */
@@ -48,7 +48,7 @@ static int	verif_args(char *str)
 
 /**
  * @brief Function to exit the program
- * 
+ *
  * @param str argument of the exit function
  * @return int value if argument invalid
  */
@@ -74,7 +74,7 @@ int	ft_exit(char *str)
 // #include <stdio.h>
 
 // /*
-// Génère des allocations qui sont attrapées par le garbage collector, 
+// Génère des allocations qui sont attrapées par le garbage collector,
 // il ne devrait pas y a voir de leak.
 // */
 

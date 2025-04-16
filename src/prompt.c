@@ -42,7 +42,7 @@ static size_t	ft_strlen_and_choose_c(char *str, char c)
 
 /**
  * @brief Get the hostname
- * 
+ *
  * @return char* hostname
  */
 static char	*get_hostname(void)
@@ -75,7 +75,7 @@ static char	*get_hostname(void)
 
 /**
  * @brief Joins and adds the path to prompt
- * 
+ *
  * @param array element in the prompts
  * @return char* final prompt
  */
@@ -104,7 +104,7 @@ static char	*make_prompt(char **array)
 /**
  * @brief Build the prompt message
  * If an error occurs, returns the defaut prompt message
- * 
+ *
  * @return char* prompt message
  */
 char	*get_prompt_message(void)

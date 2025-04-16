@@ -19,18 +19,14 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 # Source directories
 P_SRC = src/
 P_GARBAGE = garbage/
-
+P_ENV = env/
 P_PIPEX = pipex/src/
-
 P_TESTS = tests/
 P_TESTS_SRC = $(P_TESTS)src/
 P_TESTS_PARSING = parsing_quotes_double/
-
 P_OBJ = .obj/
 P_TESTS_OBJS = $(P_TESTS).obj/
-
 P_INC = inc/
-
 P_INCS = \
 	$(P_INC) \
 	$(P_LIBFT)inc/ \
@@ -49,8 +45,9 @@ P_LIB_PIPEX = pipex/lib/
 #############################################################################################
 # Headers
 INC = \
-	minishell.h
-	
+	minishell.h \
+	env.h
+
 # Source files
 SRC = \
 	main.c \
@@ -61,7 +58,7 @@ SRC = \
 	file.c \
 	file_build.c \
 	file_print.c \
-	ft_exit.c \
+	ft_exit.c 
 
 # builtins.c
 
@@ -69,6 +66,10 @@ GARBAGE = \
 	garbage.c \
 	garbage_stack.c \
 	garbage_utils.c
+
+ENV = \
+	get_env.c \
+	functions_utils.c 
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
@@ -85,6 +86,7 @@ PIPEX = $(P_LIB_PIPEX)libpipex.a
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_GARBAGE), $(GARBAGE)) \
+	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

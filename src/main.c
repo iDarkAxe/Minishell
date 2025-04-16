@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/03 17:16:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/14 14:25:25 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <readline/readline.h>
 #include <stdio.h>
 // OTHER
+#include "env.h"
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
@@ -22,26 +23,41 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+void	print_env_vars(t_env_vars *env)
+{
+	t_var		*var;
+	t_params	*param;
+
+	if (!env)
+		return ;
+	var = env->head_var;
+	while (var)
+	{
+		printf("%s=", var->value);
+		param = var->head_params;
+		while (param)
+		{
+			printf("%s", param->value);
+			if (param->next)
+				printf(":");
+			param = param->next;
+		}
+		printf("\n");
+		var = var->next;
+	}
+}
+
 int	main(int argc, char **argv, char **envp)
 {
-	char	*str;
-	char	*prompt;
+	t_env_vars	*env;
 
 	(void)argc;
 	(void)argv;
-	(void)envp;
-	signal_init();
-	prompt = get_prompt_message();
-	if (prompt == NULL)
-	{
-		free_garbage();
-		write(2, "Error creating prompt\n", 22);
-		exit(1);
-	}
-	str = readline(prompt);
-	if (str == NULL)
-		return (-1);
-	add_history(str);
-	add_to_garbage(str);
+	env = get_env(envp);
+	print_env_vars(env);
+	// for (int i = 0; envp[i] != NULL; i++)
+	// 	printf("%s\n", envp[i]);
+	(void)env;
 	free_garbage();
+	return (0);
 }
