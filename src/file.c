@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 17:42:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 10:30:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ t_file	*file_parser(t_file *file)
 		if (file->tmp->fd == -1)
 		{
 			free_element_gb(file->tmp);
-			write(2, "Error: tmp file creation\n", 25);
+			print_fd(2, "Error: tmp file creation\n");
 			return (NULL);
 		}
 		read_heredoc(file->tmp, file->name);
@@ -103,7 +103,7 @@ t_file	*file_parser(t_file *file)
  * each file added is at the beginning of the stack (reverse order)
  *
  * @param command command structure
- * @param index position where a file is detected
+ * @param token token containing str informations
  * @param command_file stack to assign a file
  * @return void* NULL if error, command if no stack given,
 	and file if all's good

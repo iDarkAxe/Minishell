@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/26 13:32:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 10:28:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "minishell.h"
 
 /**
  * @brief Get the garbage object
@@ -54,7 +55,7 @@ void	add_to_garbage(void *ptr)
 	if (temp == NULL)
 	{
 		free_garbage();
-		write(2, "Error of malloc, exiting.\n", 26);
+		print_fd(2, "Error of malloc, exiting.\n");
 		exit(1);
 	}
 	ft_garbageadd_front(garbage, temp);

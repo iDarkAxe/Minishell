@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:10:41 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 16:52:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 10:33:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static t_tmp	try_create_tmp(char *path)
 	name = ft_random();
 	if (name == NULL)
 	{
-		write(2, "Couldn't generate a random\n", 26);
+		print_fd(2, "Couldn't generate a random\n");
 		tmp.fd = -1;
 		return (tmp);
 	}

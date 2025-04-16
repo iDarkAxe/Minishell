@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 16:06:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 17:23:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 10:29:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,14 @@ int	build_files_data(t_command *command)
 	return (0);
 }
 
+/**
+ * @brief Read from stdin and outputs to a file,
+ * stops reading when Ctrl+D or when a delimitor is found
+ *
+ * @param tmp structure for heredocs
+ * @param delimiteur string to know when to stop reading
+ * @return char* tmp->name if successful, NULL otherwise
+ */
 char	*read_heredoc(t_tmp *tmp, char *delimiteur)
 {
 	char	*str;
@@ -92,10 +100,10 @@ char	*read_heredoc(t_tmp *tmp, char *delimiteur)
 			return (NULL);
 		if (ft_strncmp(str, delimiteur, ft_strlen(delimiteur) + 1) == 0)
 			break ;
-		write(tmp->fd, str, ft_strlen(str));
+		print_fd(tmp->fd, str);
 		free(str);
 		str = NULL;
-		write(tmp->fd, "\n", 1);
+		print_fd(tmp->fd, "\n");
 	}
 	if (str != NULL)
 	{
@@ -104,7 +112,7 @@ char	*read_heredoc(t_tmp *tmp, char *delimiteur)
 	}
 	if (close(tmp->fd) == -1)
 	{
-		write(2, "Error closing heredoc file\n", 28);
+		print_fd(2, "Error closing heredoc file\n");
 		return (NULL);
 	}
 	return (tmp->name);

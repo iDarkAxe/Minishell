@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 10:50:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 10:28:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int	main(void)
 	if (tokens == NULL)
 	{
 		free_garbage();
-		write(2, "Error creating tokens\n", 22);
+		print_fd(2, "Error creating tokens\n");
 		exit(1);
 	}
 	command = tokeniser(tokens);
 	if (!command)
 	{
 		free_garbage();
-		write(2, "Error creating command structure\n", 33);
+		print_fd(2, "Error creating command structure\n");
 		exit(1);
 	}
 	print_command(command);
