@@ -14,60 +14,8 @@
 #include "garbage.h"
 #include "minishell.h"
 #include <stddef.h>
-#include <stdlib.h>
-// TAKE OFF
 #include <stdio.h>
-
-t_var	*ft_varlast(t_var *var)
-{
-	while (var)
-	{
-		if (var->next == NULL)
-			return (var);
-		var = var->next;
-	}
-	return (NULL);
-}
-
-void	ft_varsadd_back(t_var **var, t_var *new)
-{
-	t_var	*pt;
-
-	pt = NULL;
-	if (*var == NULL)
-	{
-		*var = new;
-		return ;
-	}
-	pt = ft_varlast(*var);
-	pt->next = new;
-}
-
-t_params	*ft_paramlast(t_params *params)
-{
-	while (params)
-	{
-		if (params->next == NULL)
-			return (params);
-		params = params->next;
-	}
-	return (NULL);
-}
-
-void	ft_paramsadd_back(t_params **params, t_params *new)
-{
-	t_params	*pt;
-
-	pt = NULL;
-	if (*params == NULL)
-	{
-		*params = new;
-		new->next = NULL;
-		return ;
-	}
-	pt = ft_paramlast(*params);
-	pt->next = new;
-}
+#include <stdlib.h>
 
 static char	*get_var(const char *str, size_t *i)
 {
@@ -121,14 +69,12 @@ static t_params	*get_params(const char *str, size_t *i)
 {
 	t_params	*params;
 	t_params	*new_param;
-	int			k;
 
-	k = 0;
 	if (!str)
 		return (NULL);
 	new_param = NULL;
 	params = NULL;
-	while (str[*i] && k < 1000)
+	while (str[*i])
 	{
 		new_param = get_sub_params(str, i);
 		new_param->next = NULL;
@@ -137,9 +83,34 @@ static t_params	*get_params(const char *str, size_t *i)
 		ft_paramsadd_back(&params, new_param);
 		if (str[*i] == ':')
 			(*i)++;
-		k++;
 	}
 	return (params);
+}
+
+t_var	*fill_var(char *envp[], size_t *i)
+{
+	size_t	j;
+	t_var	*new;
+
+	j = 0;
+	new = malloc_gb(sizeof(t_var));
+	if (!new)
+		return (NULL);
+	new->next = NULL;
+	new->value = get_var(envp[*i], &j);
+	if (!new->value)
+	{
+		free_element_gb(new);
+		return (NULL);
+	}
+	j++;
+	new->head_params = get_params(envp[*i], &j);
+	if (!new->head_params)
+	{
+		free_element_gb(new->value);
+		free_element_gb(new);
+	}
+	return (new);
 }
 
 t_env_vars	*get_env(char *envp[])
@@ -147,52 +118,18 @@ t_env_vars	*get_env(char *envp[])
 	t_env_vars	*env;
 	t_var		*new;
 	size_t		i;
-	size_t		j;
-	size_t		count;
 
 	env = malloc_gb(sizeof(t_env_vars));
 	if (!env)
 		return (NULL);
 	i = 0;
-	j = 0;
-	count = 0;
 	while (envp[i] != NULL)
 	{
-		j = 0;
-		new = malloc_gb(sizeof(t_var));
+		new = fill_var(envp, &i);
 		if (!new)
 			return (NULL);
-		new->next = NULL;
-		new->value = get_var(envp[i], &j);
-		// printf("%s", new->value);
-		if (!new->value)
-		{
-			free_element_gb(new);
-			return (NULL);
-		}
-		j++;
-		new->count = count++;
-		new->head_params = get_params(envp[i], &j);
-		if (!new->head_params)
-		{
-			free_element_gb(new->value);
-			free_element_gb(new);
-			continue ;
-		}
 		ft_varsadd_back(&env->head_var, new);
 		i++;
-		// if (envp[i] == NULL)
-		// 	return (env);
-		// t_params	*head;
-		//
-		// head = new->head_params;
-		// printf("%s=", new->value);
-		// while (head != NULL)
-		// {
-		// 	printf("%s", head->value);
-		// 	head = head->next;
-		// }
-		// printf("\n\n\n");
 	}
 	return (env);
 }
