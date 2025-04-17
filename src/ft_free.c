@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 18:04:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/17 09:12:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "minishell.h"
+#include "file.h"
 
 void	free_command(t_command *command)
 {
@@ -40,8 +41,8 @@ void	free_char_tokens(char **tokens)
 	index = 0;
 	while (tokens && tokens[index])
 	{
-		free_element_gb(tokens[index]);
 		tokens[index] = NULL;
+		free_element_gb(tokens[index]);
 		index++;
 	}
 	free_element_gb(tokens);
@@ -61,6 +62,7 @@ void	free_tokens(t_token *token)
 			temp->str = NULL;
 		}
 		next = temp->next;
+		temp = NULL;
 		free_element_gb(temp);
 		temp = next;
 	}
@@ -86,6 +88,7 @@ void	free_files_struct(t_file *file)
 			temp->name = NULL;
 		}
 		next = temp->next;
+		temp = NULL;
 		free_element_gb(temp);
 		temp = next;
 	}
@@ -102,4 +105,5 @@ void	free_heredoc(t_tmp *tmp)
 		free_element_gb(tmp->name);
 	}
 	free_element_gb(tmp);
+	tmp = NULL;
 }

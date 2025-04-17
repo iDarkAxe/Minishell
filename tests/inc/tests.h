@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:21:59 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/11 11:21:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/17 10:17:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ void	file_tests(void);
 void	testing_file_name(void);
 void	testing_file_perms_1(void);
 void	testing_file_perms_2(void);
+void	random_file_name_creation(void);
+void	creating_heredoc(void);
+void	creating_heredoc_ctrl_d(void);
 // TearDown
 void	tear_down_files(void);
 

@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 17:58:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/17 09:08:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <readline/readline.h>
 #include <stdlib.h>
+#include "file.h"
 
 // static void	heredoc_error(const char *delimitor);
 

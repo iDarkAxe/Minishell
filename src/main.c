@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 18:02:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/17 09:08:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include "pipex.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include "file.h"
 
 void	files_management(t_command *command);
 
