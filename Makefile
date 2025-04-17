@@ -22,6 +22,7 @@ P_GARBAGE = garbage/
 P_LEXER = lexer/
 P_PARSING = parsing/
 P_FILE = file/
+P_BUILTINS = builtins/
 P_ENV = env/
 P_PIPEX = pipex/src/
 P_TESTS = tests/
@@ -57,7 +58,6 @@ SRC = \
 	main.c \
 	prompt.c \
 	signals.c \
-	ft_exit.c \
 	command-utils.c \
 	ft_print_fd.c \
 	ft_free.c \
@@ -76,7 +76,6 @@ LEXER = \
 
 PARSING = \
 	parsing_quotes_double.c \
-	ft_split_charset.c \
 
 FILE = \
 	file.c \
@@ -84,6 +83,10 @@ FILE = \
 	file_print.c \
 	heredoc.c \
 	tmp_generator.c \
+
+BUILTINS = \
+	ft_exit.c \
+	ft_echo.c \
 
 ENV = \
 	get_env.c \
@@ -108,6 +111,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_LEXER), $(LEXER)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
+	$(addprefix $(P_SRC)$(P_BUILTINS), $(BUILTINS)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 
 # List of object files (redirect to P_OBJ)

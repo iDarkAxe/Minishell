@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:44:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:47:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void							free_tokens(t_token *token);
 
 // Built-ins
 int								ft_exit(char **array);
+int								ft_echo(char **array, char delimitor);
 
 // DEBUGGING Functions
 void							print_list_files(t_command *command);
