@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 16:06:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 17:53:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/17 09:08:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
+#include "file.h"
 
 static int	build_file_data(t_command *command);
 

@@ -67,7 +67,8 @@ PARSING = \
 
 FILE = \
 	testing_file.c \
-	tests_file.c
+	tests_file.c \
+	tests_heredoc.c \
 
 LEXER = \
 	testing_lexer.c

@@ -10,7 +10,7 @@ NAME = minishell
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak -Wno-suggest-override -Wno-suggest-destructor-override
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -21,6 +21,7 @@ P_SRC = src/
 P_GARBAGE = garbage/
 P_LEXER = lexer/
 P_PARSING = parsing/
+P_FILE = file/
 P_ENV = env/
 P_PIPEX = pipex/src/
 P_TESTS = tests/
@@ -47,6 +48,8 @@ P_LIB_PIPEX = pipex/lib/
 # Headers
 INC = \
 	minishell.h \
+	garbage.h \
+	file.h \
 	env.h
 
 # Source files
@@ -54,17 +57,10 @@ SRC = \
 	main.c \
 	prompt.c \
 	signals.c \
-	parsing_quotes_double.c \
-	tmp_generator.c \
-	file.c \
-	file_build.c \
-	file_print.c \
 	ft_exit.c \
-	tokens.c \
 	command-utils.c \
 	ft_print_fd.c \
 	ft_free.c \
-	heredoc.c \
 
 # builtins.c
 
@@ -75,10 +71,19 @@ GARBAGE = \
 
 LEXER = \
 	lexer.c \
-	lexer-utils.c
+	lexer-utils.c \
+	tokens.c \
 
 PARSING = \
+	parsing_quotes_double.c \
 	ft_split_charset.c \
+
+FILE = \
+	file.c \
+	file_build.c \
+	file_print.c \
+	heredoc.c \
+	tmp_generator.c \
 
 ENV = \
 	get_env.c \
@@ -102,6 +107,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_GARBAGE), $(GARBAGE)) \
 	$(addprefix $(P_SRC)$(P_LEXER), $(LEXER)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
+	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 
 # List of object files (redirect to P_OBJ)
@@ -113,7 +119,8 @@ DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
 
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
-		$(P_LIBFT)inc/libft.h
+		$(P_LIBFT)inc/libft.h \
+		$(P_PIPEX)include/pipex.h
 		
 #############################################################################################
 #                                                                                           #

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:10:41 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 10:33:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:46:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "minishell.h"
 #include <fcntl.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include "file.h"
 
 static char		*ft_random(void);
 static t_tmp	try_create_tmp(char *path);
@@ -119,25 +119,3 @@ static char	*ft_random(void)
 	add_to_garbage(random_str);
 	return (random_str);
 }
-
-// #include <stdio.h>
-// #include <stdlib.h>
-
-// int	main(void)
-// {
-// 	t_tmp	tmp;
-
-// 	tmp = create_tmp(TMP_PATH, 12);
-// 	if (tmp.fd == -1 || tmp.name == NULL)
-// 	{
-// 		printf("ERROR here");
-// 		if (tmp.name != NULL)
-// 			free(tmp.name);
-// 		return (-1);
-// 	}
-// 	printf("pathname is %s\n", tmp.name);
-// 	printf("Result %d\n", tmp.fd);
-// 	close(tmp.fd);
-// 	unlink(tmp.name);
-// 	free_element_gb(tmp.name);
-// }

@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:29:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:40:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:45:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <stdio.h>
+#include "file.h"
 
 void	print_list_files(t_command *command);
 void	print_perm_files(t_command *command);
