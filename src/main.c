@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:45:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:48:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <readline/readline.h>
 #include <stdio.h>
 // OTHER
+#include "file.h"
 #include "env.h"
 #include "garbage.h"
 #include "libft.h"
@@ -22,13 +23,8 @@
 #include "pipex.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include "file.h"
-
-void	files_management(t_command *command);
 
 int		minishell(int argc, char **argv, char **envp);
-void	free_command(t_command *command);
-void	free_char_tokens(char **tokens);
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -39,7 +35,7 @@ int	main(int argc, char **argv, char **envp)
 	(void)argc;
 	(void)argv;
 	(void)envp;
-	line = "cat \"'my file.txt'\" < infile << eof >> outfile | gr\"ep\" hello \
+	line = "cat \"'my file.txt'\" < infile >> outfile | gr\"ep\" hello \
 	>> 		out.txt |grep \"test\" > file";
 	tokens = lexer(line);
 	if (tokens == NULL)
@@ -49,26 +45,11 @@ int	main(int argc, char **argv, char **envp)
 		ft_exit((char *[]){"1", NULL});
 	print_command(command);
 	files_management(command);
+	print_command(command);
 	free_char_tokens(tokens);
 	free_command(command);
 	free_garbage();
 	return (0);
-}
-
-void	files_management(t_command *command)
-{
-	if (build_files_redirection(command) != 0)
-	{
-		free_garbage();
-		print_fd(2, "Error creating file structure\n");
-		ft_exit((char *[]){"1", NULL});
-	}
-	if (build_files_data(command) != 0)
-	{
-		free_garbage();
-		print_fd(2, "Error creating file data\n");
-		ft_exit((char *[]){"1", NULL});
-	}
 }
 
 /**

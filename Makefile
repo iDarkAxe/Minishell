@@ -83,6 +83,8 @@ FILE = \
 	file_print.c \
 	heredoc.c \
 	tmp_generator.c \
+	ft_file_tokens.c \
+	file-general.c \
 
 BUILTINS = \
 	ft_exit.c \
