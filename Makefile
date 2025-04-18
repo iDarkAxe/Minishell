@@ -62,6 +62,8 @@ SRC = \
 	command-utils.c \
 	ft_print_fd.c \
 	ft_free.c \
+	exec.c \
+	minishell.c \
 
 # builtins.c
 

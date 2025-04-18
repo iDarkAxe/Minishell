@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 15:14:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 14:48:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ struct							s_command
 	struct s_command			*next;
 	t_token						*tokens;
 	char						*content;
+	char						**envp;
 	char						*command;
 	t_file						*file_in;
 	t_file						*file_out;
@@ -89,6 +90,8 @@ struct							s_token
 	struct s_token				*next;
 };
 
+int								minishell(char **envp);
+
 int								signal_init(void);
 char							*get_prompt_message(void);
 
@@ -100,7 +103,7 @@ char							*ft_substr_end(char const *src,
 									unsigned int start, size_t end);
 int								is_operator_char(char c);
 char							**lexer(const char *line);
-t_command						*tokeniser(char **tokens);
+t_command						*tokeniser(char **tokens, char **envp);
 
 // Utils for manage memory
 void							free_char_tokens(char **tokens);
