@@ -6,42 +6,18 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:48:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:51:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-// READLINE
-#include <readline/history.h>
-#include <readline/readline.h>
-#include <stdio.h>
-// OTHER
-#include "file.h"
-#include "env.h"
-#include "garbage.h"
-#include "libft.h"
 #include "minishell.h"
-#include "pipex.h"
-#include <stdlib.h>
-#include <unistd.h>
-
-int		minishell(int argc, char **argv, char **envp);
+#include "garbage.h"
 
 int	main(int argc, char **argv, char **envp)
 {
-	char		*line;
-	char		**tokens;
-	t_command	*command;
-
 	(void)argc;
 	(void)argv;
-	(void)envp;
-	line = "cat \"'my file.txt'\" < infile >> outfile | gr\"ep\" hello \
-	>> 		out.txt |grep \"test\" > file";
-	tokens = lexer(line);
-	if (tokens == NULL)
-		ft_exit((char *[]){"1", NULL});
-	command = tokeniser(tokens);
-	if (!command)
+	if (minishell(envp) != 0)
 		ft_exit((char *[]){"1", NULL});
 	print_command(command);
 	files_management(command);
@@ -108,6 +84,5 @@ int	minishell(int argc, char **argv, char **envp)
 		}
 	}
 	free_garbage();
-	return (0);
 	return (0);
 }

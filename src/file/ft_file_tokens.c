@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 16:24:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 14:46:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		free_token(t_token *token);
 /**
  * @brief Removes all the tokens of file redirections allready used
  * 
- * @param command 
+ * @param command command structure
  * @return t_command* 
  */
 t_command	*remove_used_file_tokens(t_command *command)
@@ -40,6 +40,12 @@ t_command	*remove_used_file_tokens(t_command *command)
 	return (command);
 }
 
+/**
+ * @brief Clean all tokens that are redirections
+ * 
+ * @param head head of tokens
+ * @return t_token* 
+ */
 static t_token	*clean_tokens(t_token *head)
 {
 	t_token	*token;
@@ -69,12 +75,23 @@ static t_token	*clean_tokens(t_token *head)
 	return (head);
 }
 
+/**
+ * @brief Check if str contain redirections signs
+ * 
+ * @param str string to compare with redirections signs
+ * @return int 
+ */
 static int	is_redirection(char *str)
 {
 	return (!ft_strncmp(str, "<", 2) || !ft_strncmp(str, ">", 2)
 		|| !ft_strncmp(str, "<<", 3) || !ft_strncmp(str, ">>", 3));
 }
 
+/**
+ * @brief Free tokens of redirection with it's name
+ *
+ * @param token redirection sign token
+ */
 static void	free_token(t_token *token)
 {
 	if (token && token->str)

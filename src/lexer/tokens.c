@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 10:48:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 13:50:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #include "minishell.h"
 
 static t_token		*create_token(void);
-static t_command	*create_command(void);
+static t_command	*create_command(char **envp);
 static t_token		*iterate_token(char *str, t_token **token);
 static t_command	*iterate_command(char *str, t_token **token,
 						t_command **current);
 
-t_command	*tokeniser(char **tokens)
+t_command	*tokeniser(char **tokens, char **envp)
 {
 	t_command	*command;
 	t_command	*current;
 	t_token		*token;
 	size_t		index;
 
-	command = create_command();
+	command = create_command(envp);
 	if (command == NULL)
 		return (NULL);
 	current = command;
@@ -55,7 +55,7 @@ static t_token	*create_token(void)
 	return (token);
 }
 
-static t_command	*create_command(void)
+static t_command	*create_command(char **envp)
 {
 	t_command	*command;
 
@@ -69,6 +69,7 @@ static t_command	*create_command(void)
 		free_element_gb(command);
 		return (NULL);
 	}
+	command->envp = envp;
 	return (command);
 }
 
@@ -92,7 +93,7 @@ static t_command	*iterate_command(char *str, t_token **token,
 {
 	if (str && ft_strncmp(str, "|", 1) == 0)
 	{
-		(*current)->next = create_command();
+		(*current)->next = create_command((*current)->envp);
 		if ((*current)->next == NULL)
 			return (NULL);
 		(*current) = (*current)->next;
