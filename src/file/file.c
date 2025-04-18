@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 09:07:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/17 16:31:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ char	*ft_trim_word(char *str)
 
 /* FIXME Parsing à appliquer ici, et ne fonctionne pas pour les here-doc
 pour les outfiles en mode append */
+/* TODO verifier que supprimer les tokens de file ne supprime pas les noms 
+des fichiers */
+// TODO Verifier que l'ordre des here-docs est bon
+
 /**
  * @brief Parse the file structure
  *

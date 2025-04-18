@@ -1,0 +1,88 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_file_tokens.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
+/*   Updated: 2025/04/17 16:24:09 by ppontet          ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "file.h"
+#include "garbage.h"
+#include "minishell.h"
+
+t_command		*remove_used_file_tokens(t_command *command);
+static t_token	*clean_tokens(t_token *head);
+static int		is_redirection(char *str);
+static void		free_token(t_token *token);
+
+/**
+ * @brief Removes all the tokens of file redirections allready used
+ * 
+ * @param command 
+ * @return t_command* 
+ */
+t_command	*remove_used_file_tokens(t_command *command)
+{
+	t_command	*current;
+
+	current = command;
+	while (current)
+	{
+		current->tokens = clean_tokens(current->tokens);
+		if (current->tokens == NULL)
+			return (NULL);
+		current = current->next;
+	}
+	return (command);
+}
+
+static t_token	*clean_tokens(t_token *head)
+{
+	t_token	*token;
+	t_token	*prev;
+	t_token	*next;
+
+	token = head;
+	prev = NULL;
+	while (token && token->next)
+	{
+		if (is_redirection(token->str))
+		{
+			next = token->next->next;
+			free_token(token);
+			if (prev)
+				prev->next = next;
+			else
+				head = next;
+			token = next;
+		}
+		else
+		{
+			prev = token;
+			token = token->next;
+		}
+	}
+	return (head);
+}
+
+static int	is_redirection(char *str)
+{
+	return (!ft_strncmp(str, "<", 2) || !ft_strncmp(str, ">", 2)
+		|| !ft_strncmp(str, "<<", 3) || !ft_strncmp(str, ">>", 3));
+}
+
+static void	free_token(t_token *token)
+{
+	if (token && token->str)
+		free_element_gb(token->str);
+	if (token && token->next && token->next->str)
+		free_element_gb(token->next->str);
+	if (token && token->next)
+		free_element_gb(token->next);
+	if (token)
+		free_element_gb(token);
+}
