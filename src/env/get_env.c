@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/15 11:58:34 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:49:57 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 static char	*get_var(const char *str, size_t *i)
 {
@@ -83,6 +84,15 @@ static t_params	*get_params(const char *str, size_t *i)
 		ft_paramsadd_back(&params, new_param);
 		if (str[*i] == ':')
 			(*i)++;
+	}
+	if (str[*i - 1] == ':' && str[*i] == '\0')
+	{
+		new_param = get_sub_params(str, i);
+		new_param->next = NULL;
+		if (!new_param)
+			return (NULL);
+		ft_paramsadd_back(&params, new_param);
+
 	}
 	return (params);
 }

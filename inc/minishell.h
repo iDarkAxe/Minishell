@@ -20,13 +20,11 @@
 # define TMP_PATH "/tmp/"
 
 # include "libft.h"
+# include <stddef.h>
 
 typedef struct s_tmp		t_tmp;
 typedef struct s_file		t_file;
 typedef struct s_command	t_command;
-typedef struct s_var		t_var;
-typedef struct s_env_vars	t_env_vars;
-typedef struct s_params		t_params;
 
 // typedef enum e_file_state	t_file_state;
 
@@ -36,13 +34,13 @@ enum						e_file_state
 	FILE_OUT = 1
 };
 
-struct						s_tmp
+typedef struct s_tmp
 {
 	char					*name;
 	int						fd;
-};
+}							t_tmp;
 
-struct						s_file
+typedef struct s_file
 {
 	t_file					*next;
 	char					*name;
@@ -51,9 +49,9 @@ struct						s_file
 	t_bool					perm_read;
 	t_bool					perm_write;
 	t_bool					is_heredoc;
-};
+}							t_file;
 
-struct						s_command
+typedef struct s_command
 {
 	char					*content;
 	char					*command;
@@ -61,27 +59,7 @@ struct						s_command
 	t_file					*file_out;
 	t_bool					is_parsed;
 	t_bool					is_executed;
-};
-
-struct						s_env_vars
-{
-	t_var					*head_var;
-	size_t					count;
-};
-
-struct						s_var
-{
-	t_var					*next;
-	char					*value;
-	t_params				*head_params;
-	size_t					count;
-};
-
-struct						s_params
-{
-	t_params				*next;
-	char					*value;
-};
+}							t_command;
 
 int							signal_init(void);
 char						*get_prompt_message(void);
