@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 15:26:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 10:59:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ static char	handle_options(char **array, size_t *index)
 // #include "garbage.h"
 // #include "libft.h"
 // #include "minishell.h"
-// #include "pipex.h"
 // #include <stdlib.h>
 // #include <unistd.h>
 // #include "file.h"
