@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 15:26:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 11:19:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,13 @@ static char	handle_options(char **array, size_t *index)
 	opt_not_found = 1;
 	while (array != NULL && array[j] != NULL)
 	{
-		if (ft_strncmp("-n", array[j], 2) == 0
-			&& is_all_same_letter(&array[j][1], 'n') == 1)
+		if (array[j][0] == '-' && is_all_same_letter(&array[j][1], 'n') == 1)
 		{
 			opt_not_found = 0;
 			*index = j + 1;
 		}
+		else
+			break ;
 		j++;
 	}
 	return (opt_not_found);
@@ -106,7 +107,6 @@ static char	handle_options(char **array, size_t *index)
 // #include "garbage.h"
 // #include "libft.h"
 // #include "minishell.h"
-// #include "pipex.h"
 // #include <stdlib.h>
 // #include <unistd.h>
 // #include "file.h"
