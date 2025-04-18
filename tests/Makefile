@@ -74,7 +74,7 @@ LEXER = \
 	testing_lexer.c
 
 FT_EXIT = \
-	testing_ft_exit.c
+# testing_ft_exit.c
 
 UNITY_SRC = \
 	unity.c
