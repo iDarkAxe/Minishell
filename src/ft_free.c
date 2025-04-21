@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 09:12:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/21 14:04:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	free_char_tokens(char **tokens)
 	index = 0;
 	while (tokens && tokens[index])
 	{
-		tokens[index] = NULL;
 		free_element_gb(tokens[index]);
+		tokens[index] = NULL;
 		index++;
 	}
 	free_element_gb(tokens);
@@ -62,8 +62,8 @@ void	free_tokens(t_token *token)
 			temp->str = NULL;
 		}
 		next = temp->next;
-		temp = NULL;
 		free_element_gb(temp);
+		temp = NULL;
 		temp = next;
 	}
 	free_element_gb(token);

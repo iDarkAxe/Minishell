@@ -83,6 +83,7 @@ FILE = \
 	file.c \
 	file_build.c \
 	file_print.c \
+	file_verify_access.c \
 	heredoc.c \
 	tmp_generator.c \
 	ft_file_tokens.c \

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 16:35:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/21 14:29:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include "file.h"
 #include <stdlib.h>
 
-void	files_management(t_command *command)
+int verify_access(t_command *command);
+
+int	files_management(t_command *command)
 {
 	if (build_files_redirection(command) != 0)
 	{
@@ -35,4 +37,7 @@ void	files_management(t_command *command)
 		print_fd(2, "Error removing file tokens\n");
 		ft_exit((char *[]){"1", NULL});
 	}
+	if (verify_access(command) != 0)
+		return (1);
+	return (0);
 }

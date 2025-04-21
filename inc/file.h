@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 16:34:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/21 11:48:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ struct							s_file
 	t_bool						is_append;
 };
 
-void							files_management(t_command *command);
+int							files_management(t_command *command);
 
 // File Management
 int								build_files_redirection(t_command *command);

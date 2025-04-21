@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:48:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:51:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ struct							s_command
 	char						*content;
 	char						**envp;
 	char						*command;
+	t_bool						file_error;
 	t_file						*file_in;
 	t_file						*file_out;
 	t_bool						is_parsed;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/18 14:51:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/21 14:25:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,36 @@ int	not_builtins(t_command *command, char **tokens);
  */
 int	not_builtins(t_command *command, char **tokens)
 {
-	int		pid;
+	// int		pid;
 	char	*path;
 
+	(void)command;
 	path = ft_strjoin("/usr/bin/", tokens[0]);
 	if (path == NULL)
 		ft_exit((char *[]){"1", NULL});
 	add_to_garbage(path);
-	pid = fork();
-	if (pid == 0)
+	if (tokens == NULL || tokens[0] == NULL)
 	{
-		execve(path, tokens, command->envp);
-		perror("execve");
-		ft_exit((char *[]){"1", NULL});
+		print_fd(2, "TOKENS VIDES");
+		return (1);
 	}
+	size_t index;
+
+	index = 0;
+	while (tokens[index] != NULL)
+	{
+		printf("tok%zu : %s\n", index, tokens[index]);
+		index++;
+	}
+	// pid = fork();
+	// if (pid == 0)
+	// {
+	// 	execve(path, tokens, command->envp);
+	// 	perror("execve");
+	// 	ft_exit((char *[]){"1", NULL});
+	// }
 	free_element_gb(path);
-	wait(NULL);
+	// wait(NULL);
 	return (0);
 }
 
@@ -57,13 +71,23 @@ int	not_builtins(t_command *command, char **tokens)
  */
 int	search_command(t_command *command, char **tokens)
 {
+	t_command *current;
+
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);
-	if (ft_strncmp(command->tokens->str, "echo", 4) == 0)
-		ft_echo(&tokens[1], ' ');
-	else if (ft_strncmp(command->tokens->str, "exit", 4) == 0)
-		ft_exit(&tokens[1]);
-	else
-		not_builtins(command, tokens);
+	current = command;
+	while (current != NULL)
+	{
+		print_command(current);
+		if (current->file_error == 1)
+			break ;
+		if (ft_strncmp(current->tokens->str, "echo", 4) == 0)
+			ft_echo(&tokens[1], ' ');
+		else if (ft_strncmp(current->tokens->str, "exit", 4) == 0)
+			ft_exit(&tokens[1]);
+		else
+			not_builtins(current, tokens);
+		current = current->next;
+	}
 	return (0);
 }
