@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/18 11:49:57 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:33:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+t_var			*fill_var(char *envp[], size_t *i);
 
 static char	*get_var(const char *str, size_t *i)
 {
@@ -63,6 +65,7 @@ static t_params	*get_sub_params(const char *str, size_t *i)
 		j++;
 	}
 	params->value[j] = '\0';
+	params->next = NULL;
 	return (params);
 }
 
@@ -78,7 +81,6 @@ static t_params	*get_params(const char *str, size_t *i)
 	while (str[*i])
 	{
 		new_param = get_sub_params(str, i);
-		new_param->next = NULL;
 		if (!new_param)
 			return (NULL);
 		ft_paramsadd_back(&params, new_param);
@@ -88,14 +90,14 @@ static t_params	*get_params(const char *str, size_t *i)
 	if (str[*i - 1] == ':' && str[*i] == '\0')
 	{
 		new_param = get_sub_params(str, i);
-		new_param->next = NULL;
 		if (!new_param)
 			return (NULL);
 		ft_paramsadd_back(&params, new_param);
-
 	}
 	return (params);
 }
+
+// TODO: if get_params fail : free segfaults in !new->head_params test
 
 t_var	*fill_var(char *envp[], size_t *i)
 {
@@ -117,8 +119,7 @@ t_var	*fill_var(char *envp[], size_t *i)
 	new->head_params = get_params(envp[*i], &j);
 	if (!new->head_params)
 	{
-		free_element_gb(new->value);
-		free_element_gb(new);
+		return (new);
 	}
 	return (new);
 }
@@ -133,6 +134,7 @@ t_env_vars	*get_env(char *envp[])
 	if (!env)
 		return (NULL);
 	i = 0;
+	env->head_var = NULL;
 	while (envp[i] != NULL)
 	{
 		new = fill_var(envp, &i);

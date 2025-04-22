@@ -69,7 +69,8 @@ GARBAGE = \
 
 ENV = \
 	get_env.c \
-	functions_utils.c 
+	functions_utils.c \
+	functions_utils_env.c 
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/14 14:25:25 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:30:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 #include "pipex.h"
 #include <stdlib.h>
 #include <unistd.h>
+
+void	print_env_vars(t_env_vars *env);
 
 void	print_env_vars(t_env_vars *env)
 {
@@ -47,17 +49,17 @@ void	print_env_vars(t_env_vars *env)
 	}
 }
 
+// for (int i = 0; envp[i] != NULL; i++)
+// 	printf("%s\n", envp[i]);
 int	main(int argc, char **argv, char **envp)
 {
 	t_env_vars	*env;
 
 	(void)argc;
 	(void)argv;
+	(void)env;
 	env = get_env(envp);
 	print_env_vars(env);
-	// for (int i = 0; envp[i] != NULL; i++)
-	// 	printf("%s\n", envp[i]);
-	(void)env;
 	free_garbage();
 	return (0);
 }

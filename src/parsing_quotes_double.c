@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 09:53:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/31 15:32:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:30:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_remove_near_quotes(const char *str, const char character)
 		if (start[len] == character)
 			count_q++;
 		if (count_q % 2 == 0 && start[len] == character && start[len
-			+ 1] == character)
+				+ 1] == character)
 			break ;
 		len += 1;
 	}
