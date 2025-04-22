@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:51:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:58:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,6 @@ struct							s_command
 	t_file						*file_out;
 	t_bool						is_parsed;
 	t_bool						is_executed;
-};
-
-struct							s_env_vars
-{
-	t_var						*head_var;
-	size_t						count;
-};
-
-struct							s_var
-{
-	t_var						*next;
-	char						*value;
-	t_params					*head_params;
-	size_t						count;
-};
-
-struct							s_params
-{
-	t_params					*next;
-	char						*value;
 };
 
 struct							s_lexer_state
