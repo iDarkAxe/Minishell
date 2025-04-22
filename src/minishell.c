@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 11:29:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 14:56:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int	minishell(char **envp)
 		command = tokeniser(tokens, envp);
 		if (!command)
 			ft_exit((char *[]){"1", NULL});
-		print_command(command);
 		if (files_management(command) != 0)
 		{
 			free_char_tokens(tokens);

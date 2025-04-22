@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 11:28:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 14:58:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include <stdio.h>
 #include <sys/wait.h>
 
-int	search_command(t_command *command, char **tokens);
-int	not_builtins(t_command *command, char **tokens);
+int			search_command(t_command *command, char **tokens);
+int			not_builtins(t_command *command, char **tokens);
+static int	search_command_2(t_command *command, char **tokens);
 
 // TODO VERIFIER not_builtins, wait() sans verification
 
@@ -62,6 +63,9 @@ int	not_builtins(t_command *command, char **tokens)
 	return (0);
 }
 
+// TODO chaque commande renvoie un code d'erreur à attraper
+// TODO verifier si on doit executer la commande dans un fork ou pas
+
 /**
  * @brief Search if command is a builtin or not
  *
@@ -85,9 +89,30 @@ int	search_command(t_command *command, char **tokens)
 			ft_echo(&tokens[1], ' ');
 		else if (ft_strncmp(current->tokens->str, "exit", 4) == 0)
 			ft_exit(&tokens[1]);
-		else
+		else if (ft_strncmp(command->tokens->str, "which", 5) == 0)
+			ft_which(&tokens[0]);
+		else if (search_command_2(current, tokens) != 0)
 			not_builtins(current, tokens);
 		current = current->next;
 	}
+	return (0);
+}
+
+static int	search_command_2(t_command *command, char **tokens)
+{
+	if (!command || !command->tokens || !command->tokens->str)
+		return (1);
+	if (ft_strncmp(command->tokens->str, "env", 3) == 0)
+		ft_env(command->envp);
+	else if (ft_strncmp(command->tokens->str, "export", 6) == 0)
+		ft_export(&tokens[1], command->envp);
+	else if (ft_strncmp(command->tokens->str, "unset", 5) == 0)
+		ft_unset(&tokens[1], command->envp);
+	else if (ft_strncmp(command->tokens->str, "cd", 2) == 0)
+		ft_cd(&tokens[1], command->envp);
+	else if (ft_strncmp(command->tokens->str, "pwd", 3) == 0)
+		ft_pwd();
+	else
+		return (1);
 	return (0);
 }

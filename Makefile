@@ -93,6 +93,9 @@ FILE = \
 BUILTINS = \
 	ft_exit.c \
 	ft_echo.c \
+	ft_which.c \
+	ft_cd.c \
+	ft_env.c \
 
 ENV = \
 	get_env.c \

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:51:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:51:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # endif
 
 # include "libft.h"
+
+// TODO : add ft_export
+// TODO : add ft_env
+// TODO : add ft_unset
+// TODO : add ft_cd
+// TODO : add ft_pwd
 # include <stddef.h>
 
 // FROM file.h
@@ -121,6 +127,12 @@ void							free_tokens(t_token *token);
 // Built-ins
 int								ft_exit(char **array);
 int								ft_echo(char **array, char delimitor);
+int								ft_which(char **array);
+int								ft_export(char **array, char **envp);
+int								ft_env(char **envp);
+int								ft_unset(char **array, char **envp);
+int								ft_cd(char **array, char **envp);
+int								ft_pwd(void);
 
 // DEBUGGING Functions
 void							print_list_files(t_command *command);
