@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 14:56:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 17:17:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int	minishell(char **envp)
 		if (files_management(command) != 0)
 		{
 			free_char_tokens(tokens);
-			free_command(command);
 			continue ;
 		}
 		if (search_command(command, tokens) != 0)

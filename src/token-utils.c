@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 11:29:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 17:16:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	**copy_toks(t_command *command)
 	if (token->str != NULL && ft_strncmp(token->str, "|", 2) == 0)
 		token = token->next;
 	fill_toks(token, tokens);
+	add_to_garbage(tokens);
 	return (tokens);
 }
 

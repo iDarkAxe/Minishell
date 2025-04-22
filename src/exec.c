@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 14:58:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 17:16:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,15 @@ int	not_builtins(t_command *command, char **tokens)
 
 	(void)command;
 	(void)pid;
+	if (tokens == NULL || tokens[0] == NULL)
+		return (1);
 	path = ft_strjoin("/usr/bin/", tokens[0]);
 	if (path == NULL)
 		ft_exit((char *[]){"1", NULL});
 	add_to_garbage(path);
-	if (tokens == NULL || tokens[0] == NULL)
-	{
-		print_fd(2, "TOKENS VIDES");
-		return (1);
-	}
 	toks = copy_toks(command);
 	if (toks == NULL)
 		return (-1);
-	add_to_garbage(toks);
-	print_toks(toks);
 	pid = fork();
 	if (pid == 0)
 	{

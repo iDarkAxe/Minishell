@@ -24,6 +24,7 @@ P_PARSING = parsing/
 P_FILE = file/
 P_BUILTINS = builtins/
 P_ENV = env/
+
 P_PIPEX = pipex/src/
 P_TESTS = tests/
 
@@ -51,7 +52,9 @@ INC = \
 	minishell.h \
 	garbage.h \
 	file.h \
-	env.h
+	env.h \
+	garbage.h \
+	file.h
 
 # Source files
 SRC = \
@@ -101,6 +104,31 @@ ENV = \
 	get_env.c \
 	functions_utils.c \
 	functions_utils_env.c 
+
+LEXER = \
+	lexer.c \
+	lexer-utils.c \
+	tokens.c \
+
+PARSING = \
+	parsing_quotes_double.c \
+
+FILE = \
+	file.c \
+	file_build.c \
+	file_print.c \
+	heredoc.c \
+	tmp_generator.c \
+	ft_file_tokens.c \
+	file-general.c \
+	file_verify_access.c \
+
+BUILTINS = \
+	ft_exit.c \
+	ft_echo.c \
+	ft_cd.c \
+	ft_env.c \
+	ft_which.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

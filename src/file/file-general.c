@@ -6,16 +6,18 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 11:28:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 17:17:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "garbage.h"
 #include "file.h"
+#include "garbage.h"
+#include "minishell.h"
 #include <stdlib.h>
 
 int	verify_access(t_command *command);
+
+int	files_management(t_command *command);
 
 int	files_management(t_command *command)
 {
@@ -38,6 +40,9 @@ int	files_management(t_command *command)
 		ft_exit((char *[]){"1", NULL});
 	}
 	if (verify_access(command) != 0)
+	{
+		free_command(command);
 		return (1);
+	}
 	return (0);
 }
