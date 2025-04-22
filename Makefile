@@ -63,6 +63,7 @@ SRC = \
 	ft_free.c \
 	exec.c \
 	minishell.c \
+	token-utils.c \
 
 # builtins.c
 

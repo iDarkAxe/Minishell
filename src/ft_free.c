@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/21 14:04:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 10:39:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	free_heredoc(t_tmp *tmp)
 		close(tmp->fd);
 		unlink(tmp->name);
 		free_element_gb(tmp->name);
+		tmp->name = NULL;
 	}
 	free_element_gb(tmp);
 	tmp = NULL;

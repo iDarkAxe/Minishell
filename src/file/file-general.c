@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/21 14:29:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 11:28:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "file.h"
 #include <stdlib.h>
 
-int verify_access(t_command *command);
+int	verify_access(t_command *command);
 
 int	files_management(t_command *command)
 {

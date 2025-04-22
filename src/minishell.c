@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/21 13:52:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 11:29:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	**parse_line(char *line)
 }
 
 // TODO Files management bloque pas l'exécution si un fichier n'existe pas
-/* TODO Ouvrir les fichiers avec les modes appropriés 
+/* TODO Ouvrir les fichiers avec les modes appropriés
 (READ, Write|Truncate, Append, et heredoc)
 */
 
@@ -104,7 +104,7 @@ int	minishell(char **envp)
 		{
 			free_char_tokens(tokens);
 			free_command(command);
-			continue;
+			continue ;
 		}
 		if (search_command(command, tokens) != 0)
 			ft_exit((char *[]){"1", NULL});

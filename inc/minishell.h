@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:51:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 16:51:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,10 @@ struct							s_token
 };
 
 int								minishell(char **envp);
+
+// Exec
+char							**copy_toks(t_command *command);
+void							print_toks(char **tokens);
 
 int								signal_init(void);
 char							*get_prompt_message(void);

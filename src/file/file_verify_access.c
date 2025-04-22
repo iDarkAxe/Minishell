@@ -6,12 +6,17 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/21 13:59:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/22 11:31:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
 #include "minishell.h"
+
+t_file	*search_last_file(t_file *file, t_file *already_searched);
+int		verify_access(t_command *command);
+int		handle_file(t_command *command);
+int		file_permission_check(t_file *file, t_bool in_out);
 
 t_file	*search_last_file(t_file *file, t_file *already_searched)
 {
@@ -27,13 +32,13 @@ t_file	*search_last_file(t_file *file, t_file *already_searched)
 		prev = temp;
 		temp = temp->next;
 	}
-	if ( file->next == NULL || (prev != NULL && prev->next == already_searched))
+	if (file->next == NULL || (prev != NULL && prev->next == already_searched))
 		return (prev);
 	return (NULL);
 }
 
 /**
- * @brief Print the right permission error 
+ * @brief Print the right permission error
  *
  * @param in_out 1 = IN, 0 = OUT
  */
@@ -62,7 +67,7 @@ int	file_permission_check(t_file *file, t_bool in_out)
 int	handle_file(t_command *command)
 {
 	t_file	*cur_file;
-	t_file *last_file;
+	t_file	*last_file;
 
 	last_file = NULL;
 	cur_file = command->file_in;
@@ -84,8 +89,6 @@ int	handle_file(t_command *command)
 	}
 	return (0);
 }
-
-#include <stdio.h>
 
 int	verify_access(t_command *command)
 {
