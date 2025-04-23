@@ -42,6 +42,7 @@ P_LIB = lib/
 P_LIBFT = libft/
 P_PIPEX = pipex/
 P_LIB_PIPEX = pipex/lib/
+P_GET_NEXT_LINE = get_next_line/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -67,6 +68,7 @@ SRC = \
 	exec.c \
 	minishell.c \
 	token-utils.c \
+	read_context.c \
 
 # builtins.c
 
@@ -133,10 +135,12 @@ BUILTINS = \
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
+	-L$(P_GET_NEXT_LINE) -lgnl \
 	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a
 PIPEX = $(P_LIB_PIPEX)libpipex.a
+GET_NEXT_LINE = $(P_GET_NEXT_LINE)get_next_line.a
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -172,8 +176,8 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -o $(NAME) $(OBJS) $(LIBS); then \
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -o $(NAME) $(OBJS) $(LIBS); then \
 		echo "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -182,7 +186,7 @@ $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -c $< -o $@; then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -c $< -o $@; then \
 		echo "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -195,6 +199,9 @@ $(LIBFT): force
 
 $(PIPEX): force
 	@$(MAKE) -C $(P_PIPEX)
+
+$(GET_NEXT_LINE): force
+	@$(MAKE) -C $(P_GET_NEXT_LINE)
 
 $(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 	@mkdir -p $(dir $@)
@@ -219,6 +226,7 @@ clean-lib:
 	rm -rfd $(P_LIB)
 	@$(MAKE) -C $(P_LIBFT) fclean
 	@$(MAKE) -C $(P_PIPEX) fclean
+	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
 	@$(MAKE) -C tests fclean
 
 clean-bin:

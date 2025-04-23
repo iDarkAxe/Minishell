@@ -6,27 +6,27 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/23 15:11:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 16:40:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft.h"
-#include <stdio.h>
 #include "garbage.h"
+#include "libft.h"
+#include "minishell.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-static char *handle_home_path(char *path);
-static int check_args(char **array);
+static char	*handle_home_path(char *path);
+static int	check_args(char **array);
 
 // TODO if env -i : `~` doesn't work
 // TODO should update OLDPWD and PWD
 
 int	ft_cd(char **array)
 {
-	int	ret;
-	char *path;
+	int		ret;
+	char	*path;
 
 	ret = check_args(array);
 	if (ret == 0)
@@ -91,8 +91,8 @@ static char	*handle_home_path(char *path)
 
 /**
  * @brief Print the current working directory
- * 
- * @return int 
+ *
+ * @return int
  */
 int	ft_pwd(char **array)
 {

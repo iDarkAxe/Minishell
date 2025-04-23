@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:17:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 16:45:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int	minishell(char **envp)
 	char		*line;
 	char		**tokens;
 
-	if (signal_init() != 0)
-		return (1);
+	signal_init();
+	read_context(envp);
 	while (1)
 	{
 		line = read_stdin();
