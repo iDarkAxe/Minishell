@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:03:51 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/14 13:06:02 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:43:39 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,16 @@ struct						s_params
 };
 
 // Utils
-size_t						ft_strlen_choose_c(const char *str, char c);
-t_var						*ft_varlast(t_var *var);
-void						ft_varsadd_back(t_var **var, t_var *new);
-t_params					*ft_paramlast(t_params *params);
-void						ft_paramsadd_back(t_params **params, t_params *new);
+size_t		ft_strlen_choose_c(const char *str, char c);
+int			ft_strcmp(const char *s1, const char *s2);
+t_var		*ft_varlast(t_var *var);
+void		ft_varsadd_back(t_var **var, t_var *new);
+t_params	*ft_paramlast(t_params *params);
+void		ft_paramsadd_back(t_params **params, t_params *new);
 
-t_env_vars					*get_env(char *envp[]);
+t_env_vars	*get_env(char *envp[]);
+t_env_vars	*copy_env(t_env_vars *env);
+size_t		count_env(t_env_vars env);
+t_var		*swap_vars(t_var *head, char *x, char *y);
 
 #endif
