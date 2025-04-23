@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:06:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 15:04:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ int								ft_which(char **array);
 int								ft_export(char **array, char **envp);
 int								ft_env(char **envp);
 int								ft_unset(char **array, char **envp);
-int								ft_cd(char **array, char **envp);
-int								ft_pwd(void);
+int								ft_cd(char **array);
+int								ft_pwd(char **array);
 
 // DEBUGGING Functions
 void							print_list_files(t_command *command);

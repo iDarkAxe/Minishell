@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:16:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 15:07:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int			not_builtins(t_command *command, char **tokens);
 static int	search_command_2(t_command *command, char **tokens);
 
 // TODO VERIFIER not_builtins, wait() sans verification
+// TODO Ajouter la recherche de la commande dans le PATH
 
 /**
  * @brief Executes commands that are not builtins
@@ -35,8 +36,6 @@ int	not_builtins(t_command *command, char **tokens)
 	char	*path;
 	char	**toks;
 
-	(void)command;
-	(void)pid;
 	if (tokens == NULL || tokens[0] == NULL)
 		return (1);
 	path = ft_strjoin("/usr/bin/", tokens[0]);
@@ -104,9 +103,9 @@ static int	search_command_2(t_command *command, char **tokens)
 	else if (ft_strncmp(command->tokens->str, "unset", 5) == 0)
 		ft_unset(&tokens[1], command->envp);
 	else if (ft_strncmp(command->tokens->str, "cd", 2) == 0)
-		ft_cd(&tokens[1], command->envp);
+		ft_cd(tokens);
 	else if (ft_strncmp(command->tokens->str, "pwd", 3) == 0)
-		ft_pwd();
+		ft_pwd(tokens);
 	else
 		return (1);
 	return (0);

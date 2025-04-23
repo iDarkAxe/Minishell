@@ -256,7 +256,7 @@ debug-checker:
 	@$(MAKE) checker CFLAGS="$(CFLAGS_DEBUG)"
 
 debug-cc:
-	@$(MAKE) $(NAME) CFLAGS="$(CC_DEBUG_CFLAGS)" CC="$(CC_DEBUG)"
+	@$(MAKE) $(NAME) CFLAGS="$(CC_DEBUG_CFLAGS)" CC="$(CC_DEBUG)" Cyan="$(Yellow)" Green="$(Purple)"
 
 # Debugging print
 debug-print:
