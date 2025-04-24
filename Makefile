@@ -72,8 +72,8 @@ ENV = \
 	functions_utils.c \
 	manipulation_env.c \
 	copy_env.c \
-	swap_env.c 
-	# sort_env.c \
+	swap_env.c \
+	sort_env.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

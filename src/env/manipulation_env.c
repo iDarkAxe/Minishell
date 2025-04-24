@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions_utils_env.c                              :+:      :+:    :+:   */
+/*   manipulation_env.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:01:37 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/17 16:01:59 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:54:50 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,20 @@ void	ft_paramsadd_back(t_params **params, t_params *new)
 	}
 	pt = ft_paramlast(*params);
 	pt->next = new;
+	new->next = NULL;
+}
+
+int	count_env(t_env_vars env)
+{
+	int	count;
+
+	count = 0;
+	if (!env.head_var)
+		return (0);
+	while (env.head_var)
+	{
+		count++;
+		env.head_var = env.head_var->next;
+	}
+	return (count);
 }

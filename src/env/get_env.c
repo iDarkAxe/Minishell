@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/18 11:49:57 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/23 13:11:03 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,14 @@ static t_params	*get_params(const char *str, size_t *i)
 	t_params	*params;
 	t_params	*new_param;
 
-	if (!str)
-		return (NULL);
 	new_param = NULL;
 	params = NULL;
 	while (str[*i])
 	{
 		new_param = get_sub_params(str, i);
-		new_param->next = NULL;
 		if (!new_param)
 			return (NULL);
+		new_param->next = NULL;
 		ft_paramsadd_back(&params, new_param);
 		if (str[*i] == ':')
 			(*i)++;
@@ -92,7 +90,6 @@ static t_params	*get_params(const char *str, size_t *i)
 		if (!new_param)
 			return (NULL);
 		ft_paramsadd_back(&params, new_param);
-
 	}
 	return (params);
 }
@@ -130,6 +127,7 @@ t_env_vars	*get_env(char *envp[])
 	size_t		i;
 
 	env = malloc_gb(sizeof(t_env_vars));
+	env->head_var = NULL;
 	if (!env)
 		return (NULL);
 	i = 0;

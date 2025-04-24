@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/14 13:03:19 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:07:52 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,18 @@ size_t	ft_strlen_choose_c(const char *str, char c)
 	while (str[i] && str[i] != c)
 		i++;
 	return (i);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }

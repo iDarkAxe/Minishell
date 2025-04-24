@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/14 14:25:25 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:00:45 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,30 @@ void	print_env_vars(t_env_vars *env)
 int	main(int argc, char **argv, char **envp)
 {
 	t_env_vars	*env;
+	t_env_vars	*copyy_env;
+	t_var		*head;
 
 	(void)argc;
 	(void)argv;
 	env = get_env(envp);
-	print_env_vars(env);
-	// for (int i = 0; envp[i] != NULL; i++)
+	copyy_env = copy_env(env);
+	printf("FIRST COPY\n");
+	print_env_vars(copyy_env);
+	head = copyy_env->head_var;
+	copyy_env->head_var = swap_vars(head, "PATH", "PWD");
+	copyy_env->head_var = swap_vars(head, "COLORTERM", "XMODIFIERS");
+	printf("\n\n");
+	printf("COPY AFTER SWAP\n");
+	print_env_vars(copyy_env);
+	sort_ascii_order(copyy_env);
+	printf("\n\n");
+	printf("COPY AFTER SORT\n");
+	print_env_vars(copyy_env);
+
+	// // for (int i = 0; envp[i] != NULL; i++)
 	// 	printf("%s\n", envp[i]);
-	(void)env;
+	// size_t	count = count_env(*env);
+	// printf("%zu", count);
 	free_garbage();
 	return (0);
 }
