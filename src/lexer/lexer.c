@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 11:24:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 16:45:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,10 @@ static char	**init_lexer_state(t_lexer_state *lex_st, const char *line)
 {
 	ft_bzero(lex_st, sizeof(t_lexer_state));
 	lex_st->line = line;
-	lex_st->tokens = malloc_gb(sizeof(char *) * MAX_TOKENS);
+	lex_st->tokens = malloc(sizeof(char *) * MAX_TOKENS);
 	if (lex_st->tokens == NULL)
 		return (NULL);
+	add_to_garbage(lex_st->tokens);
 	return (lex_st->tokens);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/24 12:15:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 16:28:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,15 @@ static char	*get_hostname(void)
 	if (buf_nbc == 0)
 	{
 		perror("");
+		close(fd_hostname);
 		return (NULL);
 	}
 	close(fd_hostname);
 	buf[buf_nbc] = '\0';
 	get_hostname = ft_strndup(buf, ft_strlen_and_choose_c(buf, '.'));
-	add_to_garbage(get_hostname);
 	if (!get_hostname)
 		return (NULL);
+	add_to_garbage(get_hostname);
 	return (get_hostname);
 }
 
@@ -82,24 +83,31 @@ static char	*get_hostname(void)
  */
 static char	*make_prompt(char **array)
 {
-	char	*ptr;
-	char	*ptr2;
+	char	*userhost;
+	char	*prompt;
 	char	*path;
 	char	buf[4096];
 
-	ptr = ft_strjoins(array);
-	add_to_garbage(ptr);
-	if (ptr == NULL)
+	if (array == NULL || array[1] == NULL)
 		return (DEFAULT_PROMPT);
+	userhost = ft_strjoins(array);
+	if (userhost == NULL)
+	{
+		free_element_gb(array[2]);
+		return (DEFAULT_PROMPT);
+	}
 	path = getcwd(buf, 4096);
 	if (path == NULL)
+	{
+		free(userhost);
 		return (DEFAULT_PROMPT);
-	ptr2 = ft_strjoins((char *[]){ptr, path, "$ ", NULL});
-	free_element_gb(ptr);
-	if (ptr2 == NULL)
+	}
+	prompt = ft_strjoins((char *[]){userhost, path, "$ ", NULL});
+	free(userhost);
+	if (prompt == NULL)
 		return (DEFAULT_PROMPT);
-	add_to_garbage(ptr2);
-	return (ptr2);
+	add_to_garbage(prompt);
+	return (prompt);
 }
 
 /**

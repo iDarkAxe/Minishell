@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/24 12:16:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 16:45:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*read_stdin(void)
 	{
 		prompt = get_prompt_message();
 		line = readline(prompt);
-		if (ft_strncmp(prompt, DEFAULT_PROMPT, 12) != 0)
+		if (ft_strncmp(prompt, DEFAULT_PROMPT, sizeof(DEFAULT_PROMPT)) != 0)
 			free_element_gb(prompt);
 		ret = line_condition(line);
 		if (ret == 1)
@@ -75,6 +75,7 @@ char	**parse_line(char *line)
 	char	**tokens;
 
 	tokens = lexer(line);
+	free_element_gb(line);
 	if (tokens == NULL)
 		ft_exit((char *[]){"1", NULL});
 	return (tokens);
@@ -102,8 +103,6 @@ int	minishell(char **envp)
 	while (1)
 	{
 		line = read_stdin();
-		if (line == NULL)
-			ft_exit((char *[]){"0", NULL});
 		tokens = parse_line(line);
 		command = tokeniser(tokens, envp);
 		if (!command)
@@ -117,5 +116,6 @@ int	minishell(char **envp)
 			ft_exit((char *[]){"1", NULL});
 		free_char_tokens(tokens);
 		free_command(command);
+		exit(1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:14:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 16:05:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	main(int argc, char **argv, char **envp)
 {
 	(void)argc;
 	(void)argv;
-	if (minishell(envp) != 0)
-		ft_exit((char *[]){"1", NULL});
 	if (minishell(envp) != 0)
 		ft_exit((char *[]){"1", NULL});
 	free_garbage();
