@@ -24,6 +24,7 @@ P_PARSING = parsing/
 P_FILE = file/
 P_BUILTINS = builtins/
 P_ENV = env/
+P_EXEC = exec/
 
 P_PIPEX = pipex/src/
 P_TESTS = tests/
@@ -62,11 +63,8 @@ SRC = \
 	main.c \
 	prompt.c \
 	signals.c \
-	command-utils.c \
 	ft_print_fd.c \
 	ft_free.c \
-	exec.c \
-	exec_extern.c \
 	minishell.c \
 	token-utils.c \
 	read_context.c \
@@ -133,6 +131,11 @@ BUILTINS = \
 	ft_env.c \
 	ft_which.c \
 
+EXEC = \
+	command-utils.c \
+	exec.c \
+	exec_extern.c \
+
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
@@ -155,6 +158,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
 	$(addprefix $(P_SRC)$(P_BUILTINS), $(BUILTINS)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
+	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

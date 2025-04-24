@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 09:14:59 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 10:17:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 17:03:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	creating_heredoc(void)
 	line = " <   fichier <<  koala cat   <fleur  ";
 	tokens = lexer(line);
 	TEST_ASSERT_NOT_NULL(tokens);
-	command = tokeniser(tokens);
+	command = tokeniser(tokens, __environ);
 	TEST_ASSERT_NOT_NULL(command);
 	printf("Delimitor of heredoc is koala\n");
 	TEST_ASSERT_FALSE_MESSAGE(build_files_redirection(command),
@@ -67,7 +67,7 @@ void	creating_heredoc_ctrl_d(void)
 	line = " <   fichier <<  koala cat   <fleur  ";
 	tokens = lexer(line);
 	TEST_ASSERT_NOT_NULL(tokens);
-	command = tokeniser(tokens);
+	command = tokeniser(tokens, __environ);
 	TEST_ASSERT_NOT_NULL(command);
 	printf("Try Ctrl+D in heredoc (delimitor is koala in case)\n");
 	TEST_ASSERT_FALSE_MESSAGE(build_files_redirection(command),

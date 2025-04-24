@@ -6,10 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:36:01 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 09:23:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 17:03:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "file.h"
 #include "garbage.h"
 #include "minishell.h"
 #include "tests.h"
@@ -17,7 +18,6 @@
 #include "unity_internals.h"
 #include <fcntl.h>
 #include <stdio.h>
-#include "file.h"
 
 void	testing_file_name(void)
 {
@@ -30,7 +30,7 @@ void	testing_file_name(void)
 	line = " <   fichier <  fichier2 cat   <feur  ";
 	tokens = lexer(line);
 	TEST_ASSERT_NOT_NULL(tokens);
-	command = tokeniser(tokens);
+	command = tokeniser(tokens, __environ);
 	TEST_ASSERT_NOT_NULL(command);
 	TEST_ASSERT_FALSE_MESSAGE(build_files_redirection(command),
 		"Error in build_files_redirection");
