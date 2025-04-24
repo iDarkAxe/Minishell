@@ -66,6 +66,7 @@ SRC = \
 	ft_print_fd.c \
 	ft_free.c \
 	exec.c \
+	exec_extern.c \
 	minishell.c \
 	token-utils.c \
 	read_context.c \

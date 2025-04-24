@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/23 15:07:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 12:04:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,7 @@
 #include <sys/wait.h>
 
 int			search_command(t_command *command, char **tokens);
-int			not_builtins(t_command *command, char **tokens);
 static int	search_command_2(t_command *command, char **tokens);
-
-// TODO VERIFIER not_builtins, wait() sans verification
-// TODO Ajouter la recherche de la commande dans le PATH
-
-/**
- * @brief Executes commands that are not builtins
- *
- * @param command command structure
- * @param tokens array of strings
- * @return int
- */
-int	not_builtins(t_command *command, char **tokens)
-{
-	int		pid;
-	char	*path;
-	char	**toks;
-
-	if (tokens == NULL || tokens[0] == NULL)
-		return (1);
-	path = ft_strjoin("/usr/bin/", tokens[0]);
-	if (path == NULL)
-		ft_exit((char *[]){"1", NULL});
-	add_to_garbage(path);
-	toks = copy_toks(command);
-	if (toks == NULL)
-		return (-1);
-	pid = fork();
-	if (pid == 0)
-	{
-		execve(path, toks, command->envp);
-		perror("execve");
-		ft_exit((char *[]){"1", NULL});
-	}
-	free_element_gb(path);
-	wait(NULL);
-	return (0);
-}
 
 // TODO chaque commande renvoie un code d'erreur à attraper
 // TODO verifier si on doit executer la commande dans un fork ou pas

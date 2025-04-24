@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/06 16:24:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 12:15:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "env.h"
 
 char			*get_prompt_message(void);
 static char		*get_hostname(void);
@@ -89,21 +90,21 @@ static char	*make_prompt(char **array)
 	ptr = ft_strjoins(array);
 	add_to_garbage(ptr);
 	if (ptr == NULL)
-		return (ft_strdup_gb("Minishell$ "));
+		return (DEFAULT_PROMPT);
 	path = getcwd(buf, 4096);
 	if (path == NULL)
-		return (ft_strdup_gb("Minishell$ "));
+		return (DEFAULT_PROMPT);
 	ptr2 = ft_strjoins((char *[]){ptr, path, "$ ", NULL});
 	free_element_gb(ptr);
 	if (ptr2 == NULL)
-		return (ft_strdup_gb("Minishell$ "));
+		return (DEFAULT_PROMPT);
 	add_to_garbage(ptr2);
 	return (ptr2);
 }
 
 /**
  * @brief Build the prompt message
- * If an error occurs, returns the defaut prompt message
+ * If an error occurs, returns the static default prompt message
  *
  * @return char* prompt message
  */
@@ -114,19 +115,19 @@ char	*get_prompt_message(void)
 	char	*username;
 
 	if (PROMPT_MESSAGE_CUSTOM == 0)
-		return (ft_strdup_gb("Minishell$ "));
+		return (DEFAULT_PROMPT);
 	hostname = get_hostname();
 	if (hostname == NULL)
-		return (ft_strdup_gb("Minishell$ "));
+		return (DEFAULT_PROMPT);
 	username = getenv("USER");
 	if (username == NULL)
 	{
 		free_element_gb(hostname);
-		return (ft_strdup_gb("Minishell$ "));
+		return (DEFAULT_PROMPT);
 	}
 	prompt = make_prompt((char *[]){username, "@", hostname, ":", NULL});
 	if (prompt == NULL)
-		return (ft_strdup_gb("Minishell$ "));
+		return (DEFAULT_PROMPT);
 	free_element_gb(hostname);
 	return (prompt);
 }

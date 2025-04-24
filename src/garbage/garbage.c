@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 10:28:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 10:58:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "minishell.h"
+#include <readline/readline.h>
 
 /**
  * @brief Get the garbage object
@@ -70,6 +71,7 @@ void	free_garbage(void)
 {
 	t_garbage	*garbage;
 
+	rl_clear_history();
 	garbage = get_garbage();
 	ft_garbageclear(garbage);
 }

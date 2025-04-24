@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:03:51 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/14 13:06:02 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/24 12:15:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "minishell.h"
 # include <stddef.h>
+
+# define DEFAULT_PROMPT "Minishell$ "
 
 typedef struct s_var		t_var;
 typedef struct s_env_vars	t_env_vars;

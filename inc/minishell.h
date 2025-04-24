@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/23 16:48:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 12:16:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@
 // TODO : add ft_export
 // TODO : add ft_env
 // TODO : add ft_unset
-// TODO : add ft_cd
-// TODO : add ft_pwd
+# include <signal.h>
 # include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 // FROM file.h
 typedef struct s_tmp			t_tmp;
@@ -87,7 +89,13 @@ char							**copy_toks(t_command *command);
 void							print_toks(char **tokens);
 int								search_command(t_command *command,
 									char **tokens);
+int								not_builtins(t_command *command, char **tokens);
+
 int								signal_init(void);
+void							signal_handler(int sig, siginfo_t *info,
+									void *context);
+void							reset_signal_default(void);
+void							ignore_signal(void);
 char							*get_prompt_message(void);
 
 // Printing

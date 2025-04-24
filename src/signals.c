@@ -6,19 +6,17 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/09 14:02:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/24 12:18:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
+#include <readline/readline.h>
+#include "minishell.h"
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-static void	signal_handler(int sig, siginfo_t *info, void *context);
-void		free_all(void);
-int			signal_init(void);
 
 /**
  * @brief Main function for initialising signals
@@ -31,7 +29,7 @@ int	signal_init(void)
 
 	action_receive.sa_sigaction = signal_handler;
 	sigemptyset(&action_receive.sa_mask);
-	action_receive.sa_flags = SA_RESTART;
+	action_receive.sa_flags = SA_SIGINFO | SA_RESTART;
 	sigaction(SIGQUIT, &action_receive, NULL);
 	sigaction(SIGINT, &action_receive, NULL);
 	return (0);
@@ -51,20 +49,45 @@ int	signal_init(void)
  * @param info Information about the signal.
  * @param context Context of the signal.
  */
-static void	signal_handler(int sig, siginfo_t *info, void *context)
+void	signal_handler(int sig, siginfo_t *info, void *context)
 {
 	(void)info;
 	(void)context;
 	if (sig == SIGQUIT)
-	{
-		free_garbage();
-		exit(1);
-	}
+		ft_exit((char *[]){"1", NULL});
 	else if (sig == SIGINT)
+	{
+		write(STDOUT_FILENO, "\n", 1);
+		rl_replace_line("", 0);
+		rl_on_new_line();
+		rl_redisplay();
 		return ;
+	}
 	else
 	{
 		free_garbage();
 		exit(1);
 	}
+}
+
+void	reset_signal_default(void)
+{
+	struct sigaction	action;
+
+	sigemptyset(&action.sa_mask);
+	action.sa_handler = SIG_DFL;
+	action.sa_flags = 0;
+	sigaction(SIGINT, &action, NULL);
+	sigaction(SIGQUIT, &action, NULL);
+}
+
+void	ignore_signal(void)
+{
+	struct sigaction	action;
+
+	sigemptyset(&action.sa_mask);
+	action.sa_handler = SIG_IGN;
+	action.sa_flags = 0;
+	sigaction(SIGINT, &action, NULL);
+	sigaction(SIGQUIT, &action, NULL);
 }
