@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/23 16:48:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 10:36:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 
 // FIXME les commandes du path ne fonctionnent pas
 
+/**
+ * @brief Function to read the context where this function is called
+ * Verify if it's used in a tty or not
+ * 
+ * @param envp environment
+ * @return int 0 OK, 1 otherwise
+ */
 int	read_context(char **envp)
 {
 	int	ret;
@@ -30,6 +37,12 @@ int	read_context(char **envp)
 	return (0);
 }
 
+/**
+ * @brief Executes the shell in a restricted area where there is no prompt
+ * Should work exactly as the minishell function
+ * 
+ * @param envp environment
+ */
 void	short_minishell_no_tty(char **envp)
 {
 	char		*line;

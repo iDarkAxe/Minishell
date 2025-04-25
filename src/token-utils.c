@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:16:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 10:47:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 static size_t	count_tokens(t_token const *head);
 static char		**fill_toks(t_token *head, char **tokens);
 
+/**
+ * @brief Creates a copy of all tokens that are in a command structure
+ * It's used for forks during exec
+ * 
+ * @param command command structure
+ * @return char** copy of tokens
+ */
 char	**copy_toks(t_command *command)
 {
 	t_token	*token;
@@ -35,6 +42,11 @@ char	**copy_toks(t_command *command)
 	return (tokens);
 }
 
+/**
+ * @brief Print tokens indexed
+ * 
+ * @param tokens tokens to print
+ */
 void	print_toks(char **tokens)
 {
 	size_t	index;
@@ -47,23 +59,34 @@ void	print_toks(char **tokens)
 	}
 }
 
-static void	free_strs(char **strs)
+/**
+ * @brief Free array of strings (list of tokens)
+ * 
+ * @param array array of strings
+ */
+static void	free_array(char **array)
 {
 	size_t	i;
 
-	if (!strs)
+	if (!array)
 		return ;
 	i = 0;
-	while (strs[i])
+	while (array[i])
 	{
-		free_element_gb(strs[i]);
-		strs[i] = NULL;
+		free_element_gb(array[i]);
+		array[i] = NULL;
 		i++;
 	}
-	free_element_gb(strs);
-	strs = NULL;
+	free_element_gb(array);
+	array = NULL;
 }
 
+/**
+ * @brief Count how many tokens are in a linked list of t_token structure
+ * 
+ * @param head start of linked list
+ * @return size_t number of t_token structs
+ */
 static size_t	count_tokens(t_token const *head)
 {
 	size_t			count;
@@ -81,6 +104,13 @@ static size_t	count_tokens(t_token const *head)
 	return (count);
 }
 
+/**
+ * @brief Creates effectively the copy of the t_token structure to char **array
+ * 
+ * @param head start of linked list
+ * @param tokens array of strings to copy to
+ * @return char** 
+ */
 static char	**fill_toks(t_token *head, char **tokens)
 {
 	size_t	i;
@@ -95,7 +125,7 @@ static char	**fill_toks(t_token *head, char **tokens)
 		tokens[i] = ft_strdup(temp->str);
 		if (!tokens[i])
 		{
-			free_strs(tokens);
+			free_array(tokens);
 			return (NULL);
 		}
 		add_to_garbage(tokens[i]);

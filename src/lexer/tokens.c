@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/18 13:50:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 10:47:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ static t_token		*iterate_token(char *str, t_token **token);
 static t_command	*iterate_command(char *str, t_token **token,
 						t_command **current);
 
+/**
+ * @brief Creates a t_command structure that contains all the tokens
+ * Fills the command with the environment
+ * 
+ * @param tokens tokens
+ * @param envp environment
+ * @return t_command* pointer if OK, NULL if it fails
+ */
 t_command	*tokeniser(char **tokens, char **envp)
 {
 	t_command	*command;
@@ -44,6 +52,11 @@ t_command	*tokeniser(char **tokens, char **envp)
 	return (command);
 }
 
+/**
+ * @brief Create a token structure
+ * 
+ * @return t_token* pointer if OK, NULL if it fails
+ */
 static t_token	*create_token(void)
 {
 	t_token	*token;
@@ -55,6 +68,12 @@ static t_token	*create_token(void)
 	return (token);
 }
 
+/**
+ * @brief Create a command structure
+ * 
+ * @param envp environment
+ * @return t_command* pointer if OK, NULL if it fails
+ */
 static t_command	*create_command(char **envp)
 {
 	t_command	*command;
@@ -73,6 +92,13 @@ static t_command	*create_command(char **envp)
 	return (command);
 }
 
+/**
+ * @brief Makes iteration on the next token if the condition is completed
+ * 
+ * @param str string
+ * @param token token
+ * @return t_token* pointer if OK, NULL if it fails
+ */
 static t_token	*iterate_token(char *str, t_token **token)
 {
 	t_token	*new_token;
@@ -88,6 +114,15 @@ static t_token	*iterate_token(char *str, t_token **token)
 	return (*token);
 }
 
+/**
+ * @brief  Makes iteration on the next token if the condition is completed
+ * Creates a command in the process
+ * 
+ * @param str str
+ * @param token token
+ * @param current command
+ * @return t_command* pointer if OK, NULL if it fails
+ */
 static t_command	*iterate_command(char *str, t_token **token,
 		t_command **current)
 {

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:08:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 10:42:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "minishell.h"
 #include "file.h"
 
+/**
+ * @brief Free t_command linked list structure with all that it contains
+ * 
+ * @param command head of t_command linked list structure
+ */
 void	free_command(t_command *command)
 {
 	t_command	*temp;
@@ -34,6 +39,11 @@ void	free_command(t_command *command)
 	}
 }
 
+/**
+ * @brief Free array of strings (tokens)
+ * 
+ * @param tokens array of strings
+ */
 void	free_char_tokens(char **tokens)
 {
 	size_t	index;
@@ -48,6 +58,11 @@ void	free_char_tokens(char **tokens)
 	free_element_gb(tokens);
 }
 
+/**
+ * @brief Free t_tokens linked list structure
+ * 
+ * @param token head of t_tokens linked list structure
+ */
 void	free_tokens(t_token *token)
 {
 	t_token	*temp;
@@ -70,6 +85,11 @@ void	free_tokens(t_token *token)
 	token = NULL;
 }
 
+/**
+ * @brief Free linked list of t_file structure
+ * 
+ * @param file head of t_file linked list structure
+ */
 void	free_files_struct(t_file *file)
 {
 	t_file	*temp;
@@ -94,6 +114,11 @@ void	free_files_struct(t_file *file)
 	}
 }
 
+/**
+ * @brief Free heredoc structure
+ * 
+ * @param tmp heredoc structure
+ */
 void	free_heredoc(t_tmp *tmp)
 {
 	if (tmp == NULL)

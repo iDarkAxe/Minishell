@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/24 17:14:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 10:38:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ char		*read_stdin(void);
 char		**parse_line(char *line);
 int			minishell(char **envp);
 
+/**
+ * @brief Line condition to verify the return value of readline
+ * 
+ * @param line line of readline
+ * @return int 0, nothing checked, 1 is OK line, 2 is read another line
+ */
 static int	line_condition(char *line)
 {
 	if ((line != NULL && line[0] != '\0'))
@@ -87,7 +93,7 @@ char	**parse_line(char *line)
 */
 
 /**
- * @brief Minishell prototype
+ * @brief Minishell that handles all the shell functions
  *
  * @param envp environmment
  * @return int

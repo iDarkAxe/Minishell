@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/24 12:18:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 10:33:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 	}
 }
 
+/**
+ * @brief Function to reset signals to default
+ * 
+ */
 void	reset_signal_default(void)
 {
 	struct sigaction	action;
@@ -81,6 +85,10 @@ void	reset_signal_default(void)
 	sigaction(SIGQUIT, &action, NULL);
 }
 
+/**
+ * @brief Function to ignore certain signals
+ * 
+ */
 void	ignore_signal(void)
 {
 	struct sigaction	action;
