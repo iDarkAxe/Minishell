@@ -57,17 +57,17 @@ int	main(int argc, char **argv, char **envp)
 	(void)argv;
 	env = get_env(envp);
 	copyy_env = copy_env(env);
-	printf("FIRST COPY\n");
-	print_env_vars(copyy_env);
+	// printf("FIRST COPY\n\n");
+	// print_env_vars(copyy_env);
 	head = copyy_env->head_var;
 	copyy_env->head_var = swap_vars(head, "PATH", "PWD");
 	copyy_env->head_var = swap_vars(head, "COLORTERM", "XMODIFIERS");
-	printf("\n\n");
-	printf("COPY AFTER SWAP\n");
-	print_env_vars(copyy_env);
+	// printf("\n\n");
+	// printf("COPY AFTER SWAP\n\n");
+	// print_env_vars(copyy_env);
+	// printf("\n\n");
+	printf("COPY AFTER SORT\n\n");
 	sort_ascii_order(copyy_env);
-	printf("\n\n");
-	printf("COPY AFTER SORT\n");
 	print_env_vars(copyy_env);
 
 	// // for (int i = 0; envp[i] != NULL; i++)
