@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/25 10:42:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 12:29:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,25 @@ void	free_command(t_command *command)
 }
 
 /**
- * @brief Free array of strings (tokens)
+ * @brief Free array of strings
  * 
- * @param tokens array of strings
+ * @param array array of strings
  */
-void	free_char_tokens(char **tokens)
+void	free_array(char **array)
 {
 	size_t	index;
 
+	if (array == NULL)
+		return ;
 	index = 0;
-	while (tokens && tokens[index])
+	while (array && array[index])
 	{
-		free_element_gb(tokens[index]);
-		tokens[index] = NULL;
+		free_element_gb(array[index]);
+		array[index] = NULL;
 		index++;
 	}
-	free_element_gb(tokens);
+	free_element_gb(array);
+	array = NULL;
 }
 
 /**

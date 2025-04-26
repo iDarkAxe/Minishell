@@ -82,6 +82,8 @@ LEXER = \
 	tokens.c \
 
 PARSING = \
+	parsing.c \
+	expand_home.c \
 	parsing_quotes_double.c \
 
 FILE = \
@@ -106,31 +108,6 @@ ENV = \
 	functions_utils.c \
 	functions_utils_env.c 
 
-LEXER = \
-	lexer.c \
-	lexer-utils.c \
-	tokens.c \
-
-PARSING = \
-	parsing_quotes_double.c \
-
-FILE = \
-	file.c \
-	file_build.c \
-	file_print.c \
-	heredoc.c \
-	tmp_generator.c \
-	ft_file_tokens.c \
-	file-general.c \
-	file_verify_access.c \
-
-BUILTINS = \
-	ft_exit.c \
-	ft_echo.c \
-	ft_cd.c \
-	ft_env.c \
-	ft_which.c \
-
 EXEC = \
 	command-utils.c \
 	exec.c \
@@ -140,6 +117,7 @@ LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
+	-L$(P_LIBFT) -lft \
 	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a

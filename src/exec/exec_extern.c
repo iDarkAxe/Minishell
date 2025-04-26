@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/24 12:17:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 15:24:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 
 static void	execve_fork(char *path, char **toks, char **envp);
 
-// TODO VERIFIER not_builtins, wait() sans verification
 // TODO Ajouter la recherche de la commande dans le PATH
-// #include <readline/readline.h>
-// #include <signal.h>
 
 /**
  * @brief Executes commands that are not builtins
@@ -64,6 +61,6 @@ static void	execve_fork(char *path, char **toks, char **envp)
 	ignore_signal();
 	waitpid(pid, &status, 0);
 	free_element_gb(path);
-	free_char_tokens(toks);
+	free_array(toks);
 	signal_init();
 }

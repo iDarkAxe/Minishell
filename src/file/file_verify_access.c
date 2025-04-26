@@ -6,18 +6,24 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 11:31:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 11:39:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
 #include "minishell.h"
 
-t_file	*search_last_file(t_file *file, t_file *already_searched);
-int		verify_access(t_command *command);
-int		handle_file(t_command *command);
-int		file_permission_check(t_file *file, t_bool in_out);
+static t_file	*search_last_file(t_file *file, t_file *already_searched);
+static int		handle_file(t_command *command);
+static int		file_permission_check(t_file *file, t_bool in_out);
 
+/**
+ * @brief Return the last file that is not already_searched
+ * 
+ * @param file file structure
+ * @param already_searched previous file from search
+ * @return t_file* last file begore already_searched
+ */
 t_file	*search_last_file(t_file *file, t_file *already_searched)
 {
 	t_file	*temp;
@@ -42,7 +48,7 @@ t_file	*search_last_file(t_file *file, t_file *already_searched)
  *
  * @param in_out 1 = IN, 0 = OUT
  */
-int	file_permission_check(t_file *file, t_bool in_out)
+static int	file_permission_check(t_file *file, t_bool in_out)
 {
 	if (file == NULL)
 		return (0);
@@ -64,7 +70,14 @@ int	file_permission_check(t_file *file, t_bool in_out)
 	return (0);
 }
 
-int	handle_file(t_command *command)
+/**
+ * @brief Check that all files have the correct permissions 
+ * if they are IN (simple or heredoc) or OUT (create/trunc or append)
+ * 
+ * @param command command structure
+ * @return int 
+ */
+static int	handle_file(t_command *command)
 {
 	t_file	*cur_file;
 	t_file	*last_file;
@@ -90,6 +103,12 @@ int	handle_file(t_command *command)
 	return (0);
 }
 
+/**
+ * @brief Verify that all files are valid 
+ * 
+ * @param command command structure
+ * @return int 
+ */
 int	verify_access(t_command *command)
 {
 	t_command	*current;

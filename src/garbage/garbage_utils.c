@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/08 17:28:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 12:49:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,14 @@ void	free_element_gb(void *ptr)
 		if (element->ptr == ptr)
 		{
 			free(element->ptr);
+			element->ptr = NULL;
 			if (previous == NULL)
 				garbage->head = garbage->head->next;
 			else
 				previous->next = element->next;
 			free(element);
+			element = NULL;
+			ptr = NULL;
 			return ;
 		}
 		previous = element;

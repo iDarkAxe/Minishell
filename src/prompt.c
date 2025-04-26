@@ -6,10 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/24 16:28:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 13:28:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "env.h"
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
@@ -17,7 +18,6 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "env.h"
 
 char			*get_prompt_message(void);
 static char		*get_hostname(void);
@@ -75,6 +75,20 @@ static char	*get_hostname(void)
 	return (get_hostname);
 }
 
+static char	*handle_colors(char **array)
+{
+	char	*str;
+
+	if (array == NULL)
+		return (NULL);
+	if (PROMPT_COLOR == 1)
+		str = ft_strjoins((char *[]){CYAN_COLOR, array[0], PURPLE_COLOR,
+				array[1], "$ ", COLOR_OFF, NULL});
+	else
+		str = ft_strjoins((char *[]){array[0], array[1], "$ ", NULL});
+	return (str);
+}
+
 /**
  * @brief Joins and adds the path to prompt
  *
@@ -102,7 +116,7 @@ static char	*make_prompt(char **array)
 		free(userhost);
 		return (DEFAULT_PROMPT);
 	}
-	prompt = ft_strjoins((char *[]){userhost, path, "$ ", NULL});
+	prompt = handle_colors((char *[]){userhost, path, "$ ", NULL});
 	free(userhost);
 	if (prompt == NULL)
 		return (DEFAULT_PROMPT);

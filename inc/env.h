@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:03:51 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/24 12:15:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 13:39:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 # include <stddef.h>
 
 # define DEFAULT_PROMPT "Minishell$ "
+
+# ifndef PROMPT_COLOR
+#  define PROMPT_COLOR 1
+# endif
+# define COLOR_OFF "\033[0m"
+# define CYAN_COLOR "\033[0;36m"
+# define PURPLE_COLOR "\033[0;35m"
 
 typedef struct s_var		t_var;
 typedef struct s_env_vars	t_env_vars;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/25 10:47:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 12:30:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,28 +57,6 @@ void	print_toks(char **tokens)
 		printf("toks %zu : %s\n", index, tokens[index]);
 		index++;
 	}
-}
-
-/**
- * @brief Free array of strings (list of tokens)
- * 
- * @param array array of strings
- */
-static void	free_array(char **array)
-{
-	size_t	i;
-
-	if (!array)
-		return ;
-	i = 0;
-	while (array[i])
-	{
-		free_element_gb(array[i]);
-		array[i] = NULL;
-		i++;
-	}
-	free_element_gb(array);
-	array = NULL;
 }
 
 /**

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:17:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 11:38:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 #include "minishell.h"
 #include <stdlib.h>
 
-int	verify_access(t_command *command);
-
-int	files_management(t_command *command);
-
+/**
+ * @brief Executes all the files redirection tests 
+ * 
+ * @param command command structure
+ * @return int 0 OK, 1 is at least one file redirection is invalid 
+ */
 int	files_management(t_command *command)
 {
 	if (build_files_redirection(command) != 0)

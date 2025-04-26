@@ -6,13 +6,19 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:08:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/16 10:25:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 11:38:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "stdio.h"
 
+/**
+ * @brief Print the command structure with it's tokens
+ * 
+ * @param command command structure
+ * @return ssize_t 0 is OK, otherwise error
+ */
 ssize_t	print_command(t_command *command)
 {
 	t_command	*cmd;

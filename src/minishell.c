@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/25 10:38:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 13:13:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 int			search_command(t_command *command, char **tokens);
 char		*read_stdin(void);
-char		**parse_line(char *line);
 int			minishell(char **envp);
 
 /**
@@ -70,23 +69,6 @@ char	*read_stdin(void)
 	return (line);
 }
 
-/**
- * @brief Prototype for parsing
- *
- * @param line line to parse
- * @return char**
- */
-char	**parse_line(char *line)
-{
-	char	**tokens;
-
-	tokens = lexer(line);
-	free_element_gb(line);
-	if (tokens == NULL)
-		ft_exit((char *[]){"1", NULL});
-	return (tokens);
-}
-
 // TODO Files management bloque pas l'exécution si un fichier n'existe pas
 /* TODO Ouvrir les fichiers avec les modes appropriés
 (READ, Write|Truncate, Append, et heredoc)
@@ -115,12 +97,12 @@ int	minishell(char **envp)
 			ft_exit((char *[]){"1", NULL});
 		if (files_management(command) != 0)
 		{
-			free_char_tokens(tokens);
+			free_array(tokens);
 			continue ;
 		}
 		if (search_command(command, tokens) != 0)
 			ft_exit((char *[]){"1", NULL});
-		free_char_tokens(tokens);
+		free_array(tokens);
 		free_command(command);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/23 16:40:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 12:15:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,27 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static char	*handle_home_path(char *path);
 static int	check_args(char **array);
 
 // TODO if env -i : `~` doesn't work
 // TODO should update OLDPWD and PWD
 
+/**
+ * @brief Implementatin of cd builtin of shell
+ * 
+ * @param array array of strings
+ * @return int 0 OK, 1 otherwise
+ */
 int	ft_cd(char **array)
 {
 	int		ret;
-	char	*path;
 
 	ret = check_args(array);
 	if (ret == 0)
 		return (0);
 	else if (ret < 0)
 		return (1);
-	path = handle_home_path(array[1]);
-	if (path != NULL)
-		ret = chdir(path);
-	else
-		ret = chdir(array[1]);
-	if (path != NULL)
-		free_element_gb(path);
+	ret = chdir(array[1]);
 	if (ret != 0)
 	{
 		print_fd(2, "minishell: cd: '");
@@ -50,6 +48,12 @@ int	ft_cd(char **array)
 	return (0);
 }
 
+/**
+ * @brief Check if args are valid are not
+ * 
+ * @param array array of strings
+ * @return int 0 and 1 OK, -1 is error
+ */
 static int	check_args(char **array)
 {
 	if (array == NULL || array[1] == NULL)
@@ -68,23 +72,6 @@ static int	check_args(char **array)
 		return (-1);
 	}
 	return (1);
-}
-
-static char	*handle_home_path(char *path)
-{
-	char	*home;
-	char	*new_path;
-
-	if (path == NULL || path[0] != '~' || ft_strchr(path, '~') == NULL)
-		return (NULL);
-	home = getenv("HOME");
-	if (home == NULL)
-		return (NULL);
-	new_path = ft_strjoin(home, path + 1);
-	if (new_path == NULL)
-		return (NULL);
-	add_to_garbage(new_path);
-	return (new_path);
 }
 
 // TODO : Work only at startup because it's not updated

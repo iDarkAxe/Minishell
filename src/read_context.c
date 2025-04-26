@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/25 10:36:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 12:31:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void	short_minishell_no_tty(char **envp)
 			ft_exit((char *[]){"1", NULL});
 		if (files_management(command) != 0)
 		{
-			free_char_tokens(tokens);
+			free_array(tokens);
 			continue ;
 		}
 		if (search_command(command, tokens) != 0)
 			ft_exit((char *[]){"1", NULL});
-		free_char_tokens(tokens);
+		free_array(tokens);
 		free_command(command);
 	}
 	ft_exit((char *[]){"0", NULL});

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/24 12:16:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/26 12:37:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,10 @@ t_command						*tokeniser(char **tokens, char **envp);
 
 // Parsing
 char							**parse_line(char *line);
+char							**expand_tildes_tokens(char **tokens);
 
 // Utils for manage memory
-void							free_char_tokens(char **tokens);
+void							free_array(char **array);
 void							free_command(t_command *command);
 void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
