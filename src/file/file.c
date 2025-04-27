@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 16:31:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/27 12:29:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,8 @@ char	*ft_trim_word(char *str)
 	return (new_str);
 }
 
-/* FIXME Parsing à appliquer ici, et ne fonctionne pas pour les here-doc
+/* FIXME Parsing à appliquer ici, et ne fonctionne pas 
 pour les outfiles en mode append */
-/* TODO verifier que supprimer les tokens de file ne supprime pas les noms 
-des fichiers */
-// TODO Verifier que l'ordre des here-docs est bon
 
 /**
  * @brief Parse the file structure
@@ -84,20 +81,6 @@ t_file	*file_parser(t_file *file)
 {
 	if (file == NULL)
 		return (NULL);
-	if (file->is_heredoc == 1)
-	{
-		file->tmp = malloc_gb(sizeof(t_tmp) * 1);
-		if (file->tmp == NULL)
-			return (NULL);
-		*file->tmp = create_tmp(TMP_PATH, 3);
-		if (file->tmp->fd == -1)
-		{
-			free_element_gb(file->tmp);
-			print_fd(2, "Error: tmp file creation\n");
-			return (NULL);
-		}
-		read_heredoc(file->tmp, file->name);
-	}
 	file->name = ft_trim_word(file->name);
 	build_file_access(file);
 	return (file);

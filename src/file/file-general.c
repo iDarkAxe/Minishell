@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 11:38:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/27 11:17:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ int	files_management(t_command *command)
 {
 	if (build_files_redirection(command) != 0)
 	{
-		free_garbage();
 		print_fd(2, "Error creating file structure\n");
 		ft_exit((char *[]){"1", NULL});
 	}
-	if (build_files_data(command) != 0)
+	build_files_data(command);
+	if (fill_heredocs(command) != 0)
 	{
-		free_garbage();
-		print_fd(2, "Error creating file data\n");
+		print_fd(2, "Error during heredoc creation\n");
 		ft_exit((char *[]){"1", NULL});
 	}
 	if (remove_used_file_tokens(command) == NULL)
