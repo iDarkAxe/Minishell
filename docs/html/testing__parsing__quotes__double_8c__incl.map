@@ -1,0 +1,16 @@
+<map id="tests/src/parsing_quotes_double/testing_parsing_quotes_double.c" name="tests/src/parsing_quotes_double/testing_parsing_quotes_double.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="149,5,329,60"/>
+<area shape="rect" id="Node000002" href="$garbage_8h.html" title=" " alt="" coords="5,108,92,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,63,88,105,86,100,180,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="53,181,124,207"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="209,62,157,110,107,172,102,169,153,106,205,58"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="167,108,226,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,61,211,97,206,94,224,59"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="251,108,316,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="255,59,273,94,269,97,250,61"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="341,108,471,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="291,58,373,99,370,104,289,62"/>
+<area shape="rect" id="Node000007" href="$tests_8h.html" title=" " alt="" coords="495,108,562,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="328,58,482,103,481,108,327,63"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="58,132,78,168,73,171,53,135"/>
+</map>

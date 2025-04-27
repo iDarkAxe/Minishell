@@ -1,0 +1,229 @@
+.TH "inc/garbage.h" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/garbage.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdlib\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_element\fP"
+.br
+.ti -1c
+.RI "struct \fBs_garbage\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_element\fP \fBt_element\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_garbage\fP \fBt_garbage\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBmalloc_gb\fP (size_t size)"
+.br
+.RI "Replace the original malloc by storing the created adresses into a garbage to remove them afterwards\&. "
+.ti -1c
+.RI "void \fBadd_to_garbage\fP (void *ptr)"
+.br
+.RI "Add a pointer to the garbage list\&. "
+.ti -1c
+.RI "void \fBfree_element_gb\fP (void *ptr)"
+.br
+.RI "Free an element in the garbage collector\&. "
+.ti -1c
+.RI "char * \fBft_strdup_gb\fP (const char *source)"
+.br
+.RI "Create a copy of source into a new pointer NEEDS to be freed\&. "
+.ti -1c
+.RI "void \fBgarbage_init\fP (void)"
+.br
+.RI "Initialize the garbage and sets the values to 0\&. "
+.ti -1c
+.RI "void \fBfree_garbage\fP (void)"
+.br
+.RI "Free the garbage\&. "
+.ti -1c
+.RI "\fBt_garbage\fP * \fBget_garbage\fP (void)"
+.br
+.RI "Get the garbage object\&. "
+.ti -1c
+.RI "void \fBprint_garbage\fP (void)"
+.br
+.RI "Print the garbage collector\&. "
+.ti -1c
+.RI "\fBt_element\fP * \fBft_garbagenew\fP (void *ptr)"
+.br
+.RI "Allocates and returns the newly created element 'value' is initialised with content 'next' is set to NULL\&. "
+.ti -1c
+.RI "void \fBft_garbageadd_front\fP (\fBt_garbage\fP *garbage, \fBt_element\fP *new)"
+.br
+.RI "Adds the 'new' element at the start of stack\&. "
+.ti -1c
+.RI "void \fBft_garbageadd_back\fP (\fBt_garbage\fP *stack, \fBt_element\fP *new)"
+.br
+.RI "Adds the 'new' element at the end of stack\&. "
+.ti -1c
+.RI "int \fBft_garbageclear\fP (\fBt_garbage\fP *data)"
+.br
+.RI "Remove all elements from garbage\&. "
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBs_element\fP \fBt_element\fP"
+
+.SS "typedef struct \fBs_garbage\fP \fBt_garbage\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void add_to_garbage (void * ptr)"
+
+.PP
+Add a pointer to the garbage list\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIptr\fP pointer to add 
+.RE
+.PP
+
+.SS "void free_element_gb (void * ptr)"
+
+.PP
+Free an element in the garbage collector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIptr\fP element to free 
+.RE
+.PP
+
+.SS "void free_garbage (void )"
+
+.PP
+Free the garbage\&. 
+.SS "void ft_garbageadd_back (\fBt_garbage\fP * garbage, \fBt_element\fP * new)"
+
+.PP
+Adds the 'new' element at the end of stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fInew\fP element to add 
+.RE
+.PP
+
+.SS "void ft_garbageadd_front (\fBt_garbage\fP * garbage, \fBt_element\fP * new)"
+
+.PP
+Adds the 'new' element at the start of stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fInew\fP element to add 
+.RE
+.PP
+
+.SS "int ft_garbageclear (\fBt_garbage\fP * garbage)"
+
+.PP
+Remove all elements from garbage\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, -1 is error 
+.RE
+.PP
+
+.SS "\fBt_element\fP * ft_garbagenew (void * ptr)"
+
+.PP
+Allocates and returns the newly created element 'value' is initialised with content 'next' is set to NULL\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIptr\fP pointer to add in the element 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_element* pointer to the element 
+.RE
+.PP
+
+.SS "char * ft_strdup_gb (const char * source)"
+
+.PP
+Create a copy of source into a new pointer NEEDS to be freed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsource\fP string to copy 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* pointer to the new string 
+.RE
+.PP
+
+.SS "void garbage_init (void )"
+
+.PP
+Initialize the garbage and sets the values to 0\&. 
+.SS "\fBt_garbage\fP * get_garbage (void )"
+
+.PP
+Get the garbage object\&. 
+.PP
+\fBReturns\fP
+.RS 4
+t_garbage* garbage access 
+.RE
+.PP
+
+.SS "void * malloc_gb (size_t size)"
+
+.PP
+Replace the original malloc by storing the created adresses into a garbage to remove them afterwards\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP number of bytes to allocates 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+void* 
+.RE
+.PP
+
+.SS "void print_garbage (void )"
+
+.PP
+Print the garbage collector\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

@@ -1,0 +1,20 @@
+<map id="src/lexer/tokens.c" name="src/lexer/tokens.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="64,5,199,31"/>
+<area shape="rect" id="Node000002" href="$garbage_8h.html" title=" " alt="" coords="31,79,117,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,33,94,70,90,66,120,29"/>
+<area shape="rect" id="Node000004" href="$minishell_8h.html" title=" " alt="" coords="173,79,268,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="147,29,197,68,194,72,144,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,76,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="71,105,54,141,49,139,66,103"/>
+<area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="193,107,84,149,82,144,191,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="101,152,159,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="208,106,157,145,154,141,204,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="184,152,257,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="223,104,223,138,218,138,218,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="282,152,357,177"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="238,102,294,142,291,146,235,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="381,152,447,177"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="253,102,371,145,369,150,251,107"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="471,152,546,177"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="268,101,459,148,458,154,266,107"/>
+</map>

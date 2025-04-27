@@ -1,0 +1,70 @@
+.TH "s_command" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+s_command
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <minishell\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_command\fP * \fBnext\fP"
+.br
+.ti -1c
+.RI "\fBt_token\fP * \fBtokens\fP"
+.br
+.ti -1c
+.RI "char * \fBcontent\fP"
+.br
+.ti -1c
+.RI "char ** \fBenvp\fP"
+.br
+.ti -1c
+.RI "char * \fBcommand\fP"
+.br
+.ti -1c
+.RI "t_bool \fBfile_error\fP"
+.br
+.ti -1c
+.RI "\fBt_file\fP * \fBfile_in\fP"
+.br
+.ti -1c
+.RI "\fBt_file\fP * \fBfile_out\fP"
+.br
+.ti -1c
+.RI "t_bool \fBis_parsed\fP"
+.br
+.ti -1c
+.RI "t_bool \fBis_executed\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "char* s_command::command"
+
+.SS "char* s_command::content"
+
+.SS "char** s_command::envp"
+
+.SS "t_bool s_command::file_error"
+
+.SS "\fBt_file\fP* s_command::file_in"
+
+.SS "\fBt_file\fP* s_command::file_out"
+
+.SS "t_bool s_command::is_executed"
+
+.SS "t_bool s_command::is_parsed"
+
+.SS "struct \fBs_command\fP* s_command::next"
+
+.SS "\fBt_token\fP* s_command::tokens"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

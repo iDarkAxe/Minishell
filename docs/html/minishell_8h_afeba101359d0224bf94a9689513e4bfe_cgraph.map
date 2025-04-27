@@ -1,0 +1,16 @@
+<map id="ft_pwd" name="ft_pwd">
+<area shape="rect" id="Node000001" title="Print the current working directory." alt="" coords="5,31,71,56"/>
+<area shape="rect" id="Node000002" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="119,31,191,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,41,105,41,105,46,71,46"/>
+<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="239,5,319,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="191,33,225,26,226,31,192,39"/>
+<area shape="rect" id="Node000004" href="$ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="367,31,429,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="319,24,354,31,353,37,318,29"/>
+<area shape="poly" id="edge7_Node000004_Node000002" title=" " alt="" coords="367,46,205,46,205,41,367,41"/>
+<area shape="rect" id="Node000005" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="477,31,585,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="430,41,464,41,464,46,430,46"/>
+<area shape="rect" id="Node000006" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="633,5,756,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="585,32,619,27,620,32,586,38"/>
+<area shape="rect" id="Node000007" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="643,55,746,80"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="586,49,630,55,629,60,585,54"/>
+</map>

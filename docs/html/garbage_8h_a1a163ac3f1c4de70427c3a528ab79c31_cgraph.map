@@ -1,0 +1,5 @@
+<map id="garbage_init" name="garbage_init">
+<area shape="rect" id="Node000001" title="Initialize the garbage and sets the values to 0." alt="" coords="5,5,108,31"/>
+<area shape="rect" id="Node000002" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="156,5,259,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,15,142,15,142,21,108,21"/>
+</map>

@@ -1,0 +1,110 @@
+.TH "src/file/file.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/file/file.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'file\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBbuild_file_access\fP (\fBt_file\fP *file)"
+.br
+.RI "Build the file using access and check permissions\&. "
+.ti -1c
+.RI "char * \fBft_trim_word\fP (char *str)"
+.br
+.RI "Trim the first word detected and remove all the unnecessary\&. "
+.ti -1c
+.RI "\fBt_file\fP * \fBfile_parser\fP (\fBt_file\fP *file)"
+.br
+.RI "Parse the file structure\&. "
+.ti -1c
+.RI "void * \fBadd_file\fP (\fBt_command\fP *command, \fBt_token\fP *token, \fBt_file\fP **command_file)"
+.br
+.RI "Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order) "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void * add_file (\fBt_command\fP * command, \fBt_token\fP * token, \fBt_file\fP ** command_file)"
+
+.PP
+Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fItoken\fP token containing str informations 
+.br
+\fIcommand_file\fP stack to assign a file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+void* NULL if error, command if no stack given, and file if all's good 
+.RE
+.PP
+
+.SS "int build_file_access (\fBt_file\fP * file)"
+
+.PP
+Build the file using access and check permissions\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile\fP file structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0, OK, -1 error 
+.RE
+.PP
+
+.SS "\fBt_file\fP * file_parser (\fBt_file\fP * file)"
+
+.PP
+Parse the file structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile\fP file structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_file* file given in paramter 
+.RE
+.PP
+
+.SS "char * ft_trim_word (char * str)"
+
+.PP
+Trim the first word detected and remove all the unnecessary\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP string to search the word 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* the word found 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

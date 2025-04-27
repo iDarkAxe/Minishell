@@ -1,0 +1,50 @@
+.TH "src/exec/exec.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/exec/exec.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <sys/wait\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBsearch_command\fP (\fBt_command\fP *command, char **tokens)"
+.br
+.RI "Search if command is a builtin or not\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int search_command (\fBt_command\fP * command, char ** tokens)"
+
+.PP
+Search if command is a builtin or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

@@ -1,0 +1,66 @@
+.TH "src/file/file_verify_access.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/file/file_verify_access.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'file\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_file\fP * \fBsearch_last_file\fP (\fBt_file\fP *file, \fBt_file\fP *already_searched)"
+.br
+.RI "Return the last file that is not already_searched\&. "
+.ti -1c
+.RI "int \fBverify_access\fP (\fBt_command\fP *command)"
+.br
+.RI "Verify that all files are valid\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBt_file\fP * search_last_file (\fBt_file\fP * file, \fBt_file\fP * already_searched)"
+
+.PP
+Return the last file that is not already_searched\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile\fP file structure 
+.br
+\fIalready_searched\fP previous file from search 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_file* last file begore already_searched 
+.RE
+.PP
+
+.SS "int verify_access (\fBt_command\fP * command)"
+
+.PP
+Verify that all files are valid\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

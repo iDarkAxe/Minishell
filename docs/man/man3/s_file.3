@@ -1,0 +1,65 @@
+.TH "s_file" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+s_file
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <file\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBt_file\fP * \fBnext\fP"
+.br
+.ti -1c
+.RI "char * \fBname\fP"
+.br
+.ti -1c
+.RI "\fBt_tmp\fP * \fBtmp\fP"
+.br
+.ti -1c
+.RI "t_bool \fBparsed\fP"
+.br
+.ti -1c
+.RI "t_bool \fBexist\fP"
+.br
+.ti -1c
+.RI "t_bool \fBperm_read\fP"
+.br
+.ti -1c
+.RI "t_bool \fBperm_write\fP"
+.br
+.ti -1c
+.RI "t_bool \fBis_heredoc\fP"
+.br
+.ti -1c
+.RI "t_bool \fBis_append\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "t_bool s_file::exist"
+
+.SS "t_bool s_file::is_append"
+
+.SS "t_bool s_file::is_heredoc"
+
+.SS "char* s_file::name"
+
+.SS "\fBt_file\fP* s_file::next"
+
+.SS "t_bool s_file::parsed"
+
+.SS "t_bool s_file::perm_read"
+
+.SS "t_bool s_file::perm_write"
+
+.SS "\fBt_tmp\fP* s_file::tmp"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

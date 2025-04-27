@@ -1,0 +1,17 @@
+<map id="signal_handler" name="signal_handler">
+<area shape="rect" id="Node000001" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="5,105,123,131"/>
+<area shape="rect" id="Node000002" href="$ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="171,80,233,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,105,157,98,158,103,123,110"/>
+<area shape="rect" id="Node000006" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="299,131,371,156"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="123,121,286,136,285,141,123,126"/>
+<area shape="rect" id="Node000003" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="281,29,389,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="233,78,287,57,289,62,235,83"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="235,102,289,123,287,128,233,107"/>
+<area shape="rect" id="Node000004" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="437,5,560,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="389,31,423,26,424,32,390,37"/>
+<area shape="rect" id="Node000005" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="447,55,550,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="390,48,434,55,433,60,389,53"/>
+<area shape="rect" id="Node000007" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="459,105,539,131"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="371,135,445,124,446,129,372,140"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="458,117,247,99,248,94,459,112"/>
+</map>

@@ -1,0 +1,93 @@
+.TH "src/garbage/garbage_utils.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/garbage/garbage_utils.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBft_strndup_gb\fP (const char *source, size_t len)"
+.br
+.RI "Create a copy of source into a new pointer of size len NEEDS to be freed\&. "
+.ti -1c
+.RI "char * \fBft_strdup_gb\fP (const char *source)"
+.br
+.RI "Create a copy of source into a new pointer NEEDS to be freed\&. "
+.ti -1c
+.RI "void \fBfree_element_gb\fP (void *ptr)"
+.br
+.RI "Free an element in the garbage collector\&. "
+.ti -1c
+.RI "void \fBprint_garbage\fP (void)"
+.br
+.RI "Print the garbage collector\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void free_element_gb (void * ptr)"
+
+.PP
+Free an element in the garbage collector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIptr\fP element to free 
+.RE
+.PP
+
+.SS "char * ft_strdup_gb (const char * source)"
+
+.PP
+Create a copy of source into a new pointer NEEDS to be freed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsource\fP string to copy 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* pointer to the new string 
+.RE
+.PP
+
+.SS "char * ft_strndup_gb (const char * source, size_t len)"
+
+.PP
+Create a copy of source into a new pointer of size len NEEDS to be freed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsource\fP string to copy 
+.br
+\fIlen\fP size of the new string 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* pointer to the new string 
+.RE
+.PP
+
+.SS "void print_garbage (void )"
+
+.PP
+Print the garbage collector\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

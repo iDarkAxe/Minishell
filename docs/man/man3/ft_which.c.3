@@ -1,0 +1,44 @@
+.TH "src/builtins/ft_which.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/builtins/ft_which.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBft_which\fP (char **tokens)"
+.br
+.RI "Says if the command are built-in commands or not\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int ft_which (char ** tokens)"
+
+.PP
+Says if the command are built-in commands or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 if not at least one is not built-in, 0 if all strs built-ins 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

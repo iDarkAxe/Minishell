@@ -1,0 +1,29 @@
+<map id="not_builtins" name="not_builtins">
+<area shape="rect" id="Node000001" title="Executes commands that are not builtins." alt="" coords="5,56,104,81"/>
+<area shape="rect" id="Node000002" href="$garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="288,107,415,132"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,79,153,91,275,109,274,115,151,97,99,84"/>
+<area shape="rect" id="Node000006" href="$ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="508,5,571,31"/>
+<area shape="poly" id="edge16_Node000001_Node000006" title=" " alt="" coords="97,53,152,41,247,28,342,21,494,15,494,21,342,26,247,34,152,46,98,59"/>
+<area shape="rect" id="Node000011" href="$token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="152,56,240,81"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="104,66,138,66,138,71,104,71"/>
+<area shape="rect" id="Node000003" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="664,157,772,183"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,129,463,142,561,155,650,163,650,168,560,160,462,147,401,135"/>
+<area shape="rect" id="Node000005" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="830,232,933,257"/>
+<area shape="poly" id="edge12_Node000002_Node000005" title=" " alt="" coords="361,131,376,157,399,189,428,220,464,244,509,260,556,270,604,276,652,277,742,271,817,258,818,263,743,276,652,282,603,281,555,276,507,265,461,248,425,224,394,192,371,160,357,134"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="369,104,461,48,494,32,497,37,464,52,372,109"/>
+<area shape="rect" id="Node000007" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="682,56,754,81"/>
+<area shape="poly" id="edge13_Node000002_Node000007" title=" " alt="" coords="405,104,462,93,573,78,668,69,669,75,573,84,463,98,406,109"/>
+<area shape="rect" id="Node000009" href="$garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="463,107,616,132"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="415,117,449,117,449,122,415,122"/>
+<area shape="rect" id="Node000010" href="$garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="480,208,599,233"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="372,130,464,186,494,200,491,205,461,191,369,134"/>
+<area shape="rect" id="Node000004" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="820,157,943,183"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="772,167,806,167,806,173,772,173"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="748,180,842,224,839,229,746,185"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="557,29,693,146,689,150,554,33"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="572,24,669,52,668,57,570,29"/>
+<area shape="rect" id="Node000008" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="841,31,921,56"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="754,61,828,49,828,54,755,66"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="841,43,584,24,585,19,841,38"/>
+<area shape="poly" id="edge15_Node000011_Node000002" title=" " alt="" coords="237,79,299,100,298,105,235,84"/>
+</map>

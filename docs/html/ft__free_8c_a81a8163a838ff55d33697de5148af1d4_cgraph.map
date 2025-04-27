@@ -1,0 +1,7 @@
+<map id="free_array" name="free_array">
+<area shape="rect" id="Node000001" title="Free array of strings." alt="" coords="5,5,95,31"/>
+<area shape="rect" id="Node000002" href="$garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="143,5,275,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,15,129,15,129,21,95,21"/>
+<area shape="rect" id="Node000003" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="323,5,425,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,15,309,15,309,21,275,21"/>
+</map>

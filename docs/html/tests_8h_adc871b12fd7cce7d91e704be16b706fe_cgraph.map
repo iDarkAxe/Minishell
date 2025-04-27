@@ -1,0 +1,7 @@
+<map id="testing_ft_remove_near_quotes" name="testing_ft_remove_near_quotes">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,181,45"/>
+<area shape="rect" id="Node000002" href="$garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="229,13,361,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,23,216,23,216,28,182,28"/>
+<area shape="rect" id="Node000003" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="409,13,512,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,23,395,23,395,28,361,28"/>
+</map>

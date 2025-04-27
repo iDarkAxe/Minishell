@@ -1,0 +1,11 @@
+<map id="random_file_name_creation" name="random_file_name_creation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,208,80"/>
+<area shape="rect" id="Node000002" href="$tmp__generator_8c.html#ab88fe9958445aa8224d66e9d03dec39e" title="Create a tmp file, verify if it already exist, tries to open it to verify permissions,..." alt="" coords="256,29,352,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,52,242,47,243,52,206,57"/>
+<area shape="rect" id="Node000003" href="$garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="400,55,532,80"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="208,65,386,65,386,70,208,70"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="277,31,271,21,274,11,286,5,304,3,326,6,335,15,332,19,324,11,304,8,287,10,279,15,277,20,282,28"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="353,47,387,52,386,58,352,52"/>
+<area shape="rect" id="Node000004" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="580,55,683,80"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="532,65,566,65,566,70,532,70"/>
+</map>

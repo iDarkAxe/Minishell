@@ -1,0 +1,18 @@
+<map id="inc/env.h" name="inc/env.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="93,5,173,31"/>
+<area shape="rect" id="Node000002" href="$minishell_8h.html" title=" " alt="" coords="177,79,271,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,29,200,68,197,72,146,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,152,80,177"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="128,33,59,142,55,139,124,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,152,163,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,106,161,145,157,141,208,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="187,152,261,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="227,104,227,138,221,138,221,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="196,107,86,149,84,144,194,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="285,152,352,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="241,102,294,141,291,146,238,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="377,152,447,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="255,102,369,144,368,149,253,107"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="472,152,547,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="270,101,459,148,458,153,269,107"/>
+</map>

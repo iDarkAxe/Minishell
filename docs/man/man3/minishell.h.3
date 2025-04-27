@@ -1,0 +1,684 @@
+.TH "inc/minishell.h" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/minishell.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include <signal\&.h>\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_command\fP"
+.br
+.ti -1c
+.RI "struct \fBs_lexer_state\fP"
+.br
+.ti -1c
+.RI "struct \fBs_token\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPROMPT_MESSAGE_CUSTOM\fP   1"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_command\fP \fBt_command\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_lexer_state\fP \fBt_lexer_state\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_token\fP \fBt_token\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBe_file_state\fP { \fBFILE_IN\fP = 0, \fBFILE_OUT\fP = 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBminishell\fP (char **envp)"
+.br
+.RI "Minishell that handles all the shell functions\&. "
+.ti -1c
+.RI "int \fBread_context\fP (char **envp)"
+.br
+.RI "Function to read the context where this function is called Verify if it's used in a tty or not\&. "
+.ti -1c
+.RI "void \fBshort_minishell_no_tty\fP (char **envp)"
+.br
+.RI "Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. "
+.ti -1c
+.RI "char ** \fBcopy_toks\fP (\fBt_command\fP *command)"
+.br
+.RI "Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. "
+.ti -1c
+.RI "void \fBprint_toks\fP (char **tokens)"
+.br
+.RI "Print tokens indexed\&. "
+.ti -1c
+.RI "int \fBsearch_command\fP (\fBt_command\fP *command, char **tokens)"
+.br
+.RI "Search if command is a builtin or not\&. "
+.ti -1c
+.RI "int \fBnot_builtins\fP (\fBt_command\fP *command, char **tokens)"
+.br
+.RI "Executes commands that are not builtins\&. "
+.ti -1c
+.RI "int \fBsignal_init\fP (void)"
+.br
+.RI "Main function for initialising signals\&. "
+.ti -1c
+.RI "void \fBreset_signal_default\fP (void)"
+.br
+.RI "Function to reset signals to default\&. "
+.ti -1c
+.RI "void \fBignore_signal\fP (void)"
+.br
+.RI "Function to ignore certain signals\&. "
+.ti -1c
+.RI "char * \fBget_prompt_message\fP (void)"
+.br
+.RI "Build the prompt message If an error occurs, returns the static default prompt message\&. "
+.ti -1c
+.RI "ssize_t \fBprint_fd\fP (int fd, const char *str)"
+.br
+.RI "Function used to write safely and exits if write failed\&. "
+.ti -1c
+.RI "ssize_t \fBprintn_fd\fP (int fd, const char *str, size_t len)"
+.br
+.RI "Function used to write safely and exits if write failed\&. "
+.ti -1c
+.RI "char * \fBft_substr_end\fP (char const *src, unsigned int start, size_t end)"
+.br
+.RI "Allocate memory for a string and copy the content from src\&. "
+.ti -1c
+.RI "int \fBis_operator_char\fP (char c)"
+.br
+.RI "Is |, < or > "
+.ti -1c
+.RI "char ** \fBlexer\fP (const char *line)"
+.br
+.RI "Create tokens (small chunks) a line with the quotes and operators\&. "
+.ti -1c
+.RI "\fBt_command\fP * \fBtokeniser\fP (char **tokens, char **envp)"
+.br
+.RI "Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. "
+.ti -1c
+.RI "char ** \fBparse_line\fP (char *line)"
+.br
+.RI "Prototype for parsing\&. "
+.ti -1c
+.RI "char ** \fBexpand_tildes_tokens\fP (char **tokens)"
+.br
+.RI "Expands all the tildes found in array with HOME\&. "
+.ti -1c
+.RI "void \fBfree_array\fP (char **array)"
+.br
+.RI "Free array of strings\&. "
+.ti -1c
+.RI "void \fBfree_command\fP (\fBt_command\fP *command)"
+.br
+.RI "Free \fBt_command\fP linked list structure with all that it contains\&. "
+.ti -1c
+.RI "void \fBfree_files_struct\fP (\fBt_file\fP *file)"
+.br
+.RI "Free linked list of \fBt_file\fP structure\&. "
+.ti -1c
+.RI "void \fBfree_heredoc\fP (\fBt_tmp\fP *tmp)"
+.br
+.RI "Free heredoc structure\&. "
+.ti -1c
+.RI "void \fBfree_tokens\fP (\fBt_token\fP *token)"
+.br
+.RI "Free t_tokens linked list structure\&. "
+.ti -1c
+.RI "int \fBft_exit\fP (char **array)"
+.br
+.RI "Function to exit the program\&. "
+.ti -1c
+.RI "int \fBft_echo\fP (char **array, char delimitor)"
+.br
+.RI "Echo with -n option Delimitor is the character to print between tokens OPTIONS : -n : print without the triling newline\&. "
+.ti -1c
+.RI "int \fBft_which\fP (char **array)"
+.br
+.RI "Says if the command are built-in commands or not\&. "
+.ti -1c
+.RI "int \fBft_export\fP (char **array, char **envp)"
+.br
+.ti -1c
+.RI "int \fBft_env\fP (char **envp)"
+.br
+.ti -1c
+.RI "int \fBft_unset\fP (char **array, char **envp)"
+.br
+.ti -1c
+.RI "int \fBft_cd\fP (char **array)"
+.br
+.RI "Implementatin of cd builtin of shell\&. "
+.ti -1c
+.RI "int \fBft_pwd\fP (char **array)"
+.br
+.RI "Print the current working directory\&. "
+.ti -1c
+.RI "void \fBprint_list_files\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the list of files in the command structure\&. "
+.ti -1c
+.RI "void \fBprint_perm_files\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the list of permissions of files in the command structure\&. "
+.ti -1c
+.RI "ssize_t \fBprint_command\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the command structure with it's tokens\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PROMPT_MESSAGE_CUSTOM   1"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBs_command\fP \fBt_command\fP"
+
+.SS "typedef struct \fBs_lexer_state\fP \fBt_lexer_state\fP"
+
+.SS "typedef struct \fBs_token\fP \fBt_token\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBe_file_state\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIFILE_IN \fP
+.TP
+\f(BIFILE_OUT \fP
+.SH "Function Documentation"
+.PP 
+.SS "char ** copy_toks (\fBt_command\fP * command)"
+
+.PP
+Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char** copy of tokens 
+.RE
+.PP
+
+.SS "char ** expand_tildes_tokens (char ** tokens)"
+
+.PP
+Expands all the tildes found in array with HOME\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char** tokens if OK, NULL otherwise 
+.RE
+.PP
+
+.SS "void free_array (char ** array)"
+
+.PP
+Free array of strings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP array of strings 
+.RE
+.PP
+
+.SS "void free_command (\fBt_command\fP * command)"
+
+.PP
+Free \fBt_command\fP linked list structure with all that it contains\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP head of \fBt_command\fP linked list structure 
+.RE
+.PP
+
+.SS "void free_files_struct (\fBt_file\fP * file)"
+
+.PP
+Free linked list of \fBt_file\fP structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile\fP head of \fBt_file\fP linked list structure 
+.RE
+.PP
+
+.SS "void free_heredoc (\fBt_tmp\fP * tmp)"
+
+.PP
+Free heredoc structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItmp\fP heredoc structure 
+.RE
+.PP
+
+.SS "void free_tokens (\fBt_token\fP * token)"
+
+.PP
+Free t_tokens linked list structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItoken\fP head of t_tokens linked list structure 
+.RE
+.PP
+
+.SS "int ft_cd (char ** array)"
+
+.PP
+Implementatin of cd builtin of shell\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, 1 otherwise 
+.RE
+.PP
+
+.SS "int ft_echo (char ** array, char delimitor)"
+
+.PP
+Echo with -n option Delimitor is the character to print between tokens OPTIONS : -n : print without the triling newline\&. NOTES : you can add any number of n after -n if you want
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP array of strings 
+.br
+\fIdelimitor\fP character to delimit arrays 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int ft_env (char ** envp)"
+
+.SS "int ft_exit (char ** array)"
+
+.PP
+Function to exit the program\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP argument of the exit function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int value if argument invalid 
+.RE
+.PP
+
+.SS "int ft_export (char ** array, char ** envp)"
+
+.SS "int ft_pwd (char ** array)"
+
+.PP
+Print the current working directory\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "char * ft_substr_end (char const * src, unsigned int start, size_t end)"
+
+.PP
+Allocate memory for a string and copy the content from src\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsrc\fP source string 
+.br
+\fIstart\fP start index to copy from 
+.br
+\fIend\fP end index to copy to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* pointer to the new string 
+.RE
+.PP
+
+.SS "int ft_unset (char ** array, char ** envp)"
+
+.SS "int ft_which (char ** tokens)"
+
+.PP
+Says if the command are built-in commands or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 if not at least one is not built-in, 0 if all strs built-ins 
+.RE
+.PP
+
+.SS "char * get_prompt_message (void )"
+
+.PP
+Build the prompt message If an error occurs, returns the static default prompt message\&. 
+.PP
+\fBReturns\fP
+.RS 4
+char* prompt message 
+.RE
+.PP
+
+.SS "void ignore_signal (void )"
+
+.PP
+Function to ignore certain signals\&. 
+.SS "int is_operator_char (char c)"
+
+.PP
+Is |, < or > 
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP character to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 if c is operator, 0 otherwise 
+.RE
+.PP
+
+.SS "char ** lexer (const char * line)"
+
+.PP
+Create tokens (small chunks) a line with the quotes and operators\&. Handle spaces, quotes (' and ') and shell operator (|, <, <<, >, >>)\&. Return an array of tokens (strings), NULL terminated\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP line to tokenise 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Array of strings 
+.RE
+.PP
+
+.SS "int minishell (char ** envp)"
+
+.PP
+Minishell that handles all the shell functions\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenvp\fP environmment 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int not_builtins (\fBt_command\fP * command, char ** tokens)"
+
+.PP
+Executes commands that are not builtins\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "char ** parse_line (char * line)"
+
+.PP
+Prototype for parsing\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP line to parse 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char** 
+.RE
+.PP
+
+.SS "ssize_t print_command (\fBt_command\fP * command)"
+
+.PP
+Print the command structure with it's tokens\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t 0 is OK, otherwise error 
+.RE
+.PP
+
+.SS "ssize_t print_fd (int fd, const char * str)"
+
+.PP
+Function used to write safely and exits if write failed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfd\fP file descriptor 
+.br
+\fIstr\fP string to print 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of character printed 
+.RE
+.PP
+
+.SS "void print_list_files (\fBt_command\fP * command)"
+
+.PP
+Print the list of files in the command structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "void print_perm_files (\fBt_command\fP * command)"
+
+.PP
+Print the list of permissions of files in the command structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "void print_toks (char ** tokens)"
+
+.PP
+Print tokens indexed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItokens\fP tokens to print 
+.RE
+.PP
+
+.SS "ssize_t printn_fd (int fd, const char * str, size_t len)"
+
+.PP
+Function used to write safely and exits if write failed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfd\fP file descriptor 
+.br
+\fIstr\fP string to print 
+.br
+\fIlen\fP number of character to print 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of character printed 
+.RE
+.PP
+
+.SS "int read_context (char ** envp)"
+
+.PP
+Function to read the context where this function is called Verify if it's used in a tty or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenvp\fP environment 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, 1 otherwise 
+.RE
+.PP
+
+.SS "void reset_signal_default (void )"
+
+.PP
+Function to reset signals to default\&. 
+.SS "int search_command (\fBt_command\fP * command, char ** tokens)"
+
+.PP
+Search if command is a builtin or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "void short_minishell_no_tty (char ** envp)"
+
+.PP
+Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenvp\fP environment 
+.RE
+.PP
+
+.SS "int signal_init (void )"
+
+.PP
+Main function for initialising signals\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int 0 if the function ends correctly, -1 otherwise\&. 
+.RE
+.PP
+
+.SS "\fBt_command\fP * tokeniser (char ** tokens, char ** envp)"
+
+.PP
+Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItokens\fP tokens 
+.br
+\fIenvp\fP environment 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_command* pointer if OK, NULL if it fails 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

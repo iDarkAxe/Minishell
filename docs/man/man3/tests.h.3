@@ -1,0 +1,176 @@
+.TH "tests/inc/tests.h" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tests/inc/tests.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBft_remove_near_quotes\fP (const char *str, const char character)"
+.br
+.RI "Remove the first iteration of found pair of character and returns the new string\&. "
+.ti -1c
+.RI "char * \fBft_remove_all_near_quotes\fP (const char *str, const char character)"
+.br
+.RI "Remove the all iteration of found pairs of character and returns the new string\&. "
+.ti -1c
+.RI "void \fBtesting_ft_remove_near_quotes\fP (char *str, char *expected, char *new_str)"
+.br
+.ti -1c
+.RI "void \fBparsing_tests\fP (void)"
+.br
+.ti -1c
+.RI "void \fBno_changes_single\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_single_1\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_single_2\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_single_3\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_single_4\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_all_single\fP (void)"
+.br
+.ti -1c
+.RI "void \fBno_changes_double\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_double_1\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_double_2\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_double_3\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_one_double_4\fP (void)"
+.br
+.ti -1c
+.RI "void \fBchanges_all_double\fP (void)"
+.br
+.ti -1c
+.RI "void \fBfile_tests\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtesting_file_name\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtesting_file_perms_1\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtesting_file_perms_2\fP (void)"
+.br
+.ti -1c
+.RI "void \fBrandom_file_name_creation\fP (void)"
+.br
+.ti -1c
+.RI "void \fBcreating_heredoc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBcreating_heredoc_ctrl_d\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtear_down_files\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlexer_simple\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void changes_all_double (void )"
+
+.SS "void changes_all_single (void )"
+
+.SS "void changes_one_double_1 (void )"
+
+.SS "void changes_one_double_2 (void )"
+
+.SS "void changes_one_double_3 (void )"
+
+.SS "void changes_one_double_4 (void )"
+
+.SS "void changes_one_single_1 (void )"
+
+.SS "void changes_one_single_2 (void )"
+
+.SS "void changes_one_single_3 (void )"
+
+.SS "void changes_one_single_4 (void )"
+
+.SS "void creating_heredoc (void )"
+
+.SS "void creating_heredoc_ctrl_d (void )"
+
+.SS "void file_tests (void )"
+
+.SS "char * ft_remove_all_near_quotes (const char * str, const char character)"
+
+.PP
+Remove the all iteration of found pairs of character and returns the new string\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP string to remove pair from 
+.br
+\fIcharacter\fP character to delete 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* new string that don't contain the pair, NULL if ERROR OR no pair found 
+.RE
+.PP
+
+.SS "char * ft_remove_near_quotes (const char * str, const char character)"
+
+.PP
+Remove the first iteration of found pair of character and returns the new string\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP string to remove pair from 
+.br
+\fIcharacter\fP character to delete 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* new string that don't contain the pair, NULL if no pair to remove 
+.RE
+.PP
+
+.SS "void lexer_simple (void )"
+
+.SS "void no_changes_double (void )"
+
+.SS "void no_changes_single (void )"
+
+.SS "void parsing_tests (void )"
+
+.SS "void random_file_name_creation (void )"
+
+.SS "void tear_down_files (void )"
+
+.SS "void testing_file_name (void )"
+
+.SS "void testing_file_perms_1 (void )"
+
+.SS "void testing_file_perms_2 (void )"
+
+.SS "void testing_ft_remove_near_quotes (char * str, char * expected, char * new_str)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

@@ -1,0 +1,49 @@
+.TH "src/prompt.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/prompt.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'env\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include <fcntl\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <sys/stat\&.h>\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBget_prompt_message\fP (void)"
+.br
+.RI "Build the prompt message If an error occurs, returns the static default prompt message\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "char * get_prompt_message (void )"
+
+.PP
+Build the prompt message If an error occurs, returns the static default prompt message\&. 
+.PP
+\fBReturns\fP
+.RS 4
+char* prompt message 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

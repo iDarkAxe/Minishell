@@ -1,0 +1,72 @@
+.TH "src/file/heredoc.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/file/heredoc.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'file\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'get_next_line\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include <readline/readline\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char * \fBread_heredoc\fP (\fBt_tmp\fP *tmp, char *delimitor)"
+.br
+.RI "Read from stdin and outputs to a file, stops reading when Ctrl+D or when a delimitor is found\&. "
+.ti -1c
+.RI "int \fBfill_heredocs\fP (\fBt_command\fP *command)"
+.br
+.RI "Fill all the heredocs in the correct order\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int fill_heredocs (\fBt_command\fP * command)"
+
+.PP
+Fill all the heredocs in the correct order\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, otherwise error 
+.RE
+.PP
+
+.SS "char * read_heredoc (\fBt_tmp\fP * tmp, char * delimitor)"
+
+.PP
+Read from stdin and outputs to a file, stops reading when Ctrl+D or when a delimitor is found\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItmp\fP structure for heredocs 
+.br
+\fIdelimitor\fP string to know when to stop reading 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* tmp->name if successful, NULL otherwise 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.
