@@ -6,9 +6,23 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 13:13:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/27 13:33:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program of the Minishell
+  ******************************************************************************
+  * @date 27 avril 2025
+  * @mainpage Minishell
+  * @section Introduction
+  *
+  * Make your own shell that performs worse than bash but it's yours.
+  * 
+  ******************************************************************************
+*/
 
 #include "env.h"
 #include "file.h"
