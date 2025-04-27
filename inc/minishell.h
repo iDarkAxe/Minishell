@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 12:37:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/27 12:52:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,6 @@ int								search_command(t_command *command,
 int								not_builtins(t_command *command, char **tokens);
 
 int								signal_init(void);
-void							signal_handler(int sig, siginfo_t *info,
-									void *context);
 void							reset_signal_default(void);
 void							ignore_signal(void);
 char							*get_prompt_message(void);

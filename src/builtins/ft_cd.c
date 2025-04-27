@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 12:15:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/27 13:13:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,22 @@ int	ft_cd(char **array)
  */
 static int	check_args(char **array)
 {
+	char	*path;
+
 	if (array == NULL || array[1] == NULL)
 	{
-		chdir(getenv("HOME"));
+		path = getenv("HOME");
+		if (path == NULL)
+			return (-1);
+		chdir(path);
 		return (0);
 	}
 	if (ft_strncmp(array[1], "-", 2) == 0)
 	{
-		chdir(getenv("OLDPWD"));
+		path = getenv("OLDPWD");
+		if (path == NULL)
+			return (-1);
+		chdir(path);
 		return (0);
 	}
 	if (array[2] != NULL)

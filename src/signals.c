@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 12:35:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/27 13:14:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+void	signal_handler(int sig, siginfo_t *info, void *context);
 
 /**
  * @brief Main function for initialising signals
@@ -64,10 +66,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 		return ;
 	}
 	else
-	{
-		free_garbage();
-		exit(1);
-	}
+		ft_exit((char *[]){"1", NULL});
 }
 
 /**

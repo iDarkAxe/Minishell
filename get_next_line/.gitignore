@@ -1,0 +1,8 @@
+a.out
+test.txt
+**/*.o
+**/*.d
+**/*.a
+.obj/
+libgnl.a
+.vscode/

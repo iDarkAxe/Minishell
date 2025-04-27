@@ -5,45 +5,26 @@ DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
 NAME_TEST = test
-NAME = minishell
+NAME = libgnl.a
 
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
 #                                                                                           #
 #############################################################################################
 # Source directories
-P_SRC = src/
-P_GARBAGE = garbage/
-P_LEXER = lexer/
-P_PARSING = parsing/
-P_FILE = file/
-P_BUILTINS = builtins/
-P_ENV = env/
-P_EXEC = exec/
-
-P_PIPEX = pipex/src/
-P_TESTS = tests/
+P_SRC = ./
 
 P_OBJ = .obj/
 
-P_INC = inc/
+P_INC = ./
 P_INCS = \
 	$(P_INC) \
-	$(P_LIBFT)inc/ \
-	$(P_PIPEX)include/ \
-	$(P_PIPEX)include/
 
-# Libraries directories
-P_LIB = lib/
-P_LIBFT = libft/
-P_PIPEX = pipex/
-P_LIB_PIPEX = pipex/lib/
-P_GET_NEXT_LINE = get_next_line/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -51,104 +32,41 @@ P_GET_NEXT_LINE = get_next_line/
 #############################################################################################
 # Headers
 INC = \
-	minishell.h \
-	garbage.h \
-	file.h \
-	env.h \
-	garbage.h \
-	file.h
+	get_next_line.h \
+	get_next_line_bonus.h \
 
 # Source files
 SRC = \
-	main.c \
-	prompt.c \
-	signals.c \
-	ft_print_fd.c \
-	ft_free.c \
-	minishell.c \
-	token-utils.c \
-	read_context.c \
+	get_next_line.c \
 
 # builtins.c
 
-GARBAGE = \
-	garbage.c \
-	garbage_stack.c \
-	garbage_utils.c
+SRC_BONUS = \
+	get_next_line_bonus.c \
 
-LEXER = \
-	lexer.c \
-	lexer-utils.c \
-	tokens.c \
-
-PARSING = \
-	parsing.c \
-	expand_home.c \
-	parsing_quotes_double.c \
-
-FILE = \
-	file.c \
-	file_build.c \
-	file_print.c \
-	file_verify_access.c \
-	heredoc.c \
-	tmp_generator.c \
-	ft_file_tokens.c \
-	file-general.c \
-
-BUILTINS = \
-	ft_exit.c \
-	ft_echo.c \
-	ft_which.c \
-	ft_cd.c \
-	ft_env.c \
-
-ENV = \
-	get_env.c \
-	functions_utils.c \
-	functions_utils_env.c 
-
-EXEC = \
-	command-utils.c \
-	exec.c \
-	exec_extern.c \
-
-LIBS = \
-	-L$(P_LIB_PIPEX) -lpipex \
-	-L$(P_LIBFT) -lft \
-	-L$(P_GET_NEXT_LINE) -lgnl \
-	-L$(P_LIBFT) -lft \
-	-lreadline \
-
-LIBFT = $(P_LIBFT)libft.a
-PIPEX = $(P_LIB_PIPEX)libpipex.a
-GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
 #                                                                                           #
 #############################################################################################
 SRCS =	\
-	$(addprefix $(P_SRC), $(SRC)) \
-	$(addprefix $(P_SRC)$(P_GARBAGE), $(GARBAGE)) \
-	$(addprefix $(P_SRC)$(P_LEXER), $(LEXER)) \
-	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
-	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
-	$(addprefix $(P_SRC)$(P_BUILTINS), $(BUILTINS)) \
-	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
-	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
+	$(addprefix $(P_SRC), $(SRC))
+
+SRCS_BONUS = \
+	$(addprefix $(P_SRC), $(SRC_BONUS)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
 P_OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS))
 
+OBJS_BONUS = $(subst $(P_SRC), $(P_OBJ), $(SRCS_BONUS:.c=.o))
+P_OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS_BONUS))
+
 # List of depedencies
-DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
+DEPS = $(OBJS:%.o=%.d) $(OBJS_BONUS:%.o=%.d)
 
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
-		$(P_LIBFT)inc/libft.h \
-		$(P_PIPEX)include/pipex.h
 		
 #############################################################################################
 #                                                                                           #
@@ -158,10 +76,10 @@ INCS = $(addprefix $(P_INC), $(INC)) \
 all:
 	@$(MAKE) $(NAME)
 
-# Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -o $(NAME) $(OBJS) $(LIBS); then \
-		echo "$(Green)Creating executable $@$(Color_Off)"; \
+# Create $(NAME) library
+$(NAME): $(OBJS) $(INCS)
+	@if ar -rcs $(NAME) $(OBJS); then \
+		echo "$(Green)Creating library $@$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
 	fi
@@ -169,30 +87,15 @@ $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -c $< -o $@; then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I ../libft/inc -c $< -o $@; then \
 		echo "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
 	fi
 
-force:
 
-$(LIBFT): force
-	@$(MAKE) -C $(P_LIBFT)
-
-$(PIPEX): force
-	@$(MAKE) -C $(P_PIPEX)
-
-$(GET_NEXT_LINE): force
-	@$(MAKE) -C $(P_GET_NEXT_LINE)
-
-$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
-	@mkdir -p $(dir $@)
-	@echo "$(Green)Creating library $@$(Color_Off)"
-	@ar -rcs $@ $(OBJS)
-
-$(NAME_TEST): force
-	@$(MAKE) -C $(P_TESTS)
+bonus: 
+	@$(MAKE) all OBJS="$(OBJS_BONUS)"
 
 ############################################################################################
 #                                                                                           #
@@ -205,13 +108,6 @@ clean:
 	rm -rfd $(OBJS)
 	rm -rfd $(DEPS)
 
-clean-lib:
-	rm -rfd $(P_LIB)
-	@$(MAKE) -C $(P_LIBFT) fclean
-	@$(MAKE) -C $(P_PIPEX) fclean
-	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
-	@$(MAKE) -C tests fclean
-
 clean-bin:
 	rm -f $(NAME)
 	rm -f $(NAME_TEST)
@@ -221,7 +117,6 @@ clean-obj:
 
 fclean:
 	@$(MAKE) clean-obj
-	@$(MAKE) clean-lib
 	@$(MAKE) clean-bin
 
 re:
