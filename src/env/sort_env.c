@@ -40,5 +40,7 @@ void	bubble_sort(t_var **head)
 
 void	sort_ascii_order(t_env_vars *env)
 {
+	if (!env)
+		return ;
 	bubble_sort(&env->head_var);
 }
