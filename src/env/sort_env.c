@@ -14,19 +14,19 @@
 #include "libft.h"
 #include <stdio.h>
 
-void	bubble_sort(t_var *head)
+void	bubble_sort(t_var **head)
 {
 	t_var	*current;
 	int		swapped;
 
-	if (head == NULL || head->next == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return ;
 	swapped = 1;
 	while (swapped)
 	{
 		swapped = 0;
-		current = head;
-		while (current->next != NULL)
+		current = *head;
+		while (current && current->next != NULL)
 		{
 			if (ft_strcmp(current->value, current->next->value) > 0)
 			{
@@ -40,5 +40,5 @@ void	bubble_sort(t_var *head)
 
 void	sort_ascii_order(t_env_vars *env)
 {
-	bubble_sort(env->head_var);
+	bubble_sort(&env->head_var);
 }

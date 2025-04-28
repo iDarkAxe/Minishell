@@ -48,6 +48,7 @@ struct						s_swap
     t_var *curr_str; 
     t_var *curr_str_1; 
     t_var *curr;
+    t_var *curr_1;
     t_var *temp;
 };
 
@@ -63,7 +64,7 @@ void		print_env_vars(t_env_vars *env);
 t_env_vars	*get_env(char *envp[]);
 t_env_vars	*copy_env(t_env_vars *env);
 int		count_env(t_env_vars env);
-t_var		*swap_vars(t_var *head, char *str, char *str_1);
+void		swap_vars(t_var **head, char *str, char *str_1);
 void		sort_ascii_order(t_env_vars *env);
 
 #endif

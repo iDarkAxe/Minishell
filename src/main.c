@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/23 15:00:45 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/28 13:58:50 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,21 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_env_vars	*env;
 	t_env_vars	*copyy_env;
-	t_var		*head;
+	t_var		**head;
 
 	(void)argc;
 	(void)argv;
 	env = get_env(envp);
 	copyy_env = copy_env(env);
-	// printf("FIRST COPY\n\n");
-	// print_env_vars(copyy_env);
-	head = copyy_env->head_var;
-	copyy_env->head_var = swap_vars(head, "PATH", "PWD");
-	copyy_env->head_var = swap_vars(head, "COLORTERM", "XMODIFIERS");
-	// printf("\n\n");
-	// printf("COPY AFTER SWAP\n\n");
-	// print_env_vars(copyy_env);
-	// printf("\n\n");
+	printf("FIRST COPY\n\n");
+	print_env_vars(copyy_env);
+	head = &copyy_env->head_var;
+	swap_vars(head, "PATH", "PWD");
+	swap_vars(head, "COLORTERM", "XMODIFIERS");
+	printf("\n\n");
+	printf("COPY AFTER SWAP\n\n");
+	print_env_vars(copyy_env);
+	printf("\n\n");
 	printf("COPY AFTER SORT\n\n");
 	sort_ascii_order(copyy_env);
 	print_env_vars(copyy_env);
