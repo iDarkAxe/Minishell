@@ -6,14 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 12:29:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/28 11:56:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "file.h"
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
-#include "file.h"
 
 /**
  * @brief Build the file using access and check permissions
@@ -68,7 +68,7 @@ char	*ft_trim_word(char *str)
 	return (new_str);
 }
 
-/* FIXME Parsing à appliquer ici, et ne fonctionne pas 
+/* FIXME Parsing à appliquer ici, et ne fonctionne pas
 pour les outfiles en mode append */
 
 /**
@@ -86,6 +86,21 @@ t_file	*file_parser(t_file *file)
 	return (file);
 }
 
+static void	*check_args_and_error(t_command *command, t_token *token,
+		t_file **command_file)
+{
+	if (command == NULL || token->str == NULL)
+		return (NULL);
+	if (command_file != NULL && token->next == NULL)
+	{
+		print_fd(2,
+			"minishell: syntax error near unexpected token `newline'\n");
+		command->file_error = 1;
+		return (command);
+	}
+	return (command);
+}
+
 /**
  * @brief Add a file to the stack given in param,
  * each file added is at the beginning of the stack (reverse order)
@@ -100,20 +115,15 @@ void	*add_file(t_command *command, t_token *token, t_file **command_file)
 {
 	t_file	*file;
 
-	if (command == NULL || token->str == NULL)
+	if (check_args_and_error(command, token, command_file) == NULL)
 		return (NULL);
-	if (command_file == NULL)
+	if (command_file == NULL || command->file_error == 1)
 		return (command);
 	file = ft_calloc(sizeof(t_file), 1);
 	if (file == NULL)
 		return (NULL);
 	add_to_garbage(file);
 	file->name = token->next->str;
-	if (file->name == NULL)
-	{
-		free_element_gb(file);
-		return (NULL);
-	}
 	if (ft_strncmp(token->str, "<<", 2) == 0)
 		file->is_heredoc = 1;
 	else if (ft_strncmp(token->str, ">>", 2) == 0)

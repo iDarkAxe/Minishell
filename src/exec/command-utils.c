@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:08:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 11:38:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/28 12:28:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ ssize_t	print_command(t_command *command)
 	t_command	*cmd;
 	t_token		*token;
 
-	if (!command)
+	if (command == NULL)
 		return (print_fd(2, "No command to print\n"));
 	cmd = command;
-	while (cmd)
+	while (cmd && cmd->tokens)
 	{
 		printf("Command block at %p:\n", (void *)cmd);
 		token = cmd->tokens;

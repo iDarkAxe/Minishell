@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 12:35:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/28 12:00:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,10 @@ int	fill_heredocs(t_command *command)
 	t_file	*cur_file;
 	t_file	*last_file;
 
+	if (command == NULL)
+		return (1);
+	if (command->file_error == 1)
+		return (0);
 	last_file = NULL;
 	cur_file = command->file_in;
 	while (cur_file != NULL)

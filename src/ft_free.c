@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 12:29:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/28 12:35:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	free_command(t_command *command)
 		if (temp->tokens != NULL)
 			free_tokens(temp->tokens);
 		next = temp->next;
+		ft_bzero(temp, sizeof(t_command));
 		free_element_gb(temp);
 		temp = next;
 	}
@@ -80,6 +81,7 @@ void	free_tokens(t_token *token)
 			temp->str = NULL;
 		}
 		next = temp->next;
+		ft_bzero(temp, sizeof(t_token));
 		free_element_gb(temp);
 		temp = NULL;
 		temp = next;
@@ -111,7 +113,6 @@ void	free_files_struct(t_file *file)
 			temp->name = NULL;
 		}
 		next = temp->next;
-		temp = NULL;
 		free_element_gb(temp);
 		temp = next;
 	}
