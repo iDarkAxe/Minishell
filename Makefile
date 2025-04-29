@@ -74,6 +74,8 @@ ENV = \
 	copy_env.c \
 	swap_env.c \
 	sort_env.c \
+	search_env.c \
+
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

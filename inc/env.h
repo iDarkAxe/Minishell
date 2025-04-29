@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:03:51 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/23 15:43:39 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:25:39 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ t_env_vars	*copy_env(t_env_vars *env);
 int		count_env(t_env_vars env);
 void		swap_vars(t_var **head, char *str, char *str_1);
 void		sort_ascii_order(t_env_vars *env);
+char		*search_env(t_env_vars *env, char *var);
 
 #endif

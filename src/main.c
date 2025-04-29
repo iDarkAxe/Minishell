@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/28 13:58:50 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:26:50 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,30 +50,32 @@ void	print_env_vars(t_env_vars *env)
 int	main(int argc, char **argv, char **envp)
 {
 	t_env_vars	*env;
-	t_env_vars	*copyy_env;
-	t_var		**head;
+	// t_env_vars	*copyy_env;
+	// t_var		**head;
+	char		*str;
 
 	(void)argc;
 	(void)argv;
 	env = get_env(envp);
-	copyy_env = copy_env(env);
-	printf("FIRST COPY\n\n");
-	print_env_vars(copyy_env);
-	head = &copyy_env->head_var;
-	swap_vars(head, "PATH", "PWD");
-	swap_vars(head, "COLORTERM", "XMODIFIERS");
-	printf("\n\n");
-	printf("COPY AFTER SWAP\n\n");
-	print_env_vars(copyy_env);
-	printf("\n\n");
-	printf("COPY AFTER SORT\n\n");
-	sort_ascii_order(copyy_env);
-	print_env_vars(copyy_env);
-
+	// copyy_env = copy_env(env);
+	// printf("FIRST COPY\n\n");
+	// print_env_vars(copyy_env);
+	// head = &copyy_env->head_var;
+	// swap_vars(head, "PATH", "PWD");
+	// swap_vars(head, "COLORTERM", "XMODIFIERS");
+	// printf("\n\n");
+	// printf("COPY AFTER SWAP\n\n");
+	// print_env_vars(copyy_env);
+	// printf("\n\n");
+	// printf("COPY AFTER SORT\n\n");
+	// sort_ascii_order(copyy_env);
+	// print_env_vars(copyy_env);
 	// // for (int i = 0; envp[i] != NULL; i++)
 	// 	printf("%s\n", envp[i]);
 	// size_t	count = count_env(*env);
 	// printf("%zu", count);
+	str = search_env(env, "TERM_PROGRAM");
+	ft_putstr_fd(str, 1);
 	free_garbage();
 	return (0);
 }
