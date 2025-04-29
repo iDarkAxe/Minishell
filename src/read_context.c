@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 12:31:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/29 17:06:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,13 @@ void	short_minishell_no_tty(char **envp)
 	while (1)
 	{
 		line = get_next_line(STDIN_FILENO);
-		if (line == NULL || line[0] == '\0')
+		if (line == NULL)
 			break ;
+		if (line[0] == '\0')
+		{
+			free(line);
+			continue ;
+		}
 		tokens = parse_line(line);
 		free(line);
 		command = tokeniser(tokens, envp);
