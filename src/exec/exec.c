@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/24 12:04:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/29 17:10:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	search_command(t_command *command, char **tokens)
 	while (current != NULL)
 	{
 		print_command(current);
+		printf("return value is %d\n", *get_return_value());
 		if (current->file_error == 1)
 			break ;
 		if (ft_strncmp(current->tokens->str, "echo", 4) == 0)

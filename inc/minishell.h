@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 12:52:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/29 17:11:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef PROMPT_MESSAGE_CUSTOM
 #  define PROMPT_MESSAGE_CUSTOM 1
+# endif
+
+# ifndef FOLLOW_ZSH
+#  define FOLLOW_ZSH 0
 # endif
 
 # include "libft.h"
@@ -117,6 +121,10 @@ void							free_command(t_command *command);
 void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
 void							free_tokens(t_token *token);
+
+// Utils for exec
+int								set_return_value(int value);
+int								*get_return_value(void);
 
 // Built-ins
 int								ft_exit(char **array);

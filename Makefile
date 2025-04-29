@@ -112,6 +112,7 @@ EXEC = \
 	command-utils.c \
 	exec.c \
 	exec_extern.c \
+	ft_returnval.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

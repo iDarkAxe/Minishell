@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 15:24:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/29 17:03:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "minishell.h"
 #include <stdio.h>
 #include <sys/wait.h>
+#include <errno.h>
 
 static void	execve_fork(char *path, char **toks, char **envp);
 
@@ -56,11 +57,18 @@ static void	execve_fork(char *path, char **toks, char **envp)
 		reset_signal_default();
 		execve(path, toks, envp);
 		perror("execve");
-		ft_exit((char *[]){"1", NULL});
+		if (errno == ENOENT)
+			ft_exit((char *[]){"127", NULL});
+		else if (errno == EACCES)
+			ft_exit((char *[]){"126", NULL});
+		else
+			ft_exit((char *[]){"1", NULL});
 	}
 	ignore_signal();
 	waitpid(pid, &status, 0);
 	free_element_gb(path);
 	free_array(toks);
 	signal_init();
+	if (WIFEXITED(status))
+		set_return_value((status >> 8) & 0xFF);
 }

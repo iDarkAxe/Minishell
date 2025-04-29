@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:10:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/29 17:13:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_echo(char **array, char delimitor)
 	}
 	if (final_n == 1)
 		print_fd(1, "\n");
-	return (0);
+	return (set_return_value(0));
 }
 
 /**
