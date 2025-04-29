@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 16:06:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/06 16:55:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/09 15:13:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "minishell.h"
 
+// FIXME Ne fonctionne pas lorsqu'on met plusieurs '<' ou '>'
 /**
  * @brief Adds files to the file redirection structure
  *

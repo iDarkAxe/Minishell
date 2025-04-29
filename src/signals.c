@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/22 14:14:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/09 14:02:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,4 @@ static void	signal_handler(int sig, siginfo_t *info, void *context)
 		free_garbage();
 		exit(1);
 	}
-}
-
-// TODO Placeholder
-void	free_all(void)
-{
-	write(1, "You should free all here\n", 25);
 }

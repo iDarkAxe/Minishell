@@ -33,17 +33,16 @@ P_SRC = src/
 P_GARBAGE = garbage/
 P_PARSING = parsing/
 
+P_ENV = env/
 P_PIPEX = pipex/src/
-
 P_TESTS = tests/
 P_TESTS_SRC = $(P_TESTS)src/
 P_TESTS_PARSING = parsing/
 
+P_TESTS_PARSING = parsing_quotes_double/
 P_OBJ = .obj/
 P_TESTS_OBJS = $(P_TESTS).obj/
-
 P_INC = inc/
-
 P_INCS = \
 	$(P_INC) \
 	$(P_LIBFT)inc/ \
@@ -65,6 +64,8 @@ INC = \
 	minishell.h \
 	parsing.h
 	
+	env.h
+
 # Source files
 SRC = \
 	main.c \
@@ -82,10 +83,28 @@ PARSING = \
 	parsing.c \
 	ft_split_charset.c \
 	
+	tmp_generator.c \
+	file.c \
+	file_build.c \
+	file_print.c \
+	ft_exit.c 
+
+# builtins.c
+
 GARBAGE = \
 	garbage.c \
 	garbage_stack.c \
 	garbage_utils.c
+
+ENV = \
+	get_env.c \
+	functions_utils.c \
+	manipulation_env.c \
+	copy_env.c \
+	swap_env.c \
+	sort_env.c \
+	search_env.c \
+
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
@@ -103,6 +122,7 @@ SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_GARBAGE), $(GARBAGE)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
+	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
