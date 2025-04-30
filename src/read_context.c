@@ -6,23 +6,25 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 12:01:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 12:30:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "minishell.h"
-#include <unistd.h>
 #include "file.h"
 #include "garbage.h"
+#include "get_next_line.h"
+#include "minishell.h"
 #include <stdio.h>
+#include <unistd.h>
 
 // FIXME les commandes du path ne fonctionnent pas
+
+static char	*read_stdin_gnl(void);
 
 /**
  * @brief Function to read the context where this function is called
  * Verify if it's used in a tty or not
- * 
+ *
  * @param envp environment
  * @return int 0 OK, 1 otherwise
  */
@@ -40,7 +42,7 @@ int	read_context(char **envp)
 /**
  * @brief Executes the shell in a restricted area where there is no prompt
  * Should work exactly as the minishell function
- * 
+ *
  * @param envp environment
  */
 void	short_minishell_no_tty(char **envp)
@@ -51,14 +53,9 @@ void	short_minishell_no_tty(char **envp)
 
 	while (1)
 	{
-		line = get_next_line(STDIN_FILENO);
+		line = read_stdin_gnl();
 		if (line == NULL)
 			break ;
-		if (line[0] == '\0')
-		{
-			free(line);
-			continue ;
-		}
 		tokens = parse_line(line);
 		free(line);
 		command = tokeniser(tokens, envp);
@@ -75,4 +72,22 @@ void	short_minishell_no_tty(char **envp)
 		free_command(command);
 	}
 	ft_exit_int(0);
+}
+
+static char	*read_stdin_gnl(void)
+{
+	char	*line;
+
+	while (1)
+	{
+		line = get_next_line(STDIN_FILENO);
+		if (line == NULL)
+			ft_exit_int(0);
+		if (line[0] == '\0')
+		{
+			free(line);
+			continue ;
+		}
+		return (line);
+	}
 }
