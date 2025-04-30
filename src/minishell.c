@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 14:48:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 15:41:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@
 #include <readline/history.h>
 #include <readline/readline.h>
 
-int			search_command(t_command *command, char **tokens);
-char		*read_stdin(void);
-int			minishell(char **envp);
+static char	*read_stdin(void);
 
 /**
  * @brief Line condition to verify the return value of readline
@@ -61,7 +59,7 @@ static int	line_condition(char *line)
  *
  * @return char*
  */
-char	*read_stdin(void)
+static char	*read_stdin(void)
 {
 	char	*prompt;
 	char	*line;
@@ -114,7 +112,7 @@ int	minishell(char **envp)
 			free_array(tokens);
 			continue ;
 		}
-		if (search_command(command, tokens) != 0)
+		if (search_command(command) != 0)
 			ft_exit_int(1);
 		free_array(tokens);
 		free_command(command);
