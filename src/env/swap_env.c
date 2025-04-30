@@ -14,7 +14,7 @@
 #include "garbage.h"
 #include <stdio.h>
 
-static void	find_str(t_swap *swap, t_var **head, char *str, char *str_1)
+static void	find_str(t_vars *swap, t_var **head, char *str, char *str_1)
 {
 	while (swap->curr != NULL)
 	{
@@ -40,7 +40,7 @@ static void	find_str(t_swap *swap, t_var **head, char *str, char *str_1)
 	swap->curr = *head;
 }
 
-static void	swap_var(t_var **head, t_swap *swap)
+static void	swap_var(t_var **head, t_vars *swap)
 {
 	if (swap->prev_str != NULL)
 		swap->prev_str->next = swap->curr_str_1;
@@ -57,9 +57,9 @@ static void	swap_var(t_var **head, t_swap *swap)
 
 void	swap_vars(t_var **head, char *str, char *str_1)
 {
-	t_swap	*swap;
+	t_vars	*swap;
 
-	swap = malloc_gb(sizeof(t_swap));
+	swap = malloc_gb(sizeof(t_vars));
 	if (!swap || !str || !str_1)
 		return ;
 	swap->prev_str = NULL;

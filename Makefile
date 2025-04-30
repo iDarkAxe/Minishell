@@ -62,34 +62,25 @@ P_LIB_PIPEX = pipex/lib/
 # Headers
 INC = \
 	minishell.h \
-	parsing.h
-	
+	parsing.h \
 	env.h
 
 # Source files
 SRC = \
 	main.c \
+	signals.c \
+	prompt.c \
+	ft_exit.c \
 
-	# signals.c \
-	# prompt.c \
 	# tmp_generator.c \
 	# file.c \
 	# file_build.c \
 	# file_print.c \
-	# builtins.c
 
 PARSING = \
 	parsing_quotes_double.c \
 	parsing.c \
 	ft_split_charset.c \
-	
-	tmp_generator.c \
-	file.c \
-	file_build.c \
-	file_print.c \
-	ft_exit.c 
-
-# builtins.c
 
 GARBAGE = \
 	garbage.c \
@@ -104,6 +95,7 @@ ENV = \
 	swap_env.c \
 	sort_env.c \
 	search_env.c \
+	supp_var_in_env.c \
 
 
 LIBS = \

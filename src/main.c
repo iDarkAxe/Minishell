@@ -52,38 +52,38 @@
 
 char	*parsing_minishell(const char *str);
 
-int	main(void)
-{
-	const char	*str;
-	char		*result;
-
-	// str = "simple"; // sans quote
-	// str = "'simple'"; // quote simple bien fermée
-	// str = "\"simple\""; // quote double bien fermée
-	// str = "'simple"; // quote simple non fermée
-	// str = "\"simple"; // quote double non fermée
-	// str = "\"in 'the' middle\""; // quotes imbriquées
-	// str = "'in \"the\" middle'"; // quotes imbriquées inversées
-	// str = "\"   spaced string   \""; // quote avec espaces internes
-	// str = "   \"trimmed\"   "; // quote bien fermée avec espaces autour
-	// str = ""; // chaîne vide
-	// str = "    "; // que des espaces
-	// str = "'\"'"; // quote simple contenant une quote double
-	// str = "\"'\""; // quote double contenant une quote simple
-	str = "word \"another word\""; // mot + string entre quote
-	// str = "wo\"r\"d";
-	result = parsing_minishell(str);
-	if (result)
-	{
-		printf("✅ [%s]\n", result);
-		free(result);
-	}
-	else
-	{
-		printf("❌ Parsing error or NULL result\n");
-		printf("[%s]\n", result);
-	}
-}
+// int	main(void)
+// {
+// 	const char	*str;
+// 	char		*result;
+//
+// 	// str = "simple"; // sans quote
+// 	// str = "'simple'"; // quote simple bien fermée
+// 	// str = "\"simple\""; // quote double bien fermée
+// 	// str = "'simple"; // quote simple non fermée
+// 	// str = "\"simple"; // quote double non fermée
+// 	// str = "\"in 'the' middle\""; // quotes imbriquées
+// 	// str = "'in \"the\" middle'"; // quotes imbriquées inversées
+// 	// str = "\"   spaced string   \""; // quote avec espaces internes
+// 	// str = "   \"trimmed\"   "; // quote bien fermée avec espaces autour
+// 	// str = ""; // chaîne vide
+// 	// str = "    "; // que des espaces
+// 	// str = "'\"'"; // quote simple contenant une quote double
+// 	// str = "\"'\""; // quote double contenant une quote simple
+// 	str = "word \"another word\""; // mot + string entre quote
+// 	// str = "wo\"r\"d";
+// 	result = parsing_minishell(str);
+// 	if (result)
+// 	{
+// 		printf("✅ [%s]\n", result);
+// 		free(result);
+// 	}
+// 	else
+// 	{
+// 		printf("❌ Parsing error or NULL result\n");
+// 		printf("[%s]\n", result);
+// 	}
+// }
 
 void	print_env_vars(t_env_vars *env)
 {
@@ -108,21 +108,21 @@ void	print_env_vars(t_env_vars *env)
 		var = var->next;
 	}
 }
-
+//
 int	main(int argc, char **argv, char **envp)
 {
 	t_env_vars	*env;
-	// t_env_vars	*copyy_env;
-	// t_var		**head;
-	char		*str;
+	t_env_vars	*copyy_env;
+	t_var		**head;
 
+	// char		*str;
 	(void)argc;
 	(void)argv;
 	env = get_env(envp);
-	// copyy_env = copy_env(env);
-	// printf("FIRST COPY\n\n");
-	// print_env_vars(copyy_env);
-	// head = &copyy_env->head_var;
+	copyy_env = copy_env(env);
+	printf("FIRST COPY\n\n");
+	print_env_vars(copyy_env);
+	head = &copyy_env->head_var;
 	// swap_vars(head, "PATH", "PWD");
 	// swap_vars(head, "COLORTERM", "XMODIFIERS");
 	// printf("\n\n");
@@ -136,8 +136,14 @@ int	main(int argc, char **argv, char **envp)
 	// 	printf("%s\n", envp[i]);
 	// size_t	count = count_env(*env);
 	// printf("%zu", count);
-	str = search_env(env, "TERM_PROGRAM");
-	ft_putstr_fd(str, 1);
-	free_garbage();
+	// ft_putstr_fd("LS_COLORS=", 1);
+	// str = search_env(env, "LS_COLORS");
+	// ft_putstr_fd(str, 1);
+	// ft_putstr_fd("\n", 1);
+	// TEST SUPP_VAR
+	printf("\n\n");
+	supp_var(head, "PATH");
+	print_env_vars(copyy_env);
+	// free_garbage();
 	return (0);
 }

@@ -13,7 +13,7 @@
 #include "env.h"
 #include "garbage.h"
 
-static t_var *get_var(const char *var)
+static t_var	*get_var(const char *var)
 {
 	t_var	*new;
 
@@ -54,7 +54,7 @@ void	add_var_and_param(t_env_vars *env, char *var, char *content)
 {
 	t_var	*new;
 
-	new = get_var(var); 
+	new = get_var(var);
 	if (!new)
 		return ;
 	new->head_params = get_param(content);

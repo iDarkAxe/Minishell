@@ -12,6 +12,7 @@
 
 #include "env.h"
 #include "garbage.h"
+#include "libft.h"
 
 static size_t	count_size_total_params(t_params *params)
 {
@@ -22,7 +23,7 @@ static size_t	count_size_total_params(t_params *params)
 		return (0);
 	while (params != NULL)
 	{
-		count += ft_strlen(params->value);
+		count += ft_strlen(params->value) + 1;
 		params = params->next;
 	}
 	return (count);
@@ -32,31 +33,28 @@ static char	*create_str_with_params(t_params *params)
 {
 	char	*str;
 	size_t	i;
-	size_t	j;
+	size_t	size;
 
 	i = 0;
-	j = 0;
 	if (!params)
 		return (NULL);
-	str = malloc_gb(count_size_total_params(params) + 1);
+	str = malloc_gb(count_size_total_params(params));
 	if (!str)
 		return (NULL);
 	while (params != NULL)
 	{
-		j = 0;
-		while (params->value && params->value[j])
-		{
-			str[i] = params->value[j];
-			i++;
-			j++;
-		}
+		size = ft_strlen(params->value);
+		ft_memcpy(&str[i], params->value, size);
+		i += size;
+		if (params->next)
+			str[i++] = ':';
 		params = params->next;
 	}
 	str[i] = '\0';
 	return (str);
 }
 
-char *search_env(t_env_vars *env, char *var)
+char	*search_env(t_env_vars *env, char *var)
 {
 	char	*str;
 	t_var	*head;
@@ -67,7 +65,7 @@ char *search_env(t_env_vars *env, char *var)
 	{
 		if (ft_strcmp(head->value, var) == 0)
 		{
-			str = create_str_with_params(head->head_params); 
+			str = create_str_with_params(head->head_params);
 			if (!str)
 				return (NULL);
 		}
