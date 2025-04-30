@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 13:14:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 11:47:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 	(void)info;
 	(void)context;
 	if (sig == SIGQUIT)
-		ft_exit((char *[]){"1", NULL});
+		ft_exit_int(1);
 	else if (sig == SIGINT)
 	{
 		print_fd(STDOUT_FILENO, "\n");
@@ -66,7 +66,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 		return ;
 	}
 	else
-		ft_exit((char *[]){"1", NULL});
+		ft_exit_int(1);
 }
 
 /**

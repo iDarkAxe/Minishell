@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/29 17:13:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 11:56:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_echo(char **array, char delimitor)
 	}
 	if (final_n == 1)
 		print_fd(1, "\n");
-	return (set_return_value(0));
+	return (0);
 }
 
 /**
@@ -126,14 +126,14 @@ static char	handle_options(char **array, size_t *index)
 // 	(void)envp;
 // 	line = readline("mini_echo> ");
 // 	if (line == NULL || line[0] == '\0')
-// 		ft_exit((char *[]){"1", NULL});
+// 		ft_exit_int(1);
 // 	add_to_garbage(line);
 // 	tokens = lexer(line);
 // 	if (tokens == NULL)
-// 		ft_exit((char *[]){"1", NULL});
+// 		ft_exit_int(1);
 // 	command = tokeniser(tokens);
 // 	if (!command)
-// 		ft_exit((char *[]){"1", NULL});
+// 		ft_exit_int(1);
 // 	// print_command(command);
 // 	ft_echo(&tokens[0], ' ');
 // 	free_command(command);

@@ -111,8 +111,7 @@ ENV = \
 EXEC = \
 	command-utils.c \
 	exec.c \
-	exec_extern.c \
-	ft_returnval.c \
+	exec_extern.c 
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

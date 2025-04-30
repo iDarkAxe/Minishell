@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/29 17:13:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 11:58:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ int	ft_cd(char **array)
 
 	ret = check_args(array);
 	if (ret == 0)
-		return (set_return_value(0));
+		return (0);
 	else if (ret < 0)
-		return (set_return_value(ret));
+		return (ret);
 	ret = chdir(array[1]);
 	if (ret != 0)
 	{
 		print_fd(2, "minishell: cd: '");
 		print_fd(2, array[1]);
 		perror("'");
-		return (set_return_value(ret));
+		return (ret);
 	}
-	return (set_return_value(0));
+	return (0);
 }
 
 /**
@@ -96,15 +96,15 @@ int	ft_pwd(char **array)
 	if (array == NULL || array[1] != NULL)
 	{
 		print_fd(2, "minishell: pwd: too many arguments\n");
-		return (set_return_value(1));
+		return (1);
 	}
 	path = getenv("PWD");
 	if (path == NULL)
 	{
 		print_fd(2, "minishell: pwd: PWD not set\n");
-		return (set_return_value(1));
+		return (1);
 	}
 	print_fd(1, path);
 	print_fd(1, "\n");
-	return (set_return_value(0));
+	return (0);
 }

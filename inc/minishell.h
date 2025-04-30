@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/29 17:11:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 11:22:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,11 @@ struct							s_command
 {
 	struct s_command			*next;
 	t_token						*tokens;
-	char						*content;
 	char						**envp;
-	char						*command;
-	t_bool						file_error;
 	t_file						*file_in;
 	t_file						*file_out;
-	t_bool						is_parsed;
-	t_bool						is_executed;
+	t_bool						file_error;
+	int							return_value;
 };
 
 struct							s_lexer_state
@@ -128,6 +125,7 @@ int								*get_return_value(void);
 
 // Built-ins
 int								ft_exit(char **array);
+void							ft_exit_int(int value);
 int								ft_echo(char **array, char delimitor);
 int								ft_which(char **array);
 int								ft_export(char **array, char **envp);

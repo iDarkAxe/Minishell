@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:34:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/29 17:13:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 11:58:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_which(char **tokens)
 	char	is_not_builtin;
 
 	if (tokens == NULL || tokens[0] == NULL || tokens[1] == NULL)
-		return ((void)set_return_value(1), -1);
+		return (-1);
 	i = 1;
 	is_not_builtin = 0;
 	while (tokens[i] != NULL)
@@ -46,7 +46,7 @@ int	ft_which(char **tokens)
 		}
 		i++;
 	}
-	return (set_return_value(is_not_builtin));
+	return (is_not_builtin);
 }
 
 /**

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/29 17:13:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 11:58:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,24 @@
 #include <stdlib.h>
 #include "minishell.h"
 
-int			ft_exit(char **array);
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
 
 // TODO AJOUTER LE RETOUR ($?) s'il y a trop d'arguments
+
+/**
+ * @brief Short ft_exit that uses only int
+ * noreturn attribute is to prevent -Wmissing-noreturn flag 
+ * from flag -Weverything of debug-cc
+ * 
+ * @param value value
+ */
+__attribute__ ((noreturn))
+void	ft_exit_int(int value)
+{
+	free_garbage();
+	exit((unsigned char)value);
+}
 
 /* Zsh exit if there is more than 1 argument, bash don't.
 SET FOLLOW_ZSH to 1 to follow zsh behavior. */
@@ -32,22 +45,21 @@ SET FOLLOW_ZSH to 1 to follow zsh behavior. */
  */
 int	ft_exit(char **array)
 {
-	int	value;
+	int		value;
 
 	if (array == NULL || array[0] == NULL)
 	{
 		free_garbage();
-		if (get_return_value() != NULL)
-			exit(*get_return_value());
+		exit(0);
 	}
 	if (FOLLOW_ZSH == 1 && array[1] != NULL)
 	{
 		print_fd(2, "minishell: exit: too many arguments\n");
-		return ((void)set_return_value(1), -1);
+		return (-1);
 	}
 	value = verif_args(array);
 	if (value == -1)
-		return (set_return_value(1));
+		return (1);
 	if (value == 0)
 		value = ft_strtoull(array[0]);
 	free_garbage();
@@ -133,7 +145,7 @@ static int	ft_strtoull(char *nptr)
 // 		add_to_garbage(str);
 // 		count++;
 // 	}
-// 	if (ft_exit((char *[]){"10", NULL}) != 0)
+// 	if (ft_exit_int(10) != 0)
 // 		printf("L'exit est annulé  car l\'input est invalide\n");
 // 	free_garbage();
 // }
