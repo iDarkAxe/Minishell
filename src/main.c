@@ -14,7 +14,6 @@
 
 #include "minishell.h"
 #include "garbage.h"
-#include "minishell.h"
 #include "garbage.h"
 #include <readline/readline.h>
 #include "parsing.h"
@@ -50,38 +49,38 @@
 
 char	*parsing_minishell(const char *str);
 
-int	main(void)
-{
-	const char	*str;
-	char		*result;
 
-	// str = "simple"; // sans quote
-	// str = "'simple'"; // quote simple bien fermée
-	// str = "\"simple\""; // quote double bien fermée
-	// str = "'simple"; // quote simple non fermée
-	// str = "\"simple"; // quote double non fermée
-	// str = "\"in 'the' middle\""; // quotes imbriquées
-	// str = "'in \"the\" middle'"; // quotes imbriquées inversées
-	// str = "\"   spaced string   \""; // quote avec espaces internes
-	// str = "   \"trimmed\"   "; // quote bien fermée avec espaces autour
-	// str = ""; // chaîne vide
-	// str = "    "; // que des espaces
-	// str = "'\"'"; // quote simple contenant une quote double
-	// str = "\"'\""; // quote double contenant une quote simple
-	str = "word \"another word\""; // mot + string entre quote
-	// str = "wo\"r\"d";
-	result = parsing_minishell(str);
-	if (result)
-	{
-		printf("✅ [%s]\n", result);
-		free(result);
-	}
-	else
-	{
-		printf("❌ Parsing error or NULL result\n");
-		printf("[%s]\n", result);
-	}
-}
+// {
+// 	const char	*str;
+// 	char		*result;
+//
+// 	// str = "simple"; // sans quote
+// 	// str = "'simple'"; // quote simple bien fermée
+// 	// str = "\"simple\""; // quote double bien fermée
+// 	// str = "'simple"; // quote simple non fermée
+// 	// str = "\"simple"; // quote double non fermée
+// 	// str = "\"in 'the' middle\""; // quotes imbriquées
+// 	// str = "'in \"the\" middle'"; // quotes imbriquées inversées
+// 	// str = "\"   spaced string   \""; // quote avec espaces internes
+// 	// str = "   \"trimmed\"   "; // quote bien fermée avec espaces autour
+// 	// str = ""; // chaîne vide
+// 	// str = "    "; // que des espaces
+// 	// str = "'\"'"; // quote simple contenant une quote double
+// 	// str = "\"'\""; // quote double contenant une quote simple
+// 	str = "word \"another word\""; // mot + string entre quote
+// 	// str = "wo\"r\"d";
+// 	result = parsing_minishell(str);
+// 	if (result)
+// 	{
+// 		printf("✅ [%s]\n", result);
+// 		free(result);
+// 	}
+// 	else
+// 	{
+// 		printf("❌ Parsing error or NULL result\n");
+// 		printf("[%s]\n", result);
+// 	}
+// }
 
 void	print_env_vars(t_env_vars *env)
 {
@@ -119,20 +118,18 @@ void	print_env_vars(t_env_vars *env)
 // {
 // 	(void)argc;
 // 	(void)argv;
-// 	if (minishell(envp) != 0)
-// 		ft_exit_int(1);
+// 	t_env_vars	*copyy_env;
 // 	t_env_vars	*env;
-// 	// t_env_vars	*copyy_env;
-// 	// t_var		**head;
-// 	char		*str;
+// 	t_var		**head;
+// 	// char		*str;
 //
 // 	(void)argc;
 // 	(void)argv;
 // 	env = get_env(envp);
-// 	// copyy_env = copy_env(env);
-// 	// printf("FIRST COPY\n\n");
-// 	// print_env_vars(copyy_env);
-// 	// head = &copyy_env->head_var;
+// 	copyy_env = copy_env(env);
+// 	printf("FIRST COPY\n\n");
+// 	print_env_vars(copyy_env);
+// 	head = &copyy_env->head_var;
 // 	// swap_vars(head, "PATH", "PWD");
 // 	// swap_vars(head, "COLORTERM", "XMODIFIERS");
 // 	// printf("\n\n");
@@ -146,8 +143,21 @@ void	print_env_vars(t_env_vars *env)
 // 	// 	printf("%s\n", envp[i]);
 // 	// size_t	count = count_env(*env);
 // 	// printf("%zu", count);
-// 	str = search_env(env, "TERM_PROGRAM");
-// 	ft_putstr_fd(str, 1);
+// 	supp_var(head, "XMODIFIERS");	
+// 	// str = search_env(copyy_env, "ZSH");
+// 	printf("\n\n");
+// 	print_env_vars(copyy_env);
+// 	// ft_putstr_fd(str, 1);
 // 	free_garbage();
 // 	return (0);
 // }
+
+int	main(int argc, char **argv, char **envp)
+{
+	(void)argc;
+	(void)argv;
+	if (minishell(envp) != 0)
+		ft_exit_int(1);
+	free_garbage();
+	return (0);
+}

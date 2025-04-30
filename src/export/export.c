@@ -40,16 +40,6 @@ static t_params	*get_param(char *content)
 	return (param);
 }
 
-// static	void	fill_new_var(t_var **new, char *var, char *content)
-// {
-// 	*new = get_var(var);
-// 	if (!new)
-// 		return ;
-// 	(*new)->head_params = get_param(content);
-// 	if (!(*new)->head_params)
-// 		return ;
-// }
-
 void	add_var_and_param(t_env_vars *env, char *var, char *content)
 {
 	t_var	*new;
@@ -60,5 +50,6 @@ void	add_var_and_param(t_env_vars *env, char *var, char *content)
 	new->head_params = get_param(content);
 	if (!new->head_params)
 		return ;
+	ft_varsadd_back(&env->head_var, new);
 	return ;
 }

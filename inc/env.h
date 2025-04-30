@@ -29,7 +29,7 @@
 typedef struct s_var		t_var;
 typedef struct s_env_vars	t_env_vars;
 typedef struct s_params		t_params;
-typedef	struct s_swap		t_swap;
+typedef	struct s_vars		t_vars;
 
 struct						s_env_vars
 {
@@ -51,7 +51,7 @@ struct						s_params
 	char					*value;
 };
 
-struct						s_swap
+struct						s_vars
 {
     t_var *prev_str;
     t_var *prev_str_1;
@@ -77,5 +77,6 @@ int		count_env(t_env_vars env);
 void		swap_vars(t_var **head, char *str, char *str_1);
 void		sort_ascii_order(t_env_vars *env);
 char		*search_env(t_env_vars *env, char *var);
+void		supp_var(t_var **head, char *str);
 
 #endif

@@ -130,7 +130,7 @@ int								ft_echo(char **array, char delimitor);
 int								ft_which(char **array);
 int								ft_export(char **array, char **envp);
 int								ft_env(char **envp);
-int								ft_unset(char **array, char **envp);
+int								ft_unset(t_env_vars *env, char *str);
 int								ft_cd(char **array);
 int								ft_pwd(char **array);
 

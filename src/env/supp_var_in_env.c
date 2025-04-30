@@ -31,8 +31,8 @@ void	supp_var(t_var **head, char *str)
 		{
 			if (supp->prev_str)
 				supp->prev_str->next = supp->curr->next;
-			free(supp->curr->value);
-			free(supp->curr);
+			free_element_gb(supp->curr->value);
+			free_element_gb(supp->curr);
 			break ;
 		}
 		supp->prev_str = supp->curr;
