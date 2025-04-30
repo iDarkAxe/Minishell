@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
+#    Updated: 2025/04/30 15:53:49 by lud-adam         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 CC = cc
 CFLAGS = -Wextra -Wall -Werror
@@ -103,15 +115,19 @@ BUILTINS = \
 	ft_cd.c \
 	ft_env.c \
 
-ENV = \
-	get_env.c \
-	functions_utils.c \
-	functions_utils_env.c 
-
 EXEC = \
 	command-utils.c \
 	exec.c \
 	exec_extern.c 
+
+ENV = \
+	get_env.c \
+	functions_utils.c \
+	manipulation_env.c \
+	copy_env.c \
+	swap_env.c \
+	sort_env.c \
+	search_env.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

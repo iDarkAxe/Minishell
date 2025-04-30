@@ -11,23 +11,36 @@
 /* ************************************************************************** */
 
 #include "env.h"
-#include <string.h>
+#include "libft.h"
+#include <stdio.h>
 
-t_env_vars	sort_ascii_env(t_env_vars env)
+void	bubble_sort(t_var **head)
 {
-	t_env_vars	sort_ascii_env;
-	t_var		*temp;
-	t_var		*var;
+	t_var	*current;
+	int		swapped;
 
-	var = env.head_var;
-	while (var)
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	swapped = 1;
+	while (swapped)
 	{
-		if (strcmp(var->value, var->next->value) > 0)
+		swapped = 0;
+		current = *head;
+		while (current && current->next != NULL)
 		{
-			temp = var;
-			var = temp->next;
-			temp->next = temp;
+			if (ft_strcmp(current->value, current->next->value) > 0)
+			{
+				swap_vars(head, current->value, current->next->value);
+				swapped = 1;
+			}
+			current = current->next;
 		}
 	}
-	return (sort_ascii_env);
+}
+
+void	sort_ascii_order(t_env_vars *env)
+{
+	if (!env)
+		return ;
+	bubble_sort(&env->head_var);
 }

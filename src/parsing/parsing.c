@@ -6,12 +6,20 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 12:01:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 15:44:19 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "minishell.h"
+#include "libft.h"
+#include "minishell.h"
+#include "parsing.h"
+#include "pipex.h"
+#include <readline/history.h>
+#include <readline/readline.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 /**
  * @brief Prototype for parsing
@@ -34,4 +42,84 @@ char	**parse_line(char *line)
 	if (tokens == NULL)
 		ft_exit_int(1);
 	return (tokens);
+}
+
+size_t	count_without_quote(const char *str)
+{
+	size_t	i;
+	size_t	count;
+	char	quote;
+
+	i = 0;
+	count = 0;
+	quote = 0;
+	while (str && str[i])
+	{
+		if (quote != 0 && str[i] == quote)
+			quote = 0;
+		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
+			quote = str[i];
+		else
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+static t_bool	has_unclosed_quote(const char *str)
+{
+	size_t	i;
+	char	quote;
+
+	i = 0;
+	quote = 0;
+	while (str && str[i])
+	{
+		if (quote != 0 && str[i] == quote)
+			quote = 0;
+		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
+			quote = str[i];
+		i++;
+	}
+	if (quote == 0)
+		return (FALSE);
+	return (TRUE);
+}
+
+static char	*remove_quote(const char *str, char *new_str)
+{
+	char	quote;
+	size_t	i;
+	size_t	j;
+	
+	i = 0;
+	j = 0;
+	quote = 0;
+	while (str && str[i])
+	{
+		if (quote != 0 && str[i] == quote)
+			quote = 0;
+		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
+			quote = str[i];
+		else
+			new_str[j++] = str[i];
+		i++;
+	}
+	new_str[j] = '\0';
+	return (new_str);
+}
+
+char	*parsing_minishell(const char *str)
+{
+	char	*new_str;
+	size_t	count;
+
+	if (!str || has_unclosed_quote(str) == TRUE)
+		return (NULL);
+	count = count_without_quote(str);
+	new_str = malloc((count + 1) * sizeof(char));
+	if (!new_str)
+		return (NULL);
+	new_str = remove_quote(str, new_str);
+	return (new_str);
 }
