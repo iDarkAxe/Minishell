@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 12:52:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 11:22:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef PROMPT_MESSAGE_CUSTOM
 #  define PROMPT_MESSAGE_CUSTOM 1
+# endif
+
+# ifndef FOLLOW_ZSH
+#  define FOLLOW_ZSH 0
 # endif
 
 # include "libft.h"
@@ -53,14 +57,11 @@ struct							s_command
 {
 	struct s_command			*next;
 	t_token						*tokens;
-	char						*content;
 	char						**envp;
-	char						*command;
-	t_bool						file_error;
 	t_file						*file_in;
 	t_file						*file_out;
-	t_bool						is_parsed;
-	t_bool						is_executed;
+	t_bool						file_error;
+	int							return_value;
 };
 
 struct							s_lexer_state
@@ -118,8 +119,13 @@ void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
 void							free_tokens(t_token *token);
 
+// Utils for exec
+int								set_return_value(int value);
+int								*get_return_value(void);
+
 // Built-ins
 int								ft_exit(char **array);
+void							ft_exit_int(int value);
 int								ft_echo(char **array, char delimitor);
 int								ft_which(char **array);
 int								ft_export(char **array, char **envp);
