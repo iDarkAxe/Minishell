@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:58:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 14:50:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
-
-// TODO AJOUTER LE RETOUR ($?) s'il y a trop d'arguments
 
 /**
  * @brief Short ft_exit that uses only int
@@ -31,6 +29,7 @@ __attribute__ ((noreturn))
 void	ft_exit_int(int value)
 {
 	free_garbage();
+	print_fd(1, "exit\n");
 	exit((unsigned char)value);
 }
 
@@ -50,6 +49,7 @@ int	ft_exit(char **array)
 	if (array == NULL || array[0] == NULL)
 	{
 		free_garbage();
+		print_fd(1, "exit\n");
 		exit(0);
 	}
 	if (FOLLOW_ZSH == 1 && array[1] != NULL)
@@ -63,6 +63,7 @@ int	ft_exit(char **array)
 	if (value == 0)
 		value = ft_strtoull(array[0]);
 	free_garbage();
+	print_fd(1, "exit\n");
 	exit((unsigned char)value);
 }
 

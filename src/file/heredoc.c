@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/28 12:00:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 14:47:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ char	*read_heredoc(t_tmp *tmp, char *delimitor)
 	}
 	return (tmp->name);
 }
-
-// TODO Ajouter le heredoc error si on fait Ctrl+D
 
 /**
  * @brief Specific error printing for heredoc

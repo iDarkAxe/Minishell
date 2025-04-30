@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:47:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 14:15:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,16 @@ int	signal_init(void)
 	action_receive.sa_sigaction = signal_handler;
 	sigemptyset(&action_receive.sa_mask);
 	action_receive.sa_flags = SA_SIGINFO | SA_RESTART;
-	sigaction(SIGQUIT, &action_receive, NULL);
-	sigaction(SIGINT, &action_receive, NULL);
+	if (sigaction(SIGINT, &action_receive, NULL) == -1)
+	{
+		print_fd(2, "minishell: signals: error at sigaction\n");
+		ft_exit_int(-1);
+	}
+	if (signal(SIGQUIT, SIG_IGN) == SIG_ERR)
+	{
+		print_fd(2, "minishell: signals: error at ignore\n");
+		ft_exit_int(-2);
+	}
 	return (0);
 }
 
@@ -55,9 +63,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 {
 	(void)info;
 	(void)context;
-	if (sig == SIGQUIT)
-		ft_exit_int(1);
-	else if (sig == SIGINT)
+	if (sig == SIGINT)
 	{
 		print_fd(STDOUT_FILENO, "\n");
 		rl_replace_line("", 0);
@@ -65,8 +71,6 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 		rl_redisplay();
 		return ;
 	}
-	else
-		ft_exit_int(1);
 }
 
 /**
