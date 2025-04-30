@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:47:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 14:48:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ static int	line_condition(char *line)
 {
 	if ((line != NULL && line[0] != '\0'))
 		return (1);
-	if (line == NULL || line[0] == '\0')
+	if (line == NULL)
+		ft_exit_int(0);
+	if (line[0] == '\0')
 	{
-		if (line != NULL)
-			free(line);
+		free(line);
 		rl_on_new_line();
 		return (2);
 	}
@@ -83,7 +84,6 @@ char	*read_stdin(void)
 	return (line);
 }
 
-// TODO Files management bloque pas l'exécution si un fichier n'existe pas
 /* TODO Ouvrir les fichiers avec les modes appropriés
 (READ, Write|Truncate, Append, et heredoc)
 */
