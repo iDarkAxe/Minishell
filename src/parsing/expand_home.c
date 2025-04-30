@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:10:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:47:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 12:01:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ static char	*expand_tildes(char *str)
 	count_tildes = ft_strlen_char(str, '~');
 	result = malloc(ft_strlen(str) + 1 + count_tildes * ft_strlen(home));
 	if (result == NULL)
-		return (NULL);
+	{
+		free_element_gb(str);
+		ft_exit((char *[]){"1", NULL});
+	}
 	add_to_garbage(result);
 	change_tildes_by_home(result, home, str);
 	free_element_gb(str);
@@ -86,7 +89,7 @@ static void	change_tildes_by_home(char *result, char *home, char *str)
 
 	len = 0;
 	index = 0;
-	if (result == NULL || home == NULL)
+	if (result == NULL || home == NULL || str == NULL)
 		return ;
 	home_len = ft_strlen(home);
 	while (str[index])

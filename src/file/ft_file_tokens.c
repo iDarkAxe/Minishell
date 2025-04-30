@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/18 14:46:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/29 15:46:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ static void	free_token(t_token *token)
 		free_element_gb(token->next);
 	if (token)
 		free_element_gb(token);
+	token = NULL;
 }
