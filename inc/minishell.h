@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:17:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/01 16:46:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,6 @@ typedef struct s_params			t_params;
 typedef struct s_lexer_state	t_lexer_state;
 typedef struct s_token			t_token;
 
-enum							e_file_state
-{
-	FILE_IN = 0,
-	FILE_OUT = 1
-};
-
 struct							s_command
 {
 	struct s_command			*next;
@@ -60,6 +54,8 @@ struct							s_command
 	char						**envp;
 	t_file						*file_in;
 	t_file						*file_out;
+	int							fd[2];
+	int							fd_backup[2];
 	t_bool						file_error;
 	int							return_value;
 };
@@ -85,12 +81,6 @@ int								minishell(char **envp);
 int								read_context(char **envp);
 void							short_minishell_no_tty(char **envp);
 
-// Exec
-char							**copy_toks(t_command *command);
-void							print_toks(char **tokens);
-int								search_command(t_command *command);
-int								not_builtins(t_command *command, char **tokens);
-
 int								signal_init(void);
 void							reset_signal_default(void);
 void							ignore_signal(void);
@@ -111,16 +101,13 @@ t_command						*tokeniser(char **tokens, char **envp);
 char							**parse_line(char *line);
 char							**expand_tildes_tokens(char **tokens);
 
-// Utils for manage memory
-void							free_array(char **array);
-void							free_command(t_command *command);
-void							free_files_struct(t_file *file);
-void							free_heredoc(t_tmp *tmp);
-void							free_tokens(t_token *token);
-
-// Utils for exec
-int								set_return_value(int value);
-int								*get_return_value(void);
+// Exec
+char							**copy_toks(t_command *command);
+void							print_toks(char **tokens);
+int								search_command(t_command *command);
+int								not_builtins(t_command *command, char **tokens);
+int								handle_redirections(t_command *command);
+void							free_pipes(t_command *command);
 
 // Built-ins
 int								ft_exit(char **array);
@@ -132,6 +119,13 @@ int								ft_env(char **envp);
 int								ft_unset(char **array, char **envp);
 int								ft_cd(char **array);
 int								ft_pwd(char **array);
+
+// Utils for manage memory
+void							free_array(char **array);
+void							free_command(t_command *command);
+void							free_files_struct(t_file *file);
+void							free_heredoc(t_tmp *tmp);
+void							free_tokens(t_token *token);
 
 // DEBUGGING Functions
 void							print_list_files(t_command *command);

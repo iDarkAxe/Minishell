@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:41:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/01 16:45:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	search_command(t_command *command)
 		toks = copy_toks(current);
 		if (toks == NULL)
 			ft_exit_int(1);
-		if (ft_strncmp(current->tokens->str, "echo", 5) == 0)
-			current->return_value = ft_echo(&toks[1], ' ');
-		else if (search_command_2(current, toks, previous_ret) != 0)
+		handle_redirections(current);
+		if (search_command_2(current, toks, previous_ret) != 0)
 			current->return_value = not_builtins(current, toks);
 		previous_ret = current->return_value;
 		free_array(toks);
+		free_pipes(current);
 		current = current->next;
 	}
 	return (0);
@@ -58,7 +58,9 @@ static int	search_command_2(t_command *command, char **tokens, int ret)
 {
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);
-	if (ft_strncmp(command->tokens->str, "env", 4) == 0)
+	if (ft_strncmp(command->tokens->str, "echo", 5) == 0)
+		command->return_value = ft_echo(&tokens[1], ' ');
+	else if (ft_strncmp(command->tokens->str, "env", 4) == 0)
 		command->return_value = ft_env(command->envp);
 	else if (ft_strncmp(command->tokens->str, "which", 6) == 0)
 		command->return_value = ft_which(&tokens[0]);

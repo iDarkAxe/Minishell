@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 12:28:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/01 16:07:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,26 @@ t_file	*search_last_file(t_file *file, t_file *already_searched)
 /**
  * @brief Print the right permission error
  *
- * @param in_out 1 = IN, 0 = OUT
+ * @param in_out 0 = IN, 1 = OUT
  */
 static int	file_permission_check(t_file *file, t_bool in_out)
 {
 	if (file == NULL)
 		return (0);
-	if (in_out == 1 && file->is_heredoc == 1)
+	if (in_out == 0 && file->is_heredoc == 1)
 	{
 		free_element_gb(file->name);
 		file->name = file->tmp->name;
 		return (0);
 	}
-	if (in_out == 1 && file->exist != 1)
+	if (in_out == 0 && file->exist != 1)
 	{
 		print_fd(2, "minishell: ");
 		print_fd(2, file->name);
 		print_fd(2, ": No such file or directory\n");
 		return (1);
 	}
-	if ((in_out == 1 && file->perm_read != 1) || (in_out == 0
+	if ((in_out == 0 && file->perm_read != 1) || (in_out == 1
 			&& file->exist == 1 && file->perm_write != 1))
 	{
 		print_fd(2, "minishell: ");
@@ -94,7 +94,7 @@ static int	handle_file(t_command *command)
 	{
 		cur_file = search_last_file(command->file_in, last_file);
 		last_file = cur_file;
-		if (file_permission_check(cur_file, 1) != 0)
+		if (file_permission_check(cur_file, 0) != 0)
 			return (1);
 	}
 	last_file = NULL;
@@ -103,7 +103,7 @@ static int	handle_file(t_command *command)
 	{
 		cur_file = search_last_file(command->file_in, last_file);
 		last_file = cur_file;
-		if (file_permission_check(cur_file, 0) != 0)
+		if (file_permission_check(cur_file, 1) != 0)
 			return (1);
 	}
 	return (0);
