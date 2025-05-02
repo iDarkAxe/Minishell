@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:18:07 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/01 16:44:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 14:51:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,30 @@ int	handle_redirections(t_command *command)
 }
 
 // TODO PROTECT and secure dup2 and closes
-void	free_pipes(t_command *command)
+void	free_pipes(t_command *command, unsigned char i)
 {
-	if (!command || !command->tokens || !command->tokens->str)
+	int	ret[3];
+
+	if (!command || i >= 1)
 		return ;
-	if (command->fd[0] != 0)
+	if (command->fd[i] != 0)
 	{
-		close(command->fd[0]);
-		dup2(command->fd_backup[0], STDIN_FILENO);
-		close(command->fd_backup[0]);
+		ret[0] = close(command->fd[i]);
+		if (ret[0] != 0)
+			perror("minishell");
+		ret[1] = dup2(command->fd_backup[i], i);
+		if (ret[1] != 0)
+			perror("minishell");
+		ret[2] = close(command->fd_backup[i]);
+		if (ret[2] != 0)
+			perror("minishell");
+		if (ret[0] == -1 || ret[1] == -1 || ret[2] == -1)
+		{
+			print_fd(1, "minishell: error on close or dup2\n");
+			ft_exit_int(1);
+		}
 	}
-	if (command->fd[1] != 1)
-	{
-		close(command->fd[1]);
-		dup2(command->fd_backup[1], STDOUT_FILENO);
-		close(command->fd_backup[1]);
-	}
+	free_pipes(command, i + 1);
 	print_fd(1, "free pipes\n");
 }
 

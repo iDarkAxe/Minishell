@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:49:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 11:32:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,13 @@ static int	execve_fork(char *path, char **toks, char **envp)
 		reset_signal_default();
 		execve(path, toks, envp);
 		perror("execve");
+		free_garbage();
 		if (errno == ENOENT)
-			ft_exit_int(127);
+			exit(127);
 		else if (errno == EACCES)
-			ft_exit_int(126);
+			exit(126);
 		else
-			ft_exit_int(1);
+			exit(1);
 	}
 	ignore_signal();
 	waitpid(pid, &status, 0);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/01 16:48:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 14:48:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	files_management(t_command *command)
 		print_fd(2, "Error removing file tokens\n");
 		ft_exit_int(1);
 	}
+	print_command(command);
+	print_perm_files(command);
 	if (verify_access(command) != 0)
 	{
 		free_command(command);
@@ -101,12 +103,13 @@ void	read_write_to(t_command *command, unsigned char nbr)
 	if (command->fd_backup[nbr] < 0)
 	{
 		perror("minishell");
-		ft_exit_int(EXIT_FAILURE);
+		command->file_error = 1;
 	}
 	command->fd[nbr] = open_file_with_rights(temp, nbr);
 	if (dup2(command->fd[nbr], nbr) == -1)
 	{
 		perror("minishell");
-		ft_exit_int(EXIT_FAILURE);
+		command->file_error = 1;
 	}
+	read_write_to(command, nbr + 1);
 }

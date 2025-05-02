@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/01 16:46:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 11:42:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void							print_toks(char **tokens);
 int								search_command(t_command *command);
 int								not_builtins(t_command *command, char **tokens);
 int								handle_redirections(t_command *command);
-void							free_pipes(t_command *command);
+void							free_pipes(t_command *command, unsigned char i);
 
 // Built-ins
 int								ft_exit(char **array);

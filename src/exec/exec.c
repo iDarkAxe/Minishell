@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/01 16:45:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 14:51:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,21 @@ int	search_command(t_command *command)
 	{
 		print_command(current);
 		if (current->file_error == 1)
-			break ;
+		{
+			current = current->next;
+			free_pipes(current, 0);
+			continue ;
+		}
 		toks = copy_toks(current);
 		if (toks == NULL)
 			ft_exit_int(1);
 		handle_redirections(current);
-		if (search_command_2(current, toks, previous_ret) != 0)
+		if (current->file_error != 1 && search_command_2(current, toks,
+				previous_ret) != 0)
 			current->return_value = not_builtins(current, toks);
 		previous_ret = current->return_value;
 		free_array(toks);
-		free_pipes(current);
+		free_pipes(current, 0);
 		current = current->next;
 	}
 	return (0);
