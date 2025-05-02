@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 12:30:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 15:30:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ static char	*read_stdin_gnl(void);
  */
 int	read_context(char **envp)
 {
-	int	ret;
-
-	ret = isatty(STDIN_FILENO);
-	if (ret != 0)
+	if (isatty(STDIN_FILENO) != 0 && isatty(STDOUT_FILENO) != 0)
 		return (0);
 	short_minishell_no_tty(envp);
 	return (0);
@@ -66,7 +63,7 @@ void	short_minishell_no_tty(char **envp)
 			free_array(tokens);
 			continue ;
 		}
-		if (search_command(command, tokens) != 0)
+		if (search_command(command) != 0)
 			ft_exit_int(1);
 		free_array(tokens);
 		free_command(command);

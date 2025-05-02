@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:22:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 15:17:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,7 @@ void							short_minishell_no_tty(char **envp);
 // Exec
 char							**copy_toks(t_command *command);
 void							print_toks(char **tokens);
-int								search_command(t_command *command,
-									char **tokens);
+int								search_command(t_command *command);
 int								not_builtins(t_command *command, char **tokens);
 
 int								signal_init(void);
