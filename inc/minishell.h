@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:22:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 17:30:05 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,15 +128,20 @@ int								ft_exit(char **array);
 void							ft_exit_int(int value);
 int								ft_echo(char **array, char delimitor);
 int								ft_which(char **array);
-int								ft_export(char **array, char **envp);
-int								ft_env(char **envp);
-int								ft_unset(t_env_vars *env, char *str);
+int								ft_env(t_env_vars *env);
+int								ft_unset(char **array, t_env_vars *env);
+int								ft_export(char **array, t_env_vars *env);
 int								ft_cd(char **array);
 int								ft_pwd(char **array);
+
+// Utils for export
+void							print_export(t_env_vars *env);
+
+// Utils for env
+void							print_env(t_env_vars *env);
 
 // DEBUGGING Functions
 void							print_list_files(t_command *command);
 void							print_perm_files(t_command *command);
 ssize_t							print_command(t_command *command);
-
 #endif

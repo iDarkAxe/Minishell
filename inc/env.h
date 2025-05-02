@@ -69,6 +69,7 @@ t_var		*ft_varlast(t_var *var);
 void		ft_varsadd_back(t_var **var, t_var *new);
 t_params	*ft_paramlast(t_params *params);
 void		ft_paramsadd_back(t_params **params, t_params *new);
+void		ft_varsadd_front(t_var **var, t_var *new);
 void		print_env_vars(t_env_vars *env);
 
 t_env_vars	*get_env(char *envp[]);
