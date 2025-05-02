@@ -16,10 +16,10 @@
 #include <stdlib.h>
 
 /**
- * @brief Executes all the files redirection tests 
- * 
+ * @brief Executes all the files redirection tests
+ *
  * @param command command structure
- * @return int 0 OK, 1 is at least one file redirection is invalid 
+ * @return int 0 OK, 1 is at least one file redirection is invalid
  */
 int	files_management(t_command *command)
 {

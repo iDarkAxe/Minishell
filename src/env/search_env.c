@@ -56,7 +56,7 @@ static char	*create_str_with_params(t_params *params)
 	return (str);
 }
 
-char *search_env(t_env_vars *env, char *var)
+char	*search_env(t_env_vars *env, char *var)
 {
 	char	*str;
 	t_var	*head;
@@ -67,7 +67,7 @@ char *search_env(t_env_vars *env, char *var)
 	{
 		if (ft_strcmp(head->value, var) == 0)
 		{
-			str = create_str_with_params(head->head_params); 
+			str = create_str_with_params(head->head_params);
 			if (!str)
 				return (NULL);
 		}

@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "garbage.h"
-#include <readline/readline.h>
 #include "minishell.h"
+#include <readline/readline.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,7 +75,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 
 /**
  * @brief Function to reset signals to default
- * 
+ *
  */
 void	reset_signal_default(void)
 {
@@ -90,7 +90,7 @@ void	reset_signal_default(void)
 
 /**
  * @brief Function to ignore certain signals
- * 
+ *
  */
 void	ignore_signal(void)
 {

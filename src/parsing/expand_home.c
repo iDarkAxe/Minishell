@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include "garbage.h"
 #include "libft.h"
+#include "minishell.h"
 
 static void	change_tildes_by_home(char *result, char *home, char *str);
 static char	*expand_tildes(char *str);
 
 /**
  * @brief Expands all the tildes found in array with HOME
- * 
- * @param tokens array of strings 
+ *
+ * @param tokens array of strings
  * @return char** tokens if OK, NULL otherwise
  */
 char	**expand_tildes_tokens(char **tokens)
@@ -46,9 +46,9 @@ char	**expand_tildes_tokens(char **tokens)
 
 /**
  * @brief Expand the '~' sign in a string
- * 
- * @param str string to modify 
- * @return char* 
+ *
+ * @param str string to modify
+ * @return char*
  */
 static char	*expand_tildes(char *str)
 {
@@ -76,7 +76,7 @@ static char	*expand_tildes(char *str)
 
 /**
  * @brief Change all the tildes by home
- * 
+ *
  * @param result resulting string
  * @param home path to HOME
  * @param str input string

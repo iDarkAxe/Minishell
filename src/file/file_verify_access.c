@@ -11,15 +11,15 @@
 /* ************************************************************************** */
 
 #include "file.h"
-#include "minishell.h"
 #include "garbage.h"
+#include "minishell.h"
 
-static int		handle_file(t_command *command);
-static int		file_permission_check(t_file *file, t_bool in_out);
+static int	handle_file(t_command *command);
+static int	file_permission_check(t_file *file, t_bool in_out);
 
 /**
  * @brief Return the last file that is not already_searched
- * 
+ *
  * @param file file structure
  * @param already_searched previous file from search
  * @return t_file* last file begore already_searched
@@ -77,11 +77,11 @@ static int	file_permission_check(t_file *file, t_bool in_out)
 }
 
 /**
- * @brief Check that all files have the correct permissions 
+ * @brief Check that all files have the correct permissions
  * if they are IN (simple or heredoc) or OUT (create/trunc or append)
- * 
+ *
  * @param command command structure
- * @return int 
+ * @return int
  */
 static int	handle_file(t_command *command)
 {
@@ -110,10 +110,10 @@ static int	handle_file(t_command *command)
 }
 
 /**
- * @brief Verify that all files are valid 
- * 
+ * @brief Verify that all files are valid
+ *
  * @param command command structure
- * @return int 
+ * @return int
  */
 int	verify_access(t_command *command)
 {

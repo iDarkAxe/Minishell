@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "file.h"
 #include "minishell.h"
 #include <stdio.h>
-#include "file.h"
 
 void	print_list_files(t_command *command);
 void	print_perm_files(t_command *command);

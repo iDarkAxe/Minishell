@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unset.c                                         :+:      :+:    :+:   */
+/*   print_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 17:08:45 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/02 11:32:39 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/05/02 10:21:06 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/05/02 17:38:25 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
-#include "libft.h"
 
-int	ft_unset(char **array, t_env_vars *env)
+void	print_env_vars(t_env_vars *env)
 {
-	size_t	i;
-	t_var	**temp;
+	t_var		*var;
+	t_params	*param;
 
-	i = 0;
-	if (!env || !array)
-		return (-1);
-	if (array[0] == NULL)
-		ft_putstr_fd("unset: not enough arguments", 1);
-	temp = &env->head_var;
-	while (array[i] != NULL)
+	if (!env)
+		return ;
+	var = env->head_var;
+	while (var)
 	{
-		supp_var(temp, array[i]);
-		i++;
+		param = var->head_params;
+		if (param != NULL)
+			printf("%s=", var->value);
+		while (param)
+		{
+			printf("%s", param->value);
+			if (param->next)
+				printf(":");
+			param = param->next;
+		}
+		printf("\n");
+		var = var->next;
 	}
-	return (0);
 }

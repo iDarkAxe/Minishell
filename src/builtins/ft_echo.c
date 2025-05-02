@@ -23,12 +23,12 @@ int			ft_echo(char **array, char delimitor);
  * Delimitor is the character to print between tokens
  * OPTIONS :
  *  -n : print without the triling newline
- * 
+ *
  * NOTES : you can add any number of n after -n if you want
- * 
+ *
  * @param array array of strings
  * @param delimitor character to delimit arrays
- * @return int 
+ * @return int
  */
 int	ft_echo(char **array, char delimitor)
 {
@@ -52,7 +52,7 @@ int	ft_echo(char **array, char delimitor)
 
 /**
  * @brief Verify that all the letters are only the same as the tested
- * 
+ *
  * @param str string to search letters
  * @param tested character to compare
  * @return char 0 if at least one char is different, 1 otherwise
@@ -73,7 +73,7 @@ static char	is_all_same_letter(char *str, const char tested)
 
 /**
  * @brief Handle the options, and increments the starting point of tokens
- * 
+ *
  * @param array array of strings
  * @param index index
  * @return char 1 no options found, 0 if at least one option found

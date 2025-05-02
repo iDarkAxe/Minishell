@@ -12,10 +12,10 @@
 
 #include "garbage.h"
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include "minishell.h"
 #include <readline/readline.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * @brief Get the garbage object

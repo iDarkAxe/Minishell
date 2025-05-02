@@ -12,16 +12,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "env.h"
+#include "garbage.h"
 #include "minishell.h"
-#include "garbage.h"
-#include "garbage.h"
-#include <readline/readline.h>
 #include "parsing.h"
 #include "pipex.h"
+#include <readline/readline.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "env.h"
 
 // int	main(int argc, char **argv, char **envp)
 // {
@@ -48,7 +47,6 @@
 // }
 
 char	*parsing_minishell(const char *str);
-
 
 // {
 // 	const char	*str;
@@ -82,38 +80,15 @@ char	*parsing_minishell(const char *str);
 // 	}
 // }
 
-void	print_env_vars(t_env_vars *env)
-{
-	t_var		*var;
-	t_params	*param;
-
-	if (!env)
-		return ;
-	var = env->head_var;
-	while (var)
-	{
-		printf("%s=", var->value);
-		param = var->head_params;
-		while (param)
-		{
-			printf("%s", param->value);
-			if (param->next)
-				printf(":");
-			param = param->next;
-		}
-		printf("\n");
-		var = var->next;
-	}
-}
-
 /**
  * @brief Main function
- * 
+ *
  * @param argc number of argument
  * @param argv array of arguments
  * @param envp environment
- * @return int 
+ * @return int
  */
+
 // int	main(int argc, char **argv, char **envp)
 // {
 // 	(void)argc;
@@ -136,14 +111,14 @@ void	print_env_vars(t_env_vars *env)
 // 	// printf("COPY AFTER SWAP\n\n");
 // 	// print_env_vars(copyy_env);
 // 	// printf("\n\n");
-// 	// printf("COPY AFTER SORT\n\n");
-// 	// sort_ascii_order(copyy_env);
-// 	// print_env_vars(copyy_env);
+// 	printf("COPY AFTER SORT\n\n");
+// 	sort_ascii_order(copyy_env);
+// 	print_env_vars(copyy_env);
 // 	// // for (int i = 0; envp[i] != NULL; i++)
 // 	// 	printf("%s\n", envp[i]);
 // 	// size_t	count = count_env(*env);
 // 	// printf("%zu", count);
-// 	supp_var(head, "XMODIFIERS");	
+// 	// supp_var(head, "XMODIFIERS");
 // 	// str = search_env(copyy_env, "ZSH");
 // 	printf("\n\n");
 // 	print_env_vars(copyy_env);
@@ -152,12 +127,33 @@ void	print_env_vars(t_env_vars *env)
 // 	return (0);
 // }
 
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	(void)argc;
+// 	(void)argv;
+// 	if (minishell(envp) != 0)
+// 		ft_exit_int(1);
+// 	free_garbage();
+// 	return (0);
+// }
+
 int	main(int argc, char **argv, char **envp)
 {
+	char		**array;
+	char		*str;
+	t_env_vars	*env;
+
 	(void)argc;
 	(void)argv;
-	if (minishell(envp) != 0)
-		ft_exit_int(1);
-	free_garbage();
+	str = "export a";
+	env = get_env(envp);
+	// print_env_vars(env);
+	array = ft_split(str, ' ');
+	// for (int i = 0; array[i] != NULL; i++)
+	// 	printf("%s\n", array[i]);
+	// ft_export(array, env);
+	ft_env(env);
+	// print_env(env);
+	printf("\n\n");
 	return (0);
 }

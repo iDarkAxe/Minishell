@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 14:47:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 11:37:36 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	search_command(t_command *command, char **tokens)
 	while (current != NULL)
 	{
 		print_command(current);
-		printf("return value is %d\n", previous_ret);
+		printf("return (value is %d\n", previous_ret));
 		if (current->file_error == 1)
 			break ;
 		if (ft_strncmp(current->tokens->str, "echo", 5) == 0)
@@ -59,12 +59,12 @@ static int	search_command_2(t_command *command, char **tokens, int ret)
 {
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);
-	if (ft_strncmp(command->tokens->str, "env", 4) == 0)
-		command->return_value = ft_env(command->envp);
-	else if (ft_strncmp(command->tokens->str, "export", 7) == 0)
-		command->return_value = ft_export(&tokens[1], command->envp);
-	else if (ft_strncmp(command->tokens->str, "unset", 6) == 0)
-		command->return_value = ft_unset(&tokens[1], command->envp);
+	// if (ft_strncmp(command->tokens->str, "env", 4) == 0)
+	// 	command->return_value = ft_env(command->envp);
+	// else if (ft_strncmp(command->tokens->str, "export", 7) == 0)
+	// 	command->return_value = ft_export(&tokens[1], command->envp);
+	// else if (ft_strncmp(command->tokens->str, "unset", 6) == 0)
+	// 	command->return_value = ft_unset(&tokens[1], command->envp);
 	else if (ft_strncmp(command->tokens->str, "cd", 3) == 0)
 		command->return_value = ft_cd(tokens);
 	else if (ft_strncmp(command->tokens->str, "pwd", 4) == 0)

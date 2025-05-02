@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/04/30 15:53:49 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/02 16:29:05 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ P_LIBFT = libft/
 P_PIPEX = pipex/
 P_LIB_PIPEX = pipex/lib/
 P_GET_NEXT_LINE = get_next_line/
+P_FT_PRINTF = ft_printf/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -67,8 +68,6 @@ INC = \
 	garbage.h \
 	file.h \
 	env.h \
-	garbage.h \
-	file.h
 
 # Source files
 SRC = \
@@ -110,6 +109,8 @@ FILE = \
 
 BUILTINS = \
 	ft_exit.c \
+	export/print_export.c \
+	export/ft_export.c \
 	ft_echo.c \
 	ft_which.c \
 	ft_cd.c \
@@ -121,25 +122,28 @@ EXEC = \
 	exec_extern.c 
 
 ENV = \
-	get_env.c \
 	functions_utils.c \
+	get_env.c \
 	manipulation_env.c \
 	copy_env.c \
 	swap_env.c \
 	sort_env.c \
 	search_env.c \
 	supp_var_in_env.c \
+	print_env.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
 	-L$(P_LIBFT) -lft \
+	-L$(P_FT_PRINTF) -lftprintf \
 	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a
 PIPEX = $(P_LIB_PIPEX)libpipex.a
 GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
+FT_PRINTF = $(P_FT_PRINTF)libftprintf.a 
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -202,6 +206,9 @@ $(PIPEX): force
 
 $(GET_NEXT_LINE): force
 	@$(MAKE) -C $(P_GET_NEXT_LINE)
+
+$(FT_PRINTF): force
+	@$(MAKE) -C $(P_FT_PRINTF)
 
 $(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
 	@mkdir -p $(dir $@)

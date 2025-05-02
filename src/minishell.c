@@ -11,18 +11,18 @@
 /* ************************************************************************** */
 
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program of the Minishell
-  ******************************************************************************
-  * @date 27 avril 2025
-  * @mainpage Minishell
-  * @section Introduction
-  *
-  * Make your own shell that performs worse than bash but it's yours.
-  * 
-  ******************************************************************************
-*/
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program of the Minishell
+ ******************************************************************************
+ * @date 27 avril 2025
+ * @mainpage Minishell
+ * @section Introduction
+ *
+ * Make your own shell that performs worse than bash but it's yours.
+ *
+ ******************************************************************************
+ */
 
 #include "env.h"
 #include "file.h"
@@ -37,7 +37,7 @@ int			minishell(char **envp);
 
 /**
  * @brief Line condition to verify the return value of readline
- * 
+ *
  * @param line line of readline
  * @return int 0, nothing checked, 1 is OK line, 2 is read another line
  */

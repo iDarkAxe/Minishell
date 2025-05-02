@@ -24,13 +24,13 @@ static int	check_args(char **array);
 
 /**
  * @brief Implementatin of cd builtin of shell
- * 
+ *
  * @param array array of strings
  * @return int 0 OK, 1 otherwise
  */
 int	ft_cd(char **array)
 {
-	int		ret;
+	int	ret;
 
 	ret = check_args(array);
 	if (ret == 0)
@@ -50,7 +50,7 @@ int	ft_cd(char **array)
 
 /**
  * @brief Check if args are valid are not
- * 
+ *
  * @param array array of strings
  * @return int 0 and 1 OK, -1 is error
  */

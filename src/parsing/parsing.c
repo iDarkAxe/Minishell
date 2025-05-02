@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "garbage.h"
-#include "minishell.h"
 #include "libft.h"
 #include "minishell.h"
 #include "parsing.h"
@@ -91,7 +90,7 @@ static char	*remove_quote(const char *str, char *new_str)
 	char	quote;
 	size_t	i;
 	size_t	j;
-	
+
 	i = 0;
 	j = 0;
 	quote = 0;

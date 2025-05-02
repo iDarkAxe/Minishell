@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:01:37 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/23 14:54:50 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:33:48 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_varsadd_back(t_var **var, t_var *new)
 	t_var	*pt;
 
 	pt = NULL;
+	if (new == NULL)
+		return ;
 	if (*var == NULL)
 	{
 		*var = new;
@@ -53,6 +55,8 @@ void	ft_paramsadd_back(t_params **params, t_params *new)
 	t_params	*pt;
 
 	pt = NULL;
+	if (!new)
+		return ;
 	if (*params == NULL)
 	{
 		*params = new;
@@ -64,17 +68,10 @@ void	ft_paramsadd_back(t_params **params, t_params *new)
 	new->next = NULL;
 }
 
-int	count_env(t_env_vars env)
+void	ft_varsadd_front(t_var **var, t_var *new)
 {
-	int	count;
-
-	count = 0;
-	if (!env.head_var)
-		return (0);
-	while (env.head_var)
-	{
-		count++;
-		env.head_var = env.head_var->next;
-	}
-	return (count);
+	if (!new)
+		return ;
+	new->next = *var;
+	*var = new;
 }

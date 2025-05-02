@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unset.c                                         :+:      :+:    :+:   */
+/*   count_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 17:08:45 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/02 11:32:39 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/05/02 10:27:31 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/05/02 10:27:43 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
-#include "libft.h"
 
-int	ft_unset(char **array, t_env_vars *env)
+int	count_env(t_env_vars env)
 {
-	size_t	i;
-	t_var	**temp;
+	int	count;
 
-	i = 0;
-	if (!env || !array)
-		return (-1);
-	if (array[0] == NULL)
-		ft_putstr_fd("unset: not enough arguments", 1);
-	temp = &env->head_var;
-	while (array[i] != NULL)
+	count = 0;
+	if (!env.head_var)
+		return (0);
+	while (env.head_var)
 	{
-		supp_var(temp, array[i]);
-		i++;
+		count++;
+		env.head_var = env.head_var->next;
 	}
-	return (0);
+	return (count);
 }

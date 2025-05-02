@@ -21,9 +21,9 @@ static void		free_token(t_token *token);
 
 /**
  * @brief Removes all the tokens of file redirections allready used
- * 
+ *
  * @param command command structure
- * @return t_command* 
+ * @return t_command*
  */
 t_command	*remove_used_file_tokens(t_command *command)
 {
@@ -42,9 +42,9 @@ t_command	*remove_used_file_tokens(t_command *command)
 
 /**
  * @brief Clean all tokens that are redirections
- * 
+ *
  * @param head head of tokens
- * @return t_token* 
+ * @return t_token*
  */
 static t_token	*clean_tokens(t_token *head)
 {
@@ -77,9 +77,9 @@ static t_token	*clean_tokens(t_token *head)
 
 /**
  * @brief Check if str contain redirections signs
- * 
+ *
  * @param str string to compare with redirections signs
- * @return int 
+ * @return int
  */
 static int	is_redirection(char *str)
 {
