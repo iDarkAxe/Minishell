@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:41:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 12:06:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@
   ******************************************************************************
 */
 
-#include "env.h"
-#include "file.h"
-#include "garbage.h"
 #include "minishell.h"
+#include "garbage.h"
+#include "file.h"
+#include "env.h"
+#include "builtins.h"
+
 #include <readline/history.h>
 #include <readline/readline.h>
 
@@ -82,10 +84,6 @@ static char	*read_stdin(void)
 	return (line);
 }
 
-/* TODO Ouvrir les fichiers avec les modes appropriés
-(READ, Write|Truncate, Append, et heredoc)
-*/
-
 /**
  * @brief Minishell that handles all the shell functions
  *
@@ -112,7 +110,7 @@ int	minishell(char **envp)
 			free_array(tokens);
 			continue ;
 		}
-		if (search_command(command) != 0)
+		if (prepare_command(command) != 0)
 			ft_exit_int(1);
 		free_array(tokens);
 		free_command(command);

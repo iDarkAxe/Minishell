@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   builtins.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:07:05 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/05/03 11:56:38 by ppontet           #+#    #+#             */
+/*   Updated: 2025/05/03 11:56:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "garbage.h"
-#include "builtins.h"
-
-#include <readline/readline.h>
-
-/**
- * @brief Main function
- * 
- * @param argc number of argument
- * @param argv array of arguments
- * @param envp environment
- * @return int 
- */
-int	main(int argc, char **argv, char **envp)
-{
-	(void)argc;
-	(void)argv;
-	if (minishell(envp) != 0)
-		ft_exit_int(1);
-	free_garbage();
-	return (0);
-}
+int								ft_exit(char **array);
+void							ft_exit_int(int value);
+int								ft_echo(char **array, char delimitor);
+int								ft_which(char **array);
+int								ft_export(char **array, char **envp);
+int								ft_env(char **envp);
+int								ft_unset(char **array, char **envp);
+int								ft_cd(char **array);
+int								ft_pwd(char **array);

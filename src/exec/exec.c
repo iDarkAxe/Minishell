@@ -6,29 +6,32 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/02 14:51:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 12:00:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minishell.h"
 #include "garbage.h"
 #include "libft.h"
-#include "minishell.h"
+#include "builtins.h"
+
 #include <stdio.h>
 #include <sys/wait.h>
 
-static int	search_command_2(t_command *command, char **tokens, int ret);
+static int	search_command(t_command *command, char **tokens, int ret);
 
 // TODO verifier si on doit executer la commande dans un fork ou pas
+// TODO add free pipes in case of forks
 
 /**
- * @brief Search if command is a builtin or not
+ * @brief Prepare the command for search_command()
  *
  * @param command command structure
  * @return int
  */
-int	search_command(t_command *command)
+int	prepare_command(t_command *command)
 {
-	static int	previous_ret = 0;
+	static int	ret = 0;
 	t_command	*current;
 	char		**toks;
 
@@ -38,28 +41,29 @@ int	search_command(t_command *command)
 	while (current != NULL)
 	{
 		print_command(current);
-		if (current->file_error == 1)
-		{
-			current = current->next;
-			free_pipes(current, 0);
-			continue ;
-		}
 		toks = copy_toks(current);
 		if (toks == NULL)
 			ft_exit_int(1);
 		handle_redirections(current);
-		if (current->file_error != 1 && search_command_2(current, toks,
-				previous_ret) != 0)
+		if (current->file_error != 1 && search_command(current, toks, ret) != 0)
 			current->return_value = not_builtins(current, toks);
-		previous_ret = current->return_value;
+		ret = current->return_value;
 		free_array(toks);
-		free_pipes(current, 0);
+		reset_redirection(current, 0);
 		current = current->next;
 	}
 	return (0);
 }
 
-static int	search_command_2(t_command *command, char **tokens, int ret)
+/**
+ * @brief  Search if command is a builtin or not
+ * 
+ * @param command command structure
+ * @param tokens array of strings
+ * @param ret return value of previous command
+ * @return int 0 if command found, 1 otherwise
+ */
+static int	search_command(t_command *command, char **tokens, int ret)
 {
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:58:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 12:06:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+int			ft_cd(char **array);
 static int	check_args(char **array);
+
+int			ft_pwd(char **array);
 
 // TODO if env -i : `~` doesn't work
 // TODO should update OLDPWD and PWD

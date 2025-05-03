@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/01 16:44:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 11:45:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ t_file					*search_last_file(t_file *file,
 							t_file *already_searched);
 int						fill_heredocs(t_command *command);
 int						open_file_with_rights(t_file *file, t_bool in_out);
-void					read_write_to(t_command *command, unsigned char nbr);
-
+void					read_write_to(t_command *command, t_bool in_out);
+void					fd_default(t_command *command);
 #endif

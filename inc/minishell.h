@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/02 11:42:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 12:02:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,21 +104,11 @@ char							**expand_tildes_tokens(char **tokens);
 // Exec
 char							**copy_toks(t_command *command);
 void							print_toks(char **tokens);
-int								search_command(t_command *command);
+int								prepare_command(t_command *command);
 int								not_builtins(t_command *command, char **tokens);
 int								handle_redirections(t_command *command);
-void							free_pipes(t_command *command, unsigned char i);
-
-// Built-ins
-int								ft_exit(char **array);
-void							ft_exit_int(int value);
-int								ft_echo(char **array, char delimitor);
-int								ft_which(char **array);
-int								ft_export(char **array, char **envp);
-int								ft_env(char **envp);
-int								ft_unset(char **array, char **envp);
-int								ft_cd(char **array);
-int								ft_pwd(char **array);
+void							reset_redirection(t_command *command,
+									unsigned char i);
 
 // Utils for manage memory
 void							free_array(char **array);

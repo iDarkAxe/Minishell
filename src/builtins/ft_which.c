@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:34:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:58:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 11:58:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stddef.h>
 
 static int	condition_which(char *str);
+int			ft_which(char **tokens);
 
 /**
  * @brief Says if the command are built-in commands or not

@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:10:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 12:01:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 12:04:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "garbage.h"
 #include "libft.h"
+#include "builtins.h"
 
 static void	change_tildes_by_home(char *result, char *home, char *str);
 static char	*expand_tildes(char *str);

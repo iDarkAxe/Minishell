@@ -6,14 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:30:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 12:06:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minishell.h"
 #include "file.h"
 #include "garbage.h"
 #include "get_next_line.h"
-#include "minishell.h"
+#include "builtins.h"
+
 #include <stdio.h>
 #include <unistd.h>
 
@@ -63,7 +65,7 @@ void	short_minishell_no_tty(char **envp)
 			free_array(tokens);
 			continue ;
 		}
-		if (search_command(command) != 0)
+		if (prepare_command(command) != 0)
 			ft_exit_int(1);
 		free_array(tokens);
 		free_command(command);
@@ -71,6 +73,11 @@ void	short_minishell_no_tty(char **envp)
 	ft_exit_int(0);
 }
 
+/**
+ * @brief Special read_stin using gnl
+ * 
+ * @return char* line rode
+ */
 static char	*read_stdin_gnl(void)
 {
 	char	*line;

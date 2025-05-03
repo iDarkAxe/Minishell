@@ -6,13 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/02 11:32:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 11:58:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
-#include "libft.h"
 #include "minishell.h"
+#include "libft.h"
+#include "garbage.h"
+#include "builtins.h"
+
 #include <stdio.h>
 #include <sys/wait.h>
 #include <errno.h>
