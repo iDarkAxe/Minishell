@@ -112,7 +112,8 @@ EXEC = \
 	command-utils.c \
 	exec.c \
 	exec_extern.c \
-	ft_dups.c
+	ft_dups.c \
+	exec_in_forks.c
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

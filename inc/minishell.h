@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:02:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 13:51:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,15 @@ char							**expand_tildes_tokens(char **tokens);
 char							**copy_toks(t_command *command);
 void							print_toks(char **tokens);
 int								prepare_command(t_command *command);
+int								search_command(t_command *command,
+									char **tokens, int ret);
 int								not_builtins(t_command *command, char **tokens);
 int								handle_redirections(t_command *command);
 void							reset_redirection(t_command *command,
 									unsigned char i);
+int								needs_to_be_forked(t_command *command);
+void							executes_in_forks(t_command *command,
+									char **tokens, int ret);
 
 // Utils for manage memory
 void							free_array(char **array);
@@ -121,5 +126,6 @@ void							free_tokens(t_token *token);
 void							print_list_files(t_command *command);
 void							print_perm_files(t_command *command);
 ssize_t							print_command(t_command *command);
+ssize_t							print_commands(t_command *command);
 
 #endif

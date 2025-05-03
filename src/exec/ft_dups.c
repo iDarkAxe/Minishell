@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:18:07 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:32:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 13:15:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	reset_redirection(t_command *command, unsigned char i)
 	}
 	reset_redirection(command, i + 1);
 	fd_default(command);
-	print_fd(1, "reset_redirection\n");
 }
 
 // WIP proto to create pipes in command

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:00:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 14:27:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 #include <stdio.h>
 #include <sys/wait.h>
-
-static int	search_command(t_command *command, char **tokens, int ret);
 
 // TODO verifier si on doit executer la commande dans un fork ou pas
 // TODO add free pipes in case of forks
@@ -45,7 +43,10 @@ int	prepare_command(t_command *command)
 		if (toks == NULL)
 			ft_exit_int(1);
 		handle_redirections(current);
-		if (current->file_error != 1 && search_command(current, toks, ret) != 0)
+		if (needs_to_be_forked(command) != 0)
+			executes_in_forks(current, toks, ret);
+		else if (current->file_error != 1 && search_command(current, toks,
+				ret) != 0)
 			current->return_value = not_builtins(current, toks);
 		ret = current->return_value;
 		free_array(toks);
@@ -57,13 +58,13 @@ int	prepare_command(t_command *command)
 
 /**
  * @brief  Search if command is a builtin or not
- * 
+ *
  * @param command command structure
  * @param tokens array of strings
  * @param ret return value of previous command
  * @return int 0 if command found, 1 otherwise
  */
-static int	search_command(t_command *command, char **tokens, int ret)
+int	search_command(t_command *command, char **tokens, int ret)
 {
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);
