@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/28 11:56:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/04 12:58:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ char	*ft_trim_word(char *str)
 	size_t	start;
 	char	*new_str;
 
+	if (str == NULL)
+		return (NULL);
 	start = 0;
 	while (str[start] != '\0' && ft_isspace(str[start]))
 		start++;
@@ -91,6 +93,15 @@ static void	*check_args_and_error(t_command *command, t_token *token,
 {
 	if (command == NULL || token->str == NULL)
 		return (NULL);
+	if (token->str && (token->str[0] == '<' || token->str[0] == '>'))
+	{
+		print_fd(2,
+			"minishell: syntax error near unexpected token '");
+		print_fd(2, token->str);
+		print_fd(2, "'\n");
+		command->file_error = 1;
+		return (command);
+	}
 	if (command_file != NULL && token->next == NULL)
 	{
 		print_fd(2,
@@ -115,6 +126,8 @@ void	*add_file(t_command *command, t_token *token, t_file **command_file)
 {
 	t_file	*file;
 
+	if (command_file == NULL || command->file_error == 1)
+		return (command);
 	if (check_args_and_error(command, token, command_file) == NULL)
 		return (NULL);
 	if (command_file == NULL || command->file_error == 1)

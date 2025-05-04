@@ -55,8 +55,7 @@ INC = \
 	garbage.h \
 	file.h \
 	env.h \
-	garbage.h \
-	file.h
+	builtins.h
 
 # Source files
 SRC = \
