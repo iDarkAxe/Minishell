@@ -30,6 +30,7 @@
 #include "minishell.h"
 #include <readline/history.h>
 #include <readline/readline.h>
+#include <stdlib.h>
 
 int			search_command(t_command *command, char **tokens);
 char		*read_stdin(void);
@@ -101,6 +102,7 @@ int	minishell(char **envp)
 	char		**tokens;
 
 	signal_init();
+	set_env(envp);
 	read_context(envp);
 	while (1)
 	{

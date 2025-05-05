@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 10:21:06 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/02 17:38:25 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/05 13:44:32 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	print_env_vars(t_env_vars *env)
 			printf("%s=", var->value);
 		while (param)
 		{
-			printf("%s", param->value);
+			if (param->value != NULL)
+				printf("%s", param->value);
 			if (param->next)
 				printf(":");
 			param = param->next;

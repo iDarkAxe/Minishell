@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/02 16:29:05 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/05 13:38:52 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,7 @@ BUILTINS = \
 	export/ft_export.c \
 	ft_echo.c \
 	ft_which.c \
+	ft_unset.c \
 	ft_cd.c \
 	ft_env.c \
 
@@ -123,7 +124,7 @@ EXEC = \
 
 ENV = \
 	functions_utils.c \
-	get_env.c \
+	set_env.c \
 	manipulation_env.c \
 	copy_env.c \
 	swap_env.c \
@@ -131,6 +132,8 @@ ENV = \
 	search_env.c \
 	supp_var_in_env.c \
 	print_env.c \
+	get_env.c \
+	free_env.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

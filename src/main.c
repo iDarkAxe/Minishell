@@ -93,67 +93,90 @@ char	*parsing_minishell(const char *str);
 // {
 // 	(void)argc;
 // 	(void)argv;
-// 	t_env_vars	*copyy_env;
+// 	// t_env_vars	*copyy_env;
 // 	t_env_vars	*env;
-// 	t_var		**head;
+// 	// t_var		**head;
 // 	// char		*str;
+// 	char	**array;
 //
 // 	(void)argc;
 // 	(void)argv;
+// 	set_env(envp);
 // 	env = get_env(envp);
-// 	copyy_env = copy_env(env);
-// 	printf("FIRST COPY\n\n");
-// 	print_env_vars(copyy_env);
-// 	head = &copyy_env->head_var;
+//
+// 	array = ft_split("TMUX", ' ');
+// 	// copyy_env = copy_env(env);
+// 	// printf("FIRST COPY\n\n");
+// 	print_env_vars(env);
+// 	// head = &copyy_env->head_var;
 // 	// swap_vars(head, "PATH", "PWD");
+// 	ft_unset(array);
 // 	// swap_vars(head, "COLORTERM", "XMODIFIERS");
 // 	// printf("\n\n");
 // 	// printf("COPY AFTER SWAP\n\n");
-// 	// print_env_vars(copyy_env);
+// 	print_env_vars(env);
 // 	// printf("\n\n");
-// 	printf("COPY AFTER SORT\n\n");
-// 	sort_ascii_order(copyy_env);
-// 	print_env_vars(copyy_env);
+// 	// printf("COPY AFTER SORT\n\n");
+// 	// sort_ascii_order(copyy_env);
+// 	// print_env_vars(copyy_env);
 // 	// // for (int i = 0; envp[i] != NULL; i++)
 // 	// 	printf("%s\n", envp[i]);
 // 	// size_t	count = count_env(*env);
 // 	// printf("%zu", count);
 // 	// supp_var(head, "XMODIFIERS");
 // 	// str = search_env(copyy_env, "ZSH");
-// 	printf("\n\n");
-// 	print_env_vars(copyy_env);
 // 	// ft_putstr_fd(str, 1);
 // 	free_garbage();
+// 	return (0);
+// }
+//
+int	main(int argc, char **argv, char **envp)
+{
+	(void)argc;
+	(void)argv;
+	if (minishell(envp) != 0)
+		ft_exit_int(1);
+	free_garbage();
+	return (0);
+}
+
+//
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	char		**array;
+// 	char		*str;
+// 	t_env_vars	*env;
+//
+// 	(void)argc;
+// 	(void)argv;
+// 	str = "export a";
+// 	env = get_env(envp);
+// 	// print_env_vars(env);
+// 	array = ft_split(str, ' ');
+// 	// for (int i = 0; array[i] != NULL; i++)
+// 	// 	printf("%s\n", array[i]);
+// 	// ft_export(array, env);
+// 	ft_env(env);
+// 	// print_env(env);
+// 	printf("\n\n");
 // 	return (0);
 // }
 
 // int	main(int argc, char **argv, char **envp)
 // {
+// 	t_env_vars	*env;
+// 	t_var		*var;
 // 	(void)argc;
 // 	(void)argv;
-// 	if (minishell(envp) != 0)
-// 		ft_exit_int(1);
-// 	free_garbage();
+//
+// 	set_env(envp);
+// 	env = get_env();
+// 	var = search_env_var(env, "PATH");
+// 	printf ("%s", var->value);
+// 	free_elements_params(var->head_params);
+// 	if (var->head_params == NULL)
+// 		return (0);
+// 	printf("%s", var->head_params->value);
+// 	print_env_vars(env);
 // 	return (0);
 // }
-
-int	main(int argc, char **argv, char **envp)
-{
-	char		**array;
-	char		*str;
-	t_env_vars	*env;
-
-	(void)argc;
-	(void)argv;
-	str = "export a";
-	env = get_env(envp);
-	// print_env_vars(env);
-	array = ft_split(str, ' ');
-	// for (int i = 0; array[i] != NULL; i++)
-	// 	printf("%s\n", array[i]);
-	// ft_export(array, env);
-	ft_env(env);
-	// print_env(env);
-	printf("\n\n");
-	return (0);
-}

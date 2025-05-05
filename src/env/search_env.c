@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 09:53:17 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/29 10:38:03 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/05 13:50:49 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	*create_str_with_params(t_params *params)
 	return (str);
 }
 
-char	*search_env(t_env_vars *env, char *var)
+char	*search_env_str(t_env_vars *env, char *var)
 {
 	char	*str;
 	t_var	*head;
@@ -74,4 +74,23 @@ char	*search_env(t_env_vars *env, char *var)
 		head = head->next;
 	}
 	return (str);
+}
+
+t_var	*search_env_var(t_env_vars *env, char *var)
+{
+	t_var	*head;
+	t_var	*temp;
+
+	head = env->head_var;
+	temp = head;
+	while (head != NULL)
+	{
+		if (ft_strcmp(head->value, var) == 0)
+		{
+			temp = head;
+			break ;
+		}
+		head = head->next;
+	}
+	return (temp);
 }

@@ -59,12 +59,12 @@ static int	search_command_2(t_command *command, char **tokens, int ret)
 {
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);
-	// if (ft_strncmp(command->tokens->str, "env", 4) == 0)
-	// 	command->return_value = ft_env(command->envp);
-	// else if (ft_strncmp(command->tokens->str, "export", 7) == 0)
-	// 	command->return_value = ft_export(&tokens[1], command->envp);
-	// else if (ft_strncmp(command->tokens->str, "unset", 6) == 0)
-	// 	command->return_value = ft_unset(&tokens[1], command->envp);
+	if (ft_strncmp(command->tokens->str, "env", 4) == 0)
+		command->return_value = ft_env(&tokens[1]);
+	else if (ft_strncmp(command->tokens->str, "export", 7) == 0)
+		command->return_value = ft_export(&tokens[1]);
+	else if (ft_strncmp(command->tokens->str, "unset", 6) == 0)
+		command->return_value = ft_unset(&tokens[1]);
 	else if (ft_strncmp(command->tokens->str, "cd", 3) == 0)
 		command->return_value = ft_cd(tokens);
 	else if (ft_strncmp(command->tokens->str, "pwd", 4) == 0)

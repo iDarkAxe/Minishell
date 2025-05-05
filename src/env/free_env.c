@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unset.c                                         :+:      :+:    :+:   */
+/*   free_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 17:08:45 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/02 11:32:39 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/05/05 13:12:06 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/05/05 13:33:22 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
-#include "libft.h"
-#include "minishell.h"
+#include "garbage.h"
 
-int	ft_unset(char **array)
+void	free_params(t_params *element)
 {
-	size_t		i;
-	t_var		**temp;
-	t_env_vars	*env;
+	t_params	*temp;
 
-	i = 0;
-	env = get_env();
-	if (!env || !array)
-		return (-1);
-	if (FOLLOW_ZSH == 1 && array[0] == NULL)
-		ft_putstr_fd("unset: not enough arguments\n", 2);
-	temp = &env->head_var;
-	while (array && array[i] != NULL)
+	temp = NULL;
+	if (!element)
+		return ;
+	while (element)
 	{
-		supp_var(temp, array[i]);
-		temp = &env->head_var;
-		i++;
+		temp = element->next;
+		free_element_gb(element->value);
+		free_element_gb(element);
+		element = temp;
 	}
-	return (0);
+	return ;
 }

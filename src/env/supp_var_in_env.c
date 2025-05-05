@@ -16,11 +16,11 @@
 
 void	supp_var(t_var **head, char *str)
 {
-	t_vars	*supp;
+	t_supp	*supp;
 
 	if (!head || !str)
 		return ;
-	supp = malloc_gb(sizeof(t_vars));
+	supp = malloc_gb(sizeof(t_supp));
 	if (!supp)
 		return ;
 	supp->curr = *head;
@@ -31,12 +31,13 @@ void	supp_var(t_var **head, char *str)
 		{
 			if (supp->prev_str)
 				supp->prev_str->next = supp->curr->next;
-			free_element_gb(supp->curr->value);
+			else
+				*head = supp->curr->next;
+			free_params(supp->curr->head_params);
 			free_element_gb(supp->curr);
 			break ;
 		}
 		supp->prev_str = supp->curr;
 		supp->curr = supp->curr->next;
 	}
-	return ;
 }

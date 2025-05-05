@@ -30,6 +30,7 @@ typedef struct s_var		t_var;
 typedef struct s_env_vars	t_env_vars;
 typedef struct s_params		t_params;
 typedef	struct s_vars		t_vars;
+typedef	struct s_supp		t_supp;
 
 struct						s_env_vars
 {
@@ -62,6 +63,12 @@ struct						s_vars
     t_var *temp;
 };
 
+struct						s_supp
+{
+	t_var	*curr;
+	t_var	*prev_str;
+};
+
 // Utils
 size_t		ft_strlen_choose_c(const char *str, char c);
 int		ft_strcmp(const char *s1, const char *s2);
@@ -72,12 +79,19 @@ void		ft_paramsadd_back(t_params **params, t_params *new);
 void		ft_varsadd_front(t_var **var, t_var *new);
 void		print_env_vars(t_env_vars *env);
 
-t_env_vars	*get_env(char *envp[]);
+void		set_env(char *envp[]);
 t_env_vars	*copy_env(t_env_vars *env);
 int		count_env(t_env_vars env);
 void		swap_vars(t_var **head, char *str, char *str_1);
 void		sort_ascii_order(t_env_vars *env);
-char		*search_env(t_env_vars *env, char *var);
+char		*search_env_str(t_env_vars *env, char *var);
+t_var		*search_env_var(t_env_vars *env, char *var);
 void		supp_var(t_var **head, char *str);
+t_env_vars	*init_env(char **envp);
+t_env_vars	*get_env();
+
+//free
+void	free_params(t_params *element);
+
 
 #endif
