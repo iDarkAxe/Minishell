@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/04 12:58:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 10:36:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ static void	*check_args_and_error(t_command *command, t_token *token,
 {
 	if (command == NULL || token->str == NULL)
 		return (NULL);
-	if (token->str && (token->str[0] == '<' || token->str[0] == '>'))
+	if (token->str && token->next && token->next->str
+		&& (token->next->str[0] == '<' || token->next->str[0] == '>'))
 	{
-		print_fd(2,
-			"minishell: syntax error near unexpected token '");
+		print_fd(2, "minishell: syntax error near unexpected token '");
 		print_fd(2, token->str);
 		print_fd(2, "'\n");
 		command->file_error = 1;

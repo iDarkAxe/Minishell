@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:06:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 11:03:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,9 @@ void	reset_signal_default(void)
 	sigaction(SIGQUIT, &action, NULL);
 }
 
+// TODO VERIFIER PERTINENCE 
+// sigaction(SIGPIPE, &action, NULL);
+
 /**
  * @brief Function to ignore certain signals
  * 
@@ -102,5 +105,6 @@ void	ignore_signal(void)
 	action.sa_handler = SIG_IGN;
 	action.sa_flags = 0;
 	sigaction(SIGINT, &action, NULL);
+	sigaction(SIGPIPE, &action, NULL);
 	sigaction(SIGQUIT, &action, NULL);
 }

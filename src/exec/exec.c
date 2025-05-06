@@ -6,17 +6,19 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 14:27:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 11:08:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include "garbage.h"
 #include "libft.h"
+#include "garbage.h"
 #include "builtins.h"
 
 #include <stdio.h>
 #include <sys/wait.h>
+
+static int	search_command_exit(t_command *command, char **tokens, int ret);
 
 // TODO verifier si on doit executer la commande dans un fork ou pas
 // TODO add free pipes in case of forks
@@ -33,17 +35,16 @@ int	prepare_command(t_command *command)
 	t_command	*current;
 	char		**toks;
 
-	if (!command || !command->tokens || !command->tokens->str)
+	if (!command)
 		return (1);
 	current = command;
 	while (current != NULL)
 	{
-		print_command(current);
 		toks = copy_toks(current);
 		if (toks == NULL)
 			ft_exit_int(1);
 		handle_redirections(current);
-		if (needs_to_be_forked(command) != 0)
+		if (needs_to_be_forked(current) != 0)
 			executes_in_forks(current, toks, ret);
 		else if (current->file_error != 1 && search_command(current, toks,
 				ret) != 0)
@@ -53,6 +54,7 @@ int	prepare_command(t_command *command)
 		reset_redirection(current, 0);
 		current = current->next;
 	}
+	reset_redirection(current, 0);
 	return (0);
 }
 
@@ -66,28 +68,39 @@ int	prepare_command(t_command *command)
  */
 int	search_command(t_command *command, char **tokens, int ret)
 {
+	static char	*command_name[] = {"echo", "env", "which", "export", "unset",
+		"cd", "pwd"};
+	static int	(*cmd[])(char **) = {ft_echo, ft_env, ft_which, ft_export,
+		ft_unset, ft_cd, ft_pwd};
+	size_t		i;
+
+	if (!command || !tokens || !tokens[0])
+		return (1);
+	i = 0;
+	while (command_name[i])
+	{
+		if (ft_strncmp(tokens[0], command_name[i],
+				ft_strlen(command_name[i])) == 0)
+		{
+			command->return_value = cmd[i](&tokens[1]);
+			return (0);
+		}
+		i++;
+	}
+	if (command_name[i] == NULL)
+		return (search_command_exit(command, tokens, ret));
+	return (0);
+}
+
+static int	search_command_exit(t_command *command, char **tokens, int ret)
+{
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);
-	if (ft_strncmp(command->tokens->str, "echo", 5) == 0)
-		command->return_value = ft_echo(&tokens[1], ' ');
-	else if (ft_strncmp(command->tokens->str, "env", 4) == 0)
-		command->return_value = ft_env(command->envp);
-	else if (ft_strncmp(command->tokens->str, "which", 6) == 0)
-		command->return_value = ft_which(&tokens[0]);
-	else if (ft_strncmp(command->tokens->str, "export", 7) == 0)
-		command->return_value = ft_export(&tokens[1], command->envp);
-	else if (ft_strncmp(command->tokens->str, "unset", 6) == 0)
-		command->return_value = ft_unset(&tokens[1], command->envp);
-	else if (ft_strncmp(command->tokens->str, "cd", 3) == 0)
-		command->return_value = ft_cd(tokens);
-	else if (ft_strncmp(command->tokens->str, "pwd", 4) == 0)
-		command->return_value = ft_pwd(tokens);
-	else if (ft_strncmp(command->tokens->str, "exit", 5) == 0
-		&& command->tokens->next == NULL)
+	if (ft_strncmp(tokens[0], "exit", 5) != 0)
+		return (2);
+	if (tokens && tokens[0] && tokens[1] == NULL)
 		ft_exit_int(ret);
-	else if (ft_strncmp(command->tokens->str, "exit", 5) == 0)
-		command->return_value = ft_exit(&tokens[1]);
 	else
-		return (1);
+		command->return_value = ft_exit(&tokens[1]);
 	return (0);
 }

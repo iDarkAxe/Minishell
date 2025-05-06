@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 13:02:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 11:46:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
  */
 int	files_management(t_command *command)
 {
+	if (command->parse_error == 1)
+		return (1);
 	if (build_files_redirection(command) != 0)
 	{
 		print_fd(2, "Error creating file structure\n");
@@ -43,10 +45,7 @@ int	files_management(t_command *command)
 		ft_exit_int(1);
 	}
 	if (verify_access(command) != 0)
-	{
-		free_command(command);
 		return (1);
-	}
 	return (0);
 }
 
@@ -91,6 +90,7 @@ void	read_write_to(t_command *command, t_bool in_out)
 	if (!command || (!command->file_in && in_out == 0) || (!command->file_out
 			&& in_out == 1))
 		return ;
+	change_input_of_pipe(command, in_out);
 	command->fd_backup[in_out] = dup((int)in_out);
 	if (command->fd_backup[in_out] < 0)
 	{

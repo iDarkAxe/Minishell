@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 13:51:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 14:31:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ struct							s_command
 	t_file						*file_out;
 	int							fd[2];
 	int							fd_backup[2];
+	int							pipe_fd[2];
 	t_bool						file_error;
+	t_bool						parse_error;
 	int							return_value;
 };
 
@@ -89,6 +91,7 @@ char							*get_prompt_message(void);
 // Printing
 ssize_t							print_fd(int fd, const char *str);
 ssize_t							printn_fd(int fd, const char *str, size_t len);
+void							print_command_fd(t_command *command);
 
 // Lexer
 char							*ft_substr_end(char const *src,
@@ -111,6 +114,8 @@ int								not_builtins(t_command *command, char **tokens);
 int								handle_redirections(t_command *command);
 void							reset_redirection(t_command *command,
 									unsigned char i);
+void							change_input_of_pipe(t_command *command,
+									t_bool in_out);
 int								needs_to_be_forked(t_command *command);
 void							executes_in_forks(t_command *command,
 									char **tokens, int ret);

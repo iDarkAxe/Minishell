@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:47:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 14:27:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 12:01:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,23 @@
  */
 int	needs_to_be_forked(t_command *command)
 {
+	if (!command || !command->tokens || !command->tokens->str)
+		return (0);
 	if (ft_strncmp(command->tokens->str, "|", 2) == 0)
+	{
+		printf("here fork %s\n", command->tokens->str);
 		return (1);
+	}
 	if (command->next && command->next->tokens
 		&& ft_strncmp(command->next->tokens->str, "|", 2) == 0)
+	{
+		printf("preced fork %s\n", command->next->tokens->str);
 		return (1);
+	}
 	return (0);
 }
+
+// FIXME SIGPIPE kill the process ? so it ends instant
 
 /**
  * @brief Executes the command in a forks
@@ -52,12 +62,15 @@ void	executes_in_forks(t_command *command, char **tokens, int ret)
 	pid = fork();
 	if (pid == 0)
 	{
+		reset_signal_default();
 		if (command->file_error != 1)
 			value = search_command(command, tokens, ret);
 		free_garbage();
 		exit(0);
 	}
+	ignore_signal();
 	waitpid(pid, NULL, 0);
+	signal_init();
 	if (value != 0)
 		command->return_value = not_builtins(command, tokens);
 	return ;

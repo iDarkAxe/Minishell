@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:06:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 12:36:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,11 @@ int	minishell(char **envp)
 		line = read_stdin();
 		tokens = parse_line(line);
 		command = tokeniser(tokens, envp);
-		if (!command)
-			ft_exit_int(1);
-		if (files_management(command) != 0)
+		if (command->tokens->str == NULL)
+			command->parse_error = 1;
+		if (command->parse_error != 0 || files_management(command) != 0)
 		{
+			free_command(command);
 			free_array(tokens);
 			continue ;
 		}

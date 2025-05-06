@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:06:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 10:54:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	ft_pwd(char **array)
 {
 	char	*path;
 
-	if (array == NULL || array[1] != NULL)
+	if (array == NULL || array[0] != NULL)
 	{
 		print_fd(2, "minishell: pwd: too many arguments\n");
 		return (1);
