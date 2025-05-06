@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 10:54:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 11:34:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	ft_cd(char **array)
 		return (0);
 	else if (ret < 0)
 		return (ret);
-	ret = chdir(array[1]);
+	ret = chdir(array[0]);
 	if (ret != 0)
 	{
 		print_fd(2, "minishell: cd: '");
-		print_fd(2, array[1]);
+		print_fd(2, array[0]);
 		perror("'");
 		return (ret);
 	}
@@ -61,7 +61,7 @@ static int	check_args(char **array)
 {
 	char	*path;
 
-	if (array == NULL || array[1] == NULL)
+	if (array == NULL || array[0] == NULL)
 	{
 		path = getenv("HOME");
 		if (path == NULL)
@@ -69,7 +69,7 @@ static int	check_args(char **array)
 		chdir(path);
 		return (0);
 	}
-	if (ft_strncmp(array[1], "-", 2) == 0)
+	if (array[0] && ft_strncmp(array[0], "-", 2) == 0)
 	{
 		path = getenv("OLDPWD");
 		if (path == NULL)
@@ -77,7 +77,7 @@ static int	check_args(char **array)
 		chdir(path);
 		return (0);
 	}
-	if (array[2] != NULL)
+	if (array[1] != NULL)
 	{
 		print_fd(2, "bash: cd: too many arguments\n");
 		return (-1);
