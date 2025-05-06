@@ -6,16 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:18:07 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 10:28:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 16:40:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "file.h"
 #include "builtins.h"
+#include "file.h"
 #include "garbage.h"
-
-static int	create_pipe(t_command *command);
+#include "minishell.h"
 
 // WIP try to handle pipes
 
@@ -31,15 +29,6 @@ int	handle_redirections(t_command *command)
 		return (-1);
 	if (command->file_error != 0)
 		return (1);
-	if (command->next && command->next->tokens
-		&& ft_strncmp(command->next->tokens->str, "|", 2) == 0)
-		create_pipe(command);
-	if (ft_strncmp(command->tokens->str, "|", 2) == 0)
-	{
-		command->fd_backup[0] = dup(0);
-		command->fd[0] = command->pipe_fd[1];
-		dup2(command->fd[0], 0);
-	}
 	if (command->file_in)
 		read_write_to(command, 0);
 	if (command->file_out)
@@ -54,18 +43,18 @@ int	handle_redirections(t_command *command)
  * @param command command structure
  * @param i value used for recursion
  */
-void	reset_redirection(t_command *command, unsigned char i)
+void	reset_redirection(t_command *command, int fd[2], unsigned char i)
 {
 	int	ret[3];
 
 	if (!command || i > 1)
 		return ;
-	if (command->fd[i] != i)
+	if (fd[i] != i)
 	{
 		ret[0] = close(command->fd[i]);
 		if (ret[0] != 0)
 			perror("minishell: close");
-		ret[1] = dup2(command->fd_backup[i], i);
+		ret[1] = dup2(fd[i], 0);
 		if (ret[1] < 0)
 			perror("minishell: dup2");
 		ret[2] = close(command->fd_backup[i]);
@@ -77,59 +66,77 @@ void	reset_redirection(t_command *command, unsigned char i)
 			ft_exit_int(1);
 		}
 	}
-	reset_redirection(command, i + 1);
-	fd_default(command);
+	reset_redirection(command, fd, i + 1);
+	command->fd[i] = i;
+	command->fd_backup[i] = i;
 }
+// fd_default(command);
 
 /**
  * @brief Change the previous input of pipe to a new redirection
- * 
+ *
  * @param command command structure
  * @param in_out 0 = IN, 1 = OUT
  */
-void	change_input_of_pipe(t_command *command, t_bool in_out)
+/* void	change_input_of_pipe(t_command *command, t_bool in_out)
 {
+	int	ret[2];
+
 	if (!command || (!command->file_in && in_out == 0) || (!command->file_out
 			&& in_out == 1))
 		return ;
-}
-// if (command->fd[in_out] != (int)in_out)
-// {
-// 	if (close(command->fd[in_out]) != 0)
-// 	{
-// 		perror("minishell: close");
-// 		ft_exit_int(1);
-// 	}
-// 	if (dup2(command->fd_backup[in_out], command->fd[in_out]) < 0)
-// 	{
-// 		perror("minishell: dupd");
-// 		ft_exit_int(1);
-// 	}
-// 	command->fd[in_out] = in_out;
-// }
-
-// WIP proto to create pipes in command
-static int	create_pipe(t_command *command)
-{
-	if (!command)
-		return (1);
-	if (command->fd[0] != 0 || command->fd[1] != 1)
+	ret[0] = close(command->fd[in_out]);
+	if (ret[0] != 0)
+		perror("minishell: close");
+	ret[1] = close(command->fd_backup[in_out]);
+	if (ret[1] != 0)
+		perror("minishell: close");
+	if (ret[0] != 0 || ret[1] != 0)
 	{
-		print_fd(2, "minishell: Overwriting fds by pipes\n");
 		reset_redirection(command, 0);
 		free_garbage();
 		exit(EXIT_FAILURE);
 	}
-	if (pipe(command->pipe_fd) != 0)
+} */
+
+// FIXME Need to add verifications to dup, dup2 and close
+
+int	create_pipe(t_command *command)
+{
+	if (!command || !command->next)
+		return (1);
+	if (pipe(command->fd) != 0)
 	{
 		perror("minishell");
-		reset_redirection(command, 0);
 		free_garbage();
 		exit(EXIT_FAILURE);
 	}
-	command->fd_backup[1] = dup(1);
-	command->fd[1] = command->pipe_fd[0];
 	dup2(command->fd[1], 1);
-	print_fd(1, "creating pipes\n");
+	command->next->fd[0] = command->fd[0];
+	command->fd[0] = 0;
+	dup2(command->next->fd[0], 0);
+	print_fd(2, "creating pipe\n");
 	return (0);
 }
+
+/**
+ * @brief Prepare the pipes for all the commands,
+ * if no pipes are needed, it does nothing
+ *
+ * @param command command structure
+ */
+// void	prepare_pipes(t_command *command)
+// {
+// 	if (!command || !command->tokens || !command->tokens->str || !command->next
+// 		|| !command->next->tokens || !command->next->tokens->str)
+// 		return ;
+// 	if (ft_strncmp(command->next->tokens->str, "|", 2) != 0)
+// 		return ;
+// 	current = command;
+// 	while (current && current->next)
+// 	{
+// 		printf("pipe ici\n");
+// 		create_pipe(current);
+// 		current = current->next;
+// 	}
+// }

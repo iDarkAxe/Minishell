@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/05 11:46:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 16:21:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,6 @@ void	read_write_to(t_command *command, t_bool in_out)
 	if (!command || (!command->file_in && in_out == 0) || (!command->file_out
 			&& in_out == 1))
 		return ;
-	change_input_of_pipe(command, in_out);
-	command->fd_backup[in_out] = dup((int)in_out);
-	if (command->fd_backup[in_out] < 0)
-	{
-		perror("minishell");
-		command->file_error = 1;
-	}
 	if (in_out == 0)
 		command->fd[in_out] = open_file_with_rights(command->file_in, in_out);
 	else

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:06:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 16:33:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	read_context(char **envp)
 	return (0);
 }
 
+// TODO refaire MINISHELL SHORT
 /**
  * @brief Executes the shell in a restricted area where there is no prompt
  * Should work exactly as the minishell function
@@ -65,7 +66,7 @@ void	short_minishell_no_tty(char **envp)
 			free_array(tokens);
 			continue ;
 		}
-		if (prepare_command(command) != 0)
+		if (prepare_command(command, 0) != 0)
 			ft_exit_int(1);
 		free_array(tokens);
 		free_command(command);

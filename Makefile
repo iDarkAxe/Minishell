@@ -112,7 +112,8 @@ EXEC = \
 	exec.c \
 	exec_extern.c \
 	ft_dups.c \
-	exec_in_forks.c
+	exec_in_forks.c \
+	search_command.c
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

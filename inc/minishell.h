@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/05 14:31:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 16:37:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ struct							s_command
 	t_file						*file_out;
 	int							fd[2];
 	int							fd_backup[2];
-	int							pipe_fd[2];
 	t_bool						file_error;
 	t_bool						parse_error;
 	int							return_value;
@@ -107,18 +106,21 @@ char							**expand_tildes_tokens(char **tokens);
 // Exec
 char							**copy_toks(t_command *command);
 void							print_toks(char **tokens);
-int								prepare_command(t_command *command);
+int								prepare_command(t_command *command, int ret);
+int								prepare_command_forks(t_command *command,
+									int ret);
 int								search_command(t_command *command,
 									char **tokens, int ret);
 int								not_builtins(t_command *command, char **tokens);
 int								handle_redirections(t_command *command);
-void							reset_redirection(t_command *command,
-									unsigned char i);
-void							change_input_of_pipe(t_command *command,
-									t_bool in_out);
+// void							reset_redirection(t_command *command,
+									// unsigned char i);
+// void							change_input_of_pipe(t_command *command,
+									// t_bool in_out);
 int								needs_to_be_forked(t_command *command);
 void							executes_in_forks(t_command *command,
 									char **tokens, int ret);
+int								create_pipe(t_command *command);
 
 // Utils for manage memory
 void							free_array(char **array);

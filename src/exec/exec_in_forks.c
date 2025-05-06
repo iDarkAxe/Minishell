@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:47:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/05 12:01:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 16:33:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	needs_to_be_forked(t_command *command)
 		return (0);
 	if (ft_strncmp(command->tokens->str, "|", 2) == 0)
 	{
-		printf("here fork %s\n", command->tokens->str);
+		dprintf(2, "here fork %s\n", command->tokens->str);
 		return (1);
 	}
 	if (command->next && command->next->tokens
 		&& ft_strncmp(command->next->tokens->str, "|", 2) == 0)
 	{
-		printf("preced fork %s\n", command->next->tokens->str);
+		dprintf(2, "preced fork %s\n", command->next->tokens->str);
 		return (1);
 	}
 	return (0);
