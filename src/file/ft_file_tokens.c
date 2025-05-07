@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 11:16:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:20:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 static t_token	*clean_tokens(t_token *head);
 static int		is_redirection(char *str);
 static void		free_token(t_token *token);
+
+// FIXME OUVRIR QUAND MEME LES FICHIERS INUTILES ET SUPPRIMER LE CONTENU outfile
+// FIXME access ne suffit pas, il faut tester open
 
 /**
  * @brief Removes all the tokens of file redirections allready used
@@ -76,7 +79,7 @@ static t_token	*clean_tokens(t_token *head)
  * @brief Check if str contain redirections signs
  * 
  * @param str string to compare with redirections signs
- * @return int 
+ * @return int +,- or 0 values are redirections, 0 is not a redirection
  */
 static int	is_redirection(char *str)
 {

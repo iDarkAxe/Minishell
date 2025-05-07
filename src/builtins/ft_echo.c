@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 11:06:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:18:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			ft_echo(char **array);
  * NOTES : you can add any number of n after -n if you want
  * 
  * @param array array of strings
- * @return int 
+ * @return int 0 OK, error otherwise
  */
 int	ft_echo(char **array)
 {

@@ -112,6 +112,7 @@ EXEC = \
 	exec.c \
 	exec_extern.c \
 	ft_dups.c \
+	ft_dups_forks.c \
 	exec_in_forks.c \
 	search_command.c
 

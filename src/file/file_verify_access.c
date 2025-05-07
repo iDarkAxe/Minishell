@@ -6,20 +6,23 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/01 16:07:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:23:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "builtins.h"
 #include "file.h"
-#include "minishell.h"
 #include "garbage.h"
+#include "minishell.h"
+#include <fcntl.h>
 
-static int		handle_file(t_command *command);
-static int		file_permission_check(t_file *file, t_bool in_out);
+static int	handle_files(t_command *command);
+static int	file_permission_check(t_file *file, t_bool in_out);
+static int	file_permission_check_outfile(t_file *file, t_bool in_out);
 
 /**
  * @brief Return the last file that is not already_searched
- * 
+ *
  * @param file file structure
  * @param already_searched previous file from search
  * @return t_file* last file begore already_searched
@@ -73,17 +76,51 @@ static int	file_permission_check(t_file *file, t_bool in_out)
 		print_fd(2, ": Permission denied\n");
 		return (1);
 	}
+	return (file_permission_check_outfile(file, in_out));
+}
+
+/**
+ * @brief Create output file if it don't exist,
+ * Truncate it's content or append in it's context
+ * Always return 0 if it's a infile
+ *
+ * @param file file structure
+ * @param in_out 0 = IN, 1 = OUT
+ * @return int 0 OK, 1 error
+ */
+static int	file_permission_check_outfile(t_file *file, t_bool in_out)
+{
+	int	fd;
+
+	if (!file || !file->name)
+		return (1);
+	if (in_out == 0)
+		return (0);
+	if (file->is_append == 1)
+		fd = open(file->name, O_CREAT | O_WRONLY | O_APPEND, 0644);
+	else
+		fd = open(file->name, O_CREAT | O_WRONLY | O_TRUNC, 0644);
+	if (fd < 0)
+	{
+		perror("minishell: open");
+		ft_exit_int(1);
+	}
+	if (close(fd) != 0)
+	{
+		perror("minishell: close");
+		ft_exit_int(1);
+	}
 	return (0);
 }
 
 /**
- * @brief Check that all files have the correct permissions 
+ * @brief Check that all files have the correct permissions
  * if they are IN (simple or heredoc) or OUT (create/trunc or append)
- * 
+ *
  * @param command command structure
- * @return int 
+ * @return int
  */
-static int	handle_file(t_command *command)
+static int	handle_files(t_command *command)
 {
 	t_file	*cur_file;
 	t_file	*last_file;
@@ -101,7 +138,7 @@ static int	handle_file(t_command *command)
 	cur_file = command->file_out;
 	while (cur_file != NULL)
 	{
-		cur_file = search_last_file(command->file_in, last_file);
+		cur_file = search_last_file(command->file_out, last_file);
 		last_file = cur_file;
 		if (file_permission_check(cur_file, 1) != 0)
 			return (1);
@@ -110,10 +147,12 @@ static int	handle_file(t_command *command)
 }
 
 /**
- * @brief Verify that all files are valid 
- * 
+ * @brief Verify that all files are valid
+ * if at least one file is invalid, modifies the boolean in command
+ * but still return 0
+ *
  * @param command command structure
- * @return int 
+ * @return int 0 OK, error otherwise
  */
 int	verify_access(t_command *command)
 {
@@ -125,7 +164,7 @@ int	verify_access(t_command *command)
 	current = command;
 	while (current != NULL)
 	{
-		error_value = handle_file(current);
+		error_value = handle_files(current);
 		if (error_value != 0)
 			current->file_error = 1;
 		current = current->next;

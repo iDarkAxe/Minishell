@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 10:27:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 12:05:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	prepare_command_forks(t_command *command, int ret)
 			executes_in_forks(current, toks, ret);
 		ret = current->return_value;
 		free_array(toks);
+		close(current->fd[0]);
 		current = current->next;
 	}
 	store_restore_fds(1);
