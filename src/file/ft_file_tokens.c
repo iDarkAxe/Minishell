@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 15:20:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:37:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 static t_token	*clean_tokens(t_token *head);
 static int		is_redirection(char *str);
 static void		free_token(t_token *token);
-
-// FIXME OUVRIR QUAND MEME LES FICHIERS INUTILES ET SUPPRIMER LE CONTENU outfile
-// FIXME access ne suffit pas, il faut tester open
 
 /**
  * @brief Removes all the tokens of file redirections allready used

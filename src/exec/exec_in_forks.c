@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:47:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 16:33:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:40:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int	needs_to_be_forked(t_command *command)
 	}
 	return (0);
 }
-
-// FIXME SIGPIPE kill the process ? so it ends instant
 
 /**
  * @brief Executes the command in a forks

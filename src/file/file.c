@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/05 10:36:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:41:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ char	*ft_trim_word(char *str)
 	free_element_gb(str);
 	return (new_str);
 }
-
-/* FIXME Parsing à appliquer ici, et ne fonctionne pas
-pour les outfiles en mode append */
 
 /**
  * @brief Parse the file structure
