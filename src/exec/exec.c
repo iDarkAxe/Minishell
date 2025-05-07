@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 16:48:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 10:27:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ int	prepare_command(t_command *command, int ret)
 			ret) != 0)
 		command->return_value = not_builtins(command, toks);
 	free_array(toks);
-	if (command->fd[0] != 0)
-		close(command->fd[0]);
-	if (command->fd[1] != 1)
-		close(command->fd[1]);
+	reset_redirection(command, 0);
 	return (command->return_value);
 }
 

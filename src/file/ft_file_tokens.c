@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/29 15:46:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 11:16:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "garbage.h"
 #include "minishell.h"
 
-t_command		*remove_used_file_tokens(t_command *command);
 static t_token	*clean_tokens(t_token *head);
 static int		is_redirection(char *str);
 static void		free_token(t_token *token);
@@ -30,11 +29,9 @@ t_command	*remove_used_file_tokens(t_command *command)
 	t_command	*current;
 
 	current = command;
-	while (current)
+	while (current && current->tokens)
 	{
 		current->tokens = clean_tokens(current->tokens);
-		if (current->tokens == NULL)
-			return (NULL);
 		current = current->next;
 	}
 	return (command);

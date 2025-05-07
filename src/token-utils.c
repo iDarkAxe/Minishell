@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/05 11:26:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 11:08:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ char	**copy_toks(t_command *command)
 	char	**tokens;
 	size_t	count;
 
-	if (!command || !command->tokens)
+	if (!command)
 		return (NULL);
 	token = command->tokens;
-	if (token->str != NULL && ft_strncmp(token->str, "|", 2) == 0)
+	if (token && token->str != NULL && ft_strncmp(token->str, "|", 2) == 0)
 		token = token->next;
 	count = count_tokens(token);
 	tokens = malloc(sizeof(char *) * (count + 1));
