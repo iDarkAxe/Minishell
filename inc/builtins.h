@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env.c                                           :+:      :+:    :+:   */
+/*   builtins.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:44:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 10:19:25 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/05/03 11:56:38 by ppontet           #+#    #+#             */
+/*   Updated: 2025/05/06 10:17:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
-
-int	ft_export(char **array)
-{
-	(void)array;
-	return (0);
-}
-
-int	ft_env(char **array)
-{
-	(void)array;
-	return (0);
-}
-
-int	ft_unset(char **array)
-{
-	(void)array;
-	return (0);
-}
+int								ft_exit(char **array);
+void							ft_exit_int(int value);
+int								ft_echo(char **array);
+int								ft_which(char **array);
+int								ft_export(char **array);
+int								ft_env(char **array);
+int								ft_unset(char **array);
+int								ft_cd(char **array);
+int								ft_pwd(char **array);

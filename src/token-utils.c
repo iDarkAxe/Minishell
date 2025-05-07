@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 12:30:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 11:08:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,24 @@ char	**copy_toks(t_command *command)
 {
 	t_token	*token;
 	char	**tokens;
+	size_t	count;
 
-	if (!command || !command->tokens)
-		return (NULL);
-	tokens = malloc(sizeof(char *) * (count_tokens(command->tokens) + 1));
-	if (!tokens)
+	if (!command)
 		return (NULL);
 	token = command->tokens;
-	if (token->str != NULL && ft_strncmp(token->str, "|", 2) == 0)
+	if (token && token->str != NULL && ft_strncmp(token->str, "|", 2) == 0)
 		token = token->next;
-	fill_toks(token, tokens);
+	count = count_tokens(token);
+	tokens = malloc(sizeof(char *) * (count + 1));
+	if (!tokens)
+		return (NULL);
 	add_to_garbage(tokens);
+	if (count == 0)
+	{
+		tokens[0] = NULL;
+		return (tokens);
+	}
+	fill_toks(token, tokens);
 	return (tokens);
 }
 
@@ -98,6 +105,7 @@ static char	**fill_toks(t_token *head, char **tokens)
 	if (head == NULL || head->str == NULL || head == NULL)
 		return (NULL);
 	temp = head;
+	tokens[0] = NULL;
 	while (temp != NULL && temp->str != NULL)
 	{
 		tokens[i] = ft_strdup(temp->str);

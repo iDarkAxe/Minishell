@@ -6,12 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/25 10:47:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 11:45:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
 #include "minishell.h"
+#include "garbage.h"
+#include "file.h"
+#include "builtins.h"
 
 static t_token		*create_token(void);
 static t_command	*create_command(char **envp);
@@ -36,17 +38,17 @@ t_command	*tokeniser(char **tokens, char **envp)
 
 	command = create_command(envp);
 	if (command == NULL)
-		return (NULL);
+		ft_exit_int(1);
 	current = command;
 	token = command->tokens;
 	index = 0;
 	while (tokens && tokens[index] != NULL)
 	{
 		if (iterate_command(tokens[index], &token, &current) == NULL)
-			return (NULL);
+			ft_exit_int(1);
 		token->str = tokens[index];
 		if (iterate_token(tokens[index + 1], &token) == NULL)
-			return (NULL);
+			ft_exit_int(1);
 		index++;
 	}
 	return (command);
@@ -89,6 +91,7 @@ static t_command	*create_command(char **envp)
 		return (NULL);
 	}
 	command->envp = envp;
+	fd_default(command);
 	return (command);
 }
 

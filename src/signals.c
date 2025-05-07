@@ -6,13 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 14:15:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 15:56:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
-#include <readline/readline.h>
 #include "minishell.h"
+#include "garbage.h"
+#include "builtins.h"
+
+#include <readline/readline.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>

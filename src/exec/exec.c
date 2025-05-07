@@ -6,76 +6,91 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:41:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 12:05:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
-#include "libft.h"
 #include "minishell.h"
-#include <stdio.h>
-#include <sys/wait.h>
+#include "libft.h"
+#include "garbage.h"
+#include "builtins.h"
 
-static int	search_command_2(t_command *command, char **tokens, int ret);
-
-// TODO verifier si on doit executer la commande dans un fork ou pas
+static void	store_restore_fds(t_bool store);
 
 /**
- * @brief Search if command is a builtin or not
+ * @brief Prepare the command for search_command()
  *
  * @param command command structure
  * @return int
  */
-int	search_command(t_command *command)
+int	prepare_command(t_command *command, int ret)
 {
-	static int	previous_ret = 0;
+	char		**toks;
+
+	if (!command)
+		ft_exit_int(1);
+	print_command(command);
+	toks = copy_toks(command);
+	if (toks == NULL)
+		ft_exit_int(1);
+	handle_redirections(command);
+	if (command->file_error != 1 && search_command(command, toks,
+			ret) != 0)
+		command->return_value = not_builtins(command, toks);
+	free_array(toks);
+	reset_redirection(command, 0);
+	return (command->return_value);
+}
+
+int	prepare_command_forks(t_command *command, int ret)
+{
 	t_command	*current;
 	char		**toks;
 
-	if (!command || !command->tokens || !command->tokens->str)
-		return (1);
+	if (!command)
+		ft_exit_int(1);
+	store_restore_fds(0);
 	current = command;
 	while (current != NULL)
 	{
 		print_command(current);
-		if (current->file_error == 1)
-			break ;
 		toks = copy_toks(current);
 		if (toks == NULL)
 			ft_exit_int(1);
-		if (ft_strncmp(current->tokens->str, "echo", 5) == 0)
-			current->return_value = ft_echo(&toks[1], ' ');
-		else if (search_command_2(current, toks, previous_ret) != 0)
-			current->return_value = not_builtins(current, toks);
-		previous_ret = current->return_value;
+		create_pipe(command);
+		handle_redirections(current);
+		if (current->file_error != 1)
+			executes_in_forks(current, toks, ret);
+		ret = current->return_value;
 		free_array(toks);
+		close(current->fd[0]);
 		current = current->next;
 	}
-	return (0);
+	store_restore_fds(1);
+	return (ret);
 }
 
-static int	search_command_2(t_command *command, char **tokens, int ret)
+/**
+ * @brief Store and restore file descriptor of stdin and stdout
+ * 
+ * @param store 0 = STORE, 1 = RESTORE
+ */
+static void	store_restore_fds(t_bool store)
 {
-	if (!command || !command->tokens || !command->tokens->str)
-		return (1);
-	if (ft_strncmp(command->tokens->str, "env", 4) == 0)
-		command->return_value = ft_env(command->envp);
-	else if (ft_strncmp(command->tokens->str, "which", 6) == 0)
-		command->return_value = ft_which(&tokens[0]);
-	else if (ft_strncmp(command->tokens->str, "export", 7) == 0)
-		command->return_value = ft_export(&tokens[1], command->envp);
-	else if (ft_strncmp(command->tokens->str, "unset", 6) == 0)
-		command->return_value = ft_unset(&tokens[1], command->envp);
-	else if (ft_strncmp(command->tokens->str, "cd", 3) == 0)
-		command->return_value = ft_cd(tokens);
-	else if (ft_strncmp(command->tokens->str, "pwd", 4) == 0)
-		command->return_value = ft_pwd(tokens);
-	else if (ft_strncmp(command->tokens->str, "exit", 5) == 0
-		&& command->tokens->next == NULL)
-		ft_exit_int(ret);
-	else if (ft_strncmp(command->tokens->str, "exit", 5) == 0)
-		command->return_value = ft_exit(&tokens[1]);
+	static int	fd[2] = {0, 1};
+
+	if (store == 0)
+	{
+		fd[0] = dup(0);
+		fd[1] = dup(1);
+	}
 	else
-		return (1);
-	return (0);
+	{
+		dup2(fd[0], 0);
+		dup2(fd[1], 1);
+		close(fd[0]);
+		close(fd[1]);
+		fd[0] = 0;
+		fd[1] = 1;
+	}
 }

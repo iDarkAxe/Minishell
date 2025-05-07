@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:08:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/28 12:28:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 15:12:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,45 @@
  * @brief Print the command structure with it's tokens
  * 
  * @param command command structure
- * @return ssize_t 0 is OK, otherwise error
+ * @return ssize_t 0 or positive is OK, otherwise error
  */
 ssize_t	print_command(t_command *command)
 {
-	t_command	*cmd;
 	t_token		*token;
+	ssize_t		size;
 
 	if (command == NULL)
 		return (print_fd(2, "No command to print\n"));
+	size = 0;
+	size += printf("Command block at %p:\n", (void *)command);
+	token = command->tokens;
+	while (token)
+	{
+		size += printf("  Token: %s\n", token->str);
+		token = token->next;
+	}
+	return (size);
+}
+
+/**
+ * @brief Print the commands structure with it's tokens
+ * 
+ * @param command command structure
+ * @return ssize_t 0 or positive is OK, otherwise error
+ */
+ssize_t	print_commands(t_command *command)
+{
+	t_command	*cmd;
+	ssize_t		size;
+
+	if (command == NULL)
+		return (print_fd(2, "No commands to print\n"));
 	cmd = command;
+	size = 0;
 	while (cmd && cmd->tokens)
 	{
-		printf("Command block at %p:\n", (void *)cmd);
-		token = cmd->tokens;
-		while (token)
-		{
-			printf("  Token: %s\n", token->str);
-			token = token->next;
-		}
+		size += print_command(cmd);
 		cmd = cmd->next;
 	}
-	return (0);
+	return (size);
 }

@@ -6,31 +6,29 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 11:56:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:18:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
 #include "minishell.h"
+#include "garbage.h"
 #include <stddef.h>
 
 static char	is_all_same_letter(char *str, char tested);
 static char	handle_options(char **array, size_t *index);
-int			ft_echo(char **array, char delimitor);
+int			ft_echo(char **array);
 
 /**
  * @brief Echo with -n option
- * Delimitor is the character to print between tokens
  * OPTIONS :
  *  -n : print without the triling newline
  * 
  * NOTES : you can add any number of n after -n if you want
  * 
  * @param array array of strings
- * @param delimitor character to delimit arrays
- * @return int 
+ * @return int 0 OK, error otherwise
  */
-int	ft_echo(char **array, char delimitor)
+int	ft_echo(char **array)
 {
 	size_t	index;
 	char	final_n;
@@ -42,7 +40,7 @@ int	ft_echo(char **array, char delimitor)
 	{
 		print_fd(1, array[index]);
 		if (array[index + 1] != NULL)
-			printn_fd(1, &delimitor, 1);
+			printn_fd(1, " ", 1);
 		index++;
 	}
 	if (final_n == 1)

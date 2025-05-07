@@ -6,14 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:30:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:34:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minishell.h"
 #include "file.h"
 #include "garbage.h"
 #include "get_next_line.h"
-#include "minishell.h"
+#include "builtins.h"
+
 #include <stdio.h>
 #include <unistd.h>
 
@@ -44,6 +46,7 @@ int	read_context(char **envp)
  */
 void	short_minishell_no_tty(char **envp)
 {
+	static int	ret = 0;
 	char		*line;
 	char		**tokens;
 	t_command	*command;
@@ -51,26 +54,30 @@ void	short_minishell_no_tty(char **envp)
 	while (1)
 	{
 		line = read_stdin_gnl();
-		if (line == NULL)
-			break ;
 		tokens = parse_line(line);
 		free(line);
 		command = tokeniser(tokens, envp);
-		if (!command)
-			ft_exit_int(1);
-		if (files_management(command) != 0)
+		if (command->tokens->str == NULL || files_management(command) != 0)
 		{
+			free_command(command);
 			free_array(tokens);
 			continue ;
 		}
-		if (search_command(command) != 0)
-			ft_exit_int(1);
+		if (needs_to_be_forked(command) != 0)
+			ret = prepare_command_forks(command, ret);
+		else
+			ret = prepare_command(command, ret);
 		free_array(tokens);
 		free_command(command);
 	}
 	ft_exit_int(0);
 }
 
+/**
+ * @brief Special read_stin using gnl
+ * 
+ * @return char* line rode
+ */
 static char	*read_stdin_gnl(void)
 {
 	char	*line;

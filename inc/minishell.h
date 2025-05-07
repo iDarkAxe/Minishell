@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:17:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 16:37:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,6 @@ typedef struct s_params			t_params;
 typedef struct s_lexer_state	t_lexer_state;
 typedef struct s_token			t_token;
 
-enum							e_file_state
-{
-	FILE_IN = 0,
-	FILE_OUT = 1
-};
-
 struct							s_command
 {
 	struct s_command			*next;
@@ -60,7 +54,10 @@ struct							s_command
 	char						**envp;
 	t_file						*file_in;
 	t_file						*file_out;
+	int							fd[2];
+	int							fd_backup[2];
 	t_bool						file_error;
+	t_bool						parse_error;
 	int							return_value;
 };
 
@@ -85,12 +82,6 @@ int								minishell(char **envp);
 int								read_context(char **envp);
 void							short_minishell_no_tty(char **envp);
 
-// Exec
-char							**copy_toks(t_command *command);
-void							print_toks(char **tokens);
-int								search_command(t_command *command);
-int								not_builtins(t_command *command, char **tokens);
-
 int								signal_init(void);
 void							reset_signal_default(void);
 void							ignore_signal(void);
@@ -99,6 +90,7 @@ char							*get_prompt_message(void);
 // Printing
 ssize_t							print_fd(int fd, const char *str);
 ssize_t							printn_fd(int fd, const char *str, size_t len);
+void							print_command_fd(t_command *command);
 
 // Lexer
 char							*ft_substr_end(char const *src,
@@ -111,6 +103,25 @@ t_command						*tokeniser(char **tokens, char **envp);
 char							**parse_line(char *line);
 char							**expand_tildes_tokens(char **tokens);
 
+// Exec
+char							**copy_toks(t_command *command);
+void							print_toks(char **tokens);
+int								prepare_command(t_command *command, int ret);
+int								prepare_command_forks(t_command *command,
+									int ret);
+int								search_command(t_command *command,
+									char **tokens, int ret);
+int								not_builtins(t_command *command, char **tokens);
+int								handle_redirections(t_command *command);
+void							reset_redirection(t_command *command,
+									unsigned char i);
+// void							change_input_of_pipe(t_command *command,
+									// t_bool in_out);
+int								needs_to_be_forked(t_command *command);
+void							executes_in_forks(t_command *command,
+									char **tokens, int ret);
+int								create_pipe(t_command *command);
+
 // Utils for manage memory
 void							free_array(char **array);
 void							free_command(t_command *command);
@@ -118,24 +129,10 @@ void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
 void							free_tokens(t_token *token);
 
-// Utils for exec
-int								set_return_value(int value);
-int								*get_return_value(void);
-
-// Built-ins
-int								ft_exit(char **array);
-void							ft_exit_int(int value);
-int								ft_echo(char **array, char delimitor);
-int								ft_which(char **array);
-int								ft_export(char **array, char **envp);
-int								ft_env(char **envp);
-int								ft_unset(char **array, char **envp);
-int								ft_cd(char **array);
-int								ft_pwd(char **array);
-
 // DEBUGGING Functions
 void							print_list_files(t_command *command);
 void							print_perm_files(t_command *command);
 ssize_t							print_command(t_command *command);
+ssize_t							print_commands(t_command *command);
 
 #endif

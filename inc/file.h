@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/27 12:03:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 11:45:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 
 typedef struct s_tmp	t_tmp;
 typedef struct s_file	t_file;
+
+// @deprecated not used anywhere, but could be useful
+// enum							e_file_state
+// {
+// 	FILE_IN = 0,
+// 	FILE_OUT = 1
+// };
 
 struct					s_tmp
 {
@@ -57,5 +64,7 @@ int						verify_access(t_command *command);
 t_file					*search_last_file(t_file *file,
 							t_file *already_searched);
 int						fill_heredocs(t_command *command);
-
+int						open_file_with_rights(t_file *file, t_bool in_out);
+void					read_write_to(t_command *command, t_bool in_out);
+void					fd_default(t_command *command);
 #endif

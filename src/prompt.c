@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/26 13:28:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/04 12:25:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static char	*handle_colors(char **array)
 		return (NULL);
 	if (PROMPT_COLOR == 1)
 		str = ft_strjoins((char *[]){CYAN_COLOR, array[0], PURPLE_COLOR,
-				array[1], "$ ", COLOR_OFF, NULL});
+				array[1], "$ ", COLOR_OFF, "\n", DEFAULT_PROMPT, NULL});
 	else
 		str = ft_strjoins((char *[]){array[0], array[1], "$ ", NULL});
 	return (str);

@@ -55,8 +55,7 @@ INC = \
 	garbage.h \
 	file.h \
 	env.h \
-	garbage.h \
-	file.h
+	builtins.h
 
 # Source files
 SRC = \
@@ -111,7 +110,11 @@ ENV = \
 EXEC = \
 	command-utils.c \
 	exec.c \
-	exec_extern.c 
+	exec_extern.c \
+	ft_dups.c \
+	ft_dups_forks.c \
+	exec_in_forks.c \
+	search_command.c
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

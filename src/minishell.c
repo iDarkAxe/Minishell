@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 15:41:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/06 16:33:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@
   ******************************************************************************
 */
 
-#include "env.h"
-#include "file.h"
-#include "garbage.h"
 #include "minishell.h"
+#include "garbage.h"
+#include "file.h"
+#include "env.h"
+#include "builtins.h"
+
 #include <readline/history.h>
 #include <readline/readline.h>
 
@@ -82,10 +84,6 @@ static char	*read_stdin(void)
 	return (line);
 }
 
-/* TODO Ouvrir les fichiers avec les modes appropriés
-(READ, Write|Truncate, Append, et heredoc)
-*/
-
 /**
  * @brief Minishell that handles all the shell functions
  *
@@ -94,6 +92,7 @@ static char	*read_stdin(void)
  */
 int	minishell(char **envp)
 {
+	static int	ret = 0;
 	t_command	*command;
 	char		*line;
 	char		**tokens;
@@ -105,15 +104,16 @@ int	minishell(char **envp)
 		line = read_stdin();
 		tokens = parse_line(line);
 		command = tokeniser(tokens, envp);
-		if (!command)
-			ft_exit_int(1);
-		if (files_management(command) != 0)
+		if (command->tokens->str == NULL || files_management(command) != 0)
 		{
+			free_command(command);
 			free_array(tokens);
 			continue ;
 		}
-		if (search_command(command) != 0)
-			ft_exit_int(1);
+		if (needs_to_be_forked(command) != 0)
+			ret = prepare_command_forks(command, ret);
+		else
+			ret = prepare_command(command, ret);
 		free_array(tokens);
 		free_command(command);
 	}

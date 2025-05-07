@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/30 14:50:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/07 15:19:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "libft.h"
 #include <stdlib.h>
 #include "minishell.h"
+
+int			ft_exit(char **array);
+void		ft_exit_int(int value);
 
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
@@ -101,7 +104,7 @@ static int	verif_args(char **array)
  * Returns 2 if long long max value is exceeded
  * 
  * @param nptr string to search numbers
- * @return int 
+ * @return int cast of a long long into an int, 2 if overflow long long type
  */
 static int	ft_strtoull(char *nptr)
 {
