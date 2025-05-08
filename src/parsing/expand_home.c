@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "builtins.h"
 #include "garbage.h"
 #include "libft.h"
-#include "builtins.h"
 #include "minishell.h"
 
 static void	change_tildes_by_home(char *result, char *home, char *str);

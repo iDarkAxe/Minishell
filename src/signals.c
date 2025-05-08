@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "garbage.h"
 #include "builtins.h"
+#include "garbage.h"
+#include "minishell.h"
 #include <readline/readline.h>
 #include <signal.h>
 #include <stdio.h>

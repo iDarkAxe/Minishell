@@ -107,7 +107,6 @@ void	reset_redirection_forks(t_command *command, unsigned char i)
 		exit(EXIT_FAILURE);
 	}
 } */
-
 // FIXME Need to add verifications to dup, dup2 and close
 int	create_pipe(t_command *command)
 {

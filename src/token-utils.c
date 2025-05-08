@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 11:08:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:37:50 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ void	print_toks(char **tokens)
  */
 static size_t	count_tokens(t_token const *head)
 {
-	size_t	count;
+	size_t			count;
+	t_token const	*temp;
 
-	t_token const *temp;
 	if (head == NULL)
 		return (0);
 	count = 0;

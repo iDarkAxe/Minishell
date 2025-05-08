@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 #include "file.h"
 #include "garbage.h"
 #include "get_next_line.h"
-#include "builtins.h"
-
+#include "minishell.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -75,7 +74,7 @@ void	short_minishell_no_tty(char **envp)
 
 /**
  * @brief Special read_stin using gnl
- * 
+ *
  * @return char* line rode
  */
 static char	*read_stdin_gnl(void)

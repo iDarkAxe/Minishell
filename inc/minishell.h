@@ -117,7 +117,7 @@ int								handle_redirections(t_command *command);
 void							reset_redirection(t_command *command,
 									unsigned char i);
 // void							change_input_of_pipe(t_command *command,
-									// t_bool in_out);
+// t_bool in_out);
 int								needs_to_be_forked(t_command *command);
 void							executes_in_forks(t_command *command,
 									char **tokens, int ret);

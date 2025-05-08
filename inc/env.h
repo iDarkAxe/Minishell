@@ -29,8 +29,8 @@
 typedef struct s_var		t_var;
 typedef struct s_env_vars	t_env_vars;
 typedef struct s_params		t_params;
-typedef	struct s_vars		t_vars;
-typedef	struct s_supp		t_supp;
+typedef struct s_vars		t_vars;
+typedef struct s_supp		t_supp;
 
 struct						s_env_vars
 {
@@ -54,52 +54,52 @@ struct						s_params
 
 struct						s_vars
 {
-    t_var *prev_str;
-    t_var *prev_str_1;
-    t_var *curr_str; 
-    t_var *curr_str_1; 
-    t_var *curr;
-    t_var *curr_1;
-    t_var *temp;
+	t_var					*prev_str;
+	t_var					*prev_str_1;
+	t_var					*curr_str;
+	t_var					*curr_str_1;
+	t_var					*curr;
+	t_var					*curr_1;
+	t_var					*temp;
 };
 
 struct						s_supp
 {
-	t_var	*curr;
-	t_var	*prev_str;
+	t_var					*curr;
+	t_var					*prev_str;
 };
 
 // Utils
-size_t		ft_strlen_choose_c(const char *str, char c);
-int		ft_strcmp(const char *s1, const char *s2);
-void		print_env_vars(t_env_vars *env);
+size_t						ft_strlen_choose_c(const char *str, char c);
+int							ft_strcmp(const char *s1, const char *s2);
+void						print_env_vars(t_env_vars *env);
 
 // Utils env
-t_env_vars	*init_env(char **envp);
-t_env_vars	*get_env();
-t_env_vars	*copy_env(t_env_vars *env);
-void		set_env(char *envp[]);
-void		sort_ascii_order(t_env_vars *env);
-char		*search_env_str(t_env_vars *env, char *var);
-int		count_env(t_env_vars env);
+t_env_vars					*init_env(char **envp);
+t_env_vars					*get_env(void);
+t_env_vars					*copy_env(t_env_vars *env);
+void						set_env(char *envp[]);
+void						sort_ascii_order(t_env_vars *env);
+char						*search_env_str(t_env_vars *env, char *var);
+int							count_env(t_env_vars env);
 
 // Utils params
-t_params	*get_param(char *content, size_t detect_equal);
-t_params	*ft_paramlast(t_params *params);
-void		replace_param(t_var *var, char *new_content);
-void		ft_paramsadd_back(t_params **params, t_params *new);
+t_params					*get_param(char *content, size_t detect_equal);
+t_params					*ft_paramlast(t_params *params);
+void						replace_param(t_var *var, char *new_content);
+void						ft_paramsadd_back(t_params **params, t_params *new);
 
-//Utils vars
-t_var		*ft_varlast(t_var *var);
-t_var		*get_var(const char *var);
-t_var		*search_env_var(t_env_vars *env, char *var);
-void		ft_varsadd_back(t_var **var, t_var *new);
-void		ft_varsadd_front(t_var **head, t_var *new);
-void		supp_var(t_var **head, char *str);
-void		swap_vars(t_var **head, char *str, char *str_1);
+// Utils vars
+t_var						*ft_varlast(t_var *var);
+t_var						*get_var(const char *var);
+t_var						*search_env_var(t_env_vars *env, char *var);
+void						ft_varsadd_back(t_var **var, t_var *new);
+void						ft_varsadd_front(t_var **head, t_var *new);
+void						supp_var(t_var **head, char *str);
+void						swap_vars(t_var **head, char *str, char *str_1);
 
-//free
-void		free_params(t_params *element);
-void		free_env(t_env_vars *env);
+// free
+void						free_params(t_params *element);
+void						free_env(t_env_vars *env);
 
 #endif

@@ -6,12 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 16:35:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:36:52 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include "builtins.h"
+#include "minishell.h"
 
 static int	search_command_exit(t_command *command, char **tokens, int ret);
 
@@ -36,8 +36,8 @@ int	search_command(t_command *command, char **tokens, int ret)
 	i = 0;
 	while (command_name[i])
 	{
-		if (ft_strncmp(tokens[0], command_name[i],
-				ft_strlen(command_name[i]) + 1) == 0)
+		if (ft_strncmp(tokens[0], command_name[i], ft_strlen(command_name[i])
+				+ 1) == 0)
 		{
 			command->return_value = cmd[i](&tokens[1]);
 			return (0);

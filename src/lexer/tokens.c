@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "garbage.h"
-#include "file.h"
 #include "builtins.h"
+#include "file.h"
+#include "garbage.h"
+#include "minishell.h"
 
 static t_token		*create_token(void);
 static t_command	*create_command(char **envp);

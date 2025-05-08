@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "builtins.h"
 #include "env.h"
 #include "garbage.h"
-#include "builtins.h"
 
 t_var	*ft_varlast(t_var *var)
 {
@@ -56,13 +56,13 @@ t_var	*get_var(const char *var)
 	new = malloc_gb(sizeof(t_var));
 	if (!new)
 		ft_exit_int(-1);
-	ft_bzero(new, sizeof(t_var));
+	new->head_params = NULL;
 	new->next = NULL;
 	new->value = ft_strdup_gb(var);
 	if (!new->value)
 	{
 		free_element_gb(new);
-		ft_exit_int(-1);
+		return (NULL);
 	}
 	return (new);
 }

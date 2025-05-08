@@ -6,12 +6,13 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:41:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/23 14:41:59 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:48:41 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "garbage.h"
+#include "builtins.h"
 #include <stdlib.h>
 
 static void	copy_param(t_var *var_to_fill, const t_var *content)
@@ -38,6 +39,13 @@ static void	copy_param(t_var *var_to_fill, const t_var *content)
 	}
 }
 
+void static	free_all_and_exit(t_env_vars *env, t_env_vars *c_env)
+{
+	free_env(env);
+	free_env(c_env);
+	ft_exit_int(-1);
+}
+
 t_env_vars	*copy_env(t_env_vars *env)
 {
 	t_env_vars	*copy_env;
@@ -53,18 +61,9 @@ t_env_vars	*copy_env(t_env_vars *env)
 	copy_env->head_var = NULL;
 	while (temp)
 	{
-		new_node = malloc_gb(sizeof(t_var));
-		if (!new_node)
-			return (NULL);
-		new_node->head_params = NULL;
-		new_node->next = NULL;
-		new_node->value = ft_strdup_gb(temp->value);
-		if (!new_node->value)
-		{
-			free_env(copy_env);
-			free_env(env);
-			return (NULL);
-		}
+		new_node = get_var(temp->value);
+		if (!new_node || !new_node->value)
+			free_all_and_exit(env, copy_env);
 		if (temp->head_params)
 			copy_param(new_node, temp);
 		ft_varsadd_back(&copy_env->head_var, new_node);

@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "libft.h"
-#include "garbage.h"
 #include "builtins.h"
+#include "garbage.h"
+#include "libft.h"
+#include "minishell.h"
 
 static void	store_restore_fds(t_bool store);
 
@@ -25,7 +25,7 @@ static void	store_restore_fds(t_bool store);
  */
 int	prepare_command(t_command *command, int ret)
 {
-	char		**toks;
+	char	**toks;
 
 	if (!command)
 		ft_exit_int(1);
@@ -34,8 +34,7 @@ int	prepare_command(t_command *command, int ret)
 	if (toks == NULL)
 		ft_exit_int(1);
 	handle_redirections(command);
-	if (command->file_error != 1 && search_command(command, toks,
-			ret) != 0)
+	if (command->file_error != 1 && search_command(command, toks, ret) != 0)
 		command->return_value = not_builtins(command, toks);
 	free_array(toks);
 	reset_redirection(command, 0);
@@ -72,7 +71,7 @@ int	prepare_command_forks(t_command *command, int ret)
 
 /**
  * @brief Store and restore file descriptor of stdin and stdout
- * 
+ *
  * @param store 0 = STORE, 1 = RESTORE
  */
 static void	store_restore_fds(t_bool store)

@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "builtins.h"
 #include "env.h"
 #include "libft.h"
 #include "minishell.h"
-#include "builtins.h"
 #include <stdlib.h>
 
 static void	add_var_and_param(t_env_vars *env, char *var, char *content,

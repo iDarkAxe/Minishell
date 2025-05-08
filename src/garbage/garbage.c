@@ -10,12 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
-#include "minishell.h"
-#include "libft.h"
 #include "builtins.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "garbage.h"
+#include "libft.h"
+#include "minishell.h"
 #include <readline/readline.h>
 #include <stdio.h>
 #include <stdlib.h>

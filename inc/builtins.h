@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int								ft_exit(char **array);
-void								ft_exit_int(int value);
-int								ft_echo(char **array);
-int								ft_which(char **array);
-int								ft_export(char **array);
-int								ft_env(char **array);
-int								ft_unset(char **array);
-int								ft_cd(char **array);
-int								ft_pwd(char **array);
+int		ft_exit(char **array);
+void	ft_exit_int(int value);
+int		ft_echo(char **array);
+int		ft_which(char **array);
+int		ft_export(char **array);
+int		ft_env(char **array);
+int		ft_unset(char **array);
+int		ft_cd(char **array);
+int		ft_pwd(char **array);

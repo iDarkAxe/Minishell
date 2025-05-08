@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 15:19:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:35:43 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static int	ft_strtoull(char *str);
  *
  * @param value value
  */
-__attribute__((noreturn)) void ft_exit_int(int value)
+__attribute__((noreturn))
+void	ft_exit_int(int value)
 {
 	free_garbage();
 	print_fd(1, "exit\n");

@@ -21,8 +21,8 @@
  */
 ssize_t	print_command(t_command *command)
 {
-	t_token		*token;
-	ssize_t		size;
+	t_token	*token;
+	ssize_t	size;
 
 	if (command == NULL)
 		return (print_fd(2, "No command to print\n"));
@@ -39,7 +39,7 @@ ssize_t	print_command(t_command *command)
 
 /**
  * @brief Print the commands structure with it's tokens
- * 
+ *
  * @param command command structure
  * @return ssize_t 0 or positive is OK, otherwise error
  */

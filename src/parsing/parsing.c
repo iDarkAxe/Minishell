@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "garbage.h"
 #include "builtins.h"
+#include "garbage.h"
+#include "minishell.h"
 
 /**
  * @brief Prototype for parsing

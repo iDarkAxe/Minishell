@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include "garbage.h"
+#include "minishell.h"
 #include <stddef.h>
 
 static char	is_all_same_letter(char *str, char tested);

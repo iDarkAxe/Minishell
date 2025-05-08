@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "garbage.h"
 #include "minishell.h"
 #include <stdio.h>
 #include <unistd.h>
-#include "garbage.h"
 
 ssize_t	printn_fd(int fd, const char *str, size_t len);
 ssize_t	print_fd(int fd, const char *str);
@@ -56,7 +56,7 @@ ssize_t	printn_fd(int fd, const char *str, size_t len)
 
 /**
  * @brief Print the file descriptor of command into stderr
- * 
+ *
  * @param command command structure
  */
 void	print_command_fd(t_command *command)
