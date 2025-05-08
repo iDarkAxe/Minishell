@@ -40,7 +40,7 @@ int	search_command(t_command *command, char **tokens)
 	while (current != NULL)
 	{
 		print_command(current);
-		printf("return (value is %d\n", previous_ret));
+		printf("retour value is %d\n", previous_ret);
 		if (current->file_error == 1)
 			break ;
 		if (ft_strncmp(current->tokens->str, "echo", 5) == 0)

@@ -40,7 +40,12 @@ void	bubble_sort(t_var **head)
 
 void	sort_ascii_order(t_env_vars *env)
 {
-	if (!env)
+	t_env_vars	*c_env;
+
+	c_env = copy_env(env);
+	if (!c_env)
 		return ;
-	bubble_sort(&env->head_var);
+	bubble_sort(&c_env->head_var);
+	print_export(c_env);
+	free_env(c_env);
 }

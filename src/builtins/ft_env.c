@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:44:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/04 14:01:43 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:09:04 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	print_env(t_env_vars *env)
 	while (var)
 	{
 		param = var->head_params;
-		// if (param)
-		printf("%s=", var->value);
+		if (param && param->value[0])
+			printf("%s=", var->value);
 		while (param)
 		{
 			printf("%s", param->value);
@@ -49,6 +49,6 @@ int	ft_env(char **array)
 		printf("env: '%s': No such file or directory\n", array[0]);
 		return (-1);
 	}
-	print_env_vars(env);
+	print_env(env);
 	return (0);
 }

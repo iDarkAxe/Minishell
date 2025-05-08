@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/05 13:38:52 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/08 10:54:05 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ INC = \
 	garbage.h \
 	file.h \
 	env.h \
+	parsing.h \
 
 # Source files
 SRC = \
@@ -96,6 +97,7 @@ PARSING = \
 	parsing.c \
 	expand_home.c \
 	parsing_quotes_double.c \
+	ft_split_charset.c \
 
 FILE = \
 	file.c \
@@ -111,6 +113,7 @@ BUILTINS = \
 	ft_exit.c \
 	export/print_export.c \
 	export/ft_export.c \
+	export/check_args_export.c \
 	ft_echo.c \
 	ft_which.c \
 	ft_unset.c \
@@ -125,7 +128,8 @@ EXEC = \
 ENV = \
 	functions_utils.c \
 	set_env.c \
-	manipulation_env.c \
+	manipulation_var.c \
+	manipulation_params.c \
 	copy_env.c \
 	swap_env.c \
 	sort_env.c \

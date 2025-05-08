@@ -139,7 +139,7 @@ int	main(int argc, char **argv, char **envp)
 	free_garbage();
 	return (0);
 }
-
+//
 //
 // int	main(int argc, char **argv, char **envp)
 // {
@@ -178,5 +178,34 @@ int	main(int argc, char **argv, char **envp)
 // 		return (0);
 // 	printf("%s", var->head_params->value);
 // 	print_env_vars(env);
+// 	return (0);
+// }
+
+// TEST FREE_ENV
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	t_env_vars	*env;
+//
+// 	(void)argc;
+// 	(void)argv;
+// 	set_env(envp);
+// 	env = get_env();
+// 	print_env_vars(env);
+// 	free_env(env);
+// 	return (0);
+// }
+// TEST CREATE_STR_WITH_PARAM
+
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	t_env_vars	*env;
+//
+// 	(void)argc;
+// 	(void)argv;
+// 	set_env(envp);
+// 	env = get_env();
+// 	print_env_vars(env);
+//
+// 	free_env(env);
 // 	return (0);
 // }

@@ -21,7 +21,7 @@
 
 t_var			*fill_var(char *envp[], size_t *i);
 
-static char	*get_var(const char *str, size_t *i)
+static char	*get_var_value(const char *str, size_t *i)
 {
 	char	*var;
 	size_t	size;
@@ -107,7 +107,7 @@ t_var	*fill_var(char *envp[], size_t *i)
 	if (!new)
 		return (NULL);
 	new->next = NULL;
-	new->value = get_var(envp[*i], &j);
+	new->value = get_var_value(envp[*i], &j);
 	if (!new->value)
 	{
 		free_element_gb(new);

@@ -20,5 +20,6 @@
 char	*ft_remove_near_quotes(char const *str, const char character);
 char	*ft_remove_all_near_quotes(const char *str, const char character);
 char	*parsing_minishell(const char *str);
+char	**ft_split_charset(const char *s, char *charset);
 
 #endif

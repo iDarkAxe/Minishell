@@ -14,51 +14,61 @@
 #include "garbage.h"
 #include <stdlib.h>
 
-static void	copy_param(t_var *temp, const t_var *var)
+static void	copy_param(t_var *var_to_fill, const t_var *content)
 {
-	t_params	*new_param;
-	t_params	*temporary;
+	t_params	*new_node;
+	t_params	*temp;
 
-	new_param = NULL;
-	temporary = var->head_params;
-	while (temporary)
+	new_node = NULL;
+	temp = content->head_params;
+	while (temp != NULL)
 	{
-		new_param = malloc_gb(sizeof(t_params));
-		if (!new_param)
+		new_node = malloc_gb(sizeof(t_params));
+		if (!new_node)
 			return ;
-		new_param->next = NULL;
-		new_param->value = ft_strdup_gb(temporary->value);
-		if (!new_param->value)
+		new_node->next = NULL;
+		new_node->value = ft_strdup_gb(temp->value);
+		if (!new_node->value)
+		{
+			free_element_gb(new_node);
 			return ;
-		ft_paramsadd_back(&temp->head_params, new_param);
-		temporary = temporary->next;
+		}
+		ft_paramsadd_back(&var_to_fill->head_params, new_node);
+		temp = temp->next;
 	}
 }
 
 t_env_vars	*copy_env(t_env_vars *env)
 {
 	t_env_vars	*copy_env;
-	t_var		*var;
 	t_var		*temp;
+	t_var		*new_node;
 
-	var = env->head_var;
+	if (!env)
+		return (NULL);
+	temp = env->head_var;
 	copy_env = malloc_gb(sizeof(t_env_vars));
 	if (!copy_env)
 		return (NULL);
 	copy_env->head_var = NULL;
-	while (var)
+	while (temp)
 	{
-		temp = malloc_gb(sizeof(t_var));
-		if (!temp)
+		new_node = malloc_gb(sizeof(t_var));
+		if (!new_node)
 			return (NULL);
-		temp->next = NULL;
-		temp->value = ft_strdup_gb(var->value);
-		if (!temp->value)
+		new_node->head_params = NULL;
+		new_node->next = NULL;
+		new_node->value = ft_strdup_gb(temp->value);
+		if (!new_node->value)
+		{
+			free_env(copy_env);
+			free_env(env);
 			return (NULL);
-		temp->head_params = NULL;
-		copy_param(temp, var);
-		ft_varsadd_back(&copy_env->head_var, temp);
-		var = var->next;
+		}
+		if (temp->head_params)
+			copy_param(new_node, temp);
+		ft_varsadd_back(&copy_env->head_var, new_node);
+		temp = temp->next;
 	}
 	return (copy_env);
 }
