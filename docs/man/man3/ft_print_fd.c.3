@@ -12,6 +12,8 @@ src/ft_print_fd.c
 .br
 \fR#include <unistd\&.h>\fP
 .br
+\fR#include 'garbage\&.h'\fP
+.br
 
 .SS "Functions"
 
@@ -24,9 +26,24 @@ src/ft_print_fd.c
 .RI "ssize_t \fBprint_fd\fP (int fd, const char *str)"
 .br
 .RI "Function used to write safely and exits if write failed\&. "
+.ti -1c
+.RI "void \fBprint_command_fd\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the file descriptor of command into stderr\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "void print_command_fd (\fBt_command\fP * command)"
+
+.PP
+Print the file descriptor of command into stderr\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
 .SS "ssize_t print_fd (int fd, const char * str)"
 
 .PP

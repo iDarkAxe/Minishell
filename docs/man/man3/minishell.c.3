@@ -6,13 +6,15 @@ src/minishell.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'env\&.h'\fP
-.br
-\fR#include 'file\&.h'\fP
+\fR#include 'minishell\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
 .br
-\fR#include 'minishell\&.h'\fP
+\fR#include 'file\&.h'\fP
+.br
+\fR#include 'env\&.h'\fP
+.br
+\fR#include 'builtins\&.h'\fP
 .br
 \fR#include <readline/history\&.h>\fP
 .br
@@ -22,14 +24,6 @@ src/minishell.c
 .SS "Functions"
 
 .in +1c
-.ti -1c
-.RI "int \fBsearch_command\fP (\fBt_command\fP *command, char **tokens)"
-.br
-.RI "Search if command is a builtin or not\&. "
-.ti -1c
-.RI "char * \fBread_stdin\fP (void)"
-.br
-.RI "Prototype for reading stdin\&. "
 .ti -1c
 .RI "int \fBminishell\fP (char **envp)"
 .br
@@ -45,35 +39,6 @@ Minishell that handles all the shell functions\&.
 \fBParameters\fP
 .RS 4
 \fIenvp\fP environmment 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
-.SS "char * read_stdin (void )"
-
-.PP
-Prototype for reading stdin\&. 
-.PP
-\fBReturns\fP
-.RS 4
-char* 
-.RE
-.PP
-
-.SS "int search_command (\fBt_command\fP * command, char ** tokens)"
-
-.PP
-Search if command is a builtin or not\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.br
-\fItokens\fP array of strings 
 .RE
 .PP
 \fBReturns\fP

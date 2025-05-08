@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parsing_2ec_0',['parsing.c',['../parsing_8c.html',1,'']]],
-  ['parsing_5fquotes_5fdouble_2ec_1',['parsing_quotes_double.c',['../parsing__quotes__double_8c.html',1,'']]],
-  ['prompt_2ec_2',['prompt.c',['../prompt_8c.html',1,'']]]
+  ['main_2ec_0',['main.c',['../src_2main_8c.html',1,'(Global Namespace)'],['../tests_2src_2main_8c.html',1,'(Global Namespace)']]],
+  ['minishell_2ec_1',['minishell.c',['../minishell_8c.html',1,'']]],
+  ['minishell_2eh_2',['minishell.h',['../minishell_8h.html',1,'']]]
 ];

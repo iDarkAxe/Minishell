@@ -1,0 +1,16 @@
+<map id="reset_redirection" name="reset_redirection">
+<area shape="rect" id="Node000001" title="Reset redirections by default values Replace the new redirections by stdin and stdout." alt="" coords="5,31,137,56"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="45,32,39,22,42,13,53,6,71,4,93,7,102,16,99,20,91,12,71,9,55,11,46,16,45,22,49,29"/>
+<area shape="rect" id="Node000002" href="$ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="185,5,272,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,30,171,24,172,30,138,35"/>
+<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="193,55,265,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,51,180,57,179,62,137,56"/>
+<area shape="rect" id="Node000004" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="320,55,400,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,65,306,65,306,70,265,70"/>
+<area shape="rect" id="Node000005" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="448,55,556,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="400,65,434,65,434,70,400,70"/>
+<area shape="rect" id="Node000006" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="604,29,727,55"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="556,56,590,51,591,56,557,62"/>
+<area shape="rect" id="Node000007" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="614,79,717,104"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="557,73,601,79,600,84,556,78"/>
+</map>

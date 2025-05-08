@@ -107,9 +107,10 @@ $(function(){initNavTree('signals_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">signals.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 <code>#include &lt;readline/readline.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
 <code>#include &lt;signal.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -119,30 +120,32 @@ Include dependency graph for signals.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="signals_8c__incl.png" border="0" usemap="#asrc_2signals_8c" alt=""/></div>
 <map name="asrc_2signals_8c" id="asrc_2signals_8c">
-<area shape="rect" title=" " alt="" coords="215,5,317,31"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="5,79,92,104"/>
-<area shape="poly" title=" " alt="" coords="232,33,98,77,96,72,230,28"/>
-<area shape="rect" title=" " alt="" coords="13,152,84,177"/>
-<area shape="poly" title=" " alt="" coords="250,33,79,147,76,142,247,29"/>
-<area shape="rect" title=" " alt="" coords="439,79,583,104"/>
-<area shape="poly" title=" " alt="" coords="306,28,459,72,458,77,305,33"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="219,79,313,104"/>
-<area shape="poly" title=" " alt="" coords="269,31,269,65,263,65,263,31"/>
-<area shape="rect" title=" " alt="" coords="108,152,181,177"/>
-<area shape="poly" title=" " alt="" coords="255,33,208,80,162,142,157,139,204,77,251,29"/>
-<area shape="rect" title=" " alt="" coords="387,152,454,177"/>
-<area shape="poly" title=" " alt="" coords="280,29,400,140,396,144,277,33"/>
+<area shape="rect" title=" " alt="" coords="348,5,451,31"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="176,79,271,104"/>
+<area shape="poly" title=" " alt="" coords="372,33,266,76,264,71,370,28"/>
+<area shape="rect" title=" " alt="" coords="5,152,79,177"/>
+<area shape="poly" title=" " alt="" coords="348,29,260,48,212,63,164,81,110,112,67,145,63,141,108,108,162,76,210,58,259,43,347,24"/>
+<area shape="rect" title=" " alt="" coords="285,152,351,177"/>
+<area shape="poly" title=" " alt="" coords="395,32,334,141,329,139,390,30"/>
+<area shape="rect" title=" " alt="" coords="376,152,447,177"/>
+<area shape="poly" title=" " alt="" coords="397,32,388,64,386,84,387,103,400,139,395,141,382,105,380,84,383,63,392,30"/>
 <area shape="rect" title=" " alt="" coords="478,152,553,177"/>
-<area shape="poly" title=" " alt="" coords="287,29,485,143,482,147,285,33"/>
-<area shape="poly" title=" " alt="" coords="51,104,51,138,46,138,46,104"/>
-<area shape="poly" title=" " alt="" coords="232,107,98,150,96,145,230,101"/>
-<area shape="rect" title=" " alt="" coords="206,152,265,177"/>
-<area shape="poly" title=" " alt="" coords="263,105,248,141,243,139,258,103"/>
-<area shape="poly" title=" " alt="" coords="248,106,177,147,175,143,245,102"/>
-<area shape="rect" title=" " alt="" coords="289,152,363,177"/>
-<area shape="poly" title=" " alt="" coords="278,103,310,140,305,143,274,106"/>
-<area shape="poly" title=" " alt="" coords="292,102,384,144,382,149,290,106"/>
-<area shape="poly" title=" " alt="" coords="307,101,465,146,464,152,305,107"/>
+<area shape="poly" title=" " alt="" coords="432,28,467,48,484,61,499,77,512,107,518,138,512,139,507,109,494,80,481,65,464,52,430,33"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="397,79,484,104"/>
+<area shape="poly" title=" " alt="" coords="408,30,429,65,425,68,404,32"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="559,79,642,104"/>
+<area shape="poly" title=" " alt="" coords="433,28,556,71,554,77,431,33"/>
+<area shape="rect" title=" " alt="" coords="666,79,810,104"/>
+<area shape="poly" title=" " alt="" coords="451,27,671,73,669,78,450,33"/>
+<area shape="rect" title=" " alt="" coords="103,152,162,177"/>
+<area shape="poly" title=" " alt="" coords="210,106,160,145,157,141,207,102"/>
+<area shape="poly" title=" " alt="" coords="195,107,85,149,83,144,193,102"/>
+<area shape="rect" title=" " alt="" coords="186,152,261,177"/>
+<area shape="poly" title=" " alt="" coords="226,104,226,138,221,138,221,104"/>
+<area shape="poly" title=" " alt="" coords="240,102,293,141,290,146,237,106"/>
+<area shape="poly" title=" " alt="" coords="254,102,369,144,367,149,253,107"/>
+<area shape="poly" title=" " alt="" coords="271,101,465,148,464,154,270,107"/>
+<area shape="poly" title=" " alt="" coords="438,105,424,140,419,138,433,103"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -239,21 +242,17 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="signals_8c_a6a47bee71ca8c57f1aa3d27530dde646_cgraph.png" border="0" usemap="#asignals_8c_a6a47bee71ca8c57f1aa3d27530dde646_cgraph" alt=""/></div>
 <map name="asignals_8c_a6a47bee71ca8c57f1aa3d27530dde646_cgraph" id="asignals_8c_a6a47bee71ca8c57f1aa3d27530dde646_cgraph">
-<area shape="rect" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="5,105,123,131"/>
-<area shape="rect" href="ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="171,80,233,105"/>
-<area shape="poly" title=" " alt="" coords="122,105,157,98,158,103,123,110"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="299,131,371,156"/>
-<area shape="poly" title=" " alt="" coords="123,121,286,136,285,141,123,126"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="281,29,389,55"/>
-<area shape="poly" title=" " alt="" coords="233,78,287,57,289,62,235,83"/>
-<area shape="poly" title=" " alt="" coords="235,102,289,123,287,128,233,107"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="437,5,560,31"/>
-<area shape="poly" title=" " alt="" coords="389,31,423,26,424,32,390,37"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="447,55,550,80"/>
-<area shape="poly" title=" " alt="" coords="390,48,434,55,433,60,389,53"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="459,105,539,131"/>
-<area shape="poly" title=" " alt="" coords="371,135,445,124,446,129,372,140"/>
-<area shape="poly" title=" " alt="" coords="458,117,247,99,248,94,459,112"/>
+<area shape="rect" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="5,31,123,56"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="171,31,243,56"/>
+<area shape="poly" title=" " alt="" coords="123,41,157,41,157,46,123,46"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="291,31,371,56"/>
+<area shape="poly" title=" " alt="" coords="243,41,277,41,277,46,243,46"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="419,31,527,56"/>
+<area shape="poly" title=" " alt="" coords="371,41,405,41,405,46,371,46"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="575,5,697,31"/>
+<area shape="poly" title=" " alt="" coords="527,32,561,27,562,32,527,38"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="585,55,687,80"/>
+<area shape="poly" title=" " alt="" coords="527,49,571,55,570,60,527,54"/>
 </map>
 </div>
 
@@ -281,23 +280,22 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="signals_8c_a158e46ae40ca894b730badc8fbbefb2d_cgraph.png" border="0" usemap="#asignals_8c_a158e46ae40ca894b730badc8fbbefb2d_cgraph" alt=""/></div>
 <map name="asignals_8c_a158e46ae40ca894b730badc8fbbefb2d_cgraph" id="asignals_8c_a158e46ae40ca894b730badc8fbbefb2d_cgraph">
-<area shape="rect" title="Main function for initialising signals." alt="" coords="5,105,95,131"/>
-<area shape="rect" href="signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="143,105,260,131"/>
-<area shape="poly" title=" " alt="" coords="95,115,129,115,129,121,95,121"/>
-<area shape="rect" href="ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="308,80,371,105"/>
-<area shape="poly" title=" " alt="" coords="260,105,294,98,295,103,261,110"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="437,131,509,156"/>
-<area shape="poly" title=" " alt="" coords="261,121,423,136,423,141,260,126"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="419,29,527,55"/>
-<area shape="poly" title=" " alt="" coords="370,78,425,57,427,62,372,83"/>
-<area shape="poly" title=" " alt="" coords="372,102,427,123,425,128,370,107"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="575,5,697,31"/>
-<area shape="poly" title=" " alt="" coords="527,31,561,26,562,32,527,37"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="585,55,687,80"/>
-<area shape="poly" title=" " alt="" coords="527,48,571,55,570,60,527,53"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="596,105,676,131"/>
-<area shape="poly" title=" " alt="" coords="508,135,582,124,583,129,509,140"/>
-<area shape="poly" title=" " alt="" coords="595,117,384,99,385,94,596,112"/>
+<area shape="rect" title="Main function for initialising signals." alt="" coords="5,56,95,81"/>
+<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="158,5,245,31"/>
+<area shape="poly" title=" " alt="" coords="88,53,149,33,151,38,90,58"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="308,81,380,107"/>
+<area shape="poly" title=" " alt="" coords="95,70,295,87,294,92,95,75"/>
+<area shape="rect" href="signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="143,107,260,132"/>
+<area shape="poly" title=" " alt="" coords="90,79,151,100,149,105,88,84"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="428,81,508,107"/>
+<area shape="poly" title=" " alt="" coords="380,91,414,91,414,97,380,97"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="556,81,664,107"/>
+<area shape="poly" title=" " alt="" coords="508,91,542,91,542,97,508,97"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="712,56,835,81"/>
+<area shape="poly" title=" " alt="" coords="664,83,698,78,699,83,665,88"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="722,105,825,131"/>
+<area shape="poly" title=" " alt="" coords="665,99,709,106,708,111,664,105"/>
+<area shape="poly" title=" " alt="" coords="260,106,294,100,295,105,260,112"/>
 </map>
 </div>
 

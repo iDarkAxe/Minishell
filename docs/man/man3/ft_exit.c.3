@@ -22,9 +22,27 @@ src/builtins/ft_exit.c
 .RI "int \fBft_exit\fP (char **array)"
 .br
 .RI "Function to exit the program\&. "
+.ti -1c
+.RI "void \fBft_exit_int\fP (int value)"
+.br
+.ti -1c
+.RI "\fB__attribute__\fP ((noreturn))"
+.br
+.RI "Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "__attribute__ ((noreturn) )"
+
+.PP
+Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP value 
+.RE
+.PP
+
 .SS "int ft_exit (char ** array)"
 
 .PP
@@ -40,6 +58,8 @@ Function to exit the program\&.
 int value if argument invalid 
 .RE
 .PP
+
+.SS "void ft_exit_int (int value)"
 
 .SH "Author"
 .PP 

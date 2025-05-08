@@ -84,7 +84,7 @@ inc/file.h
 .ti -1c
 .RI "int \fBverify_access\fP (\fBt_command\fP *command)"
 .br
-.RI "Verify that all files are valid\&. "
+.RI "Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. "
 .ti -1c
 .RI "\fBt_file\fP * \fBsearch_last_file\fP (\fBt_file\fP *file, \fBt_file\fP *already_searched)"
 .br
@@ -93,6 +93,18 @@ inc/file.h
 .RI "int \fBfill_heredocs\fP (\fBt_command\fP *command)"
 .br
 .RI "Fill all the heredocs in the correct order\&. "
+.ti -1c
+.RI "int \fBopen_file_with_rights\fP (\fBt_file\fP *file, t_bool in_out)"
+.br
+.RI "Open a file with it's rights (permissions) "
+.ti -1c
+.RI "void \fBread_write_to\fP (\fBt_command\fP *command, t_bool in_out)"
+.br
+.RI "Opens the files to read and writes\&. "
+.ti -1c
+.RI "void \fBfd_default\fP (\fBt_command\fP *command)"
+.br
+.RI "Put the fds in command to there default values\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
@@ -192,6 +204,17 @@ Create a tmp file, verify if it already exist, tries to open it to verify permis
 .RE
 .PP
 
+.SS "void fd_default (\fBt_command\fP * command)"
+
+.PP
+Put the fds in command to there default values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
 .SS "\fBt_file\fP * file_parser (\fBt_file\fP * file)"
 
 .PP
@@ -256,6 +279,24 @@ char* the word found
 .RE
 .PP
 
+.SS "int open_file_with_rights (\fBt_file\fP * file, t_bool in_out)"
+
+.PP
+Open a file with it's rights (permissions) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile\fP file structure 
+.br
+\fIin_out\fP 0 = IN, 1 = OUT 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
 .SS "char * read_heredoc (\fBt_tmp\fP * tmp, char * delimitor)"
 
 .PP
@@ -271,6 +312,17 @@ Read from stdin and outputs to a file, stops reading when Ctrl+D or when a delim
 \fBReturns\fP
 .RS 4
 char* tmp->name if successful, NULL otherwise 
+.RE
+.PP
+
+.SS "void read_write_to (\fBt_command\fP * command, t_bool in_out)"
+
+.PP
+Opens the files to read and writes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIin_out\fP 0 = IN, 1 = OUT 
 .RE
 .PP
 
@@ -311,7 +363,7 @@ t_file* last file begore already_searched
 .SS "int verify_access (\fBt_command\fP * command)"
 
 .PP
-Verify that all files are valid\&. 
+Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -320,7 +372,7 @@ Verify that all files are valid\&.
 .PP
 \fBReturns\fP
 .RS 4
-int 
+int 0 OK, error otherwise 
 .RE
 .PP
 

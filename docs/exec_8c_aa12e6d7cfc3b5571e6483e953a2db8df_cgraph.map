@@ -1,0 +1,85 @@
+<map id="prepare_command_forks" name="prepare_command_forks">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,707,189,732"/>
+<area shape="rect" id="Node000002" href="$token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="675,708,763,733"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,717,661,718,661,723,190,722"/>
+<area shape="rect" id="Node000007" href="$ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="1055,756,1141,781"/>
+<area shape="poly" id="edge45_Node000001_Node000007" title=" " alt="" coords="118,730,170,763,203,779,238,793,313,812,373,819,512,818,720,818,808,814,896,804,1041,779,1042,784,897,809,809,819,720,823,512,823,373,824,312,817,237,798,201,784,168,767,115,734"/>
+<area shape="rect" id="Node000012" href="$ft__dups__forks_8c.html#a6f6a2e5ead4dddc5928548bb7973509a" title="Change the previous input of pipe to a new redirection." alt="" coords="861,5,959,31"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="96,706,99,628,105,570,116,505,133,435,157,366,191,300,235,242,268,210,304,181,383,132,467,94,554,65,639,44,719,30,847,17,847,23,720,36,640,50,556,70,469,99,385,137,307,185,272,214,239,245,196,303,162,368,138,437,121,506,110,571,104,628,101,706"/>
+<area shape="rect" id="Node000013" href="$exec__in__forks_8c.html#a6c023b75d59d8711c6aedf7faef9e18c" title="Executes the command in a forks." alt="" coords="243,504,382,529"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="110,705,286,537,290,541,114,709"/>
+<area shape="rect" id="Node000027" href="$ft__free_8c.html#a81a8163a838ff55d33697de5148af1d4" title="Free array of strings." alt="" coords="268,859,357,884"/>
+<area shape="poly" id="edge42_Node000001_Node000027" title=" " alt="" coords="113,730,165,781,201,810,239,837,264,851,262,855,236,842,197,814,162,785,109,734"/>
+<area shape="rect" id="Node000029" href="$ft__dups_8c.html#a557b0a55bf37d0d4004b9fbdf96ad558" title="Create and redirect inputs and outputs needed for the command." alt="" coords="237,757,388,783"/>
+<area shape="poly" id="edge46_Node000001_Node000029" title=" " alt="" coords="153,730,245,752,244,757,152,735"/>
+<area shape="rect" id="Node000032" href="$command-utils_8c.html#a458910531201e249c945c6658fc553f3" title="Print the command structure with it&#39;s tokens." alt="" coords="251,255,375,280"/>
+<area shape="poly" id="edge50_Node000001_Node000032" title=" " alt="" coords="102,705,297,292,302,294,107,707"/>
+<area shape="rect" id="Node000003" href="$garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="847,605,973,631"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="742,706,872,635,874,640,745,710"/>
+<area shape="rect" id="Node000004" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="1403,504,1511,529"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="967,603,1021,591,1187,561,1354,533,1389,526,1390,532,1355,538,1188,566,1022,597,968,608"/>
+<area shape="rect" id="Node000006" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1569,705,1671,731"/>
+<area shape="poly" id="edge9_Node000003_Node000006" title=" " alt="" coords="938,629,975,651,998,673,1008,682,1022,690,1093,713,1167,728,1241,736,1315,740,1450,736,1555,726,1555,731,1450,742,1315,745,1241,742,1166,733,1092,718,1020,695,1005,687,994,677,972,655,935,633"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="946,628,975,648,992,671,999,693,1007,714,1023,735,1043,748,1040,753,1020,739,1002,716,994,695,987,674,971,652,943,633"/>
+<area shape="rect" id="Node000008" href="$garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="1021,605,1175,631"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="974,615,1007,615,1007,621,974,621"/>
+<area shape="rect" id="Node000009" href="$garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="1039,655,1157,680"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="960,628,1036,648,1035,654,958,633"/>
+<area shape="rect" id="Node000010" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="1062,205,1134,231"/>
+<area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="922,603,947,576,971,541,1012,459,1046,375,1087,243,1092,245,1051,377,1017,461,976,543,951,579,926,607"/>
+<area shape="rect" id="Node000005" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1559,504,1681,529"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1511,514,1545,514,1545,519,1511,519"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1471,528,1602,693,1598,696,1466,532"/>
+<area shape="rect" id="Node000011" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="1249,205,1329,231"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="1134,215,1234,215,1234,221,1134,221"/>
+<area shape="poly" id="edge12_Node000011_Node000004" title=" " alt="" coords="1299,230,1444,491,1439,493,1295,232"/>
+<area shape="poly" id="edge14_Node000012_Node000004" title=" " alt="" coords="960,21,1045,37,1151,67,1207,90,1261,118,1312,152,1357,192,1384,228,1406,267,1423,309,1436,351,1451,430,1457,490,1452,490,1446,431,1431,352,1418,310,1401,269,1380,230,1353,196,1309,156,1259,122,1205,95,1150,72,1044,42,959,26"/>
+<area shape="poly" id="edge15_Node000012_Node000010" title=" " alt="" coords="944,28,975,48,1010,83,1041,122,1086,192,1081,194,1037,126,1007,87,972,52,941,33"/>
+<area shape="poly" id="edge17_Node000013_Node000004" title=" " alt="" coords="364,527,436,539,587,551,704,551,973,539,1202,530,1389,519,1389,524,1202,535,973,545,704,556,587,556,436,545,363,532"/>
+<area shape="rect" id="Node000014" href="$signals_8c.html#a5f6c32d2562c571a4c4d359be72564a9" title="Function to ignore certain signals." alt="" coords="459,504,568,529"/>
+<area shape="poly" id="edge18_Node000013_Node000014" title=" " alt="" coords="382,514,445,514,445,519,382,519"/>
+<area shape="rect" id="Node000015" href="$exec__extern_8c.html#a521da36622246e2b19debf611d185614" title="Executes commands that are not builtins." alt="" coords="464,631,563,656"/>
+<area shape="poly" id="edge19_Node000013_Node000015" title=" " alt="" coords="336,527,482,621,479,626,333,532"/>
+<area shape="rect" id="Node000016" href="$signals_8c.html#a6fbea2085fba5553723ef14279ccf3ed" title="Function to reset signals to default." alt="" coords="436,455,591,480"/>
+<area shape="poly" id="edge23_Node000013_Node000016" title=" " alt="" coords="364,501,447,481,448,486,366,507"/>
+<area shape="rect" id="Node000017" href="$search__command_8c.html#accacfd1a8d3b7fbdff0d572e6d5736ad" title="Search if command is a builtin or not." alt="" coords="650,279,787,304"/>
+<area shape="poly" id="edge24_Node000013_Node000017" title=" " alt="" coords="326,502,372,461,435,416,495,382,558,351,667,306,670,311,561,356,498,386,437,420,375,465,329,506"/>
+<area shape="rect" id="Node000025" href="$signals_8c.html#a158e46ae40ca894b730badc8fbbefb2d" title="Main function for initialising signals." alt="" coords="674,479,763,504"/>
+<area shape="poly" id="edge37_Node000013_Node000025" title=" " alt="" coords="327,502,373,469,403,453,435,441,478,431,513,429,591,441,638,454,681,470,679,475,637,459,590,446,513,434,479,436,437,446,405,458,376,474,330,506"/>
+<area shape="poly" id="edge21_Node000015_Node000002" title=" " alt="" coords="549,654,672,701,670,706,547,659"/>
+<area shape="poly" id="edge20_Node000015_Node000003" title=" " alt="" coords="563,638,833,620,833,626,563,643"/>
+<area shape="poly" id="edge22_Node000015_Node000007" title=" " alt="" coords="564,649,799,694,1042,752,1041,757,798,699,563,654"/>
+<area shape="rect" id="Node000018" href="$ft__cd_8c.html#ac9978b56415a76c70d19cb22c56b409d" title="Implementatin of cd builtin of shell." alt="" coords="883,205,937,231"/>
+<area shape="poly" id="edge25_Node000017_Node000018" title=" " alt="" coords="752,276,869,231,871,236,754,281"/>
+<area shape="rect" id="Node000019" href="$ft__echo_8c.html#aef55bfe2924d6b7282b1e3983791da02" title="Echo with &#45;n option OPTIONS : &#45;n : print without the triling newline." alt="" coords="875,107,945,132"/>
+<area shape="poly" id="edge27_Node000017_Node000019" title=" " alt="" coords="726,277,772,214,806,176,845,142,861,133,864,138,848,147,810,180,776,217,730,280"/>
+<area shape="rect" id="Node000020" href="$ft__env_8c.html#a0f7285fc866730bc749d28def603ce57" title=" " alt="" coords="879,304,941,329"/>
+<area shape="poly" id="edge30_Node000017_Node000020" title=" " alt="" coords="788,298,865,308,865,313,787,303"/>
+<area shape="rect" id="Node000021" href="$ft__env_8c.html#abf30ae08f03d6ea8baea636c9cb1b0d2" title=" " alt="" coords="870,353,950,379"/>
+<area shape="poly" id="edge31_Node000017_Node000021" title=" " alt="" coords="753,302,848,340,864,346,862,351,846,344,751,307"/>
+<area shape="rect" id="Node000022" href="$ft__cd_8c.html#afeba101359d0224bf94a9689513e4bfe" title="Print the current working directory." alt="" coords="877,255,943,280"/>
+<area shape="poly" id="edge32_Node000017_Node000022" title=" " alt="" coords="787,280,863,270,864,276,788,285"/>
+<area shape="rect" id="Node000023" href="$ft__env_8c.html#a3717e4b670c94940fbc9b0bd7ab5cfd9" title=" " alt="" coords="873,403,947,428"/>
+<area shape="poly" id="edge34_Node000017_Node000023" title=" " alt="" coords="735,302,783,344,848,389,861,396,859,401,845,394,780,348,732,306"/>
+<area shape="rect" id="Node000024" href="$ft__which_8c.html#aa7aad378dd77466bd445355193908de3" title="Says if the command are built&#45;in commands or not." alt="" coords="872,156,948,181"/>
+<area shape="poly" id="edge35_Node000017_Node000024" title=" " alt="" coords="732,277,780,236,845,192,859,185,861,189,848,196,784,240,736,281"/>
+<area shape="poly" id="edge26_Node000018_Node000010" title=" " alt="" coords="937,215,1048,215,1048,221,937,221"/>
+<area shape="poly" id="edge28_Node000019_Node000010" title=" " alt="" coords="946,130,975,142,1067,196,1064,200,972,147,944,135"/>
+<area shape="poly" id="edge29_Node000019_Node000011" title=" " alt="" coords="945,126,1236,202,1234,207,944,131"/>
+<area shape="poly" id="edge33_Node000022_Node000010" title=" " alt="" coords="942,256,1048,228,1049,233,943,262"/>
+<area shape="poly" id="edge36_Node000024_Node000010" title=" " alt="" coords="949,176,1049,203,1048,208,948,181"/>
+<area shape="poly" id="edge38_Node000025_Node000007" title=" " alt="" coords="730,503,776,567,810,606,848,641,881,661,909,672,939,681,975,698,999,717,1023,734,1050,748,1048,753,1020,739,996,721,972,703,937,686,908,677,879,666,845,645,806,610,772,571,726,506"/>
+<area shape="poly" id="edge39_Node000025_Node000010" title=" " alt="" coords="763,491,810,489,865,482,921,466,947,454,972,439,995,418,1016,394,1050,341,1073,287,1087,244,1092,245,1078,289,1054,343,1020,397,999,422,975,443,950,458,923,471,866,487,810,494,763,496"/>
+<area shape="rect" id="Node000026" href="$signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="851,504,969,529"/>
+<area shape="poly" id="edge40_Node000025_Node000026" title=" " alt="" coords="764,495,838,504,837,510,763,500"/>
+<area shape="poly" id="edge41_Node000026_Node000010" title=" " alt="" coords="945,501,972,483,995,454,1017,423,1050,356,1074,293,1088,243,1093,245,1079,294,1055,358,1021,425,1000,457,975,487,948,506"/>
+<area shape="rect" id="Node000028" href="$garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="1223,832,1355,857"/>
+<area shape="poly" id="edge43_Node000027_Node000028" title=" " alt="" coords="358,869,717,869,911,869,1070,863,1209,851,1209,856,1070,868,911,874,717,874,358,874"/>
+<area shape="poly" id="edge44_Node000028_Node000006" title=" " alt="" coords="1322,829,1572,733,1574,738,1324,834"/>
+<area shape="rect" id="Node000030" href="$file-general_8c.html#a193c0bf8702f604a85edbde26b3f0a8d" title="Opens the files to read and writes." alt="" coords="458,757,569,783"/>
+<area shape="poly" id="edge47_Node000029_Node000030" title=" " alt="" coords="388,767,444,767,444,773,388,773"/>
+<area shape="rect" id="Node000031" href="$file-general_8c.html#a14d33c3540b9d426750b32dee40b3015" title="Open a file with it&#39;s rights (permissions)" alt="" coords="639,757,799,783"/>
+<area shape="poly" id="edge48_Node000030_Node000031" title=" " alt="" coords="569,767,625,767,625,773,569,773"/>
+<area shape="poly" id="edge49_Node000031_Node000007" title=" " alt="" coords="799,767,1041,766,1041,772,799,772"/>
+<area shape="poly" id="edge51_Node000032_Node000010" title=" " alt="" coords="342,252,426,217,549,171,694,126,770,107,846,93,911,81,940,82,974,93,1009,113,1040,139,1083,192,1079,195,1036,143,1006,117,972,98,939,88,912,87,847,98,772,112,696,131,550,176,428,222,344,257"/>
+</map>

@@ -6,11 +6,15 @@ src/file/file_verify_access.c
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'builtins\&.h'\fP
+.br
 \fR#include 'file\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
 .br
 \fR#include 'minishell\&.h'\fP
 .br
-\fR#include 'garbage\&.h'\fP
+\fR#include <fcntl\&.h>\fP
 .br
 
 .SS "Functions"
@@ -23,7 +27,7 @@ src/file/file_verify_access.c
 .ti -1c
 .RI "int \fBverify_access\fP (\fBt_command\fP *command)"
 .br
-.RI "Verify that all files are valid\&. "
+.RI "Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
@@ -48,7 +52,7 @@ t_file* last file begore already_searched
 .SS "int verify_access (\fBt_command\fP * command)"
 
 .PP
-Verify that all files are valid\&. 
+Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -57,7 +61,7 @@ Verify that all files are valid\&.
 .PP
 \fBReturns\fP
 .RS 4
-int 
+int 0 OK, error otherwise 
 .RE
 .PP
 

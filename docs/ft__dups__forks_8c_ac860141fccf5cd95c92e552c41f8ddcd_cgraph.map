@@ -1,0 +1,20 @@
+<map id="reset_redirection_forks" name="reset_redirection_forks">
+<area shape="rect" id="Node000001" title="Reset redirections by default values Replace the new redirections by stdin and stdout." alt="" coords="5,49,177,75"/>
+<area shape="rect" id="Node000002" href="$ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="405,25,492,51"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,47,166,26,225,10,291,3,358,10,398,19,397,24,357,15,291,8,226,15,168,31,119,52"/>
+<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="413,75,485,100"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,72,226,85,318,89,399,87,399,92,318,94,225,90,146,77"/>
+<area shape="rect" id="Node000008" href="$ft__dups_8c.html#a43a6f2349b75aab35340f5afd8326e9d" title="Reset redirections by default values Replace the new redirections by stdin and stdout." alt="" coords="225,49,357,75"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="177,59,211,59,211,65,177,65"/>
+<area shape="rect" id="Node000004" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="540,75,620,100"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="485,85,526,85,526,90,485,90"/>
+<area shape="rect" id="Node000005" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="668,75,776,100"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="620,85,654,85,654,90,620,90"/>
+<area shape="rect" id="Node000006" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="824,49,947,75"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="776,76,810,71,811,76,777,81"/>
+<area shape="rect" id="Node000007" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="834,99,937,124"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="777,92,821,99,820,104,776,98"/>
+<area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="357,49,391,44,392,49,358,54"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="358,70,400,77,399,82,357,75"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="265,50,259,41,262,31,273,25,291,23,313,26,322,34,319,38,311,31,291,28,275,30,266,34,265,40,269,48"/>
+</map>

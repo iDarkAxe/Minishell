@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lexer_0',['lexer',['../lexer_8c.html#a8fdf8761d0f58bc2b54b3a1edf6a4430',1,'lexer(const char *line):&#160;lexer.c'],['../minishell_8h.html#a8fdf8761d0f58bc2b54b3a1edf6a4430',1,'lexer(const char *line):&#160;lexer.c']]],
-  ['lexer_5fsimple_1',['lexer_simple',['../testing__lexer_8c.html#a1e6ad6cfed17e46e609f74d6a9eb4e07',1,'lexer_simple(void):&#160;testing_lexer.c'],['../tests_8h.html#a1e6ad6cfed17e46e609f74d6a9eb4e07',1,'lexer_simple(void):&#160;testing_lexer.c']]]
+  ['handle_5fredirections_0',['handle_redirections',['../ft__dups_8c.html#a557b0a55bf37d0d4004b9fbdf96ad558',1,'handle_redirections(t_command *command):&#160;ft_dups.c'],['../minishell_8h.html#a557b0a55bf37d0d4004b9fbdf96ad558',1,'handle_redirections(t_command *command):&#160;ft_dups.c']]],
+  ['handle_5fredirections_5fforks_1',['handle_redirections_forks',['../ft__dups__forks_8c.html#a35642e1c45013c54ea2b58c86abbf7ea',1,'ft_dups_forks.c']]]
 ];

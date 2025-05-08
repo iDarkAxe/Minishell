@@ -107,21 +107,27 @@ $(function(){initNavTree('file__verify__access_8c.html',''); initResizable(true)
   <div class="headertitle"><div class="title">file_verify_access.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="file_8h_source.html">file.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="file_8h_source.html">file.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for file_verify_access.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="file__verify__access_8c__incl.png" border="0" usemap="#asrc_2file_2file__verify__access_8c" alt=""/></div>
 <map name="asrc_2file_2file__verify__access_8c" id="asrc_2file_2file__verify__access_8c">
 <area shape="rect" title=" " alt="" coords="232,5,365,45"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="99,93,181,119"/>
+<area shape="poly" title=" " alt="" coords="262,48,177,90,174,85,259,43"/>
 <area shape="rect" href="file_8h.html" title=" " alt="" coords="206,93,261,119"/>
 <area shape="poly" title=" " alt="" coords="285,47,254,84,250,81,281,44"/>
 <area shape="rect" href="minishell_8h.html" title=" " alt="" coords="219,167,314,192"/>
 <area shape="poly" title=" " alt="" coords="297,46,275,154,269,152,292,45"/>
 <area shape="rect" href="garbage_8h.html" title=" " alt="" coords="423,167,510,192"/>
-<area shape="poly" title=" " alt="" coords="321,44,445,155,442,159,318,48"/>
+<area shape="poly" title=" " alt="" coords="314,44,342,79,378,117,436,158,432,162,374,121,338,83,310,47"/>
+<area shape="rect" title=" " alt="" coords="387,93,450,119"/>
+<area shape="poly" title=" " alt="" coords="329,43,391,84,388,88,326,48"/>
 <area shape="rect" title=" " alt="" coords="5,240,64,265"/>
 <area shape="poly" title=" " alt="" coords="219,121,64,234,60,229,216,117"/>
 <area shape="poly" title=" " alt="" coords="241,118,258,153,253,155,236,120"/>
@@ -146,7 +152,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a1adf8592e56806396e71d927d3268ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the last file that is not already_searched.  <br /></td></tr>
 <tr class="separator:a1adf8592e56806396e71d927d3268ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac70638e4b2de9819fb99c97318fc767b" id="r_ac70638e4b2de9819fb99c97318fc767b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac70638e4b2de9819fb99c97318fc767b">verify_access</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
-<tr class="memdesc:ac70638e4b2de9819fb99c97318fc767b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that all files are valid.  <br /></td></tr>
+<tr class="memdesc:ac70638e4b2de9819fb99c97318fc767b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0.  <br /></td></tr>
 <tr class="separator:ac70638e4b2de9819fb99c97318fc767b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -196,14 +202,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Verify that all files are valid. </p>
+<p>Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">command</td><td>command structure </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int 0 OK, error otherwise </dd></dl>
 
 </div>
 </div>

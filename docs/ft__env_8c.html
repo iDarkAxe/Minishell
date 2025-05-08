@@ -107,19 +107,30 @@ $(function(){initNavTree('ft__env_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">ft_env.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
+<div class="textblock"><code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for ft_env.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="ft__env_8c__incl.png" border="0" usemap="#asrc_2builtins_2ft__env_8c" alt=""/></div>
+<map name="asrc_2builtins_2ft__env_8c" id="asrc_2builtins_2ft__env_8c">
+<area shape="rect" title=" " alt="" coords="5,5,152,31"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="37,79,120,104"/>
+<area shape="poly" title=" " alt="" coords="81,31,81,65,76,65,76,31"/>
+</map>
+</div>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ace7ce162e3eced08c3562e6569d2d07c" id="r_ace7ce162e3eced08c3562e6569d2d07c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace7ce162e3eced08c3562e6569d2d07c">ft_export</a> (char **array, char **envp)</td></tr>
-<tr class="separator:ace7ce162e3eced08c3562e6569d2d07c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af10fa305a4961ca140868ddee6b53f10" id="r_af10fa305a4961ca140868ddee6b53f10"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af10fa305a4961ca140868ddee6b53f10">ft_env</a> (char **envp)</td></tr>
-<tr class="separator:af10fa305a4961ca140868ddee6b53f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a1f4e004afe5dd3c67772a37566dc14" id="r_a3a1f4e004afe5dd3c67772a37566dc14"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a1f4e004afe5dd3c67772a37566dc14">ft_unset</a> (char **array, char **envp)</td></tr>
-<tr class="separator:a3a1f4e004afe5dd3c67772a37566dc14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf30ae08f03d6ea8baea636c9cb1b0d2" id="r_abf30ae08f03d6ea8baea636c9cb1b0d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf30ae08f03d6ea8baea636c9cb1b0d2">ft_export</a> (char **array)</td></tr>
+<tr class="separator:abf30ae08f03d6ea8baea636c9cb1b0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7285fc866730bc749d28def603ce57" id="r_a0f7285fc866730bc749d28def603ce57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f7285fc866730bc749d28def603ce57">ft_env</a> (char **array)</td></tr>
+<tr class="separator:a0f7285fc866730bc749d28def603ce57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3717e4b670c94940fbc9b0bd7ab5cfd9" id="r_a3717e4b670c94940fbc9b0bd7ab5cfd9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3717e4b670c94940fbc9b0bd7ab5cfd9">ft_unset</a> (char **array)</td></tr>
+<tr class="separator:a3717e4b670c94940fbc9b0bd7ab5cfd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="af10fa305a4961ca140868ddee6b53f10" name="af10fa305a4961ca140868ddee6b53f10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af10fa305a4961ca140868ddee6b53f10">&#9670;&#160;</a></span>ft_env()</h2>
+<a id="a0f7285fc866730bc749d28def603ce57" name="a0f7285fc866730bc749d28def603ce57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f7285fc866730bc749d28def603ce57">&#9670;&#160;</a></span>ft_env()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,7 +138,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int ft_env </td>
           <td>(</td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>envp</em></span></td><td>)</td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>array</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -135,8 +146,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ace7ce162e3eced08c3562e6569d2d07c" name="ace7ce162e3eced08c3562e6569d2d07c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace7ce162e3eced08c3562e6569d2d07c">&#9670;&#160;</a></span>ft_export()</h2>
+<a id="abf30ae08f03d6ea8baea636c9cb1b0d2" name="abf30ae08f03d6ea8baea636c9cb1b0d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf30ae08f03d6ea8baea636c9cb1b0d2">&#9670;&#160;</a></span>ft_export()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,20 +155,16 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int ft_export </td>
           <td>(</td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>array</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>array</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>envp</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3a1f4e004afe5dd3c67772a37566dc14" name="a3a1f4e004afe5dd3c67772a37566dc14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a1f4e004afe5dd3c67772a37566dc14">&#9670;&#160;</a></span>ft_unset()</h2>
+<a id="a3717e4b670c94940fbc9b0bd7ab5cfd9" name="a3717e4b670c94940fbc9b0bd7ab5cfd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3717e4b670c94940fbc9b0bd7ab5cfd9">&#9670;&#160;</a></span>ft_unset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,12 +172,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int ft_unset </td>
           <td>(</td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>array</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>array</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>envp</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

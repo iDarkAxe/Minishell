@@ -1,0 +1,63 @@
+.TH "src/exec/ft_dups.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/exec/ft_dups.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'file\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBhandle_redirections\fP (\fBt_command\fP *command)"
+.br
+.RI "Create and redirect inputs and outputs needed for the command\&. "
+.ti -1c
+.RI "void \fBreset_redirection\fP (\fBt_command\fP *command, unsigned char i)"
+.br
+.RI "Reset redirections by default values Replace the new redirections by stdin and stdout\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int handle_redirections (\fBt_command\fP * command)"
+
+.PP
+Create and redirect inputs and outputs needed for the command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 or positive OK, negative ERROR 
+.RE
+.PP
+
+.SS "void reset_redirection (\fBt_command\fP * command, unsigned char i)"
+
+.PP
+Reset redirections by default values Replace the new redirections by stdin and stdout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fIi\fP value used for recursion 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

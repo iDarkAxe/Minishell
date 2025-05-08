@@ -6,17 +6,19 @@ src/read_context.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'get_next_line\&.h'\fP
-.br
 \fR#include 'minishell\&.h'\fP
-.br
-\fR#include <unistd\&.h>\fP
 .br
 \fR#include 'file\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'get_next_line\&.h'\fP
+.br
+\fR#include 'builtins\&.h'\fP
+.br
 \fR#include <stdio\&.h>\fP
+.br
+\fR#include <unistd\&.h>\fP
 .br
 
 .SS "Functions"
@@ -27,12 +29,23 @@ src/read_context.c
 .br
 .RI "Function to read the context where this function is called Verify if it's used in a tty or not\&. "
 .ti -1c
-.RI "void \fBshort_minishell_no_tty\fP (char **envp)"
+.RI "\fB__attribute__\fP ((noreturn))"
 .br
 .RI "Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "__attribute__ ((noreturn) )"
+
+.PP
+Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenvp\fP environment 
+.RE
+.PP
+
 .SS "int read_context (char ** envp)"
 
 .PP
@@ -46,17 +59,6 @@ Function to read the context where this function is called Verify if it's used i
 \fBReturns\fP
 .RS 4
 int 0 OK, 1 otherwise 
-.RE
-.PP
-
-.SS "void short_minishell_no_tty (char ** envp)"
-
-.PP
-Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIenvp\fP environment 
 .RE
 .PP
 

@@ -1,0 +1,133 @@
+.TH "inc/builtins.h" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/builtins.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBft_exit\fP (char **array)"
+.br
+.RI "Function to exit the program\&. "
+.ti -1c
+.RI "void \fBft_exit_int\fP (int value)"
+.br
+.ti -1c
+.RI "int \fBft_echo\fP (char **array)"
+.br
+.RI "Echo with -n option OPTIONS : -n : print without the triling newline\&. "
+.ti -1c
+.RI "int \fBft_which\fP (char **array)"
+.br
+.RI "Says if the command are built-in commands or not\&. "
+.ti -1c
+.RI "int \fBft_export\fP (char **array)"
+.br
+.ti -1c
+.RI "int \fBft_env\fP (char **array)"
+.br
+.ti -1c
+.RI "int \fBft_unset\fP (char **array)"
+.br
+.ti -1c
+.RI "int \fBft_cd\fP (char **array)"
+.br
+.RI "Implementatin of cd builtin of shell\&. "
+.ti -1c
+.RI "int \fBft_pwd\fP (char **array)"
+.br
+.RI "Print the current working directory\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int ft_cd (char ** array)"
+
+.PP
+Implementatin of cd builtin of shell\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, 1 otherwise 
+.RE
+.PP
+
+.SS "int ft_echo (char ** array)"
+
+.PP
+Echo with -n option OPTIONS : -n : print without the triling newline\&. NOTES : you can add any number of n after -n if you want
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, error otherwise 
+.RE
+.PP
+
+.SS "int ft_env (char ** array)"
+
+.SS "int ft_exit (char ** array)"
+
+.PP
+Function to exit the program\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP argument of the exit function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int value if argument invalid 
+.RE
+.PP
+
+.SS "void ft_exit_int (int value)"
+
+.SS "int ft_export (char ** array)"
+
+.SS "int ft_pwd (char ** array)"
+
+.PP
+Print the current working directory\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int ft_unset (char ** array)"
+
+.SS "int ft_which (char ** tokens)"
+
+.PP
+Says if the command are built-in commands or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 if not at least one is not built-in, 0 if all strs built-ins 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

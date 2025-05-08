@@ -22,7 +22,5 @@ var tests_8h =
     [ "random_file_name_creation", "tests_8h.html#a642985c348bfd5c552e056834d79564f", null ],
     [ "tear_down_files", "tests_8h.html#ace448d8033a9c13d08bffdcfad990c7b", null ],
     [ "testing_file_name", "tests_8h.html#a9286a8274c78ac0d3278814fcf71aebc", null ],
-    [ "testing_file_perms_1", "tests_8h.html#a17ab6ccc5f6888a311902379aa1b65e7", null ],
-    [ "testing_file_perms_2", "tests_8h.html#a67d3c5e0237e5dc8d8bb4309340b80f8", null ],
     [ "testing_ft_remove_near_quotes", "tests_8h.html#adc871b12fd7cce7d91e704be16b706fe", null ]
 ];

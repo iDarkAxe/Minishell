@@ -107,31 +107,39 @@ $(function(){initNavTree('tokens_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">tokens.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="file_8h_source.html">file.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for tokens.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="tokens_8c__incl.png" border="0" usemap="#asrc_2lexer_2tokens_8c" alt=""/></div>
 <map name="asrc_2lexer_2tokens_8c" id="asrc_2lexer_2tokens_8c">
-<area shape="rect" title=" " alt="" coords="64,5,199,31"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="31,79,117,104"/>
-<area shape="poly" title=" " alt="" coords="124,33,94,70,90,66,120,29"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="173,79,268,104"/>
-<area shape="poly" title=" " alt="" coords="147,29,197,68,194,72,144,33"/>
-<area shape="rect" title=" " alt="" coords="5,152,76,177"/>
-<area shape="poly" title=" " alt="" coords="71,105,54,141,49,139,66,103"/>
-<area shape="poly" title=" " alt="" coords="193,107,84,149,82,144,191,102"/>
-<area shape="rect" title=" " alt="" coords="101,152,159,177"/>
-<area shape="poly" title=" " alt="" coords="208,106,157,145,154,141,204,102"/>
-<area shape="rect" title=" " alt="" coords="184,152,257,177"/>
-<area shape="poly" title=" " alt="" coords="223,104,223,138,218,138,218,104"/>
-<area shape="rect" title=" " alt="" coords="282,152,357,177"/>
-<area shape="poly" title=" " alt="" coords="238,102,294,142,291,146,235,106"/>
-<area shape="rect" title=" " alt="" coords="381,152,447,177"/>
-<area shape="poly" title=" " alt="" coords="253,102,371,145,369,150,251,107"/>
-<area shape="rect" title=" " alt="" coords="471,152,546,177"/>
-<area shape="poly" title=" " alt="" coords="268,101,459,148,458,154,266,107"/>
+<area shape="rect" title=" " alt="" coords="203,5,337,31"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="231,152,325,177"/>
+<area shape="poly" title=" " alt="" coords="271,31,267,64,267,104,274,138,269,139,262,104,262,64,265,31"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="96,152,183,177"/>
+<area shape="poly" title=" " alt="" coords="261,33,161,143,157,140,257,29"/>
+<area shape="rect" href="file_8h.html" title=" " alt="" coords="276,79,331,104"/>
+<area shape="poly" title=" " alt="" coords="278,30,295,65,290,67,273,32"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="355,79,438,104"/>
+<area shape="poly" title=" " alt="" coords="292,28,365,69,363,74,289,33"/>
+<area shape="rect" title=" " alt="" coords="487,225,546,251"/>
+<area shape="poly" title=" " alt="" coords="317,175,475,221,473,227,316,180"/>
+<area shape="rect" title=" " alt="" coords="291,225,364,251"/>
+<area shape="poly" title=" " alt="" coords="288,176,314,213,309,216,284,179"/>
+<area shape="rect" title=" " alt="" coords="389,225,463,251"/>
+<area shape="poly" title=" " alt="" coords="303,175,391,217,388,222,301,180"/>
+<area shape="rect" title=" " alt="" coords="101,225,167,251"/>
+<area shape="poly" title=" " alt="" coords="256,180,171,221,169,217,254,175"/>
+<area shape="rect" title=" " alt="" coords="5,225,76,251"/>
+<area shape="poly" title=" " alt="" coords="241,180,90,225,89,220,239,175"/>
+<area shape="rect" title=" " alt="" coords="191,225,266,251"/>
+<area shape="poly" title=" " alt="" coords="272,179,247,216,242,213,268,176"/>
+<area shape="poly" title=" " alt="" coords="125,180,69,219,66,215,122,175"/>
+<area shape="poly" title=" " alt="" coords="302,105,289,140,284,138,297,103"/>
+<area shape="poly" title=" " alt="" coords="322,102,489,215,486,219,319,106"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -170,6 +178,16 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>t_command* pointer if OK, NULL if it fails </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="tokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph.png" border="0" usemap="#atokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph" alt=""/></div>
+<map name="atokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph" id="atokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph">
+<area shape="rect" title="Creates a t_command structure that contains all the tokens Fills the command with the environment." alt="" coords="5,5,88,31"/>
+<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="136,5,223,31"/>
+<area shape="poly" title=" " alt="" coords="88,15,122,15,122,21,88,21"/>
+</map>
+</div>
 
 </div>
 </div>

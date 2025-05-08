@@ -1,0 +1,7 @@
+<map id="read_write_to" name="read_write_to">
+<area shape="rect" id="Node000001" title="Opens the files to read and writes." alt="" coords="5,5,116,31"/>
+<area shape="rect" id="Node000002" href="$file-general_8c.html#a14d33c3540b9d426750b32dee40b3015" title="Open a file with it&#39;s rights (permissions)" alt="" coords="164,5,324,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,15,150,15,150,21,116,21"/>
+<area shape="rect" id="Node000003" href="$ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="372,5,459,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="324,15,358,15,358,21,324,21"/>
+</map>

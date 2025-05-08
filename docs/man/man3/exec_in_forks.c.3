@@ -1,0 +1,65 @@
+.TH "src/exec/exec_in_forks.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/exec/exec_in_forks.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include <sys/types\&.h>\fP
+.br
+\fR#include <sys/wait\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBneeds_to_be_forked\fP (\fBt_command\fP *command)"
+.br
+.RI "Check if it needs to be forked\&. "
+.ti -1c
+.RI "void \fBexecutes_in_forks\fP (\fBt_command\fP *command, char **tokens, int ret)"
+.br
+.RI "Executes the command in a forks\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void executes_in_forks (\fBt_command\fP * command, char ** tokens, int ret)"
+
+.PP
+Executes the command in a forks\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fItokens\fP array of strings 
+.br
+\fIret\fP return value of previous command 
+.RE
+.PP
+
+.SS "int needs_to_be_forked (\fBt_command\fP * command)"
+
+.PP
+Check if it needs to be forked\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 NO, 1 YES 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

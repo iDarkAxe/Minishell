@@ -4,27 +4,25 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,71,251,31,252,36,73,76"/>
 <area shape="rect" id="Node000004" href="$garbage_8c.html#ac7d9105a06c6e2276233f1701e3acef0" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="120,93,209,119"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="73,85,107,92,106,97,72,90"/>
-<area shape="rect" id="Node000003" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="805,43,907,68"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="390,16,552,20,747,34,791,40,790,46,746,39,552,25,389,21"/>
+<area shape="rect" id="Node000003" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="933,43,1035,68"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="390,15,605,17,740,23,875,34,919,40,918,45,874,39,740,29,605,23,390,20"/>
 <area shape="rect" id="Node000005" href="$garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="260,144,387,169"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,116,271,137,269,142,205,121"/>
-<area shape="poly" id="edge15_Node000005_Node000003" title=" " alt="" coords="346,142,387,121,437,102,532,80,628,66,790,54,791,59,629,72,533,86,438,107,389,126,348,146"/>
-<area shape="rect" id="Node000006" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="639,93,747,119"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="378,141,437,130,535,117,624,108,625,114,536,122,438,135,379,147"/>
-<area shape="rect" id="Node000008" href="$ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="483,144,545,169"/>
-<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="387,154,469,154,469,159,387,159"/>
-<area shape="rect" id="Node000009" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="657,195,729,220"/>
-<area shape="poly" id="edge16_Node000005_Node000009" title=" " alt="" coords="375,167,438,179,548,193,643,202,643,207,547,199,437,185,374,172"/>
-<area shape="rect" id="Node000011" href="$garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="437,245,591,271"/>
-<area shape="poly" id="edge13_Node000005_Node000011" title=" " alt="" coords="345,167,439,224,468,238,466,242,436,228,342,172"/>
-<area shape="rect" id="Node000012" href="$garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="455,295,573,320"/>
-<area shape="poly" id="edge14_Node000005_Node000012" title=" " alt="" coords="335,168,375,223,405,254,439,281,449,287,446,291,436,286,401,258,371,226,330,171"/>
-<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="734,91,800,70,802,75,735,96"/>
-<area shape="rect" id="Node000007" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="795,93,917,119"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="747,103,781,103,781,109,747,109"/>
-<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="545,145,633,120,635,125,546,151"/>
-<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="546,163,644,191,643,196,545,168"/>
-<area shape="rect" id="Node000010" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="816,169,896,195"/>
-<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="728,199,802,188,803,193,729,204"/>
-<area shape="poly" id="edge12_Node000010_Node000008" title=" " alt="" coords="816,182,559,163,559,157,816,176"/>
+<area shape="poly" id="edge11_Node000005_Node000003" title=" " alt="" coords="346,141,387,121,437,103,569,76,703,61,824,54,919,52,919,57,824,59,703,66,570,82,438,109,389,126,348,146"/>
+<area shape="rect" id="Node000006" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="767,93,875,119"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="377,141,437,130,608,113,753,105,753,110,608,118,438,135,378,147"/>
+<area shape="rect" id="Node000008" href="$ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="471,144,557,169"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="387,154,456,154,456,159,387,159"/>
+<area shape="rect" id="Node000009" href="$garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="437,193,591,219"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="374,167,451,187,450,192,372,172"/>
+<area shape="rect" id="Node000010" href="$garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="455,243,573,268"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="343,167,385,198,439,229,454,236,452,241,436,234,382,202,339,172"/>
+<area shape="rect" id="Node000011" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="478,292,550,317"/>
+<area shape="poly" id="edge12_Node000005_Node000011" title=" " alt="" coords="335,168,376,221,405,252,439,278,466,291,464,296,436,283,402,256,372,225,331,171"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="862,91,928,70,930,75,863,96"/>
+<area shape="rect" id="Node000007" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="923,93,1045,119"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="875,103,909,103,909,109,875,109"/>
+<area shape="rect" id="Node000012" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="639,217,719,243"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="549,293,590,278,645,248,648,253,592,283,551,298"/>
+<area shape="poly" id="edge14_Node000012_Node000006" title=" " alt="" coords="693,215,793,126,796,130,696,219"/>
 </map>

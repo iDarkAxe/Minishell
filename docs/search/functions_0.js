@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['add_5ffile_0',['add_file',['../file_8c.html#a4b215113117c1f2ed4a512d445c9c8ef',1,'add_file(t_command *command, t_token *token, t_file **command_file):&#160;file.c'],['../file_8h.html#a4b215113117c1f2ed4a512d445c9c8ef',1,'add_file(t_command *command, t_token *token, t_file **command_file):&#160;file.c']]],
-  ['add_5fto_5fgarbage_1',['add_to_garbage',['../garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940',1,'add_to_garbage(void *ptr):&#160;garbage.c'],['../garbage_8h.html#a75d6ee43945d20edad710c8ef61b5940',1,'add_to_garbage(void *ptr):&#160;garbage.c']]]
+  ['_5f_5fattribute_5f_5f_0',['__attribute__',['../ft__exit_8c.html#a1b6824bfd4ec0404a4f875ed8db0274e',1,'__attribute__((noreturn)):&#160;ft_exit.c'],['../read__context_8c.html#a1b6824bfd4ec0404a4f875ed8db0274e',1,'__attribute__((noreturn)):&#160;read_context.c']]]
 ];

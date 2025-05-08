@@ -38,6 +38,9 @@ inc/minishell.h
 .ti -1c
 .RI "#define \fBPROMPT_MESSAGE_CUSTOM\fP   1"
 .br
+.ti -1c
+.RI "#define \fBFOLLOW_ZSH\fP   0"
+.br
 .in -1c
 .SS "Typedefs"
 
@@ -50,13 +53,6 @@ inc/minishell.h
 .br
 .ti -1c
 .RI "typedef struct \fBs_token\fP \fBt_token\fP"
-.br
-.in -1c
-.SS "Enumerations"
-
-.in +1c
-.ti -1c
-.RI "enum \fBe_file_state\fP { \fBFILE_IN\fP = 0, \fBFILE_OUT\fP = 1 }"
 .br
 .in -1c
 .SS "Functions"
@@ -73,23 +69,6 @@ inc/minishell.h
 .ti -1c
 .RI "void \fBshort_minishell_no_tty\fP (char **envp)"
 .br
-.RI "Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. "
-.ti -1c
-.RI "char ** \fBcopy_toks\fP (\fBt_command\fP *command)"
-.br
-.RI "Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. "
-.ti -1c
-.RI "void \fBprint_toks\fP (char **tokens)"
-.br
-.RI "Print tokens indexed\&. "
-.ti -1c
-.RI "int \fBsearch_command\fP (\fBt_command\fP *command, char **tokens)"
-.br
-.RI "Search if command is a builtin or not\&. "
-.ti -1c
-.RI "int \fBnot_builtins\fP (\fBt_command\fP *command, char **tokens)"
-.br
-.RI "Executes commands that are not builtins\&. "
 .ti -1c
 .RI "int \fBsignal_init\fP (void)"
 .br
@@ -115,6 +94,10 @@ inc/minishell.h
 .br
 .RI "Function used to write safely and exits if write failed\&. "
 .ti -1c
+.RI "void \fBprint_command_fd\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the file descriptor of command into stderr\&. "
+.ti -1c
 .RI "char * \fBft_substr_end\fP (char const *src, unsigned int start, size_t end)"
 .br
 .RI "Allocate memory for a string and copy the content from src\&. "
@@ -139,6 +122,49 @@ inc/minishell.h
 .br
 .RI "Expands all the tildes found in array with HOME\&. "
 .ti -1c
+.RI "char ** \fBcopy_toks\fP (\fBt_command\fP *command)"
+.br
+.RI "Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. "
+.ti -1c
+.RI "void \fBprint_toks\fP (char **tokens)"
+.br
+.RI "Print tokens indexed\&. "
+.ti -1c
+.RI "int \fBprepare_command\fP (\fBt_command\fP *command, int ret)"
+.br
+.RI "Prepare the command for \fBsearch_command()\fP "
+.ti -1c
+.RI "int \fBprepare_command_forks\fP (\fBt_command\fP *command, int ret)"
+.br
+.ti -1c
+.RI "int \fBsearch_command\fP (\fBt_command\fP *command, char **tokens, int ret)"
+.br
+.RI "Search if command is a builtin or not\&. "
+.ti -1c
+.RI "int \fBnot_builtins\fP (\fBt_command\fP *command, char **tokens)"
+.br
+.RI "Executes commands that are not builtins\&. "
+.ti -1c
+.RI "int \fBhandle_redirections\fP (\fBt_command\fP *command)"
+.br
+.RI "Create and redirect inputs and outputs needed for the command\&. "
+.ti -1c
+.RI "void \fBreset_redirection\fP (\fBt_command\fP *command, unsigned char i)"
+.br
+.RI "Reset redirections by default values Replace the new redirections by stdin and stdout\&. "
+.ti -1c
+.RI "int \fBneeds_to_be_forked\fP (\fBt_command\fP *command)"
+.br
+.RI "Check if it needs to be forked\&. "
+.ti -1c
+.RI "void \fBexecutes_in_forks\fP (\fBt_command\fP *command, char **tokens, int ret)"
+.br
+.RI "Executes the command in a forks\&. "
+.ti -1c
+.RI "int \fBcreate_pipe\fP (\fBt_command\fP *command)"
+.br
+.RI "Change the previous input of pipe to a new redirection\&. "
+.ti -1c
 .RI "void \fBfree_array\fP (char **array)"
 .br
 .RI "Free array of strings\&. "
@@ -159,35 +185,6 @@ inc/minishell.h
 .br
 .RI "Free t_tokens linked list structure\&. "
 .ti -1c
-.RI "int \fBft_exit\fP (char **array)"
-.br
-.RI "Function to exit the program\&. "
-.ti -1c
-.RI "int \fBft_echo\fP (char **array, char delimitor)"
-.br
-.RI "Echo with -n option Delimitor is the character to print between tokens OPTIONS : -n : print without the triling newline\&. "
-.ti -1c
-.RI "int \fBft_which\fP (char **array)"
-.br
-.RI "Says if the command are built-in commands or not\&. "
-.ti -1c
-.RI "int \fBft_export\fP (char **array, char **envp)"
-.br
-.ti -1c
-.RI "int \fBft_env\fP (char **envp)"
-.br
-.ti -1c
-.RI "int \fBft_unset\fP (char **array, char **envp)"
-.br
-.ti -1c
-.RI "int \fBft_cd\fP (char **array)"
-.br
-.RI "Implementatin of cd builtin of shell\&. "
-.ti -1c
-.RI "int \fBft_pwd\fP (char **array)"
-.br
-.RI "Print the current working directory\&. "
-.ti -1c
 .RI "void \fBprint_list_files\fP (\fBt_command\fP *command)"
 .br
 .RI "Print the list of files in the command structure\&. "
@@ -199,9 +196,15 @@ inc/minishell.h
 .RI "ssize_t \fBprint_command\fP (\fBt_command\fP *command)"
 .br
 .RI "Print the command structure with it's tokens\&. "
+.ti -1c
+.RI "ssize_t \fBprint_commands\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the commands structure with it's tokens\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
+.SS "#define FOLLOW_ZSH   0"
+
 .SS "#define PROMPT_MESSAGE_CUSTOM   1"
 
 .SH "Typedef Documentation"
@@ -212,17 +215,6 @@ inc/minishell.h
 
 .SS "typedef struct \fBs_token\fP \fBt_token\fP"
 
-.SH "Enumeration Type Documentation"
-.PP 
-.SS "enum \fBe_file_state\fP"
-
-.PP
-\fBEnumerator\fP
-.in +1c
-.TP
-\f(BIFILE_IN \fP
-.TP
-\f(BIFILE_OUT \fP
 .SH "Function Documentation"
 .PP 
 .SS "char ** copy_toks (\fBt_command\fP * command)"
@@ -238,6 +230,34 @@ Creates a copy of all tokens that are in a command structure It's used for forks
 \fBReturns\fP
 .RS 4
 char** copy of tokens 
+.RE
+.PP
+
+.SS "int create_pipe (\fBt_command\fP * command)"
+
+.PP
+Change the previous input of pipe to a new redirection\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fIin_out\fP 0 = IN, 1 = OUT 
+.RE
+.PP
+
+.SS "void executes_in_forks (\fBt_command\fP * command, char ** tokens, int ret)"
+
+.PP
+Executes the command in a forks\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fItokens\fP array of strings 
+.br
+\fIret\fP return value of previous command 
 .RE
 .PP
 
@@ -312,72 +332,6 @@ Free t_tokens linked list structure\&.
 .RE
 .PP
 
-.SS "int ft_cd (char ** array)"
-
-.PP
-Implementatin of cd builtin of shell\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, 1 otherwise 
-.RE
-.PP
-
-.SS "int ft_echo (char ** array, char delimitor)"
-
-.PP
-Echo with -n option Delimitor is the character to print between tokens OPTIONS : -n : print without the triling newline\&. NOTES : you can add any number of n after -n if you want
-
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP array of strings 
-.br
-\fIdelimitor\fP character to delimit arrays 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
-.SS "int ft_env (char ** envp)"
-
-.SS "int ft_exit (char ** array)"
-
-.PP
-Function to exit the program\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP argument of the exit function 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int value if argument invalid 
-.RE
-.PP
-
-.SS "int ft_export (char ** array, char ** envp)"
-
-.SS "int ft_pwd (char ** array)"
-
-.PP
-Print the current working directory\&. 
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
 .SS "char * ft_substr_end (char const * src, unsigned int start, size_t end)"
 
 .PP
@@ -398,24 +352,6 @@ char* pointer to the new string
 .RE
 .PP
 
-.SS "int ft_unset (char ** array, char ** envp)"
-
-.SS "int ft_which (char ** tokens)"
-
-.PP
-Says if the command are built-in commands or not\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItokens\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 1 if not at least one is not built-in, 0 if all strs built-ins 
-.RE
-.PP
-
 .SS "char * get_prompt_message (void )"
 
 .PP
@@ -424,6 +360,22 @@ Build the prompt message If an error occurs, returns the static default prompt m
 \fBReturns\fP
 .RS 4
 char* prompt message 
+.RE
+.PP
+
+.SS "int handle_redirections (\fBt_command\fP * command)"
+
+.PP
+Create and redirect inputs and outputs needed for the command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 or positive OK, negative ERROR 
 .RE
 .PP
 
@@ -480,6 +432,22 @@ int
 .RE
 .PP
 
+.SS "int needs_to_be_forked (\fBt_command\fP * command)"
+
+.PP
+Check if it needs to be forked\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 NO, 1 YES 
+.RE
+.PP
+
 .SS "int not_builtins (\fBt_command\fP * command, char ** tokens)"
 
 .PP
@@ -514,6 +482,24 @@ char**
 .RE
 .PP
 
+.SS "int prepare_command (\fBt_command\fP * command, int ret)"
+
+.PP
+Prepare the command for \fBsearch_command()\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int prepare_command_forks (\fBt_command\fP * command, int ret)"
+
 .SS "ssize_t print_command (\fBt_command\fP * command)"
 
 .PP
@@ -526,7 +512,34 @@ Print the command structure with it's tokens\&.
 .PP
 \fBReturns\fP
 .RS 4
-ssize_t 0 is OK, otherwise error 
+ssize_t 0 or positive is OK, otherwise error 
+.RE
+.PP
+
+.SS "void print_command_fd (\fBt_command\fP * command)"
+
+.PP
+Print the file descriptor of command into stderr\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "ssize_t print_commands (\fBt_command\fP * command)"
+
+.PP
+Print the commands structure with it's tokens\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t 0 or positive is OK, otherwise error 
 .RE
 .PP
 
@@ -617,11 +630,24 @@ int 0 OK, 1 otherwise
 .RE
 .PP
 
+.SS "void reset_redirection (\fBt_command\fP * command, unsigned char i)"
+
+.PP
+Reset redirections by default values Replace the new redirections by stdin and stdout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fIi\fP value used for recursion 
+.RE
+.PP
+
 .SS "void reset_signal_default (void )"
 
 .PP
 Function to reset signals to default\&. 
-.SS "int search_command (\fBt_command\fP * command, char ** tokens)"
+.SS "int search_command (\fBt_command\fP * command, char ** tokens, int ret)"
 
 .PP
 Search if command is a builtin or not\&. 
@@ -631,24 +657,17 @@ Search if command is a builtin or not\&.
 \fIcommand\fP command structure 
 .br
 \fItokens\fP array of strings 
+.br
+\fIret\fP return value of previous command 
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-int 
+int 0 if command found, 1 otherwise 
 .RE
 .PP
 
 .SS "void short_minishell_no_tty (char ** envp)"
-
-.PP
-Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIenvp\fP environment 
-.RE
-.PP
 
 .SS "int signal_init (void )"
 
