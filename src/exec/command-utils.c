@@ -15,7 +15,7 @@
 
 /**
  * @brief Print the command structure with it's tokens
- * 
+ *
  * @param command command structure
  * @return ssize_t 0 or positive is OK, otherwise error
  */

@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "file.h"
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
 #include <fcntl.h>
 #include <stdlib.h>
-#include "file.h"
 
 static char		*ft_random(void);
 static t_tmp	try_create_tmp(char *path);

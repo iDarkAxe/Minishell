@@ -20,7 +20,7 @@ ssize_t	print_fd(int fd, const char *str);
 
 /**
  * @brief Function used to write safely and exits if write failed
- * 
+ *
  * @param fd file descriptor
  * @param str string to print
  * @return ssize_t number of character printed
@@ -32,7 +32,7 @@ ssize_t	print_fd(int fd, const char *str)
 
 /**
  * @brief Function used to write safely and exits if write failed
- * 
+ *
  * @param fd file descriptor
  * @param str string to print
  * @param len number of character to print

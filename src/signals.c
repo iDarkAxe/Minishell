@@ -6,14 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 15:56:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:15:38 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "garbage.h"
 #include "builtins.h"
-
 #include <readline/readline.h>
 #include <signal.h>
 #include <stdio.h>
@@ -77,7 +76,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 
 /**
  * @brief Function to reset signals to default
- * 
+ *
  */
 void	reset_signal_default(void)
 {
@@ -92,7 +91,7 @@ void	reset_signal_default(void)
 
 /**
  * @brief Function to ignore certain signals
- * 
+ *
  */
 void	ignore_signal(void)
 {

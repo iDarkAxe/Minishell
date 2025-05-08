@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 15:37:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:13:13 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void		free_token(t_token *token);
 
 /**
  * @brief Removes all the tokens of file redirections allready used
- * 
+ *
  * @param command command structure
- * @return t_command* 
+ * @return t_command*
  */
 t_command	*remove_used_file_tokens(t_command *command)
 {
@@ -39,9 +39,9 @@ t_command	*remove_used_file_tokens(t_command *command)
 
 /**
  * @brief Clean all tokens that are redirections
- * 
+ *
  * @param head head of tokens
- * @return t_token* 
+ * @return t_token*
  */
 static t_token	*clean_tokens(t_token *head)
 {
@@ -74,7 +74,7 @@ static t_token	*clean_tokens(t_token *head)
 
 /**
  * @brief Check if str contain redirections signs
- * 
+ *
  * @param str string to compare with redirections signs
  * @return int +,- or 0 values are redirections, 0 is not a redirection
  */

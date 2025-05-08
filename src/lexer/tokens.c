@@ -24,7 +24,7 @@ static t_command	*iterate_command(char *str, t_token **token,
 /**
  * @brief Creates a t_command structure that contains all the tokens
  * Fills the command with the environment
- * 
+ *
  * @param tokens tokens
  * @param envp environment
  * @return t_command* pointer if OK, NULL if it fails
@@ -56,7 +56,7 @@ t_command	*tokeniser(char **tokens, char **envp)
 
 /**
  * @brief Create a token structure
- * 
+ *
  * @return t_token* pointer if OK, NULL if it fails
  */
 static t_token	*create_token(void)
@@ -72,7 +72,7 @@ static t_token	*create_token(void)
 
 /**
  * @brief Create a command structure
- * 
+ *
  * @param envp environment
  * @return t_command* pointer if OK, NULL if it fails
  */
@@ -97,7 +97,7 @@ static t_command	*create_command(char **envp)
 
 /**
  * @brief Makes iteration on the next token if the condition is completed
- * 
+ *
  * @param str string
  * @param token token
  * @return t_token* pointer if OK, NULL if it fails
@@ -120,7 +120,7 @@ static t_token	*iterate_token(char *str, t_token **token)
 /**
  * @brief  Makes iteration on the next token if the condition is completed
  * Creates a command in the process
- * 
+ *
  * @param str str
  * @param token token
  * @param current command

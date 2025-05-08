@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
 #include "garbage.h"
+#include "libft.h"
 #include "minishell.h"
+#include <stdlib.h>
 #define MAX_TOKENS 1024
 
 static char	**init_lexer_state(t_lexer_state *lex_st, const char *line);
@@ -23,7 +23,7 @@ static void	handle_operator(t_lexer_state *lex_st);
 
 /**
  * @brief Create tokens (small chunks) a line with the quotes and operators
- * 
+ *
  * Handle spaces, quotes (' and ') and shell operator (|, <, <<, >, >>).
  * Return an array of tokens (strings), NULL terminated.
  *
@@ -60,12 +60,12 @@ char	**lexer(const char *line)
 /**
  * @brief Initialize the lexer structure
  *
- * Fill the structure with zeros and init the line to search in 
- * and allocates the array to the garbage 
- * 
+ * Fill the structure with zeros and init the line to search in
+ * and allocates the array to the garbage
+ *
  * @param lex_st pointer to the lexer structure
  * @param line line to verify
-*/
+ */
 static char	**init_lexer_state(t_lexer_state *lex_st, const char *line)
 {
 	ft_bzero(lex_st, sizeof(t_lexer_state));
@@ -79,12 +79,12 @@ static char	**init_lexer_state(t_lexer_state *lex_st, const char *line)
 
 /**
  * @brief Handle the case where a space is found outside quotes
- * 
+ *
  * Ends the current token if it exist and ignore the successive whitespaces,
  * and update to the next token
- * 
+ *
  * @param lex_st pointer to the lexer structure
-*/
+ */
 static void	handle_space(t_lexer_state *lex_st)
 {
 	if (lex_st->start < lex_st->i)
@@ -104,7 +104,7 @@ static void	handle_space(t_lexer_state *lex_st)
  *
  * @param lex_st pointer to the lexer structure
  * @param quote_type quote searched (' or ")
-*/
+ */
 static void	handle_quote(t_lexer_state *lex_st, char quote_type)
 {
 	if (quote_type == '\'' && !lex_st->in_double_quote)
@@ -117,8 +117,8 @@ static void	handle_quote(t_lexer_state *lex_st, char quote_type)
 /**
  * @brief Handle the shell operators like |, <, >, << and >>.
  *
- * Cuts the current token if it exist, exctract the operator, 
- * handle the double operators (<< and >>), 
+ * Cuts the current token if it exist, exctract the operator,
+ * handle the double operators (<< and >>),
  * skips the following spaces and update to the next token
  *
  * @param lex_st pointer to the lexer structure

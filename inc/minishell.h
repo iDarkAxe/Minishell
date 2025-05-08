@@ -7,6 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
 /*   Updated: 2025/05/06 16:37:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 17:30:05 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +129,17 @@ void							free_command(t_command *command);
 void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
 void							free_tokens(t_token *token);
+
+// Utils for exec
+int								set_return_value(int value);
+int								*get_return_value(void);
+
+// Utils for export
+void							print_export(t_env_vars *env);
+int								check_args_export(char *str);
+
+// Utils for env
+void							print_env(t_env_vars *env);
 
 // DEBUGGING Functions
 void							print_list_files(t_command *command);

@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "file.h"
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
-#include "file.h"
 
 static int	build_file_data(t_command *command);
 

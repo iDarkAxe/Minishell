@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions_utils_env.c                              :+:      :+:    :+:   */
+/*   manipulation_var.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:01:37 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/17 16:01:59 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:20:39 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
+#include "garbage.h"
+#include "builtins.h"
 
 t_var	*ft_varlast(t_var *var)
 {
@@ -28,6 +30,8 @@ void	ft_varsadd_back(t_var **var, t_var *new)
 	t_var	*pt;
 
 	pt = NULL;
+	if (new == NULL)
+		return ;
 	if (*var == NULL)
 	{
 		*var = new;
@@ -37,28 +41,28 @@ void	ft_varsadd_back(t_var **var, t_var *new)
 	pt->next = new;
 }
 
-t_params	*ft_paramlast(t_params *params)
+void	ft_varsadd_front(t_var **var, t_var *new)
 {
-	while (params)
-	{
-		if (params->next == NULL)
-			return (params);
-		params = params->next;
-	}
-	return (NULL);
+	if (!new)
+		return ;
+	new->next = *var;
+	*var = new;
 }
 
-void	ft_paramsadd_back(t_params **params, t_params *new)
+t_var	*get_var(const char *var)
 {
-	t_params	*pt;
+	t_var	*new;
 
-	pt = NULL;
-	if (*params == NULL)
+	new = malloc_gb(sizeof(t_var));
+	if (!new)
+		ft_exit_int(-1);
+	ft_bzero(new, sizeof(t_var));
+	new->next = NULL;
+	new->value = ft_strdup_gb(var);
+	if (!new->value)
 	{
-		*params = new;
-		new->next = NULL;
-		return ;
+		free_element_gb(new);
+		ft_exit_int(-1);
 	}
-	pt = ft_paramlast(*params);
-	pt->next = new;
+	return (new);
 }

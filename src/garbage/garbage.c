@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:05:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:13:37 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include "minishell.h"
 #include "libft.h"
 #include "builtins.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <readline/readline.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * @brief Get the garbage object

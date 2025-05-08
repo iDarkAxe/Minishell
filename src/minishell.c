@@ -11,18 +11,18 @@
 /* ************************************************************************** */
 
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program of the Minishell
-  ******************************************************************************
-  * @date 27 avril 2025
-  * @mainpage Minishell
-  * @section Introduction
-  *
-  * Make your own shell that performs worse than bash but it's yours.
-  * 
-  ******************************************************************************
-*/
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program of the Minishell
+ ******************************************************************************
+ * @date 27 avril 2025
+ * @mainpage Minishell
+ * @section Introduction
+ *
+ * Make your own shell that performs worse than bash but it's yours.
+ *
+ ******************************************************************************
+ */
 
 #include "minishell.h"
 #include "garbage.h"
@@ -32,12 +32,13 @@
 
 #include <readline/history.h>
 #include <readline/readline.h>
+#include <stdlib.h>
 
 static char	*read_stdin(void);
 
 /**
  * @brief Line condition to verify the return value of readline
- * 
+ *
  * @param line line of readline
  * @return int 0, nothing checked, 1 is OK line, 2 is read another line
  */
@@ -98,6 +99,7 @@ int	minishell(char **envp)
 	char		**tokens;
 
 	signal_init();
+	set_env(envp);
 	read_context(envp);
 	while (1)
 	{

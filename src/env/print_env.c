@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env.c                                           :+:      :+:    :+:   */
+/*   print_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:44:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 10:19:25 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/05/02 10:21:06 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/05/05 13:44:32 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
-#include "minishell.h"
 
-void	print_env(t_env_vars *env)
+void	print_env_vars(t_env_vars *env)
 {
 	t_var		*var;
 	t_params	*param;
@@ -24,11 +23,12 @@ void	print_env(t_env_vars *env)
 	while (var)
 	{
 		param = var->head_params;
-		if (param && param->value[0])
+		if (param != NULL)
 			printf("%s=", var->value);
 		while (param)
 		{
-			printf("%s", param->value);
+			if (param->value != NULL)
+				printf("%s", param->value);
 			if (param->next)
 				printf(":");
 			param = param->next;
@@ -36,19 +36,4 @@ void	print_env(t_env_vars *env)
 		printf("\n");
 		var = var->next;
 	}
-}
-
-int	ft_env(char **array)
-{
-	t_env_vars	*env;
-
-	env = get_env();
-	(void)array;
-	if (array[0] != NULL)
-	{
-		printf("env: '%s': No such file or directory\n", array[0]);
-		return (-1);
-	}
-	print_env(env);
-	return (0);
 }

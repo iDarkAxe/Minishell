@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 11:58:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:22:36 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 #include "libft.h"
 #include "garbage.h"
 #include "builtins.h"
-
 #include <stdio.h>
-#include <sys/wait.h>
 #include <errno.h>
+#include <sys/wait.h>
 
 static int	execve_fork(char *path, char **toks, char **envp);
 

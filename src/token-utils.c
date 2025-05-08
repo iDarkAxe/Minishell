@@ -20,7 +20,7 @@ static char		**fill_toks(t_token *head, char **tokens);
 /**
  * @brief Creates a copy of all tokens that are in a command structure
  * It's used for forks during exec
- * 
+ *
  * @param command command structure
  * @return char** copy of tokens
  */
@@ -51,7 +51,7 @@ char	**copy_toks(t_command *command)
 
 /**
  * @brief Print tokens indexed
- * 
+ *
  * @param tokens tokens to print
  */
 void	print_toks(char **tokens)
@@ -68,15 +68,15 @@ void	print_toks(char **tokens)
 
 /**
  * @brief Count how many tokens are in a linked list of t_token structure
- * 
+ *
  * @param head start of linked list
  * @return size_t number of t_token structs
  */
 static size_t	count_tokens(t_token const *head)
 {
-	size_t			count;
-	t_token const	*temp;
+	size_t	count;
 
+	t_token const *temp;
 	if (head == NULL)
 		return (0);
 	count = 0;
@@ -91,10 +91,10 @@ static size_t	count_tokens(t_token const *head)
 
 /**
  * @brief Creates effectively the copy of the t_token structure to char **array
- * 
+ *
  * @param head start of linked list
  * @param tokens array of strings to copy to
- * @return char** 
+ * @return char**
  */
 static char	**fill_toks(t_token *head, char **tokens)
 {
