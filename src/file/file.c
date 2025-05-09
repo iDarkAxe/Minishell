@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 15:41:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:22:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	build_file_access(t_file *file)
 	return (0);
 }
 
+// TODO pertinence de ft_trim_word ?
 /**
  * @brief Trim the first word detected and remove all the unnecessary
  *
