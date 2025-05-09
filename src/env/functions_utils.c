@@ -12,6 +12,7 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen_choose_c(const char *str, char c);
 
@@ -20,10 +21,12 @@ size_t	ft_strlen_choose_c(const char *str, char c)
 	size_t	i;
 
 	i = 0;
-	if (!str)
-		return (0);
 	while (str[i] && str[i] != c)
+	{
 		i++;
+		if (str[i] == c)
+			return (i);
+	}
 	return (i);
 }
 
@@ -41,4 +44,20 @@ size_t	ft_strcmp(const char *s1, const char *s2)
 		i++;
 	}
 	return (s1[i] - s2[i]);
+}
+
+t_bool	detect_equal(char *str)
+{
+	size_t	i;
+
+	if (!str)
+		return (FALSE);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '=')
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
 }

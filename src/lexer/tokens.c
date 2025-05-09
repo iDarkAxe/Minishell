@@ -14,6 +14,7 @@
 #include "file.h"
 #include "garbage.h"
 #include "minishell.h"
+#include "parsing.h"
 
 static t_token		*create_token(void);
 static t_command	*create_command(char **envp);

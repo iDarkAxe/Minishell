@@ -13,11 +13,11 @@
 #include "env.h"
 #include "garbage.h"
 
-t_params	*get_param(char *content, size_t detect_equal)
+t_params	*get_param(char *content, size_t equal)
 {
 	t_params	*param;
 
-	if (!content && detect_equal == 0)
+	if (!content && equal == FALSE)
 		return (NULL);
 	param = malloc_gb(sizeof(t_params));
 	if (!param)
@@ -32,19 +32,24 @@ t_params	*get_param(char *content, size_t detect_equal)
 	return (param);
 }
 
-void	replace_param(t_var *var, char *new_content)
+void	replace_param(t_var *var, char *new_content, size_t equal)
 {
 	char	*new_value;
 
 	if (!var)
 		return ;
 	new_value = ft_strdup_gb(new_content);
-	if (!new_value || new_value[0] == '\0')
+	// printf("Inside replace param : %s\n", new_value);
+	var->head_params = get_param(new_content, equal);
+	// printf("%s", var->head_params->value);
+	if (var->head_params == NULL && equal == TRUE)
+	{
+		var->head_params->value = new_value;
 		return ;
-	var->head_params = get_param(new_content, 0);
+	}
 	if (var->head_params != NULL)
 	{
-		var->head_params->next = NULL;
+		// var->head_params->next = NULL;
 		free_element_gb(var->head_params->value);
 		var->head_params->value = new_value;
 	}

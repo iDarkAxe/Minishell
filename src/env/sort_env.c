@@ -16,22 +16,22 @@
 
 void	bubble_sort(t_var **head)
 {
-	t_var	*current;
-	int		swapped;
+	t_var		*current;
+	t_bool		swapped;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
-	swapped = 1;
+	swapped = FALSE;
 	while (swapped)
 	{
-		swapped = 0;
+		swapped = TRUE;
 		current = *head;
 		while (current && current->next != NULL)
 		{
 			if (ft_strcmp(current->value, current->next->value) > 0)
 			{
 				swap_vars(head, current->value, current->next->value);
-				swapped = 1;
+				swapped = FALSE;
 			}
 			current = current->next;
 		}

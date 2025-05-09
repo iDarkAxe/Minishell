@@ -24,16 +24,18 @@ void	print_env(t_env_vars *env)
 	while (var)
 	{
 		param = var->head_params;
-		if (param && param->value[0])
-			printf("%s=", var->value);
-		while (param)
+		if (param)
 		{
-			printf("%s", param->value);
-			if (param->next)
-				printf(":");
-			param = param->next;
+			printf("%s=", var->value);
+			while (param)
+			{
+				printf("%s", param->value);
+				if (param->next)
+					printf(":");
+				param = param->next;
+			}
+			printf("\n");
 		}
-		printf("\n");
 		var = var->next;
 	}
 }

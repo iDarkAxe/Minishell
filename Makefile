@@ -115,6 +115,7 @@ BUILTINS = \
 	export/print_export.c \
 	export/ft_export.c \
 	export/check_args_export.c \
+	export/ft_build_elements.c \
 	ft_echo.c \
 	ft_which.c \
 	ft_unset.c \
@@ -140,7 +141,6 @@ ENV = \
 	sort_env.c \
 	search_env.c \
 	supp_var_in_env.c \
-	print_env.c \
 	get_env.c \
 	free_env.c \
 
@@ -181,7 +181,8 @@ DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
 		$(P_LIBFT)inc/libft.h \
-		$(P_PIPEX)include/pipex.h
+		$(P_PIPEX)include/pipex.h \
+		$(P_FT_PRINTF)ft_printf.h \
 		
 #############################################################################################
 #                                                                                           #
@@ -192,8 +193,8 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -o $(NAME) $(OBJS) $(LIBS); then \
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE) $(FT_PRINTF)
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -o $(NAME) $(OBJS) $(LIBS); then \
 		echo "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -202,7 +203,7 @@ $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -c $< -o $@; then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -c $< -o $@; then \
 		echo "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -222,7 +223,7 @@ $(GET_NEXT_LINE): force
 $(FT_PRINTF): force
 	@$(MAKE) -C $(P_FT_PRINTF)
 
-$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(FT_PRINTF)
 	@mkdir -p $(dir $@)
 	@echo "$(Green)Creating library $@$(Color_Off)"
 	@ar -rcs $@ $(OBJS)
@@ -246,6 +247,7 @@ clean-lib:
 	@$(MAKE) -C $(P_LIBFT) fclean
 	@$(MAKE) -C $(P_PIPEX) fclean
 	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
+	@$(MAKE) -C $(P_FT_PRINTF) fclean
 	@$(MAKE) -C tests fclean
 
 clean-bin:

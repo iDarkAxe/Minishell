@@ -23,11 +23,6 @@
 # endif
 
 # include "libft.h"
-
-// TODO : add ft_export
-// TODO : add ft_env
-// TODO : add ft_unset
-# include <signal.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -129,10 +124,6 @@ void							free_command(t_command *command);
 void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
 void							free_tokens(t_token *token);
-
-// Utils for exec
-int								set_return_value(int value);
-int								*get_return_value(void);
 
 // Utils for export
 void							print_export(t_env_vars *env);
