@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 16:37:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:20:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ struct							s_command
 {
 	struct s_command			*next;
 	t_token						*tokens;
+	char						**toks;
+	char						*path;
 	char						**envp;
 	t_file						*file_in;
 	t_file						*file_out;
@@ -116,11 +118,25 @@ int								handle_redirections(t_command *command);
 void							reset_redirection(t_command *command,
 									unsigned char i);
 // void							change_input_of_pipe(t_command *command,
-									// t_bool in_out);
+// t_bool in_out);
 int								needs_to_be_forked(t_command *command);
-void							executes_in_forks(t_command *command,
-									char **tokens, int ret);
+int								execve_fork(char *path, char **toks,
+									char **envp);
 int								create_pipe(t_command *command);
+int								handle_redirections_forks(t_command *command);
+
+// EXEC UTILS
+size_t							count_commands(t_command *command);
+void							safe_close(int *fd);
+void							dup_and_close(int oldfd, int newfd);
+
+void							execute_pipeline(t_command *command,
+									pid_t *pids, int ret);
+size_t							count_commands(t_command *command);
+void							fill_toks_into_commands(t_command *command);
+void							search_paths(t_command *command);
+void							wait_all_childs(t_command *command,
+									pid_t *pids);
 
 // Utils for manage memory
 void							free_array(char **array);

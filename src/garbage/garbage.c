@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:05:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:36:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	add_to_garbage(void *ptr)
 	{
 		free(ptr);
 		free_garbage();
-		print_fd(2, "Error of malloc, exiting.\n");
-		ft_exit_int(1);
+		print_fd(2, "minishell: garbage: Critical error of malloc, exiting.\n");
+		ft_exit_int_np(1);
 	}
 	ft_garbageadd_front(garbage, temp);
 	garbage->n_elements++;

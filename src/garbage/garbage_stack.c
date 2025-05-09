@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:08:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/22 13:32:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:37:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ void	ft_garbageadd_front(t_garbage *garbage, t_element *new)
 
 /**
  * @brief Adds the 'new' element at the end of stack
+ * @deprecated not used anywhere as add_front is faster
  *
  * @param garbage garbage structure
  * @param new element to add
  */
+__attribute__((deprecated))
 void	ft_garbageadd_back(t_garbage *garbage, t_element *new)
 {
 	t_element	*last;

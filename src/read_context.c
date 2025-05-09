@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 16:31:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:28:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static char	*read_stdin_gnl(void)
 	{
 		line = get_next_line(STDIN_FILENO);
 		if (line == NULL)
-			ft_exit_int(0);
+			ft_exit_int_np(0);
 		if (line[0] == '\0')
 		{
 			free(line);

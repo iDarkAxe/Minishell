@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 11:58:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:33:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <stdio.h>
 #include <sys/wait.h>
 #include <errno.h>
-
-static int	execve_fork(char *path, char **toks, char **envp);
 
 // TODO Ajouter la recherche de la commande dans le PATH
 
@@ -40,7 +38,10 @@ int	not_builtins(t_command *command, char **tokens)
 		return (1);
 	path = ft_strjoin("/usr/bin/", tokens[0]);
 	if (path == NULL)
-		ft_exit_int(1);
+	{
+		print_fd(2, "minishell: error on strjoin");
+		ft_exit_int_np(1);
+	}
 	add_to_garbage(path);
 	toks = copy_toks(command);
 	if (toks == NULL)
@@ -49,7 +50,7 @@ int	not_builtins(t_command *command, char **tokens)
 	return (ret);
 }
 
-static int	execve_fork(char *path, char **toks, char **envp)
+int	execve_fork(char *path, char **toks, char **envp)
 {
 	int	pid;
 	int	status;

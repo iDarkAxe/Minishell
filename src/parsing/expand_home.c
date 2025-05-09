@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:10:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 12:04:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:36:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	**expand_tildes_tokens(char **tokens)
 		if (tokens[index] == NULL)
 		{
 			free_array(tokens);
-			ft_exit_int(1);
+			ft_exit_int_np(1);
 		}
 		index++;
 	}
