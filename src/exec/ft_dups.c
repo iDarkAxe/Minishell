@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include "builtins.h"
 #include "file.h"
 #include "garbage.h"
+#include "minishell.h"
 
 /**
  * @brief Create and redirect inputs and outputs needed for the command

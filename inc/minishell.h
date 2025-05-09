@@ -7,6 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
 /*   Updated: 2025/05/06 16:37:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 17:30:05 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +23,6 @@
 # endif
 
 # include "libft.h"
-
-// TODO : add ft_export
-// TODO : add ft_env
-// TODO : add ft_unset
-# include <signal.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -116,7 +112,7 @@ int								handle_redirections(t_command *command);
 void							reset_redirection(t_command *command,
 									unsigned char i);
 // void							change_input_of_pipe(t_command *command,
-									// t_bool in_out);
+// t_bool in_out);
 int								needs_to_be_forked(t_command *command);
 void							executes_in_forks(t_command *command,
 									char **tokens, int ret);
@@ -128,6 +124,13 @@ void							free_command(t_command *command);
 void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
 void							free_tokens(t_token *token);
+
+// Utils for export
+void							print_export(t_env_vars *env);
+int								check_args_export(char *str);
+
+// Utils for env
+void							print_env(t_env_vars *env);
 
 // DEBUGGING Functions
 void							print_list_files(t_command *command);

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_env.c                                         :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 13:40:06 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/04 13:55:56 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/05/08 14:24:12 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/05/08 14:24:38 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "env.h"
-#include "minishell.h"
+#ifndef PARSING_H
+# define PARSING_H
 
-t_env_vars	*get_env(void)
-{
-	static t_env_vars	env;
+# include "libft.h"
+# include <stddef.h>
 
-	return (&env);
-}
+// Functions about quotes
+char	*ft_remove_near_quotes(char const *str, const char character);
+char	*ft_remove_all_near_quotes(const char *str, const char character);
+char	*parsing_minishell(const char *str);
+char	**ft_split_charset(const char *s, char *charset);
+
+#endif

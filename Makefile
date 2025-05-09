@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
+#    Updated: 2025/05/08 10:54:05 by lud-adam         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 CC = cc
 CFLAGS = -Wextra -Wall -Werror
@@ -44,6 +56,7 @@ P_LIBFT = libft/
 P_PIPEX = pipex/
 P_LIB_PIPEX = pipex/lib/
 P_GET_NEXT_LINE = get_next_line/
+P_FT_PRINTF = ft_printf/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -55,7 +68,8 @@ INC = \
 	garbage.h \
 	file.h \
 	env.h \
-	builtins.h
+	builtins.h \
+	parsing.h \
 
 # Source files
 SRC = \
@@ -84,6 +98,7 @@ PARSING = \
 	parsing.c \
 	expand_home.c \
 	parsing_quotes_double.c \
+	ft_split_charset.c \
 
 FILE = \
 	file.c \
@@ -97,15 +112,15 @@ FILE = \
 
 BUILTINS = \
 	ft_exit.c \
+	export/print_export.c \
+	export/ft_export.c \
+	export/check_args_export.c \
+	export/ft_build_elements.c \
 	ft_echo.c \
 	ft_which.c \
+	ft_unset.c \
 	ft_cd.c \
 	ft_env.c \
-
-ENV = \
-	get_env.c \
-	functions_utils.c \
-	functions_utils_env.c 
 
 EXEC = \
 	command-utils.c \
@@ -116,16 +131,31 @@ EXEC = \
 	exec_in_forks.c \
 	search_command.c
 
+ENV = \
+	functions_utils.c \
+	set_env.c \
+	manipulation_var.c \
+	manipulation_params.c \
+	copy_env.c \
+	swap_env.c \
+	sort_env.c \
+	search_env.c \
+	supp_var_in_env.c \
+	get_env.c \
+	free_env.c \
+
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
 	-L$(P_LIBFT) -lft \
+	-L$(P_FT_PRINTF) -lftprintf \
 	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a
 PIPEX = $(P_LIB_PIPEX)libpipex.a
 GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
+FT_PRINTF = $(P_FT_PRINTF)libftprintf.a 
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -151,7 +181,8 @@ DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
 		$(P_LIBFT)inc/libft.h \
-		$(P_PIPEX)include/pipex.h
+		$(P_PIPEX)include/pipex.h \
+		$(P_FT_PRINTF)ft_printf.h \
 		
 #############################################################################################
 #                                                                                           #
@@ -162,8 +193,8 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -o $(NAME) $(OBJS) $(LIBS); then \
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE) $(FT_PRINTF)
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -o $(NAME) $(OBJS) $(LIBS); then \
 		echo "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -172,7 +203,7 @@ $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -c $< -o $@; then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -c $< -o $@; then \
 		echo "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -189,7 +220,10 @@ $(PIPEX): force
 $(GET_NEXT_LINE): force
 	@$(MAKE) -C $(P_GET_NEXT_LINE)
 
-$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX)
+$(FT_PRINTF): force
+	@$(MAKE) -C $(P_FT_PRINTF)
+
+$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(FT_PRINTF)
 	@mkdir -p $(dir $@)
 	@echo "$(Green)Creating library $@$(Color_Off)"
 	@ar -rcs $@ $(OBJS)
@@ -213,6 +247,7 @@ clean-lib:
 	@$(MAKE) -C $(P_LIBFT) fclean
 	@$(MAKE) -C $(P_PIPEX) fclean
 	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
+	@$(MAKE) -C $(P_FT_PRINTF) fclean
 	@$(MAKE) -C tests fclean
 
 clean-bin:

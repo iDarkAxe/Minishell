@@ -6,38 +6,24 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 16:33:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:27:53 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program of the Minishell
-  ******************************************************************************
-  * @date 27 avril 2025
-  * @mainpage Minishell
-  * @section Introduction
-  *
-  * Make your own shell that performs worse than bash but it's yours.
-  * 
-  ******************************************************************************
-*/
-
-#include "minishell.h"
-#include "garbage.h"
-#include "file.h"
-#include "env.h"
 #include "builtins.h"
-
+#include "env.h"
+#include "file.h"
+#include "garbage.h"
+#include "minishell.h"
 #include <readline/history.h>
 #include <readline/readline.h>
+#include <stdlib.h>
 
 static char	*read_stdin(void);
 
 /**
  * @brief Line condition to verify the return value of readline
- * 
+ *
  * @param line line of readline
  * @return int 0, nothing checked, 1 is OK line, 2 is read another line
  */

@@ -6,17 +6,20 @@
 **/.obj
 **/*.a
 **/*.o
+**/*.a
 **/*.d
 **/*.s
 **/*.gch
-**/*.gdbhistory
+**/*.gdb_history
 **/minishell
 **/minishell_tests
 **/minishell_evalsheet.pdf
+**/compile_commands.json 
 
 **/*.clang
 **/*.code
 **/*.vscode
+**/*.cache
 
 **/input
 **/output

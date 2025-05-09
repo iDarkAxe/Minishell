@@ -7,6 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:12:19 by ppontet           #+#    #+#             */
 /*   Updated: 2025/04/11 11:21:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/04/10 13:20:01 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +25,7 @@ void	set_up(void)
 // clean stuff up here
 void	tear_down(void)
 {
-	tear_down_files();
+	// tear_down_files();
 	free_garbage();
 }
 
@@ -34,5 +35,6 @@ int	main(void)
 	RUN_TEST(parsing_tests);
 	RUN_TEST(file_tests);
 	RUN_TEST(lexer_simple);
+	// RUN_TEST(file_tests);
 	return (UNITY_END());
 }

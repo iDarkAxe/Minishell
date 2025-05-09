@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "garbage.h"
 #include "libft.h"
+#include <stdlib.h>
 
 int		is_operator_char(char c);
 char	*ft_substr_end(char const *src, unsigned int start, size_t end);
@@ -38,8 +38,8 @@ int	is_operator_char(char c)
  */
 char	*ft_substr_end(char const *src, unsigned int start, size_t end)
 {
-	size_t		len;
-	char		*s;
+	size_t	len;
+	char	*s;
 
 	len = end - start;
 	s = malloc_gb(len + 1);

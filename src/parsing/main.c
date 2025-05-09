@@ -6,33 +6,42 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:32:09 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:16:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
-#include "env.h"
-#include "garbage.h"
+// READLINE
+#include <readline/history.h>
 #include <readline/readline.h>
 #include <stdio.h>
+// OTHER
+#include "garbage.h"
+#include "libft.h"
+#include "minishell.h"
+#include "pipex.h"
 #include <stdlib.h>
 #include <unistd.h>
 
-/**
- * @brief Main function
- *
- * @param argc number of argument
- * @param argv array of arguments
- * @param envp environment
- * @return int 0 OK, error otherwise
- */
 int	main(int argc, char **argv, char **envp)
 {
+	char	*str;
+	char	*prompt;
+
 	(void)argc;
 	(void)argv;
-	set_env(envp);
-	if (minishell(envp) != 0)
-		ft_exit_int(1);
+	(void)envp;
+	signal_init();
+	prompt = get_prompt_message();
+	if (prompt == NULL)
+	{
+		free_garbage();
+		write(2, "Error creating prompt\n", 22);
+		exit(1);
+	}
+	str = readline(prompt);
+	if (str == NULL)
+		return (-1);
+	add_history(str);
+	add_to_garbage(str);
 	free_garbage();
-	return (0);
 }

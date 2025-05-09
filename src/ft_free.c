@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "file.h"
 #include "garbage.h"
 #include "minishell.h"
-#include "file.h"
 
 /**
  * @brief Free t_command linked list structure with all that it contains
- * 
+ *
  * @param command head of t_command linked list structure
  */
 void	free_command(t_command *command)
@@ -42,7 +42,7 @@ void	free_command(t_command *command)
 
 /**
  * @brief Free array of strings
- * 
+ *
  * @param array array of strings
  */
 void	free_array(char **array)
@@ -64,7 +64,7 @@ void	free_array(char **array)
 
 /**
  * @brief Free t_tokens linked list structure
- * 
+ *
  * @param token head of t_tokens linked list structure
  */
 void	free_tokens(t_token *token)
@@ -92,7 +92,7 @@ void	free_tokens(t_token *token)
 
 /**
  * @brief Free linked list of t_file structure
- * 
+ *
  * @param file head of t_file linked list structure
  */
 void	free_files_struct(t_file *file)
@@ -120,7 +120,7 @@ void	free_files_struct(t_file *file)
 
 /**
  * @brief Free heredoc structure
- * 
+ *
  * @param tmp heredoc structure
  */
 void	free_heredoc(t_tmp *tmp)
