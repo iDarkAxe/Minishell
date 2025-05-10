@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/08 10:54:05 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/10 15:28:28 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,6 +99,7 @@ PARSING = \
 	expand_home.c \
 	parsing_quotes_double.c \
 	ft_split_charset.c \
+	expand_variable.c \
 
 FILE = \
 	file.c \
