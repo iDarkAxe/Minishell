@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
+#    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/10 15:28:28 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/11 13:05:19 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,7 +150,6 @@ LIBS = \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
 	-L$(P_LIBFT) -lft \
-	-L$(P_FT_PRINTF) -lftprintf \
 	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a
@@ -183,7 +182,7 @@ DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
 INCS = $(addprefix $(P_INC), $(INC)) \
 		$(P_LIBFT)inc/libft.h \
 		$(P_PIPEX)include/pipex.h \
-		$(P_FT_PRINTF)ft_printf.h \
+		$(P_LIBFT)inc/ft_printf.h \
 		
 #############################################################################################
 #                                                                                           #
@@ -194,7 +193,7 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE) $(FT_PRINTF)
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
 	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -o $(NAME) $(OBJS) $(LIBS); then \
 		echo "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
@@ -248,7 +247,6 @@ clean-lib:
 	@$(MAKE) -C $(P_LIBFT) fclean
 	@$(MAKE) -C $(P_PIPEX) fclean
 	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
-	@$(MAKE) -C $(P_FT_PRINTF) fclean
 	@$(MAKE) -C tests fclean
 
 clean-bin:

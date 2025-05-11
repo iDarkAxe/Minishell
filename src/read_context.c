@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 15:34:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/11 13:56:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	read_context(char **envp)
  *
  * @param envp environment
  */
+__attribute__((noreturn))
 void	short_minishell_no_tty(char **envp)
 {
 	static int	ret = 0;
@@ -69,7 +70,6 @@ void	short_minishell_no_tty(char **envp)
 		free_array(tokens);
 		free_command(command);
 	}
-	ft_exit_int(0);
 }
 
 /**

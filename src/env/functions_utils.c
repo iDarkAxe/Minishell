@@ -6,15 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/22 16:31:00 by ppontet          ###   ########lyon.fr   */
-/*   Updated: 2025/04/23 15:07:52 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:56:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
+#include <stddef.h>
 
 size_t	ft_strlen_choose_c(const char *str, char c);
+int		ft_strcmp(const char *s1, const char *s2);
+t_bool	detect_equal(char *str);
 
 size_t	ft_strlen_choose_c(const char *str, char c)
 {
@@ -30,7 +31,7 @@ size_t	ft_strlen_choose_c(const char *str, char c)
 	return (i);
 }
 
-size_t	ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 

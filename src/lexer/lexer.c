@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/10 16:53:07 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:50:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 #include "libft.h"
 #include "minishell.h"
 #include <stdlib.h>
-#define MAX_TOKENS 1024
 
-static char	**init_lexer_state(t_lexer_state *lex_st, const char *line);
 static void	handle_space(t_lexer_state *lex_st);
 static void	handle_quote(t_lexer_state *lex_st, char quote_type);
 static void	handle_operator(t_lexer_state *lex_st);
@@ -60,30 +58,11 @@ char	**lexer(const char *line)
 	return (lex_st.tokens);
 }
 
-/**
- * @brief Initialize the lexer structure
- *
- * Fill the structure with zeros and init the line to search in
- * and allocates the array to the garbage
- *
- * @param lex_st pointer to the lexer structure
- * @param line line to verify
- */
-static char	**init_lexer_state(t_lexer_state *lex_st, const char *line)
-{
-	ft_bzero(lex_st, sizeof(t_lexer_state));
-	lex_st->line = line;
-	lex_st->tokens = malloc(sizeof(char *) * MAX_TOKENS);
-	if (lex_st->tokens == NULL)
-		return (NULL);
-	add_to_garbage(lex_st->tokens);
-	return (lex_st->tokens);
-}
-
 static void	handle_dollar(t_lexer_state *lex_st)
 {
 	if (lex_st->start < lex_st->i)
-		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->start, lex_st->i);
+		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->start,
+				lex_st->i);
 	lex_st->start = lex_st->i;
 	lex_st->i++;
 }

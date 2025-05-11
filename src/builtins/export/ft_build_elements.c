@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_build_elements.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:42:16 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/09 16:42:45 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:47:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	build_element_1(char **elements, char *str, size_t j, size_t i)
 {
-	size_t size_1;
+	size_t	size_1;
 
 	size_1 = ft_strlen(&str[i + 1]);
 	elements[1] = malloc(sizeof(char) * size_1 + 1);

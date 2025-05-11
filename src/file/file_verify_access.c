@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:12:39 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:52:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,17 +148,11 @@ static int	handle_files(t_command *command)
 
 /**
  * @brief Verify that all files are valid
-<<<<<<< HEAD
  * if at least one file is invalid, modifies the boolean in command
  * but still return 0
  *
  * @param command command structure
  * @return int 0 OK, error otherwise
-=======
- *
- * @param command command structure
- * @return int
->>>>>>> export
  */
 int	verify_access(t_command *command)
 {

@@ -6,8 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 16:37:21 by ppontet          ###   ########lyon.fr   */
-/*   Updated: 2025/05/02 17:30:05 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:50:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +19,10 @@
 
 # ifndef FOLLOW_ZSH
 #  define FOLLOW_ZSH 0
+# endif
+
+# ifndef MAX_TOKENS_LEX
+#  define MAX_TOKENS_LEX 1024
 # endif
 
 # include "libft.h"
@@ -92,6 +95,8 @@ void							print_command_fd(t_command *command);
 char							*ft_substr_end(char const *src,
 									unsigned int start, size_t end);
 int								is_operator_char(char c);
+char							**init_lexer_state(t_lexer_state *lex_st,
+									const char *line);
 char							**lexer(const char *line);
 t_command						*tokeniser(char **tokens, char **envp);
 

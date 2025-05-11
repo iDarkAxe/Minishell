@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_args_export.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:41:32 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/07 14:35:47 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:48:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 #include "minishell.h"
-#include "ft_printf.h"
-
 #include <stdio.h>
 
 int	check_args_export(char *str)
@@ -23,20 +22,22 @@ int	check_args_export(char *str)
 	i = 0;
 	if (str[0] == '-')
 	{
-		ft_printf("bash: export: %s: invalid option\n", str);
-		ft_printf("export: usage: export [-fn] [name[=value] ...] or export -p\n");
+		ft_dprintf(2, "minishell: export: %s: invalid option\n", str);
+		ft_dprintf(2, "export: usage: export [-fn] [name[=value] ...] or export\
+			-p\n");
 		return (2);
 	}
 	if (ft_isdigit(str[0]) == 1)
 	{
-		ft_printf("bash: export: %s: not a valid identifier\n", str);
+		ft_dprintf(2, "minishell: export: %s: not a valid identifier\n", str);
 		return (1);
 	}
 	while (str[i])
 	{
 		if (str[i] == '@' || str[i] == ' ' || str[i] == '-')
 		{
-			ft_printf("bash: export: %s: not a valid identifier\n", str);
+			ft_dprintf(2, "minishell: export: %s: not a valid identifier\n",
+				str);
 			return (1);
 		}
 		i++;

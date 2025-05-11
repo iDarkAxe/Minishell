@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   expand_variable.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/10 15:49:31 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:53:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "garbage.h"
 #include "builtins.h"
+
+char	**expand_variables_tokens(char **tokens);
 
 static size_t	count_size_total_params(t_params *params)
 {
@@ -24,36 +26,39 @@ static size_t	count_size_total_params(t_params *params)
 	while (params != NULL)
 	{
 		count += ft_strlen(params->value);
+		if (params->next)
+			count += 1;
 		params = params->next;
 	}
 	return (count);
 }
 
+// TODO need to replace ft_exit_int by ft_exit_int_np
 static char	*create_str_with_params(t_params *params)
 {
 	char	*str;
-	size_t	i;
-	size_t	j;
+	size_t	len;
+	size_t	str_len;
 
-	i = 0;
-	j = 0;
 	if (!params)
 		return (NULL);
 	str = malloc_gb(count_size_total_params(params) + 1);
 	if (!str)
-		return (NULL);
+	{
+		perror("minishell: malloc");
+		ft_exit_int(1);
+	}
+	str_len = 0;
 	while (params != NULL)
 	{
-		j = 0;
-		while (params->value && params->value[j])
-		{
-			str[i] = params->value[j];
-			i++;
-			j++;
-		}
+		len = ft_strlen(params->value);
+		ft_memcpy(&str[str_len], params->value, len);
+		str_len += len;
+		if (params->next)
+			str[str_len++] = ':';
 		params = params->next;
 	}
-	str[i] = '\0';
+	str[str_len] = '\0';
 	return (str);
 }
 
@@ -74,6 +79,8 @@ char	*search_env_str(t_env_vars *env, char *var)
 		}
 		head = head->next;
 	}
+	if (head == NULL && str == NULL)
+		str = ft_strdup_gb(NULL);
 	return (str);
 }
 
@@ -83,14 +90,13 @@ static char	*expand_variable(char *str, t_env_vars *env)
 
 	if (str == NULL || !env)
 		return (NULL);
-	result = search_env_str(env, str + 1); 
+	result = search_env_str(env, str + 1);
 	return (result);
 }
 
-
 char	**expand_variables_tokens(char **tokens)
 {
-	size_t	i;
+	size_t		i;
 	t_env_vars	*env;
 
 	if (tokens == NULL || tokens[0] == NULL)

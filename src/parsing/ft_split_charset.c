@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_charset.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:19:42 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/07 15:47:17 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:57:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+t_bool			is_charset(char c, char *charset);
+char			**ft_split_charset(const char *s, char *charset);
 
 t_bool	is_charset(char c, char *charset)
 {

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:15:09 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:57:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "garbage.h"
 #include "minishell.h"
 #include "parsing.h"
+
+size_t	count_without_quote(const char *str);
 
 /**
  * @brief Prototype for parsing

@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 17:08:45 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/02 11:32:39 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/11 13:56:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "libft.h"
 #include "minishell.h"
+
+int	ft_unset(char **array);
 
 int	ft_unset(char **array)
 {
