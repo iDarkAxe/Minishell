@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/11 13:50:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/12 11:26:40 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 static void	handle_space(t_lexer_state *lex_st);
 static void	handle_quote(t_lexer_state *lex_st, char quote_type);
 static void	handle_operator(t_lexer_state *lex_st);
-static void	handle_dollar(t_lexer_state *lex_st);
+// static void	handle_dollar(t_lexer_state *lex_st);
 
 /**
  * @brief Create tokens (small chunks) a line with the quotes and operators
@@ -46,8 +46,8 @@ char	**lexer(const char *line)
 		else if (is_operator_char(lex_st.line[lex_st.i])
 			&& !lex_st.in_single_quote && !lex_st.in_double_quote)
 			handle_operator(&lex_st);
-		else if (lex_st.line[lex_st.i] == '$')
-			handle_dollar(&lex_st);
+		// else if (lex_st.line[lex_st.i] == '$')
+		// 	handle_dollar(&lex_st);
 		else
 			lex_st.i++;
 	}
@@ -58,14 +58,14 @@ char	**lexer(const char *line)
 	return (lex_st.tokens);
 }
 
-static void	handle_dollar(t_lexer_state *lex_st)
-{
-	if (lex_st->start < lex_st->i)
-		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->start,
-				lex_st->i);
-	lex_st->start = lex_st->i;
-	lex_st->i++;
-}
+// static void	handle_dollar(t_lexer_state *lex_st)
+// {
+// 	if (lex_st->start < lex_st->i)
+// 		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->start,
+// 				lex_st->i);
+// 	lex_st->start = lex_st->i;
+// 	lex_st->i++;
+// }
 
 /**
  * @brief Handle the case where a space is found outside quotes

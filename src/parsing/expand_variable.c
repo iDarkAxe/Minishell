@@ -13,56 +13,12 @@
 #include "env.h"
 #include "garbage.h"
 #include "builtins.h"
+#include "libft.h"
+#include "parsing.h"
 
-char	**expand_variables_tokens(char **tokens);
+char	*expand_variables_line(char *line);
 
-static size_t	count_size_total_params(t_params *params)
-{
-	size_t	count;
-
-	count = 0;
-	if (!params)
-		return (0);
-	while (params != NULL)
-	{
-		count += ft_strlen(params->value);
-		if (params->next)
-			count += 1;
-		params = params->next;
-	}
-	return (count);
-}
-
-// TODO need to replace ft_exit_int by ft_exit_int_np
-static char	*create_str_with_params(t_params *params)
-{
-	char	*str;
-	size_t	len;
-	size_t	str_len;
-
-	if (!params)
-		return (NULL);
-	str = malloc_gb(count_size_total_params(params) + 1);
-	if (!str)
-	{
-		perror("minishell: malloc");
-		ft_exit_int(1);
-	}
-	str_len = 0;
-	while (params != NULL)
-	{
-		len = ft_strlen(params->value);
-		ft_memcpy(&str[str_len], params->value, len);
-		str_len += len;
-		if (params->next)
-			str[str_len++] = ':';
-		params = params->next;
-	}
-	str[str_len] = '\0';
-	return (str);
-}
-
-char	*search_env_str(t_env_vars *env, char *var)
+char	*search_env_str(t_env_vars *env, char *var, size_t size)
 {
 	char	*str;
 	t_var	*head;
@@ -71,7 +27,7 @@ char	*search_env_str(t_env_vars *env, char *var)
 	str = NULL;
 	while (head != NULL)
 	{
-		if (ft_strcmp(head->value, var) == 0)
+		if (ft_strncmp(head->value, var, size) == 0)
 		{
 			str = create_str_with_params(head->head_params);
 			if (!str)
@@ -80,40 +36,83 @@ char	*search_env_str(t_env_vars *env, char *var)
 		head = head->next;
 	}
 	if (head == NULL && str == NULL)
-		str = ft_strdup_gb(NULL);
+		str = ft_strdup(NULL);
 	return (str);
 }
 
-static char	*expand_variable(char *str, t_env_vars *env)
+t_bool	is_dollar(char *str)
 {
-	char	*result;
+	size_t	i;
 
-	if (str == NULL || !env)
-		return (NULL);
-	result = search_env_str(env, str + 1);
-	return (result);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '$')
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
 }
 
-char	**expand_variables_tokens(char **tokens)
+char	*expand_variables_line(char *str)
 {
-	size_t		i;
+	char		*string_to_stack;
 	t_env_vars	*env;
+	char		*temp;
+	char		*expand;
+	size_t		size;
+	size_t		i;
 
-	if (tokens == NULL || tokens[0] == NULL)
-		return (NULL);
-	i = 0;
+	string_to_stack = NULL;
+	temp = NULL;
+	size = 0;
+	expand = NULL;
 	env = get_env();
-	while (tokens[i] != NULL)
+	i = 0;
+	if (!str)
+		return (NULL);
+	while (str[i])
 	{
-		printf("%s\n", tokens[i]);
-		if (ft_strchr(tokens[i], '$') != NULL)
-			tokens[i] = expand_variable(tokens[i], env);
-		if (tokens[i] == NULL)
+		if (str[i] == '$')
 		{
-			free_array(tokens);
-			ft_exit_int(1);
+			i++;
+			size = ft_strlen_charset(&str[i], "$ ");
+			expand = search_env_str(env, &str[i], size);
+			if (!expand)
+				return (NULL);
+			if (string_to_stack == NULL)
+			{
+				string_to_stack = ft_strdup(expand);
+				if (!string_to_stack)
+					return (NULL);
+				free(expand);
+			}
+			else
+			{
+				temp = ft_strdup(string_to_stack);
+				if (!temp)
+					return (NULL);
+				free(string_to_stack);
+				string_to_stack = ft_strjoin(temp, expand);
+				if (!string_to_stack)
+					return (NULL);
+				free(expand);
+				free(temp);
+			}
+		}
+		else
+		{
+			size = ft_strlen_choose_c(&str[i], '$');
+			expand = ft_strndup(&str[i], size);
+			temp = ft_strdup(string_to_stack);
+			free(string_to_stack);
+			string_to_stack = ft_strjoin(temp, expand);
+			free(expand);
+			free(temp);
+			i += size;
+			continue ;
 		}
 		i++;
 	}
-	return (tokens);
+	return (string_to_stack);
 }

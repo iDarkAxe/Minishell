@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/11 13:57:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/13 17:59:43 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,12 @@ t_env_vars					*get_env(void);
 t_env_vars					*copy_env(t_env_vars *env);
 void						set_env(char *envp[]);
 void						sort_ascii_order(t_env_vars *env);
-char						*search_env_str(t_env_vars *env, char *var);
+char						*search_env_str(t_env_vars *env, char *var, size_t size);
+t_var						*search_env_var(t_env_vars *env, char *var);
 int							count_env(t_env_vars env);
 
 // Utils params
+char						*create_str_with_params(t_params *params);
 t_params					*get_param(char *content, size_t detect_equal);
 t_params					*ft_paramlast(t_params *params);
 void						replace_param(t_var *var, char *new_content,
@@ -94,7 +96,6 @@ void						ft_paramsadd_back(t_params **params, t_params *new);
 // Utils vars
 t_var						*ft_varlast(t_var *var);
 t_var						*get_var(const char *var);
-t_var						*search_env_var(t_env_vars *env, char *var);
 void						ft_varsadd_back(t_var **var, t_var *new);
 void						ft_varsadd_front(t_var **head, t_var *new);
 void						supp_var(t_var **head, char *str);

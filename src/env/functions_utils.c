@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/11 13:56:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/13 18:03:33 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,37 @@ size_t	ft_strlen_choose_c(const char *str, char c);
 int		ft_strcmp(const char *s1, const char *s2);
 t_bool	detect_equal(char *str);
 
+static t_bool	is_charset(const char *charset, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (charset && charset[i])
+	{
+		if (charset[i] == c)
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
+}
+
+size_t	ft_strlen_charset(const char *str, const char *charset)
+{
+	size_t	i;
+
+	i = 0;
+	while (str && str[i] && is_charset(charset, str[i]) == FALSE)
+		i++;
+	return (i);
+}
+
 size_t	ft_strlen_choose_c(const char *str, char c)
 {
 	size_t	i;
 
 	i = 0;
 	while (str[i] && str[i] != c)
-	{
 		i++;
-		if (str[i] == c)
-			return (i);
-	}
 	return (i);
 }
 

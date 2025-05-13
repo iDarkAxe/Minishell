@@ -35,7 +35,6 @@ char	**parse_line(char *line)
 	}
 	free_element_gb(line);
 	tokens = expand_tildes_tokens(tokens);
-	tokens = expand_variables_tokens(tokens);
 	if (tokens == NULL)
 		ft_exit_int(1);
 	return (tokens);

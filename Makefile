@@ -137,6 +137,7 @@ ENV = \
 	set_env.c \
 	manipulation_var.c \
 	manipulation_params.c \
+	create_str_with_params.c \
 	copy_env.c \
 	swap_env.c \
 	sort_env.c \

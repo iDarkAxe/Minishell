@@ -132,7 +132,7 @@ void							free_tokens(t_token *token);
 
 // Utils for export
 void							print_export(t_env_vars *env);
-int								check_args_export(char *str);
+int								check_args_export(char *str, size_t	size);
 
 // Utils for env
 void							print_env(t_env_vars *env);
@@ -142,5 +142,8 @@ void							print_list_files(t_command *command);
 void							print_perm_files(t_command *command);
 ssize_t							print_command(t_command *command);
 ssize_t							print_commands(t_command *command);
+
+// Utils
+t_bool	is_dollar(char *str);
 
 #endif

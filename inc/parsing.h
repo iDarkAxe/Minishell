@@ -21,6 +21,9 @@ char	*ft_remove_near_quotes(char const *str, const char character);
 char	*ft_remove_all_near_quotes(const char *str, const char character);
 char	*parsing_minishell(const char *str);
 char	**ft_split_charset(const char *s, char *charset);
-char	**expand_variables_tokens(char **tokens);
+char	*expand_variables_line(char *str);
+
+//Utils
+size_t	ft_strlen_charset(const char *str, const char *charset);
 
 #endif
