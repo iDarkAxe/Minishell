@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:29:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:09:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/13 16:00:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,26 @@ void	print_perm_files(t_command *command);
  */
 void	print_list_files(t_command *command)
 {
-	t_file	*file;
+	t_file		*file;
+	t_command	*current;
 
-	file = command->file_in;
-	while (file != NULL)
+	current = command;
+	while (current)
 	{
-		printf("file_in %s\n", file->name);
-		file = file->next;
-	}
-	file = command->file_out;
-	while (file != NULL)
-	{
-		printf("file_out %s\n", file->name);
-		file = file->next;
+		file = current->file_in;
+		dprintf(2, "tak %p\n", current);
+		while (file != NULL)
+		{
+			printf("file_in %s\n", file->name);
+			file = file->next;
+		}
+		file = current->file_out;
+		while (file != NULL)
+		{
+			printf("file_out %s\n", file->name);
+			file = file->next;
+		}
+		current = current->next;
 	}
 }
 
