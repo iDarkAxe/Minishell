@@ -143,4 +143,5 @@ void	set_env(char *envp[])
 		ft_varsadd_back(&env->head_var, new);
 		i++;
 	}
+	update_shlvl();
 }
