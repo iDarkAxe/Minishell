@@ -108,13 +108,13 @@ ENV = \
 	functions_utils_env.c 
 
 EXEC = \
-	command-utils.c \
 	exec.c \
 	exec_extern.c \
+	command-utils.c \
 	ft_dups.c \
-	ft_dups_forks.c \
-	exec_in_forks.c \
-	search_command.c
+	exec_pipeline.c \
+	search_command.c \
+	exec-utils.c
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
@@ -245,9 +245,6 @@ flcear: fclean
 # Debugging rules
 debug:
 	@$(MAKE) $(NAME) CFLAGS="$(CFLAGS_DEBUG)"
-
-debug-checker:
-	@$(MAKE) checker CFLAGS="$(CFLAGS_DEBUG)"
 
 debug-cc:
 	@$(MAKE) $(NAME) CFLAGS="$(CC_DEBUG_CFLAGS)" CC="$(CC_DEBUG)" Cyan="$(Yellow)" Green="$(Purple)"
