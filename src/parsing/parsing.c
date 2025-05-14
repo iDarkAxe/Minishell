@@ -27,6 +27,8 @@ char	**parse_line(char *line)
 {
 	char	**tokens;
 
+	if (is_dollar(line) == TRUE)
+		line = expand_variables_line(line);
 	tokens = lexer(line);
 	if (tokens == NULL)
 	{

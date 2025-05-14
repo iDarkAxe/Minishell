@@ -92,14 +92,7 @@ int	minishell(char **envp)
 	while (1)
 	{
 		temp = read_stdin();
-		if (is_dollar(temp) == TRUE)
-			line = expand_variables_line(temp);
-		if (is_dollar(temp) == TRUE)
-			tokens = parse_line(line);
-		else
-			tokens = parse_line(temp);
-		if (line)
-			free(line);
+		tokens = parse_line(temp);
 		command = tokeniser(tokens, envp);
 		if (command->tokens->str == NULL || files_management(command) != 0)
 		{

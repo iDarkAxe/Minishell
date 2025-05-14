@@ -25,5 +25,6 @@ char	*expand_variables_line(char *str);
 
 //Utils
 size_t	ft_strlen_charset(const char *str, const char *charset);
+t_bool	is_dollar(char *str);
 
 #endif

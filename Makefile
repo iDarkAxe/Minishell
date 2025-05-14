@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/11 13:05:19 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/05/14 11:45:33 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,6 +100,7 @@ PARSING = \
 	parsing_quotes_double.c \
 	ft_split_charset.c \
 	expand_variable.c \
+	functions_utils_parsing.c \
 
 FILE = \
 	file.c \

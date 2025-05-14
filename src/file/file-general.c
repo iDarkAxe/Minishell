@@ -38,10 +38,8 @@ int	files_management(t_command *command)
 		print_fd(2, "Error during heredoc creation\n");
 		ft_exit_int(1);
 	}
-	dprintf(2, "verif\n");
 	if (verify_access(command) != 0)
 		return (1);
-	dprintf(2, "remove used\n");
 	if (remove_used_file_tokens(command) == NULL)
 	{
 		free_garbage();
