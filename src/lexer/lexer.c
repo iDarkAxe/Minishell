@@ -46,8 +46,6 @@ char	**lexer(const char *line)
 		else if (is_operator_char(lex_st.line[lex_st.i])
 			&& !lex_st.in_single_quote && !lex_st.in_double_quote)
 			handle_operator(&lex_st);
-		// else if (lex_st.line[lex_st.i] == '$')
-		// 	handle_dollar(&lex_st);
 		else
 			lex_st.i++;
 	}

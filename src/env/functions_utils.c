@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stddef.h>
 
-size_t	ft_strlen_choose_c(const char *str, char c);
-int		ft_strcmp(const char *s1, const char *s2);
-t_bool	detect_equal(char *str);
+size_t			ft_strlen_choose_c(const char *str, char c);
+int				ft_strcmp(const char *s1, const char *s2);
+t_bool			detect_equal(char *str);
 
 static t_bool	is_charset(const char *charset, char c)
 {

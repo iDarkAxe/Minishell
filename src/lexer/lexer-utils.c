@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "garbage.h"
-#include "minishell.h"
 #include "libft.h"
+#include "minishell.h"
 #include <stdlib.h>
 
 int		is_operator_char(char c);

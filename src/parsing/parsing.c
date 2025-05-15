@@ -15,7 +15,7 @@
 #include "minishell.h"
 #include "parsing.h"
 
-size_t	count_without_quote(const char *str);
+size_t			count_without_quote(const char *str);
 
 /**
  * @brief Prototype for parsing
@@ -27,8 +27,7 @@ char	**parse_line(char *line)
 {
 	char	**tokens;
 
-	if (is_dollar(line) == TRUE)
-		line = expand_variables_line(line);
+	line = parsing_minishell(line);
 	tokens = lexer(line);
 	if (tokens == NULL)
 	{
@@ -97,8 +96,10 @@ static char	*remove_quote(const char *str, char *new_str)
 	{
 		if (quote != 0 && str[i] == quote)
 			quote = 0;
-		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
+		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
 			quote = str[i];
+		else if (str[i] == '\'')
+			new_str[j++] = str[i];
 		else
 			new_str[j++] = str[i];
 		i++;
@@ -110,6 +111,7 @@ static char	*remove_quote(const char *str, char *new_str)
 char	*parsing_minishell(const char *str)
 {
 	char	*new_str;
+	char	*result;
 	size_t	count;
 
 	if (!str || has_unclosed_quote(str) == TRUE)
@@ -119,5 +121,11 @@ char	*parsing_minishell(const char *str)
 	if (!new_str)
 		return (NULL);
 	new_str = remove_quote(str, new_str);
-	return (new_str);
+	printf("new_str : %s\n", new_str);
+	if (new_str[0] != '\'' && is_dollar(new_str) == TRUE)
+		result = expand_variables_line(new_str);
+	else
+		result = new_str;
+	printf("result : %s\n", result);
+	return (result);
 }

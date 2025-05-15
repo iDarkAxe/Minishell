@@ -47,7 +47,7 @@ static void	add_or_replace(t_env_vars *env, char **elements, char **array,
 {
 	t_var	*temp;
 	t_bool	equal;
- 
+
 	equal = detect_equal(array[i]);
 	temp = search_env_var(env, elements[0]);
 	if (ft_strcmp(elements[0], temp->value) != 0)
@@ -60,7 +60,6 @@ static void	add_or_replace(t_env_vars *env, char **elements, char **array,
 int	ft_export(char **array)
 {
 	size_t		i;
-	size_t		size;
 	char		**elements;
 	t_env_vars	*env;
 	int			check_errors;
@@ -71,8 +70,7 @@ int	ft_export(char **array)
 		sort_ascii_order(env);
 	while (array[i])
 	{
-		size = ft_strlen_choose_c(array[i], '=');
-		check_errors = check_args_export(array[i], size);
+		check_errors = check_args_export(array[i]);
 		if (check_errors == 2 || check_errors == 1)
 			return (check_errors);
 		elements = build_elements(array[i]);

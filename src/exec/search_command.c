@@ -25,10 +25,10 @@ static int	search_command_exit(t_command *command, char **tokens, int ret);
  */
 int	search_command(t_command *command, char **tokens, int ret)
 {
-	static char	*command_name[] = {"echo", "env", "which", "export", "unset",
-		"cd", "pwd"};
 	static int	(*cmd[])(char **) = {ft_echo, ft_env, ft_which, ft_export,
 		ft_unset, ft_cd, ft_pwd};
+	static char	*command_name[] = {"echo", "env", "which", "export", "unset",
+		"cd", "pwd"};
 	size_t		i;
 
 	if (!command || !tokens || !tokens[0])

@@ -132,7 +132,7 @@ void							free_tokens(t_token *token);
 
 // Utils for export
 void							print_export(t_env_vars *env);
-int								check_args_export(char *str, size_t	size);
+int								check_args_export(const char *str);
 
 // Utils for env
 void							print_env(t_env_vars *env);

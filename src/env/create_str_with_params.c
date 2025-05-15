@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "builtins.h"
 #include "env.h"
+#include <stdlib.h>
 
 static size_t	count_size_total_params(t_params *params)
 {

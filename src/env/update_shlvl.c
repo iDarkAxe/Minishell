@@ -30,11 +30,11 @@ void	create_shlvl(t_env_vars *env)
 
 void	update_shlvl(void)
 {
-	t_env_vars *env;
-	t_var	*shlvl;
-	int		temp;
-	char	*temp_1;
-	int		size;
+	t_env_vars	*env;
+	t_var		*shlvl;
+	int			temp;
+	char		*temp_1;
+	int			size;
 
 	env = get_env();
 	shlvl = search_env_var(env, "SHLVL");

@@ -43,8 +43,7 @@ int	read_context(char **envp)
  *
  * @param envp environment
  */
-__attribute__((noreturn))
-void	short_minishell_no_tty(char **envp)
+__attribute__((noreturn)) void	short_minishell_no_tty(char **envp)
 {
 	static int	ret = 0;
 	char		*line;

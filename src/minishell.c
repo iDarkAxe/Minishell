@@ -14,8 +14,8 @@
 #include "env.h"
 #include "file.h"
 #include "garbage.h"
-#include "parsing.h"
 #include "minishell.h"
+#include "parsing.h"
 #include <readline/history.h>
 #include <readline/readline.h>
 #include <stdlib.h>
@@ -82,17 +82,15 @@ int	minishell(char **envp)
 	static int	ret = 0;
 	t_command	*command;
 	char		*line;
-	char		*temp;
 	char		**tokens;
 
 	signal_init();
 	read_context(envp);
 	set_env(envp);
-	line = NULL;
 	while (1)
 	{
-		temp = read_stdin();
-		tokens = parse_line(temp);
+		line = read_stdin();
+		tokens = parse_line(line);
 		command = tokeniser(tokens, envp);
 		if (command->tokens->str == NULL || files_management(command) != 0)
 		{

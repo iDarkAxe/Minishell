@@ -16,8 +16,8 @@
 
 void	bubble_sort(t_var **head)
 {
-	t_var		*current;
-	t_bool		swapped;
+	t_var	*current;
+	t_bool	swapped;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return ;

@@ -28,8 +28,7 @@ static int	ft_strtoull(char *str);
  *
  * @param value value
  */
-__attribute__((noreturn))
-void	ft_exit_int(int value)
+__attribute__((noreturn)) void	ft_exit_int(int value)
 {
 	free_garbage();
 	print_fd(1, "exit\n");

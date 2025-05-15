@@ -39,9 +39,7 @@ void	replace_param(t_var *var, char *new_content, size_t equal)
 	if (!var)
 		return ;
 	new_value = ft_strdup_gb(new_content);
-	// printf("Inside replace param : %s\n", new_value);
 	var->head_params = get_param(new_content, equal);
-	// printf("%s", var->head_params->value);
 	if (var->head_params == NULL && equal == TRUE)
 	{
 		var->head_params->value = new_value;
@@ -49,7 +47,6 @@ void	replace_param(t_var *var, char *new_content, size_t equal)
 	}
 	if (var->head_params != NULL)
 	{
-		// var->head_params->next = NULL;
 		free_element_gb(var->head_params->value);
 		var->head_params->value = new_value;
 	}

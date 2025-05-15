@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "builtins.h"
 #include "env.h"
 #include "garbage.h"
-#include "builtins.h"
 #include "libft.h"
 #include "parsing.h"
 
@@ -46,7 +46,8 @@ static void	free_temps(char *temp, char *temp_1)
 	free(temp);
 }
 
-static void handle_expand(char *str, char **string_to_stack, size_t size, size_t i)
+static void	handle_expand(char *str, char **string_to_stack, size_t size,
+		size_t i)
 {
 	char	*temp;
 	char	*temp_1;
@@ -75,7 +76,8 @@ static void handle_expand(char *str, char **string_to_stack, size_t size, size_t
 	return ;
 }
 
-static void handle_normal_characters(char *str, char **string_to_stack, size_t size, size_t i)
+static void	handle_normal_characters(char *str, char **string_to_stack,
+		size_t size, size_t i)
 {
 	char	*temp;
 	char	*temp_1;
@@ -95,9 +97,9 @@ static void handle_normal_characters(char *str, char **string_to_stack, size_t s
 
 char	*expand_variables_line(char *str)
 {
-	char		*string_to_stack;
-	size_t		size;
-	size_t		i;
+	char	*string_to_stack;
+	size_t	size;
+	size_t	i;
 
 	string_to_stack = NULL;
 	size = 0;
@@ -106,17 +108,16 @@ char	*expand_variables_line(char *str)
 	{
 		if (str[i] == '$')
 		{
-			i++;
-			size = ft_strlen_charset(&str[i], "$ ");
-			handle_expand(str, &string_to_stack, size ,i);
+			size = ft_strlen_charset(&str[i++], "$ ");
+			handle_expand(str, &string_to_stack, size, i);
 		}
 		else
 		{
 			size = ft_strlen_choose_c(&str[i], '$');
 			handle_normal_characters(str, &string_to_stack, size, i);
-			i += size;
 			continue ;
 		}
+		i += size;
 		i++;
 	}
 	add_to_garbage(string_to_stack);

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "builtins.h"
 #include "env.h"
 #include "garbage.h"
-#include "builtins.h"
 #include <stdlib.h>
 
 static void	copy_param(t_var *var_to_fill, const t_var *content)

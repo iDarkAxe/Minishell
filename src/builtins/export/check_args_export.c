@@ -15,33 +15,29 @@
 #include "minishell.h"
 #include <stdio.h>
 
-int	check_args_export(char *str, size_t size)
+int	check_args_export(const char *str)
 {
 	size_t	i;
-	char	var[size];
 
 	i = 0;
-	ft_memcpy(var, str, size);
-	var[size] = '\0';
-	printf("Inside check args : %s\n", var);
-	if (var[0] == '-')
+	if (str[0] == '-')
 	{
-		ft_dprintf(2, "minishell: export: %s: invalid option\n", var);
+		ft_dprintf(2, "minishell: export: %s: invalid option\n", str);
 		ft_dprintf(2, "export: usage: export [-fn] [name[=value] ...] or export\
 			-p\n");
 		return (2);
 	}
-	if (ft_isdigit(var[0]) == 1)
+	if (ft_isdigit(str[0]) == 1)
 	{
-		ft_dprintf(2, "minishell: export: %s: not a valid identifier\n", var);
+		ft_dprintf(2, "minishell: export: %s: not a valid identifier\n", str);
 		return (1);
 	}
-	while (var[i])
+	while (str[i] && str[i] != '=')
 	{
-		if (var[i] == '@' || var[i] == ' ' || var[i] == '-')
+		if (str[i] == '@' || str[i] == ' ' || str[i] == '-')
 		{
 			ft_dprintf(2, "minishell: export: %s: not a valid identifier\n",
-				var);
+				str);
 			return (1);
 		}
 		i++;
