@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:10:41 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 17:09:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/13 15:39:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_tmp	create_tmp(char *path, int nbr_try)
 		tmp = create_tmp(path, nbr_try);
 		return (tmp);
 	}
-	tmp.fd = open(tmp.name, O_RDWR | O_CREAT, 0666);
+	tmp.fd = open(tmp.name, O_RDWR | O_CREAT, 0644);
 	if (tmp.fd < 0)
 	{
 		free_element_gb(tmp.name);

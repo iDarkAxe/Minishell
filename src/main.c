@@ -32,7 +32,7 @@ int	main(int argc, char **argv, char **envp)
 	(void)argv;
 	set_env(envp);
 	if (minishell(envp) != 0)
-		ft_exit_int(1);
+		ft_exit_int_np(1);
 	free_garbage();
 	return (0);
 }

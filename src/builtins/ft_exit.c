@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:35:43 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:27:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int			ft_exit(char **array);
 void		ft_exit_int(int value);
+void		ft_exit_int_np(int value);
 
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
@@ -32,6 +33,18 @@ __attribute__((noreturn)) void	ft_exit_int(int value)
 {
 	free_garbage();
 	print_fd(1, "exit\n");
+	exit((unsigned char)value);
+}
+
+/**
+ * @brief Short ft_exit that uses only int but don't say it's name
+ * 
+ * @param value value
+ */
+__attribute__ ((noreturn))
+void	ft_exit_int_np(int value)
+{
+	free_garbage();
 	exit((unsigned char)value);
 }
 

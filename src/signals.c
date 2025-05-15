@@ -36,12 +36,12 @@ int	signal_init(void)
 	if (sigaction(SIGINT, &action_receive, NULL) == -1)
 	{
 		print_fd(2, "minishell: signals: error at sigaction\n");
-		ft_exit_int(-1);
+		ft_exit_int_np(-1);
 	}
 	if (signal(SIGQUIT, SIG_IGN) == SIG_ERR)
 	{
 		print_fd(2, "minishell: signals: error at ignore\n");
-		ft_exit_int(-2);
+		ft_exit_int_np(-2);
 	}
 	return (0);
 }

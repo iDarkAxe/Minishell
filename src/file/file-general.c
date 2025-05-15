@@ -6,15 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 15:09:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:35:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minishell.h"
 #include "builtins.h"
-#include "fcntl.h"
 #include "file.h"
 #include "garbage.h"
-#include "minishell.h"
+
+#include <fcntl.h>
 #include <stdlib.h>
 
 /**
@@ -29,22 +30,21 @@ int	files_management(t_command *command)
 		return (1);
 	if (build_files_redirection(command) != 0)
 	{
-		print_fd(2, "Error creating file structure\n");
-		ft_exit_int(1);
+		print_fd(2, "minishell: error creating file structure\n");
+		ft_exit_int_np(1);
 	}
 	build_files_data(command);
 	if (fill_heredocs(command) != 0)
 	{
-		print_fd(2, "Error during heredoc creation\n");
-		ft_exit_int(1);
+		print_fd(2, "minishell: error during heredoc creation\n");
+		ft_exit_int_np(1);
 	}
 	if (verify_access(command) != 0)
 		return (1);
 	if (remove_used_file_tokens(command) == NULL)
 	{
-		free_garbage();
-		print_fd(2, "Error removing file tokens\n");
-		ft_exit_int(1);
+		print_fd(2, "minishell: error removing file tokens\n");
+		ft_exit_int_np(1);
 	}
 	return (0);
 }
@@ -74,8 +74,8 @@ int	open_file_with_rights(t_file *file, t_bool in_out)
 		fd = open(file->name, O_CREAT | O_WRONLY | O_APPEND, 0644);
 	if (fd < 0)
 	{
-		perror("minishell");
-		ft_exit_int(EXIT_FAILURE);
+		perror("minishell: open");
+		ft_exit_int_np(EXIT_FAILURE);
 	}
 	return (fd);
 }
@@ -95,6 +95,11 @@ void	read_write_to(t_command *command, t_bool in_out)
 	else
 		command->fd[in_out] = open_file_with_rights(command->file_out, in_out);
 	if (dup2(command->fd[in_out], (int)in_out) == -1)
+	{
+		perror("minishell");
+		command->file_error = 1;
+	}
+	if (close(command->fd[in_out]) != 0)
 	{
 		perror("minishell");
 		command->file_error = 1;

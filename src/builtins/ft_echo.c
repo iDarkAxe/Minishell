@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 15:18:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:29:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,45 +96,3 @@ static char	handle_options(char **array, size_t *index)
 	}
 	return (opt_not_found);
 }
-
-// // READLINE
-// #include <readline/history.h>
-// #include <readline/readline.h>
-// #include <stdio.h>
-// // OTHER
-// #include "garbage.h"
-// #include "libft.h"
-// #include "minishell.h"
-// #include <stdlib.h>
-// #include <unistd.h>
-// #include "file.h"
-
-// void	files_management(t_command *command);
-
-// int	ft_echo(char **array, char delimitor);
-
-// int	main(int argc, char **argv, char **envp)
-// {
-// 	char		*line;
-// 	char		**tokens;
-// 	t_command	*command;
-
-// 	(void)argc;
-// 	(void)argv;
-// 	(void)envp;
-// 	line = readline("mini_echo> ");
-// 	if (line == NULL || line[0] == '\0')
-// 		ft_exit_int(1);
-// 	add_to_garbage(line);
-// 	tokens = lexer(line);
-// 	if (tokens == NULL)
-// 		ft_exit_int(1);
-// 	command = tokeniser(tokens);
-// 	if (!command)
-// 		ft_exit_int(1);
-// 	// print_command(command);
-// 	ft_echo(&tokens[0], ' ');
-// 	free_command(command);
-// 	free_garbage();
-// 	return (0);
-// }

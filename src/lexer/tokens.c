@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/05 11:45:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 16:36:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ t_command	*tokeniser(char **tokens, char **envp)
 
 	command = create_command(envp);
 	if (command == NULL)
-		ft_exit_int(1);
+		ft_exit_int_np(1);
 	current = command;
 	token = command->tokens;
 	index = 0;
 	while (tokens && tokens[index] != NULL)
 	{
 		if (iterate_command(tokens[index], &token, &current) == NULL)
-			ft_exit_int(1);
+			ft_exit_int_np(1);
 		token->str = tokens[index];
 		if (iterate_token(tokens[index + 1], &token) == NULL)
-			ft_exit_int(1);
+			ft_exit_int_np(1);
 		index++;
 	}
 	return (command);

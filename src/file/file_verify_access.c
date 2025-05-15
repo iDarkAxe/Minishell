@@ -103,12 +103,12 @@ static int	file_permission_check_outfile(t_file *file, t_bool in_out)
 	if (fd < 0)
 	{
 		perror("minishell: open");
-		ft_exit_int(1);
+		ft_exit_int_np(1);
 	}
 	if (close(fd) != 0)
 	{
 		perror("minishell: close");
-		ft_exit_int(1);
+		ft_exit_int_np(1);
 	}
 	return (0);
 }

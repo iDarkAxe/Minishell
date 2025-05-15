@@ -44,6 +44,7 @@ int	read_context(char **envp)
  * @param envp environment
  */
 __attribute__((noreturn)) void	short_minishell_no_tty(char **envp)
+void	short_minishell_no_tty(char **envp)
 {
 	static int	ret = 0;
 	char		*line;
@@ -84,7 +85,7 @@ static char	*read_stdin_gnl(void)
 	{
 		line = get_next_line(STDIN_FILENO);
 		if (line == NULL)
-			ft_exit_int(0);
+			ft_exit_int_np(0);
 		if (line[0] == '\0')
 		{
 			free(line);

@@ -6,10 +6,23 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:27:53 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:28:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+  ******************************************************************************
+  * @file           : minishell.c
+  * @brief          : Main program of the Minishell
+  ******************************************************************************
+  * @date 27 avril 2025
+  * @mainpage Minishell
+  * @section Introduction
+  *
+  * Make your own shell that performs worse than bash but it's yours.
+  * 
+  ******************************************************************************
+*/
 #include "builtins.h"
 #include "env.h"
 #include "file.h"
@@ -33,7 +46,7 @@ static int	line_condition(char *line)
 	if ((line != NULL && line[0] != '\0'))
 		return (1);
 	if (line == NULL)
-		ft_exit_int(0);
+		ft_exit_int_np(0);
 	if (line[0] == '\0')
 	{
 		free(line);

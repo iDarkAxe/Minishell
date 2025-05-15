@@ -37,7 +37,7 @@ char	**parse_line(char *line)
 	free_element_gb(line);
 	tokens = expand_tildes_tokens(tokens);
 	if (tokens == NULL)
-		ft_exit_int(1);
+		ft_exit_int_np(1);
 	return (tokens);
 }
 
