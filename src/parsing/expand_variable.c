@@ -108,16 +108,18 @@ char	*expand_variables_line(char *str)
 	{
 		if (str[i] == '$')
 		{
-			size = ft_strlen_charset(&str[i++], "$ ");
+			i++;
+			size = ft_strlen_charset(&str[i], "$ ");
 			handle_expand(str, &string_to_stack, size, i);
+			i += size;
 		}
 		else
 		{
 			size = ft_strlen_choose_c(&str[i], '$');
 			handle_normal_characters(str, &string_to_stack, size, i);
+			i += size;
 			continue ;
 		}
-		i += size;
 		i++;
 	}
 	add_to_garbage(string_to_stack);
