@@ -16,7 +16,15 @@
 
 void	create_shlvl(t_env_vars *env)
 {
-	
+	t_var	*shlvl;
+
+	shlvl = get_var("SHLVL");
+	if (!shlvl)
+		return ;
+	shlvl->head_params = get_param("1", TRUE);
+	if (!shlvl->head_params)
+		return ;
+	ft_varsadd_back(&env->head_var, shlvl);
 	return ;
 }
 
@@ -31,7 +39,10 @@ void	update_shlvl(void)
 	env = get_env();
 	shlvl = search_env_var(env, "SHLVL");
 	if (!shlvl)
-	
+	{
+		create_shlvl(env);
+		return ;
+	}
 	temp = ft_atoi(shlvl->head_params->value);
 	temp++;
 	temp_1 = ft_itoa(temp);

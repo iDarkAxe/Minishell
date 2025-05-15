@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/14 11:45:33 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/14 18:04:06 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -146,6 +146,7 @@ ENV = \
 	supp_var_in_env.c \
 	get_env.c \
 	free_env.c \
+	update_shlvl.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/13 17:59:43 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/14 18:03:02 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void						sort_ascii_order(t_env_vars *env);
 char						*search_env_str(char *var, size_t size);
 t_var						*search_env_var(t_env_vars *env, char *var);
 int							count_env(t_env_vars env);
+void						update_shlvl(void);
 
 // Utils params
 char						*create_str_with_params(t_params *params);
