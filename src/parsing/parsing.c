@@ -98,8 +98,6 @@ static char	*remove_quote(const char *str, char *new_str)
 			quote = 0;
 		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
 			quote = str[i];
-		else if (str[i] == '\'')
-			new_str[j++] = str[i];
 		else
 			new_str[j++] = str[i];
 		i++;
@@ -108,9 +106,46 @@ static char	*remove_quote(const char *str, char *new_str)
 	return (new_str);
 }
 
+static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
+{
+	char	quote;
+	size_t	occurence_of_quote;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	quote = 0;
+	/*occurence_of_quote = 0;*/
+	while (str && str[i])
+	{
+		if (quote == str[i])
+			quote = 0;
+		else if (quote == 0 && str[i] == '\'')
+		{
+			quote = str[i];
+			/*occurence_of_quote++;*/
+			*have_to_expand = FALSE;
+		}
+		else if (quote == 0 && str[i] == '"')
+		{
+			quote = str[i];
+			/*occurence_of_quote++;*/
+			*have_to_expand = TRUE;
+		}
+		else
+			new_str[j++] = str[i];
+		i++;
+
+	}
+	new_str[j] = '\0';
+	return (new_str);
+}
+
 char	*parsing_minishell(const char *str)
 {
 	char	*new_str;
+	t_bool	*have_to_expand;
 	char	*result;
 	size_t	count;
 
@@ -120,12 +155,15 @@ char	*parsing_minishell(const char *str)
 	new_str = malloc((count + 1) * sizeof(char));
 	if (!new_str)
 		return (NULL);
-	new_str = remove_quote(str, new_str);
-	printf("new_str : %s\n", new_str);
-	if (new_str[0] != '\'' && is_dollar(new_str) == TRUE)
+	*have_to_expand = FALSE;
+	new_str = close_quote(str, new_str, have_to_expand);
+	if (is_dollar(new_str) == TRUE && *have_to_expand == TRUE)
+	{
 		result = expand_variables_line(new_str);
+	}
 	else
+	{
 		result = new_str;
-	printf("result : %s\n", result);
+	}
 	return (result);
 }

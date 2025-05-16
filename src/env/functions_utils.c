@@ -46,7 +46,7 @@ size_t	ft_strlen_choose_c(const char *str, char c)
 	size_t	i;
 
 	i = 0;
-	while (str[i] && str[i] != c)
+	while (str && str[i] && str[i] != c)
 		i++;
 	return (i);
 }
