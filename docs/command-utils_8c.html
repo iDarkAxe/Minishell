@@ -138,6 +138,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a458910531201e249c945c6658fc553f3" id="r_a458910531201e249c945c6658fc553f3"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a458910531201e249c945c6658fc553f3">print_command</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
 <tr class="memdesc:a458910531201e249c945c6658fc553f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the command structure with it's tokens.  <br /></td></tr>
 <tr class="separator:a458910531201e249c945c6658fc553f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b82e32b5c22c7dbe0c906f4a40743e" id="r_a62b82e32b5c22c7dbe0c906f4a40743e"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62b82e32b5c22c7dbe0c906f4a40743e">print_commands</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memdesc:a62b82e32b5c22c7dbe0c906f4a40743e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the commands structure with it's tokens.  <br /></td></tr>
+<tr class="separator:a62b82e32b5c22c7dbe0c906f4a40743e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a458910531201e249c945c6658fc553f3" name="a458910531201e249c945c6658fc553f3"></a>
@@ -162,7 +165,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ssize_t 0 is OK, otherwise error </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ssize_t 0 or positive is OK, otherwise error </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -171,17 +174,61 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Print the command structure with it&#39;s tokens." alt="" coords="5,31,129,56"/>
 <area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="177,31,249,56"/>
 <area shape="poly" title=" " alt="" coords="129,41,164,41,164,46,129,46"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="297,5,377,31"/>
-<area shape="poly" title=" " alt="" coords="249,33,283,26,284,31,250,39"/>
-<area shape="rect" href="ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="425,31,488,56"/>
-<area shape="poly" title=" " alt="" coords="378,24,412,31,411,37,377,29"/>
-<area shape="poly" title=" " alt="" coords="425,46,263,46,263,41,425,41"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="536,31,644,56"/>
-<area shape="poly" title=" " alt="" coords="488,41,523,41,523,46,488,46"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="692,5,815,31"/>
-<area shape="poly" title=" " alt="" coords="644,32,678,27,679,32,645,38"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="702,55,805,80"/>
-<area shape="poly" title=" " alt="" coords="645,49,689,55,688,60,644,54"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="297,31,377,56"/>
+<area shape="poly" title=" " alt="" coords="250,41,284,41,284,46,250,46"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="425,31,533,56"/>
+<area shape="poly" title=" " alt="" coords="377,41,411,41,411,46,377,46"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="581,5,704,31"/>
+<area shape="poly" title=" " alt="" coords="533,32,567,27,568,32,534,38"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="591,55,694,80"/>
+<area shape="poly" title=" " alt="" coords="534,49,578,55,577,60,533,54"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a62b82e32b5c22c7dbe0c906f4a40743e" name="a62b82e32b5c22c7dbe0c906f4a40743e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b82e32b5c22c7dbe0c906f4a40743e">&#9670;&#160;</a></span>print_commands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ssize_t print_commands </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print the commands structure with it's tokens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>command structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ssize_t 0 or positive is OK, otherwise error </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="command-utils_8c_a62b82e32b5c22c7dbe0c906f4a40743e_cgraph.png" border="0" usemap="#acommand-utils_8c_a62b82e32b5c22c7dbe0c906f4a40743e_cgraph" alt=""/></div>
+<map name="acommand-utils_8c_a62b82e32b5c22c7dbe0c906f4a40743e_cgraph" id="acommand-utils_8c_a62b82e32b5c22c7dbe0c906f4a40743e_cgraph">
+<area shape="rect" title="Print the commands structure with it&#39;s tokens." alt="" coords="5,31,136,56"/>
+<area shape="rect" href="command-utils_8c.html#a458910531201e249c945c6658fc553f3" title="Print the command structure with it&#39;s tokens." alt="" coords="184,5,308,31"/>
+<area shape="poly" title=" " alt="" coords="136,31,170,26,171,32,137,37"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="356,31,428,56"/>
+<area shape="poly" title=" " alt="" coords="136,41,342,41,342,46,136,46"/>
+<area shape="poly" title=" " alt="" coords="309,26,343,32,342,37,308,31"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="476,31,556,56"/>
+<area shape="poly" title=" " alt="" coords="428,41,462,41,462,46,428,46"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="604,31,712,56"/>
+<area shape="poly" title=" " alt="" coords="556,41,590,41,590,46,556,46"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="760,5,883,31"/>
+<area shape="poly" title=" " alt="" coords="712,32,746,27,747,32,713,38"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="770,55,873,80"/>
+<area shape="poly" title=" " alt="" coords="713,49,757,55,756,60,712,54"/>
 </map>
 </div>
 

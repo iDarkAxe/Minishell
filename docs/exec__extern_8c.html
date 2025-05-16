@@ -107,38 +107,44 @@ $(function(){initNavTree('exec__extern_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">exec_extern.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
 <code>#include &quot;libft.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;sys/wait.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for exec_extern.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="exec__extern_8c__incl.png" border="0" usemap="#asrc_2exec_2exec__extern_8c" alt=""/></div>
 <map name="asrc_2exec_2exec__extern_8c" id="asrc_2exec_2exec__extern_8c">
-<area shape="rect" title=" " alt="" coords="137,5,307,31"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="5,79,92,104"/>
-<area shape="poly" title=" " alt="" coords="195,33,91,76,89,71,193,28"/>
-<area shape="rect" title=" " alt="" coords="102,152,161,177"/>
-<area shape="poly" title=" " alt="" coords="210,33,187,54,166,80,150,110,140,139,135,138,146,108,161,77,183,50,206,29"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="175,79,269,104"/>
-<area shape="poly" title=" " alt="" coords="225,31,225,65,219,65,219,31"/>
-<area shape="rect" title=" " alt="" coords="481,152,547,177"/>
-<area shape="poly" title=" " alt="" coords="236,29,277,64,334,102,393,124,469,148,467,153,391,129,331,106,274,68,232,33"/>
-<area shape="rect" title=" " alt="" coords="345,79,433,104"/>
-<area shape="poly" title=" " alt="" coords="250,28,350,71,348,76,248,33"/>
-<area shape="rect" title=" " alt="" coords="7,152,77,177"/>
-<area shape="poly" title=" " alt="" coords="50,105,47,139,42,138,45,104"/>
-<area shape="poly" title=" " alt="" coords="194,107,85,149,83,144,192,102"/>
-<area shape="poly" title=" " alt="" coords="209,106,159,145,155,141,206,102"/>
-<area shape="rect" title=" " alt="" coords="185,152,259,177"/>
-<area shape="poly" title=" " alt="" coords="225,104,225,138,219,138,219,104"/>
-<area shape="rect" title=" " alt="" coords="283,152,358,177"/>
-<area shape="poly" title=" " alt="" coords="239,102,295,142,292,146,236,106"/>
-<area shape="poly" title=" " alt="" coords="270,101,468,149,466,154,269,107"/>
-<area shape="rect" title=" " alt="" coords="382,152,457,177"/>
-<area shape="poly" title=" " alt="" coords="255,102,375,145,373,150,253,107"/>
+<area shape="rect" title=" " alt="" coords="409,5,578,31"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="275,79,370,104"/>
+<area shape="poly" title=" " alt="" coords="467,33,364,76,362,71,465,28"/>
+<area shape="rect" title=" " alt="" coords="5,152,64,177"/>
+<area shape="poly" title=" " alt="" coords="444,33,359,54,263,81,162,116,76,149,74,144,160,111,262,76,358,49,442,28"/>
+<area shape="rect" title=" " alt="" coords="384,152,451,177"/>
+<area shape="poly" title=" " alt="" coords="481,33,460,54,441,80,429,110,423,139,418,138,424,108,436,77,456,50,477,29"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="450,79,537,104"/>
+<area shape="poly" title=" " alt="" coords="496,31,496,65,491,65,491,31"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="561,79,644,104"/>
+<area shape="poly" title=" " alt="" coords="512,28,575,69,572,73,509,33"/>
+<area shape="rect" title=" " alt="" coords="668,79,756,104"/>
+<area shape="poly" title=" " alt="" coords="529,28,664,72,663,77,528,33"/>
+<area shape="rect" title=" " alt="" coords="781,79,849,104"/>
+<area shape="poly" title=" " alt="" coords="549,28,768,76,766,81,548,33"/>
+<area shape="poly" title=" " alt="" coords="276,106,78,154,77,149,275,101"/>
+<area shape="rect" title=" " alt="" coords="89,152,162,177"/>
+<area shape="poly" title=" " alt="" coords="292,107,171,150,170,145,290,102"/>
+<area shape="rect" title=" " alt="" coords="187,152,261,177"/>
+<area shape="poly" title=" " alt="" coords="308,106,253,146,250,142,305,102"/>
+<area shape="poly" title=" " alt="" coords="339,102,392,141,389,146,336,106"/>
+<area shape="rect" title=" " alt="" coords="475,152,546,177"/>
+<area shape="poly" title=" " alt="" coords="354,102,468,144,466,149,352,107"/>
+<area shape="rect" title=" " alt="" coords="285,152,360,177"/>
+<area shape="poly" title=" " alt="" coords="325,104,325,138,320,138,320,104"/>
+<area shape="poly" title=" " alt="" coords="499,104,507,138,502,140,494,105"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -182,33 +188,31 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="exec__extern_8c_a521da36622246e2b19debf611d185614_cgraph.png" border="0" usemap="#aexec__extern_8c_a521da36622246e2b19debf611d185614_cgraph" alt=""/></div>
 <map name="aexec__extern_8c_a521da36622246e2b19debf611d185614_cgraph" id="aexec__extern_8c_a521da36622246e2b19debf611d185614_cgraph">
-<area shape="rect" title="Executes commands that are not builtins." alt="" coords="5,56,104,81"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="288,107,415,132"/>
-<area shape="poly" title=" " alt="" coords="100,79,153,91,275,109,274,115,151,97,99,84"/>
-<area shape="rect" href="ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="508,5,571,31"/>
-<area shape="poly" title=" " alt="" coords="97,53,152,41,247,28,342,21,494,15,494,21,342,26,247,34,152,46,98,59"/>
-<area shape="rect" href="token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="152,56,240,81"/>
-<area shape="poly" title=" " alt="" coords="104,66,138,66,138,71,104,71"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="664,157,772,183"/>
-<area shape="poly" title=" " alt="" coords="402,129,463,142,561,155,650,163,650,168,560,160,462,147,401,135"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="830,232,933,257"/>
-<area shape="poly" title=" " alt="" coords="361,131,376,157,399,189,428,220,464,244,509,260,556,270,604,276,652,277,742,271,817,258,818,263,743,276,652,282,603,281,555,276,507,265,461,248,425,224,394,192,371,160,357,134"/>
-<area shape="poly" title=" " alt="" coords="369,104,461,48,494,32,497,37,464,52,372,109"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="682,56,754,81"/>
-<area shape="poly" title=" " alt="" coords="405,104,462,93,573,78,668,69,669,75,573,84,463,98,406,109"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="463,107,616,132"/>
-<area shape="poly" title=" " alt="" coords="415,117,449,117,449,122,415,122"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="480,208,599,233"/>
-<area shape="poly" title=" " alt="" coords="372,130,464,186,494,200,491,205,461,191,369,134"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="820,157,943,183"/>
-<area shape="poly" title=" " alt="" coords="772,167,806,167,806,173,772,173"/>
-<area shape="poly" title=" " alt="" coords="748,180,842,224,839,229,746,185"/>
-<area shape="poly" title=" " alt="" coords="557,29,693,146,689,150,554,33"/>
-<area shape="poly" title=" " alt="" coords="572,24,669,52,668,57,570,29"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="841,31,921,56"/>
-<area shape="poly" title=" " alt="" coords="754,61,828,49,828,54,755,66"/>
-<area shape="poly" title=" " alt="" coords="841,43,584,24,585,19,841,38"/>
-<area shape="poly" title=" " alt="" coords="237,79,299,100,298,105,235,84"/>
+<area shape="rect" title="Executes commands that are not builtins." alt="" coords="5,205,104,231"/>
+<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="288,156,415,181"/>
+<area shape="poly" title=" " alt="" coords="99,203,152,190,274,173,275,178,152,195,100,208"/>
+<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="496,256,583,281"/>
+<area shape="poly" title=" " alt="" coords="101,228,152,239,242,251,332,259,482,265,482,271,332,264,242,256,152,245,100,233"/>
+<area shape="rect" href="token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="152,205,240,231"/>
+<area shape="poly" title=" " alt="" coords="104,215,138,215,138,221,104,221"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="792,56,900,81"/>
+<area shape="poly" title=" " alt="" coords="366,154,408,125,462,98,545,77,631,66,711,62,778,62,778,68,711,67,632,71,546,83,464,103,410,129,369,158"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="958,105,1061,131"/>
+<area shape="poly" title=" " alt="" coords="402,153,462,142,596,128,730,120,944,115,944,120,730,125,597,133,463,147,403,159"/>
+<area shape="poly" title=" " alt="" coords="370,179,411,210,464,241,484,250,482,255,461,246,408,214,367,184"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="463,157,616,183"/>
+<area shape="poly" title=" " alt="" coords="415,166,449,167,449,172,415,172"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="480,207,599,232"/>
+<area shape="poly" title=" " alt="" coords="400,179,479,200,478,206,399,184"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="503,5,575,31"/>
+<area shape="poly" title=" " alt="" coords="360,154,400,104,429,74,461,48,489,32,492,37,464,52,432,78,404,107,364,158"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="948,56,1071,81"/>
+<area shape="poly" title=" " alt="" coords="900,66,934,66,934,71,900,71"/>
+<area shape="poly" title=" " alt="" coords="889,79,954,99,953,104,888,84"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="664,5,744,31"/>
+<area shape="poly" title=" " alt="" coords="575,15,650,15,650,21,575,21"/>
+<area shape="poly" title=" " alt="" coords="741,28,797,49,796,54,740,33"/>
+<area shape="poly" title=" " alt="" coords="236,203,297,183,298,188,237,208"/>
 </map>
 </div>
 

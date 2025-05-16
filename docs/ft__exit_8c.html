@@ -144,8 +144,57 @@ Functions</h2></td></tr>
 <tr class="memitem:adfb8aca255d6ab97f3902cfc0a6639ef" id="r_adfb8aca255d6ab97f3902cfc0a6639ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfb8aca255d6ab97f3902cfc0a6639ef">ft_exit</a> (char **array)</td></tr>
 <tr class="memdesc:adfb8aca255d6ab97f3902cfc0a6639ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to exit the program.  <br /></td></tr>
 <tr class="separator:adfb8aca255d6ab97f3902cfc0a6639ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9b79e1d2c4ae9dfb91fc86415d60937" id="r_ac9b79e1d2c4ae9dfb91fc86415d60937"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9b79e1d2c4ae9dfb91fc86415d60937">ft_exit_int</a> (int value)</td></tr>
+<tr class="separator:ac9b79e1d2c4ae9dfb91fc86415d60937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b6824bfd4ec0404a4f875ed8db0274e" id="r_a1b6824bfd4ec0404a4f875ed8db0274e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b6824bfd4ec0404a4f875ed8db0274e">__attribute__</a> ((noreturn))</td></tr>
+<tr class="memdesc:a1b6824bfd4ec0404a4f875ed8db0274e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc.  <br /></td></tr>
+<tr class="separator:a1b6824bfd4ec0404a4f875ed8db0274e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a1b6824bfd4ec0404a4f875ed8db0274e" name="a1b6824bfd4ec0404a4f875ed8db0274e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6824bfd4ec0404a4f875ed8db0274e">&#9670;&#160;</a></span>__attribute__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(noreturn)</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>value </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="ft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph.png" border="0" usemap="#aft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph" alt=""/></div>
+<map name="aft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph" id="aft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph">
+<area shape="rect" title="Short ft_exit that uses only int noreturn attribute is to prevent &#45;Wmissing&#45;noreturn flag from flag &#45;..." alt="" coords="5,31,112,56"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="408,31,516,56"/>
+<area shape="poly" title=" " alt="" coords="112,41,394,41,394,46,112,46"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="160,56,232,81"/>
+<area shape="poly" title=" " alt="" coords="113,51,147,57,146,62,112,56"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="564,5,687,31"/>
+<area shape="poly" title=" " alt="" coords="516,32,550,27,551,32,517,38"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="574,55,677,80"/>
+<area shape="poly" title=" " alt="" coords="517,49,561,55,560,60,516,54"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="280,56,360,81"/>
+<area shape="poly" title=" " alt="" coords="232,66,266,66,266,71,232,71"/>
+<area shape="poly" title=" " alt="" coords="360,59,394,53,394,58,361,64"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="adfb8aca255d6ab97f3902cfc0a6639ef" name="adfb8aca255d6ab97f3902cfc0a6639ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adfb8aca255d6ab97f3902cfc0a6639ef">&#9670;&#160;</a></span>ft_exit()</h2>
 
@@ -174,20 +223,37 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="ft__exit_8c_adfb8aca255d6ab97f3902cfc0a6639ef_cgraph.png" border="0" usemap="#aft__exit_8c_adfb8aca255d6ab97f3902cfc0a6639ef_cgraph" alt=""/></div>
 <map name="aft__exit_8c_adfb8aca255d6ab97f3902cfc0a6639ef_cgraph" id="aft__exit_8c_adfb8aca255d6ab97f3902cfc0a6639ef_cgraph">
-<area shape="rect" title="Function to exit the program." alt="" coords="5,79,68,104"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="116,29,224,55"/>
-<area shape="poly" title=" " alt="" coords="67,77,121,57,123,62,69,82"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="134,79,206,104"/>
-<area shape="poly" title=" " alt="" coords="68,89,120,89,120,94,68,94"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="272,5,395,31"/>
-<area shape="poly" title=" " alt="" coords="224,31,258,26,259,32,225,37"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="282,55,385,80"/>
-<area shape="poly" title=" " alt="" coords="225,48,269,55,268,60,224,53"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="293,104,373,129"/>
-<area shape="poly" title=" " alt="" coords="207,94,280,106,280,111,206,99"/>
-<area shape="poly" title=" " alt="" coords="293,123,211,126,163,124,116,119,80,111,82,105,116,114,164,119,211,121,293,118"/>
+<area shape="rect" title="Function to exit the program." alt="" coords="5,31,68,56"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="364,31,472,56"/>
+<area shape="poly" title=" " alt="" coords="68,41,350,41,350,46,68,46"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="116,56,188,81"/>
+<area shape="poly" title=" " alt="" coords="69,48,103,55,102,60,68,53"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="520,5,643,31"/>
+<area shape="poly" title=" " alt="" coords="472,32,506,27,507,32,473,38"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="530,55,633,80"/>
+<area shape="poly" title=" " alt="" coords="473,49,517,55,516,60,472,54"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="236,56,316,81"/>
+<area shape="poly" title=" " alt="" coords="188,66,222,66,222,71,188,71"/>
+<area shape="poly" title=" " alt="" coords="316,59,350,53,350,58,317,64"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ac9b79e1d2c4ae9dfb91fc86415d60937" name="ac9b79e1d2c4ae9dfb91fc86415d60937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9b79e1d2c4ae9dfb91fc86415d60937">&#9670;&#160;</a></span>ft_exit_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ft_exit_int </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['signals_2ec_0',['signals.c',['../signals_8c.html',1,'']]],
-  ['sort_5fenv_2ec_1',['sort_env.c',['../sort__env_8c.html',1,'']]]
+  ['read_5fcontext_2ec_0',['read_context.c',['../read__context_8c.html',1,'']]]
 ];

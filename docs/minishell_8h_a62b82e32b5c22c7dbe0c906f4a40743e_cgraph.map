@@ -1,0 +1,16 @@
+<map id="print_commands" name="print_commands">
+<area shape="rect" id="Node000001" title="Print the commands structure with it&#39;s tokens." alt="" coords="5,31,136,56"/>
+<area shape="rect" id="Node000002" href="$command-utils_8c.html#a458910531201e249c945c6658fc553f3" title="Print the command structure with it&#39;s tokens." alt="" coords="184,5,308,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,31,170,26,171,32,137,37"/>
+<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="356,31,428,56"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="136,41,342,41,342,46,136,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="309,26,343,32,342,37,308,31"/>
+<area shape="rect" id="Node000004" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="476,31,556,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="428,41,462,41,462,46,428,46"/>
+<area shape="rect" id="Node000005" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="604,31,712,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="556,41,590,41,590,46,556,46"/>
+<area shape="rect" id="Node000006" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="760,5,883,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="712,32,746,27,747,32,713,38"/>
+<area shape="rect" id="Node000007" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="770,55,873,80"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="713,49,757,55,756,60,712,54"/>
+</map>

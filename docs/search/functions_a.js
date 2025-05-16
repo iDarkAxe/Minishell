@@ -1,13 +1,6 @@
 var searchData=
 [
-  ['parse_5fline_0',['parse_line',['../parsing_8c.html#a56ea9141fcf52f2f643d0f1d49df49b1',1,'parse_line(char *line):&#160;parsing.c'],['../minishell_8h.html#a56ea9141fcf52f2f643d0f1d49df49b1',1,'parse_line(char *line):&#160;parsing.c']]],
-  ['parsing_5ftests_1',['parsing_tests',['../testing__parsing__quotes__double_8c.html#a00ac714074da8d3bc860c4a9867ab873',1,'parsing_tests(void):&#160;testing_parsing_quotes_double.c'],['../tests_8h.html#a00ac714074da8d3bc860c4a9867ab873',1,'parsing_tests(void):&#160;testing_parsing_quotes_double.c']]],
-  ['print_5farray_2',['print_array',['../testing__lexer_8c.html#a813b70bd80a5a6e4d814ed1791f76ffe',1,'testing_lexer.c']]],
-  ['print_5fcommand_3',['print_command',['../command-utils_8c.html#a458910531201e249c945c6658fc553f3',1,'print_command(t_command *command):&#160;command-utils.c'],['../minishell_8h.html#a458910531201e249c945c6658fc553f3',1,'print_command(t_command *command):&#160;command-utils.c']]],
-  ['print_5ffd_4',['print_fd',['../ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256',1,'print_fd(int fd, const char *str):&#160;ft_print_fd.c'],['../minishell_8h.html#a83d60bda304c83066c08e732475da256',1,'print_fd(int fd, const char *str):&#160;ft_print_fd.c']]],
-  ['print_5fgarbage_5',['print_garbage',['../garbage__utils_8c.html#a5f9b5b365eefa7c75463f56efc3221b1',1,'print_garbage(void):&#160;garbage_utils.c'],['../garbage_8h.html#a5f9b5b365eefa7c75463f56efc3221b1',1,'print_garbage(void):&#160;garbage_utils.c']]],
-  ['print_5flist_5ffiles_6',['print_list_files',['../file__print_8c.html#a6a08a2a993c1ebd5f5c8244a1cce9cca',1,'print_list_files(t_command *command):&#160;file_print.c'],['../minishell_8h.html#a6a08a2a993c1ebd5f5c8244a1cce9cca',1,'print_list_files(t_command *command):&#160;file_print.c']]],
-  ['print_5fperm_5ffiles_7',['print_perm_files',['../file__print_8c.html#a064ee60c0299c3381ccd6e0a886b0dbf',1,'print_perm_files(t_command *command):&#160;file_print.c'],['../minishell_8h.html#a064ee60c0299c3381ccd6e0a886b0dbf',1,'print_perm_files(t_command *command):&#160;file_print.c']]],
-  ['print_5ftoks_8',['print_toks',['../token-utils_8c.html#a6b25b98771742fc88ce5c1a1eb340abc',1,'print_toks(char **tokens):&#160;token-utils.c'],['../minishell_8h.html#a6b25b98771742fc88ce5c1a1eb340abc',1,'print_toks(char **tokens):&#160;token-utils.c']]],
-  ['printn_5ffd_9',['printn_fd',['../ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d',1,'printn_fd(int fd, const char *str, size_t len):&#160;ft_print_fd.c'],['../minishell_8h.html#a40e90cbd3b06c953ed05eef76a5f7d5d',1,'printn_fd(int fd, const char *str, size_t len):&#160;ft_print_fd.c']]]
+  ['main_0',['main',['../src_2main_8c.html#a647f21a28344e1d9c643f4115516d7c9',1,'main(int argc, char **argv, char **envp):&#160;main.c'],['../tests_2src_2main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c']]],
+  ['malloc_5fgb_1',['malloc_gb',['../garbage_8c.html#ac7d9105a06c6e2276233f1701e3acef0',1,'malloc_gb(size_t size):&#160;garbage.c'],['../garbage_8h.html#ac7d9105a06c6e2276233f1701e3acef0',1,'malloc_gb(size_t size):&#160;garbage.c']]],
+  ['minishell_2',['minishell',['../minishell_8c.html#ad7ca7d479b97ff09a9cd5b51f2f72122',1,'minishell(char **envp):&#160;minishell.c'],['../minishell_8h.html#ad7ca7d479b97ff09a9cd5b51f2f72122',1,'minishell(char **envp):&#160;minishell.c']]]
 ];

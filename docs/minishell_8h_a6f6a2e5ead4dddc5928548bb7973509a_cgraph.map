@@ -1,0 +1,14 @@
+<map id="create_pipe" name="create_pipe">
+<area shape="rect" id="Node000001" title="Change the previous input of pipe to a new redirection." alt="" coords="5,31,104,56"/>
+<area shape="rect" id="Node000002" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="400,31,508,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,41,386,41,386,46,104,46"/>
+<area shape="rect" id="Node000005" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="152,56,224,81"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="105,50,139,57,138,62,104,55"/>
+<area shape="rect" id="Node000003" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="556,5,679,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="508,32,542,27,543,32,509,38"/>
+<area shape="rect" id="Node000004" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="566,55,669,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="509,49,553,55,552,60,508,54"/>
+<area shape="rect" id="Node000006" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="272,56,352,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="224,66,258,66,258,71,224,71"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="352,59,386,53,386,58,353,64"/>
+</map>

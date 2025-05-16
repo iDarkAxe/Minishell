@@ -1,4 +1,5 @@
 var exec_8c =
 [
-    [ "search_command", "exec_8c.html#a303f76bbbf567cf8a0345b7f1e8ab3c2", null ]
+    [ "prepare_command", "exec_8c.html#a9b41a166a8990409661644c33af4c467", null ],
+    [ "prepare_command_forks", "exec_8c.html#aa12e6d7cfc3b5571e6483e953a2db8df", null ]
 ];

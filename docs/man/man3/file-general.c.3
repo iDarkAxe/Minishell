@@ -6,6 +6,10 @@ src/file/file-general.c
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'fcntl\&.h'\fP
+.br
 \fR#include 'file\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
@@ -22,9 +26,32 @@ src/file/file-general.c
 .RI "int \fBfiles_management\fP (\fBt_command\fP *command)"
 .br
 .RI "Executes all the files redirection tests\&. "
+.ti -1c
+.RI "int \fBopen_file_with_rights\fP (\fBt_file\fP *file, t_bool in_out)"
+.br
+.RI "Open a file with it's rights (permissions) "
+.ti -1c
+.RI "void \fBread_write_to\fP (\fBt_command\fP *command, t_bool in_out)"
+.br
+.RI "Opens the files to read and writes\&. "
+.ti -1c
+.RI "void \fBfd_default\fP (\fBt_command\fP *command)"
+.br
+.RI "Put the fds in command to there default values\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "void fd_default (\fBt_command\fP * command)"
+
+.PP
+Put the fds in command to there default values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
 .SS "int files_management (\fBt_command\fP * command)"
 
 .PP
@@ -38,6 +65,35 @@ Executes all the files redirection tests\&.
 \fBReturns\fP
 .RS 4
 int 0 OK, 1 is at least one file redirection is invalid 
+.RE
+.PP
+
+.SS "int open_file_with_rights (\fBt_file\fP * file, t_bool in_out)"
+
+.PP
+Open a file with it's rights (permissions) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile\fP file structure 
+.br
+\fIin_out\fP 0 = IN, 1 = OUT 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "void read_write_to (\fBt_command\fP * command, t_bool in_out)"
+
+.PP
+Opens the files to read and writes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIin_out\fP 0 = IN, 1 = OUT 
 .RE
 .PP
 

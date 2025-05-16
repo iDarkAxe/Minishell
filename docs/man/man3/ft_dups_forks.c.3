@@ -1,0 +1,80 @@
+.TH "src/exec/ft_dups_forks.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/exec/ft_dups_forks.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'file\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBhandle_redirections_forks\fP (\fBt_command\fP *command)"
+.br
+.RI "Create and redirect inputs and outputs needed for the command\&. "
+.ti -1c
+.RI "void \fBreset_redirection_forks\fP (\fBt_command\fP *command, unsigned char i)"
+.br
+.RI "Reset redirections by default values Replace the new redirections by stdin and stdout\&. "
+.ti -1c
+.RI "int \fBcreate_pipe\fP (\fBt_command\fP *command)"
+.br
+.RI "Change the previous input of pipe to a new redirection\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int create_pipe (\fBt_command\fP * command)"
+
+.PP
+Change the previous input of pipe to a new redirection\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fIin_out\fP 0 = IN, 1 = OUT 
+.RE
+.PP
+
+.SS "int handle_redirections_forks (\fBt_command\fP * command)"
+
+.PP
+Create and redirect inputs and outputs needed for the command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 or positive OK, negative ERROR 
+.RE
+.PP
+
+.SS "void reset_redirection_forks (\fBt_command\fP * command, unsigned char i)"
+
+.PP
+Reset redirections by default values Replace the new redirections by stdin and stdout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fIi\fP value used for recursion 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

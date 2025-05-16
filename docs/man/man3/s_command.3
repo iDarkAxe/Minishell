@@ -18,16 +18,7 @@ s_command
 .RI "\fBt_token\fP * \fBtokens\fP"
 .br
 .ti -1c
-.RI "char * \fBcontent\fP"
-.br
-.ti -1c
 .RI "char ** \fBenvp\fP"
-.br
-.ti -1c
-.RI "char * \fBcommand\fP"
-.br
-.ti -1c
-.RI "t_bool \fBfile_error\fP"
 .br
 .ti -1c
 .RI "\fBt_file\fP * \fBfile_in\fP"
@@ -36,19 +27,28 @@ s_command
 .RI "\fBt_file\fP * \fBfile_out\fP"
 .br
 .ti -1c
-.RI "t_bool \fBis_parsed\fP"
+.RI "int \fBfd\fP [2]"
 .br
 .ti -1c
-.RI "t_bool \fBis_executed\fP"
+.RI "int \fBfd_backup\fP [2]"
+.br
+.ti -1c
+.RI "t_bool \fBfile_error\fP"
+.br
+.ti -1c
+.RI "t_bool \fBparse_error\fP"
+.br
+.ti -1c
+.RI "int \fBreturn_value\fP"
 .br
 .in -1c
 .SH "Field Documentation"
 .PP 
-.SS "char* s_command::command"
-
-.SS "char* s_command::content"
-
 .SS "char** s_command::envp"
+
+.SS "int s_command::fd[2]"
+
+.SS "int s_command::fd_backup[2]"
 
 .SS "t_bool s_command::file_error"
 
@@ -56,11 +56,11 @@ s_command
 
 .SS "\fBt_file\fP* s_command::file_out"
 
-.SS "t_bool s_command::is_executed"
-
-.SS "t_bool s_command::is_parsed"
-
 .SS "struct \fBs_command\fP* s_command::next"
+
+.SS "t_bool s_command::parse_error"
+
+.SS "int s_command::return_value"
 
 .SS "\fBt_token\fP* s_command::tokens"
 

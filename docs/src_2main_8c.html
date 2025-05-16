@@ -112,19 +112,22 @@ $(function(){initNavTree('src_2main_8c.html',''); initResizable(true); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 <code>#include &lt;readline/readline.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="src_2main_8c__incl.png" border="0" usemap="#asrc_2main_8c" alt=""/></div>
 <map name="asrc_2main_8c" id="asrc_2main_8c">
-<area shape="rect" title=": Main program of the Minishell" alt="" coords="427,5,517,31"/>
+<area shape="rect" title=": Main program of the Minishell" alt="" coords="482,5,571,31"/>
 <area shape="rect" href="minishell_8h.html" title=" " alt="" coords="271,79,366,104"/>
-<area shape="poly" title=" " alt="" coords="448,33,357,75,355,70,446,28"/>
+<area shape="poly" title=" " alt="" coords="494,33,366,77,365,72,492,28"/>
 <area shape="rect" href="garbage_8h.html" title=" " alt="" coords="429,79,515,104"/>
-<area shape="poly" title=" " alt="" coords="475,31,475,65,469,65,469,31"/>
-<area shape="rect" title=" " alt="" coords="540,79,684,104"/>
-<area shape="poly" title=" " alt="" coords="496,28,578,70,576,75,493,33"/>
+<area shape="poly" title=" " alt="" coords="520,33,491,69,487,66,516,29"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="540,79,623,104"/>
+<area shape="poly" title=" " alt="" coords="538,29,566,66,562,69,534,33"/>
+<area shape="rect" title=" " alt="" coords="647,79,791,104"/>
+<area shape="poly" title=" " alt="" coords="558,28,675,71,673,76,557,33"/>
 <area shape="rect" title=" " alt="" coords="5,152,64,177"/>
 <area shape="poly" title=" " alt="" coords="272,106,78,154,77,149,271,101"/>
 <area shape="rect" title=" " alt="" coords="89,152,162,177"/>
@@ -184,141 +187,157 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int 0 OK, error otherwise </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="src_2main_8c_a647f21a28344e1d9c643f4115516d7c9_cgraph.png" border="0" usemap="#asrc_2main_8c_a647f21a28344e1d9c643f4115516d7c9_cgraph" alt=""/></div>
 <map name="asrc_2main_8c_a647f21a28344e1d9c643f4115516d7c9_cgraph" id="asrc_2main_8c_a647f21a28344e1d9c643f4115516d7c9_cgraph">
 <area shape="rect" title="Main function." alt="" coords="5,875,60,901"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="1808,498,1916,523"/>
-<area shape="poly" title=" " alt="" coords="32,875,49,693,66,552,92,399,126,251,146,184,169,125,195,75,224,36,255,12,273,5,291,3,1494,3,1538,7,1578,19,1616,38,1650,64,1681,94,1710,128,1758,205,1796,286,1825,365,1858,484,1853,485,1820,367,1792,288,1753,207,1705,131,1677,97,1646,68,1613,43,1576,24,1537,12,1494,8,291,8,274,10,258,16,227,40,200,78,174,127,151,186,131,253,97,400,72,553,54,694,37,875"/>
-<area shape="rect" href="ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="1652,1027,1715,1053"/>
-<area shape="poly" title=" " alt="" coords="38,900,51,1001,66,1073,89,1149,122,1222,142,1254,165,1283,191,1307,221,1326,254,1337,291,1341,897,1341,1003,1339,1092,1330,1170,1316,1241,1296,1311,1268,1383,1233,1557,1140,1614,1101,1659,1061,1662,1065,1617,1105,1560,1145,1386,1238,1313,1273,1243,1301,1171,1321,1093,1336,1003,1344,897,1347,291,1347,253,1342,219,1330,188,1312,161,1287,138,1258,117,1224,84,1151,61,1074,45,1001,32,901"/>
+<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="1552,310,1660,335"/>
+<area shape="poly" title=" " alt="" coords="33,875,57,693,80,552,112,399,152,251,176,184,202,125,230,75,260,36,293,12,311,5,329,3,1334,3,1389,8,1431,26,1467,55,1506,97,1543,147,1570,202,1589,254,1601,296,1596,297,1584,256,1565,204,1538,150,1502,100,1463,59,1428,31,1388,14,1334,8,329,8,312,10,296,16,264,40,234,78,206,127,181,186,158,253,117,400,86,553,62,694,38,876"/>
+<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="1289,1062,1376,1087"/>
+<area shape="poly" title=" " alt="" coords="36,901,36,957,39,1045,49,1153,70,1269,85,1326,105,1381,128,1431,157,1475,191,1513,231,1541,277,1559,329,1565,994,1565,1073,1560,1105,1553,1134,1541,1160,1526,1186,1505,1239,1446,1268,1404,1289,1357,1305,1308,1317,1259,1328,1168,1330,1101,1335,1101,1333,1168,1322,1260,1310,1310,1294,1359,1272,1407,1243,1450,1189,1509,1163,1530,1136,1546,1107,1558,1074,1565,994,1571,329,1571,275,1564,228,1546,188,1516,153,1479,124,1434,100,1383,80,1328,64,1270,44,1154,33,1045,30,957,31,901"/>
 <area shape="rect" href="minishell_8c.html#ad7ca7d479b97ff09a9cd5b51f2f72122" title="Minishell that handles all the shell functions." alt="" coords="108,875,191,901"/>
 <area shape="poly" title=" " alt="" coords="60,885,94,885,94,891,60,891"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1964,523,2087,549"/>
-<area shape="poly" title=" " alt="" coords="1917,516,1951,522,1950,527,1916,522"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1974,474,2077,499"/>
-<area shape="poly" title=" " alt="" coords="1916,500,1960,494,1961,499,1917,505"/>
-<area shape="poly" title=" " alt="" coords="1687,1026,1757,838,1812,666,1851,536,1856,538,1817,668,1763,840,1692,1028"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="1826,1190,1898,1215"/>
-<area shape="poly" title=" " alt="" coords="1700,1051,1839,1179,1835,1183,1697,1055"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="1985,1190,2065,1215"/>
-<area shape="poly" title=" " alt="" coords="1898,1200,1972,1200,1972,1205,1898,1205"/>
-<area shape="poly" title=" " alt="" coords="1996,1192,1722,1061,1725,1056,1999,1188"/>
-<area shape="poly" title=" " alt="" coords="163,899,208,947,281,1010,325,1040,373,1065,424,1082,477,1088,1299,1088,1394,1084,1488,1073,1638,1047,1639,1052,1489,1078,1395,1089,1299,1093,477,1093,423,1087,371,1070,322,1045,277,1014,204,951,159,902"/>
-<area shape="rect" href="file-general_8c.html#a10f667b9195d628dbd100d85909dbdc6" title="Executes all the files redirection tests." alt="" coords="612,523,755,549"/>
-<area shape="poly" title=" " alt="" coords="169,873,650,554,653,558,172,877"/>
-<area shape="rect" href="ft__free_8c.html#a6d2d7fe72f2767b7f24f220646b985b7" title="Free t_command linked list structure with all that it contains." alt="" coords="836,195,956,221"/>
-<area shape="poly" title=" " alt="" coords="148,875,148,757,157,572,167,475,183,385,206,312,220,284,237,263,270,236,305,214,343,195,383,181,466,163,551,156,635,158,713,166,837,189,836,195,712,171,634,163,552,161,467,168,384,186,345,200,308,218,273,241,241,267,225,287,211,314,189,386,173,475,162,572,153,757,153,875"/>
-<area shape="rect" href="ft__free_8c.html#a81a8163a838ff55d33697de5148af1d4" title="Free array of strings." alt="" coords="1058,623,1147,649"/>
-<area shape="poly" title=" " alt="" coords="149,875,163,745,181,648,209,545,228,495,251,446,277,402,308,362,343,329,382,303,427,287,477,281,685,281,732,279,775,272,850,259,885,258,920,264,955,279,991,307,1007,325,1019,343,1029,380,1028,418,1021,455,1014,494,1011,532,1018,570,1026,590,1039,609,1048,617,1044,621,1035,612,1022,592,1012,572,1005,532,1008,493,1016,454,1023,417,1024,381,1014,346,1003,328,988,311,952,284,918,269,885,263,851,265,776,278,733,284,685,287,477,287,428,292,385,308,346,333,312,366,282,405,256,449,233,497,214,547,186,650,168,746,154,875"/>
-<area shape="rect" href="parsing_8c.html#a56ea9141fcf52f2f643d0f1d49df49b1" title="Prototype for parsing." alt="" coords="639,875,728,901"/>
-<area shape="poly" title=" " alt="" coords="191,885,625,885,625,891,191,891"/>
-<area shape="rect" href="read__context_8c.html#ab1f4f3b0fcc821e93ad781288884191a" title="Function to read the context where this function is called Verify if it&#39;s used in a tty or not." alt="" coords="239,901,345,926"/>
-<area shape="poly" title=" " alt="" coords="191,893,226,899,225,904,190,898"/>
-<area shape="rect" href="exec_8c.html#a303f76bbbf567cf8a0345b7f1e8ab3c2" title="Search if command is a builtin or not." alt="" coords="827,1129,965,1154"/>
-<area shape="poly" title=" " alt="" coords="154,901,159,942,172,1000,183,1030,198,1059,217,1086,240,1107,276,1129,313,1148,393,1174,476,1188,560,1191,642,1188,717,1179,836,1155,837,1160,718,1184,642,1193,560,1197,476,1193,392,1179,311,1153,273,1134,237,1111,213,1089,193,1062,178,1032,167,1001,153,943,149,901"/>
-<area shape="rect" href="tokens_8c.html#a8693b6e8f10282904e8a79bf6e9e66f7" title="Creates a t_command structure that contains all the tokens Fills the command with the environment." alt="" coords="642,1027,725,1053"/>
-<area shape="poly" title=" " alt="" coords="171,899,203,917,240,935,345,970,453,997,629,1030,628,1035,452,1002,344,975,238,940,200,922,168,903"/>
-<area shape="rect" href="minishell_8c.html#a1846ab664f4b00200f00edee462a5b32" title="Prototype for reading stdin." alt="" coords="1057,93,1148,118"/>
-<area shape="poly" title=" " alt="" coords="148,875,150,752,160,554,171,448,187,350,208,269,221,237,237,212,262,182,288,161,314,146,341,136,402,128,477,128,685,128,882,121,1043,108,1043,114,882,126,685,133,477,133,403,134,342,141,316,151,291,165,266,186,241,215,226,239,213,270,192,352,176,449,166,554,155,752,153,875"/>
-<area shape="rect" href="signals_8c.html#a158e46ae40ca894b730badc8fbbefb2d" title="Main function for initialising signals." alt="" coords="247,1230,337,1255"/>
-<area shape="poly" title=" " alt="" coords="156,900,186,1009,210,1084,241,1159,276,1217,271,1220,236,1161,205,1086,180,1010,151,902"/>
-<area shape="poly" title=" " alt="" coords="742,521,753,514,764,502,770,489,774,461,780,433,788,420,801,408,838,391,884,379,939,372,1000,369,1137,375,1287,391,1438,416,1581,443,1798,492,1797,497,1580,448,1437,421,1286,397,1137,380,1000,374,939,377,885,384,840,396,804,413,792,424,785,435,780,462,775,490,768,504,756,518,745,525"/>
-<area shape="poly" title=" " alt="" coords="695,547,737,602,768,632,804,658,884,696,955,718,1021,729,1085,734,1150,737,1218,744,1294,759,1380,787,1434,810,1476,832,1514,858,1560,895,1622,957,1667,1014,1663,1018,1618,961,1557,899,1511,862,1473,836,1432,815,1378,792,1293,764,1218,749,1149,742,1085,739,1021,735,954,724,882,701,801,662,765,636,733,605,691,551"/>
-<area shape="poly" title=" " alt="" coords="755,533,983,536,1131,543,1286,555,1438,574,1575,601,1634,618,1686,638,1729,660,1762,686,1786,724,1807,780,1823,848,1836,922,1854,1069,1862,1176,1857,1176,1848,1070,1831,923,1818,849,1801,781,1782,726,1758,690,1726,665,1684,643,1633,623,1573,606,1437,579,1285,560,1130,548,983,541,755,538"/>
-<area shape="rect" href="file__build_8c.html#a9df4316381acdd90a01028b353b7fbe2" title="Build the data around the files in all commands." alt="" coords="834,473,958,498"/>
-<area shape="poly" title=" " alt="" coords="737,521,828,499,830,504,738,526"/>
-<area shape="rect" href="file__build_8c.html#ac5a0da0bf85768276a02056ecbcd427e" title="Adds files to the file redirection structure." alt="" coords="813,423,979,449"/>
-<area shape="poly" title=" " alt="" coords="699,521,744,489,802,458,820,450,822,455,804,462,747,494,702,525"/>
-<area shape="rect" href="heredoc_8c.html#a1ec1914b226d225d90cb2795cd2d2e90" title="Fill all the heredocs in the correct order." alt="" coords="844,574,948,599"/>
-<area shape="poly" title=" " alt="" coords="738,546,831,569,830,574,737,551"/>
-<area shape="poly" title=" " alt="" coords="688,522,730,430,763,368,800,308,835,265,869,229,873,232,839,268,805,311,767,371,735,432,692,524"/>
-<area shape="rect" href="ft__file__tokens_8c.html#aceda81416f5b877fc7d910fa044210e3" title="Removes all the tokens of file redirections allready used." alt="" coords="803,623,989,649"/>
-<area shape="poly" title=" " alt="" coords="703,547,747,577,804,608,826,617,824,622,802,613,744,582,700,551"/>
-<area shape="rect" href="file__verify__access_8c.html#ac70638e4b2de9819fb99c97318fc767b" title="Verify that all files are valid." alt="" coords="841,322,951,347"/>
-<area shape="poly" title=" " alt="" coords="688,522,703,490,728,448,761,403,801,365,826,350,829,355,804,369,765,407,732,451,708,493,693,524"/>
-<area shape="rect" href="file_8c.html#a4b215113117c1f2ed4a512d445c9c8ef" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="1261,498,1334,523"/>
-<area shape="poly" title=" " alt="" coords="966,446,1248,499,1247,504,965,451"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="1429,701,1556,726"/>
-<area shape="poly" title=" " alt="" coords="1313,522,1472,689,1468,693,1309,525"/>
-<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="1427,270,1559,295"/>
-<area shape="poly" title=" " alt="" coords="1308,496,1470,304,1474,307,1312,499"/>
-<area shape="poly" title=" " alt="" coords="1512,698,1605,642,1821,527,1824,532,1608,646,1515,703"/>
-<area shape="poly" title=" " alt="" coords="1551,698,1666,670,1759,642,1819,609,1861,578,1904,544,1963,508,1975,502,1977,507,1965,513,1907,549,1865,582,1822,614,1761,646,1668,675,1553,703"/>
-<area shape="poly" title=" " alt="" coords="1532,724,1561,744,1584,785,1616,861,1675,1013,1670,1015,1611,863,1579,788,1557,747,1529,728"/>
-<area shape="poly" title=" " alt="" coords="1550,723,1678,756,1732,773,1762,787,1782,818,1799,861,1828,973,1849,1089,1860,1176,1855,1177,1843,1089,1823,974,1794,863,1777,820,1758,791,1730,778,1676,761,1549,729"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="1607,701,1760,726"/>
-<area shape="poly" title=" " alt="" coords="1556,711,1593,711,1593,716,1556,716"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="1624,802,1743,827"/>
-<area shape="poly" title=" " alt="" coords="1524,724,1560,743,1584,762,1608,780,1636,794,1633,799,1605,785,1581,766,1557,748,1522,728"/>
-<area shape="poly" title=" " alt="" coords="1528,293,1979,467,1977,472,1526,298"/>
-<area shape="rect" href="file__verify__access_8c.html#a1adf8592e56806396e71d927d3268ff7" title="Return the last file that is not already_searched." alt="" coords="1041,574,1164,599"/>
-<area shape="poly" title=" " alt="" coords="948,584,1028,584,1028,589,948,589"/>
-<area shape="poly" title=" " alt="" coords="956,207,1145,220,1262,232,1379,249,1439,264,1437,269,1378,255,1262,237,1145,225,956,213"/>
-<area shape="rect" href="ft__free_8c.html#aaaf83908a0c250dd3790b2606ea2b256" title="Free linked list of t_file structure." alt="" coords="1039,245,1166,270"/>
-<area shape="poly" title=" " alt="" coords="950,218,1036,239,1035,244,949,223"/>
-<area shape="rect" href="ft__free_8c.html#ab3d9f0b7ddaf8661f8a3b3243d33bce7" title="Free t_tokens linked list structure." alt="" coords="1248,143,1347,169"/>
-<area shape="poly" title=" " alt="" coords="956,197,1037,185,1234,161,1235,166,1038,191,957,202"/>
-<area shape="poly" title=" " alt="" coords="1166,259,1413,275,1412,280,1166,264"/>
-<area shape="rect" href="ft__free_8c.html#a9658bc2cc155c121d2bc924b4a4dad3b" title="Free heredoc structure." alt="" coords="1244,295,1351,321"/>
-<area shape="poly" title=" " alt="" coords="1153,268,1235,289,1234,294,1152,273"/>
-<area shape="poly" title=" " alt="" coords="1350,299,1413,290,1413,296,1351,304"/>
-<area shape="poly" title=" " alt="" coords="1339,166,1380,186,1430,222,1471,258,1467,262,1427,226,1377,190,1337,171"/>
-<area shape="poly" title=" " alt="" coords="1146,622,1166,609,1178,594,1186,579,1192,549,1197,518,1203,501,1214,484,1271,423,1336,370,1399,329,1452,299,1454,304,1402,333,1339,375,1274,426,1218,487,1208,504,1202,520,1197,550,1191,581,1183,596,1170,613,1149,627"/>
-<area shape="poly" title=" " alt="" coords="716,898,784,924,879,953,989,977,1045,984,1101,987,1299,987,1395,991,1489,1002,1639,1028,1638,1033,1488,1007,1394,996,1299,992,1101,992,1045,989,988,982,878,958,783,929,714,903"/>
-<area shape="poly" title=" " alt="" coords="723,873,753,858,767,846,776,834,786,822,801,811,852,791,894,785,937,781,988,767,1184,651,1377,533,1417,476,1448,413,1469,355,1483,308,1488,310,1474,356,1453,416,1422,479,1380,537,1187,656,990,772,938,787,895,791,853,796,804,816,790,826,780,838,771,850,756,862,725,878"/>
-<area shape="rect" href="expand__home_8c.html#ae1f15b6e2943451133d29e5b2d80105f" title="Expands all the tildes found in array with HOME." alt="" coords="815,826,977,851"/>
-<area shape="poly" title=" " alt="" coords="728,875,827,852,828,857,729,880"/>
-<area shape="rect" href="lexer_8c.html#a8fdf8761d0f58bc2b54b3a1edf6a4430" title="Create tokens (small chunks) a line with the quotes and operators." alt="" coords="869,875,923,901"/>
-<area shape="poly" title=" " alt="" coords="728,885,855,885,855,891,728,891"/>
-<area shape="poly" title=" " alt="" coords="977,834,1095,837,1244,851,1324,864,1405,882,1484,906,1560,936,1590,953,1618,974,1663,1015,1659,1019,1615,978,1587,958,1558,941,1482,911,1403,887,1323,869,1243,856,1095,842,977,839"/>
-<area shape="poly" title=" " alt="" coords="908,824,1077,656,1081,660,912,828"/>
-<area shape="rect" href="lexer-utils_8c.html#ae2c6c49c42b5a9b4f447564ed2ec6514" title="Allocate memory for a string and copy the content from src." alt="" coords="1048,775,1157,801"/>
-<area shape="poly" title=" " alt="" coords="923,881,955,872,988,860,1034,835,1073,807,1076,812,1037,839,990,865,956,878,924,886"/>
-<area shape="rect" href="lexer-utils_8c.html#aed920c4ccf5ae57509ab4f9ca6fdc2db" title="Is |, &lt; or &gt;" alt="" coords="1037,877,1168,902"/>
-<area shape="poly" title=" " alt="" coords="924,886,1023,886,1023,891,924,891"/>
-<area shape="rect" href="garbage_8c.html#ac7d9105a06c6e2276233f1701e3acef0" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="1253,650,1342,675"/>
-<area shape="poly" title=" " alt="" coords="1135,773,1166,754,1181,739,1189,724,1198,708,1214,693,1239,678,1241,683,1218,697,1203,712,1194,726,1185,742,1170,758,1138,778"/>
-<area shape="poly" title=" " alt="" coords="1343,672,1431,695,1429,700,1342,677"/>
-<area shape="rect" href="read__context_8c.html#a31b04153c75343c71abd2b9a5cdc1b0a" title="Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell..." alt="" coords="393,901,564,926"/>
-<area shape="poly" title=" " alt="" coords="346,911,380,911,380,916,346,916"/>
-<area shape="poly" title=" " alt="" coords="555,923,651,942,755,967,803,983,951,1023,1016,1034,1101,1037,1299,1037,1638,1037,1638,1043,1299,1043,1101,1043,1016,1039,950,1028,802,988,754,972,650,947,554,929"/>
-<area shape="poly" title=" " alt="" coords="485,899,666,560,671,562,489,902"/>
-<area shape="poly" title=" " alt="" coords="479,900,492,837,517,738,556,622,581,564,610,509,639,464,673,420,744,340,813,274,866,227,870,231,817,278,748,343,677,423,644,467,614,512,585,567,561,624,522,740,497,838,485,901"/>
-<area shape="poly" title=" " alt="" coords="508,898,1060,652,1062,657,510,903"/>
-<area shape="poly" title=" " alt="" coords="564,900,625,892,626,898,565,905"/>
-<area shape="poly" title=" " alt="" coords="518,924,655,972,756,1012,782,1033,805,1057,872,1118,869,1122,801,1061,778,1037,753,1017,653,977,516,929"/>
-<area shape="poly" title=" " alt="" coords="497,924,548,962,613,1006,639,1019,637,1024,611,1010,545,967,494,928"/>
-<area shape="poly" title=" " alt="" coords="965,1145,1079,1152,1228,1152,1310,1148,1394,1140,1477,1126,1558,1107,1609,1085,1652,1059,1655,1063,1612,1090,1559,1112,1478,1131,1395,1145,1311,1153,1229,1158,1079,1157,965,1151"/>
-<area shape="rect" href="ft__echo_8c.html#a6c355e143a5addbcb4b61c74911f598c" title="Echo with &#45;n option Delimitor is the character to print between tokens OPTIONS : &#45;n : print without t..." alt="" coords="1649,1342,1718,1367"/>
-<area shape="poly" title=" " alt="" coords="916,1152,970,1189,1039,1228,1143,1279,1227,1315,1313,1341,1427,1364,1482,1370,1538,1370,1634,1360,1635,1366,1538,1375,1482,1375,1426,1369,1312,1346,1225,1320,1141,1284,1036,1233,967,1193,913,1156"/>
-<area shape="rect" href="ft__which_8c.html#aa7aad378dd77466bd445355193908de3" title="Says if the command are built&#45;in commands or not." alt="" coords="1455,1279,1531,1305"/>
-<area shape="poly" title=" " alt="" coords="930,1152,1038,1189,1150,1219,1263,1245,1442,1281,1441,1286,1261,1250,1149,1224,1037,1195,928,1157"/>
-<area shape="rect" href="exec__extern_8c.html#a521da36622246e2b19debf611d185614" title="Executes commands that are not builtins." alt="" coords="1053,926,1152,951"/>
-<area shape="poly" title=" " alt="" coords="908,1127,1077,959,1081,963,912,1131"/>
-<area shape="rect" href="command-utils_8c.html#a458910531201e249c945c6658fc553f3" title="Print the command structure with it&#39;s tokens." alt="" coords="1431,1230,1555,1255"/>
-<area shape="poly" title=" " alt="" coords="965,1150,1418,1227,1417,1233,964,1155"/>
-<area shape="poly" title=" " alt="" coords="1717,1342,1759,1320,1784,1298,1808,1273,1843,1225,1848,1228,1812,1276,1788,1302,1761,1325,1720,1347"/>
-<area shape="poly" title=" " alt="" coords="1717,1340,1759,1324,1884,1268,1985,1219,1987,1224,1886,1273,1761,1329,1719,1345"/>
-<area shape="poly" title=" " alt="" coords="1530,1283,1634,1262,1759,1232,1812,1216,1814,1221,1761,1237,1635,1267,1531,1288"/>
-<area shape="poly" title=" " alt="" coords="1152,933,1231,930,1333,933,1447,944,1504,954,1560,968,1612,990,1655,1017,1652,1022,1609,995,1558,973,1503,959,1446,949,1333,938,1231,936,1152,938"/>
-<area shape="poly" title=" " alt="" coords="1149,924,1166,911,1178,896,1184,881,1189,850,1193,819,1201,803,1214,787,1260,756,1313,734,1366,721,1415,713,1416,719,1367,726,1314,739,1263,760,1218,791,1205,806,1198,820,1194,851,1189,883,1183,899,1170,915,1152,928"/>
-<area shape="rect" href="token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="1253,802,1341,827"/>
-<area shape="poly" title=" " alt="" coords="1140,923,1167,911,1224,873,1270,835,1273,839,1227,877,1169,916,1143,928"/>
-<area shape="poly" title=" " alt="" coords="1322,799,1454,730,1456,735,1324,804"/>
-<area shape="poly" title=" " alt="" coords="1555,1233,1812,1205,1813,1211,1555,1239"/>
-<area shape="poly" title=" " alt="" coords="1113,117,1170,231,1192,283,1202,305,1218,330,1260,377,1299,407,1338,437,1381,484,1416,538,1445,594,1485,687,1480,689,1440,596,1411,540,1377,487,1335,441,1296,411,1256,381,1214,334,1197,307,1187,285,1166,233,1108,119"/>
-<area shape="poly" title=" " alt="" coords="1132,90,1182,73,1246,59,1280,56,1315,58,1348,65,1380,79,1403,96,1423,117,1455,165,1476,214,1488,255,1483,257,1471,216,1450,167,1419,120,1400,100,1377,84,1347,70,1314,63,1280,62,1246,64,1183,78,1134,95"/>
-<area shape="rect" href="prompt_8c.html#a63ff3846ca785b883cdd75302c2fa1c2" title="Build the prompt message If an error occurs, returns the static default prompt message." alt="" coords="1216,94,1379,119"/>
-<area shape="poly" title=" " alt="" coords="1148,103,1202,103,1202,109,1148,108"/>
-<area shape="poly" title=" " alt="" coords="1358,117,1380,128,1414,158,1442,192,1482,256,1477,259,1438,195,1410,162,1377,133,1356,122"/>
-<area shape="rect" href="signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="1434,1329,1551,1354"/>
-<area shape="poly" title=" " alt="" coords="313,1253,372,1290,461,1336,513,1358,568,1375,625,1388,682,1392,1104,1392,1190,1388,1275,1379,1421,1354,1422,1359,1276,1384,1190,1394,1104,1397,682,1397,624,1393,567,1381,511,1363,458,1341,369,1295,310,1258"/>
-<area shape="poly" title=" " alt="" coords="1541,1326,1557,1315,1583,1287,1605,1255,1640,1185,1662,1118,1675,1066,1680,1067,1667,1119,1645,1187,1610,1257,1587,1290,1560,1319,1544,1331"/>
-<area shape="poly" title=" " alt="" coords="1551,1331,1650,1310,1706,1293,1759,1272,1800,1249,1834,1222,1837,1227,1803,1253,1761,1277,1707,1298,1652,1315,1552,1336"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1708,310,1831,335"/>
+<area shape="poly" title=" " alt="" coords="1660,320,1694,320,1694,325,1660,325"/>
+<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1718,910,1821,935"/>
+<area shape="poly" title=" " alt="" coords="1613,335,1764,896,1758,897,1608,336"/>
+<area shape="rect" href="file-general_8c.html#a10f667b9195d628dbd100d85909dbdc6" title="Executes all the files redirection tests." alt="" coords="485,293,627,318"/>
+<area shape="poly" title=" " alt="" coords="148,875,153,779,167,630,178,552,193,480,213,421,224,398,237,381,261,359,288,341,349,317,412,304,470,300,471,305,413,309,350,322,291,346,264,363,241,384,228,401,217,423,198,482,184,553,172,631,159,779,154,875"/>
+<area shape="rect" href="ft__free_8c.html#a81a8163a838ff55d33697de5148af1d4" title="Free array of strings." alt="" coords="738,1302,827,1327"/>
+<area shape="poly" title=" " alt="" coords="154,901,162,980,178,1097,190,1157,204,1213,221,1258,241,1288,266,1310,295,1328,325,1343,357,1354,425,1367,495,1370,563,1365,627,1355,731,1329,732,1334,629,1360,564,1370,495,1375,424,1372,356,1359,323,1348,292,1333,263,1314,237,1291,216,1260,199,1214,185,1158,173,1098,157,980,149,901"/>
+<area shape="rect" href="ft__free_8c.html#a6d2d7fe72f2767b7f24f220646b985b7" title="Free t_command linked list structure with all that it contains." alt="" coords="271,1631,391,1657"/>
+<area shape="poly" title=" " alt="" coords="153,901,156,989,167,1135,178,1222,194,1313,214,1403,241,1491,257,1527,276,1562,313,1619,309,1622,271,1565,252,1530,236,1493,209,1405,188,1314,173,1223,162,1136,151,989,148,901"/>
+<area shape="rect" href="exec__in__forks_8c.html#ae7e5622ddd6021aa2b6b5bbf46294de6" title="Check if it needs to be forked." alt="" coords="255,445,407,470"/>
+<area shape="poly" title=" " alt="" coords="149,875,158,797,175,681,201,566,218,519,237,488,253,474,256,478,241,491,222,522,206,567,180,682,163,798,154,876"/>
+<area shape="rect" href="parsing_8c.html#a56ea9141fcf52f2f643d0f1d49df49b1" title="Prototype for parsing." alt="" coords="286,1251,375,1277"/>
+<area shape="poly" title=" " alt="" coords="159,900,320,1238,315,1240,154,902"/>
+<area shape="rect" href="exec_8c.html#a9b41a166a8990409661644c33af4c467" title="Prepare the command for search_command()" alt="" coords="484,951,628,977"/>
+<area shape="poly" title=" " alt="" coords="191,893,474,946,473,951,190,898"/>
+<area shape="rect" href="exec_8c.html#aa12e6d7cfc3b5571e6483e953a2db8df" title=" " alt="" coords="239,850,423,875"/>
+<area shape="poly" title=" " alt="" coords="190,880,226,875,227,880,191,885"/>
+<area shape="rect" href="signals_8c.html#a158e46ae40ca894b730badc8fbbefb2d" title="Main function for initialising signals." alt="" coords="948,486,1037,511"/>
+<area shape="poly" title=" " alt="" coords="158,873,201,819,271,740,315,697,363,654,415,615,469,582,529,554,593,533,658,517,722,506,841,495,934,494,935,499,841,500,723,511,659,522,594,538,531,559,472,586,418,620,367,658,319,700,275,743,205,823,162,877"/>
+<area shape="rect" href="read__context_8c.html#ab1f4f3b0fcc821e93ad781288884191a" title="Function to read the context where this function is called Verify if it&#39;s used in a tty or not." alt="" coords="277,395,384,421"/>
+<area shape="poly" title=" " alt="" coords="149,875,155,787,170,653,182,584,197,519,215,466,237,430,262,414,265,418,241,434,219,469,202,521,187,585,176,654,160,787,154,875"/>
+<area shape="rect" href="tokens_8c.html#a8693b6e8f10282904e8a79bf6e9e66f7" title="Creates a t_command structure that contains all the tokens Fills the command with the environment." alt="" coords="289,1454,372,1479"/>
+<area shape="poly" title=" " alt="" coords="154,901,158,1004,172,1164,183,1248,198,1325,217,1390,228,1414,241,1433,257,1447,277,1456,275,1461,254,1451,237,1436,224,1417,212,1391,193,1327,178,1249,166,1165,153,1004,148,901"/>
+<area shape="poly" title=" " alt="" coords="561,291,578,258,606,215,643,169,688,130,765,86,798,72,831,63,902,54,991,53,1334,53,1384,61,1429,82,1470,113,1506,150,1537,190,1562,230,1596,296,1591,299,1557,233,1532,193,1502,153,1467,117,1427,87,1382,66,1334,59,991,59,902,60,832,68,800,77,767,90,691,134,646,172,610,218,583,261,566,294"/>
+<area shape="poly" title=" " alt="" coords="576,316,609,344,643,381,660,408,668,431,677,453,692,480,717,513,741,539,788,579,833,621,856,648,878,684,889,708,894,730,897,769,903,806,911,824,926,844,942,858,957,866,989,873,1024,878,1043,884,1063,895,1078,908,1088,919,1111,945,1158,978,1207,1008,1293,1054,1290,1058,1204,1012,1155,982,1108,949,1084,923,1074,911,1060,900,1041,889,1023,883,988,878,956,871,939,862,922,847,907,827,898,807,892,769,889,730,884,709,874,687,851,652,829,624,784,583,737,543,713,517,687,483,672,456,663,432,655,410,639,384,606,348,573,320"/>
+<area shape="rect" href="file__build_8c.html#a9df4316381acdd90a01028b353b7fbe2" title="Build the data around the files in all commands." alt="" coords="721,194,845,219"/>
+<area shape="poly" title=" " alt="" coords="575,290,625,260,688,228,709,221,711,226,690,233,627,264,578,295"/>
+<area shape="rect" href="file__build_8c.html#ac5a0da0bf85768276a02056ecbcd427e" title="Adds files to the file redirection structure." alt="" coords="700,445,865,470"/>
+<area shape="poly" title=" " alt="" coords="578,316,752,434,749,439,575,320"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="1297,511,1369,537"/>
+<area shape="poly" title=" " alt="" coords="627,315,690,327,812,342,971,359,1127,383,1192,400,1243,420,1266,437,1287,457,1319,498,1314,501,1283,461,1263,441,1240,425,1191,405,1126,388,970,364,812,347,689,332,626,321"/>
+<area shape="rect" href="heredoc_8c.html#a1ec1914b226d225d90cb2795cd2d2e90" title="Fill all the heredocs in the correct order." alt="" coords="731,293,835,318"/>
+<area shape="poly" title=" " alt="" coords="628,303,717,303,717,308,628,308"/>
+<area shape="rect" href="ft__file__tokens_8c.html#aceda81416f5b877fc7d910fa044210e3" title="Removes all the tokens of file redirections allready used." alt="" coords="689,243,876,269"/>
+<area shape="poly" title=" " alt="" coords="614,290,710,269,711,274,616,295"/>
+<area shape="rect" href="file__verify__access_8c.html#ac70638e4b2de9819fb99c97318fc767b" title="Verify that all files are valid if at least one file is invalid, modifies the boolean in command but ..." alt="" coords="727,145,838,170"/>
+<area shape="poly" title=" " alt="" coords="565,291,614,237,649,206,688,179,713,168,715,173,691,184,652,210,617,241,569,294"/>
+<area shape="rect" href="file_8c.html#a4b215113117c1f2ed4a512d445c9c8ef" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="956,809,1029,834"/>
+<area shape="poly" title=" " alt="" coords="793,469,878,640,900,693,926,743,971,797,967,801,922,745,896,695,874,642,788,471"/>
+<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="1112,910,1239,935"/>
+<area shape="poly" title=" " alt="" coords="1027,832,1063,851,1087,874,1111,895,1123,902,1121,907,1108,900,1083,878,1060,855,1025,836"/>
+<area shape="poly" title=" " alt="" coords="1218,908,1240,895,1291,853,1332,815,1364,778,1391,740,1441,655,1502,547,1531,492,1557,437,1593,347,1598,349,1561,439,1536,495,1506,549,1445,658,1396,743,1369,781,1336,819,1295,857,1243,900,1220,912"/>
+<area shape="poly" title=" " alt="" coords="1239,920,1704,920,1704,925,1239,925"/>
+<area shape="poly" title=" " alt="" coords="1211,933,1243,953,1267,976,1288,1001,1320,1049,1315,1051,1284,1004,1263,979,1240,957,1209,938"/>
+<area shape="poly" title=" " alt="" coords="1224,908,1239,896,1249,877,1260,843,1284,744,1324,550,1329,551,1289,745,1265,844,1254,879,1243,899,1227,912"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="1424,511,1504,537"/>
+<area shape="poly" title=" " alt="" coords="1369,521,1410,521,1410,527,1369,527"/>
+<area shape="poly" title=" " alt="" coords="1472,509,1586,345,1590,348,1477,512"/>
+<area shape="rect" href="file__verify__access_8c.html#a1adf8592e56806396e71d927d3268ff7" title="Return the last file that is not already_searched." alt="" coords="931,293,1054,318"/>
+<area shape="poly" title=" " alt="" coords="835,303,918,303,918,308,835,308"/>
+<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="927,1606,1059,1631"/>
+<area shape="poly" title=" " alt="" coords="795,1326,977,1593,973,1596,790,1329"/>
+<area shape="poly" title=" " alt="" coords="1059,1616,1331,1616,1465,1616,1517,1610,1563,1593,1602,1566,1637,1530,1666,1488,1690,1439,1711,1386,1727,1331,1750,1216,1762,1107,1766,1014,1766,949,1771,949,1771,1014,1767,1107,1755,1217,1732,1332,1716,1388,1695,1441,1670,1490,1641,1534,1606,1570,1565,1597,1518,1615,1465,1621,1331,1621,1059,1621"/>
+<area shape="poly" title=" " alt="" coords="391,1639,913,1619,913,1624,391,1644"/>
+<area shape="rect" href="ft__free_8c.html#aaaf83908a0c250dd3790b2606ea2b256" title="Free linked list of t_file structure." alt="" coords="493,1707,619,1733"/>
+<area shape="poly" title=" " alt="" coords="366,1654,472,1692,499,1701,497,1706,470,1697,365,1659"/>
+<area shape="rect" href="ft__free_8c.html#ab3d9f0b7ddaf8661f8a3b3243d33bce7" title="Free t_tokens linked list structure." alt="" coords="507,1657,605,1682"/>
+<area shape="poly" title=" " alt="" coords="391,1648,493,1660,493,1665,391,1653"/>
+<area shape="poly" title=" " alt="" coords="619,1710,739,1691,875,1660,949,1634,951,1639,877,1665,740,1696,620,1715"/>
+<area shape="rect" href="ft__free_8c.html#a9658bc2cc155c121d2bc924b4a4dad3b" title="Free heredoc structure." alt="" coords="729,1758,836,1783"/>
+<area shape="poly" title=" " alt="" coords="614,1730,716,1753,715,1758,613,1735"/>
+<area shape="poly" title=" " alt="" coords="833,1756,875,1736,904,1714,931,1689,972,1640,976,1644,935,1692,907,1718,877,1741,835,1760"/>
+<area shape="poly" title=" " alt="" coords="605,1663,876,1635,913,1629,913,1635,876,1640,606,1668"/>
+<area shape="poly" title=" " alt="" coords="351,1274,403,1307,436,1324,471,1337,559,1362,634,1378,702,1387,766,1389,830,1384,898,1372,1061,1327,1116,1310,1158,1295,1197,1273,1239,1237,1268,1203,1290,1166,1320,1099,1325,1101,1295,1169,1272,1207,1243,1241,1200,1277,1160,1300,1117,1315,1062,1332,899,1377,831,1390,767,1395,702,1393,634,1383,557,1367,470,1343,434,1329,400,1312,348,1279"/>
+<area shape="poly" title=" " alt="" coords="346,1275,399,1325,434,1355,472,1382,600,1454,731,1516,850,1565,942,1599,940,1604,848,1570,729,1521,597,1459,469,1386,431,1359,395,1329,343,1279"/>
+<area shape="rect" href="expand__home_8c.html#ae1f15b6e2943451133d29e5b2d80105f" title="Expands all the tildes found in array with HOME." alt="" coords="475,1302,637,1327"/>
+<area shape="poly" title=" " alt="" coords="376,1271,486,1296,485,1301,375,1276"/>
+<area shape="rect" href="ft__exit_8c.html#adfb8aca255d6ab97f3902cfc0a6639ef" title="Function to exit the program." alt="" coords="1144,334,1207,359"/>
+<area shape="poly" title=" " alt="" coords="332,1251,344,1196,370,1114,411,1022,437,977,469,937,496,909,521,889,569,862,622,841,688,812,741,790,785,777,826,762,874,733,920,691,973,633,1059,521,1074,494,1083,472,1092,449,1107,421,1149,368,1154,371,1112,424,1097,451,1088,474,1079,497,1064,524,977,636,923,695,878,737,829,766,786,782,743,795,690,817,624,846,572,866,524,893,499,913,473,940,442,980,415,1024,375,1116,350,1197,337,1252"/>
+<area shape="rect" href="lexer_8c.html#a8fdf8761d0f58bc2b54b3a1edf6a4430" title="Create tokens (small chunks) a line with the quotes and operators." alt="" coords="529,1201,583,1226"/>
+<area shape="poly" title=" " alt="" coords="375,1252,514,1220,515,1225,376,1257"/>
+<area shape="poly" title=" " alt="" coords="604,1325,659,1337,728,1346,802,1348,875,1337,943,1316,1010,1288,1074,1255,1133,1219,1235,1149,1304,1094,1308,1099,1239,1153,1136,1224,1076,1260,1012,1293,945,1321,877,1343,802,1353,727,1351,658,1342,602,1330"/>
+<area shape="poly" title=" " alt="" coords="638,1312,724,1312,724,1317,638,1317"/>
+<area shape="poly" title=" " alt="" coords="1207,342,1538,324,1539,329,1207,348"/>
+<area shape="poly" title=" " alt="" coords="1209,355,1243,377,1270,406,1292,438,1323,497,1319,500,1288,441,1266,409,1240,381,1206,360"/>
+<area shape="rect" href="lexer-utils_8c.html#ae2c6c49c42b5a9b4f447564ed2ec6514" title="Allocate memory for a string and copy the content from src." alt="" coords="728,1203,837,1229"/>
+<area shape="poly" title=" " alt="" coords="583,1211,714,1213,714,1218,583,1216"/>
+<area shape="rect" href="lexer-utils_8c.html#aed920c4ccf5ae57509ab4f9ca6fdc2db" title="Is |, &lt; or &gt;" alt="" coords="717,1253,848,1278"/>
+<area shape="poly" title=" " alt="" coords="584,1217,714,1247,713,1252,583,1222"/>
+<area shape="poly" title=" " alt="" coords="576,975,625,1007,657,1023,690,1036,771,1056,854,1070,937,1078,1019,1083,1166,1083,1276,1077,1276,1083,1166,1088,1019,1088,937,1084,853,1075,770,1061,689,1041,655,1028,623,1012,573,979"/>
+<area shape="poly" title=" " alt="" coords="565,976,632,1151,670,1244,691,1289,707,1299,725,1306,724,1311,705,1304,687,1292,665,1246,627,1152,560,978"/>
+<area shape="rect" href="token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="949,910,1037,935"/>
+<area shape="poly" title=" " alt="" coords="628,955,935,925,935,931,628,960"/>
+<area shape="rect" href="ft__dups_8c.html#a557b0a55bf37d0d4004b9fbdf96ad558" title="Create and redirect inputs and outputs needed for the command." alt="" coords="707,1154,858,1179"/>
+<area shape="poly" title=" " alt="" coords="573,975,691,1082,759,1143,755,1147,688,1086,570,979"/>
+<area shape="rect" href="exec__extern_8c.html#a521da36622246e2b19debf611d185614" title="Executes commands that are not builtins." alt="" coords="733,1002,832,1027"/>
+<area shape="poly" title=" " alt="" coords="614,974,721,998,719,1003,613,979"/>
+<area shape="rect" href="command-utils_8c.html#a458910531201e249c945c6658fc553f3" title="Print the command structure with it&#39;s tokens." alt="" coords="721,698,845,723"/>
+<area shape="poly" title=" " alt="" coords="567,949,758,733,762,736,571,953"/>
+<area shape="rect" href="ft__dups_8c.html#a43a6f2349b75aab35340f5afd8326e9d" title="Reset redirections by default values Replace the new redirections by stdin and stdout." alt="" coords="1109,861,1241,886"/>
+<area shape="poly" title=" " alt="" coords="608,949,689,929,744,922,788,921,829,914,851,904,874,889,885,878,891,866,896,841,902,816,910,804,923,794,959,777,990,775,1023,781,1062,794,1103,816,1149,850,1146,854,1100,821,1060,798,1022,786,990,780,960,783,925,798,914,808,907,818,902,842,896,868,889,881,878,893,853,909,831,919,789,926,744,927,690,935,609,954"/>
+<area shape="rect" href="search__command_8c.html#accacfd1a8d3b7fbdff0d572e6d5736ad" title="Search if command is a builtin or not." alt="" coords="924,707,1061,733"/>
+<area shape="poly" title=" " alt="" coords="578,949,875,778,923,750,949,736,952,741,925,754,877,782,581,954"/>
+<area shape="poly" title=" " alt="" coords="1037,920,1098,920,1098,925,1037,925"/>
+<area shape="rect" href="file-general_8c.html#a193c0bf8702f604a85edbde26b3f0a8d" title="Opens the files to read and writes." alt="" coords="937,1163,1048,1189"/>
+<area shape="poly" title=" " alt="" coords="858,1167,924,1170,924,1176,858,1173"/>
+<area shape="poly" title=" " alt="" coords="832,1015,1013,1028,1242,1053,1276,1059,1275,1065,1241,1059,1012,1033,832,1020"/>
+<area shape="poly" title=" " alt="" coords="832,1001,1107,936,1108,941,833,1006"/>
+<area shape="poly" title=" " alt="" coords="825,1000,875,980,923,952,949,939,952,944,925,957,877,985,827,1004"/>
+<area shape="poly" title=" " alt="" coords="809,696,936,638,1021,603,1109,572,1201,547,1283,530,1284,535,1202,552,1110,577,1023,608,938,643,811,700"/>
+<area shape="poly" title=" " alt="" coords="1226,884,1243,895,1275,932,1299,973,1316,1014,1327,1048,1322,1049,1311,1016,1294,975,1270,935,1240,899,1223,888"/>
+<area shape="poly" title=" " alt="" coords="1198,858,1220,843,1239,822,1260,788,1277,751,1303,675,1318,604,1326,550,1332,551,1324,605,1308,676,1282,753,1265,791,1243,826,1224,847,1202,863"/>
+<area shape="poly" title=" " alt="" coords="1149,862,1143,852,1146,843,1157,836,1175,834,1197,837,1206,846,1203,850,1195,842,1175,839,1159,841,1150,846,1149,852,1153,859"/>
+<area shape="rect" href="ft__cd_8c.html#ac9978b56415a76c70d19cb22c56b409d" title="Implementatin of cd builtin of shell." alt="" coords="1149,587,1202,613"/>
+<area shape="poly" title=" " alt="" coords="1028,705,1060,686,1074,670,1083,654,1092,638,1108,622,1134,608,1137,613,1111,626,1096,641,1087,657,1079,673,1063,690,1030,709"/>
+<area shape="rect" href="ft__echo_8c.html#aef55bfe2924d6b7282b1e3983791da02" title="Echo with &#45;n option OPTIONS : &#45;n : print without the triling newline." alt="" coords="1141,637,1210,662"/>
+<area shape="poly" title=" " alt="" coords="1026,705,1128,664,1130,669,1028,710"/>
+<area shape="rect" href="ft__env_8c.html#a0f7285fc866730bc749d28def603ce57" title=" " alt="" coords="1144,787,1207,813"/>
+<area shape="poly" title=" " alt="" coords="1022,731,1110,772,1132,781,1130,786,1108,777,1020,735"/>
+<area shape="rect" href="ft__env_8c.html#abf30ae08f03d6ea8baea636c9cb1b0d2" title=" " alt="" coords="1135,738,1215,763"/>
+<area shape="poly" title=" " alt="" coords="1062,729,1122,739,1121,744,1061,734"/>
+<area shape="poly" title=" " alt="" coords="1201,585,1292,540,1294,545,1203,590"/>
+<area shape="poly" title=" " alt="" coords="1209,637,1240,622,1281,585,1313,546,1317,550,1285,588,1243,626,1211,642"/>
+<area shape="poly" title=" " alt="" coords="1209,634,1240,622,1422,540,1425,545,1242,626,1211,639"/>
+<area shape="poly" title=" " alt="" coords="345,874,397,927,433,958,472,986,529,1020,576,1043,625,1060,690,1076,843,1104,905,1110,963,1112,1085,1105,1241,1089,1275,1084,1276,1090,1242,1095,1086,1110,963,1117,905,1116,842,1110,689,1081,624,1065,574,1048,527,1025,469,990,430,962,394,930,342,877"/>
+<area shape="poly" title=" " alt="" coords="335,875,342,940,362,1038,380,1092,403,1145,434,1194,472,1236,507,1251,574,1269,725,1301,724,1306,572,1274,506,1256,469,1241,430,1197,399,1147,375,1094,357,1039,337,941,330,876"/>
+<area shape="poly" title=" " alt="" coords="423,868,935,915,935,920,423,874"/>
+<area shape="poly" title=" " alt="" coords="337,875,349,924,373,995,391,1032,413,1068,440,1101,472,1128,524,1155,582,1170,640,1175,693,1175,693,1180,639,1181,581,1175,522,1160,469,1133,437,1105,409,1071,387,1035,368,997,344,926,332,876"/>
+<area shape="poly" title=" " alt="" coords="340,848,391,794,428,764,470,740,530,720,592,709,653,704,707,703,707,709,653,709,593,714,531,726,472,745,431,768,395,798,344,851"/>
+<area shape="rect" href="ft__dups__forks_8c.html#a6f6a2e5ead4dddc5928548bb7973509a" title="Change the previous input of pipe to a new redirection." alt="" coords="1126,285,1225,310"/>
+<area shape="poly" title=" " alt="" coords="332,849,468,279,510,225,552,182,597,149,644,126,694,113,750,110,810,115,877,129,958,159,1035,198,1100,239,1149,274,1145,278,1097,244,1032,203,956,164,875,135,809,121,750,115,695,119,646,131,599,153,556,186,514,228,473,281,338,851"/>
+<area shape="rect" href="exec__in__forks_8c.html#a6c023b75d59d8711c6aedf7faef9e18c" title="Executes the command in a forks." alt="" coords="487,597,625,622"/>
+<area shape="poly" title=" " alt="" coords="340,848,393,780,469,690,529,630,533,633,473,694,397,783,344,851"/>
+<area shape="poly" title=" " alt="" coords="1225,297,1504,313,1539,316,1538,321,1504,319,1225,303"/>
+<area shape="poly" title=" " alt="" coords="1227,308,1243,319,1278,362,1303,411,1319,458,1329,497,1324,499,1314,460,1298,413,1273,365,1240,323,1224,313"/>
+<area shape="poly" title=" " alt="" coords="561,595,578,562,606,517,642,470,688,430,739,401,786,386,831,379,874,376,917,374,962,368,1009,354,1060,327,1074,313,1082,298,1091,283,1108,270,1169,249,1233,239,1298,239,1362,245,1423,257,1478,272,1564,302,1563,307,1476,277,1421,262,1361,251,1298,244,1234,244,1170,254,1111,274,1095,286,1087,300,1079,316,1063,331,1011,359,963,373,918,380,874,382,831,384,788,391,741,406,691,434,646,474,610,520,583,564,566,598"/>
+<area shape="poly" title=" " alt="" coords="567,621,770,988,765,991,562,624"/>
+<area shape="poly" title=" " alt="" coords="616,619,877,683,939,701,937,706,875,688,615,625"/>
+<area shape="poly" title=" " alt="" coords="606,594,934,510,936,516,608,599"/>
+<area shape="poly" title=" " alt="" coords="1002,510,1040,586,1072,631,1111,671,1129,683,1145,689,1178,694,1211,700,1227,709,1243,724,1272,763,1294,806,1310,852,1321,898,1333,984,1335,1048,1330,1048,1327,984,1316,899,1305,853,1289,808,1267,765,1239,727,1224,713,1209,705,1178,699,1144,694,1126,687,1108,675,1068,635,1035,588,997,513"/>
+<area shape="poly" title=" " alt="" coords="1038,499,1283,518,1282,523,1037,505"/>
+<area shape="rect" href="signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="1117,435,1234,461"/>
+<area shape="poly" title=" " alt="" coords="1037,484,1115,462,1117,467,1038,489"/>
+<area shape="poly" title=" " alt="" coords="1204,458,1294,503,1292,508,1201,463"/>
+<area shape="rect" href="minishell_8h.html#a31b04153c75343c71abd2b9a5cdc1b0a" title=" " alt="" coords="471,395,641,421"/>
+<area shape="poly" title=" " alt="" coords="384,405,457,405,457,411,384,411"/>
+<area shape="poly" title=" " alt="" coords="372,1464,781,1464,994,1464,1038,1462,1074,1455,1106,1443,1134,1427,1159,1407,1184,1382,1239,1317,1274,1262,1299,1202,1316,1146,1325,1101,1330,1102,1321,1147,1304,1204,1279,1265,1243,1320,1188,1385,1163,1411,1137,1432,1108,1448,1076,1460,1038,1467,994,1469,781,1469,372,1469"/>
 </map>
 </div>
 

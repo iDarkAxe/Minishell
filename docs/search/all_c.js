@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['n_5felements_0',['n_elements',['../structs__garbage.html#abd5f80da18664455af6b6f9716c93ac2',1,'s_garbage']]],
-  ['name_1',['name',['../structs__tmp.html#a0068aa53c1ebd6fa32fbf597f1d4b77c',1,'s_tmp::name'],['../structs__file.html#a4860d9c268bffe4ccd71296c671293eb',1,'s_file::name']]],
-  ['next_2',['next',['../structs__var.html#aae167fb1913f65e8adbe1d655d9c5ef4',1,'s_var::next'],['../structs__params.html#afae2aee0b5643bc52cee379c1aab9eff',1,'s_params::next'],['../structs__file.html#a5426ba63e9eb635f5673c037d6778fcd',1,'s_file::next'],['../structs__element.html#ae8efdd1c673ce61a6b30383ecfb1d278',1,'s_element::next'],['../structs__command.html#afbfe160941a93422267c88c93dec755a',1,'s_command::next'],['../structs__token.html#a5dae434205818bfc83a61809d4a34a29',1,'s_token::next']]],
-  ['no_5fchanges_5fdouble_3',['no_changes_double',['../tests__pars__doub__fx1_8c.html#a86f319e03cc6cefcceba99ce3b20e4b5',1,'no_changes_double(void):&#160;tests_pars_doub_fx1.c'],['../tests_8h.html#a86f319e03cc6cefcceba99ce3b20e4b5',1,'no_changes_double(void):&#160;tests_pars_doub_fx1.c']]],
-  ['no_5fchanges_5fsingle_4',['no_changes_single',['../tests__pars__sing__fx1_8c.html#aee6f85108f44cb32dc101a2e5ebdcfb9',1,'no_changes_single(void):&#160;tests_pars_sing_fx1.c'],['../tests_8h.html#aee6f85108f44cb32dc101a2e5ebdcfb9',1,'no_changes_single(void):&#160;tests_pars_sing_fx1.c']]],
-  ['not_5fbuiltins_5',['not_builtins',['../exec__extern_8c.html#a521da36622246e2b19debf611d185614',1,'not_builtins(t_command *command, char **tokens):&#160;exec_extern.c'],['../minishell_8h.html#a521da36622246e2b19debf611d185614',1,'not_builtins(t_command *command, char **tokens):&#160;exec_extern.c']]]
+  ['main_0',['main',['../src_2main_8c.html#a647f21a28344e1d9c643f4115516d7c9',1,'main(int argc, char **argv, char **envp):&#160;main.c'],['../tests_2src_2main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c']]],
+  ['main_2ec_1',['main.c',['../src_2main_8c.html',1,'(Global Namespace)'],['../tests_2src_2main_8c.html',1,'(Global Namespace)']]],
+  ['malloc_5fgb_2',['malloc_gb',['../garbage_8c.html#ac7d9105a06c6e2276233f1701e3acef0',1,'malloc_gb(size_t size):&#160;garbage.c'],['../garbage_8h.html#ac7d9105a06c6e2276233f1701e3acef0',1,'malloc_gb(size_t size):&#160;garbage.c']]],
+  ['max_5ftokens_3',['MAX_TOKENS',['../lexer_8c.html#a09886d6ba96e67553bf3c49ed8ade975',1,'lexer.c']]],
+  ['minishell_4',['Minishell',['../index.html',1,'']]],
+  ['minishell_5',['minishell',['../minishell_8c.html#ad7ca7d479b97ff09a9cd5b51f2f72122',1,'minishell(char **envp):&#160;minishell.c'],['../minishell_8h.html#ad7ca7d479b97ff09a9cd5b51f2f72122',1,'minishell(char **envp):&#160;minishell.c']]],
+  ['minishell_2ec_6',['minishell.c',['../minishell_8c.html',1,'']]],
+  ['minishell_2eh_7',['minishell.h',['../minishell_8h.html',1,'']]]
 ];
