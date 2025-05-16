@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/07 11:08:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 14:37:50 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char		**fill_toks(t_token *head, char **tokens);
 /**
  * @brief Creates a copy of all tokens that are in a command structure
  * It's used for forks during exec
- * 
+ *
  * @param command command structure
  * @return char** copy of tokens
  */
@@ -51,7 +51,7 @@ char	**copy_toks(t_command *command)
 
 /**
  * @brief Print tokens indexed
- * 
+ *
  * @param tokens tokens to print
  */
 void	print_toks(char **tokens)
@@ -68,7 +68,7 @@ void	print_toks(char **tokens)
 
 /**
  * @brief Count how many tokens are in a linked list of t_token structure
- * 
+ *
  * @param head start of linked list
  * @return size_t number of t_token structs
  */
@@ -91,10 +91,10 @@ static size_t	count_tokens(t_token const *head)
 
 /**
  * @brief Creates effectively the copy of the t_token structure to char **array
- * 
+ *
  * @param head start of linked list
  * @param tokens array of strings to copy to
- * @return char** 
+ * @return char**
  */
 static char	**fill_toks(t_token *head, char **tokens)
 {

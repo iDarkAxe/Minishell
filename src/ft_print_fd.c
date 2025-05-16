@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "garbage.h"
 #include "minishell.h"
 #include <stdio.h>
 #include <unistd.h>
-#include "garbage.h"
 
 ssize_t	printn_fd(int fd, const char *str, size_t len);
 ssize_t	print_fd(int fd, const char *str);
 
 /**
  * @brief Function used to write safely and exits if write failed
- * 
+ *
  * @param fd file descriptor
  * @param str string to print
  * @return ssize_t number of character printed
@@ -32,7 +32,7 @@ ssize_t	print_fd(int fd, const char *str)
 
 /**
  * @brief Function used to write safely and exits if write failed
- * 
+ *
  * @param fd file descriptor
  * @param str string to print
  * @param len number of character to print
@@ -56,7 +56,7 @@ ssize_t	printn_fd(int fd, const char *str, size_t len)
 
 /**
  * @brief Print the file descriptor of command into stderr
- * 
+ *
  * @param command command structure
  */
 void	print_command_fd(t_command *command)

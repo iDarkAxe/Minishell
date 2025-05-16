@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_env.c                                         :+:      :+:    :+:   */
+/*   functions_utils_parsing.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 13:40:06 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/04 13:55:56 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/05/14 11:43:45 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/05/14 11:43:55 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "env.h"
-#include "minishell.h"
+#include "libft.h"
 
-t_env_vars	*get_env(void)
+t_bool	is_dollar(char *str)
 {
-	static t_env_vars	env;
+	size_t	i;
 
-	return (&env);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '$')
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
 }

@@ -12,8 +12,8 @@
 
 #include "garbage.h"
 #include "libft.h"
-#include <stdlib.h>
 #include "minishell.h"
+#include <stdlib.h>
 
 int			ft_exit(char **array);
 void		ft_exit_int(int value);
@@ -24,13 +24,12 @@ static int	ft_strtoull(char *str);
 
 /**
  * @brief Short ft_exit that uses only int
- * noreturn attribute is to prevent -Wmissing-noreturn flag 
+ * noreturn attribute is to prevent -Wmissing-noreturn flag
  * from flag -Weverything of debug-cc
- * 
+ *
  * @param value value
  */
-__attribute__ ((noreturn))
-void	ft_exit_int(int value)
+__attribute__((noreturn)) void	ft_exit_int(int value)
 {
 	free_garbage();
 	print_fd(1, "exit\n");
@@ -54,13 +53,13 @@ SET FOLLOW_ZSH to 1 to follow zsh behavior. */
 
 /**
  * @brief Function to exit the program
- * 
+ *
  * @param array argument of the exit function
  * @return int value if argument invalid
  */
 int	ft_exit(char **array)
 {
-	int		value;
+	int	value;
 
 	if (array == NULL || array[0] == NULL)
 	{
@@ -85,7 +84,7 @@ int	ft_exit(char **array)
 
 /**
  * @brief Verify that the argument of exit are acceptable
- * 
+ *
  * @param array argument of the exit function
  * @return int negative if invalid, otherwise it's valid
  */
@@ -115,7 +114,7 @@ static int	verif_args(char **array)
 /**
  * @brief Specific strtoll for exit
  * Returns 2 if long long max value is exceeded
- * 
+ *
  * @param nptr string to search numbers
  * @return int cast of a long long into an int, 2 if overflow long long type
  */

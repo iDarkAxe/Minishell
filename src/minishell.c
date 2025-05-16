@@ -23,21 +23,21 @@
   * 
   ******************************************************************************
 */
-
-#include "minishell.h"
-#include "garbage.h"
-#include "file.h"
-#include "env.h"
 #include "builtins.h"
-
+#include "env.h"
+#include "file.h"
+#include "garbage.h"
+#include "minishell.h"
+#include "parsing.h"
 #include <readline/history.h>
 #include <readline/readline.h>
+#include <stdlib.h>
 
 static char	*read_stdin(void);
 
 /**
  * @brief Line condition to verify the return value of readline
- * 
+ *
  * @param line line of readline
  * @return int 0, nothing checked, 1 is OK line, 2 is read another line
  */
@@ -99,6 +99,7 @@ int	minishell(char **envp)
 
 	signal_init();
 	read_context(envp);
+	set_env(envp);
 	while (1)
 	{
 		line = read_stdin();

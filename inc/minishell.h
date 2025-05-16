@@ -21,12 +21,11 @@
 #  define FOLLOW_ZSH 0
 # endif
 
-# include "libft.h"
+# ifndef MAX_TOKENS_LEX
+#  define MAX_TOKENS_LEX 1024
+# endif
 
-// TODO : add ft_export
-// TODO : add ft_env
-// TODO : add ft_unset
-# include <signal.h>
+# include "libft.h"
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -98,6 +97,8 @@ void							print_command_fd(t_command *command);
 char							*ft_substr_end(char const *src,
 									unsigned int start, size_t end);
 int								is_operator_char(char c);
+char							**init_lexer_state(t_lexer_state *lex_st,
+									const char *line);
 char							**lexer(const char *line);
 t_command						*tokeniser(char **tokens, char **envp);
 
@@ -145,10 +146,20 @@ void							free_files_struct(t_file *file);
 void							free_heredoc(t_tmp *tmp);
 void							free_tokens(t_token *token);
 
+// Utils for export
+void							print_export(t_env_vars *env);
+int								check_args_export(const char *str);
+
+// Utils for env
+void							print_env(t_env_vars *env);
+
 // DEBUGGING Functions
 void							print_list_files(t_command *command);
 void							print_perm_files(t_command *command);
 ssize_t							print_command(t_command *command);
 ssize_t							print_commands(t_command *command);
+
+// Utils
+t_bool	is_dollar(char *str);
 
 #endif

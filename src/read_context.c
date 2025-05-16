@@ -6,16 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:28:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/11 13:56:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 #include "file.h"
 #include "garbage.h"
 #include "get_next_line.h"
-#include "builtins.h"
-
+#include "minishell.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -44,7 +43,7 @@ int	read_context(char **envp)
  *
  * @param envp environment
  */
-__attribute__ ((noreturn))
+__attribute__((noreturn)) void	short_minishell_no_tty(char **envp);
 void	short_minishell_no_tty(char **envp)
 {
 	static int	ret = 0;
@@ -75,7 +74,7 @@ void	short_minishell_no_tty(char **envp)
 
 /**
  * @brief Special read_stin using gnl
- * 
+ *
  * @return char* line rode
  */
 static char	*read_stdin_gnl(void)

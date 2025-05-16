@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-#include "libft.h"
-#include "garbage.h"
 #include "builtins.h"
-
+#include "garbage.h"
+#include "libft.h"
+#include "minishell.h"
+#include <errno.h>
 #include <stdio.h>
 #include <sys/wait.h>
-#include <errno.h>
 
 // TODO Ajouter la recherche de la commande dans le PATH
 

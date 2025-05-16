@@ -6,26 +6,54 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:44:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 10:19:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/11 13:56:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "env.h"
+#include "minishell.h"
 
-int	ft_export(char **array)
+int		ft_env(char **array);
+void	print_env(t_env_vars *env);
+
+void	print_env(t_env_vars *env)
 {
-	(void)array;
-	return (0);
+	t_var		*var;
+	t_params	*param;
+
+	if (!env)
+		return ;
+	var = env->head_var;
+	while (var)
+	{
+		param = var->head_params;
+		if (param)
+		{
+			printf("%s=", var->value);
+			while (param)
+			{
+				printf("%s", param->value);
+				if (param->next)
+					printf(":");
+				param = param->next;
+			}
+			printf("\n");
+		}
+		var = var->next;
+	}
 }
 
 int	ft_env(char **array)
 {
-	(void)array;
-	return (0);
-}
+	t_env_vars	*env;
 
-int	ft_unset(char **array)
-{
+	env = get_env();
 	(void)array;
+	if (array[0] != NULL)
+	{
+		printf("env: '%s': No such file or directory\n", array[0]);
+		return (-1);
+	}
+	print_env(env);
 	return (0);
 }
