@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/11 13:57:13 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/05/18 09:44:57 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "garbage.h"
+#include "libft.h"
 #include "minishell.h"
 #include "parsing.h"
 
@@ -83,49 +84,131 @@ static t_bool	has_unclosed_quote(const char *str)
 	return (TRUE);
 }
 
-static char	*remove_quote(const char *str, char *new_str)
+// static char	*remove_quote(const char *str, char *new_str)
+// {
+// 	char	quote;
+// 	size_t	i;
+// 	size_t	j;
+//
+// 	i = 0;
+// 	j = 0;
+// 	quote = 0;
+// 	while (str && str[i])
+// 	{
+// 		if (quote != 0 && str[i] == quote)
+// 			quote = 0;
+// 		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
+// 			quote = str[i];
+// 		else
+// 			new_str[j++] = str[i];
+// 		i++;
+// 	}
+// 	new_str[j] = '\0';
+// 	return (new_str);
+// }
+//
+static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 {
 	char	quote;
+	char	*temp;
+	char	*temp_new_str;
 	size_t	i;
-	size_t	j;
+	/*size_t	j;*/
+	size_t	size;
 
 	i = 0;
-	j = 0;
+	/*j = 0;*/
 	quote = 0;
+	temp = NULL;
+	temp_new_str = NULL;
 	while (str && str[i])
 	{
-		if (quote != 0 && str[i] == quote)
+		if (quote == str[i])
+		{
 			quote = 0;
-		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
+			i++;
+		}
+		else if (quote == 0 && str[i] == '\'')
+		{
+			printf("JE SUIS ICI");
+			*have_to_expand = FALSE;
 			quote = str[i];
-		else if (str[i] == '\'')
-			new_str[j++] = str[i];
+			i++;
+		}
+		else if (quote == 0 && str[i] == '"')
+		{
+			*have_to_expand = TRUE;
+			quote = str[i];
+			i++;
+		}
+		else if (str[i] == '$' && *have_to_expand == TRUE)
+		{
+			i++;
+			size = ft_strlen_charset(&str[i], "$ \"");
+			temp = handle_expand(&str[i], size);
+			/*printf("temp : %s\n", temp);*/
+			i += size;
+		}
 		else
-			new_str[j++] = str[i];
-		i++;
+		{
+			size = ft_strlen_charset(&str[i] ,"'$\"");
+			temp = ft_strndup(&str[i], size);
+			if (!temp)
+				return (NULL);
+			i += size + 1;
+			printf("caracter : %c\n", str[i]);
+		}
+		if (new_str == NULL && temp)
+		{
+			new_str = ft_strdup(temp);
+			if (!new_str)
+				return (NULL);
+			free(temp);
+			temp = NULL;
+		}
+		else if (new_str != NULL && temp)
+		{
+			temp_new_str = ft_strdup(new_str);
+			if (!temp_new_str)
+				return (NULL);
+			free(new_str);
+			new_str = ft_strjoin(temp_new_str, temp);
+			if (!new_str)
+				return (NULL);
+			free(temp_new_str);
+			free(temp);
+		}
 	}
-	new_str[j] = '\0';
+	add_to_garbage(new_str);
+	/*printf("New_str : %s\n", new_str);*/
 	return (new_str);
 }
 
 char	*parsing_minishell(const char *str)
 {
 	char	*new_str;
+	t_bool	have_to_expand;
 	char	*result;
-	size_t	count;
+	/*size_t	count;*/
 
 	if (!str || has_unclosed_quote(str) == TRUE)
 		return (NULL);
-	count = count_without_quote(str);
-	new_str = malloc((count + 1) * sizeof(char));
-	if (!new_str)
-		return (NULL);
-	new_str = remove_quote(str, new_str);
-	printf("new_str : %s\n", new_str);
-	if (new_str[0] != '\'' && is_dollar(new_str) == TRUE)
-		result = expand_variables_line(new_str);
-	else
+	/*count = count_without_quote(str);*/
+	/*new_str = malloc((count + 1) * sizeof(char));*/
+	/*if (!new_str)*/
+	/*	return (NULL);*/
+	have_to_expand = TRUE;
+	new_str = NULL;
+	new_str = close_quote(str, new_str, &have_to_expand);
+	// if (ft_strchr(new_str, '\''))
+	// 	have_to_expand = FALSE;
+	// if (is_dollar(new_str) == TRUE && have_to_expand == TRUE)
+	// {
+	// 	result = expand_variables_line(new_str);
+	// }
+	// else
+	// {
 		result = new_str;
-	printf("result : %s\n", result);
+	// }
 	return (result);
 }

@@ -81,7 +81,7 @@ t_env_vars					*get_env(void);
 t_env_vars					*copy_env(t_env_vars *env);
 void						set_env(char *envp[]);
 void						sort_ascii_order(t_env_vars *env);
-char						*search_env_str(char *var, size_t size);
+char						*search_env_str(const char *var, size_t size);
 t_var						*search_env_var(t_env_vars *env, char *var);
 int							count_env(t_env_vars env);
 void						update_shlvl(void);
