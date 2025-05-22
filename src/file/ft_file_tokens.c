@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:13:13 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:55:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,15 @@ static int	is_redirection(char *str)
  *
  * @param token redirection sign token
  */
-static void	free_token(t_token *token)
+static void	free_token(t_garbage *garbage, t_token *token)
 {
 	if (token && token->str)
-		free_element_gb(token->str);
+		free_element_gb(garbage, token->str);
 	if (token && token->next && token->next->str)
-		free_element_gb(token->next->str);
+		free_element_gb(garbage, token->next->str);
 	if (token && token->next)
-		free_element_gb(token->next);
+		free_element_gb(garbage, token->next);
 	if (token)
-		free_element_gb(token);
+		free_element_gb(garbage, token);
 	token = NULL;
 }

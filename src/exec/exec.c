@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:34:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 16:56:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,22 @@
  * @param command command structure
  * @return int
  */
-int	prepare_command(t_command *command, int ret)
+int	prepare_command(t_data *data, int ret)
 {
 	char	**toks;
+	int		fd[2];
 
-	if (!command)
+	if (!data || !data->command)
 		ft_exit_int_np(1);
-	toks = copy_toks(command);
+	toks = copy_toks(data->command);
 	if (toks == NULL)
 		ft_exit_int_np(1);
-	handle_redirections(command);
-	if (command->file_error != 1 && search_command(command, toks, ret) != 0)
-		command->return_value = not_builtins(command, toks);
+	handle_redirections(data->command, fd);
+	if (data->command->file_error != 1 && search_command(data, data->command, toks, ret) != 0)
+		data->command->return_value = not_builtins(data, data->command, toks);
 	free_array(toks);
-	reset_redirection(command, 0);
-	return (command->return_value);
+	reset_redirection(data->command, fd, 0);
+	return (data->command->return_value);
 }
 
 void	fill_toks_into_commands(t_command *command)
@@ -61,7 +62,7 @@ void	fill_toks_into_commands(t_command *command)
 }
 
 // FIXME IT"S ONLY A PLACEHOLDER DON'T BE CONFUSED
-void	search_paths(t_command *command)
+void	search_paths(t_data *data, t_command *command)
 {
 	t_command	*current;
 
@@ -77,34 +78,34 @@ void	search_paths(t_command *command)
 			free_garbage();
 			exit(EXIT_FAILURE);
 		}
-		add_to_garbage(current->path);
+		add_to_garbage(&data->garbage, current->path);
 		current = current->next;
 	}
 }
 
-int	prepare_command_forks(t_command *command, int ret)
+int	prepare_command_forks(t_data *data, int ret)
 {
 	pid_t		*pids;
 	size_t		cmd_count;
 	t_command	*current;
 
-	if (!command)
+	if (!data || !data->command)
 		ft_exit_int_np(1);
-	cmd_count = count_commands(command);
-	fill_toks_into_commands(command);
-	search_paths(command);
-	pids = malloc_gb(sizeof(pid_t) * cmd_count);
+	cmd_count = count_commands(data->command);
+	fill_toks_into_commands(data->command);
+	search_paths(data, data->command);
+	pids = malloc_gb(&data->garbage, sizeof(pid_t) * cmd_count);
 	if (!pids)
 	{
 		free_garbage();
 		exit(EXIT_FAILURE);
 	}
-	execute_pipeline(command, pids, ret);
+	execute_pipeline(data, pids, ret);
 	ignore_signal();
-	wait_all_childs(command, pids);
-	free_element_gb(pids);
+	wait_all_childs(data->command, pids);
+	free_element_gb(&data->garbage, pids);
 	signal_init();
-	current = command;
+	current = data->command;
 	while (current && current->next)
 		current = current->next;
 	return (current->return_value);

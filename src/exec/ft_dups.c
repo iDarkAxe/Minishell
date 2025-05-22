@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:18:07 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:39:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 12:58:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,22 @@
  * @param command command structure
  * @return int 0 or positive OK, negative ERROR
  */
-int	handle_redirections(t_command *command)
+int	handle_redirections(t_command *command, int fd_backup[2])
 {
 	if (!command || !command->tokens || !command->tokens->str)
 		return (-1);
 	if (command->file_error != 0)
 		return (1);
+	fd_backup[0] = 0;
+	fd_backup[1] = 1;
 	if (command->file_in)
 	{
-		command->fd_backup[0] = dup(0);
+		fd_backup[0] = dup(0);
 		read_write_to(command, 0);
 	}
 	if (command->file_out)
 	{
-		command->fd_backup[1] = dup(1);
+		fd_backup[1] = dup(1);
 		read_write_to(command, 1);
 	}
 	return (0);
@@ -68,7 +70,7 @@ int	handle_redirections_forks(t_command *command)
  * @param command command structure
  * @param i value used for recursion
  */
-void	reset_redirection(t_command *command, unsigned char i)
+void	reset_redirection(t_command *command, int fd_backup[2], unsigned char i)
 {
 	int	ret[2];
 
@@ -76,10 +78,10 @@ void	reset_redirection(t_command *command, unsigned char i)
 		return ;
 	if (command->fd[i] != i)
 	{
-		ret[0] = dup2(command->fd_backup[i], i);
+		ret[0] = dup2(fd_backup[i], i);
 		if (ret[0] < 0)
 			perror("minishell: dup2");
-		ret[1] = close(command->fd_backup[i]);
+		ret[1] = close(fd_backup[i]);
 		if (ret[1] != 0)
 			perror("minishell: close");
 		if (ret[0] < 0 || ret[1] != 0)
@@ -88,7 +90,7 @@ void	reset_redirection(t_command *command, unsigned char i)
 			ft_exit_int_np(1);
 		}
 	}
-	reset_redirection(command, i + 1);
+	reset_redirection(command, fd_backup, i + 1);
 	command->fd[i] = i;
-	command->fd_backup[i] = i;
+	fd_backup[i] = i;
 }

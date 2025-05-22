@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/14 11:09:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 17:14:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,19 @@ static void	heredoc_error(const char *delimitor)
  * @param file file struct
  * @return int 1 OK, 0 or less error
  */
-static int	fill_heredoc(t_file *file)
+static int	fill_heredoc(t_garbage *garbage, t_file *file)
 {
 	if (file == NULL)
 		return (0);
 	if (file->is_heredoc != 1)
 		return (1);
-	file->tmp = malloc_gb(sizeof(t_tmp) * 1);
+	file->tmp = malloc_gb(garbage, sizeof(t_tmp) * 1);
 	if (file->tmp == NULL)
 		return (-1);
 	*file->tmp = create_tmp("/home/ppontet/Desktop/", 3);
 	if (file->tmp->fd == -1)
 	{
-		free_element_gb(file->tmp);
+		free_element_gb(garbage, file->tmp);
 		print_fd(2, "Error: tmp file creation\n");
 		return (-1);
 	}

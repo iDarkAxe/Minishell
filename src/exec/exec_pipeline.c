@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:04:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 18:11:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@
 #include <unistd.h>
 #include <wait.h>
 
-static void	execve_exit(int value);
-static void	execute_command_from_pipe(t_command *command, int pipefd[2],
-				int prev_fd, int ret);
+static void	execve_exit(int value)__attribute__((noreturn));
+static void	execute_command_from_pipe(t_data *data, t_command *command,
+				int pipefd[2], int prev_fd, int ret);
 
 /**
  * @brief Execute the command from pipe
- * 
+ *
  * @param command command structure
  * @param pipefd fds of pipe
  * @param prev_fd fd of previous command
  * @param ret ret value of previous command
  */
-static void	execute_command_from_pipe(t_command *command, int pipefd[2],
-		int prev_fd, int ret)
+static void	execute_command_from_pipe(t_data *data, t_command *command,
+		int pipefd[2], int prev_fd, int ret)
 {
 	int	value;
 
-	if (command == NULL || pipefd == NULL)
+	if (!data || command == NULL || pipefd == NULL)
 		return ;
 	reset_signal_default();
 	if (prev_fd != -1)
@@ -49,7 +49,7 @@ static void	execute_command_from_pipe(t_command *command, int pipefd[2],
 		free_garbage();
 		exit(0);
 	}
-	value = search_command(command, command->toks, ret);
+	value = search_command(data, command, command->toks, ret);
 	if (value != 0)
 		execve(command->path, command->toks, command->envp);
 	if (value != 0)
@@ -60,28 +60,30 @@ static void	execute_command_from_pipe(t_command *command, int pipefd[2],
 
 /**
  * @brief Execute all the command that are followed by pipes
- * 
+ *
  * @param command command structure
  * @param pids array of pids of childs
  * @param ret ret value of previous command
  */
-void	execute_pipeline(t_command *command, pid_t *pids, int ret)
+void	execute_pipeline(t_data *data, pid_t *pids, int ret)
 {
 	int			pipefd[2];
 	int			prev_fd;
 	int			i;
 	t_command	*current;
 
+	if (!data)
+		return ;
 	prev_fd = -1;
 	i = 0;
-	current = command;
+	current = data->command;
 	while (current && pids)
 	{
 		if (current->next)
 			pipe(pipefd);
 		pids[i] = fork();
 		if (pids[i] == 0)
-			execute_command_from_pipe(current, pipefd, prev_fd, ret);
+			execute_command_from_pipe(data, current, pipefd, prev_fd, ret);
 		safe_close(&prev_fd);
 		if (current->next)
 		{
@@ -96,7 +98,7 @@ void	execute_pipeline(t_command *command, pid_t *pids, int ret)
 
 /**
  * @brief Waits for all the childs with their pids
- * 
+ *
  * @param command command structure
  * @param pids array of pids of childs
  */
@@ -127,9 +129,9 @@ void	wait_all_childs(t_command *command, pid_t *pids)
 
 /**
  * @brief Specific exit for execve and builtins in forks
- * 
+ *
  */
-__attribute__((noreturn)) static void	execve_exit(int value)
+static void	execve_exit(int value)
 {
 	if (value == 0)
 		exit(0);

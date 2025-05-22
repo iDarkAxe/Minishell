@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:10:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:36:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 17:12:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "minishell.h"
 
 static void	change_tildes_by_home(char *result, char *home, char *str);
-static char	*expand_tildes(char *str);
+static char	*expand_tildes(t_garbage *garbage, char *str);
 
 /**
  * @brief Expands all the tildes found in array with HOME
@@ -24,7 +24,7 @@ static char	*expand_tildes(char *str);
  * @param tokens array of strings
  * @return char** tokens if OK, NULL otherwise
  */
-char	**expand_tildes_tokens(char **tokens)
+char	**expand_tildes_tokens(t_garbage *garbage, char **tokens)
 {
 	size_t	index;
 
@@ -51,7 +51,7 @@ char	**expand_tildes_tokens(char **tokens)
  * @param str string to modify
  * @return char*
  */
-static char	*expand_tildes(char *str)
+static char	*expand_tildes(t_garbage *garbage, char *str)
 {
 	char	*home;
 	char	*result;
@@ -61,17 +61,17 @@ static char	*expand_tildes(char *str)
 		return (NULL);
 	home = getenv("HOME");
 	if (home == NULL)
-		return (ft_strdup_gb(str));
+		return (ft_strdup_gb(garbage, str));
 	count_tildes = ft_strlen_char(str, '~');
 	result = malloc(ft_strlen(str) + 1 + count_tildes * ft_strlen(home));
 	if (result == NULL)
 	{
-		free_element_gb(str);
+		free_element_gb(garbage, str);
 		ft_exit((char *[]){"1", NULL});
 	}
 	add_to_garbage(result);
 	change_tildes_by_home(result, home, str);
-	free_element_gb(str);
+	free_element_gb(garbage, str);
 	return (result);
 }
 

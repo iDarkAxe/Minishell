@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   create_str_with_params.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:55:14 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/13 17:58:08 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:14:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "env.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 static size_t	count_size_total_params(t_params *params)
 {

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/11 13:52:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 16:54:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	file_permission_check(t_file *file, t_bool in_out)
 		return (0);
 	if (in_out == 0 && file->is_heredoc == 1)
 	{
-		free_element_gb(file->name);
+		free_element_gb(garbage, file->name);
 		file->name = file->tmp->name;
 		return (0);
 	}

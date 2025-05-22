@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:33:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 16:36:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  * @param tokens array of strings
  * @return int
  */
-int	not_builtins(t_command *command, char **tokens)
+int	not_builtins(t_data *data, t_command *command, char **tokens)
 {
 	char	*path;
 	char	**toks;
@@ -41,15 +41,15 @@ int	not_builtins(t_command *command, char **tokens)
 		print_fd(2, "minishell: error on strjoin");
 		ft_exit_int_np(1);
 	}
-	add_to_garbage(path);
+	add_to_garbage(&data->garbage, path);
 	toks = copy_toks(command);
 	if (toks == NULL)
 		return (-1);
-	ret = execve_fork(path, toks, command->envp);
+	ret = execve_fork(data, path, toks, command->envp);
 	return (ret);
 }
 
-int	execve_fork(char *path, char **toks, char **envp)
+int	execve_fork(t_data *data, char *path, char **toks, char **envp)
 {
 	int	pid;
 	int	status;
@@ -70,7 +70,7 @@ int	execve_fork(char *path, char **toks, char **envp)
 	}
 	ignore_signal();
 	waitpid(pid, &status, 0);
-	free_element_gb(path);
+	free_element_gb(&data->garbage, path);
 	free_array(toks);
 	signal_init();
 	return ((status >> 8) & 0xFF);

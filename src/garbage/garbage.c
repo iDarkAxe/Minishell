@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:36:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 16:30:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@
  *
  * @return t_garbage* garbage access
  */
-t_garbage	*get_garbage(void)
-{
-	static t_garbage	garbage;
+// t_garbage	*get_garbage(void)
+// {
+// 	static t_garbage	garbage;
 
-	return (&garbage);
-}
+// 	return (&garbage);
+// }
 
 /**
  * @brief Initialize the garbage and sets the values to 0
@@ -47,12 +47,11 @@ void	garbage_init(void)
  *
  * @param ptr pointer to add
  */
-void	add_to_garbage(void *ptr)
+void	add_to_garbage(t_garbage *garbage, void *ptr)
 {
 	void		*temp;
 	t_garbage	*garbage;
 
-	garbage = get_garbage();
 	temp = ft_garbagenew(ptr);
 	if (temp == NULL)
 	{
@@ -85,13 +84,13 @@ void	free_garbage(void)
  * @param size number of bytes to allocates
  * @return void*
  */
-void	*malloc_gb(size_t size)
+void	*malloc_gb(t_garbage *garbage, size_t size)
 {
 	void	*ptr;
 
 	if (size == 0)
 		return (NULL);
 	ptr = malloc(size);
-	add_to_garbage(ptr);
+	add_to_garbage(garbage, ptr);
 	return (ptr);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:41:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/08 14:20:59 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:34:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	add_or_replace(t_env_vars *env, char **elements, char **array,
 	free_element(elements);
 }
 
-int	ft_export(char **array)
+int	ft_export(t_data *data, char **array)
 {
 	size_t		i;
 	char		**elements;
@@ -65,7 +65,7 @@ int	ft_export(char **array)
 	int			check_errors;
 
 	i = 0;
-	env = get_env();
+	env = &data->env;
 	if (!array || array[0] == NULL)
 		sort_ascii_order(env);
 	while (array[i])

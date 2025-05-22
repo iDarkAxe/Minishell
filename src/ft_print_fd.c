@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 17:05:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 10:28:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 13:01:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,34 +52,4 @@ ssize_t	printn_fd(int fd, const char *str, size_t len)
 		exit(EXIT_FAILURE);
 	}
 	return (count);
-}
-
-/**
- * @brief Print the file descriptor of command into stderr
- *
- * @param command command structure
- */
-void	print_command_fd(t_command *command)
-{
-	char	*nbr;
-
-	if (!command)
-		return ;
-	print_fd(2, "LIST OF FILE DESCRIPTORS : \nfd0 :");
-	nbr = ft_itoa(command->fd[0]);
-	print_fd(2, nbr);
-	free(nbr);
-	print_fd(2, "\nfd1 :");
-	nbr = ft_itoa(command->fd[1]);
-	print_fd(2, nbr);
-	free(nbr);
-	print_fd(2, "\nfd_backup0 :");
-	nbr = ft_itoa(command->fd_backup[0]);
-	print_fd(2, nbr);
-	free(nbr);
-	print_fd(2, "\nfd_backup1 :");
-	nbr = ft_itoa(command->fd_backup[1]);
-	print_fd(2, nbr);
-	free(nbr);
-	print_fd(2, "\n");
 }

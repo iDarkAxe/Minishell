@@ -1,13 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   set_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/22 16:33:49 by ppontet          ###   ########lyon.fr   */
-/*   Updated: 2025/04/23 13:11:03 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/22 17:17:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +20,7 @@
 
 t_var			*fill_var(char *envp[], size_t *i);
 
-static char	*get_var_value(const char *str, size_t *i)
+static char	*get_var_value(t_garbage *garbage, const char *str, size_t *i)
 {
 	char	*var;
 	size_t	size;
@@ -29,7 +28,7 @@ static char	*get_var_value(const char *str, size_t *i)
 	if (!str)
 		return (NULL);
 	size = ft_strlen_choose_c(str, '=');
-	var = malloc_gb(sizeof(char) * (size + 1));
+	var = malloc_gb(garbage, sizeof(char) * (size + 1));
 	if (!var)
 		return (NULL);
 	while (str[*i] && str[*i] != '=' && *i < size)
@@ -56,7 +55,7 @@ static t_params	*get_sub_params(const char *str, size_t *i)
 				+ 1));
 	if (!params->value)
 	{
-		free_element_gb(params);
+		free_element_gb(garbage, params);
 		return (NULL);
 	}
 	while (str[*i] && (str[*i] != ':'))
@@ -110,7 +109,7 @@ t_var	*fill_var(char *envp[], size_t *i)
 	new->value = get_var_value(envp[*i], &j);
 	if (!new->value)
 	{
-		free_element_gb(new);
+		free_element_gb(garbage, new);
 		return (NULL);
 	}
 	j++;
@@ -122,13 +121,11 @@ t_var	*fill_var(char *envp[], size_t *i)
 	return (new);
 }
 
-void	set_env(char *envp[])
+void	set_env(t_env_vars	*env, char *envp[])
 {
-	t_env_vars	*env;
 	t_var		*new;
 	size_t		i;
 
-	env = get_env();
 	env->head_var = NULL;
 	i = 0;
 	while (envp[i] != NULL)
@@ -143,5 +140,5 @@ void	set_env(char *envp[])
 		ft_varsadd_back(&env->head_var, new);
 		i++;
 	}
-	update_shlvl();
+	update_shlvl(env);
 }

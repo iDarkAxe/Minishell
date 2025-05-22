@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/14 18:04:06 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/22 17:18:08 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ INC = \
 	env.h \
 	builtins.h \
 	parsing.h \
+	data_structure.h \
 
 # Source files
 SRC = \
@@ -144,7 +145,6 @@ ENV = \
 	sort_env.c \
 	search_env.c \
 	supp_var_in_env.c \
-	get_env.c \
 	free_env.c \
 	update_shlvl.c \
 
@@ -250,7 +250,7 @@ clean-lib:
 	@$(MAKE) -C $(P_LIBFT) fclean
 	@$(MAKE) -C $(P_PIPEX) fclean
 	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
-	@$(MAKE) -C tests fclean
+# @$(MAKE) -C tests fclean
 
 clean-bin:
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/03 17:16:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 17:09:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@
 
 int	main(int argc, char **argv, char **envp)
 {
-	char	*str;
-	char	*prompt;
+	t_garbage	garbage;
+	char		*str;
+	char		*prompt;
 
 	(void)argc;
 	(void)argv;
 	(void)envp;
 	signal_init();
-	prompt = get_prompt_message();
+	prompt = get_prompt_message(&garbage);
 	if (prompt == NULL)
 	{
 		free_garbage();

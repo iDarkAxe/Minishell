@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:37:50 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/22 17:05:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char		**fill_toks(t_token *head, char **tokens);
  * @param command command structure
  * @return char** copy of tokens
  */
-char	**copy_toks(t_command *command)
+char	**copy_toks(t_data *data, t_command *command)
 {
 	t_token	*token;
 	char	**tokens;
@@ -39,7 +39,7 @@ char	**copy_toks(t_command *command)
 	tokens = malloc(sizeof(char *) * (count + 1));
 	if (!tokens)
 		return (NULL);
-	add_to_garbage(tokens);
+	add_to_garbage(&data->garbage, tokens);
 	if (count == 0)
 	{
 		tokens[0] = NULL;
@@ -96,7 +96,7 @@ static size_t	count_tokens(t_token const *head)
  * @param tokens array of strings to copy to
  * @return char**
  */
-static char	**fill_toks(t_token *head, char **tokens)
+static char	**fill_toks(t_garbage *garbage, t_token *head, char **tokens)
 {
 	size_t	i;
 	t_token	*temp;
@@ -114,7 +114,7 @@ static char	**fill_toks(t_token *head, char **tokens)
 			free_array(tokens);
 			return (NULL);
 		}
-		add_to_garbage(tokens[i]);
+		add_to_garbage(garbage, tokens[i]);
 		i++;
 		temp = temp->next;
 	}

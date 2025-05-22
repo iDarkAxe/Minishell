@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:35:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 13:01:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,4 @@ void	fd_default(t_command *command)
 		return ;
 	command->fd[0] = 0;
 	command->fd[1] = 1;
-	command->fd_backup[0] = 0;
-	command->fd_backup[1] = 1;
 }

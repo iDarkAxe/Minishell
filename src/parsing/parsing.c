@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/11 13:57:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 16:40:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 size_t			count_without_quote(const char *str);
 
+// FIXME Removed parsing_minishell as it was crashing instantly
+// line = parsing_minishell(line);
 /**
  * @brief Prototype for parsing
  *
@@ -27,14 +29,13 @@ char	**parse_line(char *line)
 {
 	char	**tokens;
 
-	line = parsing_minishell(line);
 	tokens = lexer(line);
 	if (tokens == NULL)
 	{
-		free_element_gb(line);
+		free_element_gb(garbage, line);
 		ft_exit((char *[]){"1", NULL});
 	}
-	free_element_gb(line);
+	free_element_gb(garbage, line);
 	tokens = expand_tildes_tokens(tokens);
 	if (tokens == NULL)
 		ft_exit_int_np(1);
@@ -83,30 +84,30 @@ static t_bool	has_unclosed_quote(const char *str)
 	return (TRUE);
 }
 
-static char	*remove_quote(const char *str, char *new_str)
-{
-	char	quote;
-	size_t	i;
-	size_t	j;
+// static char	*remove_quote(const char *str, char *new_str)
+// {
+// 	char	quote;
+// 	size_t	i;
+// 	size_t	j;
 
-	i = 0;
-	j = 0;
-	quote = 0;
-	while (str && str[i])
-	{
-		if (quote != 0 && str[i] == quote)
-			quote = 0;
-		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
-			quote = str[i];
-		else
-			new_str[j++] = str[i];
-		i++;
-	}
-	new_str[j] = '\0';
-	return (new_str);
-}
+// 	i = 0;
+// 	j = 0;
+// 	quote = 0;
+// 	while (str && str[i])
+// 	{
+// 		if (quote != 0 && str[i] == quote)
+// 			quote = 0;
+// 		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
+// 			quote = str[i];
+// 		else
+// 			new_str[j++] = str[i];
+// 		i++;
+// 	}
+// 	new_str[j] = '\0';
+// 	return (new_str);
+// }
 
-static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
+static char	*close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 {
 	char	quote;
 	size_t	occurence_of_quote;
@@ -116,6 +117,7 @@ static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 	i = 0;
 	j = 0;
 	quote = 0;
+	(void)occurence_of_quote;
 	/*occurence_of_quote = 0;*/
 	while (str && str[i])
 	{
@@ -136,19 +138,19 @@ static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 		else
 			new_str[j++] = str[i];
 		i++;
-
 	}
 	new_str[j] = '\0';
 	return (new_str);
 }
 
-char	*parsing_minishell(const char *str)
+char	*parsing_minishell(t_env_vars *env, const char *str)
 {
 	char	*new_str;
 	t_bool	*have_to_expand;
 	char	*result;
 	size_t	count;
 
+	have_to_expand = NULL;
 	if (!str || has_unclosed_quote(str) == TRUE)
 		return (NULL);
 	count = count_without_quote(str);
@@ -159,7 +161,7 @@ char	*parsing_minishell(const char *str)
 	new_str = close_quote(str, new_str, have_to_expand);
 	if (is_dollar(new_str) == TRUE && *have_to_expand == TRUE)
 	{
-		result = expand_variables_line(new_str);
+		result = expand_variables_line(env, new_str);
 	}
 	else
 	{

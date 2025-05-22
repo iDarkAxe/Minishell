@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:36:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 17:15:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static t_token	*create_token(void)
  * @param envp environment
  * @return t_command* pointer if OK, NULL if it fails
  */
-static t_command	*create_command(char **envp)
+static t_command	*create_command(t_garbage *garbage, char **envp)
 {
 	t_command	*command;
 
@@ -88,7 +88,7 @@ static t_command	*create_command(char **envp)
 	command->tokens = create_token();
 	if (command->tokens == NULL)
 	{
-		free_element_gb(command);
+		free_element_gb(garbage, command);
 		return (NULL);
 	}
 	command->envp = envp;

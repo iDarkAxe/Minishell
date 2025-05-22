@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:22:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 16:55:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_trim_word(char *str)
 	if (new_str == NULL)
 		return (str);
 	add_to_garbage(new_str);
-	free_element_gb(str);
+	free_element_gb(garbage, str);
 	return (new_str);
 }
 

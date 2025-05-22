@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 09:09:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 17:19:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ struct						s_garbage
 };
 
 // Function to replace all the malloc by this to use the garbage
-void						*malloc_gb(size_t size);
-void						add_to_garbage(void *ptr);
-void						free_element_gb(void *ptr);
-char						*ft_strdup_gb(const char *source);
+void						*malloc_gb(t_garbage *garbage, size_t size);
+void						add_to_garbage(t_garbage *garbage, void *ptr);
+void						free_element_gb(t_garbage *garbage, void *ptr);
+char						*ft_strdup_gb(t_garbage *garbage,
+								const char *source);
 
 // Initialise the garbage and free it's content
 void						garbage_init(void);

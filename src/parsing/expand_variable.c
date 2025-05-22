@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/14 11:47:09 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:40:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 #include "libft.h"
 #include "parsing.h"
 
-char	*search_env_str(char *var, size_t size)
+char	*search_env_str(t_env_vars *env, char *var, size_t size)
 {
-	char		*str;
-	t_var		*head;
-	t_env_vars	*env;
+	char	*str;
+	t_var	*head;
 
-	env = get_env();
 	head = env->head_var;
 	str = NULL;
 	while (head != NULL)
@@ -46,13 +44,13 @@ static void	free_temps(char *temp, char *temp_1)
 	free(temp);
 }
 
-static void	handle_expand(char *str, char **string_to_stack, size_t size,
-		size_t i)
+static void	handle_expand(t_env_vars *env, char *str, char **string_to_stack,
+		size_t size, size_t i)
 {
 	char	*temp;
 	char	*temp_1;
 
-	temp_1 = search_env_str(&str[i], size);
+	temp_1 = search_env_str(env, &str[i], size);
 	if (!temp_1)
 		return ;
 	if (*string_to_stack == NULL)
@@ -95,7 +93,7 @@ static void	handle_normal_characters(char *str, char **string_to_stack,
 	free_temps(temp, temp_1);
 }
 
-char	*expand_variables_line(char *str)
+char	*expand_variables_line(t_env_vars *env, char *str)
 {
 	char	*string_to_stack;
 	size_t	size;
@@ -110,7 +108,7 @@ char	*expand_variables_line(char *str)
 		{
 			i++;
 			size = ft_strlen_charset(&str[i], "$ \'\"");
-			handle_expand(str, &string_to_stack, size, i);
+			handle_expand(env, str, &string_to_stack, size, i);
 			i += size - 1;
 		}
 		else
@@ -122,6 +120,6 @@ char	*expand_variables_line(char *str)
 		}
 		i++;
 	}
-	add_to_garbage(string_to_stack);
+	add_to_garbage(garbage, string_to_stack);
 	return (string_to_stack);
 }
