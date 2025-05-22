@@ -42,150 +42,187 @@ char	**parse_line(char *line)
 	return (tokens);
 }
 
-size_t	count_without_quote(const char *str)
+static char	*fill_result(char *result, char *temp)
 {
-	size_t	i;
-	size_t	count;
-	char	quote;
+	char	*temp_result;
 
-	i = 0;
-	count = 0;
-	quote = 0;
-	while (str && str[i])
+	temp_result = NULL;
+	if (!result)
 	{
-		if (quote != 0 && str[i] == quote)
-			quote = 0;
-		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
-			quote = str[i];
-		else
-			count++;
-		i++;
+		result = ft_strdup(temp);
+		if (!result)
+			return (NULL);
+		free(temp);
+		return (result);
 	}
-	return (count);
+	else if (result && temp)
+	{
+		if (result == temp)
+			return (temp);
+		temp_result = ft_strdup(result);
+		if (!temp_result)
+			return (NULL);
+		free(result);
+		result = ft_strjoin(temp_result, temp);
+		if (!result)
+			return (NULL);
+		free(temp_result);
+		free(temp);
+	}
+	return (result);
 }
 
-static t_bool	has_unclosed_quote(const char *str)
+void	handle_quote(const char *str, char *quote, size_t *i, t_bool *have_to_expand)
 {
-	size_t	i;
-	char	quote;
-
-	i = 0;
-	quote = 0;
-	while (str && str[i])
+	// printf("Inside handle quote\n");
+	if (*quote == str[*i])
 	{
-		if (quote != 0 && str[i] == quote)
-			quote = 0;
-		else if (quote == 0 && (str[i] == '\'' || str[i] == '\"'))
-			quote = str[i];
-		i++;
+		*quote = 0;
+		// *have_to_expand = TRUE;
+		(*i)++;
+		// printf("ICI_1\n");
 	}
-	if (quote == 0)
-		return (FALSE);
-	return (TRUE);
+	if (*quote == 0 && str[*i] == '\"')
+	{
+		*quote = str[*i];
+		*have_to_expand = TRUE;
+		(*i)++;
+		// printf("ICI_2\n");
+	}
+	if (*quote == 0 && str[*i] == '\'')
+	{
+		*quote = str[*i];
+		*have_to_expand = FALSE;
+		(*i)++;
+		// printf("ICI_2\n");
+	}
 }
 
-// static char	*remove_quote(const char *str, char *new_str)
-// {
-// 	char	quote;
-// 	size_t	i;
-// 	size_t	j;
-//
-// 	i = 0;
-// 	j = 0;
-// 	quote = 0;
-// 	while (str && str[i])
-// 	{
-// 		if (quote != 0 && str[i] == quote)
-// 			quote = 0;
-// 		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
-// 			quote = str[i];
-// 		else
-// 			new_str[j++] = str[i];
-// 		i++;
-// 	}
-// 	new_str[j] = '\0';
-// 	return (new_str);
-// }
-//
-static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
+static char	*remove_quote(const char *str, t_bool *have_to_expand)
 {
-	char	quote;
-	char	*temp;
-	char	*temp_new_str;
 	size_t	i;
 	size_t	size;
+	char	*result;
+	char	quote;
+	char	*temp;
 
+	result = NULL;
+	temp = NULL;
 	i = 0;
 	quote = 0;
-	temp = NULL;
-	temp_new_str = NULL;
-	while (str && str[i])
+	size = 0;
+	while (str[i])
 	{
-		if (quote == str[i])
-			quote = 0;
-		else if (quote == 0 && str[i] == '\'')
+		handle_quote(str, &quote, &i, have_to_expand);
+		if (quote == '\"' && str[i] != quote)
 		{
-			*have_to_expand = FALSE;
-			quote = str[i];
-			i++;
-		}
-		else if (quote == 0 && str[i] == '"')
-		{
-			*have_to_expand = TRUE;
-			quote = str[i];
-			i++;
-		}
-		if (str[i] == '$' && *have_to_expand == TRUE)
-		{
-			i++;
-			size = ft_strlen_charset(&str[i], "$ \"");
-			temp = handle_expand(&str[i], size);
-			i += size;
-		}
-		else
-		{
-			size = ft_strlen_charset(&str[i] ,"'\"");
+			while (str[i] == '"')
+				i++;
+			size = ft_strlen_charset(&str[i], "");
 			temp = ft_strndup(&str[i], size);
 			if (!temp)
 				return (NULL);
 			i += size;
 		}
-		if (new_str == NULL && temp)
+		else if (quote == '\'' && str[i] != quote)
 		{
-			new_str = ft_strdup(temp);
-			if (!new_str)
+			size = ft_strlen_charset(&str[i], "\'");
+			temp = ft_strndup(&str[i], size);
+			if (!temp)
 				return (NULL);
-			free(temp);
-			temp = NULL;
-
+			i += size;
+			// printf("temp : %s\n", temp);
 		}
-		else if (new_str != NULL && temp)
+		else
 		{
-			temp_new_str = ft_strdup(new_str);
-			if (!temp_new_str)
+			if (str[i] == '$')
+			{
+				size = 1;
+				i++;
+			}
+			size += ft_strlen_charset(&str[i], "\'\"$");
+			printf("SIZE : %zu\n", size);
+			temp = ft_strndup(&str[i], size);
+			if (!temp)
 				return (NULL);
-			free(new_str);
-			new_str = ft_strjoin(temp_new_str, temp);
-			if (!new_str)
+			i += size;
+			// printf("temp : %s\n", temp);
+		}
+		if (temp)
+		{
+			result = fill_result(result, temp);
+			if (!result)
 				return (NULL);
-			free(temp_new_str);
-			free(temp);
 		}
 	}
-	add_to_garbage(new_str);
-	return (new_str);
+	// printf("result : %s\n", result);
+	return (result);
+}
+
+static char *expand_string(char *str)
+{
+	size_t	i;
+	size_t	size;
+	char	*result;
+	char	*temp;
+
+	result = NULL;
+	temp = NULL;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '$')
+		{
+			i++;
+			size = ft_strlen_charset(&str[i], "$\'\"");
+			temp = handle_expand(&str[i], size);
+			i += size;
+		}
+		else
+		{
+			size = ft_strlen_charset(&str[i], "$");
+			temp = ft_strndup(&str[i], size);
+			if (!temp)
+				return (NULL);
+			i += size;
+		}
+		result = fill_result(result, temp);
+	}
+	return (result);
+}
+
+static char *clean_string(const char *str)
+{
+	t_bool	have_to_expand;
+	char	*result;
+	char	*str_without_quote;
+
+	have_to_expand = TRUE;
+	result = NULL;
+	str_without_quote = remove_quote(str, &have_to_expand);
+	if (!str_without_quote)
+		return (NULL);
+	// if (have_to_expand == FALSE)
+	// 	printf("jes uis une banane\n");
+	if (have_to_expand == TRUE)
+	{
+		// printf("Here inside expand\n");
+		result = expand_string(str_without_quote);
+		if (!result)
+			return (NULL);
+		// printf("Inside clean_string result : %s\n", result);
+	}
+	else
+		return (str_without_quote);
+	return (result);
 }
 
 char	*parsing_minishell(const char *str)
 {
-	char	*new_str;
-	t_bool	have_to_expand;
 	char	*result;
 
-	if (!str || has_unclosed_quote(str) == TRUE)
+	result = clean_string(str);
+	if (!result)
 		return (NULL);
-	have_to_expand = TRUE;
-	new_str = NULL;
-	result = new_str;
 	return (result);
 }
