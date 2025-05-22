@@ -27,7 +27,7 @@ char	**parse_line(char *line)
 {
 	char	**tokens;
 
-	line = parsing_minishell(line);
+	// line = parsing_minishell(line);
 	tokens = lexer(line);
 	if (tokens == NULL)
 	{
@@ -83,40 +83,38 @@ static t_bool	has_unclosed_quote(const char *str)
 	return (TRUE);
 }
 
-static char	*remove_quote(const char *str, char *new_str)
-{
-	char	quote;
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	quote = 0;
-	while (str && str[i])
-	{
-		if (quote != 0 && str[i] == quote)
-			quote = 0;
-		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
-			quote = str[i];
-		else
-			new_str[j++] = str[i];
-		i++;
-	}
-	new_str[j] = '\0';
-	return (new_str);
-}
+// static char	*remove_quote(const char *str, char *new_str)
+// {
+// 	char	quote;
+// 	size_t	i;
+// 	size_t	j;
+//
+// 	i = 0;
+// 	j = 0;
+// 	quote = 0;
+// 	while (str && str[i])
+// 	{
+// 		if (quote != 0 && str[i] == quote)
+// 			quote = 0;
+// 		else if (quote == 0 && (str[i] == '\"' || str[i] == '\''))
+// 			quote = str[i];
+// 		else
+// 			new_str[j++] = str[i];
+// 		i++;
+// 	}
+// 	new_str[j] = '\0';
+// 	return (new_str);
+// }
 
 static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 {
 	char	quote;
-	size_t	occurence_of_quote;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
 	quote = 0;
-	/*occurence_of_quote = 0;*/
 	while (str && str[i])
 	{
 		if (quote == str[i])
@@ -124,13 +122,11 @@ static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 		else if (quote == 0 && str[i] == '\'')
 		{
 			quote = str[i];
-			/*occurence_of_quote++;*/
 			*have_to_expand = FALSE;
 		}
 		else if (quote == 0 && str[i] == '"')
 		{
 			quote = str[i];
-			/*occurence_of_quote++;*/
 			*have_to_expand = TRUE;
 		}
 		else
@@ -151,6 +147,7 @@ char	*parsing_minishell(const char *str)
 
 	if (!str || has_unclosed_quote(str) == TRUE)
 		return (NULL);
+	have_to_expand = NULL;
 	count = count_without_quote(str);
 	new_str = malloc((count + 1) * sizeof(char));
 	if (!new_str)
