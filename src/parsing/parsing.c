@@ -113,24 +113,18 @@ static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 	char	*temp;
 	char	*temp_new_str;
 	size_t	i;
-	/*size_t	j;*/
 	size_t	size;
 
 	i = 0;
-	/*j = 0;*/
 	quote = 0;
 	temp = NULL;
 	temp_new_str = NULL;
 	while (str && str[i])
 	{
 		if (quote == str[i])
-		{
 			quote = 0;
-			i++;
-		}
 		else if (quote == 0 && str[i] == '\'')
 		{
-			printf("JE SUIS ICI");
 			*have_to_expand = FALSE;
 			quote = str[i];
 			i++;
@@ -141,22 +135,20 @@ static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 			quote = str[i];
 			i++;
 		}
-		else if (str[i] == '$' && *have_to_expand == TRUE)
+		if (str[i] == '$' && *have_to_expand == TRUE)
 		{
 			i++;
 			size = ft_strlen_charset(&str[i], "$ \"");
 			temp = handle_expand(&str[i], size);
-			/*printf("temp : %s\n", temp);*/
 			i += size;
 		}
 		else
 		{
-			size = ft_strlen_charset(&str[i] ,"'$\"");
+			size = ft_strlen_charset(&str[i] ,"'\"");
 			temp = ft_strndup(&str[i], size);
 			if (!temp)
 				return (NULL);
-			i += size + 1;
-			printf("caracter : %c\n", str[i]);
+			i += size;
 		}
 		if (new_str == NULL && temp)
 		{
@@ -165,6 +157,7 @@ static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 				return (NULL);
 			free(temp);
 			temp = NULL;
+
 		}
 		else if (new_str != NULL && temp)
 		{
@@ -180,7 +173,6 @@ static char *close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 		}
 	}
 	add_to_garbage(new_str);
-	/*printf("New_str : %s\n", new_str);*/
 	return (new_str);
 }
 
@@ -189,26 +181,11 @@ char	*parsing_minishell(const char *str)
 	char	*new_str;
 	t_bool	have_to_expand;
 	char	*result;
-	/*size_t	count;*/
 
 	if (!str || has_unclosed_quote(str) == TRUE)
 		return (NULL);
-	/*count = count_without_quote(str);*/
-	/*new_str = malloc((count + 1) * sizeof(char));*/
-	/*if (!new_str)*/
-	/*	return (NULL);*/
 	have_to_expand = TRUE;
 	new_str = NULL;
-	new_str = close_quote(str, new_str, &have_to_expand);
-	// if (ft_strchr(new_str, '\''))
-	// 	have_to_expand = FALSE;
-	// if (is_dollar(new_str) == TRUE && have_to_expand == TRUE)
-	// {
-	// 	result = expand_variables_line(new_str);
-	// }
-	// else
-	// {
-		result = new_str;
-	// }
+	result = new_str;
 	return (result);
 }
