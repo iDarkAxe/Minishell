@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/12 11:26:40 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/23 11:45:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "minishell.h"
 #include <stdlib.h>
 
-static void	handle_space(t_lexer_state *lex_st);
+static void	handle_space(t_garbage *garbage, t_lexer_state *lex_st);
 static void	handle_quote(t_lexer_state *lex_st, char quote_type);
-static void	handle_operator(t_lexer_state *lex_st);
+static void	handle_operator(t_garbage *garbage, t_lexer_state *lex_st);
 // static void	handle_dollar(t_lexer_state *lex_st);
 
 /**
@@ -29,41 +29,32 @@ static void	handle_operator(t_lexer_state *lex_st);
  * @param line line to tokenise
  * @return Array of strings
  */
-char	**lexer(const char *line)
+char	**lexer(t_garbage *garbage, const char *line)
 {
 	t_lexer_state	lex_st;
 
-	if (init_lexer_state(&lex_st, line) == NULL)
+	if (init_lexer_state(garbage, &lex_st, line) == NULL)
 		return (NULL);
 	while (lex_st.line[lex_st.i] != '\0')
 	{
 		if (ft_isspace(lex_st.line[lex_st.i]) && !lex_st.in_single_quote
 			&& !lex_st.in_double_quote)
-			handle_space(&lex_st);
+			handle_space(garbage, &lex_st);
 		else if ((lex_st.line[lex_st.i] == '\''
 				|| lex_st.line[lex_st.i] == '"'))
 			handle_quote(&lex_st, lex_st.line[lex_st.i]);
 		else if (is_operator_char(lex_st.line[lex_st.i])
 			&& !lex_st.in_single_quote && !lex_st.in_double_quote)
-			handle_operator(&lex_st);
+			handle_operator(garbage, &lex_st);
 		else
 			lex_st.i++;
 	}
 	if (lex_st.start < lex_st.i)
-		lex_st.tokens[lex_st.j++] = ft_substr_end(lex_st.line, lex_st.start,
-				lex_st.i);
+		lex_st.tokens[lex_st.j++] = ft_substr_end_gb(garbage, lex_st.line,
+				lex_st.start, lex_st.i);
 	lex_st.tokens[lex_st.j] = NULL;
 	return (lex_st.tokens);
 }
-
-// static void	handle_dollar(t_lexer_state *lex_st)
-// {
-// 	if (lex_st->start < lex_st->i)
-// 		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->start,
-// 				lex_st->i);
-// 	lex_st->start = lex_st->i;
-// 	lex_st->i++;
-// }
 
 /**
  * @brief Handle the case where a space is found outside quotes
@@ -73,11 +64,11 @@ char	**lexer(const char *line)
  *
  * @param lex_st pointer to the lexer structure
  */
-static void	handle_space(t_lexer_state *lex_st)
+static void	handle_space(t_garbage *garbage, t_lexer_state *lex_st)
 {
 	if (lex_st->start < lex_st->i)
-		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->start,
-				lex_st->i);
+		lex_st->tokens[lex_st->j++] = ft_substr_end_gb(garbage, lex_st->line,
+				lex_st->start, lex_st->i);
 	lex_st->i++;
 	while (ft_isspace(lex_st->line[lex_st->i]))
 		lex_st->i++;
@@ -111,22 +102,22 @@ static void	handle_quote(t_lexer_state *lex_st, char quote_type)
  *
  * @param lex_st pointer to the lexer structure
  */
-static void	handle_operator(t_lexer_state *lex_st)
+static void	handle_operator(t_garbage *garbage, t_lexer_state *lex_st)
 {
 	if (lex_st->start < lex_st->i)
-		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->start,
-				lex_st->i);
+		lex_st->tokens[lex_st->j++] = ft_substr_end_gb(garbage, lex_st->line,
+				lex_st->start, lex_st->i);
 	if ((lex_st->line[lex_st->i] == '<' || lex_st->line[lex_st->i] == '>')
 		&& lex_st->line[lex_st->i + 1] == lex_st->line[lex_st->i])
 	{
-		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->i,
-				lex_st->i + 2);
+		lex_st->tokens[lex_st->j++] = ft_substr_end_gb(garbage, lex_st->line,
+				lex_st->i, lex_st->i + 2);
 		lex_st->i += 2;
 	}
 	else
 	{
-		lex_st->tokens[lex_st->j++] = ft_substr_end(lex_st->line, lex_st->i,
-				lex_st->i + 1);
+		lex_st->tokens[lex_st->j++] = ft_substr_end_gb(garbage, lex_st->line,
+				lex_st->i, lex_st->i + 1);
 		lex_st->i++;
 	}
 	while (ft_isspace(lex_st->line[lex_st->i]))

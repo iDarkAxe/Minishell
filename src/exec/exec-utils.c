@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:32:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/14 09:37:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:15:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	safe_close(int *fd)
  * @param oldfd fd that will overwrite newfd and will be close
  * @param newfd fd to overwrite by oldfd
  */
-void	dup_and_close(int oldfd, int newfd)
+void	dup_and_close(t_garbage *garbage, int oldfd, int newfd)
 {
 	if (dup2(oldfd, newfd) == -1)
 	{
 		perror("dup2");
-		free_garbage();
+		free_garbage(garbage);
 		exit(1);
 	}
 	close(oldfd);

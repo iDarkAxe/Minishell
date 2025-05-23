@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:21:54 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:16:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	free_files_struct(t_garbage *garbage, t_file *file)
 	while (temp != NULL)
 	{
 		if (temp->tmp != NULL)
-			free_heredoc(temp->tmp);
+			free_heredoc(garbage, temp->tmp);
 		if (temp->name != NULL)
 		{
 			free_element_gb(garbage, temp->name);

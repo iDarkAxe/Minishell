@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:19:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:48:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,20 @@ ssize_t		printn_fd(int fd, const char *str, size_t len);
 void		print_command_fd(t_command *command);
 
 // Lexer
-char		*ft_substr_end(char const *src, unsigned int start, size_t end);
+char		*ft_substr_end_gb(t_garbage *garbage, char const *src,
+				unsigned int start, size_t end);
 int			is_operator_char(char c);
-char		**init_lexer_state(t_lexer_state *lex_st, const char *line);
-char		**lexer(const char *line);
-t_command	*tokeniser(char **tokens, char **envp);
+char		**init_lexer_state(t_garbage *garbage, t_lexer_state *lex_st,
+				const char *line);
+char		**lexer(t_garbage *garbage, const char *line);
+t_command	*tokeniser(t_garbage *garbage, char **tokens, char **envp);
 
 // Parsing
-char		**parse_line(char *line);
-char		**expand_tildes_tokens(char **tokens);
+char		**parse_line(t_garbage *garbage, char *line);
+char		**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 // Exec
-char		**copy_toks(t_command *command);
+char		**copy_toks(t_data *data, t_command *command);
 void		print_toks(char **tokens);
 int			prepare_command(t_data *data, int ret);
 int			prepare_command_forks(t_data *data, int ret);
@@ -74,20 +76,20 @@ int			handle_redirections_forks(t_command *command);
 // EXEC UTILS
 size_t		count_commands(t_command *command);
 void		safe_close(int *fd);
-void		dup_and_close(int oldfd, int newfd);
+void		dup_and_close(t_garbage *garbage, int oldfd, int newfd);
 
 void		execute_pipeline(t_data *data, pid_t *pids, int ret);
 size_t		count_commands(t_command *command);
-void		fill_toks_into_commands(t_command *command);
+void		fill_toks_into_commands(t_data *data, t_command *command);
 void		search_paths(t_data *data, t_command *command);
 void		wait_all_childs(t_command *command, pid_t *pids);
 
 // Utils for manage memory
-void		free_array(char **array);
-void		free_command(t_command *command);
-void		free_files_struct(t_file *file);
-void		free_heredoc(t_tmp *tmp);
-void		free_tokens(t_token *token);
+void		free_array(t_garbage *garbage, char **array);
+void		free_command(t_garbage *garbage, t_command *command);
+void		free_files_struct(t_garbage *garbage, t_file *file);
+void		free_heredoc(t_garbage *garbage, t_tmp *tmp);
+void		free_tokens(t_garbage *garbage, t_token *token);
 
 // Utils for export
 int			check_args_export(const char *str);

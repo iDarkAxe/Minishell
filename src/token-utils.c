@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:05:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:34:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 static size_t	count_tokens(t_token const *head);
-static char		**fill_toks(t_token *head, char **tokens);
+static char		**fill_toks(t_garbage *garbage, t_token *head, char **tokens);
 
 /**
  * @brief Creates a copy of all tokens that are in a command structure
@@ -45,7 +45,7 @@ char	**copy_toks(t_data *data, t_command *command)
 		tokens[0] = NULL;
 		return (tokens);
 	}
-	fill_toks(token, tokens);
+	fill_toks(&data->garbage, token, tokens);
 	return (tokens);
 }
 
@@ -111,7 +111,7 @@ static char	**fill_toks(t_garbage *garbage, t_token *head, char **tokens)
 		tokens[i] = ft_strdup(temp->str);
 		if (!tokens[i])
 		{
-			free_array(tokens);
+			free_array(garbage, tokens);
 			return (NULL);
 		}
 		add_to_garbage(garbage, tokens[i]);

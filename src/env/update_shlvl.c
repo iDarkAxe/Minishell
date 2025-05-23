@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:45:33 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 18:14:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:43:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include "libft.h"
 #include "data_structure.h"
 
-void	create_shlvl(t_garbage *garbage, t_env_vars *env)
+static void	create_shlvl(t_garbage *garbage, t_env_vars *env);
+
+static void	create_shlvl(t_garbage *garbage, t_env_vars *env)
 {
 	t_var	*shlvl;
 

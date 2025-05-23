@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:01:37 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 16:59:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:07:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_var	*get_var(t_garbage *garbage, const char *var)
 
 	new = malloc_gb(garbage, sizeof(t_var));
 	if (!new)
-		ft_exit_int(-1);
+		ft_exit_int(garbage, -1);
 	new->head_params = NULL;
 	new->next = NULL;
 	new->value = ft_strdup_gb(garbage, var);

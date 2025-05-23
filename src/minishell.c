@@ -6,23 +6,23 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 18:12:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:13:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
-  ******************************************************************************
-  * @file           : minishell.c
-  * @brief          : Main program of the Minishell
-  ******************************************************************************
-  * @date 27 avril 2025
-  * @mainpage Minishell
-  * @section Introduction
-  *
-  * Make your own shell that performs worse than bash but it's yours.
-  * 
-  ******************************************************************************
-*/
+ ******************************************************************************
+ * @file           : minishell.c
+ * @brief          : Main program of the Minishell
+ ******************************************************************************
+ * @date 27 avril 2025
+ * @mainpage Minishell
+ * @section Introduction
+ *
+ * Make your own shell that performs worse than bash but it's yours.
+ *
+ ******************************************************************************
+ */
 #include "builtins.h"
 #include "env.h"
 #include "file.h"
@@ -69,7 +69,7 @@ static char	*read_stdin(t_garbage *garbage)
 
 	while (1)
 	{
-		prompt = get_prompt_message();
+		prompt = get_prompt_message(garbage);
 		line = readline(prompt);
 		if (ft_strncmp(prompt, DEFAULT_PROMPT, sizeof(DEFAULT_PROMPT)) != 0)
 			free_element_gb(garbage, prompt);
@@ -97,26 +97,33 @@ int	minishell(char **envp)
 	t_data		data;
 	char		*line;
 	char		**tokens;
+	static int	index = 0;
 
+	ret = 0;
+	garbage_init(&data.garbage);
 	signal_init();
 	// read_context(&data.env, envp);
-	set_env(&data.env, envp);
+	// set_env(&data, envp);
 	while (1)
 	{
 		line = read_stdin(&data.garbage);
-		tokens = parse_line(line);
-		data.command = tokeniser(tokens, envp);
-		if (data.command->tokens->str == NULL || files_management(data.command) != 0)
+		tokens = parse_line(&data.garbage, line);
+		data.command = tokeniser(&data.garbage, tokens, envp);
+		if (data.command->tokens->str == NULL || files_management(&data) != 0)
 		{
-			free_command(data.command);
-			free_array(tokens);
+			free_command(&data.garbage, data.command);
+			free_array(&data.garbage, tokens);
 			continue ;
 		}
 		if (needs_to_be_forked(data.command) != 0)
 			ret = prepare_command_forks(&data, ret);
 		else
 			ret = prepare_command(&data, ret);
-		free_array(tokens);
-		free_command(data.command);
+		free_array(&data.garbage, tokens);
+		free_command(&data.garbage, data.command);
+		// ft_exit_int(&data.garbage, 0);
+		index++;
+		if (index == 2)
+			exit(0);
 	}
 }

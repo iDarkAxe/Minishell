@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:09:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:14:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv, char **envp)
 	prompt = get_prompt_message(&garbage);
 	if (prompt == NULL)
 	{
-		free_garbage();
+		free_garbage(garbage);
 		write(2, "Error creating prompt\n", 22);
 		exit(1);
 	}
@@ -44,5 +44,5 @@ int	main(int argc, char **argv, char **envp)
 		return (-1);
 	add_history(str);
 	add_to_garbage(str);
-	free_garbage();
+	free_garbage(garbage);
 }

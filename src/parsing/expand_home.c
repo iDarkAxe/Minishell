@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:10:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:12:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:30:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ char	**expand_tildes_tokens(t_garbage *garbage, char **tokens)
 	while (tokens[index] != NULL)
 	{
 		if (ft_strchr(tokens[index], '~') != NULL)
-			tokens[index] = expand_tildes(tokens[index]);
+			tokens[index] = expand_tildes(garbage, tokens[index]);
 		if (tokens[index] == NULL)
 		{
-			free_array(tokens);
+			free_array(garbage, tokens);
 			ft_exit_int_np(1);
 		}
 		index++;
@@ -69,7 +69,7 @@ static char	*expand_tildes(t_garbage *garbage, char *str)
 		free_element_gb(garbage, str);
 		ft_exit((char *[]){"1", NULL});
 	}
-	add_to_garbage(result);
+	add_to_garbage(garbage, result);
 	change_tildes_by_home(result, home, str);
 	free_element_gb(garbage, str);
 	return (result);

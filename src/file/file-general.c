@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 13:01:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:44:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,27 @@
 /**
  * @brief Executes all the files redirection tests
  *
- * @param command command structure
+ * @param data data structure
  * @return int 0 OK, 1 is at least one file redirection is invalid
  */
-int	files_management(t_command *command)
+int	files_management(t_data *data)
 {
-	if (command->parse_error == 1)
+	if (data->command->parse_error == 1)
 		return (1);
-	if (build_files_redirection(command) != 0)
+	if (build_files_redirection(data) != 0)
 	{
 		print_fd(2, "minishell: error creating file structure\n");
 		ft_exit_int_np(1);
 	}
-	build_files_data(command);
-	if (fill_heredocs(command) != 0)
+	build_files_data(data->command);
+	if (fill_heredocs(&data->garbage, data->command) != 0)
 	{
 		print_fd(2, "minishell: error during heredoc creation\n");
 		ft_exit_int_np(1);
 	}
-	if (verify_access(command) != 0)
+	if (verify_access(&data->garbage, data->command) != 0)
 		return (1);
-	if (remove_used_file_tokens(command) == NULL)
+	if (remove_used_file_tokens(data) == NULL)
 	{
 		print_fd(2, "minishell: error removing file tokens\n");
 		ft_exit_int_np(1);

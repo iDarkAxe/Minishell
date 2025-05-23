@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:10:00 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 18:13:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 10:40:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	sort_ascii_order(t_garbage *garbage, t_env_vars *env)
 {
 	t_env_vars	*c_env;
 
-	c_env = copy_env(env);
+	c_env = copy_env(garbage, env);
 	if (!c_env)
 		return ;
 	bubble_sort(garbage, &c_env->head_var);

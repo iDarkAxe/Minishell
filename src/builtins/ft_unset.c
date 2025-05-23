@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 17:08:45 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 18:13:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 10:39:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_unset(t_data *data, char **array)
 	temp = &env->head_var;
 	while (array && array[i] != NULL)
 	{
-		supp_var(data->command, temp, array[i]);
+		supp_var(&data->garbage, temp, array[i]);
 		temp = &env->head_var;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:14:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:03:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <fcntl.h>
 
 static void	heredoc_error(const char *delimitor);
-static int	fill_heredoc(t_file *file);
+static int	fill_heredoc(t_garbage *garbage, t_file *file);
 
 /**
  * @brief Read from stdin and outputs to a file,
@@ -85,7 +85,7 @@ static int	fill_heredoc(t_garbage *garbage, t_file *file)
 	file->tmp = malloc_gb(garbage, sizeof(t_tmp) * 1);
 	if (file->tmp == NULL)
 		return (-1);
-	*file->tmp = create_tmp("/home/ppontet/Desktop/", 3);
+	*file->tmp = create_tmp(garbage, TMP_PATH, 3);
 	if (file->tmp->fd == -1)
 	{
 		free_element_gb(garbage, file->tmp);
@@ -102,7 +102,7 @@ static int	fill_heredoc(t_garbage *garbage, t_file *file)
  * @param command command structure
  * @return int 0 OK, otherwise error
  */
-int	fill_heredocs(t_command *command)
+int	fill_heredocs(t_garbage *garbage, t_command *command)
 {
 	t_command	*current;
 	t_file		*cur_file;
@@ -121,7 +121,7 @@ int	fill_heredocs(t_command *command)
 		{
 			cur_file = search_last_file(current->file_in, last_file);
 			last_file = cur_file;
-			if (fill_heredoc(cur_file) == -1)
+			if (fill_heredoc(garbage, cur_file) == -1)
 				return (1);
 		}
 		current = current->next;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:15:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:45:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #include "minishell.h"
 #include "parsing.h"
 
-static t_token		*create_token(void);
-static t_command	*create_command(char **envp);
-static t_token		*iterate_token(char *str, t_token **token);
-static t_command	*iterate_command(char *str, t_token **token,
-						t_command **current);
+static t_token		*create_token(t_garbage *garbage);
+static t_command	*create_command(t_garbage *garbage, char **envp);
+static t_token		*iterate_token(t_garbage *garbage, char *str,
+						t_token **token);
+static t_command	*iterate_command(t_garbage *garbage, char *str,
+						t_token **token, t_command **current);
 
 /**
  * @brief Creates a t_command structure that contains all the tokens
@@ -30,14 +31,14 @@ static t_command	*iterate_command(char *str, t_token **token,
  * @param envp environment
  * @return t_command* pointer if OK, NULL if it fails
  */
-t_command	*tokeniser(char **tokens, char **envp)
+t_command	*tokeniser(t_garbage *garbage, char **tokens, char **envp)
 {
 	t_command	*command;
 	t_command	*current;
 	t_token		*token;
 	size_t		index;
 
-	command = create_command(envp);
+	command = create_command(garbage, envp);
 	if (command == NULL)
 		ft_exit_int_np(1);
 	current = command;
@@ -45,10 +46,10 @@ t_command	*tokeniser(char **tokens, char **envp)
 	index = 0;
 	while (tokens && tokens[index] != NULL)
 	{
-		if (iterate_command(tokens[index], &token, &current) == NULL)
+		if (iterate_command(garbage, tokens[index], &token, &current) == NULL)
 			ft_exit_int_np(1);
 		token->str = tokens[index];
-		if (iterate_token(tokens[index + 1], &token) == NULL)
+		if (iterate_token(garbage, tokens[index + 1], &token) == NULL)
 			ft_exit_int_np(1);
 		index++;
 	}
@@ -60,14 +61,14 @@ t_command	*tokeniser(char **tokens, char **envp)
  *
  * @return t_token* pointer if OK, NULL if it fails
  */
-static t_token	*create_token(void)
+static t_token	*create_token(t_garbage *garbage)
 {
 	t_token	*token;
 
 	token = ft_calloc(sizeof(t_token), 1);
 	if (token == NULL)
 		return (NULL);
-	add_to_garbage(token);
+	add_to_garbage(garbage, token);
 	return (token);
 }
 
@@ -84,8 +85,8 @@ static t_command	*create_command(t_garbage *garbage, char **envp)
 	command = ft_calloc(sizeof(t_command), 1);
 	if (command == NULL)
 		return (NULL);
-	add_to_garbage(command);
-	command->tokens = create_token();
+	add_to_garbage(garbage, command);
+	command->tokens = create_token(garbage);
 	if (command->tokens == NULL)
 	{
 		free_element_gb(garbage, command);
@@ -103,13 +104,13 @@ static t_command	*create_command(t_garbage *garbage, char **envp)
  * @param token token
  * @return t_token* pointer if OK, NULL if it fails
  */
-static t_token	*iterate_token(char *str, t_token **token)
+static t_token	*iterate_token(t_garbage *garbage, char *str, t_token **token)
 {
 	t_token	*new_token;
 
 	if (str && ft_strncmp(str, "|", 1) != 0)
 	{
-		new_token = create_token();
+		new_token = create_token(garbage);
 		if (new_token == NULL)
 			return (NULL);
 		(*token)->next = new_token;
@@ -127,12 +128,12 @@ static t_token	*iterate_token(char *str, t_token **token)
  * @param current command
  * @return t_command* pointer if OK, NULL if it fails
  */
-static t_command	*iterate_command(char *str, t_token **token,
-		t_command **current)
+static t_command	*iterate_command(t_garbage *garbage, char *str,
+		t_token **token, t_command **current)
 {
 	if (str && ft_strncmp(str, "|", 1) == 0)
 	{
-		(*current)->next = create_command((*current)->envp);
+		(*current)->next = create_command(garbage, (*current)->envp);
 		if ((*current)->next == NULL)
 			return (NULL);
 		(*current) = (*current)->next;

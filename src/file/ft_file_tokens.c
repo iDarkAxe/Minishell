@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 16:55:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:44:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 #include "garbage.h"
 #include "minishell.h"
 
-static t_token	*clean_tokens(t_token *head);
+static t_token	*clean_tokens(t_garbage *garbage, t_token *head);
 static int		is_redirection(char *str);
-static void		free_token(t_token *token);
+static void		free_token(t_garbage *garbage, t_token *token);
 
 /**
  * @brief Removes all the tokens of file redirections allready used
  *
- * @param command command structure
+ * @param data data structure
  * @return t_command*
  */
-t_command	*remove_used_file_tokens(t_command *command)
+t_command	*remove_used_file_tokens(t_data *data)
 {
 	t_command	*current;
 
-	current = command;
+	current = data->command;
 	while (current && current->tokens)
 	{
-		current->tokens = clean_tokens(current->tokens);
+		current->tokens = clean_tokens(&data->garbage, current->tokens);
 		current = current->next;
 	}
-	return (command);
+	return (data->command);
 }
 
 /**
@@ -43,7 +43,7 @@ t_command	*remove_used_file_tokens(t_command *command)
  * @param head head of tokens
  * @return t_token*
  */
-static t_token	*clean_tokens(t_token *head)
+static t_token	*clean_tokens(t_garbage *garbage, t_token *head)
 {
 	t_token	*token;
 	t_token	*prev;
@@ -56,7 +56,7 @@ static t_token	*clean_tokens(t_token *head)
 		if (is_redirection(token->str))
 		{
 			next = token->next->next;
-			free_token(token);
+			free_token(garbage, token);
 			if (prev)
 				prev->next = next;
 			else

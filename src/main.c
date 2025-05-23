@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 15:20:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:59:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	main(int argc, char **argv, char **envp)
 	(void)argc;
 	(void)argv;
 	data.command = NULL;
-	set_env(&data.env, envp);
+	// set_env(&data, envp);
 	if (minishell(envp) != 0)
 		ft_exit_int_np(1);
-	free_garbage();
+	free_garbage(&data.garbage);
 	return (0);
 }

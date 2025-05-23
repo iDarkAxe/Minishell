@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 16:36:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:30:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	not_builtins(t_data *data, t_command *command, char **tokens)
 		ft_exit_int_np(1);
 	}
 	add_to_garbage(&data->garbage, path);
-	toks = copy_toks(command);
+	toks = copy_toks(data, command);
 	if (toks == NULL)
 		return (-1);
 	ret = execve_fork(data, path, toks, command->envp);
@@ -60,7 +60,7 @@ int	execve_fork(t_data *data, char *path, char **toks, char **envp)
 		reset_signal_default();
 		execve(path, toks, envp);
 		perror("execve");
-		free_garbage();
+		free_garbage(&data->garbage);
 		if (errno == ENOENT)
 			exit(127);
 		else if (errno == EACCES)
@@ -71,7 +71,7 @@ int	execve_fork(t_data *data, char *path, char **toks, char **envp)
 	ignore_signal();
 	waitpid(pid, &status, 0);
 	free_element_gb(&data->garbage, path);
-	free_array(toks);
+	free_array(&data->garbage, toks);
 	signal_init();
 	return ((status >> 8) & 0xFF);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 16:40:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:13:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ size_t			count_without_quote(const char *str);
  * @param line line to parse
  * @return char**
  */
-char	**parse_line(char *line)
+char	**parse_line(t_garbage *garbage, char *line)
 {
 	char	**tokens;
 
-	tokens = lexer(line);
+	tokens = lexer(garbage, line);
 	if (tokens == NULL)
 	{
 		free_element_gb(garbage, line);
 		ft_exit((char *[]){"1", NULL});
 	}
 	free_element_gb(garbage, line);
-	tokens = expand_tildes_tokens(tokens);
+	tokens = expand_tildes_tokens(garbage, tokens);
 	if (tokens == NULL)
 		ft_exit_int_np(1);
 	return (tokens);
@@ -143,7 +143,7 @@ static char	*close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 	return (new_str);
 }
 
-char	*parsing_minishell(t_env_vars *env, const char *str)
+char	*parsing_minishell(t_data *data, const char *str)
 {
 	char	*new_str;
 	t_bool	*have_to_expand;
@@ -161,7 +161,7 @@ char	*parsing_minishell(t_env_vars *env, const char *str)
 	new_str = close_quote(str, new_str, have_to_expand);
 	if (is_dollar(new_str) == TRUE && *have_to_expand == TRUE)
 	{
-		result = expand_variables_line(env, new_str);
+		result = expand_variables_line(data, new_str);
 	}
 	else
 	{

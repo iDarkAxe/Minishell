@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 18:14:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:13:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct s_env_vars	t_env_vars;
 typedef struct s_params		t_params;
 typedef struct s_vars		t_vars;
 typedef struct s_supp		t_supp;
+
+// from data_structure.h
+typedef struct s_data		t_data;
 
 struct						s_env_vars
 {
@@ -78,20 +81,24 @@ char						**build_elements(char *str);
 
 // Utils env
 t_env_vars					*init_env(char **envp);
-t_env_vars					*copy_env(t_env_vars *env);
-void						set_env(t_env_vars *env, char *envp[]);
-void						sort_ascii_order(t_garbage *garbage, t_env_vars *env);
-char						*search_env_str(t_env_vars *env, char *var, size_t size);
+t_env_vars					*copy_env(t_garbage *garbage, t_env_vars *env);
+void						set_env(t_data *data, char *envp[]);
+void						sort_ascii_order(t_garbage *garbage,
+								t_env_vars *env);
+char						*search_env_str(t_garbage *garbage, t_env_vars *env,
+								char *var, size_t size);
 t_var						*search_env_var(t_env_vars *env, char *var);
 int							count_env(t_env_vars env);
 void						update_shlvl(t_garbage *garbage, t_env_vars *env);
 
 // Utils params
-char						*create_str_with_params(t_params *params);
-t_params					*get_param(t_garbage *garbage, char *content, size_t detect_equal);
+char						*create_str_with_params(t_garbage *garbage,
+								t_params *params);
+t_params					*get_param(t_garbage *garbage, char *content,
+								size_t detect_equal);
 t_params					*ft_paramlast(t_params *params);
-void						replace_param(t_var *var, char *new_content,
-								size_t equal);
+void						replace_param(t_garbage *garbage, t_var *var,
+								char *new_content, size_t equal);
 void						ft_paramsadd_back(t_params **params, t_params *new);
 void						print_export(t_env_vars *env);
 
@@ -100,8 +107,10 @@ t_var						*ft_varlast(t_var *var);
 t_var						*get_var(t_garbage *garbage, const char *var);
 void						ft_varsadd_back(t_var **var, t_var *new);
 void						ft_varsadd_front(t_var **head, t_var *new);
-void						supp_var(t_garbage *garbage, t_var **head, char *str);
-void						swap_vars(t_garbage *garbage, t_var **head, char *str, char *str_1);
+void						supp_var(t_garbage *garbage, t_var **head,
+								char *str);
+void						swap_vars(t_garbage *garbage, t_var **head,
+								char *str, char *str_1);
 
 // Sorting algorithms
 void						bubble_sort(t_garbage *garbage, t_var **head);

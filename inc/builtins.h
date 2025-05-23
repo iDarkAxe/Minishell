@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:56:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 16:41:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:12:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include "data_structure.h"
 
 int								ft_exit(char **array);
-void							ft_exit_int(int value);
+void							ft_exit_int(t_garbage *garbage, int value);
+// FIXME add garbage to exit int np
 void							ft_exit_int_np(int value);
 int								ft_echo(char **array);
 int								ft_which(char **array);

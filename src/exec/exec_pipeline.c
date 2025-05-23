@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 18:11:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:43:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ static void	execute_command_from_pipe(t_data *data, t_command *command,
 		return ;
 	reset_signal_default();
 	if (prev_fd != -1)
-		dup_and_close(prev_fd, 0);
+		dup_and_close(&data->garbage, prev_fd, 0);
 	if (command->next)
 	{
 		safe_close(&pipefd[0]);
-		dup_and_close(pipefd[1], 1);
+		dup_and_close(&data->garbage, pipefd[1], 1);
 	}
 	if (handle_redirections_forks(command) != 0 || command->file_error != 0)
 	{
-		free_garbage();
+		free_garbage(&data->garbage);
 		exit(0);
 	}
 	value = search_command(data, command, command->toks, ret);
@@ -54,14 +54,14 @@ static void	execute_command_from_pipe(t_data *data, t_command *command,
 		execve(command->path, command->toks, command->envp);
 	if (value != 0)
 		perror("minishell: execve");
-	free_garbage();
+	free_garbage(&data->garbage);
 	execve_exit(value);
 }
 
 /**
  * @brief Execute all the command that are followed by pipes
  *
- * @param command command structure
+ * @param data data structure
  * @param pids array of pids of childs
  * @param ret ret value of previous command
  */

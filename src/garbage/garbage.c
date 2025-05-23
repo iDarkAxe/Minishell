@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 16:30:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:55:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,10 @@
  * @brief Initialize the garbage and sets the values to 0
  *
  */
-void	garbage_init(void)
+void	garbage_init(t_garbage	*garbage)
 {
-	t_garbage	*garbage;
-
-	garbage = get_garbage();
 	ft_bzero(garbage, sizeof(garbage));
+	garbage->head = NULL;
 }
 
 /**
@@ -50,13 +48,12 @@ void	garbage_init(void)
 void	add_to_garbage(t_garbage *garbage, void *ptr)
 {
 	void		*temp;
-	t_garbage	*garbage;
 
 	temp = ft_garbagenew(ptr);
 	if (temp == NULL)
 	{
 		free(ptr);
-		free_garbage();
+		free_garbage(garbage);
 		print_fd(2, "minishell: garbage: Critical error of malloc, exiting.\n");
 		ft_exit_int_np(1);
 	}
@@ -68,12 +65,9 @@ void	add_to_garbage(t_garbage *garbage, void *ptr)
  * @brief Free the garbage
  *
  */
-void	free_garbage(void)
+void	free_garbage(t_garbage *garbage)
 {
-	t_garbage	*garbage;
-
 	rl_clear_history();
-	garbage = get_garbage();
 	ft_garbageclear(garbage);
 }
 

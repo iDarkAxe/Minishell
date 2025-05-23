@@ -6,14 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 16:49:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:14:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "minishell.h"
 
-static int	search_command_exit(t_command *command, char **tokens, int ret);
+static int	search_command_exit(t_garbage *garbage, t_command *command,
+				char **tokens, int ret);
 
 /**
  * @brief  Search if command is a builtin or not
@@ -25,10 +26,10 @@ static int	search_command_exit(t_command *command, char **tokens, int ret);
  */
 int	search_command(t_data *data, t_command *command, char **tokens, int ret)
 {
-	static int	(*cmd[])(char **) = {ft_echo, ft_env, ft_which, ft_unset,
-		ft_cd, ft_pwd};
-	static char	*command_name[] = {"echo", "env", "which", "unset",
-		"cd", "pwd"};
+	static char	*command_name[] = {"echo", "env", "which", "unset", "cd",
+		"pwd"};
+	static int	(*cmd[])(char **) = {ft_echo, ft_env, ft_which, ft_unset, ft_cd,
+		ft_pwd};
 	size_t		i;
 
 	if (!data || !command || !tokens || !tokens[0])
@@ -36,7 +37,8 @@ int	search_command(t_data *data, t_command *command, char **tokens, int ret)
 	i = 0;
 	while (command_name[i])
 	{
-		if (ft_strncmp(tokens[0], command_name[i], ft_strlen(command_name[i]) + 1) == 0)
+		if (ft_strncmp(tokens[0], command_name[i], ft_strlen(command_name[i])
+				+ 1) == 0)
 		{
 			command->return_value = cmd[i](&tokens[1]);
 			return (0);
@@ -46,13 +48,14 @@ int	search_command(t_data *data, t_command *command, char **tokens, int ret)
 	if (command_name[i] == NULL && ft_strncmp(tokens[0], "export", 7) == 0)
 		return (ft_export(data, &tokens[1]));
 	if (command_name[i] == NULL)
-		return (search_command_exit(command, tokens, ret));
+		return (search_command_exit(&data->garbage, command, tokens, ret));
 	return (0);
 }
 
 // int	search_command(t_command *command, char **tokens, int ret)
 // {
-// 	static int	(*cmd[])(t_data *data, char **) = {ft_echo, ft_env, ft_which, ft_export,
+// 	static int	(*cmd[])(t_data *data, char **) = {ft_echo, ft_env, ft_which,
+	// ft_export,
 // 		ft_unset, ft_cd, ft_pwd};
 // 	static char	*command_name[] = {"echo", "env", "which", "export", "unset",
 // 		"cd", "pwd"};
@@ -76,15 +79,16 @@ int	search_command(t_data *data, t_command *command, char **tokens, int ret)
 // 	return (0);
 // }
 
-static int	search_command_exit(t_command *command, char **tokens, int ret)
+static int	search_command_exit(t_garbage *garbage, t_command *command,
+	char **tokens, int ret)
 {
 	if (!command || !command->tokens || !command->tokens->str)
 		return (1);
 	if (ft_strncmp(tokens[0], "exit", 5) != 0)
 		return (2);
 	if (tokens && tokens[0] && tokens[1] == NULL)
-		ft_exit_int(ret);
+		ft_exit_int(garbage, ret);
 	else
 		command->return_value = ft_exit(&tokens[1]);
-	return (0);
+	return (command->return_value);
 }

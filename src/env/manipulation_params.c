@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 10:21:07 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 18:12:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:45:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ t_params	*get_param(t_garbage *garbage, char *content, size_t equal)
 	return (param);
 }
 
-void	replace_param(t_garbage *garbage, t_var *var, char *new_content, size_t equal)
+void	replace_param(t_garbage *garbage, t_var *var, char *new_content,
+		size_t equal)
 {
 	char	*new_value;
 

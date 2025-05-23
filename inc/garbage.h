@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 17:19:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:50:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ char						*ft_strdup_gb(t_garbage *garbage,
 								const char *source);
 
 // Initialise the garbage and free it's content
-void						garbage_init(void);
-void						free_garbage(void);
+void						garbage_init(t_garbage *garbage);
+void						free_garbage(t_garbage *garbage);
 
 // Private functions for garbage management
-t_garbage					*get_garbage(void);
-void						print_garbage(void);
+// t_garbage					*get_garbage(void);
+void						print_garbage(t_garbage *garbage);
 
 // Garbage stack management
 t_element					*ft_garbagenew(void *ptr);

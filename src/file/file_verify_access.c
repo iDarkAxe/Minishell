@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 16:54:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:45:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include "minishell.h"
 #include <fcntl.h>
 
-static int	handle_files(t_command *command);
-static int	file_permission_check(t_file *file, t_bool in_out);
+static int	handle_files(t_garbage *garbage, t_command *command);
+static int	file_permission_check(t_garbage *garbage, t_file *file,
+				t_bool in_out);
 static int	file_permission_check_outfile(t_file *file, t_bool in_out);
 
 /**
@@ -51,7 +52,8 @@ t_file	*search_last_file(t_file *file, t_file *already_searched)
  *
  * @param in_out 0 = IN, 1 = OUT
  */
-static int	file_permission_check(t_file *file, t_bool in_out)
+static int	file_permission_check(t_garbage *garbage, t_file *file,
+		t_bool in_out)
 {
 	if (file == NULL)
 		return (0);
@@ -120,7 +122,7 @@ static int	file_permission_check_outfile(t_file *file, t_bool in_out)
  * @param command command structure
  * @return int
  */
-static int	handle_files(t_command *command)
+static int	handle_files(t_garbage *garbage, t_command *command)
 {
 	t_file	*cur_file;
 	t_file	*last_file;
@@ -131,7 +133,7 @@ static int	handle_files(t_command *command)
 	{
 		cur_file = search_last_file(command->file_in, last_file);
 		last_file = cur_file;
-		if (file_permission_check(cur_file, 0) != 0)
+		if (file_permission_check(garbage, cur_file, 0) != 0)
 			return (1);
 	}
 	last_file = NULL;
@@ -140,7 +142,7 @@ static int	handle_files(t_command *command)
 	{
 		cur_file = search_last_file(command->file_out, last_file);
 		last_file = cur_file;
-		if (file_permission_check(cur_file, 1) != 0)
+		if (file_permission_check(garbage, cur_file, 1) != 0)
 			return (1);
 	}
 	return (0);
@@ -154,7 +156,7 @@ static int	handle_files(t_command *command)
  * @param command command structure
  * @return int 0 OK, error otherwise
  */
-int	verify_access(t_command *command)
+int	verify_access(t_garbage *garbage, t_command *command)
 {
 	t_command	*current;
 	int			error_value;
@@ -164,7 +166,7 @@ int	verify_access(t_command *command)
 	current = command;
 	while (current != NULL)
 	{
-		error_value = handle_files(current);
+		error_value = handle_files(garbage, current);
 		if (error_value != 0)
 			current->file_error = 1;
 		current = current->next;

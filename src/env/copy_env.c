@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:41:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 17:19:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:04:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "garbage.h"
 #include <stdlib.h>
 
-static void	copy_param(t_garbage *garbage, t_var *var_to_fill, const t_var *content)
+static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
+		const t_var *content)
 {
 	t_params	*new_node;
 	t_params	*temp;
@@ -39,11 +40,12 @@ static void	copy_param(t_garbage *garbage, t_var *var_to_fill, const t_var *cont
 	}
 }
 
-void static	free_all_and_exit(t_garbage *garbage, t_env_vars *env, t_env_vars *c_env)
+void static	free_all_and_exit(t_garbage *garbage, t_env_vars *env,
+		t_env_vars *c_env)
 {
 	free_env(garbage, env);
 	free_env(garbage, c_env);
-	ft_exit_int(-1);
+	ft_exit_int(garbage, -1);
 }
 
 t_env_vars	*copy_env(t_garbage *garbage, t_env_vars *env)
@@ -61,9 +63,9 @@ t_env_vars	*copy_env(t_garbage *garbage, t_env_vars *env)
 	copy_env->head_var = NULL;
 	while (temp)
 	{
-		new_node = get_var(temp->value);
+		new_node = get_var(garbage, temp->value);
 		if (!new_node || !new_node->value)
-			free_all_and_exit(env, copy_env);
+			free_all_and_exit(garbage, env, copy_env);
 		if (temp->head_params)
 			copy_param(garbage, new_node, temp);
 		ft_varsadd_back(&copy_env->head_var, new_node);
