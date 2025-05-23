@@ -40,79 +40,34 @@ char	*search_env_str(const char *var, size_t size)
 	return (str);
 }
 
-static void	free_temps(char *temp, char *temp_1)
+char	*handle_expand(char *str)
 {
-	free(temp_1);
-	free(temp);
-}
-
-char	*handle_expand(const char *str, size_t size)
-{
+	size_t	i;
+	size_t	size;
 	char	*result;
+	char	*temp;
 
-	result = search_env_str(str, size);
-	if (!result)
-		return (NULL);
+	result = NULL;
+	temp = NULL;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '$')
+		{
+			i++;
+			size = ft_strlen_charset(&str[i], "$\'\"");
+			temp = search_env_str(&str[i], size);
+			i += size;
+		}
+		else
+		{
+			size = ft_strlen_charset(&str[i], "$");
+			temp = ft_strndup(&str[i], size);
+			if (!temp)
+				return (NULL);
+			i += size;
+		}
+		result = fill_result(result, temp);
+	}
 	return (result);
 }
-
-void	handle_normal_characters(const char *str, char **string_to_stack,
-		size_t size, size_t i)
-{
-	char	*temp;
-	char	*temp_1;
-
-	temp = NULL;
-	temp_1 = ft_strndup(&str[i], size);
-	if (!temp_1)
-		return ;
-	/*printf("NORMAL : TEMP_1 : %s\n", temp_1);*/
-	if (*string_to_stack)
-	{
-		temp = ft_strdup(*string_to_stack);
-		if (!temp)
-			return ;
-	}
-	/*printf("NORMAL : TEMP : %s\n", temp);*/
-	if (*string_to_stack)
-		free(*string_to_stack);
-	if (temp)
-		*string_to_stack = ft_strjoin(temp, temp_1);
-	else
-		*string_to_stack = ft_strdup(temp_1);
-	if (!*string_to_stack)
-		return ;
-	/*printf("NORMAL : STRING TO : %s\n", *string_to_stack);*/
-	free_temps(temp, temp_1);
-}
-
-/*char	*expand_variables_line(char *str)*/
-/*{*/
-/*	char	*string_to_stack;*/
-/*	size_t	size;*/
-/*	size_t	i;*/
-/**/
-/*	string_to_stack = NULL;*/
-/*	size = 0;*/
-/*	i = 0;*/
-/*	while (str && str[i])*/
-/*	{*/
-/*		if (str[i] == '$')*/
-/*		{*/
-/*			i++;*/
-/*			size = ft_strlen_charset(&str[i], "$ ");*/
-/*			handle_expand(str, &string_to_stack, size, i);*/
-/*			i += size;*/
-/*		}*/
-/*		else*/
-/*		{*/
-/*			size = ft_strlen_choose_c(&str[i], '$');*/
-/*			handle_normal_characters(str, &string_to_stack, size, i);*/
-/*			i += size;*/
-/*			continue ;*/
-/*		}*/
-/*		i++;*/
-/*	}*/
-/*	add_to_garbage(string_to_stack);*/
-/*	return (string_to_stack);*/
-/*}*/

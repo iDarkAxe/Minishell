@@ -19,11 +19,11 @@
 // Functions about quotes
 char	*ft_remove_near_quotes(char const *str, const char character);
 char	*ft_remove_all_near_quotes(const char *str, const char character);
+char	*clean_string(const char *str);
 char	*parsing_minishell(const char *str);
 char	**ft_split_charset(const char *s, char *charset);
-char	*handle_expand(const char *str, size_t size);
-void	handle_normal_characters(const char *str, char **string_to_stack, size_t size, size_t i);
-char	*expand_variables_line(char *str);
+char	*fill_result(char *result, char *temp);
+char	*handle_expand(char *str);
 
 //Utils
 size_t	ft_strlen_charset(const char *str, const char *charset);
