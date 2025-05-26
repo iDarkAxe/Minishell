@@ -67,7 +67,7 @@ char	*handle_expand(char *str)
 				return (NULL);
 			i += size;
 		}
-		result = fill_result(result, temp);
+		result = fill_string(result, temp);
 	}
 	return (result);
 }
