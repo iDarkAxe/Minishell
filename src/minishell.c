@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 12:13:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 18:30:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ static char	*read_stdin(t_garbage *garbage);
  * @param line line of readline
  * @return int 0, nothing checked, 1 is OK line, 2 is read another line
  */
-static int	line_condition(char *line)
+static int	line_condition(t_garbage *garbage, char *line)
 {
 	if ((line != NULL && line[0] != '\0'))
 		return (1);
 	if (line == NULL)
-		ft_exit_int_np(0);
+		ft_exit_int_np(garbage, 1);
 	if (line[0] == '\0')
 	{
 		free(line);
@@ -73,7 +73,7 @@ static char	*read_stdin(t_garbage *garbage)
 		line = readline(prompt);
 		if (ft_strncmp(prompt, DEFAULT_PROMPT, sizeof(DEFAULT_PROMPT)) != 0)
 			free_element_gb(garbage, prompt);
-		ret = line_condition(line);
+		ret = line_condition(garbage, line);
 		if (ret == 1)
 			break ;
 		else if (ret == 2)
@@ -84,46 +84,36 @@ static char	*read_stdin(t_garbage *garbage)
 	return (line);
 }
 
-// FIXME réactiver read_context
+// FIXME REMOVE ENVP FROM HERE
 /**
  * @brief Minishell that handles all the shell functions
  *
  * @param envp environmment
  * @return int
  */
-int	minishell(char **envp)
+int	minishell(t_data *data, char **envp)
 {
-	static int	ret = 0;
-	t_data		data;
-	char		*line;
-	char		**tokens;
-	static int	index = 0;
+	char	*line;
+	char	**tokens;
 
-	ret = 0;
-	garbage_init(&data.garbage);
-	signal_init();
-	// read_context(&data.env, envp);
-	// set_env(&data, envp);
+	if (!data)
+		return (-1);
 	while (1)
 	{
-		line = read_stdin(&data.garbage);
-		tokens = parse_line(&data.garbage, line);
-		data.command = tokeniser(&data.garbage, tokens, envp);
-		if (data.command->tokens->str == NULL || files_management(&data) != 0)
+		line = read_stdin(&data->garbage);
+		tokens = parse_line(&data->garbage, line);
+		data->command = tokeniser(&data->garbage, tokens, envp);
+		if (data->command->tokens->str == NULL || files_management(data) != 0)
 		{
-			free_command(&data.garbage, data.command);
-			free_array(&data.garbage, tokens);
+			free_command(&data->garbage, data->command);
+			free_array(&data->garbage, tokens);
 			continue ;
 		}
-		if (needs_to_be_forked(data.command) != 0)
-			ret = prepare_command_forks(&data, ret);
+		if (needs_to_be_forked(data->command) != 0)
+			data->ret = prepare_command_forks(data);
 		else
-			ret = prepare_command(&data, ret);
-		free_array(&data.garbage, tokens);
-		free_command(&data.garbage, data.command);
-		// ft_exit_int(&data.garbage, 0);
-		index++;
-		if (index == 2)
-			exit(0);
+			data->ret = prepare_command(data);
+		free_array(&data->garbage, tokens);
+		free_command(&data->garbage, data->command);
 	}
 }

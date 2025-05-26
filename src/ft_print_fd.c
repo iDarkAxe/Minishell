@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 17:05:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:13:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 18:24:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ ssize_t	print_fd(int fd, const char *str)
 	return (printn_fd(fd, str, ft_strlen(str)));
 }
 
-// HACK Should we exit if a write has an error ?
 /**
  * @brief Function used to write safely and exits if write failed
  *

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 12:13:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 18:22:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ char	**parse_line(t_garbage *garbage, char *line)
 	if (tokens == NULL)
 	{
 		free_element_gb(garbage, line);
-		ft_exit((char *[]){"1", NULL});
+		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	free_element_gb(garbage, line);
 	tokens = expand_tildes_tokens(garbage, tokens);
 	if (tokens == NULL)
-		ft_exit_int_np(1);
+		ft_exit_int_np(garbage, EXIT_FAILURE);
 	return (tokens);
 }
 

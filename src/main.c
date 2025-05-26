@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:59:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 17:11:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@
 int	main(int argc, char **argv, char **envp)
 {
 	t_data	data;
+	int		ret;
 
 	(void)argc;
 	(void)argv;
-	data.command = NULL;
-	// set_env(&data, envp);
-	if (minishell(envp) != 0)
-		ft_exit_int_np(1);
+	garbage_init(&data.garbage);
+	signal_init();
+	set_env(&data, envp);
+	data.ret = 0;
+	if (is_interactive() == 1)
+		ret = minishell(&data, envp);
+	else
+		ret = short_minishell_no_tty(&data, envp);
 	free_garbage(&data.garbage);
-	return (0);
+	return (ret);
 }

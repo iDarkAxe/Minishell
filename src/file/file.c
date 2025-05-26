@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:45:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 18:21:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,35 +41,6 @@ int	build_file_access(t_file *file)
 		file->perm_write = 0;
 	return (0);
 }
-
-// TODO pertinence de ft_trim_word ?
-/**
- * @brief Trim the first word detected and remove all the unnecessary
- *
- * @param str string to search the word
- * @return char* the word found
- */
-// char	*ft_trim_word(char *str)
-// {
-// 	size_t	index;
-// 	size_t	start;
-// 	char	*new_str;
-
-// 	if (str == NULL)
-// 		return (NULL);
-// 	start = 0;
-// 	while (str[start] != '\0' && ft_isspace(str[start]))
-// 		start++;
-// 	index = 0;
-// 	while (str[start + index] != '\0' && ft_isspace(str[start + index]) == 0)
-// 		index++;
-// 	new_str = ft_strndup(&str[start], index);
-// 	if (new_str == NULL)
-// 		return (str);
-// 	add_to_garbage(new_str);
-// 	free_element_gb(garbage, str);
-// 	return (new_str);
-// }
 
 /**
  * @brief Parse the file structure

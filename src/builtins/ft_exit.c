@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:38:54 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 17:07:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,10 @@ int	ft_exit(t_data *data, char **array)
 
 	if (array == NULL || array[0] == NULL)
 	{
+		value = data->ret;
 		free_garbage(&data->garbage);
 		print_fd(1, "exit\n");
-		exit(0);
+		exit(value);
 	}
 	if (FOLLOW_ZSH == 1 && array[1] != NULL)
 	{

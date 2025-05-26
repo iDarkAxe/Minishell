@@ -6,30 +6,27 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 12:14:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 17:53:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "minishell.h"
 
-static int	search_command_exit(t_garbage *garbage, t_command *command,
-				char **tokens, int ret);
-
+// FIXME change types of builtins
 /**
  * @brief  Search if command is a builtin or not
  *
  * @param command command structure
  * @param tokens array of strings
- * @param ret return value of previous command
  * @return int 0 if command found, 1 otherwise
  */
-int	search_command(t_data *data, t_command *command, char **tokens, int ret)
+int	search_command(t_data *data, t_command *command, char **tokens)
 {
 	static char	*command_name[] = {"echo", "env", "which", "unset", "cd",
-		"pwd"};
-	static int	(*cmd[])(char **) = {ft_echo, ft_env, ft_which, ft_unset, ft_cd,
-		ft_pwd};
+		"pwd", "exit", "export", NULL};
+	static int	(*cmd[])(t_data *, char **) = {ft_echo, ft_env, ft_which,
+		ft_unset, ft_cd, ft_pwd, ft_exit, ft_export, NULL};
 	size_t		i;
 
 	if (!data || !command || !tokens || !tokens[0])
@@ -40,15 +37,13 @@ int	search_command(t_data *data, t_command *command, char **tokens, int ret)
 		if (ft_strncmp(tokens[0], command_name[i], ft_strlen(command_name[i])
 				+ 1) == 0)
 		{
-			command->return_value = cmd[i](&tokens[1]);
+			command->return_value = cmd[i](data, &tokens[1]);
 			return (0);
 		}
 		i++;
 	}
-	if (command_name[i] == NULL && ft_strncmp(tokens[0], "export", 7) == 0)
-		return (ft_export(data, &tokens[1]));
 	if (command_name[i] == NULL)
-		return (search_command_exit(&data->garbage, command, tokens, ret));
+		return (-2);
 	return (0);
 }
 
@@ -78,17 +73,3 @@ int	search_command(t_data *data, t_command *command, char **tokens, int ret)
 // 		return (search_command_exit(command, tokens, ret));
 // 	return (0);
 // }
-
-static int	search_command_exit(t_garbage *garbage, t_command *command,
-	char **tokens, int ret)
-{
-	if (!command || !command->tokens || !command->tokens->str)
-		return (1);
-	if (ft_strncmp(tokens[0], "exit", 5) != 0)
-		return (2);
-	if (tokens && tokens[0] && tokens[1] == NULL)
-		ft_exit_int(garbage, ret);
-	else
-		command->return_value = ft_exit(&tokens[1]);
-	return (command->return_value);
-}

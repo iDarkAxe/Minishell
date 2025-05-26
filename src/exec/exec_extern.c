@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:30:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 18:20:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <stdio.h>
 #include <sys/wait.h>
 
-// TODO Ajouter la recherche de la commande dans le PATH
-
 /**
  * @brief Executes commands that are not builtins
  *
@@ -29,23 +27,16 @@
  */
 int	not_builtins(t_data *data, t_command *command, char **tokens)
 {
-	char	*path;
 	char	**toks;
 	int		ret;
 
 	if (tokens == NULL || tokens[0] == NULL)
 		return (1);
-	path = ft_strjoin("/usr/bin/", tokens[0]);
-	if (path == NULL)
-	{
-		print_fd(2, "minishell: error on strjoin");
-		ft_exit_int_np(1);
-	}
-	add_to_garbage(&data->garbage, path);
+	search_path(data, command);
 	toks = copy_toks(data, command);
 	if (toks == NULL)
 		return (-1);
-	ret = execve_fork(data, path, toks, command->envp);
+	ret = execve_fork(data, command->path, toks, command->envp);
 	return (ret);
 }
 

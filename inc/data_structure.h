@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:19:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:42:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 16:50:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ struct							s_data
 	t_garbage					garbage;
 	t_env_vars					env;
 	t_command					*command;
+	int							ret;
 };
 
 /**

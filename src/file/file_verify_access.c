@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:45:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 17:56:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 static int	handle_files(t_garbage *garbage, t_command *command);
 static int	file_permission_check(t_garbage *garbage, t_file *file,
 				t_bool in_out);
-static int	file_permission_check_outfile(t_file *file, t_bool in_out);
+static int	file_permission_check_outfile(t_garbage *garbage, t_file *file,
+				t_bool in_out);
 
 /**
  * @brief Return the last file that is not already_searched
@@ -78,7 +79,7 @@ static int	file_permission_check(t_garbage *garbage, t_file *file,
 		print_fd(2, ": Permission denied\n");
 		return (1);
 	}
-	return (file_permission_check_outfile(file, in_out));
+	return (file_permission_check_outfile(garbage, file, in_out));
 }
 
 /**
@@ -90,7 +91,8 @@ static int	file_permission_check(t_garbage *garbage, t_file *file,
  * @param in_out 0 = IN, 1 = OUT
  * @return int 0 OK, 1 error
  */
-static int	file_permission_check_outfile(t_file *file, t_bool in_out)
+static int	file_permission_check_outfile(t_garbage *garbage, t_file *file,
+	t_bool in_out)
 {
 	int	fd;
 
@@ -105,12 +107,12 @@ static int	file_permission_check_outfile(t_file *file, t_bool in_out)
 	if (fd < 0)
 	{
 		perror("minishell: open");
-		ft_exit_int_np(1);
+		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	if (close(fd) != 0)
 	{
 		perror("minishell: close");
-		ft_exit_int_np(1);
+		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	return (0);
 }

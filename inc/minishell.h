@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:48:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 18:14:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int			minishell(char **envp);
-int			read_context(char **envp);
-void		short_minishell_no_tty(char **envp);
+int			minishell(t_data *data, char **envp);
+int			is_interactive(void);
+int			short_minishell_no_tty(t_data *data, char **envp);
 
 int			signal_init(void);
 void		reset_signal_default(void);
@@ -58,29 +58,31 @@ char		**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 // Exec
 char		**copy_toks(t_data *data, t_command *command);
 void		print_toks(char **tokens);
-int			prepare_command(t_data *data, int ret);
-int			prepare_command_forks(t_data *data, int ret);
-int			search_command(t_data *data, t_command *command, char **tokens,
-				int ret);
+int			prepare_command(t_data *data);
+int			prepare_command_forks(t_data *data);
+int			search_command(t_data *data, t_command *command, char **tokens);
 int			not_builtins(t_data *data, t_command *command, char **tokens);
-int			handle_redirections(t_command *command, int fd_backup[2]);
-void		reset_redirection(t_command *command, int fd_backup[2],
+int			handle_redirections(t_garbage *garbage, t_command *command,
+				int fd_backup[2]);
+void		reset_redirection(t_garbage *garbage, t_command *command,
+				int fd_backup[2],
 				unsigned char i);
 // void							change_input_of_pipe(t_command *command,
 // t_bool in_out);
 int			needs_to_be_forked(t_command *command);
 int			execve_fork(t_data *data, char *path, char **toks, char **envp);
 int			create_pipe(t_command *command);
-int			handle_redirections_forks(t_command *command);
+int			handle_redirections_forks(t_garbage *garbage, t_command *command);
 
 // EXEC UTILS
 size_t		count_commands(t_command *command);
 void		safe_close(int *fd);
 void		dup_and_close(t_garbage *garbage, int oldfd, int newfd);
 
-void		execute_pipeline(t_data *data, pid_t *pids, int ret);
+void		execute_pipeline(t_data *data, pid_t *pids, size_t *count);
 size_t		count_commands(t_command *command);
 void		fill_toks_into_commands(t_data *data, t_command *command);
+void		search_path(t_data *data, t_command *command);
 void		search_paths(t_data *data, t_command *command);
 void		wait_all_childs(t_command *command, pid_t *pids);
 

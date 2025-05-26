@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:43:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 17:54:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
+#include "builtins.h"
 #include "minishell.h"
 #include <errno.h>
 #include <stdlib.h>
@@ -19,7 +20,7 @@
 
 static void	execve_exit(int value)__attribute__((noreturn));
 static void	execute_command_from_pipe(t_data *data, t_command *command,
-				int pipefd[2], int prev_fd, int ret);
+				int pipefd[2], int prev_fd);
 
 /**
  * @brief Execute the command from pipe
@@ -27,10 +28,9 @@ static void	execute_command_from_pipe(t_data *data, t_command *command,
  * @param command command structure
  * @param pipefd fds of pipe
  * @param prev_fd fd of previous command
- * @param ret ret value of previous command
  */
 static void	execute_command_from_pipe(t_data *data, t_command *command,
-		int pipefd[2], int prev_fd, int ret)
+		int pipefd[2], int prev_fd)
 {
 	int	value;
 
@@ -44,12 +44,10 @@ static void	execute_command_from_pipe(t_data *data, t_command *command,
 		safe_close(&pipefd[0]);
 		dup_and_close(&data->garbage, pipefd[1], 1);
 	}
-	if (handle_redirections_forks(command) != 0 || command->file_error != 0)
-	{
-		free_garbage(&data->garbage);
-		exit(0);
-	}
-	value = search_command(data, command, command->toks, ret);
+	if (handle_redirections_forks(&data->garbage, command) != 0
+		|| command->file_error != 0)
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	value = search_command(data, command, command->toks);
 	if (value != 0)
 		execve(command->path, command->toks, command->envp);
 	if (value != 0)
@@ -63,27 +61,24 @@ static void	execute_command_from_pipe(t_data *data, t_command *command,
  *
  * @param data data structure
  * @param pids array of pids of childs
- * @param ret ret value of previous command
  */
-void	execute_pipeline(t_data *data, pid_t *pids, int ret)
+void	execute_pipeline(t_data *data, pid_t *pids, size_t *count)
 {
 	int			pipefd[2];
 	int			prev_fd;
-	int			i;
 	t_command	*current;
 
-	if (!data)
+	if (!data || !pids || !count)
 		return ;
 	prev_fd = -1;
-	i = 0;
 	current = data->command;
 	while (current && pids)
 	{
 		if (current->next)
 			pipe(pipefd);
-		pids[i] = fork();
-		if (pids[i] == 0)
-			execute_command_from_pipe(data, current, pipefd, prev_fd, ret);
+		pids[*count] = fork();
+		if (pids[*count] == 0)
+			execute_command_from_pipe(data, current, pipefd, prev_fd);
 		safe_close(&prev_fd);
 		if (current->next)
 		{
@@ -91,7 +86,7 @@ void	execute_pipeline(t_data *data, pid_t *pids, int ret)
 			prev_fd = pipefd[0];
 		}
 		current = current->next;
-		i++;
+		(*count)++;
 	}
 	safe_close(&prev_fd);
 }
