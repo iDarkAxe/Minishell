@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:32:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:39:54 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 09:37:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	count_commands(t_command *command)
 }
 
 /**
- * @brief Safely close fd if it's initialised in forks
+ * @brief Safely close fd
  * 
  * @param fd file descriptor to close
  */

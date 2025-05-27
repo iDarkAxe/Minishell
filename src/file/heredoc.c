@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/13 16:01:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 11:09:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "minishell.h"
 #include <readline/readline.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 static void	heredoc_error(const char *delimitor);
 static int	fill_heredoc(t_file *file);
@@ -49,6 +50,10 @@ char	*read_heredoc(t_tmp *tmp, char *delimitor)
 	}
 	if (str != NULL)
 		free(str);
+	safe_close(&tmp->fd);
+	tmp->fd = open(tmp->name, O_RDONLY, 0644);
+	if (tmp->fd < 0)
+		perror("minishell: heredoc: open 2nd time");
 	return (tmp->name);
 }
 

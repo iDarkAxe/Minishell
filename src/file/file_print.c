@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:29:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/13 16:00:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 11:09:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_list_files(t_command *command)
 	while (current)
 	{
 		file = current->file_in;
-		dprintf(2, "tak %p\n", current);
+		dprintf(2, "tak %p\n", (void *)current);
 		while (file != NULL)
 		{
 			printf("file_in %s\n", file->name);
