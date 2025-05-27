@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 11:44:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 15:31:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char		**lexer(t_garbage *garbage, const char *line);
 t_command	*tokeniser(t_garbage *garbage, char **tokens, char **envp);
 
 // Parsing
-char		**parse_line(t_garbage *garbage, char *line);
+char		**parse_line(t_data *data, char *line);
 char		**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 // Exec

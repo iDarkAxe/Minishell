@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:45:33 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/23 11:43:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 15:08:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	create_shlvl(t_garbage *garbage, t_env_vars *env)
 	return ;
 }
 
+//TODO LEAK
 void	update_shlvl(t_garbage *garbage, t_env_vars *env)
 {
 	t_var		*shlvl;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/26 18:20:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 15:07:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void						set_env(t_data *data, char *envp[]);
 void						sort_ascii_order(t_garbage *garbage,
 								t_env_vars *env);
 char						*search_env_str(t_garbage *garbage, t_env_vars *env,
-								char *var, size_t size);
+								const char *var, size_t size);
 t_var						*search_env_var(t_env_vars *env, char *var);
 int							count_env(t_env_vars env);
 void						update_shlvl(t_garbage *garbage, t_env_vars *env);

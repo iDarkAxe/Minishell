@@ -46,7 +46,7 @@
 		if (start[len] == character)
 			count_q++;
 		if (count_q % 2 == 0 && start[len] == character && start[len
-				+ 1] == character)
+			+ 1] == character)
 			break ;
 		len += 1;
 	}
