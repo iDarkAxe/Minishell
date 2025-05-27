@@ -26,6 +26,8 @@ char	**parse_line(char *line)
 	char	**tokens;
 
 	line = setup_string(line);
+	if (!line)
+		return (NULL);
 	tokens = lexer(line);
 	if (tokens == NULL)
 	{
