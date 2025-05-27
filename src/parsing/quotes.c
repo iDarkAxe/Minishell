@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/26 18:09:19 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:35:35 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "parsing.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 static void	handle_quote(const char *str, t_bool *expand, size_t *i, char *q)
@@ -95,27 +96,62 @@ static char	*remove_quote(const char *str, t_bool *expand)
 	return (result);
 }
 
+static void	handle_quote_for_check(const char *str, t_bool *expand, size_t *i, char *q)
+{
+	if (*q == str[*i])
+	{
+		*q = 0;
+		*expand = TRUE;
+		(*i)++;
+	}
+	else if (*q == 0 && (str[*i] == '\'' || str[*i] == '"'))
+	{
+		*q = str[*i];
+		(*i)++;
+	}
+	if (*q == '\'')
+		*expand = FALSE;
+	else if (*q == '"')
+		*expand = TRUE;
+}
+
+t_bool	check_quote(const char *str)
+{
+	size_t	i;
+	char	*quote;
+	size_t	count_quote;
+
+	i = 0;
+	quote = 0;
+	while (str && str[i])
+	{
+		if (q == str[i])
+		{
+			q = 0;
+			i++;
+		}
+		else if (q == 0 && (str[i] == '\'' || str[i] == '"'))
+		{
+			q = str[i];
+			i++;
+		}
+		if (quote == '"')
+			count_quote++;
+		i++;
+	}
+	return (count_quote);
+}
+
 char	*setup_string(const char *str)
 {
 	t_bool	expand;
 	char	*result;
-	char	*str_without_quote;
-	char	*beginning_of_the_string;
-	size_t	size;
+	char	*str_expanded;
 
 	expand = TRUE;
 	result = NULL;
-	size = ft_strlen_charset(str, "\'\"$");
-	beginning_of_the_string = ft_strndup(str, size);
-	if (!beginning_of_the_string)
+	str_expanded = remove_quote(str, &expand);
+	if (!str_expanded)
 		return (NULL);
-	str_without_quote = remove_quote(&str[size], &expand);
-	if (!str_without_quote)
-		return (NULL);
-	result = ft_strjoin(beginning_of_the_string, str_without_quote);
-	if (!result)
-		return (NULL);
-	free(beginning_of_the_string);
-	free(str_without_quote);
-	return (result);
+	return (str_expanded);
 }

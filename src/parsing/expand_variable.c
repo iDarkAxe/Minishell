@@ -40,6 +40,19 @@ char	*search_env_str(const char *var, size_t size)
 	return (str);
 }
 
+static char	*expand_variables(char *str, size_t	*size, size_t *i)
+{
+	char	*temp;
+
+	(*i)++;
+	*size = ft_strlen_charset(&str[*i], "$\'\" ");
+	temp = search_env_str(&str[*i], *size);
+	if (!temp)
+		return (NULL);
+	(*i) += *size;
+	return (temp);
+}
+
 char	*handle_expand(char *str)
 {
 	size_t	i;
@@ -53,12 +66,7 @@ char	*handle_expand(char *str)
 	while (str[i])
 	{
 		if (str[i] == '$')
-		{
-			i++;
-			size = ft_strlen_charset(&str[i], "$\'\"");
-			temp = search_env_str(&str[i], size);
-			i += size;
-		}
+			temp = expand_variables(str, &size, &i);
 		else
 		{
 			size = ft_strlen_charset(&str[i], "$");
