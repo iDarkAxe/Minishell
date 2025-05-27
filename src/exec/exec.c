@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 09:55:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:14:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
+#include "exec.h"
 #include <unistd.h>
 #include <wait.h>
 

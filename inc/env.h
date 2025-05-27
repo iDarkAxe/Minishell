@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/27 15:07:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:12:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ struct						s_supp
 };
 
 // Utils
+int							check_args_export(const char *str);
 size_t						ft_strlen_choose_c(const char *str, char c);
 int							ft_strcmp(const char *s1, const char *s2);
 void						print_env_vars(t_env_vars *env);

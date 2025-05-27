@@ -6,15 +6,17 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 11:52:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:03:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
+#include <linux/limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include <unistd.h>
 
 int			ft_cd(t_data *data, char **array);
@@ -95,18 +97,17 @@ static int	check_args(char **array)
  */
 int	ft_pwd(t_data *data, char **array)
 {
-	char	*path;
+	char	path[PATH_MAX];
 
 	(void)data;
-	if (array == NULL || array[0] != NULL)
+	if (FOLLOW_ZSH == 1 && (array == NULL || array[0] != NULL))
 	{
 		print_fd(2, "minishell: pwd: too many arguments\n");
 		return (1);
 	}
-	path = getenv("PWD");
-	if (path == NULL)
+	if (getcwd(path, PATH_MAX) == NULL)
 	{
-		print_fd(2, "minishell: pwd: PWD not set\n");
+		perror("Minishell : ");
 		return (1);
 	}
 	print_fd(1, path);

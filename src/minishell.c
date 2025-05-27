@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 15:32:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:50:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 #include "env.h"
 #include "file.h"
 #include "garbage.h"
+#include "exec.h"
 #include "minishell.h"
-#include "parsing.h"
 #include <readline/history.h>
 #include <readline/readline.h>
 #include <stdlib.h>
@@ -107,7 +107,7 @@ int	minishell(t_data *data)
 		data->command = tokeniser(&data->garbage, tokens, envp);
 		if (data->command->tokens->str == NULL || files_management(data) != 0)
 		{
-			free_command(&data->garbage, data->command);
+			free_commands(&data->garbage, &data->command);
 			free_array(&data->garbage, tokens);
 			continue ;
 		}
@@ -116,6 +116,6 @@ int	minishell(t_data *data)
 		else
 			data->ret = prepare_command(data);
 		free_array(&data->garbage, tokens);
-		free_command(&data->garbage, data->command);
+		free_commands(&data->garbage, &data->command);
 	}
 }

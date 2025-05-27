@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:03:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:16:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
 #include "garbage.h"
+#include "exec.h"
 #include "get_next_line.h"
 #include "minishell.h"
 #include <readline/readline.h>
