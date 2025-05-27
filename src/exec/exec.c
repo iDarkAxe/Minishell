@@ -69,7 +69,7 @@ void	fill_toks_into_commands(t_data *data, t_command *command)
  */
 void	search_path(t_data *data, t_command *command)
 {
-	if (command->path != NULL)
+	if (!command || command->path != NULL)
 		return ;
 	if (!command->toks || !command->toks[0])
 		command->path = ft_strdup("NULL");

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 15:32:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 16:23:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**parse_line(t_data *data, char *line)
 {
 	char	**tokens;
 
-	setup_string(data, line);
+	line = setup_string(data, line);
 	if (!line)
 		return (NULL);
 	tokens = lexer(&data->garbage, line);
