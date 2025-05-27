@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 18:22:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 14:51:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,13 +126,11 @@ static char	*close_quote(const char *str, char *new_str, t_bool *have_to_expand)
 		else if (quote == 0 && str[i] == '\'')
 		{
 			quote = str[i];
-			/*occurence_of_quote++;*/
 			*have_to_expand = FALSE;
 		}
 		else if (quote == 0 && str[i] == '"')
 		{
 			quote = str[i];
-			/*occurence_of_quote++;*/
 			*have_to_expand = TRUE;
 		}
 		else
@@ -153,6 +151,7 @@ char	*parsing_minishell(t_data *data, const char *str)
 	have_to_expand = NULL;
 	if (!str || has_unclosed_quote(str) == TRUE)
 		return (NULL);
+	have_to_expand = NULL;
 	count = count_without_quote(str);
 	new_str = malloc((count + 1) * sizeof(char));
 	if (!new_str)
