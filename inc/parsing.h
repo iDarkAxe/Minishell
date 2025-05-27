@@ -24,7 +24,7 @@ char	*parsing_minishell(const char *str);
 char	**ft_split_charset(const char *s, char *charset);
 char	*fill_string(char *result, char *temp);
 char	*handle_expand(char *str);
-char	*setup_string(const char *str);
+char	*setup_string(char *str);
 
 //Utils
 size_t	ft_strlen_charset(const char *str, const char *charset);

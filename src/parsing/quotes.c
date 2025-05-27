@@ -15,6 +15,8 @@
 #include "parsing.h"
 #include "minishell.h"
 #include "builtins.h"
+#include "ft_printf.h"
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,6 +46,7 @@ static void	fill_res(const char *s, char **res, size_t size, char quote)
 	if (quote == '"' || quote == 0)
 	{
 		temp_1 = handle_expand(temp);
+		free(temp);
 		if (!temp_1)
 			return ;
 		*res = fill_string(*res, temp_1);
@@ -91,7 +94,7 @@ static char	*remove_quote(const char *str, char *quote)
 	return (result);
 }
 
-char	*setup_string(const char *str)
+char	*setup_string(char *str)
 {
 	char	*result;
 	char	*str_expanded;
@@ -100,11 +103,13 @@ char	*setup_string(const char *str)
 	quote = 0;
 	result = NULL;
 	str_expanded = remove_quote(str, &quote);
+	free_element_gb(str);
 	if (!str_expanded)
 		return (NULL);
+	add_to_garbage(str_expanded);
 	if (quote != 0)
 	{
-		ft_putstr_fd("Error: Quoting isn't correct\n", 2);
+		ft_dprintf(2, "bash: syntax error: Unclosed quote: `%c'\n", quote);
 		return (NULL);
 	}
 	return (str_expanded);
