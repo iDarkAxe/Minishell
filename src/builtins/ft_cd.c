@@ -13,8 +13,10 @@
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
+#include <linux/limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include <unistd.h>
 
 int			ft_cd(t_data *data, char **array);
@@ -95,7 +97,7 @@ static int	check_args(char **array)
  */
 int	ft_pwd(t_data *data, char **array)
 {
-	char	*path;
+	char	path[PATH_MAX];
 
 	(void)data;
 	if (array == NULL || array[0] != NULL)
@@ -103,10 +105,10 @@ int	ft_pwd(t_data *data, char **array)
 		print_fd(2, "minishell: pwd: too many arguments\n");
 		return (1);
 	}
-	path = getenv("PWD");
+	path = getcwd(path, PATH_MAX);
 	if (path == NULL)
 	{
-		print_fd(2, "minishell: pwd: PWD not set\n");
+		perror("Minishell : ");
 		return (1);
 	}
 	print_fd(1, path);
