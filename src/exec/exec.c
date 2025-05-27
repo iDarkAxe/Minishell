@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 18:14:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 09:55:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,18 @@
  */
 int	prepare_command(t_data *data)
 {
-	char	**toks;
 	int		fd[2];
 
 	if (!data || !data->command)
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-	toks = copy_toks(data, data->command);
-	if (toks == NULL)
+	data->command->toks = copy_toks(data, data->command);
+	if (data->command->toks == NULL)
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	handle_redirections(&data->garbage, data->command, fd);
 	if (data->command->file_error != 1 && search_command(data, data->command,
-			toks) != 0)
-		data->command->return_value = not_builtins(data, data->command, toks);
-	free_array(&data->garbage, toks);
+			data->command->toks) != 0)
+		data->command->return_value = not_builtins(data, data->command,
+				data->command->toks);
 	reset_redirection(&data->garbage, data->command, fd, 0);
 	return (data->command->return_value);
 }
@@ -62,28 +61,36 @@ void	fill_toks_into_commands(t_data *data, t_command *command)
 }
 
 // FIXME IT"S ONLY A PLACEHOLDER DON'T BE CONFUSED
+/**
+ * @brief Search path for the designated command
+ * 
+ * @param data data structure
+ * @param command command structure
+ */
 void	search_path(t_data *data, t_command *command)
 {
-	t_command	*current;
-
-	current = command;
-	while (current)
+	if (command->path != NULL)
+		return ;
+	if (!command->toks || !command->toks[0])
+		command->path = ft_strdup("NULL");
+	else
+		command->path = ft_strjoin("/usr/bin/", command->toks[0]);
+	if (command->path == NULL)
 	{
-		if (!command->toks || !command->toks[0])
-			command->path = "NULL";
-		else
-			command->path = ft_strjoin("/usr/bin/", command->toks[0]);
-		if (command->path == NULL)
-		{
-			free_garbage(&data->garbage);
-			exit(EXIT_FAILURE);
-		}
-		add_to_garbage(&data->garbage, command->path);
-		command = command->next;
+		free_garbage(&data->garbage);
+		exit(EXIT_FAILURE);
 	}
+	add_to_garbage(&data->garbage, command->path);
+	command = command->next;
 }
 
 // FIXME IT"S ONLY A PLACEHOLDER DON'T BE CONFUSED
+/**
+ * @brief Search Path for all commands
+ * 
+ * @param data data structure
+ * @param command command structure
+ */
 void	search_paths(t_data *data, t_command *command)
 {
 	t_command	*current;
@@ -91,16 +98,7 @@ void	search_paths(t_data *data, t_command *command)
 	current = command;
 	while (current)
 	{
-		if (!current->toks || !current->toks[0])
-			current->path = "NULL";
-		else
-			current->path = ft_strjoin("/usr/bin/", current->toks[0]);
-		if (current->path == NULL)
-		{
-			free_garbage(&data->garbage);
-			exit(EXIT_FAILURE);
-		}
-		add_to_garbage(&data->garbage, current->path);
+		search_path(data, current);
 		current = current->next;
 	}
 }

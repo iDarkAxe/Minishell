@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:34:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 09:44:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,13 @@ void	print_toks(char **tokens)
 {
 	size_t	index;
 
+	if (tokens == NULL)
+	{
+		printf("No toks to print\n");
+		return ;
+	}
 	index = 0;
-	while (tokens != NULL && tokens[index] != NULL)
+	while (tokens[index] != NULL)
 	{
 		printf("toks %zu : %s\n", index, tokens[index]);
 		index++;

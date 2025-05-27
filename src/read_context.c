@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:53:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 11:46:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include "minishell.h"
 #include <stdio.h>
 #include <unistd.h>
-
-// FIXME les commandes du path ne fonctionnent pas
 
 static char	*read_stdin_gnl(t_garbage *garbage);
 
@@ -35,25 +33,25 @@ int	is_interactive(void)
 	return (0);
 }
 
-// FIX Fix minishell no tty and read gnl
 /**
  * @brief Executes the shell in a restricted area where there is no prompt
  * Should work exactly as the minishell function
  *
- * @param envp environment
+ * @param data data structure already set
  */
-int	short_minishell_no_tty(t_data *data, char **envp)
+int	short_minishell_no_tty(t_data *data)
 {
 	char		*line;
 	char		**tokens;
+	char		**envp;
 
 	if (!data)
 		return (-1);
+	envp = NULL;
 	while (1)
 	{
 		line = read_stdin_gnl(&data->garbage);
 		tokens = parse_line(&data->garbage, line);
-		free(line);
 		data->command = tokeniser(&data->garbage, tokens, envp);
 		if (data->command->tokens->str == NULL || files_management(data) != 0)
 		{
@@ -89,6 +87,7 @@ static char	*read_stdin_gnl(t_garbage *garbage)
 			free(line);
 			continue ;
 		}
+		add_to_garbage(garbage, line);
 		return (line);
 	}
 }

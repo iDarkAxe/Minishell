@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 18:14:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 11:44:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int			minishell(t_data *data, char **envp);
+int			minishell(t_data *data);
 int			is_interactive(void);
-int			short_minishell_no_tty(t_data *data, char **envp);
+int			short_minishell_no_tty(t_data *data);
 
 int			signal_init(void);
 void		reset_signal_default(void);

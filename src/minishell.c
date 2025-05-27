@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 18:30:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 11:45:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,20 +84,22 @@ static char	*read_stdin(t_garbage *garbage)
 	return (line);
 }
 
-// FIXME REMOVE ENVP FROM HERE
+// FIXME SET ENVP HERE
 /**
  * @brief Minishell that handles all the shell functions
  *
- * @param envp environmment
+ * @param data data structure already set
  * @return int
  */
-int	minishell(t_data *data, char **envp)
+int	minishell(t_data *data)
 {
 	char	*line;
 	char	**tokens;
+	char	**envp;
 
 	if (!data)
 		return (-1);
+	envp = NULL;
 	while (1)
 	{
 		line = read_stdin(&data->garbage);

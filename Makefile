@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/22 17:18:08 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/05/27 11:41:33 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME = minishell
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -250,7 +250,6 @@ clean-lib:
 	@$(MAKE) -C $(P_LIBFT) fclean
 	@$(MAKE) -C $(P_PIPEX) fclean
 	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
-# @$(MAKE) -C tests fclean
 
 clean-bin:
 	rm -f $(NAME)
