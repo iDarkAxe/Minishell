@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:27:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 17:07:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "minishell.h"
 #include <stdlib.h>
 
-int			ft_exit(char **array);
-void		ft_exit_int(int value);
-void		ft_exit_int_np(int value);
+int			ft_exit(t_data *data, char **array);
+void		ft_exit_int(t_garbage *garbage, int value);
+void		ft_exit_int_np(t_garbage *garbage, int value);
 
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
@@ -29,9 +29,9 @@ static int	ft_strtoull(char *str);
  *
  * @param value value
  */
-__attribute__((noreturn)) void	ft_exit_int(int value)
+__attribute__((noreturn)) void	ft_exit_int(t_garbage *garbage, int value)
 {
-	free_garbage();
+	free_garbage(garbage);
 	print_fd(1, "exit\n");
 	exit((unsigned char)value);
 }
@@ -42,9 +42,9 @@ __attribute__((noreturn)) void	ft_exit_int(int value)
  * @param value value
  */
 __attribute__ ((noreturn))
-void	ft_exit_int_np(int value)
+void	ft_exit_int_np(t_garbage *garbage, int value)
 {
-	free_garbage();
+	free_garbage(garbage);
 	exit((unsigned char)value);
 }
 
@@ -57,15 +57,16 @@ SET FOLLOW_ZSH to 1 to follow zsh behavior. */
  * @param array argument of the exit function
  * @return int value if argument invalid
  */
-int	ft_exit(char **array)
+int	ft_exit(t_data *data, char **array)
 {
 	int	value;
 
 	if (array == NULL || array[0] == NULL)
 	{
-		free_garbage();
+		value = data->ret;
+		free_garbage(&data->garbage);
 		print_fd(1, "exit\n");
-		exit(0);
+		exit(value);
 	}
 	if (FOLLOW_ZSH == 1 && array[1] != NULL)
 	{
@@ -77,7 +78,7 @@ int	ft_exit(char **array)
 		return (1);
 	if (value == 0)
 		value = ft_strtoull(array[0]);
-	free_garbage();
+	free_garbage(&data->garbage);
 	print_fd(1, "exit\n");
 	exit((unsigned char)value);
 }
@@ -163,5 +164,5 @@ static int	ft_strtoull(char *nptr)
 // 	}
 // 	if (ft_exit_int(10) != 0)
 // 		printf("L'exit est annulé  car l\'input est invalide\n");
-// 	free_garbage();
+// 	free_garbage(garbage);
 // }

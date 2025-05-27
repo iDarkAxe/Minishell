@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   functions_utils_parsing.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:43:45 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/26 17:58:25 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:33:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+t_bool	is_dollar(char *str);
+char	*fill_string(char *result, char *temp);
+t_bool	detect_quote(const char *str);
 
 t_bool	is_dollar(char *str)
 {

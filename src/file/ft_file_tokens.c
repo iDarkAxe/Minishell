@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:13:13 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/26 16:27:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@
 
 static t_token	*clean_tokens(t_token *head);
 static int		is_redirection(char *str);
-static void		free_token(t_token *token);
+// static void		free_token(t_garbage *garbage, t_token *token);
 
 /**
  * @brief Removes all the tokens of file redirections allready used
  *
- * @param command command structure
+ * @param data data structure
  * @return t_command*
  */
-t_command	*remove_used_file_tokens(t_command *command)
+t_command	*remove_used_file_tokens(t_data *data)
 {
 	t_command	*current;
 
-	current = command;
+	current = data->command;
 	while (current && current->tokens)
 	{
 		current->tokens = clean_tokens(current->tokens);
 		current = current->next;
 	}
-	return (command);
+	return (data->command);
 }
 
 /**
@@ -56,7 +56,6 @@ static t_token	*clean_tokens(t_token *head)
 		if (is_redirection(token->str))
 		{
 			next = token->next->next;
-			free_token(token);
 			if (prev)
 				prev->next = next;
 			else
@@ -89,15 +88,15 @@ static int	is_redirection(char *str)
  *
  * @param token redirection sign token
  */
-static void	free_token(t_token *token)
-{
-	if (token && token->str)
-		free_element_gb(token->str);
-	if (token && token->next && token->next->str)
-		free_element_gb(token->next->str);
-	if (token && token->next)
-		free_element_gb(token->next);
-	if (token)
-		free_element_gb(token);
-	token = NULL;
-}
+// static void	free_token(t_garbage *garbage, t_token *token)
+// {
+// 	if (token && token->str)
+// 		free_element_gb(garbage, token->str);
+// 	if (token && token->next && token->next->str)
+// 		free_element_gb(garbage, token->next->str);
+// 	if (token && token->next)
+// 		free_element_gb(garbage, token->next);
+// 	if (token)
+// 		free_element_gb(garbage, token);
+// 	token = NULL;
+// }

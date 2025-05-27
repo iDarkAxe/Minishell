@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quotes.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/26 18:35:35 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:34:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "minishell.h"
 #include "builtins.h"
 #include "ft_printf.h"
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,7 +34,8 @@ static void	handle_quote(const char *str, size_t *i, char *q)
 	}
 }
 
-static void	fill_res(const char *s, char **res, size_t size, char quote)
+static void	fill_res(t_data *data, const char *s, char **res, size_t size,
+	char quote)
 {
 	char	*temp;
 	char	*temp_1;
@@ -45,7 +45,7 @@ static void	fill_res(const char *s, char **res, size_t size, char quote)
 		return ;
 	if (quote == '"' || quote == 0)
 	{
-		temp_1 = handle_expand(temp);
+		temp_1 = handle_expand(data, temp);
 		free(temp);
 		if (!temp_1)
 			return ;
@@ -67,7 +67,7 @@ static size_t	compute_size(const char *str, char quote)
 	return (size);
 }
 
-static char	*remove_quote(const char *str, char *quote)
+static char	*remove_quote(t_data *data, const char *str, char *quote)
 {
 	char	*result;
 	size_t	i;
@@ -82,7 +82,7 @@ static char	*remove_quote(const char *str, char *quote)
 			break ;
 		size = compute_size(&str[i], *quote);
 		if (size != 0)
-			fill_res(&str[i], &result, size, *quote);
+			fill_res(data, &str[i], &result, size, *quote);
 		else
 		{
 			handle_quote(str, &i, quote);
@@ -94,7 +94,7 @@ static char	*remove_quote(const char *str, char *quote)
 	return (result);
 }
 
-char	*setup_string(char *str)
+char	*setup_string(t_data *data, char *str)
 {
 	char	*result;
 	char	*str_expanded;
@@ -102,11 +102,11 @@ char	*setup_string(char *str)
 
 	quote = 0;
 	result = NULL;
-	str_expanded = remove_quote(str, &quote);
-	free_element_gb(str);
+	str_expanded = remove_quote(data, str, &quote);
+	free_element_gb(&data->garbage, str);
 	if (!str_expanded)
 		return (NULL);
-	add_to_garbage(str_expanded);
+	add_to_garbage(&data->garbage, str_expanded);
 	if (quote != 0)
 	{
 		ft_dprintf(2, "bash: syntax error: Unclosed quote: `%c'\n", quote);

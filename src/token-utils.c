@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:37:50 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/27 09:44:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 static size_t	count_tokens(t_token const *head);
-static char		**fill_toks(t_token *head, char **tokens);
+static char		**fill_toks(t_garbage *garbage, t_token *head, char **tokens);
 
 /**
  * @brief Creates a copy of all tokens that are in a command structure
@@ -24,7 +24,7 @@ static char		**fill_toks(t_token *head, char **tokens);
  * @param command command structure
  * @return char** copy of tokens
  */
-char	**copy_toks(t_command *command)
+char	**copy_toks(t_data *data, t_command *command)
 {
 	t_token	*token;
 	char	**tokens;
@@ -39,13 +39,13 @@ char	**copy_toks(t_command *command)
 	tokens = malloc(sizeof(char *) * (count + 1));
 	if (!tokens)
 		return (NULL);
-	add_to_garbage(tokens);
+	add_to_garbage(&data->garbage, tokens);
 	if (count == 0)
 	{
 		tokens[0] = NULL;
 		return (tokens);
 	}
-	fill_toks(token, tokens);
+	fill_toks(&data->garbage, token, tokens);
 	return (tokens);
 }
 
@@ -58,8 +58,13 @@ void	print_toks(char **tokens)
 {
 	size_t	index;
 
+	if (tokens == NULL)
+	{
+		printf("No toks to print\n");
+		return ;
+	}
 	index = 0;
-	while (tokens != NULL && tokens[index] != NULL)
+	while (tokens[index] != NULL)
 	{
 		printf("toks %zu : %s\n", index, tokens[index]);
 		index++;
@@ -96,7 +101,7 @@ static size_t	count_tokens(t_token const *head)
  * @param tokens array of strings to copy to
  * @return char**
  */
-static char	**fill_toks(t_token *head, char **tokens)
+static char	**fill_toks(t_garbage *garbage, t_token *head, char **tokens)
 {
 	size_t	i;
 	t_token	*temp;
@@ -111,10 +116,10 @@ static char	**fill_toks(t_token *head, char **tokens)
 		tokens[i] = ft_strdup(temp->str);
 		if (!tokens[i])
 		{
-			free_array(tokens);
+			free_array(garbage, tokens);
 			return (NULL);
 		}
-		add_to_garbage(tokens[i]);
+		add_to_garbage(garbage, tokens[i]);
 		i++;
 		temp = temp->next;
 	}

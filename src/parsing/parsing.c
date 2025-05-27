@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 17:53:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/26 18:08:54 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
+/*   Updated: 2025/05/27 16:23:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,30 @@
 #include "builtins.h"
 #include "minishell.h"
 
+// FIXME Removed parsing_minishell as it was crashing instantly
+// line = parsing_minishell(line);
 /**
  * @brief Prototype for parsing
  *
  * @param line line to parse
  * @return char**
  */
-char	**parse_line(char *line)
+char	**parse_line(t_data *data, char *line)
 {
 	char	**tokens;
 
-	line = setup_string(line);
+	line = setup_string(data, line);
 	if (!line)
 		return (NULL);
-	tokens = lexer(line);
+	tokens = lexer(&data->garbage, line);
 	if (tokens == NULL)
 	{
-		free_element_gb(line);
-		ft_exit((char *[]){"1", NULL});
+		free_element_gb(&data->garbage, line);
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
-	free_element_gb(line);
-	tokens = expand_tildes_tokens(tokens);
+	free_element_gb(&data->garbage, line);
+	tokens = expand_tildes_tokens(&data->garbage, tokens);
 	if (tokens == NULL)
-		ft_exit_int_np(1);
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	return (tokens);
 }

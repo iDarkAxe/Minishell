@@ -6,17 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:32:09 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:44:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "data_structure.h"
 #include "builtins.h"
 #include "env.h"
 #include "garbage.h"
-#include <readline/readline.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "minishell.h"
 
 /**
  * @brief Main function
@@ -28,11 +26,19 @@
  */
 int	main(int argc, char **argv, char **envp)
 {
+	t_data	data;
+	int		ret;
+
 	(void)argc;
 	(void)argv;
-	set_env(envp);
-	if (minishell(envp) != 0)
-		ft_exit_int_np(1);
-	free_garbage();
-	return (0);
+	garbage_init(&data.garbage);
+	signal_init();
+	set_env(&data, envp);
+	data.ret = 0;
+	if (is_interactive() == 1)
+		ret = minishell(&data);
+	else
+		ret = short_minishell_no_tty(&data);
+	free_garbage(&data.garbage);
+	return (ret);
 }

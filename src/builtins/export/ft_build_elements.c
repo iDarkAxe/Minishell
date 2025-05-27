@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:42:16 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/11 13:47:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 15:14:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
+#include <stdlib.h>
 
 static void	build_element_1(char **elements, char *str, size_t j, size_t i)
 {

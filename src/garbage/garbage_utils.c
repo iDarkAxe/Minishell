@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/26 12:49:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 18:12:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*ft_strndup_gb(const char *source, size_t len);
+char	*ft_strndup_gb(t_garbage *garbage, const char *source, size_t len);
 
 /**
  * @brief Create a copy of source into a new pointer
@@ -25,14 +25,14 @@ char	*ft_strndup_gb(const char *source, size_t len);
  * @param source string to copy
  * @return char* pointer to the new string
  */
-char	*ft_strdup_gb(const char *source)
+char	*ft_strdup_gb(t_garbage *garbage, const char *source)
 {
 	char	*pointer;
 	size_t	count;
 	size_t	index;
 
 	count = ft_strlen(source);
-	pointer = malloc_gb(sizeof(char) * (count + 1));
+	pointer = malloc_gb(garbage, sizeof(char) * (count + 1));
 	if (pointer == NULL)
 		return (NULL);
 	index = 0;
@@ -54,12 +54,12 @@ char	*ft_strdup_gb(const char *source)
  * @param len size of the new string
  * @return char* pointer to the new string
  */
-char	*ft_strndup_gb(const char *source, size_t len)
+char	*ft_strndup_gb(t_garbage *garbage, const char *source, size_t len)
 {
 	char	*pointer;
 	size_t	index;
 
-	pointer = malloc_gb(sizeof(char) * (len + 1));
+	pointer = malloc_gb(garbage, sizeof(char) * (len + 1));
 	if (pointer == NULL)
 		return (NULL);
 	index = 0;
@@ -77,13 +77,13 @@ char	*ft_strndup_gb(const char *source, size_t len)
  *
  * @param ptr element to free
  */
-void	free_element_gb(void *ptr)
+void	free_element_gb(t_garbage *garbage, void *ptr)
 {
-	t_garbage	*garbage;
 	t_element	*element;
 	t_element	*previous;
 
-	garbage = get_garbage();
+	if (!garbage)
+		return ;
 	element = garbage->head;
 	previous = NULL;
 	while (element != NULL)
@@ -110,11 +110,11 @@ void	free_element_gb(void *ptr)
  * @brief Print the garbage collector
  *
  */
-void	print_garbage(void)
+void	print_garbage(t_garbage *garbage)
 {
 	t_element	*element;
 
-	element = get_garbage()->head;
+	element = garbage->head;
 	while (element != NULL)
 	{
 		printf("Element %p has ptr : %p\n", (void *)element, element->ptr);

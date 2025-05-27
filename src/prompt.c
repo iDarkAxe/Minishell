@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/04 12:25:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:46:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-char			*get_prompt_message(void);
-static char		*get_hostname(void);
-static char		*make_prompt(char **array);
+char			*get_prompt_message(t_garbage *garbage);
+static char		*get_hostname(t_garbage *garbage);
+static char		*make_prompt(t_garbage *garbage, char **array);
 static size_t	ft_strlen_and_choose_c(char *str, char c);
 
 /**
@@ -46,7 +46,7 @@ static size_t	ft_strlen_and_choose_c(char *str, char c)
  *
  * @return char* hostname
  */
-static char	*get_hostname(void)
+static char	*get_hostname(t_garbage *garbage)
 {
 	char	*get_hostname;
 	int		fd_hostname;
@@ -71,7 +71,7 @@ static char	*get_hostname(void)
 	get_hostname = ft_strndup(buf, ft_strlen_and_choose_c(buf, '.'));
 	if (!get_hostname)
 		return (NULL);
-	add_to_garbage(get_hostname);
+	add_to_garbage(garbage, get_hostname);
 	return (get_hostname);
 }
 
@@ -95,7 +95,7 @@ static char	*handle_colors(char **array)
  * @param array element in the prompts
  * @return char* final prompt
  */
-static char	*make_prompt(char **array)
+static char	*make_prompt(t_garbage *garbage, char **array)
 {
 	char	*userhost;
 	char	*prompt;
@@ -107,7 +107,7 @@ static char	*make_prompt(char **array)
 	userhost = ft_strjoins(array);
 	if (userhost == NULL)
 	{
-		free_element_gb(array[2]);
+		free_element_gb(garbage, array[2]);
 		return (DEFAULT_PROMPT);
 	}
 	path = getcwd(buf, 4096);
@@ -120,7 +120,7 @@ static char	*make_prompt(char **array)
 	free(userhost);
 	if (prompt == NULL)
 		return (DEFAULT_PROMPT);
-	add_to_garbage(prompt);
+	add_to_garbage(garbage, prompt);
 	return (prompt);
 }
 
@@ -130,7 +130,7 @@ static char	*make_prompt(char **array)
  *
  * @return char* prompt message
  */
-char	*get_prompt_message(void)
+char	*get_prompt_message(t_garbage *garbage)
 {
 	char	*prompt;
 	char	*hostname;
@@ -138,19 +138,20 @@ char	*get_prompt_message(void)
 
 	if (PROMPT_MESSAGE_CUSTOM == 0)
 		return (DEFAULT_PROMPT);
-	hostname = get_hostname();
+	hostname = get_hostname(garbage);
 	if (hostname == NULL)
 		return (DEFAULT_PROMPT);
 	username = getenv("USER");
 	if (username == NULL)
 	{
-		free_element_gb(hostname);
+		free_element_gb(garbage, hostname);
 		return (DEFAULT_PROMPT);
 	}
-	prompt = make_prompt((char *[]){username, "@", hostname, ":", NULL});
+	prompt = make_prompt(garbage, (char *[]){username, "@", hostname, ":",
+			NULL});
 	if (prompt == NULL)
 		return (DEFAULT_PROMPT);
-	free_element_gb(hostname);
+	free_element_gb(garbage, hostname);
 	return (prompt);
 }
 

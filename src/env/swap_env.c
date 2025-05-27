@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:12:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/28 14:54:12 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/22 17:19:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ static void	swap_var(t_var **head, t_vars *swap)
 	swap->curr_str->next = swap->temp;
 }
 
-void	swap_vars(t_var **head, char *str, char *str_1)
+// CHORES Remplacer la liste de NULL par un ft_bzero ?
+void	swap_vars(t_garbage *garbage, t_var **head, char *str, char *str_1)
 {
 	t_vars	*swap;
 
-	swap = malloc_gb(sizeof(t_vars));
+	swap = malloc_gb(garbage, sizeof(t_vars));
 	if (!swap || !str || !str_1)
 		return ;
 	swap->prev_str = NULL;

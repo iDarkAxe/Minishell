@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:34:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/03 11:58:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 11:56:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stddef.h>
 
 static int	condition_which(char *str);
-int			ft_which(char **tokens);
+int			ft_which(t_data *data, char **tokens);
 
 /**
  * @brief Says if the command are built-in commands or not
@@ -23,14 +23,15 @@ int			ft_which(char **tokens);
  * @param tokens array of strings
  * @return int 1 if not at least one is not built-in, 0 if all strs built-ins
  */
-int	ft_which(char **tokens)
+int	ft_which(t_data *data, char **tokens)
 {
 	size_t	i;
 	char	is_not_builtin;
 
-	if (tokens == NULL || tokens[0] == NULL || tokens[1] == NULL)
+	if (tokens == NULL || tokens[0] == NULL)
 		return (-1);
-	i = 1;
+	(void)data;
+	i = 0;
 	is_not_builtin = 0;
 	while (tokens[i] != NULL)
 	{
@@ -58,10 +59,10 @@ int	ft_which(char **tokens)
  */
 static int	condition_which(char *str)
 {
-	if (ft_strncmp(str, "echo", 4) == 0 || ft_strncmp(str, "exit", 4) == 0
-		|| ft_strncmp(str, "which", 5) == 0 || ft_strncmp(str, "env", 3) == 0
-		|| ft_strncmp(str, "export", 6) == 0 || ft_strncmp(str, "unset", 5) == 0
-		|| ft_strncmp(str, "cd", 2) == 0 || ft_strncmp(str, "pwd", 3) == 0)
+	if (ft_strncmp(str, "echo", 5) == 0 || ft_strncmp(str, "exit", 5) == 0
+		|| ft_strncmp(str, "which", 6) == 0 || ft_strncmp(str, "env", 4) == 0
+		|| ft_strncmp(str, "export", 7) == 0 || ft_strncmp(str, "unset", 6) == 0
+		|| ft_strncmp(str, "cd", 3) == 0 || ft_strncmp(str, "pwd", 4) == 0)
 		return (1);
 	return (0);
 }

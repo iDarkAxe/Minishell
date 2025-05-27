@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/11 13:52:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 17:56:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 #include "minishell.h"
 #include <fcntl.h>
 
-static int	handle_files(t_command *command);
-static int	file_permission_check(t_file *file, t_bool in_out);
-static int	file_permission_check_outfile(t_file *file, t_bool in_out);
+static int	handle_files(t_garbage *garbage, t_command *command);
+static int	file_permission_check(t_garbage *garbage, t_file *file,
+				t_bool in_out);
+static int	file_permission_check_outfile(t_garbage *garbage, t_file *file,
+				t_bool in_out);
 
 /**
  * @brief Return the last file that is not already_searched
@@ -51,13 +53,14 @@ t_file	*search_last_file(t_file *file, t_file *already_searched)
  *
  * @param in_out 0 = IN, 1 = OUT
  */
-static int	file_permission_check(t_file *file, t_bool in_out)
+static int	file_permission_check(t_garbage *garbage, t_file *file,
+		t_bool in_out)
 {
 	if (file == NULL)
 		return (0);
 	if (in_out == 0 && file->is_heredoc == 1)
 	{
-		free_element_gb(file->name);
+		free_element_gb(garbage, file->name);
 		file->name = file->tmp->name;
 		return (0);
 	}
@@ -76,7 +79,7 @@ static int	file_permission_check(t_file *file, t_bool in_out)
 		print_fd(2, ": Permission denied\n");
 		return (1);
 	}
-	return (file_permission_check_outfile(file, in_out));
+	return (file_permission_check_outfile(garbage, file, in_out));
 }
 
 /**
@@ -88,7 +91,8 @@ static int	file_permission_check(t_file *file, t_bool in_out)
  * @param in_out 0 = IN, 1 = OUT
  * @return int 0 OK, 1 error
  */
-static int	file_permission_check_outfile(t_file *file, t_bool in_out)
+static int	file_permission_check_outfile(t_garbage *garbage, t_file *file,
+	t_bool in_out)
 {
 	int	fd;
 
@@ -103,12 +107,12 @@ static int	file_permission_check_outfile(t_file *file, t_bool in_out)
 	if (fd < 0)
 	{
 		perror("minishell: open");
-		ft_exit_int_np(1);
+		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	if (close(fd) != 0)
 	{
 		perror("minishell: close");
-		ft_exit_int_np(1);
+		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	return (0);
 }
@@ -120,7 +124,7 @@ static int	file_permission_check_outfile(t_file *file, t_bool in_out)
  * @param command command structure
  * @return int
  */
-static int	handle_files(t_command *command)
+static int	handle_files(t_garbage *garbage, t_command *command)
 {
 	t_file	*cur_file;
 	t_file	*last_file;
@@ -131,7 +135,7 @@ static int	handle_files(t_command *command)
 	{
 		cur_file = search_last_file(command->file_in, last_file);
 		last_file = cur_file;
-		if (file_permission_check(cur_file, 0) != 0)
+		if (file_permission_check(garbage, cur_file, 0) != 0)
 			return (1);
 	}
 	last_file = NULL;
@@ -140,7 +144,7 @@ static int	handle_files(t_command *command)
 	{
 		cur_file = search_last_file(command->file_out, last_file);
 		last_file = cur_file;
-		if (file_permission_check(cur_file, 1) != 0)
+		if (file_permission_check(garbage, cur_file, 1) != 0)
 			return (1);
 	}
 	return (0);
@@ -154,7 +158,7 @@ static int	handle_files(t_command *command)
  * @param command command structure
  * @return int 0 OK, error otherwise
  */
-int	verify_access(t_command *command)
+int	verify_access(t_garbage *garbage, t_command *command)
 {
 	t_command	*current;
 	int			error_value;
@@ -164,7 +168,7 @@ int	verify_access(t_command *command)
 	current = command;
 	while (current != NULL)
 	{
-		error_value = handle_files(current);
+		error_value = handle_files(garbage, current);
 		if (error_value != 0)
 			current->file_error = 1;
 		current = current->next;

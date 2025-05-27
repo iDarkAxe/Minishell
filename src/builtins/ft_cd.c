@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 11:34:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 11:52:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int			ft_cd(char **array);
+int			ft_cd(t_data *data, char **array);
 static int	check_args(char **array);
 
-int			ft_pwd(char **array);
+int			ft_pwd(t_data *data, char **array);
 
 // TODO if env -i : `~` doesn't work
 // TODO should update OLDPWD and PWD
@@ -31,10 +31,11 @@ int			ft_pwd(char **array);
  * @param array array of strings
  * @return int 0 OK, 1 otherwise
  */
-int	ft_cd(char **array)
+int	ft_cd(t_data *data, char **array)
 {
 	int	ret;
 
+	(void)data;
 	ret = check_args(array);
 	if (ret == 0)
 		return (0);
@@ -92,10 +93,11 @@ static int	check_args(char **array)
  *
  * @return int
  */
-int	ft_pwd(char **array)
+int	ft_pwd(t_data *data, char **array)
 {
 	char	*path;
 
+	(void)data;
 	if (array == NULL || array[0] != NULL)
 	{
 		print_fd(2, "minishell: pwd: too many arguments\n");

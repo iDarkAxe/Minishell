@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/18 09:46:40 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:34:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@
 #include "libft.h"
 #include "parsing.h"
 
-char	*search_env_str(const char *var, size_t size)
+char	*search_env_str(t_garbage *garbage, t_env_vars *env, const char *var,
+	size_t size)
 {
-	char		*str;
-	t_var		*head;
-	t_env_vars	*env;
+	char	*str;
+	t_var	*head;
 
-	env = get_env();
 	head = env->head_var;
 	str = NULL;
 	while (head != NULL)
 	{
 		if (ft_strncmp(head->value, var, size) == 0)
 		{
-			str = create_str_with_params(head->head_params);
+			str = create_str_with_params(garbage, head->head_params);
 			if (!str)
 				return (NULL);
 		}
@@ -40,20 +39,20 @@ char	*search_env_str(const char *var, size_t size)
 	return (str);
 }
 
-static char	*expand_variables(char *str, size_t	*size, size_t *i)
+static char	*expand_variables(t_data *data, char *str, size_t *size, size_t *i)
 {
 	char	*temp;
 
 	(*i)++;
 	*size = ft_strlen_charset(&str[*i], "$\'\" ");
-	temp = search_env_str(&str[*i], *size);
+	temp = search_env_str(&data->garbage, &data->env, &str[*i], *size);
 	if (!temp)
 		return (NULL);
 	(*i) += *size;
 	return (temp);
 }
 
-char	*handle_expand(char *str)
+char	*handle_expand(t_data *data, char *str)
 {
 	size_t	i;
 	size_t	size;
@@ -66,7 +65,7 @@ char	*handle_expand(char *str)
 	while (str[i])
 	{
 		if (str[i] == '$')
-			temp = expand_variables(str, &size, &i);
+			temp = expand_variables(data, str, &size, &i);
 		else
 		{
 			size = ft_strlen_charset(&str[i], "$");
