@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/14 11:47:09 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/18 09:46:40 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include "parsing.h"
 
-char	*search_env_str(char *var, size_t size)
+char	*search_env_str(const char *var, size_t size)
 {
 	char		*str;
 	t_var		*head;
@@ -40,88 +40,42 @@ char	*search_env_str(char *var, size_t size)
 	return (str);
 }
 
-static void	free_temps(char *temp, char *temp_1)
-{
-	free(temp_1);
-	free(temp);
-}
-
-static void	handle_expand(char *str, char **string_to_stack, size_t size,
-		size_t i)
+static char	*expand_variables(char *str, size_t	*size, size_t *i)
 {
 	char	*temp;
-	char	*temp_1;
 
-	temp_1 = search_env_str(&str[i], size);
-	if (!temp_1)
-		return ;
-	if (*string_to_stack == NULL)
-	{
-		*string_to_stack = ft_strdup(temp_1);
-		if (!*string_to_stack)
-			return ;
-		free(temp_1);
-	}
-	else
-	{
-		temp = ft_strdup(*string_to_stack);
-		if (!temp)
-			return ;
-		free(*string_to_stack);
-		*string_to_stack = ft_strjoin(temp, temp_1);
-		if (!*string_to_stack)
-			return ;
-		free_temps(temp, temp_1);
-	}
-	return ;
-}
-
-static void	handle_normal_characters(char *str, char **string_to_stack,
-		size_t size, size_t i)
-{
-	char	*temp;
-	char	*temp_1;
-
-	temp_1 = ft_strndup(&str[i], size);
-	if (!temp_1)
-		return ;
-	temp = ft_strdup(*string_to_stack);
+	(*i)++;
+	*size = ft_strlen_charset(&str[*i], "$\'\" ");
+	temp = search_env_str(&str[*i], *size);
 	if (!temp)
-		return ;
-	free(*string_to_stack);
-	*string_to_stack = ft_strjoin(temp, temp_1);
-	if (!*string_to_stack)
-		return ;
-	free_temps(temp, temp_1);
+		return (NULL);
+	(*i) += *size;
+	return (temp);
 }
 
-char	*expand_variables_line(char *str)
+char	*handle_expand(char *str)
 {
-	char	*string_to_stack;
-	size_t	size;
 	size_t	i;
+	size_t	size;
+	char	*result;
+	char	*temp;
 
-	string_to_stack = NULL;
-	size = 0;
+	result = NULL;
+	temp = NULL;
 	i = 0;
-	while (str && str[i])
+	while (str[i])
 	{
 		if (str[i] == '$')
-		{
-			i++;
-			size = ft_strlen_charset(&str[i], "$ \'\"");
-			handle_expand(str, &string_to_stack, size, i);
-			i += size - 1;
-		}
+			temp = expand_variables(str, &size, &i);
 		else
 		{
-			size = ft_strlen_choose_c(&str[i], '$');
-			handle_normal_characters(str, &string_to_stack, size, i);
+			size = ft_strlen_charset(&str[i], "$");
+			temp = ft_strndup(&str[i], size);
+			if (!temp)
+				return (NULL);
 			i += size;
-			continue ;
 		}
-		i++;
+		result = fill_string(result, temp);
 	}
-	add_to_garbage(string_to_stack);
-	return (string_to_stack);
+	return (result);
 }

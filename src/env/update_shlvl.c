@@ -28,6 +28,7 @@ void	create_shlvl(t_env_vars *env)
 	return ;
 }
 
+//TODO LEAK
 void	update_shlvl(void)
 {
 	t_env_vars	*env;
