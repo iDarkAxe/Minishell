@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 15:32:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:46:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	short_minishell_no_tty(t_data *data)
 	{
 		line = read_stdin_gnl(&data->garbage);
 		tokens = parse_line(data, line);
-		data->command = tokeniser(&data->garbage, tokens, envp);
+		data->command = tokeniser(data, tokens);
 		if (data->command->tokens->str == NULL || files_management(data) != 0)
 		{
 			free_command(&data->garbage, data->command);

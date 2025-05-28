@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 15:32:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:49:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static char	*read_stdin(t_garbage *garbage)
 	return (line);
 }
 
-// FIXME SET ENVP HERE
 /**
  * @brief Minishell that handles all the shell functions
  *
@@ -104,7 +103,7 @@ int	minishell(t_data *data)
 	{
 		line = read_stdin(&data->garbage);
 		tokens = parse_line(data, line);
-		data->command = tokeniser(&data->garbage, tokens, envp);
+		data->command = tokeniser(data, tokens);
 		if (data->command->tokens->str == NULL || files_management(data) != 0)
 		{
 			free_command(&data->garbage, data->command);

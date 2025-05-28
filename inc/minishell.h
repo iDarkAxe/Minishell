@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 15:31:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:46:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int			is_operator_char(char c);
 char		**init_lexer_state(t_garbage *garbage, t_lexer_state *lex_st,
 				const char *line);
 char		**lexer(t_garbage *garbage, const char *line);
-t_command	*tokeniser(t_garbage *garbage, char **tokens, char **envp);
+t_command	*tokeniser(t_data *data, char **tokens);
 
 // Parsing
 char		**parse_line(t_data *data, char *line);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_to_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:31:24 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/28 10:54:26 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:42:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	ft_count_var(t_data *data)
 	return (count);
 }
 
-static size_t	count_char_of_var(t_var *var)
+static size_t	count_char_of_var(t_var *var, size_t *nbr_param)
 {
 	t_params	*temp;
 	size_t		count;
@@ -51,6 +51,7 @@ static size_t	count_char_of_var(t_var *var)
 			i++;
 		}
 		temp = temp->next;
+		(*nbr_param)++;
 		i = 0;
 	}
 	return (count);
@@ -61,37 +62,41 @@ static void	params_to_str(char **str, t_var *var, size_t i_str)
 	size_t		i;
 	t_params	*temp;
 
-	i = 0;
 	temp = var->head_params;
 	if (!temp)
 		return ;
 	while (temp != NULL)
 	{
+		i = 0;
 		while (temp && temp->value[i])
 		{
 			(*str)[i_str] = temp->value[i];
 			i++;
 			i_str++;
 		}
+		if (temp->next != NULL)
+			(*str)[i_str++] = ':';
 		temp = temp->next;
-		i = 0;
 	}
-	(*str)[i_str]= '\0';
+	(*str)[i_str] = '\0';
 }
 
-static char *var_to_str(t_var *var)
+static char	*var_to_str(t_var *var)
 {
 	char	*str;
 	size_t	i;
 	size_t	i_str;
 	size_t	count;
+	size_t	nbr_param;
 
 	if (!var)
 		return (NULL);
-	count = count_char_of_var(var) + 1;
-	str = malloc(sizeof(char) * count);
+	nbr_param = 0;
+	count = count_char_of_var(var, &nbr_param) + 1;
+	str = malloc(sizeof(char) * (count + nbr_param + 1));
 	if (!str)
 		return (NULL);
+	ft_bzero(str, sizeof(char) * (count + nbr_param + 1));
 	i = 0;
 	i_str = 0;
 	while (var && var->value[i])
@@ -111,16 +116,19 @@ char	**env_to_array(t_data *data)
 	size_t	size;
 	char	**array;
 	t_var	*temp;
-	
+
 	i = 0;
 	size = ft_count_var(data) + 1;
 	temp = data->env.head_var;
 	array = malloc(sizeof(char *) * size);
 	if (!array)
 		return (NULL);
+	add_to_garbage(&data->garbage, array);
 	while (temp != NULL)
 	{
 		array[i] = var_to_str(temp);
+		if (array[i] != NULL)
+			add_to_garbage(&data->garbage, array[i]);
 		temp = temp->next;
 		i++;
 	}
