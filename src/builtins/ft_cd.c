@@ -97,7 +97,7 @@ static int	check_args(char **array)
  */
 int	ft_pwd(t_data *data, char **array)
 {
-	char	path[PATH_MAX];
+	char	*path;
 
 	(void)data;
 	if (array == NULL || array[0] != NULL)
@@ -105,7 +105,7 @@ int	ft_pwd(t_data *data, char **array)
 		print_fd(2, "minishell: pwd: too many arguments\n");
 		return (1);
 	}
-	path = getcwd(path, PATH_MAX);
+	path = getenv(path);
 	if (path == NULL)
 	{
 		perror("Minishell : ");

@@ -148,6 +148,7 @@ ENV = \
 	supp_var_in_env.c \
 	free_env.c \
 	update_shlvl.c \
+	env_to_array.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \

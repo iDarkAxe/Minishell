@@ -27,6 +27,7 @@
 int	main(int argc, char **argv, char **envp)
 {
 	t_data	data;
+	char **array;
 	int		ret;
 
 	(void)argc;
@@ -34,11 +35,12 @@ int	main(int argc, char **argv, char **envp)
 	garbage_init(&data.garbage);
 	signal_init();
 	set_env(&data, envp);
+	array = env_to_array(&data);
 	data.ret = 0;
 	if (is_interactive() == 1)
 		ret = minishell(&data);
 	else
 		ret = short_minishell_no_tty(&data);
 	free_garbage(&data.garbage);
-	return (ret);
+	return (0);
 }

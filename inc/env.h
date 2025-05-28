@@ -90,6 +90,7 @@ char						*search_env_str(t_garbage *garbage, t_env_vars *env,
 t_var						*search_env_var(t_env_vars *env, char *var);
 int							count_env(t_env_vars env);
 void						update_shlvl(t_garbage *garbage, t_env_vars *env);
+char						**env_to_array(t_data *data);
 
 // Utils params
 char						*create_str_with_params(t_garbage *garbage,
