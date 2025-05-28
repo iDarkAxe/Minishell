@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:18:07 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:54:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 12:13:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "file.h"
 #include "garbage.h"
 #include "minishell.h"
+
+int		handle_redirections(t_garbage *garbage, t_command *command,
+			int fd_backup[2]);
+void	reset_redirection(t_garbage *garbage, t_command *command,
+			int fd_backup[2], unsigned char i);
+int		handle_redirections_forks(t_garbage *garbage, t_command *command);
 
 /**
  * @brief Create and redirect inputs and outputs needed for the command

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:32:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:15:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 12:11:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+
+size_t	count_commands(t_command *command);
+void	safe_close(int *fd);
+void	dup_and_close(t_garbage *garbage, int oldfd, int newfd);
+int		needs_to_be_forked(t_command *command);
 
 /**
  * @brief Cound the number of commands in the command structure

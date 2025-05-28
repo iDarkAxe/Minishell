@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:44:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 12:10:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char		**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 // Utils for manage memory
 void		free_array(t_garbage *garbage, char **array);
+void		free_command(t_garbage *garbage, t_command *command);
 void		free_commands(t_garbage *garbage, t_command **command);
 void		free_files_struct(t_garbage *garbage, t_file *file);
 void		free_heredoc(t_garbage *garbage, t_tmp *tmp);

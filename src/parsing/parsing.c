@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 16:23:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 12:08:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "builtins.h"
 #include "minishell.h"
 
-// FIXME Removed parsing_minishell as it was crashing instantly
-// line = parsing_minishell(line);
 /**
  * @brief Prototype for parsing
  *
