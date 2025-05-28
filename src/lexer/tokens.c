@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 14:47:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:51:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ static t_token	*iterate_token(t_garbage *garbage, char *str, t_token **token)
 static t_command	*iterate_command(t_data *data, char *str,
 		t_token **token, t_command **current)
 {
-	if (str && ft_strncmp(str, "|", 1) == 0)
+	if (str && (ft_strncmp(str, "|", 1) == 0 || ft_strncmp(str, ";", 1) == 0))
 	{
 		(*current)->next = create_command(data);
 		if ((*current)->next == NULL)

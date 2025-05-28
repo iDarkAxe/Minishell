@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/27 15:06:22 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/05/28 10:49:21 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ P_LEXER = lexer/
 P_PARSING = parsing/
 P_FILE = file/
 P_BUILTINS = builtins/
+P_BUILTINS_EXPORT = $(P_BUILTINS)export/
 P_ENV = env/
 P_EXEC = exec/
 
@@ -71,6 +72,7 @@ INC = \
 	builtins.h \
 	parsing.h \
 	data_structure.h \
+	exec.h
 
 # Source files
 SRC = \
@@ -79,11 +81,10 @@ SRC = \
 	signals.c \
 	ft_print_fd.c \
 	ft_free.c \
+	ft_free-utils.c \
 	minishell.c \
 	token-utils.c \
 	read_context.c \
-
-# builtins.c
 
 GARBAGE = \
 	garbage.c \
@@ -116,15 +117,17 @@ FILE = \
 
 BUILTINS = \
 	ft_exit.c \
-	export/print_export.c \
-	export/ft_export.c \
-	export/check_args_export.c \
-	export/ft_build_elements.c \
 	ft_echo.c \
 	ft_which.c \
 	ft_unset.c \
 	ft_cd.c \
 	ft_env.c \
+
+BUILTINS_EXPORT = \
+	print_export.c \
+	ft_export.c \
+	check_args_export.c \
+	ft_build_elements.c \
 
 EXEC = \
 	exec.c \
@@ -173,6 +176,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
 	$(addprefix $(P_SRC)$(P_BUILTINS), $(BUILTINS)) \
+	$(addprefix $(P_SRC)$(P_BUILTINS_EXPORT), $(BUILTINS_EXPORT)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 11:52:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:51:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,15 @@ static int	check_args(char **array)
  */
 int	ft_pwd(t_data *data, char **array)
 {
-	char	*path;
+	char	path[PATH_MAX];
 
 	(void)data;
-	if (array == NULL || array[0] != NULL)
+	if (FOLLOW_ZSH == 1 && (array == NULL || array[0] != NULL))
 	{
 		print_fd(2, "minishell: pwd: too many arguments\n");
 		return (1);
 	}
-	path = getenv(path);
-	if (path == NULL)
+	if (getcwd(path, PATH_MAX) == NULL)
 	{
 		perror("Minishell : ");
 		return (1);

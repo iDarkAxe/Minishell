@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 14:46:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:51:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
+#include "exec.h"
 #include "file.h"
 #include "garbage.h"
 #include "get_next_line.h"
@@ -55,7 +56,7 @@ int	short_minishell_no_tty(t_data *data)
 		data->command = tokeniser(data, tokens);
 		if (data->command->tokens->str == NULL || files_management(data) != 0)
 		{
-			free_command(&data->garbage, data->command);
+			free_commands(&data->garbage, &data->command);
 			free_array(&data->garbage, tokens);
 			continue ;
 		}
@@ -64,7 +65,7 @@ int	short_minishell_no_tty(t_data *data)
 		else
 			data->ret = prepare_command(data);
 		free_array(&data->garbage, tokens);
-		free_command(&data->garbage, data->command);
+		free_commands(&data->garbage, &data->command);
 	}
 }
 

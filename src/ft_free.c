@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:16:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:45:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,51 +15,44 @@
 #include "minishell.h"
 
 /**
+ * @brief Free one t_command structure with all that it contains
+ *
+ * @param command t_command structure
+ */
+void	free_command(t_garbage *garbage, t_command *command)
+{
+	t_command	*next;
+
+	next = command->next;
+	if (command->file_in != NULL)
+		free_files_struct(garbage, command->file_in);
+	if (command->file_out != NULL)
+		free_files_struct(garbage, command->file_out);
+	if (command->tokens != NULL)
+		free_tokens(garbage, command->tokens);
+	ft_bzero(command, sizeof(t_command));
+	free_element_gb(garbage, command);
+	command = next;
+}
+
+/**
  * @brief Free t_command linked list structure with all that it contains
  *
  * @param command head of t_command linked list structure
  */
-void	free_command(t_garbage *garbage, t_command *command)
+void	free_commands(t_garbage *garbage, t_command **command)
 {
 	t_command	*temp;
 	t_command	*next;
 
-	temp = command;
+	temp = *command;
 	while (temp != NULL)
 	{
-		if (temp->file_in != NULL)
-			free_files_struct(garbage, temp->file_in);
-		if (temp->file_out != NULL)
-			free_files_struct(garbage, temp->file_out);
-		if (temp->tokens != NULL)
-			free_tokens(garbage, temp->tokens);
 		next = temp->next;
-		ft_bzero(temp, sizeof(t_command));
-		free_element_gb(garbage, temp);
+		free_command(garbage, temp);
 		temp = next;
 	}
-}
-
-/**
- * @brief Free array of strings
- *
- * @param array array of strings
- */
-void	free_array(t_garbage *garbage, char **array)
-{
-	size_t	index;
-
-	if (array == NULL)
-		return ;
-	index = 0;
-	while (array && array[index])
-	{
-		free_element_gb(garbage, array[index]);
-		array[index] = NULL;
-		index++;
-	}
-	free_element_gb(garbage, array);
-	array = NULL;
+	*command = NULL;
 }
 
 /**

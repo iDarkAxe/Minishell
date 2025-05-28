@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:54:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:14:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "builtins.h"
 #include "minishell.h"
+#include "exec.h"
 #include <errno.h>
 #include <stdlib.h>
 #include <unistd.h>

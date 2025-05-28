@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:24:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/27 15:34:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:18:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*fill_string(char *result, char *temp);
 char	*handle_expand(t_data *data, char *str);
 char	*setup_string(t_data *data, char *str);
 char	*expand_variables_line(t_data *data, char *str);
+char	**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 //Utils
 size_t	ft_strlen_charset(const char *str, const char *charset);
