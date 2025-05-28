@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 09:44:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 12:10:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 static size_t	count_tokens(t_token const *head);
 static char		**fill_toks(t_garbage *garbage, t_token *head, char **tokens);
+char			**copy_toks(t_data *data, t_command *command);
+void			print_toks(char **tokens);
 
 /**
  * @brief Creates a copy of all tokens that are in a command structure

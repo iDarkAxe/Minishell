@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 14:51:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:52:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
+#include "builtins.h"
 #include <linux/limits.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,11 +22,9 @@
 
 int			ft_cd(t_data *data, char **array);
 static int	check_args(char **array);
+static void	change_cwd(t_data *data, t_bool is_pwd);
 
 int			ft_pwd(t_data *data, char **array);
-
-// TODO if env -i : `~` doesn't work
-// TODO should update OLDPWD and PWD
 
 /**
  * @brief Implementatin of cd builtin of shell
@@ -43,6 +42,7 @@ int	ft_cd(t_data *data, char **array)
 		return (0);
 	else if (ret < 0)
 		return (ret);
+	change_cwd(data, 0);
 	ret = chdir(array[0]);
 	if (ret != 0)
 	{
@@ -51,7 +51,42 @@ int	ft_cd(t_data *data, char **array)
 		perror("'");
 		return (ret);
 	}
+	change_cwd(data, 1);
 	return (0);
+}
+
+/**
+ * @brief Change the values of ENV VAR
+ * 
+ * @param data data structure
+ * @param is_pwd 1 for PWD, 0 for OLD_PWD 
+ */
+static void	change_cwd(t_data *data, t_bool is_pwd)
+{
+	char	*var;
+	char	path[PATH_MAX];
+	char	*old_path;
+	char	*export_arg;
+
+	if (is_pwd == 1)
+		var = "PWD=";
+	else
+		var = "OLDPWD=";
+	if (getcwd(path, PATH_MAX) == NULL)
+	{
+		perror("minishell : modify CWD :");
+		return ;
+	}
+	ft_unset(data, (char *[]){var, NULL});
+	old_path = ft_strdup_gb(&data->garbage, path);
+	if (old_path == NULL)
+		ft_exit_int_np(&data->garbage, 1);
+	export_arg = ft_strjoin(var, old_path);
+	if (export_arg == NULL)
+		ft_exit_int_np(&data->garbage, 1);
+	ft_export(data, (char *[]){export_arg, NULL});
+	free(export_arg);
+	free_element_gb(&data->garbage, old_path);
 }
 
 /**
@@ -88,8 +123,6 @@ static int	check_args(char **array)
 	return (1);
 }
 
-// TODO : Work only at startup because it's not updated
-
 /**
  * @brief Print the current working directory
  *
@@ -107,7 +140,7 @@ int	ft_pwd(t_data *data, char **array)
 	}
 	if (getcwd(path, PATH_MAX) == NULL)
 	{
-		perror("Minishell : ");
+		perror("minishell : ");
 		return (1);
 	}
 	print_fd(1, path);
