@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/28 10:49:21 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/05/29 10:45:33 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,6 +121,7 @@ BUILTINS = \
 	ft_which.c \
 	ft_unset.c \
 	ft_cd.c \
+	ft_pwd.c \
 	ft_env.c \
 
 BUILTINS_EXPORT = \

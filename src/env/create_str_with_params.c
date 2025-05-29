@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:55:14 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/26 18:22:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 15:24:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*create_str_with_params(t_garbage *garbage, t_params *params)
 
 	if (!params)
 		return (NULL);
-	str = malloc(count_size_total_params(params) + 1);
+	str = malloc_gb(garbage, count_size_total_params(params) + 1);
 	if (!str)
 	{
 		perror("minishell: malloc");

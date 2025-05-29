@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:56:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 11:00:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static int	file_permission_check_outfile(t_garbage *garbage, t_file *file,
 	if (fd < 0)
 	{
 		perror("minishell: open");
-		ft_exit_int_np(garbage, EXIT_FAILURE);
+		return (1);
 	}
 	if (close(fd) != 0)
 	{

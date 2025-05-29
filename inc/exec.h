@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:14:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 10:59:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			handle_redirections_forks(t_garbage *garbage, t_command *command);
 
 // EXEC UTILS
 size_t		count_commands(t_command *command);
-void		safe_close(int *fd);
+int			safe_close(int *fd);
 void		dup_and_close(t_garbage *garbage, int oldfd, int newfd);
 
 void		execute_pipeline(t_data *data, pid_t *pids, size_t *count);

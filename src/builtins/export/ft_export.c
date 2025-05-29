@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:41:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/28 11:11:54 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:53:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ static void	add_or_replace(t_data *data, char **elements, char **array,
 
 	equal = detect_equal(array[i]);
 	temp = search_env_var(&data->env, elements[0]);
-	if (ft_strcmp(elements[0], temp->value) != 0)
+	if (temp == NULL)
+		temp = data->env.head_var;
+	if (temp && ft_strcmp(elements[0], temp->value) != 0)
 		add_var_and_param(data, elements[0], elements[1], array[i]);
 	else
 		replace_param(&data->garbage, temp, elements[1], equal);

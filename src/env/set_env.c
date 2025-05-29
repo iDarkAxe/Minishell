@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/23 11:45:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 10:47:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "garbage.h"
+#include "builtins.h"
 #include "minishell.h"
 #include <stddef.h>
 #include <stdio.h>
@@ -141,4 +142,6 @@ void	set_env(t_data *data, char *envp[])
 		i++;
 	}
 	update_shlvl(&data->garbage, &data->env);
+	change_cwd(data, 0);
+	change_cwd(data, 1);
 }
