@@ -16,18 +16,13 @@
 t_var	*search_env_var(t_env_vars *env, char *var)
 {
 	t_var	*head;
-	t_var	*temp;
 
 	head = env->head_var;
-	temp = head;
 	while (head != NULL)
 	{
 		if (ft_strcmp(head->value, var) == 0)
-		{
-			temp = head;
-			break ;
-		}
+			return (head);
 		head = head->next;
 	}
-	return (temp);
+	return (NULL);
 }

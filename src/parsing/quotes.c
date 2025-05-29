@@ -17,7 +17,6 @@
 #include "builtins.h"
 #include "ft_printf.h"
 
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -43,7 +42,7 @@ static void	fill_res(const char *s, char **res, size_t size, char quote)
 	temp = ft_strndup(s, size);
 	if (!temp)
 		return ;
-	if (quote == '"' || quote == 0)
+	if ((quote == '"' || quote == 0) && temp[0] == '$')
 	{
 		temp_1 = handle_expand(temp);
 		free(temp);
@@ -58,9 +57,15 @@ static void	fill_res(const char *s, char **res, size_t size, char quote)
 static size_t	compute_size(const char *str, char quote)
 {
 	size_t	size;
+	size_t	i;
 
 	size = 0;
-	if (quote == 0 || ((detect_quote(str) == TRUE) && quote == 0))
+	i = 0;
+	if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)) && str[0] != '$')
+		size = ft_strlen_charset(str, "$\"\'");
+	else if (str[0] == '$' && (str[1] == '"' || str[1] == '\''))
+		size = ft_strlen_charset(str, " \0");
+	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)))
 		size = ft_strlen_charset(str, "\"\'");
 	else
 		size = ft_strlen_choose_c(str, quote);

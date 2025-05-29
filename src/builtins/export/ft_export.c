@@ -50,7 +50,7 @@ static void	add_or_replace(t_env_vars *env, char **elements, char **array,
 
 	equal = detect_equal(array[i]);
 	temp = search_env_var(env, elements[0]);
-	if (ft_strcmp(elements[0], temp->value) != 0)
+	if (temp == NULL || ft_strcmp(elements[0], temp->value) != 0)
 		add_var_and_param(env, elements[0], elements[1], array[i]);
 	else
 		replace_param(temp, elements[1], equal);
