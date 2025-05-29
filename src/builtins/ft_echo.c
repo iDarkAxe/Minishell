@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 11:51:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 11:16:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static char	is_all_same_letter(char *str, const char tested)
 	size_t	index;
 
 	index = 0;
+	if (!str || str[index] == '\0')
+		return (0);
 	while (str && str[index] != '\0')
 	{
 		if (str[index] != tested)
