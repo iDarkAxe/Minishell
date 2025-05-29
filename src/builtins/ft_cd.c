@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 10:51:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 12:51:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	ft_cd(t_data *data, char **array)
 {
 	int	ret;
 
-	(void)data;
 	ret = check_args(&data->env, array);
 	if (ret == 0)
 		return (0);

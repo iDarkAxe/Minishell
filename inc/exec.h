@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 10:59:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 11:40:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 // Exec
 char		**copy_toks(t_data *data, t_command *command);
-void		print_toks(char **tokens);
 int			prepare_command(t_data *data);
 int			prepare_command_forks(t_data *data);
 int			search_command(t_data *data, t_command *command, char **tokens);

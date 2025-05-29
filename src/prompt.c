@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/23 11:46:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 12:51:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,18 +154,3 @@ char	*get_prompt_message(t_garbage *garbage)
 	free_element_gb(garbage, hostname);
 	return (prompt);
 }
-
-// int	main(void)
-// {
-// 	char	*prompt;
-// 	char	*display;
-//
-// 	display = get_prompt_message();
-// 	if (!display)
-// 		return (1);
-// 	while (1)
-// 		prompt = readline(display);
-// 	free(display);
-// 	free(prompt);
-// 	return (0);
-// }
