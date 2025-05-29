@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   set_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/04/22 16:33:49 by ppontet          ###   ########lyon.fr   */
-/*   Updated: 2025/04/23 13:11:03 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:47:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "garbage.h"
+#include "builtins.h"
 #include "minishell.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-t_var			*fill_var(char *envp[], size_t *i);
+static t_var	*fill_var(t_garbage *garbage, char *envp[], size_t *i);
 
-static char	*get_var_value(const char *str, size_t *i)
+static char	*get_var_value(t_garbage *garbage, const char *str, size_t *i)
 {
 	char	*var;
 	size_t	size;
@@ -29,7 +29,7 @@ static char	*get_var_value(const char *str, size_t *i)
 	if (!str)
 		return (NULL);
 	size = ft_strlen_choose_c(str, '=');
-	var = malloc_gb(sizeof(char) * (size + 1));
+	var = malloc_gb(garbage, sizeof(char) * (size + 1));
 	if (!var)
 		return (NULL);
 	while (str[*i] && str[*i] != '=' && *i < size)
@@ -41,7 +41,7 @@ static char	*get_var_value(const char *str, size_t *i)
 	return (var);
 }
 
-static t_params	*get_sub_params(const char *str, size_t *i)
+static t_params	*get_sub_params(t_garbage *garbage, const char *str, size_t *i)
 {
 	t_params	*params;
 	size_t		j;
@@ -49,14 +49,14 @@ static t_params	*get_sub_params(const char *str, size_t *i)
 	j = 0;
 	if (!str)
 		return (NULL);
-	params = malloc_gb(sizeof(t_params));
+	params = malloc_gb(garbage, sizeof(t_params));
 	if (!params)
 		return (NULL);
-	params->value = malloc_gb(sizeof(char) * (ft_strlen_choose_c(&str[*i], ':')
-				+ 1));
+	params->value = malloc_gb(garbage, sizeof(char)
+			* (ft_strlen_choose_c(&str[*i], ':') + 1));
 	if (!params->value)
 	{
-		free_element_gb(params);
+		free_element_gb(garbage, params);
 		return (NULL);
 	}
 	while (str[*i] && (str[*i] != ':'))
@@ -70,7 +70,7 @@ static t_params	*get_sub_params(const char *str, size_t *i)
 	return (params);
 }
 
-static t_params	*get_params(const char *str, size_t *i)
+static t_params	*get_params(t_garbage *garbage, const char *str, size_t *i)
 {
 	t_params	*params;
 	t_params	*new_param;
@@ -79,7 +79,7 @@ static t_params	*get_params(const char *str, size_t *i)
 	params = NULL;
 	while (str[*i])
 	{
-		new_param = get_sub_params(str, i);
+		new_param = get_sub_params(garbage, str, i);
 		if (!new_param)
 			return (NULL);
 		new_param->next = NULL;
@@ -89,7 +89,7 @@ static t_params	*get_params(const char *str, size_t *i)
 	}
 	if (str[*i - 1] == ':' && str[*i] == '\0')
 	{
-		new_param = get_sub_params(str, i);
+		new_param = get_sub_params(garbage, str, i);
 		if (!new_param)
 			return (NULL);
 		ft_paramsadd_back(&params, new_param);
@@ -97,24 +97,24 @@ static t_params	*get_params(const char *str, size_t *i)
 	return (params);
 }
 
-t_var	*fill_var(char *envp[], size_t *i)
+static t_var	*fill_var(t_garbage *garbage, char *envp[], size_t *i)
 {
 	size_t	j;
 	t_var	*new;
 
 	j = 0;
-	new = malloc_gb(sizeof(t_var));
+	new = malloc_gb(garbage, sizeof(t_var));
 	if (!new)
 		return (NULL);
 	new->next = NULL;
-	new->value = get_var_value(envp[*i], &j);
+	new->value = get_var_value(garbage, envp[*i], &j);
 	if (!new->value)
 	{
-		free_element_gb(new);
+		free_element_gb(garbage, new);
 		return (NULL);
 	}
 	j++;
-	new->head_params = get_params(envp[*i], &j);
+	new->head_params = get_params(garbage, envp[*i], &j);
 	if (!new->head_params)
 	{
 		return (new);
@@ -122,26 +122,26 @@ t_var	*fill_var(char *envp[], size_t *i)
 	return (new);
 }
 
-void	set_env(char *envp[])
+void	set_env(t_data *data, char *envp[])
 {
-	t_env_vars	*env;
-	t_var		*new;
-	size_t		i;
+	t_var	*new;
+	size_t	i;
 
-	env = get_env();
-	env->head_var = NULL;
+	data->env.head_var = NULL;
 	i = 0;
 	while (envp[i] != NULL)
 	{
-		new = fill_var(envp, &i);
+		new = fill_var(&data->garbage, envp, &i);
 		if (!new)
 		{
 			perror("minishell");
-			free_garbage();
+			free_garbage(&data->garbage);
 			exit(EXIT_FAILURE);
 		}
-		ft_varsadd_back(&env->head_var, new);
+		ft_varsadd_back(&(data->env.head_var), new);
 		i++;
 	}
-	update_shlvl();
+	update_shlvl(&data->garbage, &data->env);
+	change_cwd(data, 0);
+	change_cwd(data, 1);
 }

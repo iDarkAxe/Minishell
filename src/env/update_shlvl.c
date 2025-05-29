@@ -3,55 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   update_shlvl.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:45:33 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/14 18:06:19 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:08:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "garbage.h"
 #include "libft.h"
+#include "data_structure.h"
 
-void	create_shlvl(t_env_vars *env)
+static void	create_shlvl(t_garbage *garbage, t_env_vars *env);
+
+static void	create_shlvl(t_garbage *garbage, t_env_vars *env)
 {
 	t_var	*shlvl;
 
-	shlvl = get_var("SHLVL");
+	shlvl = get_var(garbage, "SHLVL");
 	if (!shlvl)
 		return ;
-	shlvl->head_params = get_param("1", TRUE);
+	shlvl->head_params = get_param(garbage, "1", TRUE);
 	if (!shlvl->head_params)
 		return ;
 	ft_varsadd_back(&env->head_var, shlvl);
 	return ;
 }
 
-void	update_shlvl(void)
+//TODO LEAK
+void	update_shlvl(t_garbage *garbage, t_env_vars *env)
 {
-	t_env_vars	*env;
 	t_var		*shlvl;
-	int			temp;
-	char		*temp_1;
-	int			size;
+	int			var_shlvl_integer;
+	char		*var_shlvl_string;
 
-	env = get_env();
+	if (!env)
+		return ;
 	shlvl = search_env_var(env, "SHLVL");
 	if (!shlvl)
 	{
-		create_shlvl(env);
+		create_shlvl(garbage, env);
 		return ;
 	}
-	temp = ft_atoi(shlvl->head_params->value);
-	temp++;
-	temp_1 = ft_itoa(temp);
-	if (!temp_1)
+	var_shlvl_integer = ft_atoi(shlvl->head_params->value);
+	var_shlvl_integer++;
+	var_shlvl_string = ft_itoa(var_shlvl_integer);
+	if (!var_shlvl_string)
 		return ;
-	size = ft_strlen(temp_1);
-	free_element_gb(shlvl->head_params->value);
-	shlvl->head_params->value = malloc_gb(sizeof(char) * size);
+	free_element_gb(garbage, shlvl->head_params->value);
+	shlvl->head_params->value = ft_strdup_gb(garbage, var_shlvl_string);
+	free(var_shlvl_string);
 	if (!shlvl->head_params->value)
 		return ;
-	shlvl->head_params->value = temp_1;
 }

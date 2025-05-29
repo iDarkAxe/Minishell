@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/14 18:04:06 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/05/29 10:45:33 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME = minishell
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -35,6 +35,7 @@ P_LEXER = lexer/
 P_PARSING = parsing/
 P_FILE = file/
 P_BUILTINS = builtins/
+P_BUILTINS_EXPORT = $(P_BUILTINS)export/
 P_ENV = env/
 P_EXEC = exec/
 
@@ -70,6 +71,8 @@ INC = \
 	env.h \
 	builtins.h \
 	parsing.h \
+	data_structure.h \
+	exec.h
 
 # Source files
 SRC = \
@@ -78,11 +81,10 @@ SRC = \
 	signals.c \
 	ft_print_fd.c \
 	ft_free.c \
+	ft_free-utils.c \
 	minishell.c \
 	token-utils.c \
 	read_context.c \
-
-# builtins.c
 
 GARBAGE = \
 	garbage.c \
@@ -101,6 +103,7 @@ PARSING = \
 	ft_split_charset.c \
 	expand_variable.c \
 	functions_utils_parsing.c \
+	quotes.c \
 
 FILE = \
 	file.c \
@@ -114,15 +117,18 @@ FILE = \
 
 BUILTINS = \
 	ft_exit.c \
-	export/print_export.c \
-	export/ft_export.c \
-	export/check_args_export.c \
-	export/ft_build_elements.c \
 	ft_echo.c \
 	ft_which.c \
 	ft_unset.c \
 	ft_cd.c \
+	ft_pwd.c \
 	ft_env.c \
+
+BUILTINS_EXPORT = \
+	print_export.c \
+	ft_export.c \
+	check_args_export.c \
+	ft_build_elements.c \
 
 EXEC = \
 	exec.c \
@@ -144,9 +150,9 @@ ENV = \
 	sort_env.c \
 	search_env.c \
 	supp_var_in_env.c \
-	get_env.c \
 	free_env.c \
 	update_shlvl.c \
+	env_to_array.c \
 
 LIBS = \
 	-L$(P_LIB_PIPEX) -lpipex \
@@ -171,6 +177,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
 	$(addprefix $(P_SRC)$(P_BUILTINS), $(BUILTINS)) \
+	$(addprefix $(P_SRC)$(P_BUILTINS_EXPORT), $(BUILTINS_EXPORT)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
 
@@ -250,7 +257,6 @@ clean-lib:
 	@$(MAKE) -C $(P_LIBFT) fclean
 	@$(MAKE) -C $(P_PIPEX) fclean
 	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
-	@$(MAKE) -C tests fclean
 
 clean-bin:
 	rm -f $(NAME)

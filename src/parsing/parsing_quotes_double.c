@@ -6,8 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 09:53:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/22 16:30:48 by ppontet          ###   ########lyon.fr   */
-/*   Updated: 2025/03/31 15:32:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:44:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +14,8 @@
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_remove_near_quotes(char const *str, const char character);
-char	*ft_remove_all_near_quotes(const char *str, const char character);
+// char	*ft_remove_near_quotes(char const *str, const char character);
+// char	*ft_remove_all_near_quotes(const char *str, const char character);
 
 /**
  * @brief Remove the first iteration of found pair of character
@@ -27,13 +26,15 @@ char	*ft_remove_all_near_quotes(const char *str, const char character);
  * @return char* new string that don't contain the pair,
  * NULL if no pair to remove
  */
-char	*ft_remove_near_quotes(const char *str, const char character)
+/* char	*ft_remove_near_quotes(const char *str, const char character)
 {
 	char	*start;
 	size_t	len;
 	size_t	count_q;
+	char	*temp;
+	char	*new_temp;
 
-	start = ft_strdup_gb(str);
+	start = ft_strdup_gb(garbage, str);
 	if (start == NULL)
 		return (NULL);
 	count_q = 1;
@@ -45,14 +46,13 @@ char	*ft_remove_near_quotes(const char *str, const char character)
 		if (start[len] == character)
 			count_q++;
 		if (count_q % 2 == 0 && start[len] == character && start[len
-				+ 1] == character)
+			+ 1] == character)
 			break ;
 		len += 1;
 	}
 	ft_strlcpy(&start[len], &str[len + 2], ft_strlen(start) - len - 1);
 	return (start);
-}
-
+} */
 /**
  * @brief Remove the all iteration of found pairs of character
  * and returns the new string
@@ -62,14 +62,12 @@ char	*ft_remove_near_quotes(const char *str, const char character)
  * @return char* new string that don't contain the pair,
  * NULL if ERROR OR no pair found
  */
-char	*ft_remove_all_near_quotes(const char *str, const char character)
+/* char	*ft_remove_all_near_quotes(t_garbage *garbage, const char *str,
+		const char character)
 {
-	char	*temp;
-	char	*new_temp;
-
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	temp = ft_strdup_gb(str);
+	temp = ft_strdup_gb(garbage, str);
 	if (temp == NULL)
 		return (NULL);
 	while (1)
@@ -79,8 +77,9 @@ char	*ft_remove_all_near_quotes(const char *str, const char character)
 			return (temp);
 		if (ft_strlen(new_temp) == ft_strlen(temp))
 			break ;
-		free_element_gb(temp);
+		free_element_gb(garbage, temp);
 		temp = new_temp;
 	}
 	return (temp);
 }
+ */

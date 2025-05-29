@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:08:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/06 15:12:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:40:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ ssize_t	print_command(t_command *command)
  * @param command command structure
  * @return ssize_t 0 or positive is OK, otherwise error
  */
-ssize_t	print_commands(t_command *command)
+ssize_t	print_commands(t_command **command)
 {
 	t_command	*cmd;
 	ssize_t		size;
 
 	if (command == NULL)
 		return (print_fd(2, "No commands to print\n"));
-	cmd = command;
+	cmd = *command;
 	size = 0;
 	while (cmd && cmd->tokens)
 	{

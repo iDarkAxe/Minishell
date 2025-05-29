@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/08 14:15:38 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/26 17:43:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,8 @@ int	signal_init(void)
 	action_receive.sa_sigaction = signal_handler;
 	sigemptyset(&action_receive.sa_mask);
 	action_receive.sa_flags = SA_SIGINFO | SA_RESTART;
-	if (sigaction(SIGINT, &action_receive, NULL) == -1)
-	{
-		print_fd(2, "minishell: signals: error at sigaction\n");
-		ft_exit_int_np(-1);
-	}
-	if (signal(SIGQUIT, SIG_IGN) == SIG_ERR)
-	{
-		print_fd(2, "minishell: signals: error at ignore\n");
-		ft_exit_int_np(-2);
-	}
+	sigaction(SIGINT, &action_receive, NULL);
+	signal(SIGQUIT, SIG_IGN);
 	return (0);
 }
 

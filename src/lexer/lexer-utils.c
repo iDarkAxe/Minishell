@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:01:21 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/11 13:50:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:26:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <stdlib.h>
 
 int		is_operator_char(char c);
-char	*ft_substr_end(char const *src, unsigned int start, size_t end);
+char	*ft_substr_end_gb(t_garbage *garbage, char const *src,
+			unsigned int start, size_t end);
 
 /**
  * @brief Initialize the lexer structure
@@ -27,14 +28,15 @@ char	*ft_substr_end(char const *src, unsigned int start, size_t end);
  * @param lex_st pointer to the lexer structure
  * @param line line to verify
  */
-char	**init_lexer_state(t_lexer_state *lex_st, const char *line)
+char	**init_lexer_state(t_garbage *garbage, t_lexer_state *lex_st,
+		const char *line)
 {
 	ft_bzero(lex_st, sizeof(t_lexer_state));
 	lex_st->line = line;
 	lex_st->tokens = malloc(sizeof(char *) * MAX_TOKENS_LEX);
 	if (lex_st->tokens == NULL)
 		return (NULL);
-	add_to_garbage(lex_st->tokens);
+	add_to_garbage(garbage, lex_st->tokens);
 	return (lex_st->tokens);
 }
 
@@ -46,7 +48,7 @@ char	**init_lexer_state(t_lexer_state *lex_st, const char *line)
  */
 int	is_operator_char(char c)
 {
-	return (c == '|' || c == '<' || c == '>');
+	return (c == '|' || c == '<' || c == '>' || c == ';');
 }
 
 /**
@@ -57,13 +59,14 @@ int	is_operator_char(char c)
  * @param end end index to copy to
  * @return char* pointer to the new string
  */
-char	*ft_substr_end(char const *src, unsigned int start, size_t end)
+char	*ft_substr_end_gb(t_garbage *garbage, char const *src,
+		unsigned int start, size_t end)
 {
 	size_t	len;
 	char	*s;
 
 	len = end - start;
-	s = malloc_gb(len + 1);
+	s = malloc_gb(garbage, len + 1);
 	if (!s)
 		return (NULL);
 	ft_memcpy(s, &src[start], len);

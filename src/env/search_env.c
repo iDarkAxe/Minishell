@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   search_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 09:53:17 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/06 13:29:18 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:34:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ t_var	*search_env_var(t_env_vars *env, char *var)
 		}
 		head = head->next;
 	}
+	if (head == NULL)
+		return (NULL);
 	return (temp);
 }

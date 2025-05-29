@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 16:06:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/17 09:08:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 11:45:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ static int	build_file_data(t_command *command);
 /**
  * @brief Adds files to the file redirection structure
  *
- * @param command command structure
+ * @param data data structure
  * @return int 0, OK, -1 error
  */
-int	build_files_redirection(t_command *command)
+int	build_files_redirection(t_data *data)
 {
 	t_command	*current;
 	t_token		*token;
 	t_file		**file;
 
-	if (command == NULL || command->tokens == NULL)
+	if (data->command == NULL || data->command->tokens == NULL)
 		return (-1);
-	current = command;
+	current = data->command;
 	while (current != NULL)
 	{
 		token = current->tokens;
@@ -43,7 +43,7 @@ int	build_files_redirection(t_command *command)
 				file = &current->file_out;
 			else
 				file = NULL;
-			if (add_file(current, token, file) == NULL)
+			if (add_file(&data->garbage, current, token, file) == NULL)
 				return (1);
 			token = token->next;
 		}

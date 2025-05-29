@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/28 12:35:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 10:45:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,51 +15,44 @@
 #include "minishell.h"
 
 /**
+ * @brief Free one t_command structure with all that it contains
+ *
+ * @param command t_command structure
+ */
+void	free_command(t_garbage *garbage, t_command *command)
+{
+	t_command	*next;
+
+	next = command->next;
+	if (command->file_in != NULL)
+		free_files_struct(garbage, command->file_in);
+	if (command->file_out != NULL)
+		free_files_struct(garbage, command->file_out);
+	if (command->tokens != NULL)
+		free_tokens(garbage, command->tokens);
+	ft_bzero(command, sizeof(t_command));
+	free_element_gb(garbage, command);
+	command = next;
+}
+
+/**
  * @brief Free t_command linked list structure with all that it contains
  *
  * @param command head of t_command linked list structure
  */
-void	free_command(t_command *command)
+void	free_commands(t_garbage *garbage, t_command **command)
 {
 	t_command	*temp;
 	t_command	*next;
 
-	temp = command;
+	temp = *command;
 	while (temp != NULL)
 	{
-		if (temp->file_in != NULL)
-			free_files_struct(temp->file_in);
-		if (temp->file_out != NULL)
-			free_files_struct(temp->file_out);
-		if (temp->tokens != NULL)
-			free_tokens(temp->tokens);
 		next = temp->next;
-		ft_bzero(temp, sizeof(t_command));
-		free_element_gb(temp);
+		free_command(garbage, temp);
 		temp = next;
 	}
-}
-
-/**
- * @brief Free array of strings
- *
- * @param array array of strings
- */
-void	free_array(char **array)
-{
-	size_t	index;
-
-	if (array == NULL)
-		return ;
-	index = 0;
-	while (array && array[index])
-	{
-		free_element_gb(array[index]);
-		array[index] = NULL;
-		index++;
-	}
-	free_element_gb(array);
-	array = NULL;
+	*command = NULL;
 }
 
 /**
@@ -67,7 +60,7 @@ void	free_array(char **array)
  *
  * @param token head of t_tokens linked list structure
  */
-void	free_tokens(t_token *token)
+void	free_tokens(t_garbage *garbage, t_token *token)
 {
 	t_token	*temp;
 	t_token	*next;
@@ -77,16 +70,16 @@ void	free_tokens(t_token *token)
 	{
 		if (temp->str != NULL)
 		{
-			free_element_gb(temp->str);
+			free_element_gb(garbage, temp->str);
 			temp->str = NULL;
 		}
 		next = temp->next;
 		ft_bzero(temp, sizeof(t_token));
-		free_element_gb(temp);
+		free_element_gb(garbage, temp);
 		temp = NULL;
 		temp = next;
 	}
-	free_element_gb(token);
+	free_element_gb(garbage, token);
 	token = NULL;
 }
 
@@ -95,7 +88,7 @@ void	free_tokens(t_token *token)
  *
  * @param file head of t_file linked list structure
  */
-void	free_files_struct(t_file *file)
+void	free_files_struct(t_garbage *garbage, t_file *file)
 {
 	t_file	*temp;
 	t_file	*next;
@@ -106,14 +99,14 @@ void	free_files_struct(t_file *file)
 	while (temp != NULL)
 	{
 		if (temp->tmp != NULL)
-			free_heredoc(temp->tmp);
+			free_heredoc(garbage, temp->tmp);
 		if (temp->name != NULL)
 		{
-			free_element_gb(temp->name);
+			free_element_gb(garbage, temp->name);
 			temp->name = NULL;
 		}
 		next = temp->next;
-		free_element_gb(temp);
+		free_element_gb(garbage, temp);
 		temp = next;
 	}
 }
@@ -123,7 +116,7 @@ void	free_files_struct(t_file *file)
  *
  * @param tmp heredoc structure
  */
-void	free_heredoc(t_tmp *tmp)
+void	free_heredoc(t_garbage *garbage, t_tmp *tmp)
 {
 	if (tmp == NULL)
 		return ;
@@ -131,9 +124,9 @@ void	free_heredoc(t_tmp *tmp)
 	{
 		close(tmp->fd);
 		unlink(tmp->name);
-		free_element_gb(tmp->name);
+		free_element_gb(garbage, tmp->name);
 		tmp->name = NULL;
 	}
-	free_element_gb(tmp);
+	free_element_gb(garbage, tmp);
 	tmp = NULL;
 }

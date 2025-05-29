@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manipulation_var.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:01:37 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/08 14:20:39 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/05/23 12:07:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,19 @@ void	ft_varsadd_front(t_var **var, t_var *new)
 	*var = new;
 }
 
-t_var	*get_var(const char *var)
+t_var	*get_var(t_garbage *garbage, const char *var)
 {
 	t_var	*new;
 
-	new = malloc_gb(sizeof(t_var));
+	new = malloc_gb(garbage, sizeof(t_var));
 	if (!new)
-		ft_exit_int(-1);
+		ft_exit_int(garbage, -1);
 	new->head_params = NULL;
 	new->next = NULL;
-	new->value = ft_strdup_gb(var);
+	new->value = ft_strdup_gb(garbage, var);
 	if (!new->value)
 	{
-		free_element_gb(new);
+		free_element_gb(garbage, new);
 		return (NULL);
 	}
 	return (new);

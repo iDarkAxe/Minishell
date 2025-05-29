@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:10:41 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/13 15:39:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 10:53:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdlib.h>
 
 static char		*ft_random(void);
-static t_tmp	try_create_tmp(char *path);
+static t_tmp	try_create_tmp(t_garbage *garbage, char *path);
 
 /**
  * @brief Create a tmp file, verify if it already exist,
@@ -28,12 +28,12 @@ static t_tmp	try_create_tmp(char *path);
  * @param nbr_try number of try to create a tmp file
  * @return t_tmp structure with the path+name of created name
  */
-t_tmp	create_tmp(char *path, int nbr_try)
+t_tmp	create_tmp(t_garbage *garbage, char *path, int nbr_try)
 {
 	t_tmp	tmp;
 
 	nbr_try--;
-	tmp = try_create_tmp(path);
+	tmp = try_create_tmp(garbage, path);
 	if (nbr_try < 0)
 	{
 		tmp.fd = -1;
@@ -43,15 +43,15 @@ t_tmp	create_tmp(char *path, int nbr_try)
 		return (tmp);
 	if (access(tmp.name, F_OK) == 0)
 	{
-		free_element_gb(tmp.name);
-		tmp = create_tmp(path, nbr_try);
+		free_element_gb(garbage, tmp.name);
+		tmp = create_tmp(garbage, path, nbr_try);
 		return (tmp);
 	}
 	tmp.fd = open(tmp.name, O_RDWR | O_CREAT, 0644);
 	if (tmp.fd < 0)
 	{
-		free_element_gb(tmp.name);
-		tmp = create_tmp(path, nbr_try);
+		free_element_gb(garbage, tmp.name);
+		tmp = create_tmp(garbage, path, nbr_try);
 		return (tmp);
 	}
 	return (tmp);
@@ -63,7 +63,7 @@ t_tmp	create_tmp(char *path, int nbr_try)
  * @param path path where to create the file
  * @return t_tmp structure with the path+name of created name
  */
-static t_tmp	try_create_tmp(char *path)
+static t_tmp	try_create_tmp(t_garbage *garbage, char *path)
 {
 	char	*name;
 	t_tmp	tmp;
@@ -78,14 +78,15 @@ static t_tmp	try_create_tmp(char *path)
 		tmp.fd = -1;
 		return (tmp);
 	}
+	add_to_garbage(garbage, name);
 	tmp.name = ft_strjoins((char *[]){path, "minishell_tmp_", name, NULL});
-	free_element_gb(name);
+	free_element_gb(garbage, name);
 	if (tmp.name == NULL)
 	{
 		tmp.fd = -1;
 		return (tmp);
 	}
-	add_to_garbage(tmp.name);
+	add_to_garbage(garbage, tmp.name);
 	return (tmp);
 }
 
@@ -116,6 +117,5 @@ static char	*ft_random(void)
 	}
 	close(fd);
 	random_str = ft_itoa(random_nbr);
-	add_to_garbage(random_str);
 	return (random_str);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:36:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/28 14:51:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,41 @@
 #include "minishell.h"
 #include "parsing.h"
 
-static t_token		*create_token(void);
-static t_command	*create_command(char **envp);
-static t_token		*iterate_token(char *str, t_token **token);
-static t_command	*iterate_command(char *str, t_token **token,
-						t_command **current);
+static t_token		*create_token(t_garbage *garbage);
+static t_command	*create_command(t_data *data);
+static t_token		*iterate_token(t_garbage *garbage, char *str,
+						t_token **token);
+static t_command	*iterate_command(t_data *data, char *str,
+						t_token **token, t_command **current);
 
 /**
  * @brief Creates a t_command structure that contains all the tokens
  * Fills the command with the environment
  *
+ * @param data data structure
  * @param tokens tokens
- * @param envp environment
  * @return t_command* pointer if OK, NULL if it fails
  */
-t_command	*tokeniser(char **tokens, char **envp)
+t_command	*tokeniser(t_data *data, char **tokens)
 {
 	t_command	*command;
 	t_command	*current;
 	t_token		*token;
 	size_t		index;
 
-	command = create_command(envp);
+	command = create_command(data);
 	if (command == NULL)
-		ft_exit_int_np(1);
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	current = command;
 	token = command->tokens;
 	index = 0;
 	while (tokens && tokens[index] != NULL)
 	{
-		if (iterate_command(tokens[index], &token, &current) == NULL)
-			ft_exit_int_np(1);
+		if (iterate_command(data, tokens[index], &token, &current) == NULL)
+			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 		token->str = tokens[index];
-		if (iterate_token(tokens[index + 1], &token) == NULL)
-			ft_exit_int_np(1);
+		if (iterate_token(&data->garbage, tokens[index + 1], &token) == NULL)
+			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 		index++;
 	}
 	return (command);
@@ -60,38 +61,38 @@ t_command	*tokeniser(char **tokens, char **envp)
  *
  * @return t_token* pointer if OK, NULL if it fails
  */
-static t_token	*create_token(void)
+static t_token	*create_token(t_garbage *garbage)
 {
 	t_token	*token;
 
 	token = ft_calloc(sizeof(t_token), 1);
 	if (token == NULL)
 		return (NULL);
-	add_to_garbage(token);
+	add_to_garbage(garbage, token);
 	return (token);
 }
 
 /**
  * @brief Create a command structure
  *
- * @param envp environment
+ * @param data data structure
  * @return t_command* pointer if OK, NULL if it fails
  */
-static t_command	*create_command(char **envp)
+static t_command	*create_command(t_data *data)
 {
 	t_command	*command;
 
 	command = ft_calloc(sizeof(t_command), 1);
 	if (command == NULL)
 		return (NULL);
-	add_to_garbage(command);
-	command->tokens = create_token();
+	add_to_garbage(&data->garbage, command);
+	command->tokens = create_token(&data->garbage);
 	if (command->tokens == NULL)
 	{
-		free_element_gb(command);
+		free_element_gb(&data->garbage, command);
 		return (NULL);
 	}
-	command->envp = envp;
+	command->envp = env_to_array(data);
 	fd_default(command);
 	return (command);
 }
@@ -103,13 +104,13 @@ static t_command	*create_command(char **envp)
  * @param token token
  * @return t_token* pointer if OK, NULL if it fails
  */
-static t_token	*iterate_token(char *str, t_token **token)
+static t_token	*iterate_token(t_garbage *garbage, char *str, t_token **token)
 {
 	t_token	*new_token;
 
 	if (str && ft_strncmp(str, "|", 1) != 0)
 	{
-		new_token = create_token();
+		new_token = create_token(garbage);
 		if (new_token == NULL)
 			return (NULL);
 		(*token)->next = new_token;
@@ -127,12 +128,12 @@ static t_token	*iterate_token(char *str, t_token **token)
  * @param current command
  * @return t_command* pointer if OK, NULL if it fails
  */
-static t_command	*iterate_command(char *str, t_token **token,
-		t_command **current)
+static t_command	*iterate_command(t_data *data, char *str,
+		t_token **token, t_command **current)
 {
-	if (str && ft_strncmp(str, "|", 1) == 0)
+	if (str && (ft_strncmp(str, "|", 1) == 0 || ft_strncmp(str, ";", 1) == 0))
 	{
-		(*current)->next = create_command((*current)->envp);
+		(*current)->next = create_command(data);
 		if ((*current)->next == NULL)
 			return (NULL);
 		(*current) = (*current)->next;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:08:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:37:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 18:03:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,10 @@ int	ft_garbageclear(t_garbage *garbage)
 	t_element	*element;
 	t_element	*temp;
 
+	if (!garbage)
+		return (-1);
 	element = garbage->head;
-	while (element != NULL && garbage->n_elements > 0)
+	while (element != NULL)
 	{
 		temp = element->next;
 		free(element->ptr);

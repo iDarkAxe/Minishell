@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/09 16:29:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 11:16:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static char	is_all_same_letter(char *str, char tested);
 static char	handle_options(char **array, size_t *index);
-int			ft_echo(char **array);
+int			ft_echo(t_data *data, char **array);
 
 /**
  * @brief Echo with -n option
@@ -28,11 +28,12 @@ int			ft_echo(char **array);
  * @param array array of strings
  * @return int 0 OK, error otherwise
  */
-int	ft_echo(char **array)
+int	ft_echo(t_data *data, char **array)
 {
 	size_t	index;
 	char	final_n;
 
+	(void)data;
 	index = 0;
 	final_n = 1;
 	final_n = handle_options(array, &index);
@@ -60,6 +61,8 @@ static char	is_all_same_letter(char *str, const char tested)
 	size_t	index;
 
 	index = 0;
+	if (!str || str[index] == '\0')
+		return (0);
 	while (str && str[index] != '\0')
 	{
 		if (str[index] != tested)

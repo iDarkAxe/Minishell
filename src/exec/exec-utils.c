@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:32:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/14 09:37:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/29 11:08:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+
+size_t	count_commands(t_command *command);
+int		safe_close(int *fd);
+void	dup_and_close(t_garbage *garbage, int oldfd, int newfd);
+int		needs_to_be_forked(t_command *command);
 
 /**
  * @brief Cound the number of commands in the command structure
@@ -41,17 +46,22 @@ size_t	count_commands(t_command *command)
  * @brief Safely close fd
  * 
  * @param fd file descriptor to close
+ * @return 0 no error, 1 ERROR
  */
-void	safe_close(int *fd)
+int	safe_close(int *fd)
 {
 	if (fd == NULL)
-		return ;
+		return (1);
 	if (*fd != -1)
 	{
 		if (close(*fd) != 0)
+		{
 			perror("minishell: close");
+			return (1);
+		}
 		*fd = -1;
 	}
+	return (0);
 }
 
 /**
@@ -60,12 +70,12 @@ void	safe_close(int *fd)
  * @param oldfd fd that will overwrite newfd and will be close
  * @param newfd fd to overwrite by oldfd
  */
-void	dup_and_close(int oldfd, int newfd)
+void	dup_and_close(t_garbage *garbage, int oldfd, int newfd)
 {
 	if (dup2(oldfd, newfd) == -1)
 	{
 		perror("dup2");
-		free_garbage();
+		free_garbage(garbage);
 		exit(1);
 	}
 	close(oldfd);
