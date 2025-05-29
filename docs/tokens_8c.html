@@ -107,73 +107,89 @@ $(function(){initNavTree('tokens_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">tokens.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="file_8h_source.html">file.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="parsing_8h_source.html">parsing.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for tokens.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="tokens_8c__incl.png" border="0" usemap="#asrc_2lexer_2tokens_8c" alt=""/></div>
 <map name="asrc_2lexer_2tokens_8c" id="asrc_2lexer_2tokens_8c">
-<area shape="rect" title=" " alt="" coords="203,5,337,31"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="231,152,325,177"/>
-<area shape="poly" title=" " alt="" coords="271,31,267,64,267,104,274,138,269,139,262,104,262,64,265,31"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="96,152,183,177"/>
-<area shape="poly" title=" " alt="" coords="261,33,161,143,157,140,257,29"/>
-<area shape="rect" href="file_8h.html" title=" " alt="" coords="276,79,331,104"/>
-<area shape="poly" title=" " alt="" coords="278,30,295,65,290,67,273,32"/>
-<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="355,79,438,104"/>
-<area shape="poly" title=" " alt="" coords="292,28,365,69,363,74,289,33"/>
-<area shape="rect" title=" " alt="" coords="487,225,546,251"/>
-<area shape="poly" title=" " alt="" coords="317,175,475,221,473,227,316,180"/>
-<area shape="rect" title=" " alt="" coords="291,225,364,251"/>
-<area shape="poly" title=" " alt="" coords="288,176,314,213,309,216,284,179"/>
-<area shape="rect" title=" " alt="" coords="389,225,463,251"/>
-<area shape="poly" title=" " alt="" coords="303,175,391,217,388,222,301,180"/>
-<area shape="rect" title=" " alt="" coords="101,225,167,251"/>
-<area shape="poly" title=" " alt="" coords="256,180,171,221,169,217,254,175"/>
-<area shape="rect" title=" " alt="" coords="5,225,76,251"/>
-<area shape="poly" title=" " alt="" coords="241,180,90,225,89,220,239,175"/>
-<area shape="rect" title=" " alt="" coords="191,225,266,251"/>
-<area shape="poly" title=" " alt="" coords="272,179,247,216,242,213,268,176"/>
-<area shape="poly" title=" " alt="" coords="125,180,69,219,66,215,122,175"/>
-<area shape="poly" title=" " alt="" coords="302,105,289,140,284,138,297,103"/>
-<area shape="poly" title=" " alt="" coords="322,102,489,215,486,219,319,106"/>
+<area shape="rect" title=" " alt="" coords="127,5,262,31"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="153,152,236,177"/>
+<area shape="poly" title=" " alt="" coords="197,31,197,138,192,138,192,31"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="86,372,173,397"/>
+<area shape="poly" title=" " alt="" coords="154,33,108,51,60,78,39,96,23,115,12,138,8,164,8,239,10,259,17,278,39,312,69,341,98,362,95,367,65,345,35,316,12,280,5,260,3,239,3,163,7,136,18,113,36,92,57,74,105,46,152,28"/>
+<area shape="rect" href="file_8h.html" title=" " alt="" coords="390,79,445,104"/>
+<area shape="poly" title=" " alt="" coords="231,28,377,75,376,80,230,33"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="370,152,465,177"/>
+<area shape="poly" title=" " alt="" coords="214,29,389,142,386,147,211,33"/>
+<area shape="rect" href="parsing_8h.html" title=" " alt="" coords="93,299,176,324"/>
+<area shape="poly" title=" " alt="" coords="191,32,154,112,135,167,121,226,122,256,128,285,123,286,116,257,116,225,130,166,149,110,186,30"/>
+<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="131,225,259,251"/>
+<area shape="poly" title=" " alt="" coords="197,178,197,212,192,212,192,178"/>
+<area shape="rect" title=" " alt="" coords="317,372,376,397"/>
+<area shape="poly" title=" " alt="" coords="213,249,272,297,331,360,327,363,269,301,209,253"/>
+<area shape="poly" title=" " alt="" coords="150,253,113,271,97,284,84,300,80,315,84,331,106,361,102,364,79,333,74,315,79,297,93,280,110,267,148,248"/>
+<area shape="rect" href="env_8h.html" title=" " alt="" coords="201,299,258,324"/>
+<area shape="poly" title=" " alt="" coords="203,250,220,285,215,287,198,252"/>
+<area shape="rect" title=" " alt="" coords="369,445,439,471"/>
+<area shape="poly" title=" " alt="" coords="174,395,356,442,355,447,172,400"/>
+<area shape="poly" title=" " alt="" coords="250,322,317,362,314,367,247,326"/>
+<area shape="poly" title=" " alt="" coords="215,326,158,366,155,362,212,322"/>
+<area shape="rect" title=" " alt="" coords="197,372,272,397"/>
+<area shape="poly" title=" " alt="" coords="233,324,235,358,230,359,228,325"/>
+<area shape="poly" title=" " alt="" coords="446,96,516,115,557,129,597,147,630,168,653,192,660,206,662,221,659,236,652,252,626,283,595,309,561,330,524,347,451,370,390,382,389,376,450,365,522,342,558,326,592,305,622,280,647,249,654,234,657,220,655,207,649,195,627,172,594,151,555,134,515,120,444,101"/>
+<area shape="poly" title=" " alt="" coords="420,104,420,138,415,138,415,104"/>
+<area shape="poly" title=" " alt="" coords="382,180,244,224,243,219,381,175"/>
+<area shape="poly" title=" " alt="" coords="449,175,474,188,497,205,512,226,514,239,510,252,485,290,453,322,417,348,385,368,382,363,414,344,449,318,481,287,506,250,508,239,507,228,494,209,471,193,446,180"/>
+<area shape="poly" title=" " alt="" coords="466,169,572,188,621,203,639,213,651,224,662,241,667,259,667,276,663,293,642,326,610,356,570,383,528,407,449,443,447,438,525,402,568,378,607,352,638,322,658,291,662,276,662,260,657,243,647,227,636,217,619,208,571,193,465,174"/>
+<area shape="poly" title=" " alt="" coords="392,180,357,199,323,227,305,251,295,273,286,297,273,325,252,362,247,359,268,323,282,295,290,271,300,249,319,223,354,195,390,175"/>
+<area shape="rect" title=" " alt="" coords="571,225,637,251"/>
+<area shape="poly" title=" " alt="" coords="448,175,562,218,560,223,446,180"/>
+<area shape="rect" title=" " alt="" coords="333,225,408,251"/>
+<area shape="poly" title=" " alt="" coords="412,179,388,215,384,212,407,176"/>
+<area shape="rect" title=" " alt="" coords="433,225,495,251"/>
+<area shape="poly" title=" " alt="" coords="427,176,451,212,447,215,423,179"/>
+<area shape="poly" title=" " alt="" coords="170,321,305,367,304,372,168,327"/>
+<area shape="poly" title=" " alt="" coords="136,325,134,359,129,358,131,324"/>
+<area shape="poly" title=" " alt="" coords="152,322,209,362,206,366,149,326"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8693b6e8f10282904e8a79bf6e9e66f7" id="r_a8693b6e8f10282904e8a79bf6e9e66f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8693b6e8f10282904e8a79bf6e9e66f7">tokeniser</a> (char **tokens, char **envp)</td></tr>
-<tr class="memdesc:a8693b6e8f10282904e8a79bf6e9e66f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> structure that contains all the tokens Fills the command with the environment.  <br /></td></tr>
-<tr class="separator:a8693b6e8f10282904e8a79bf6e9e66f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc5b7e533daacfa775b3a1ac953bd31" id="r_afcc5b7e533daacfa775b3a1ac953bd31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcc5b7e533daacfa775b3a1ac953bd31">tokeniser</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, char **tokens)</td></tr>
+<tr class="memdesc:afcc5b7e533daacfa775b3a1ac953bd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> structure that contains all the tokens Fills the command with the environment.  <br /></td></tr>
+<tr class="separator:afcc5b7e533daacfa775b3a1ac953bd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8693b6e8f10282904e8a79bf6e9e66f7" name="a8693b6e8f10282904e8a79bf6e9e66f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8693b6e8f10282904e8a79bf6e9e66f7">&#9670;&#160;</a></span>tokeniser()</h2>
+<a id="afcc5b7e533daacfa775b3a1ac953bd31" name="afcc5b7e533daacfa775b3a1ac953bd31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc5b7e533daacfa775b3a1ac953bd31">&#9670;&#160;</a></span>tokeniser()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> * tokeniser </td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> * tokeniser </td>
           <td>(</td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>, </td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>envp</em></span>&#160;)</td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a <a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> structure that contains all the tokens Fills the command with the environment. </p>
+<p>Creates a <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> structure that contains all the tokens Fills the command with the environment. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
     <tr><td class="paramname">tokens</td><td>tokens </td></tr>
-    <tr><td class="paramname">envp</td><td>environment </td></tr>
   </table>
   </dd>
 </dl>
@@ -181,10 +197,10 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="tokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph.png" border="0" usemap="#atokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph" alt=""/></div>
-<map name="atokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph" id="atokens_8c_a8693b6e8f10282904e8a79bf6e9e66f7_cgraph">
+<div class="center"><img src="tokens_8c_afcc5b7e533daacfa775b3a1ac953bd31_cgraph.png" border="0" usemap="#atokens_8c_afcc5b7e533daacfa775b3a1ac953bd31_cgraph" alt=""/></div>
+<map name="atokens_8c_afcc5b7e533daacfa775b3a1ac953bd31_cgraph" id="atokens_8c_afcc5b7e533daacfa775b3a1ac953bd31_cgraph">
 <area shape="rect" title="Creates a t_command structure that contains all the tokens Fills the command with the environment." alt="" coords="5,5,88,31"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="136,5,223,31"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="136,5,247,31"/>
 <area shape="poly" title=" " alt="" coords="88,15,122,15,122,21,88,21"/>
 </map>
 </div>

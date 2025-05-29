@@ -105,7 +105,6 @@ $(function(){initNavTree('file_8h.html',''); initResizable(true); });
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">file.h File Reference</div></div>
 </div><!--header-->
@@ -117,22 +116,33 @@ Include dependency graph for file.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="file_8h__incl.png" border="0" usemap="#ainc_2file_8h" alt=""/></div>
 <map name="ainc_2file_8h" id="ainc_2file_8h">
-<area shape="rect" title=" " alt="" coords="91,5,168,31"/>
-<area shape="rect" title=" " alt="" coords="5,152,64,177"/>
-<area shape="poly" title=" " alt="" coords="124,33,52,142,48,139,119,30"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="177,79,271,104"/>
-<area shape="poly" title=" " alt="" coords="146,29,199,68,196,72,143,33"/>
-<area shape="poly" title=" " alt="" coords="195,107,78,150,76,145,193,102"/>
-<area shape="rect" title=" " alt="" coords="89,152,162,177"/>
-<area shape="poly" title=" " alt="" coords="210,106,154,146,151,142,207,102"/>
-<area shape="rect" title=" " alt="" coords="187,152,261,177"/>
-<area shape="poly" title=" " alt="" coords="227,104,227,138,221,138,221,104"/>
-<area shape="rect" title=" " alt="" coords="285,152,352,177"/>
-<area shape="poly" title=" " alt="" coords="241,102,294,141,291,146,238,106"/>
-<area shape="rect" title=" " alt="" coords="377,152,447,177"/>
-<area shape="poly" title=" " alt="" coords="255,102,369,144,368,149,253,107"/>
-<area shape="rect" title=" " alt="" coords="472,152,547,177"/>
-<area shape="poly" title=" " alt="" coords="270,101,459,148,458,153,269,107"/>
+<area shape="rect" title=" " alt="" coords="15,5,93,31"/>
+<area shape="rect" title=" " alt="" coords="51,299,110,324"/>
+<area shape="poly" title=" " alt="" coords="51,32,29,83,10,152,10,177,10,215,12,231,19,249,34,271,53,288,49,292,30,274,14,252,6,232,4,215,5,177,5,152,24,81,46,30"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="161,79,256,104"/>
+<area shape="poly" title=" " alt="" coords="80,28,172,70,170,75,78,33"/>
+<area shape="poly" title=" " alt="" coords="161,96,126,100,88,110,52,127,24,154,16,170,14,187,22,223,41,258,63,287,59,290,36,261,17,225,8,187,11,168,20,150,49,123,86,105,125,95,161,90"/>
+<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="311,152,439,177"/>
+<area shape="poly" title=" " alt="" coords="236,102,336,144,334,149,234,106"/>
+<area shape="rect" title=" " alt="" coords="401,372,472,397"/>
+<area shape="poly" title=" " alt="" coords="257,94,381,113,439,129,461,139,477,150,509,191,518,211,523,232,521,276,504,325,489,348,470,366,466,362,485,344,500,323,516,275,518,233,513,213,504,194,473,154,459,143,437,134,380,118,256,100"/>
+<area shape="rect" title=" " alt="" coords="415,299,490,324"/>
+<area shape="poly" title=" " alt="" coords="257,95,369,114,421,129,440,139,453,150,469,183,474,220,470,256,463,286,458,285,465,255,468,220,464,185,449,154,437,144,419,134,368,119,256,100"/>
+<area shape="rect" title=" " alt="" coords="34,152,101,177"/>
+<area shape="poly" title=" " alt="" coords="187,106,104,148,101,143,185,102"/>
+<area shape="rect" title=" " alt="" coords="125,152,199,177"/>
+<area shape="poly" title=" " alt="" coords="203,106,179,142,175,139,199,103"/>
+<area shape="rect" title=" " alt="" coords="224,152,287,177"/>
+<area shape="poly" title=" " alt="" coords="218,103,242,139,238,142,214,106"/>
+<area shape="poly" title=" " alt="" coords="353,180,117,295,115,290,350,175"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="304,299,391,324"/>
+<area shape="poly" title=" " alt="" coords="378,178,376,211,370,251,359,287,354,285,365,250,370,210,372,177"/>
+<area shape="rect" href="env_8h.html" title=" " alt="" coords="299,225,356,251"/>
+<area shape="poly" title=" " alt="" coords="370,179,345,216,340,213,365,176"/>
+<area shape="poly" title=" " alt="" coords="363,322,413,361,409,365,360,326"/>
+<area shape="poly" title=" " alt="" coords="299,250,124,300,122,295,298,245"/>
+<area shape="poly" title=" " alt="" coords="333,250,343,285,338,286,328,252"/>
+<area shape="poly" title=" " alt="" coords="349,248,421,289,419,294,346,253"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -140,39 +150,35 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="file_8h__dep__incl.png" border="0" usemap="#ainc_2file_8hdep" alt=""/></div>
 <map name="ainc_2file_8hdep" id="ainc_2file_8hdep">
-<area shape="rect" title=" " alt="" coords="1287,5,1365,31"/>
+<area shape="rect" title=" " alt="" coords="1086,5,1163,31"/>
 <area shape="rect" href="ft__dups_8c.html" title=" " alt="" coords="5,86,143,111"/>
-<area shape="poly" title=" " alt="" coords="1274,21,1090,22,813,28,487,46,319,61,154,81,117,89,116,83,154,76,318,56,487,41,813,23,1090,16,1274,16"/>
-<area shape="rect" href="ft__dups__forks_8c.html" title=" " alt="" coords="167,86,344,111"/>
-<area shape="poly" title=" " alt="" coords="1274,23,891,37,626,55,357,81,311,89,310,83,356,76,626,49,891,32,1273,18"/>
-<area shape="rect" href="file-general_8c.html" title=" " alt="" coords="369,86,523,111"/>
-<area shape="poly" title=" " alt="" coords="1274,24,961,39,750,56,536,81,495,89,494,83,535,76,749,51,960,34,1274,18"/>
-<area shape="rect" href="file_8c.html" title=" " alt="" coords="548,86,648,111"/>
-<area shape="poly" title=" " alt="" coords="1273,23,1162,27,1009,37,836,54,661,81,633,88,632,83,660,76,835,49,1009,32,1161,22,1273,18"/>
-<area shape="rect" href="file__build_8c.html" title=" " alt="" coords="673,86,811,111"/>
-<area shape="poly" title=" " alt="" coords="1274,26,1075,46,950,62,824,81,788,89,787,83,823,76,949,57,1075,41,1273,21"/>
-<area shape="rect" href="file__print_8c.html" title=" " alt="" coords="836,86,973,111"/>
-<area shape="poly" title=" " alt="" coords="1274,30,987,81,953,89,952,83,985,76,1273,25"/>
-<area shape="rect" href="file__verify__access_8c.html" title=" " alt="" coords="998,79,1131,119"/>
-<area shape="poly" title=" " alt="" coords="1276,37,1128,81,1127,76,1274,32"/>
-<area shape="rect" href="ft__file__tokens_8c.html" title=" " alt="" coords="1156,86,1323,111"/>
-<area shape="poly" title=" " alt="" coords="1305,42,1254,88,1250,84,1301,38"/>
-<area shape="rect" href="heredoc_8c.html" title=" " alt="" coords="1347,86,1479,111"/>
-<area shape="poly" title=" " alt="" coords="1351,38,1402,84,1398,88,1347,42"/>
-<area shape="rect" href="tmp__generator_8c.html" title=" " alt="" coords="1503,86,1677,111"/>
-<area shape="poly" title=" " alt="" coords="1378,32,1552,83,1551,89,1377,37"/>
-<area shape="rect" href="ft__free_8c.html" title=" " alt="" coords="1702,86,1801,111"/>
-<area shape="poly" title=" " alt="" coords="1379,23,1520,43,1691,76,1717,83,1716,88,1689,81,1519,49,1378,28"/>
-<area shape="rect" href="tokens_8c.html" title=" " alt="" coords="1825,86,1960,111"/>
-<area shape="poly" title=" " alt="" coords="1378,21,1570,41,1813,76,1848,83,1847,89,1812,81,1570,47,1378,26"/>
-<area shape="rect" href="minishell_8c.html" title=" " alt="" coords="1984,86,2100,111"/>
-<area shape="poly" title=" " alt="" coords="1379,18,1635,34,1804,51,1973,76,2005,83,2004,89,1972,81,1803,56,1635,40,1378,24"/>
-<area shape="rect" href="read__context_8c.html" title=" " alt="" coords="2125,86,2266,111"/>
-<area shape="poly" title=" " alt="" coords="1378,18,1690,33,1900,50,2113,76,2151,83,2150,89,2112,81,1899,55,1690,38,1378,23"/>
-<area shape="rect" href="tests__file_8c.html" title=" " alt="" coords="2291,79,2428,119"/>
-<area shape="poly" title=" " alt="" coords="1378,17,1532,20,1755,28,2014,46,2148,59,2278,76,2291,78,2290,83,2278,81,2147,65,2014,51,1754,34,1532,25,1378,22"/>
-<area shape="rect" href="tests__heredoc_8c.html" title=" " alt="" coords="2452,79,2589,119"/>
-<area shape="poly" title=" " alt="" coords="1378,16,1555,17,1817,24,2126,42,2285,57,2441,76,2452,78,2451,83,2440,81,2285,62,2126,48,1817,30,1555,22,1378,22"/>
+<area shape="poly" title=" " alt="" coords="1072,22,916,25,689,33,425,51,289,64,156,81,118,89,117,83,155,76,288,59,424,46,689,28,916,20,1072,17"/>
+<area shape="rect" href="file-general_8c.html" title=" " alt="" coords="167,86,322,111"/>
+<area shape="poly" title=" " alt="" coords="1073,24,759,39,548,56,334,81,294,89,293,83,334,76,548,51,759,34,1072,18"/>
+<area shape="rect" href="file_8c.html" title=" " alt="" coords="347,86,447,111"/>
+<area shape="poly" title=" " alt="" coords="1072,23,960,27,808,37,635,54,460,81,431,88,430,83,459,76,634,49,808,32,960,22,1072,18"/>
+<area shape="rect" href="file__build_8c.html" title=" " alt="" coords="471,86,610,111"/>
+<area shape="poly" title=" " alt="" coords="1072,26,874,46,749,62,622,81,587,89,586,83,622,76,748,57,874,41,1072,21"/>
+<area shape="rect" href="file__print_8c.html" title=" " alt="" coords="635,86,772,111"/>
+<area shape="poly" title=" " alt="" coords="1073,30,785,81,752,89,750,83,784,76,1072,25"/>
+<area shape="rect" href="file__verify__access_8c.html" title=" " alt="" coords="797,79,930,119"/>
+<area shape="poly" title=" " alt="" coords="1074,37,927,81,925,76,1073,32"/>
+<area shape="rect" href="ft__file__tokens_8c.html" title=" " alt="" coords="955,86,1121,111"/>
+<area shape="poly" title=" " alt="" coords="1103,42,1053,88,1049,84,1100,38"/>
+<area shape="rect" href="heredoc_8c.html" title=" " alt="" coords="1145,86,1277,111"/>
+<area shape="poly" title=" " alt="" coords="1150,38,1200,84,1197,88,1146,42"/>
+<area shape="rect" href="tmp__generator_8c.html" title=" " alt="" coords="1301,86,1476,111"/>
+<area shape="poly" title=" " alt="" coords="1177,32,1351,83,1349,89,1175,37"/>
+<area shape="rect" href="ft__free-utils_8c.html" title=" " alt="" coords="1501,86,1631,111"/>
+<area shape="poly" title=" " alt="" coords="1177,24,1318,45,1489,76,1522,83,1521,89,1488,81,1318,51,1177,29"/>
+<area shape="rect" href="ft__free_8c.html" title=" " alt="" coords="1655,86,1754,111"/>
+<area shape="poly" title=" " alt="" coords="1177,20,1383,37,1513,53,1644,76,1672,83,1671,89,1643,81,1512,59,1382,42,1177,25"/>
+<area shape="rect" href="tokens_8c.html" title=" " alt="" coords="1779,86,1913,111"/>
+<area shape="poly" title=" " alt="" coords="1177,19,1432,36,1598,53,1766,76,1803,83,1802,89,1766,81,1598,58,1431,42,1177,24"/>
+<area shape="rect" href="minishell_8c.html" title=": Main program of the Minishell" alt="" coords="1937,86,2053,111"/>
+<area shape="poly" title=" " alt="" coords="1177,17,1309,20,1495,29,1709,47,1926,76,1959,83,1958,89,1926,81,1709,52,1495,35,1309,26,1177,22"/>
+<area shape="rect" href="read__context_8c.html" title=" " alt="" coords="2078,86,2219,111"/>
+<area shape="poly" title=" " alt="" coords="1177,17,1329,20,1549,29,1805,47,2066,76,2105,83,2104,89,2066,81,1805,52,1549,34,1329,26,1177,22"/>
 </map>
 </div>
 </div>
@@ -190,61 +196,53 @@ Macros</h2></td></tr>
 <tr class="memitem:ae241ca532af108b7b6abe598e4b07f49" id="r_ae241ca532af108b7b6abe598e4b07f49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae241ca532af108b7b6abe598e4b07f49">TMP_PATH</a>&#160;&#160;&#160;&quot;/tmp/&quot;</td></tr>
 <tr class="separator:ae241ca532af108b7b6abe598e4b07f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a7b7541a1dfa9df91f937a1c6ac5fb990" id="r_a7b7541a1dfa9df91f937a1c6ac5fb990"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structs__tmp.html">s_tmp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a></td></tr>
-<tr class="separator:a7b7541a1dfa9df91f937a1c6ac5fb990"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabd214ff3248265f1f7c83ccb398383a" id="r_aabd214ff3248265f1f7c83ccb398383a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structs__file.html">s_file</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a></td></tr>
-<tr class="separator:aabd214ff3248265f1f7c83ccb398383a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a10f667b9195d628dbd100d85909dbdc6" id="r_a10f667b9195d628dbd100d85909dbdc6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10f667b9195d628dbd100d85909dbdc6">files_management</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
-<tr class="memdesc:a10f667b9195d628dbd100d85909dbdc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes all the files redirection tests.  <br /></td></tr>
-<tr class="separator:a10f667b9195d628dbd100d85909dbdc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5a0da0bf85768276a02056ecbcd427e" id="r_ac5a0da0bf85768276a02056ecbcd427e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5a0da0bf85768276a02056ecbcd427e">build_files_redirection</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
-<tr class="memdesc:ac5a0da0bf85768276a02056ecbcd427e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds files to the file redirection structure.  <br /></td></tr>
-<tr class="separator:ac5a0da0bf85768276a02056ecbcd427e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b215113117c1f2ed4a512d445c9c8ef" id="r_a4b215113117c1f2ed4a512d445c9c8ef"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b215113117c1f2ed4a512d445c9c8ef">add_file</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command, <a class="el" href="minishell_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a> *token, <a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> **command_file)</td></tr>
-<tr class="memdesc:a4b215113117c1f2ed4a512d445c9c8ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order)  <br /></td></tr>
-<tr class="separator:a4b215113117c1f2ed4a512d445c9c8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9df4316381acdd90a01028b353b7fbe2" id="r_a9df4316381acdd90a01028b353b7fbe2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9df4316381acdd90a01028b353b7fbe2">build_files_data</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memitem:a9d9aaecb04847424bf6d309201f07f76" id="r_a9d9aaecb04847424bf6d309201f07f76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d9aaecb04847424bf6d309201f07f76">files_management</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data)</td></tr>
+<tr class="memdesc:a9d9aaecb04847424bf6d309201f07f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes all the files redirection tests.  <br /></td></tr>
+<tr class="separator:a9d9aaecb04847424bf6d309201f07f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550f6fe08adedae27fc01f128c84bd0d" id="r_a550f6fe08adedae27fc01f128c84bd0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a550f6fe08adedae27fc01f128c84bd0d">build_files_redirection</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data)</td></tr>
+<tr class="memdesc:a550f6fe08adedae27fc01f128c84bd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds files to the file redirection structure.  <br /></td></tr>
+<tr class="separator:a550f6fe08adedae27fc01f128c84bd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bac3f464554a4de0252aae544dbc020" id="r_a4bac3f464554a4de0252aae544dbc020"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bac3f464554a4de0252aae544dbc020">add_file</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command, <a class="el" href="data__structure_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a> *token, <a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> **command_file)</td></tr>
+<tr class="memdesc:a4bac3f464554a4de0252aae544dbc020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order)  <br /></td></tr>
+<tr class="separator:a4bac3f464554a4de0252aae544dbc020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9df4316381acdd90a01028b353b7fbe2" id="r_a9df4316381acdd90a01028b353b7fbe2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9df4316381acdd90a01028b353b7fbe2">build_files_data</a> (<a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
 <tr class="memdesc:a9df4316381acdd90a01028b353b7fbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the data around the files in all commands.  <br /></td></tr>
 <tr class="separator:a9df4316381acdd90a01028b353b7fbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceda81416f5b877fc7d910fa044210e3" id="r_aceda81416f5b877fc7d910fa044210e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceda81416f5b877fc7d910fa044210e3">remove_used_file_tokens</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
-<tr class="memdesc:aceda81416f5b877fc7d910fa044210e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all the tokens of file redirections allready used.  <br /></td></tr>
-<tr class="separator:aceda81416f5b877fc7d910fa044210e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf541c53187b0e3c1871033c1b47b52f" id="r_abf541c53187b0e3c1871033c1b47b52f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf541c53187b0e3c1871033c1b47b52f">build_file_access</a> (<a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file)</td></tr>
+<tr class="memitem:a229554ef8da5cb45506ba94fa117c78f" id="r_a229554ef8da5cb45506ba94fa117c78f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a229554ef8da5cb45506ba94fa117c78f">remove_used_file_tokens</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data)</td></tr>
+<tr class="memdesc:a229554ef8da5cb45506ba94fa117c78f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all the tokens of file redirections allready used.  <br /></td></tr>
+<tr class="separator:a229554ef8da5cb45506ba94fa117c78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf541c53187b0e3c1871033c1b47b52f" id="r_abf541c53187b0e3c1871033c1b47b52f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf541c53187b0e3c1871033c1b47b52f">build_file_access</a> (<a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file)</td></tr>
 <tr class="memdesc:abf541c53187b0e3c1871033c1b47b52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the file using access and check permissions.  <br /></td></tr>
 <tr class="separator:abf541c53187b0e3c1871033c1b47b52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ee1530f12dddfe9a60145c7647bfff1" id="r_a3ee1530f12dddfe9a60145c7647bfff1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ee1530f12dddfe9a60145c7647bfff1">ft_trim_word</a> (char *str)</td></tr>
-<tr class="memdesc:a3ee1530f12dddfe9a60145c7647bfff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim the first word detected and remove all the unnecessary.  <br /></td></tr>
 <tr class="separator:a3ee1530f12dddfe9a60145c7647bfff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af05a04a2bed00ebab922d57400253f0d" id="r_af05a04a2bed00ebab922d57400253f0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af05a04a2bed00ebab922d57400253f0d">file_parser</a> (<a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file)</td></tr>
+<tr class="memitem:af05a04a2bed00ebab922d57400253f0d" id="r_af05a04a2bed00ebab922d57400253f0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af05a04a2bed00ebab922d57400253f0d">file_parser</a> (<a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file)</td></tr>
 <tr class="memdesc:af05a04a2bed00ebab922d57400253f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the file structure.  <br /></td></tr>
 <tr class="separator:af05a04a2bed00ebab922d57400253f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab88fe9958445aa8224d66e9d03dec39e" id="r_ab88fe9958445aa8224d66e9d03dec39e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab88fe9958445aa8224d66e9d03dec39e">create_tmp</a> (char *path, int nbr_try)</td></tr>
-<tr class="memdesc:ab88fe9958445aa8224d66e9d03dec39e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result.  <br /></td></tr>
-<tr class="separator:ab88fe9958445aa8224d66e9d03dec39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9db799f81ab186be2570763af8a76749" id="r_a9db799f81ab186be2570763af8a76749"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9db799f81ab186be2570763af8a76749">read_heredoc</a> (<a class="el" href="#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> *tmp, char *delimiteur)</td></tr>
+<tr class="memitem:a07474b0cd322a07777aa0a249bb8e6ed" id="r_a07474b0cd322a07777aa0a249bb8e6ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07474b0cd322a07777aa0a249bb8e6ed">create_tmp</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, char *path, int nbr_try)</td></tr>
+<tr class="memdesc:a07474b0cd322a07777aa0a249bb8e6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result.  <br /></td></tr>
+<tr class="separator:a07474b0cd322a07777aa0a249bb8e6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db799f81ab186be2570763af8a76749" id="r_a9db799f81ab186be2570763af8a76749"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9db799f81ab186be2570763af8a76749">read_heredoc</a> (<a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> *tmp, char *delimiteur)</td></tr>
 <tr class="memdesc:a9db799f81ab186be2570763af8a76749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from stdin and outputs to a file, stops reading when Ctrl+D or when a delimitor is found.  <br /></td></tr>
 <tr class="separator:a9db799f81ab186be2570763af8a76749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac70638e4b2de9819fb99c97318fc767b" id="r_ac70638e4b2de9819fb99c97318fc767b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac70638e4b2de9819fb99c97318fc767b">verify_access</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
-<tr class="memdesc:ac70638e4b2de9819fb99c97318fc767b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0.  <br /></td></tr>
-<tr class="separator:ac70638e4b2de9819fb99c97318fc767b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1adf8592e56806396e71d927d3268ff7" id="r_a1adf8592e56806396e71d927d3268ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1adf8592e56806396e71d927d3268ff7">search_last_file</a> (<a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file, <a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *already_searched)</td></tr>
+<tr class="memitem:afb055840f776944a93723c4b25dea107" id="r_afb055840f776944a93723c4b25dea107"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb055840f776944a93723c4b25dea107">verify_access</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memdesc:afb055840f776944a93723c4b25dea107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0.  <br /></td></tr>
+<tr class="separator:afb055840f776944a93723c4b25dea107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adf8592e56806396e71d927d3268ff7" id="r_a1adf8592e56806396e71d927d3268ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1adf8592e56806396e71d927d3268ff7">search_last_file</a> (<a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file, <a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *already_searched)</td></tr>
 <tr class="memdesc:a1adf8592e56806396e71d927d3268ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the last file that is not already_searched.  <br /></td></tr>
 <tr class="separator:a1adf8592e56806396e71d927d3268ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ec1914b226d225d90cb2795cd2d2e90" id="r_a1ec1914b226d225d90cb2795cd2d2e90"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ec1914b226d225d90cb2795cd2d2e90">fill_heredocs</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
-<tr class="memdesc:a1ec1914b226d225d90cb2795cd2d2e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill all the heredocs in the correct order.  <br /></td></tr>
-<tr class="separator:a1ec1914b226d225d90cb2795cd2d2e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14d33c3540b9d426750b32dee40b3015" id="r_a14d33c3540b9d426750b32dee40b3015"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14d33c3540b9d426750b32dee40b3015">open_file_with_rights</a> (<a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file, t_bool in_out)</td></tr>
-<tr class="memdesc:a14d33c3540b9d426750b32dee40b3015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file with it's rights (permissions)  <br /></td></tr>
-<tr class="separator:a14d33c3540b9d426750b32dee40b3015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a193c0bf8702f604a85edbde26b3f0a8d" id="r_a193c0bf8702f604a85edbde26b3f0a8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a193c0bf8702f604a85edbde26b3f0a8d">read_write_to</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command, t_bool in_out)</td></tr>
-<tr class="memdesc:a193c0bf8702f604a85edbde26b3f0a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the files to read and writes.  <br /></td></tr>
-<tr class="separator:a193c0bf8702f604a85edbde26b3f0a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e62c11018473626d60ead69250f7b94" id="r_a7e62c11018473626d60ead69250f7b94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e62c11018473626d60ead69250f7b94">fd_default</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memitem:a6d09e530cadb43f8e7f26f9f5a10ba7d" id="r_a6d09e530cadb43f8e7f26f9f5a10ba7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d09e530cadb43f8e7f26f9f5a10ba7d">fill_heredocs</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memdesc:a6d09e530cadb43f8e7f26f9f5a10ba7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill all the heredocs in the correct order.  <br /></td></tr>
+<tr class="separator:a6d09e530cadb43f8e7f26f9f5a10ba7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd25b66c3b3e24c11fddfab02bc5e3dd" id="r_afd25b66c3b3e24c11fddfab02bc5e3dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd25b66c3b3e24c11fddfab02bc5e3dd">open_file_with_rights</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file, t_bool in_out)</td></tr>
+<tr class="memdesc:afd25b66c3b3e24c11fddfab02bc5e3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a file with it's rights (permissions)  <br /></td></tr>
+<tr class="separator:afd25b66c3b3e24c11fddfab02bc5e3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa1f958de374a503f07aaa41ef3d45bf" id="r_afa1f958de374a503f07aaa41ef3d45bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa1f958de374a503f07aaa41ef3d45bf">read_write_to</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command, t_bool in_out)</td></tr>
+<tr class="memdesc:afa1f958de374a503f07aaa41ef3d45bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the files to read and writes.  <br /></td></tr>
+<tr class="separator:afa1f958de374a503f07aaa41ef3d45bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e62c11018473626d60ead69250f7b94" id="r_a7e62c11018473626d60ead69250f7b94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e62c11018473626d60ead69250f7b94">fd_default</a> (<a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
 <tr class="memdesc:a7e62c11018473626d60ead69250f7b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put the fds in command to there default values.  <br /></td></tr>
 <tr class="separator:a7e62c11018473626d60ead69250f7b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -263,38 +261,9 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="aabd214ff3248265f1f7c83ccb398383a" name="aabd214ff3248265f1f7c83ccb398383a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabd214ff3248265f1f7c83ccb398383a">&#9670;&#160;</a></span>t_file</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="structs__file.html">s_file</a> <a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7b7541a1dfa9df91f937a1c6ac5fb990" name="a7b7541a1dfa9df91f937a1c6ac5fb990"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b7541a1dfa9df91f937a1c6ac5fb990">&#9670;&#160;</a></span>t_tmp</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="structs__tmp.html">s_tmp</a> <a class="el" href="#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a4b215113117c1f2ed4a512d445c9c8ef" name="a4b215113117c1f2ed4a512d445c9c8ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b215113117c1f2ed4a512d445c9c8ef">&#9670;&#160;</a></span>add_file()</h2>
+<a id="a4bac3f464554a4de0252aae544dbc020" name="a4bac3f464554a4de0252aae544dbc020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bac3f464554a4de0252aae544dbc020">&#9670;&#160;</a></span>add_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -302,17 +271,22 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void * add_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a> *</td>          <td class="paramname"><span class="paramname"><em>token</em></span>, </td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> **</td>          <td class="paramname"><span class="paramname"><em>command_file</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a> *</td>          <td class="paramname"><span class="paramname"><em>token</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> **</td>          <td class="paramname"><span class="paramname"><em>command_file</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -330,29 +304,25 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="file_8h_a4b215113117c1f2ed4a512d445c9c8ef_cgraph.png" border="0" usemap="#afile_8h_a4b215113117c1f2ed4a512d445c9c8ef_cgraph" alt=""/></div>
-<map name="afile_8h_a4b215113117c1f2ed4a512d445c9c8ef_cgraph" id="afile_8h_a4b215113117c1f2ed4a512d445c9c8ef_cgraph">
-<area shape="rect" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="5,132,79,157"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="127,132,253,157"/>
-<area shape="poly" title=" " alt="" coords="79,142,113,142,113,147,79,147"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="631,56,739,81"/>
-<area shape="poly" title=" " alt="" coords="212,129,253,110,301,93,385,77,470,68,617,64,617,69,471,73,386,82,302,98,255,115,215,134"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="797,180,899,205"/>
-<area shape="poly" title=" " alt="" coords="202,156,242,200,270,224,302,241,370,260,440,269,511,269,581,262,647,251,707,236,801,208,802,213,708,242,648,256,581,267,511,274,440,274,369,265,300,246,267,228,238,204,198,159"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="335,107,421,132"/>
-<area shape="poly" title=" " alt="" coords="253,134,320,124,321,130,254,139"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="301,156,455,181"/>
-<area shape="poly" title=" " alt="" coords="254,150,288,154,287,160,253,155"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="319,205,437,231"/>
-<area shape="poly" title=" " alt="" coords="219,155,302,192,322,199,320,204,300,196,217,160"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="342,5,414,31"/>
-<area shape="poly" title=" " alt="" coords="202,130,244,90,300,48,328,33,330,38,303,52,247,95,206,134"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="787,56,909,81"/>
-<area shape="poly" title=" " alt="" coords="739,66,773,66,773,71,739,71"/>
-<area shape="poly" title=" " alt="" coords="704,79,821,169,817,173,701,84"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="503,5,583,31"/>
-<area shape="poly" title=" " alt="" coords="414,15,489,15,489,21,414,21"/>
-<area shape="poly" title=" " alt="" coords="580,28,636,49,634,54,578,33"/>
+<div class="center"><img src="file_8h_a4bac3f464554a4de0252aae544dbc020_cgraph.png" border="0" usemap="#afile_8h_a4bac3f464554a4de0252aae544dbc020_cgraph" alt=""/></div>
+<map name="afile_8h_a4bac3f464554a4de0252aae544dbc020_cgraph" id="afile_8h_a4bac3f464554a4de0252aae544dbc020_cgraph">
+<area shape="rect" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="5,104,79,129"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="127,104,253,129"/>
+<area shape="poly" title=" " alt="" coords="79,114,113,114,113,119,79,119"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="324,5,432,31"/>
+<area shape="poly" title=" " alt="" coords="205,102,247,71,300,40,316,33,318,38,303,44,250,76,208,106"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="323,55,433,80"/>
+<area shape="poly" title=" " alt="" coords="238,101,315,81,316,86,240,107"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="301,104,455,129"/>
+<area shape="poly" title=" " alt="" coords="254,114,287,114,287,119,254,119"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="319,153,437,179"/>
+<area shape="poly" title=" " alt="" coords="240,127,316,147,315,152,238,132"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="342,203,414,228"/>
+<area shape="poly" title=" " alt="" coords="209,127,250,157,303,188,330,199,328,204,300,192,248,161,206,132"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="503,5,625,31"/>
+<area shape="poly" title=" " alt="" coords="432,15,489,15,489,21,432,21"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="524,203,604,228"/>
+<area shape="poly" title=" " alt="" coords="414,213,510,213,510,218,414,218"/>
 </map>
 </div>
 
@@ -367,7 +337,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int build_file_access </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -393,7 +363,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int build_files_data </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -410,8 +380,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ac5a0da0bf85768276a02056ecbcd427e" name="ac5a0da0bf85768276a02056ecbcd427e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5a0da0bf85768276a02056ecbcd427e">&#9670;&#160;</a></span>build_files_redirection()</h2>
+<a id="a550f6fe08adedae27fc01f128c84bd0d" name="a550f6fe08adedae27fc01f128c84bd0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a550f6fe08adedae27fc01f128c84bd0d">&#9670;&#160;</a></span>build_files_redirection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +389,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int build_files_redirection </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -428,7 +398,7 @@ Here is the call graph for this function:</div>
 <p>Adds files to the file redirection structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>command structure </td></tr>
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -436,45 +406,46 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="file_8h_ac5a0da0bf85768276a02056ecbcd427e_cgraph.png" border="0" usemap="#afile_8h_ac5a0da0bf85768276a02056ecbcd427e_cgraph" alt=""/></div>
-<map name="afile_8h_ac5a0da0bf85768276a02056ecbcd427e_cgraph" id="afile_8h_ac5a0da0bf85768276a02056ecbcd427e_cgraph">
-<area shape="rect" title="Adds files to the file redirection structure." alt="" coords="5,132,171,157"/>
-<area shape="rect" href="file_8c.html#a4b215113117c1f2ed4a512d445c9c8ef" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="219,132,292,157"/>
-<area shape="poly" title=" " alt="" coords="171,142,205,142,205,147,171,147"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="340,132,467,157"/>
-<area shape="poly" title=" " alt="" coords="292,142,326,142,326,147,292,147"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="844,56,952,81"/>
-<area shape="poly" title=" " alt="" coords="426,129,466,110,514,93,598,77,684,68,830,64,830,69,684,73,599,82,515,98,468,115,428,134"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1010,180,1113,205"/>
-<area shape="poly" title=" " alt="" coords="416,156,455,200,484,224,516,241,583,260,653,269,724,269,794,262,860,251,920,236,1014,208,1015,213,921,242,861,256,795,267,725,274,653,274,582,265,514,246,481,228,452,204,412,159"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="548,107,635,132"/>
-<area shape="poly" title=" " alt="" coords="467,134,534,124,534,130,467,139"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="515,156,668,181"/>
-<area shape="poly" title=" " alt="" coords="467,150,501,154,500,160,467,155"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="532,205,651,231"/>
-<area shape="poly" title=" " alt="" coords="432,155,516,192,535,199,533,204,514,196,430,160"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="555,5,627,31"/>
-<area shape="poly" title=" " alt="" coords="415,130,457,90,513,48,541,33,544,38,516,52,460,95,419,134"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1000,56,1123,81"/>
-<area shape="poly" title=" " alt="" coords="952,66,986,66,986,71,952,71"/>
-<area shape="poly" title=" " alt="" coords="918,79,1034,169,1031,173,914,84"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="716,5,796,31"/>
-<area shape="poly" title=" " alt="" coords="627,15,702,15,702,21,627,21"/>
-<area shape="poly" title=" " alt="" coords="793,28,849,49,848,54,792,33"/>
+<div class="center"><img src="file_8h_a550f6fe08adedae27fc01f128c84bd0d_cgraph.png" border="0" usemap="#afile_8h_a550f6fe08adedae27fc01f128c84bd0d_cgraph" alt=""/></div>
+<map name="afile_8h_a550f6fe08adedae27fc01f128c84bd0d_cgraph" id="afile_8h_a550f6fe08adedae27fc01f128c84bd0d_cgraph">
+<area shape="rect" title="Adds files to the file redirection structure." alt="" coords="5,104,171,129"/>
+<area shape="rect" href="file_8c.html#a4bac3f464554a4de0252aae544dbc020" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="219,104,292,129"/>
+<area shape="poly" title=" " alt="" coords="171,114,205,114,205,119,171,119"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="340,104,467,129"/>
+<area shape="poly" title=" " alt="" coords="292,114,326,114,326,119,292,119"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="537,5,645,31"/>
+<area shape="poly" title=" " alt="" coords="419,102,460,71,513,40,529,33,531,38,516,44,463,76,422,106"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="536,55,647,80"/>
+<area shape="poly" title=" " alt="" coords="452,101,528,81,529,86,453,107"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="515,104,668,129"/>
+<area shape="poly" title=" " alt="" coords="467,114,501,114,501,119,467,119"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="532,153,651,179"/>
+<area shape="poly" title=" " alt="" coords="453,127,529,147,528,152,452,132"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="555,203,627,228"/>
+<area shape="poly" title=" " alt="" coords="423,127,464,157,516,188,543,199,541,204,513,192,461,161,419,132"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="716,5,839,31"/>
+<area shape="poly" title=" " alt="" coords="646,15,702,15,702,21,646,21"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="737,203,817,228"/>
+<area shape="poly" title=" " alt="" coords="628,213,723,213,723,218,628,218"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab88fe9958445aa8224d66e9d03dec39e" name="ab88fe9958445aa8224d66e9d03dec39e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab88fe9958445aa8224d66e9d03dec39e">&#9670;&#160;</a></span>create_tmp()</h2>
+<a id="a07474b0cd322a07777aa0a249bb8e6ed" name="a07474b0cd322a07777aa0a249bb8e6ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07474b0cd322a07777aa0a249bb8e6ed">&#9670;&#160;</a></span>create_tmp()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> create_tmp </td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> create_tmp </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
         </tr>
         <tr>
@@ -493,18 +464,16 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> structure with the path+name of created name </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> structure with the path+name of created name </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="file_8h_ab88fe9958445aa8224d66e9d03dec39e_cgraph.png" border="0" usemap="#afile_8h_ab88fe9958445aa8224d66e9d03dec39e_cgraph" alt=""/></div>
-<map name="afile_8h_ab88fe9958445aa8224d66e9d03dec39e_cgraph" id="afile_8h_ab88fe9958445aa8224d66e9d03dec39e_cgraph">
+<div class="center"><img src="file_8h_a07474b0cd322a07777aa0a249bb8e6ed_cgraph.png" border="0" usemap="#afile_8h_a07474b0cd322a07777aa0a249bb8e6ed_cgraph" alt=""/></div>
+<map name="afile_8h_a07474b0cd322a07777aa0a249bb8e6ed_cgraph" id="afile_8h_a07474b0cd322a07777aa0a249bb8e6ed_cgraph">
 <area shape="rect" title="Create a tmp file, verify if it already exist, tries to open it to verify permissions,..." alt="" coords="5,29,101,55"/>
 <area shape="poly" title=" " alt="" coords="26,31,21,21,24,11,35,5,53,3,75,6,85,15,81,19,73,11,53,8,37,10,28,15,26,20,31,28"/>
-<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="149,29,281,55"/>
+<area shape="rect" href="garbage__utils_8c.html#a1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="149,29,281,55"/>
 <area shape="poly" title=" " alt="" coords="102,39,136,39,136,45,102,45"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="329,29,432,55"/>
-<area shape="poly" title=" " alt="" coords="281,39,315,39,315,45,281,45"/>
 </map>
 </div>
 
@@ -519,7 +488,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void fd_default </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -542,9 +511,9 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> * file_parser </td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> * file_parser </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -563,41 +532,16 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="file_8h_af05a04a2bed00ebab922d57400253f0d_cgraph.png" border="0" usemap="#afile_8h_af05a04a2bed00ebab922d57400253f0d_cgraph" alt=""/></div>
 <map name="afile_8h_af05a04a2bed00ebab922d57400253f0d_cgraph" id="afile_8h_af05a04a2bed00ebab922d57400253f0d_cgraph">
-<area shape="rect" title="Parse the file structure." alt="" coords="5,208,96,233"/>
-<area shape="rect" href="file_8c.html#abf541c53187b0e3c1871033c1b47b52f" title="Build the file using access and check permissions." alt="" coords="144,183,276,208"/>
-<area shape="poly" title=" " alt="" coords="96,211,130,205,131,211,96,216"/>
-<area shape="rect" href="file_8c.html#a3ee1530f12dddfe9a60145c7647bfff1" title="Trim the first word detected and remove all the unnecessary." alt="" coords="158,232,262,257"/>
-<area shape="poly" title=" " alt="" coords="96,225,145,232,144,237,96,230"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="324,157,451,183"/>
-<area shape="poly" title=" " alt="" coords="246,229,275,218,346,186,348,191,277,223,248,234"/>
-<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="700,269,832,295"/>
-<area shape="poly" title=" " alt="" coords="263,254,371,274,499,291,575,295,652,291,686,289,687,294,652,297,575,300,498,297,370,280,262,259"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="880,56,988,81"/>
-<area shape="poly" title=" " alt="" coords="402,155,443,125,470,110,498,98,596,74,696,63,790,59,866,61,866,66,790,65,697,68,597,80,500,103,472,115,446,130,405,159"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1046,107,1149,132"/>
-<area shape="poly" title=" " alt="" coords="438,155,498,143,648,128,797,120,1032,116,1032,121,797,125,648,134,499,149,439,160"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="532,157,619,183"/>
-<area shape="poly" title=" " alt="" coords="451,167,518,167,518,173,451,173"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="499,207,652,232"/>
-<area shape="poly" title=" " alt="" coords="437,180,513,200,512,206,436,185"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="516,256,635,281"/>
-<area shape="poly" title=" " alt="" coords="406,181,447,211,500,242,515,249,513,254,497,247,444,215,403,185"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="539,5,611,31"/>
-<area shape="poly" title=" " alt="" coords="395,155,436,105,465,75,497,48,525,32,528,37,500,52,468,79,440,108,400,159"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1036,56,1159,81"/>
-<area shape="poly" title=" " alt="" coords="988,66,1022,66,1022,71,988,71"/>
-<area shape="poly" title=" " alt="" coords="977,79,1043,100,1042,105,975,84"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="726,5,806,31"/>
-<area shape="poly" title=" " alt="" coords="612,15,712,15,712,21,612,21"/>
-<area shape="poly" title=" " alt="" coords="807,27,879,49,877,54,805,32"/>
-<area shape="poly" title=" " alt="" coords="792,267,1057,136,1059,140,794,272"/>
+<area shape="rect" title="Parse the file structure." alt="" coords="5,5,96,31"/>
+<area shape="rect" href="file_8c.html#abf541c53187b0e3c1871033c1b47b52f" title="Build the file using access and check permissions." alt="" coords="144,5,276,31"/>
+<area shape="poly" title=" " alt="" coords="96,15,130,15,130,21,96,21"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a10f667b9195d628dbd100d85909dbdc6" name="a10f667b9195d628dbd100d85909dbdc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10f667b9195d628dbd100d85909dbdc6">&#9670;&#160;</a></span>files_management()</h2>
+<a id="a9d9aaecb04847424bf6d309201f07f76" name="a9d9aaecb04847424bf6d309201f07f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9aaecb04847424bf6d309201f07f76">&#9670;&#160;</a></span>files_management()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -605,7 +549,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int files_management </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -614,7 +558,7 @@ Here is the call graph for this function:</div>
 <p>Executes all the files redirection tests. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>command structure </td></tr>
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -622,53 +566,48 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="file_8h_a10f667b9195d628dbd100d85909dbdc6_cgraph.png" border="0" usemap="#afile_8h_a10f667b9195d628dbd100d85909dbdc6_cgraph" alt=""/></div>
-<map name="afile_8h_a10f667b9195d628dbd100d85909dbdc6_cgraph" id="afile_8h_a10f667b9195d628dbd100d85909dbdc6_cgraph">
-<area shape="rect" title="Executes all the files redirection tests." alt="" coords="5,278,148,303"/>
-<area shape="rect" href="file__build_8c.html#a9df4316381acdd90a01028b353b7fbe2" title="Build the data around the files in all commands." alt="" coords="227,102,351,127"/>
-<area shape="poly" title=" " alt="" coords="82,276,123,209,155,170,195,136,213,127,216,131,197,141,159,174,127,212,87,279"/>
-<area shape="rect" href="file__build_8c.html#ac5a0da0bf85768276a02056ecbcd427e" title="Adds files to the file redirection structure." alt="" coords="207,151,372,177"/>
-<area shape="poly" title=" " alt="" coords="89,276,134,236,195,194,227,179,230,184,197,198,137,240,92,280"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="1105,178,1213,203"/>
-<area shape="poly" title=" " alt="" coords="148,295,305,307,491,313,854,313,894,310,935,302,1012,275,1078,240,1128,209,1131,214,1081,245,1014,279,936,307,895,316,854,319,491,319,305,312,148,300"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="809,253,896,278"/>
-<area shape="poly" title=" " alt="" coords="148,286,796,264,796,270,148,291"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="817,203,889,229"/>
-<area shape="poly" title=" " alt="" coords="126,275,196,261,370,240,543,226,802,214,803,220,543,232,371,246,196,267,127,281"/>
-<area shape="rect" href="heredoc_8c.html#a1ec1914b226d225d90cb2795cd2d2e90" title="Fill all the heredocs in the correct order." alt="" coords="237,354,341,379"/>
-<area shape="poly" title=" " alt="" coords="112,301,197,332,239,347,237,352,195,337,111,306"/>
-<area shape="rect" href="ft__file__tokens_8c.html#aceda81416f5b877fc7d910fa044210e3" title="Removes all the tokens of file redirections allready used." alt="" coords="196,403,383,429"/>
-<area shape="poly" title=" " alt="" coords="91,302,135,345,165,369,197,390,212,396,210,401,195,394,162,373,131,349,87,305"/>
-<area shape="rect" href="file__verify__access_8c.html#ac70638e4b2de9819fb99c97318fc767b" title="Verify that all files are valid if at least one file is invalid, modifies the boolean in command but ..." alt="" coords="234,453,345,478"/>
-<area shape="poly" title=" " alt="" coords="87,302,127,368,159,406,197,439,222,451,220,456,195,443,155,410,123,371,82,305"/>
-<area shape="rect" href="file_8c.html#a4b215113117c1f2ed4a512d445c9c8ef" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="455,151,529,177"/>
-<area shape="poly" title=" " alt="" coords="372,161,441,161,441,167,372,167"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="601,151,728,177"/>
-<area shape="poly" title=" " alt="" coords="529,161,587,161,587,167,529,167"/>
-<area shape="poly" title=" " alt="" coords="728,165,1092,184,1092,190,728,170"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1271,78,1374,103"/>
-<area shape="poly" title=" " alt="" coords="670,150,685,124,708,92,738,61,775,38,843,15,914,4,986,4,1057,11,1124,23,1185,39,1280,70,1278,75,1184,44,1123,29,1056,16,986,9,914,10,844,20,777,42,742,65,712,96,690,127,675,152"/>
-<area shape="poly" title=" " alt="" coords="683,175,724,206,777,238,798,246,795,251,775,242,721,210,680,179"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="776,53,929,78"/>
-<area shape="poly" title=" " alt="" coords="680,149,721,119,775,87,791,80,793,85,777,92,724,123,683,153"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="793,102,912,127"/>
-<area shape="poly" title=" " alt="" coords="713,149,789,128,791,133,714,154"/>
-<area shape="poly" title=" " alt="" coords="712,174,804,200,803,205,711,179"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1261,178,1384,203"/>
-<area shape="poly" title=" " alt="" coords="1214,188,1248,188,1248,193,1214,193"/>
-<area shape="poly" title=" " alt="" coords="1180,175,1288,108,1291,113,1183,180"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="977,203,1057,229"/>
-<area shape="poly" title=" " alt="" coords="889,213,964,213,964,219,889,219"/>
-<area shape="poly" title=" " alt="" coords="1057,206,1091,200,1092,205,1058,211"/>
-<area shape="rect" href="file__verify__access_8c.html#a1adf8592e56806396e71d927d3268ff7" title="Return the last file that is not already_searched." alt="" coords="431,354,553,379"/>
-<area shape="poly" title=" " alt="" coords="342,364,417,364,417,369,342,369"/>
+<div class="center"><img src="file_8h_a9d9aaecb04847424bf6d309201f07f76_cgraph.png" border="0" usemap="#afile_8h_a9d9aaecb04847424bf6d309201f07f76_cgraph" alt=""/></div>
+<map name="afile_8h_a9d9aaecb04847424bf6d309201f07f76_cgraph" id="afile_8h_a9d9aaecb04847424bf6d309201f07f76_cgraph">
+<area shape="rect" title="Executes all the files redirection tests." alt="" coords="5,204,148,229"/>
+<area shape="rect" href="file__build_8c.html#a9df4316381acdd90a01028b353b7fbe2" title="Build the data around the files in all commands." alt="" coords="227,53,351,79"/>
+<area shape="poly" title=" " alt="" coords="84,202,127,147,158,115,195,88,213,79,216,83,197,92,162,119,131,150,88,205"/>
+<area shape="rect" href="file__build_8c.html#a550f6fe08adedae27fc01f128c84bd0d" title="Adds files to the file redirection structure." alt="" coords="207,103,372,128"/>
+<area shape="poly" title=" " alt="" coords="96,202,140,174,195,145,232,130,234,135,197,150,143,179,98,206"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="797,153,908,179"/>
+<area shape="poly" title=" " alt="" coords="148,202,196,195,361,181,525,172,784,164,784,170,526,178,362,187,196,201,149,207"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="817,203,889,228"/>
+<area shape="poly" title=" " alt="" coords="148,214,803,213,803,218,148,219"/>
+<area shape="rect" href="heredoc_8c.html#a6d09e530cadb43f8e7f26f9f5a10ba7d" title="Fill all the heredocs in the correct order." alt="" coords="237,255,341,280"/>
+<area shape="poly" title=" " alt="" coords="132,227,225,249,223,254,130,232"/>
+<area shape="rect" href="ft__file__tokens_8c.html#a229554ef8da5cb45506ba94fa117c78f" title="Removes all the tokens of file redirections allready used." alt="" coords="196,304,383,329"/>
+<area shape="poly" title=" " alt="" coords="96,227,140,259,197,290,216,297,214,302,195,295,137,263,93,232"/>
+<area shape="rect" href="file__verify__access_8c.html#afb055840f776944a93723c4b25dea107" title="Verify that all files are valid if at least one file is invalid, modifies the boolean in command but ..." alt="" coords="234,353,345,379"/>
+<area shape="poly" title=" " alt="" coords="88,228,131,282,162,313,197,340,222,351,220,356,195,344,158,318,127,286,84,231"/>
+<area shape="rect" href="file_8c.html#a4bac3f464554a4de0252aae544dbc020" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="455,103,529,128"/>
+<area shape="poly" title=" " alt="" coords="372,113,441,113,441,118,372,118"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="601,103,728,128"/>
+<area shape="poly" title=" " alt="" coords="529,113,587,113,587,118,529,118"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="799,5,907,31"/>
+<area shape="poly" title=" " alt="" coords="680,100,722,71,775,40,791,33,793,38,777,44,725,75,683,105"/>
+<area shape="poly" title=" " alt="" coords="713,126,792,147,791,152,712,131"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="776,55,929,80"/>
+<area shape="poly" title=" " alt="" coords="715,100,788,81,790,86,716,105"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="793,104,912,129"/>
+<area shape="poly" title=" " alt="" coords="728,113,779,113,779,119,728,118"/>
+<area shape="poly" title=" " alt="" coords="683,126,725,156,777,188,804,199,802,204,775,192,722,161,680,130"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="977,5,1100,31"/>
+<area shape="poly" title=" " alt="" coords="907,15,963,15,963,21,907,21"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="999,203,1079,228"/>
+<area shape="poly" title=" " alt="" coords="889,213,985,213,985,218,889,218"/>
+<area shape="rect" href="file__verify__access_8c.html#a1adf8592e56806396e71d927d3268ff7" title="Return the last file that is not already_searched." alt="" coords="431,255,553,280"/>
+<area shape="poly" title=" " alt="" coords="342,265,417,265,417,270,342,270"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1ec1914b226d225d90cb2795cd2d2e90" name="a1ec1914b226d225d90cb2795cd2d2e90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ec1914b226d225d90cb2795cd2d2e90">&#9670;&#160;</a></span>fill_heredocs()</h2>
+<a id="a6d09e530cadb43f8e7f26f9f5a10ba7d" name="a6d09e530cadb43f8e7f26f9f5a10ba7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d09e530cadb43f8e7f26f9f5a10ba7d">&#9670;&#160;</a></span>fill_heredocs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -676,8 +615,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int fill_heredocs </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -693,8 +636,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="file_8h_a1ec1914b226d225d90cb2795cd2d2e90_cgraph.png" border="0" usemap="#afile_8h_a1ec1914b226d225d90cb2795cd2d2e90_cgraph" alt=""/></div>
-<map name="afile_8h_a1ec1914b226d225d90cb2795cd2d2e90_cgraph" id="afile_8h_a1ec1914b226d225d90cb2795cd2d2e90_cgraph">
+<div class="center"><img src="file_8h_a6d09e530cadb43f8e7f26f9f5a10ba7d_cgraph.png" border="0" usemap="#afile_8h_a6d09e530cadb43f8e7f26f9f5a10ba7d_cgraph" alt=""/></div>
+<map name="afile_8h_a6d09e530cadb43f8e7f26f9f5a10ba7d_cgraph" id="afile_8h_a6d09e530cadb43f8e7f26f9f5a10ba7d_cgraph">
 <area shape="rect" title="Fill all the heredocs in the correct order." alt="" coords="5,5,109,31"/>
 <area shape="rect" href="file__verify__access_8c.html#a1adf8592e56806396e71d927d3268ff7" title="Return the last file that is not already_searched." alt="" coords="157,5,280,31"/>
 <area shape="poly" title=" " alt="" coords="110,15,143,15,143,21,110,21"/>
@@ -718,50 +661,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Trim the first word detected and remove all the unnecessary. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>string to search the word </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>char* the word found </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="file_8h_a3ee1530f12dddfe9a60145c7647bfff1_cgraph.png" border="0" usemap="#afile_8h_a3ee1530f12dddfe9a60145c7647bfff1_cgraph" alt=""/></div>
-<map name="afile_8h_a3ee1530f12dddfe9a60145c7647bfff1_cgraph" id="afile_8h_a3ee1530f12dddfe9a60145c7647bfff1_cgraph">
-<area shape="rect" title="Trim the first word detected and remove all the unnecessary." alt="" coords="5,232,109,257"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="157,157,284,183"/>
-<area shape="poly" title=" " alt="" coords="85,229,179,186,181,191,87,234"/>
-<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="533,269,665,295"/>
-<area shape="poly" title=" " alt="" coords="110,254,212,275,332,291,409,295,485,291,520,289,520,294,485,297,409,300,332,297,212,280,109,259"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="713,56,821,81"/>
-<area shape="poly" title=" " alt="" coords="235,155,276,125,303,110,331,98,429,74,530,63,623,59,700,61,699,66,623,65,530,68,430,80,333,103,305,115,279,130,238,159"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="879,107,982,132"/>
-<area shape="poly" title=" " alt="" coords="271,155,332,143,481,128,630,120,866,116,866,121,630,125,482,134,332,149,272,160"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="365,157,452,183"/>
-<area shape="poly" title=" " alt="" coords="284,167,351,167,351,173,284,173"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="332,207,485,232"/>
-<area shape="poly" title=" " alt="" coords="270,180,347,200,345,206,269,185"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="349,256,468,281"/>
-<area shape="poly" title=" " alt="" coords="239,181,280,211,333,242,349,249,347,254,331,247,277,215,236,185"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="373,5,445,31"/>
-<area shape="poly" title=" " alt="" coords="229,155,269,105,298,75,330,48,358,32,361,37,334,52,302,79,273,108,233,159"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="869,56,992,81"/>
-<area shape="poly" title=" " alt="" coords="822,66,856,66,856,71,822,71"/>
-<area shape="poly" title=" " alt="" coords="810,79,877,100,875,105,808,84"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="559,5,639,31"/>
-<area shape="poly" title=" " alt="" coords="445,15,545,15,545,21,445,21"/>
-<area shape="poly" title=" " alt="" coords="640,27,712,49,710,54,639,32"/>
-<area shape="poly" title=" " alt="" coords="625,267,890,136,893,140,628,272"/>
-</map>
-</div>
-
 </div>
 </div>
-<a id="a14d33c3540b9d426750b32dee40b3015" name="a14d33c3540b9d426750b32dee40b3015"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14d33c3540b9d426750b32dee40b3015">&#9670;&#160;</a></span>open_file_with_rights()</h2>
+<a id="afd25b66c3b3e24c11fddfab02bc5e3dd" name="afd25b66c3b3e24c11fddfab02bc5e3dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd25b66c3b3e24c11fddfab02bc5e3dd">&#9670;&#160;</a></span>open_file_with_rights()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -769,7 +672,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int open_file_with_rights </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -791,11 +699,11 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="file_8h_a14d33c3540b9d426750b32dee40b3015_cgraph.png" border="0" usemap="#afile_8h_a14d33c3540b9d426750b32dee40b3015_cgraph" alt=""/></div>
-<map name="afile_8h_a14d33c3540b9d426750b32dee40b3015_cgraph" id="afile_8h_a14d33c3540b9d426750b32dee40b3015_cgraph">
+<div class="center"><img src="file_8h_afd25b66c3b3e24c11fddfab02bc5e3dd_cgraph.png" border="0" usemap="#afile_8h_afd25b66c3b3e24c11fddfab02bc5e3dd_cgraph" alt=""/></div>
+<map name="afile_8h_afd25b66c3b3e24c11fddfab02bc5e3dd_cgraph" id="afile_8h_afd25b66c3b3e24c11fddfab02bc5e3dd_cgraph">
 <area shape="rect" title="Open a file with it&#39;s rights (permissions)" alt="" coords="5,5,165,31"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="213,5,300,31"/>
-<area shape="poly" title=" " alt="" coords="166,15,200,15,200,21,166,21"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="213,5,324,31"/>
+<area shape="poly" title=" " alt="" coords="165,15,200,15,200,21,165,21"/>
 </map>
 </div>
 
@@ -810,7 +718,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">char * read_heredoc </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> *</td>          <td class="paramname"><span class="paramname"><em>tmp</em></span>, </td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> *</td>          <td class="paramname"><span class="paramname"><em>tmp</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -835,23 +743,19 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="file_8h_a9db799f81ab186be2570763af8a76749_cgraph.png" border="0" usemap="#afile_8h_a9db799f81ab186be2570763af8a76749_cgraph" alt=""/></div>
 <map name="afile_8h_a9db799f81ab186be2570763af8a76749_cgraph" id="afile_8h_a9db799f81ab186be2570763af8a76749_cgraph">
 <area shape="rect" title="Read from stdin and outputs to a file, stops reading when Ctrl+D or when a delimitor is found." alt="" coords="5,31,116,56"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="164,31,236,56"/>
-<area shape="poly" title=" " alt="" coords="116,41,150,41,150,46,116,46"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="284,31,364,56"/>
-<area shape="poly" title=" " alt="" coords="236,41,270,41,270,46,236,46"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="412,31,520,56"/>
-<area shape="poly" title=" " alt="" coords="364,41,398,41,398,46,364,46"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="568,5,691,31"/>
-<area shape="poly" title=" " alt="" coords="520,32,554,27,555,32,521,38"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="578,55,681,80"/>
-<area shape="poly" title=" " alt="" coords="521,49,565,55,564,60,520,54"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="173,5,245,31"/>
+<area shape="poly" title=" " alt="" coords="116,31,159,24,160,29,117,37"/>
+<area shape="rect" href="exec-utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Safely close fd." alt="" coords="164,55,255,80"/>
+<area shape="poly" title=" " alt="" coords="117,50,151,55,150,60,116,55"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="303,5,383,31"/>
+<area shape="poly" title=" " alt="" coords="245,15,289,15,289,21,245,21"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a193c0bf8702f604a85edbde26b3f0a8d" name="a193c0bf8702f604a85edbde26b3f0a8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a193c0bf8702f604a85edbde26b3f0a8d">&#9670;&#160;</a></span>read_write_to()</h2>
+<a id="afa1f958de374a503f07aaa41ef3d45bf" name="afa1f958de374a503f07aaa41ef3d45bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa1f958de374a503f07aaa41ef3d45bf">&#9670;&#160;</a></span>read_write_to()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -859,7 +763,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void read_write_to </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -879,28 +788,28 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="file_8h_a193c0bf8702f604a85edbde26b3f0a8d_cgraph.png" border="0" usemap="#afile_8h_a193c0bf8702f604a85edbde26b3f0a8d_cgraph" alt=""/></div>
-<map name="afile_8h_a193c0bf8702f604a85edbde26b3f0a8d_cgraph" id="afile_8h_a193c0bf8702f604a85edbde26b3f0a8d_cgraph">
+<div class="center"><img src="file_8h_afa1f958de374a503f07aaa41ef3d45bf_cgraph.png" border="0" usemap="#afile_8h_afa1f958de374a503f07aaa41ef3d45bf_cgraph" alt=""/></div>
+<map name="afile_8h_afa1f958de374a503f07aaa41ef3d45bf_cgraph" id="afile_8h_afa1f958de374a503f07aaa41ef3d45bf_cgraph">
 <area shape="rect" title="Opens the files to read and writes." alt="" coords="5,5,116,31"/>
-<area shape="rect" href="file-general_8c.html#a14d33c3540b9d426750b32dee40b3015" title="Open a file with it&#39;s rights (permissions)" alt="" coords="164,5,324,31"/>
+<area shape="rect" href="file-general_8c.html#afd25b66c3b3e24c11fddfab02bc5e3dd" title="Open a file with it&#39;s rights (permissions)" alt="" coords="164,5,324,31"/>
 <area shape="poly" title=" " alt="" coords="116,15,150,15,150,21,116,21"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="372,5,459,31"/>
-<area shape="poly" title=" " alt="" coords="324,15,358,15,358,21,324,21"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="372,5,483,31"/>
+<area shape="poly" title=" " alt="" coords="324,15,359,15,359,21,324,21"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aceda81416f5b877fc7d910fa044210e3" name="aceda81416f5b877fc7d910fa044210e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceda81416f5b877fc7d910fa044210e3">&#9670;&#160;</a></span>remove_used_file_tokens()</h2>
+<a id="a229554ef8da5cb45506ba94fa117c78f" name="a229554ef8da5cb45506ba94fa117c78f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a229554ef8da5cb45506ba94fa117c78f">&#9670;&#160;</a></span>remove_used_file_tokens()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> * remove_used_file_tokens </td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> * remove_used_file_tokens </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -909,7 +818,7 @@ Here is the call graph for this function:</div>
 <p>Removes all the tokens of file redirections allready used. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>command structure </td></tr>
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -924,14 +833,14 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> * search_last_file </td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> * search_last_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>already_searched</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>already_searched</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -948,8 +857,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ac70638e4b2de9819fb99c97318fc767b" name="ac70638e4b2de9819fb99c97318fc767b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac70638e4b2de9819fb99c97318fc767b">&#9670;&#160;</a></span>verify_access()</h2>
+<a id="afb055840f776944a93723c4b25dea107" name="afb055840f776944a93723c4b25dea107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb055840f776944a93723c4b25dea107">&#9670;&#160;</a></span>verify_access()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -957,8 +866,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int verify_access </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

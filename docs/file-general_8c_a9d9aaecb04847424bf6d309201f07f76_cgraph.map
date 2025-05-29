@@ -1,0 +1,35 @@
+<map id="files_management" name="files_management">
+<area shape="rect" id="Node000001" title="Executes all the files redirection tests." alt="" coords="5,204,148,229"/>
+<area shape="rect" id="Node000002" href="$file__build_8c.html#a9df4316381acdd90a01028b353b7fbe2" title="Build the data around the files in all commands." alt="" coords="227,53,351,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,202,127,147,158,115,195,88,213,79,216,83,197,92,162,119,131,150,88,205"/>
+<area shape="rect" id="Node000003" href="$file__build_8c.html#a550f6fe08adedae27fc01f128c84bd0d" title="Adds files to the file redirection structure." alt="" coords="207,103,372,128"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,202,140,174,195,145,232,130,234,135,197,150,143,179,98,206"/>
+<area shape="rect" id="Node000008" href="$ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="797,153,908,179"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="148,202,196,195,361,181,525,172,784,164,784,170,526,178,362,187,196,201,149,207"/>
+<area shape="rect" id="Node000011" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="817,203,889,228"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="148,214,803,213,803,218,148,219"/>
+<area shape="rect" id="Node000013" href="$heredoc_8c.html#a6d09e530cadb43f8e7f26f9f5a10ba7d" title="Fill all the heredocs in the correct order." alt="" coords="237,255,341,280"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="132,227,225,249,223,254,130,232"/>
+<area shape="rect" id="Node000015" href="$ft__file__tokens_8c.html#a229554ef8da5cb45506ba94fa117c78f" title="Removes all the tokens of file redirections allready used." alt="" coords="196,304,383,329"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="96,227,140,259,197,290,216,297,214,302,195,295,137,263,93,232"/>
+<area shape="rect" id="Node000016" href="$file__verify__access_8c.html#afb055840f776944a93723c4b25dea107" title="Verify that all files are valid if at least one file is invalid, modifies the boolean in command but ..." alt="" coords="234,353,345,379"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="88,228,131,282,162,313,197,340,222,351,220,356,195,344,158,318,127,286,84,231"/>
+<area shape="rect" id="Node000004" href="$file_8c.html#a4bac3f464554a4de0252aae544dbc020" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="455,103,529,128"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="372,113,441,113,441,118,372,118"/>
+<area shape="rect" id="Node000005" href="$garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="601,103,728,128"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="529,113,587,113,587,118,529,118"/>
+<area shape="rect" id="Node000006" href="$garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="799,5,907,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="680,100,722,71,775,40,791,33,793,38,777,44,725,75,683,105"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="713,126,792,147,791,152,712,131"/>
+<area shape="rect" id="Node000009" href="$garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="776,55,929,80"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="715,100,788,81,790,86,716,105"/>
+<area shape="rect" id="Node000010" href="$garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="793,104,912,129"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="728,113,779,113,779,119,728,118"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="683,126,725,156,777,188,804,199,802,204,775,192,722,161,680,130"/>
+<area shape="rect" id="Node000007" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="977,5,1100,31"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="907,15,963,15,963,21,907,21"/>
+<area shape="rect" id="Node000012" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="999,203,1079,228"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="889,213,985,213,985,218,889,218"/>
+<area shape="rect" id="Node000014" href="$file__verify__access_8c.html#a1adf8592e56806396e71d927d3268ff7" title="Return the last file that is not already_searched." alt="" coords="431,255,553,280"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="342,265,417,265,417,270,342,270"/>
+</map>

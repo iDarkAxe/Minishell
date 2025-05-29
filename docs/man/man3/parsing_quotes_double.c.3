@@ -13,56 +13,6 @@ src/parsing/parsing_quotes_double.c
 \fR#include <stdio\&.h>\fP
 .br
 
-.SS "Functions"
-
-.in +1c
-.ti -1c
-.RI "char * \fBft_remove_near_quotes\fP (const char *str, const char character)"
-.br
-.RI "Remove the first iteration of found pair of character and returns the new string\&. "
-.ti -1c
-.RI "char * \fBft_remove_all_near_quotes\fP (const char *str, const char character)"
-.br
-.RI "Remove the all iteration of found pairs of character and returns the new string\&. "
-.in -1c
-.SH "Function Documentation"
-.PP 
-.SS "char * ft_remove_all_near_quotes (const char * str, const char character)"
-
-.PP
-Remove the all iteration of found pairs of character and returns the new string\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIstr\fP string to remove pair from 
-.br
-\fIcharacter\fP character to delete 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char* new string that don't contain the pair, NULL if ERROR OR no pair found 
-.RE
-.PP
-
-.SS "char * ft_remove_near_quotes (const char * str, const char character)"
-
-.PP
-Remove the first iteration of found pair of character and returns the new string\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIstr\fP string to remove pair from 
-.br
-\fIcharacter\fP character to delete 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char* new string that don't contain the pair, NULL if no pair to remove 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

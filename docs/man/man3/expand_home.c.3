@@ -6,26 +6,26 @@ src/parsing/expand_home.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
+\fR#include 'builtins\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
 .br
 \fR#include 'libft\&.h'\fP
 .br
-\fR#include 'builtins\&.h'\fP
+\fR#include 'minishell\&.h'\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "char ** \fBexpand_tildes_tokens\fP (char **tokens)"
+.RI "char ** \fBexpand_tildes_tokens\fP (\fBt_garbage\fP *garbage, char **tokens)"
 .br
 .RI "Expands all the tildes found in array with HOME\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "char ** expand_tildes_tokens (char ** tokens)"
+.SS "char ** expand_tildes_tokens (\fBt_garbage\fP * garbage, char ** tokens)"
 
 .PP
 Expands all the tildes found in array with HOME\&. 

@@ -6,30 +6,34 @@ src/exec/ft_dups.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
-.br
 \fR#include 'builtins\&.h'\fP
 .br
 \fR#include 'file\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'minishell\&.h'\fP
+.br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBhandle_redirections\fP (\fBt_command\fP *command)"
+.RI "int \fBhandle_redirections\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command, int fd_backup[2])"
 .br
 .RI "Create and redirect inputs and outputs needed for the command\&. "
 .ti -1c
-.RI "void \fBreset_redirection\fP (\fBt_command\fP *command, unsigned char i)"
+.RI "void \fBreset_redirection\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command, int fd_backup[2], unsigned char i)"
 .br
 .RI "Reset redirections by default values Replace the new redirections by stdin and stdout\&. "
+.ti -1c
+.RI "int \fBhandle_redirections_forks\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command)"
+.br
+.RI "Create and redirect inputs and outputs needed for the command\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "int handle_redirections (\fBt_command\fP * command)"
+.SS "int handle_redirections (\fBt_garbage\fP * garbage, \fBt_command\fP * command, int fd_backup[2])"
 
 .PP
 Create and redirect inputs and outputs needed for the command\&. 
@@ -45,7 +49,23 @@ int 0 or positive OK, negative ERROR
 .RE
 .PP
 
-.SS "void reset_redirection (\fBt_command\fP * command, unsigned char i)"
+.SS "int handle_redirections_forks (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
+
+.PP
+Create and redirect inputs and outputs needed for the command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 or positive OK, negative ERROR 
+.RE
+.PP
+
+.SS "void reset_redirection (\fBt_garbage\fP * garbage, \fBt_command\fP * command, int fd_backup[2], unsigned char i)"
 
 .PP
 Reset redirections by default values Replace the new redirections by stdin and stdout\&. 

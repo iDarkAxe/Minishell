@@ -6,35 +6,37 @@ src/lexer/tokens.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
-.br
-\fR#include 'garbage\&.h'\fP
+\fR#include 'builtins\&.h'\fP
 .br
 \fR#include 'file\&.h'\fP
 .br
-\fR#include 'builtins\&.h'\fP
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'parsing\&.h'\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBt_command\fP * \fBtokeniser\fP (char **tokens, char **envp)"
+.RI "\fBt_command\fP * \fBtokeniser\fP (\fBt_data\fP *data, char **tokens)"
 .br
 .RI "Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "\fBt_command\fP * tokeniser (char ** tokens, char ** envp)"
+.SS "\fBt_command\fP * tokeniser (\fBt_data\fP * data, char ** tokens)"
 
 .PP
 Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fItokens\fP tokens 
+\fIdata\fP data structure 
 .br
-\fIenvp\fP environment 
+\fItokens\fP tokens 
 .RE
 .PP
 \fBReturns\fP

@@ -6,32 +6,39 @@ src/exec/exec_extern.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
-.br
-\fR#include 'libft\&.h'\fP
+\fR#include 'builtins\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
 .br
-\fR#include 'builtins\&.h'\fP
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'exec\&.h'\fP
+.br
+\fR#include <errno\&.h>\fP
 .br
 \fR#include <stdio\&.h>\fP
 .br
 \fR#include <sys/wait\&.h>\fP
-.br
-\fR#include <errno\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBnot_builtins\fP (\fBt_command\fP *command, char **tokens)"
+.RI "int \fBnot_builtins\fP (\fBt_data\fP *data, \fBt_command\fP *command, char **tokens)"
 .br
 .RI "Executes commands that are not builtins\&. "
+.ti -1c
+.RI "int \fBexecve_fork\fP (\fBt_data\fP *data, char *path, char **toks, char **envp)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "int not_builtins (\fBt_command\fP * command, char ** tokens)"
+.SS "int execve_fork (\fBt_data\fP * data, char * path, char ** toks, char ** envp)"
+
+.SS "int not_builtins (\fBt_data\fP * data, \fBt_command\fP * command, char ** tokens)"
 
 .PP
 Executes commands that are not builtins\&. 

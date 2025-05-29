@@ -6,22 +6,22 @@ src/exec/search_command.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
-.br
 \fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBsearch_command\fP (\fBt_command\fP *command, char **tokens, int ret)"
+.RI "int \fBsearch_command\fP (\fBt_data\fP *data, \fBt_command\fP *command, char **tokens)"
 .br
 .RI "Search if command is a builtin or not\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "int search_command (\fBt_command\fP * command, char ** tokens, int ret)"
+.SS "int search_command (\fBt_data\fP * data, \fBt_command\fP * command, char ** tokens)"
 
 .PP
 Search if command is a builtin or not\&. 
@@ -31,8 +31,6 @@ Search if command is a builtin or not\&.
 \fIcommand\fP command structure 
 .br
 \fItokens\fP array of strings 
-.br
-\fIret\fP return value of previous command 
 .RE
 .PP
 \fBReturns\fP

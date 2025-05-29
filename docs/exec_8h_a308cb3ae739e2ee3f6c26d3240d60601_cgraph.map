@@ -1,0 +1,5 @@
+<map id="wait_all_childs" name="wait_all_childs">
+<area shape="rect" id="Node000001" title="Waits for all the childs with their pids." alt="" coords="5,5,124,31"/>
+<area shape="rect" id="Node000002" href="$exec-utils_8c.html#a68ff9e66a3ecaf523d293aaec067bd4e" title="Cound the number of commands in the command structure." alt="" coords="172,5,309,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,15,158,15,158,21,124,21"/>
+</map>

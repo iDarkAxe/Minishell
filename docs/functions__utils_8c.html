@@ -107,15 +107,18 @@ $(function(){initNavTree('functions__utils_8c.html',''); initResizable(true); })
   <div class="headertitle"><div class="title">functions_utils.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;libft.h&quot;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for functions_utils.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="functions__utils_8c__incl.png" border="0" usemap="#asrc_2env_2functions__utils_8c" alt=""/></div>
 <map name="asrc_2env_2functions__utils_8c" id="asrc_2env_2functions__utils_8c">
 <area shape="rect" title=" " alt="" coords="5,5,184,31"/>
-<area shape="rect" title=" " alt="" coords="57,79,132,104"/>
-<area shape="poly" title=" " alt="" coords="97,31,97,65,92,65,92,31"/>
+<area shape="rect" title=" " alt="" coords="20,79,79,104"/>
+<area shape="poly" title=" " alt="" coords="89,32,66,69,62,66,85,30"/>
+<area shape="rect" title=" " alt="" coords="103,79,177,104"/>
+<area shape="poly" title=" " alt="" coords="104,30,128,66,123,69,100,32"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -123,8 +126,73 @@ Include dependency graph for functions_utils.c:</div>
 Functions</h2></td></tr>
 <tr class="memitem:ac7f2fc3327c47f5ca9735bcc235d279f" id="r_ac7f2fc3327c47f5ca9735bcc235d279f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7f2fc3327c47f5ca9735bcc235d279f">ft_strlen_choose_c</a> (const char *str, char c)</td></tr>
 <tr class="separator:ac7f2fc3327c47f5ca9735bcc235d279f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2ff2312e5994560c9537cd9173be94" id="r_a1f2ff2312e5994560c9537cd9173be94"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f2ff2312e5994560c9537cd9173be94">ft_strcmp</a> (const char *s1, const char *s2)</td></tr>
+<tr class="separator:a1f2ff2312e5994560c9537cd9173be94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cb8a1baadc9060685e22a095f66cc5b" id="r_a0cb8a1baadc9060685e22a095f66cc5b"><td class="memItemLeft" align="right" valign="top">t_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cb8a1baadc9060685e22a095f66cc5b">detect_equal</a> (char *str)</td></tr>
+<tr class="separator:a0cb8a1baadc9060685e22a095f66cc5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003f8560f5856826c38fd859b18fd7eb" id="r_a003f8560f5856826c38fd859b18fd7eb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a003f8560f5856826c38fd859b18fd7eb">ft_strlen_charset</a> (const char *str, const char *charset)</td></tr>
+<tr class="separator:a003f8560f5856826c38fd859b18fd7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a0cb8a1baadc9060685e22a095f66cc5b" name="a0cb8a1baadc9060685e22a095f66cc5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cb8a1baadc9060685e22a095f66cc5b">&#9670;&#160;</a></span>detect_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_bool detect_equal </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f2ff2312e5994560c9537cd9173be94" name="a1f2ff2312e5994560c9537cd9173be94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f2ff2312e5994560c9537cd9173be94">&#9670;&#160;</a></span>ft_strcmp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ft_strcmp </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>s1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>s2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a003f8560f5856826c38fd859b18fd7eb" name="a003f8560f5856826c38fd859b18fd7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a003f8560f5856826c38fd859b18fd7eb">&#9670;&#160;</a></span>ft_strlen_charset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ft_strlen_charset </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>charset</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac7f2fc3327c47f5ca9735bcc235d279f" name="ac7f2fc3327c47f5ca9735bcc235d279f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac7f2fc3327c47f5ca9735bcc235d279f">&#9670;&#160;</a></span>ft_strlen_choose_c()</h2>
 

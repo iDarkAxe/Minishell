@@ -1,0 +1,42 @@
+.TH "src/env/manipulation_params.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/env/manipulation_params.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'env\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_params\fP * \fBget_param\fP (\fBt_garbage\fP *garbage, char *content, size_t equal)"
+.br
+.ti -1c
+.RI "void \fBreplace_param\fP (\fBt_garbage\fP *garbage, \fBt_var\fP *var, char *new_content, size_t equal)"
+.br
+.ti -1c
+.RI "\fBt_params\fP * \fBft_paramlast\fP (\fBt_params\fP *lst_params)"
+.br
+.ti -1c
+.RI "void \fBft_paramsadd_back\fP (\fBt_params\fP **lst_params, \fBt_params\fP *new)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBt_params\fP * ft_paramlast (\fBt_params\fP * lst_params)"
+
+.SS "void ft_paramsadd_back (\fBt_params\fP ** lst_params, \fBt_params\fP * new)"
+
+.SS "\fBt_params\fP * get_param (\fBt_garbage\fP * garbage, char * content, size_t equal)"
+
+.SS "void replace_param (\fBt_garbage\fP * garbage, \fBt_var\fP * var, char * new_content, size_t equal)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

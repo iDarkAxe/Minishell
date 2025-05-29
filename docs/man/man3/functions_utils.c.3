@@ -6,6 +6,8 @@ src/env/functions_utils.c
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'libft\&.h'\fP
+.br
 \fR#include <stddef\&.h>\fP
 .br
 
@@ -15,9 +17,24 @@ src/env/functions_utils.c
 .ti -1c
 .RI "size_t \fBft_strlen_choose_c\fP (const char *str, char c)"
 .br
+.ti -1c
+.RI "int \fBft_strcmp\fP (const char *s1, const char *s2)"
+.br
+.ti -1c
+.RI "t_bool \fBdetect_equal\fP (char *str)"
+.br
+.ti -1c
+.RI "size_t \fBft_strlen_charset\fP (const char *str, const char *charset)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
+.SS "t_bool detect_equal (char * str)"
+
+.SS "int ft_strcmp (const char * s1, const char * s2)"
+
+.SS "size_t ft_strlen_charset (const char * str, const char * charset)"
+
 .SS "size_t ft_strlen_choose_c (const char * str, char c)"
 
 .SH "Author"

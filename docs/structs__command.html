@@ -108,15 +108,18 @@ $(function(){initNavTree('structs__command.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="minishell_8h_source.html">minishell.h</a>&gt;</code></p>
+<p>Structure that handles all the command and there contents.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="data__structure_8h_source.html">data_structure.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for s_command:</div>
 <div class="dyncontent">
 <div class="center"><img src="structs__command__coll__graph.png" border="0" usemap="#as__command_coll__map" alt="Collaboration graph"/></div>
 <map name="as__command_coll__map" id="as__command_coll__map">
-<area shape="rect" title=" " alt="" coords="63,196,164,221"/>
+<area shape="rect" title="Structure that handles all the command and there contents." alt="" coords="63,196,164,221"/>
 <area shape="poly" title=" " alt="" coords="179,198,187,202,191,209,182,218,165,221,164,215,180,213,185,208,183,206,177,203"/>
-<area shape="rect" href="structs__token.html" title=" " alt="" coords="5,93,77,119"/>
+<area shape="rect" href="structs__token.html" title="Basic structure of linked list of strings." alt="" coords="5,93,77,119"/>
 <area shape="poly" title=" " alt="" coords="60,128,107,194,103,198,55,131"/>
 <area shape="poly" title=" " alt="" coords="92,97,100,100,104,106,95,115,78,117,77,111,93,110,99,106,97,104,90,102"/>
 <area shape="rect" href="structs__file.html" title=" " alt="" coords="159,93,215,119"/>
@@ -131,18 +134,20 @@ Collaboration diagram for s_command:</div>
 Data Fields</h2></td></tr>
 <tr class="memitem:afbfe160941a93422267c88c93dec755a" id="r_afbfe160941a93422267c88c93dec755a"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structs__command.html">s_command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbfe160941a93422267c88c93dec755a">next</a></td></tr>
 <tr class="separator:afbfe160941a93422267c88c93dec755a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6316be4e6194bd8d8aa17d84d7976ff" id="r_ac6316be4e6194bd8d8aa17d84d7976ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="minishell_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6316be4e6194bd8d8aa17d84d7976ff">tokens</a></td></tr>
+<tr class="memitem:ac6316be4e6194bd8d8aa17d84d7976ff" id="r_ac6316be4e6194bd8d8aa17d84d7976ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6316be4e6194bd8d8aa17d84d7976ff">tokens</a></td></tr>
 <tr class="separator:ac6316be4e6194bd8d8aa17d84d7976ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3194870c2d10ed50495ccef838f0be3" id="r_ae3194870c2d10ed50495ccef838f0be3"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3194870c2d10ed50495ccef838f0be3">toks</a></td></tr>
+<tr class="separator:ae3194870c2d10ed50495ccef838f0be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7f721fee5e5b3f99a96f06723925ff" id="r_a3b7f721fee5e5b3f99a96f06723925ff"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b7f721fee5e5b3f99a96f06723925ff">path</a></td></tr>
+<tr class="separator:a3b7f721fee5e5b3f99a96f06723925ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addff478eead45b536afc3aab716db164" id="r_addff478eead45b536afc3aab716db164"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addff478eead45b536afc3aab716db164">envp</a></td></tr>
 <tr class="separator:addff478eead45b536afc3aab716db164"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45614cc00a621aa60d734198e0e5f51d" id="r_a45614cc00a621aa60d734198e0e5f51d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="file_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45614cc00a621aa60d734198e0e5f51d">file_in</a></td></tr>
+<tr class="memitem:a45614cc00a621aa60d734198e0e5f51d" id="r_a45614cc00a621aa60d734198e0e5f51d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45614cc00a621aa60d734198e0e5f51d">file_in</a></td></tr>
 <tr class="separator:a45614cc00a621aa60d734198e0e5f51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8dd530d0897ca1eb481127b1878b5a7" id="r_ad8dd530d0897ca1eb481127b1878b5a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="file_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8dd530d0897ca1eb481127b1878b5a7">file_out</a></td></tr>
+<tr class="memitem:ad8dd530d0897ca1eb481127b1878b5a7" id="r_ad8dd530d0897ca1eb481127b1878b5a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8dd530d0897ca1eb481127b1878b5a7">file_out</a></td></tr>
 <tr class="separator:ad8dd530d0897ca1eb481127b1878b5a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4385f90d3dc1cf891f8480a92932eb7a" id="r_a4385f90d3dc1cf891f8480a92932eb7a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4385f90d3dc1cf891f8480a92932eb7a">fd</a> [2]</td></tr>
 <tr class="separator:a4385f90d3dc1cf891f8480a92932eb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8079001cd181e6653d10889f337af395" id="r_a8079001cd181e6653d10889f337af395"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8079001cd181e6653d10889f337af395">fd_backup</a> [2]</td></tr>
-<tr class="separator:a8079001cd181e6653d10889f337af395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07aee613a6a7e10b7f3cf199a0eb4aef" id="r_a07aee613a6a7e10b7f3cf199a0eb4aef"><td class="memItemLeft" align="right" valign="top">t_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07aee613a6a7e10b7f3cf199a0eb4aef">file_error</a></td></tr>
 <tr class="separator:a07aee613a6a7e10b7f3cf199a0eb4aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2351f2952b4e5f2074f1692b62fefa61" id="r_a2351f2952b4e5f2074f1692b62fefa61"><td class="memItemLeft" align="right" valign="top">t_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2351f2952b4e5f2074f1692b62fefa61">parse_error</a></td></tr>
@@ -150,7 +155,9 @@ Data Fields</h2></td></tr>
 <tr class="memitem:aecd7d756b621c134f70c1add958986bd" id="r_aecd7d756b621c134f70c1add958986bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecd7d756b621c134f70c1add958986bd">return_value</a></td></tr>
 <tr class="separator:aecd7d756b621c134f70c1add958986bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Field Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure that handles all the command and there contents. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
 <a id="addff478eead45b536afc3aab716db164" name="addff478eead45b536afc3aab716db164"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addff478eead45b536afc3aab716db164">&#9670;&#160;</a></span>envp</h2>
 
@@ -179,20 +186,6 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a8079001cd181e6653d10889f337af395" name="a8079001cd181e6653d10889f337af395"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8079001cd181e6653d10889f337af395">&#9670;&#160;</a></span>fd_backup</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int s_command::fd_backup[2]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a07aee613a6a7e10b7f3cf199a0eb4aef" name="a07aee613a6a7e10b7f3cf199a0eb4aef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07aee613a6a7e10b7f3cf199a0eb4aef">&#9670;&#160;</a></span>file_error</h2>
 
@@ -214,7 +207,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="file_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a>* s_command::file_in</td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a>* s_command::file_in</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -228,7 +221,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="file_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a>* s_command::file_out</td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a>* s_command::file_out</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -263,6 +256,20 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="a3b7f721fee5e5b3f99a96f06723925ff" name="a3b7f721fee5e5b3f99a96f06723925ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7f721fee5e5b3f99a96f06723925ff">&#9670;&#160;</a></span>path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* s_command::path</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aecd7d756b621c134f70c1add958986bd" name="aecd7d756b621c134f70c1add958986bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aecd7d756b621c134f70c1add958986bd">&#9670;&#160;</a></span>return_value</h2>
 
@@ -284,7 +291,21 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="minishell_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a>* s_command::tokens</td>
+          <td class="memname"><a class="el" href="data__structure_8h.html#aead06bc7a81ebdd60cbdcf6b3b8e51d4">t_token</a>* s_command::tokens</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3194870c2d10ed50495ccef838f0be3" name="ae3194870c2d10ed50495ccef838f0be3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3194870c2d10ed50495ccef838f0be3">&#9670;&#160;</a></span>toks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** s_command::toks</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -292,7 +313,7 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>inc/<a class="el" href="minishell_8h_source.html">minishell.h</a></li>
+<li>inc/<a class="el" href="data__structure_8h_source.html">data_structure.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

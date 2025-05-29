@@ -6,9 +6,9 @@ inc/minishell.h
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'libft\&.h'\fP
+\fR#include 'data_structure\&.h'\fP
 .br
-\fR#include <signal\&.h>\fP
+\fR#include 'libft\&.h'\fP
 .br
 \fR#include <stddef\&.h>\fP
 .br
@@ -18,20 +18,9 @@ inc/minishell.h
 .br
 \fR#include <unistd\&.h>\fP
 .br
+\fR#include <wait\&.h>\fP
+.br
 
-.SS "Data Structures"
-
-.in +1c
-.ti -1c
-.RI "struct \fBs_command\fP"
-.br
-.ti -1c
-.RI "struct \fBs_lexer_state\fP"
-.br
-.ti -1c
-.RI "struct \fBs_token\fP"
-.br
-.in -1c
 .SS "Macros"
 
 .in +1c
@@ -39,36 +28,25 @@ inc/minishell.h
 .RI "#define \fBPROMPT_MESSAGE_CUSTOM\fP   1"
 .br
 .ti -1c
-.RI "#define \fBFOLLOW_ZSH\fP   0"
+.RI "#define \fBFOLLOW_ZSH\fP   1"
 .br
-.in -1c
-.SS "Typedefs"
-
-.in +1c
-.ti -1c
-.RI "typedef struct \fBs_command\fP \fBt_command\fP"
-.br
-.ti -1c
-.RI "typedef struct \fBs_lexer_state\fP \fBt_lexer_state\fP"
-.br
-.ti -1c
-.RI "typedef struct \fBs_token\fP \fBt_token\fP"
-.br
+.RI "Follow certain added functionnality of ZSH to minishell\&. "
 .in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBminishell\fP (char **envp)"
+.RI "int \fBminishell\fP (\fBt_data\fP *data)"
 .br
 .RI "Minishell that handles all the shell functions\&. "
 .ti -1c
-.RI "int \fBread_context\fP (char **envp)"
+.RI "int \fBis_interactive\fP (void)"
 .br
-.RI "Function to read the context where this function is called Verify if it's used in a tty or not\&. "
+.RI "Function to read the context where this function is called Verify if it's used in a tty or not,\&. "
 .ti -1c
-.RI "void \fBshort_minishell_no_tty\fP (char **envp)"
+.RI "int \fBshort_minishell_no_tty\fP (\fBt_data\fP *data)"
 .br
+.RI "Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. "
 .ti -1c
 .RI "int \fBsignal_init\fP (void)"
 .br
@@ -82,7 +60,7 @@ inc/minishell.h
 .br
 .RI "Function to ignore certain signals\&. "
 .ti -1c
-.RI "char * \fBget_prompt_message\fP (void)"
+.RI "char * \fBget_prompt_message\fP (\fBt_garbage\fP *garbage)"
 .br
 .RI "Build the prompt message If an error occurs, returns the static default prompt message\&. "
 .ti -1c
@@ -96,9 +74,20 @@ inc/minishell.h
 .ti -1c
 .RI "void \fBprint_command_fd\fP (\fBt_command\fP *command)"
 .br
-.RI "Print the file descriptor of command into stderr\&. "
 .ti -1c
-.RI "char * \fBft_substr_end\fP (char const *src, unsigned int start, size_t end)"
+.RI "char ** \fBinit_lexer_state\fP (\fBt_garbage\fP *garbage, \fBt_lexer_state\fP *lex_st, const char *line)"
+.br
+.RI "Initialize the lexer structure\&. "
+.ti -1c
+.RI "char ** \fBlexer\fP (\fBt_garbage\fP *garbage, const char *line)"
+.br
+.RI "Create tokens (small chunks) a line with the quotes and operators\&. "
+.ti -1c
+.RI "\fBt_command\fP * \fBtokeniser\fP (\fBt_data\fP *data, char **tokens)"
+.br
+.RI "Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. "
+.ti -1c
+.RI "char * \fBft_substr_end_gb\fP (\fBt_garbage\fP *garbage, char const *src, unsigned int start, size_t end)"
 .br
 .RI "Allocate memory for a string and copy the content from src\&. "
 .ti -1c
@@ -106,82 +95,35 @@ inc/minishell.h
 .br
 .RI "Is |, < or > "
 .ti -1c
-.RI "char ** \fBlexer\fP (const char *line)"
-.br
-.RI "Create tokens (small chunks) a line with the quotes and operators\&. "
-.ti -1c
-.RI "\fBt_command\fP * \fBtokeniser\fP (char **tokens, char **envp)"
-.br
-.RI "Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. "
-.ti -1c
-.RI "char ** \fBparse_line\fP (char *line)"
+.RI "char ** \fBparse_line\fP (\fBt_data\fP *data, char *line)"
 .br
 .RI "Prototype for parsing\&. "
 .ti -1c
-.RI "char ** \fBexpand_tildes_tokens\fP (char **tokens)"
+.RI "char ** \fBexpand_tildes_tokens\fP (\fBt_garbage\fP *garbage, char **tokens)"
 .br
 .RI "Expands all the tildes found in array with HOME\&. "
 .ti -1c
-.RI "char ** \fBcopy_toks\fP (\fBt_command\fP *command)"
-.br
-.RI "Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. "
-.ti -1c
-.RI "void \fBprint_toks\fP (char **tokens)"
-.br
-.RI "Print tokens indexed\&. "
-.ti -1c
-.RI "int \fBprepare_command\fP (\fBt_command\fP *command, int ret)"
-.br
-.RI "Prepare the command for \fBsearch_command()\fP "
-.ti -1c
-.RI "int \fBprepare_command_forks\fP (\fBt_command\fP *command, int ret)"
-.br
-.ti -1c
-.RI "int \fBsearch_command\fP (\fBt_command\fP *command, char **tokens, int ret)"
-.br
-.RI "Search if command is a builtin or not\&. "
-.ti -1c
-.RI "int \fBnot_builtins\fP (\fBt_command\fP *command, char **tokens)"
-.br
-.RI "Executes commands that are not builtins\&. "
-.ti -1c
-.RI "int \fBhandle_redirections\fP (\fBt_command\fP *command)"
-.br
-.RI "Create and redirect inputs and outputs needed for the command\&. "
-.ti -1c
-.RI "void \fBreset_redirection\fP (\fBt_command\fP *command, unsigned char i)"
-.br
-.RI "Reset redirections by default values Replace the new redirections by stdin and stdout\&. "
-.ti -1c
-.RI "int \fBneeds_to_be_forked\fP (\fBt_command\fP *command)"
-.br
-.RI "Check if it needs to be forked\&. "
-.ti -1c
-.RI "void \fBexecutes_in_forks\fP (\fBt_command\fP *command, char **tokens, int ret)"
-.br
-.RI "Executes the command in a forks\&. "
-.ti -1c
-.RI "int \fBcreate_pipe\fP (\fBt_command\fP *command)"
-.br
-.RI "Change the previous input of pipe to a new redirection\&. "
-.ti -1c
-.RI "void \fBfree_array\fP (char **array)"
+.RI "void \fBfree_array\fP (\fBt_garbage\fP *garbage, char **array)"
 .br
 .RI "Free array of strings\&. "
 .ti -1c
-.RI "void \fBfree_command\fP (\fBt_command\fP *command)"
+.RI "void \fBfree_command\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command)"
+.br
+.RI "Free one \fBt_command\fP structure with all that it contains\&. "
+.ti -1c
+.RI "void \fBfree_commands\fP (\fBt_garbage\fP *garbage, \fBt_command\fP **command)"
 .br
 .RI "Free \fBt_command\fP linked list structure with all that it contains\&. "
 .ti -1c
-.RI "void \fBfree_files_struct\fP (\fBt_file\fP *file)"
+.RI "void \fBfree_files_struct\fP (\fBt_garbage\fP *garbage, \fBt_file\fP *file)"
 .br
 .RI "Free linked list of \fBt_file\fP structure\&. "
 .ti -1c
-.RI "void \fBfree_heredoc\fP (\fBt_tmp\fP *tmp)"
+.RI "void \fBfree_heredoc\fP (\fBt_garbage\fP *garbage, \fBt_tmp\fP *tmp)"
 .br
 .RI "Free heredoc structure\&. "
 .ti -1c
-.RI "void \fBfree_tokens\fP (\fBt_token\fP *token)"
+.RI "void \fBfree_tokens\fP (\fBt_garbage\fP *garbage, \fBt_token\fP *token)"
 .br
 .RI "Free t_tokens linked list structure\&. "
 .ti -1c
@@ -193,75 +135,29 @@ inc/minishell.h
 .br
 .RI "Print the list of permissions of files in the command structure\&. "
 .ti -1c
+.RI "void \fBprint_toks\fP (char **tokens)"
+.br
+.RI "Print tokens indexed\&. "
+.ti -1c
 .RI "ssize_t \fBprint_command\fP (\fBt_command\fP *command)"
 .br
 .RI "Print the command structure with it's tokens\&. "
 .ti -1c
-.RI "ssize_t \fBprint_commands\fP (\fBt_command\fP *command)"
+.RI "ssize_t \fBprint_commands\fP (\fBt_command\fP **command)"
 .br
 .RI "Print the commands structure with it's tokens\&. "
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define FOLLOW_ZSH   0"
+.SS "#define FOLLOW_ZSH   1"
 
+.PP
+Follow certain added functionnality of ZSH to minishell\&. 
 .SS "#define PROMPT_MESSAGE_CUSTOM   1"
-
-.SH "Typedef Documentation"
-.PP 
-.SS "typedef struct \fBs_command\fP \fBt_command\fP"
-
-.SS "typedef struct \fBs_lexer_state\fP \fBt_lexer_state\fP"
-
-.SS "typedef struct \fBs_token\fP \fBt_token\fP"
 
 .SH "Function Documentation"
 .PP 
-.SS "char ** copy_toks (\fBt_command\fP * command)"
-
-.PP
-Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char** copy of tokens 
-.RE
-.PP
-
-.SS "int create_pipe (\fBt_command\fP * command)"
-
-.PP
-Change the previous input of pipe to a new redirection\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.br
-\fIin_out\fP 0 = IN, 1 = OUT 
-.RE
-.PP
-
-.SS "void executes_in_forks (\fBt_command\fP * command, char ** tokens, int ret)"
-
-.PP
-Executes the command in a forks\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.br
-\fItokens\fP array of strings 
-.br
-\fIret\fP return value of previous command 
-.RE
-.PP
-
-.SS "char ** expand_tildes_tokens (char ** tokens)"
+.SS "char ** expand_tildes_tokens (\fBt_garbage\fP * garbage, char ** tokens)"
 
 .PP
 Expands all the tildes found in array with HOME\&. 
@@ -277,7 +173,7 @@ char** tokens if OK, NULL otherwise
 .RE
 .PP
 
-.SS "void free_array (char ** array)"
+.SS "void free_array (\fBt_garbage\fP * garbage, char ** array)"
 
 .PP
 Free array of strings\&. 
@@ -288,7 +184,18 @@ Free array of strings\&.
 .RE
 .PP
 
-.SS "void free_command (\fBt_command\fP * command)"
+.SS "void free_command (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
+
+.PP
+Free one \fBt_command\fP structure with all that it contains\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP \fBt_command\fP structure 
+.RE
+.PP
+
+.SS "void free_commands (\fBt_garbage\fP * garbage, \fBt_command\fP ** command)"
 
 .PP
 Free \fBt_command\fP linked list structure with all that it contains\&. 
@@ -299,7 +206,7 @@ Free \fBt_command\fP linked list structure with all that it contains\&.
 .RE
 .PP
 
-.SS "void free_files_struct (\fBt_file\fP * file)"
+.SS "void free_files_struct (\fBt_garbage\fP * garbage, \fBt_file\fP * file)"
 
 .PP
 Free linked list of \fBt_file\fP structure\&. 
@@ -310,7 +217,7 @@ Free linked list of \fBt_file\fP structure\&.
 .RE
 .PP
 
-.SS "void free_heredoc (\fBt_tmp\fP * tmp)"
+.SS "void free_heredoc (\fBt_garbage\fP * garbage, \fBt_tmp\fP * tmp)"
 
 .PP
 Free heredoc structure\&. 
@@ -321,7 +228,7 @@ Free heredoc structure\&.
 .RE
 .PP
 
-.SS "void free_tokens (\fBt_token\fP * token)"
+.SS "void free_tokens (\fBt_garbage\fP * garbage, \fBt_token\fP * token)"
 
 .PP
 Free t_tokens linked list structure\&. 
@@ -332,7 +239,7 @@ Free t_tokens linked list structure\&.
 .RE
 .PP
 
-.SS "char * ft_substr_end (char const * src, unsigned int start, size_t end)"
+.SS "char * ft_substr_end_gb (\fBt_garbage\fP * garbage, char const * src, unsigned int start, size_t end)"
 
 .PP
 Allocate memory for a string and copy the content from src\&. 
@@ -352,7 +259,7 @@ char* pointer to the new string
 .RE
 .PP
 
-.SS "char * get_prompt_message (void )"
+.SS "char * get_prompt_message (\fBt_garbage\fP * garbage)"
 
 .PP
 Build the prompt message If an error occurs, returns the static default prompt message\&. 
@@ -363,26 +270,35 @@ char* prompt message
 .RE
 .PP
 
-.SS "int handle_redirections (\fBt_command\fP * command)"
-
-.PP
-Create and redirect inputs and outputs needed for the command\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 or positive OK, negative ERROR 
-.RE
-.PP
-
 .SS "void ignore_signal (void )"
 
 .PP
 Function to ignore certain signals\&. 
+.SS "char ** init_lexer_state (\fBt_garbage\fP * garbage, \fBt_lexer_state\fP * lex_st, const char * line)"
+
+.PP
+Initialize the lexer structure\&. Fill the structure with zeros and init the line to search in and allocates the array to the garbage
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlex_st\fP pointer to the lexer structure 
+.br
+\fIline\fP line to verify 
+.RE
+.PP
+
+.SS "int is_interactive (void )"
+
+.PP
+Function to read the context where this function is called Verify if it's used in a tty or not,\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, 1 otherwise 
+.RE
+.PP
+
 .SS "int is_operator_char (char c)"
 
 .PP
@@ -399,7 +315,7 @@ int 1 if c is operator, 0 otherwise
 .RE
 .PP
 
-.SS "char ** lexer (const char * line)"
+.SS "char ** lexer (\fBt_garbage\fP * garbage, const char * line)"
 
 .PP
 Create tokens (small chunks) a line with the quotes and operators\&. Handle spaces, quotes (' and ') and shell operator (|, <, <<, >, >>)\&. Return an array of tokens (strings), NULL terminated\&.
@@ -416,14 +332,14 @@ Array of strings
 .RE
 .PP
 
-.SS "int minishell (char ** envp)"
+.SS "int minishell (\fBt_data\fP * data)"
 
 .PP
 Minishell that handles all the shell functions\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIenvp\fP environmment 
+\fIdata\fP data structure already set 
 .RE
 .PP
 \fBReturns\fP
@@ -432,41 +348,7 @@ int
 .RE
 .PP
 
-.SS "int needs_to_be_forked (\fBt_command\fP * command)"
-
-.PP
-Check if it needs to be forked\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 NO, 1 YES 
-.RE
-.PP
-
-.SS "int not_builtins (\fBt_command\fP * command, char ** tokens)"
-
-.PP
-Executes commands that are not builtins\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.br
-\fItokens\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
-.SS "char ** parse_line (char * line)"
+.SS "char ** parse_line (\fBt_data\fP * data, char * line)"
 
 .PP
 Prototype for parsing\&. 
@@ -481,24 +363,6 @@ Prototype for parsing\&.
 char** 
 .RE
 .PP
-
-.SS "int prepare_command (\fBt_command\fP * command, int ret)"
-
-.PP
-Prepare the command for \fBsearch_command()\fP 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
-.SS "int prepare_command_forks (\fBt_command\fP * command, int ret)"
 
 .SS "ssize_t print_command (\fBt_command\fP * command)"
 
@@ -518,16 +382,7 @@ ssize_t 0 or positive is OK, otherwise error
 
 .SS "void print_command_fd (\fBt_command\fP * command)"
 
-.PP
-Print the file descriptor of command into stderr\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-
-.SS "ssize_t print_commands (\fBt_command\fP * command)"
+.SS "ssize_t print_commands (\fBt_command\fP ** command)"
 
 .PP
 Print the commands structure with it's tokens\&. 
@@ -614,60 +469,20 @@ ssize_t number of character printed
 .RE
 .PP
 
-.SS "int read_context (char ** envp)"
-
-.PP
-Function to read the context where this function is called Verify if it's used in a tty or not\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIenvp\fP environment 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, 1 otherwise 
-.RE
-.PP
-
-.SS "void reset_redirection (\fBt_command\fP * command, unsigned char i)"
-
-.PP
-Reset redirections by default values Replace the new redirections by stdin and stdout\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.br
-\fIi\fP value used for recursion 
-.RE
-.PP
-
 .SS "void reset_signal_default (void )"
 
 .PP
 Function to reset signals to default\&. 
-.SS "int search_command (\fBt_command\fP * command, char ** tokens, int ret)"
+.SS "int short_minishell_no_tty (\fBt_data\fP * data)"
 
 .PP
-Search if command is a builtin or not\&. 
+Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIcommand\fP command structure 
-.br
-\fItokens\fP array of strings 
-.br
-\fIret\fP return value of previous command 
+\fIdata\fP data structure already set 
 .RE
 .PP
-\fBReturns\fP
-.RS 4
-int 0 if command found, 1 otherwise 
-.RE
-.PP
-
-.SS "void short_minishell_no_tty (char ** envp)"
 
 .SS "int signal_init (void )"
 
@@ -680,16 +495,16 @@ int 0 if the function ends correctly, -1 otherwise\&.
 .RE
 .PP
 
-.SS "\fBt_command\fP * tokeniser (char ** tokens, char ** envp)"
+.SS "\fBt_command\fP * tokeniser (\fBt_data\fP * data, char ** tokens)"
 
 .PP
 Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fItokens\fP tokens 
+\fIdata\fP data structure 
 .br
-\fIenvp\fP environment 
+\fItokens\fP tokens 
 .RE
 .PP
 \fBReturns\fP

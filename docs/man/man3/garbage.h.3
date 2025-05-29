@@ -19,49 +19,35 @@ inc/garbage.h
 .RI "struct \fBs_garbage\fP"
 .br
 .in -1c
-.SS "Typedefs"
-
-.in +1c
-.ti -1c
-.RI "typedef struct \fBs_element\fP \fBt_element\fP"
-.br
-.ti -1c
-.RI "typedef struct \fBs_garbage\fP \fBt_garbage\fP"
-.br
-.in -1c
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "void * \fBmalloc_gb\fP (size_t size)"
+.RI "void * \fBmalloc_gb\fP (\fBt_garbage\fP *garbage, size_t size)"
 .br
 .RI "Replace the original malloc by storing the created adresses into a garbage to remove them afterwards\&. "
 .ti -1c
-.RI "void \fBadd_to_garbage\fP (void *ptr)"
+.RI "void \fBadd_to_garbage\fP (\fBt_garbage\fP *garbage, void *ptr)"
 .br
 .RI "Add a pointer to the garbage list\&. "
 .ti -1c
-.RI "void \fBfree_element_gb\fP (void *ptr)"
+.RI "void \fBfree_element_gb\fP (\fBt_garbage\fP *garbage, void *ptr)"
 .br
 .RI "Free an element in the garbage collector\&. "
 .ti -1c
-.RI "char * \fBft_strdup_gb\fP (const char *source)"
+.RI "char * \fBft_strdup_gb\fP (\fBt_garbage\fP *garbage, const char *source)"
 .br
 .RI "Create a copy of source into a new pointer NEEDS to be freed\&. "
 .ti -1c
-.RI "void \fBgarbage_init\fP (void)"
-.br
-.RI "Initialize the garbage and sets the values to 0\&. "
-.ti -1c
-.RI "void \fBfree_garbage\fP (void)"
-.br
-.RI "Free the garbage\&. "
-.ti -1c
-.RI "\fBt_garbage\fP * \fBget_garbage\fP (void)"
+.RI "void \fBgarbage_init\fP (\fBt_garbage\fP *garbage)"
 .br
 .RI "Get the garbage object\&. "
 .ti -1c
-.RI "void \fBprint_garbage\fP (void)"
+.RI "void \fBfree_garbage\fP (\fBt_garbage\fP *garbage)"
+.br
+.RI "Free the garbage\&. "
+.ti -1c
+.RI "void \fBprint_garbage\fP (\fBt_garbage\fP *garbage)"
 .br
 .RI "Print the garbage collector\&. "
 .ti -1c
@@ -75,21 +61,14 @@ inc/garbage.h
 .ti -1c
 .RI "void \fBft_garbageadd_back\fP (\fBt_garbage\fP *stack, \fBt_element\fP *new)"
 .br
-.RI "Adds the 'new' element at the end of stack\&. "
 .ti -1c
 .RI "int \fBft_garbageclear\fP (\fBt_garbage\fP *data)"
 .br
 .RI "Remove all elements from garbage\&. "
 .in -1c
-.SH "Typedef Documentation"
-.PP 
-.SS "typedef struct \fBs_element\fP \fBt_element\fP"
-
-.SS "typedef struct \fBs_garbage\fP \fBt_garbage\fP"
-
 .SH "Function Documentation"
 .PP 
-.SS "void add_to_garbage (void * ptr)"
+.SS "void add_to_garbage (\fBt_garbage\fP * garbage, void * ptr)"
 
 .PP
 Add a pointer to the garbage list\&. 
@@ -100,7 +79,7 @@ Add a pointer to the garbage list\&.
 .RE
 .PP
 
-.SS "void free_element_gb (void * ptr)"
+.SS "void free_element_gb (\fBt_garbage\fP * garbage, void * ptr)"
 
 .PP
 Free an element in the garbage collector\&. 
@@ -111,22 +90,11 @@ Free an element in the garbage collector\&.
 .RE
 .PP
 
-.SS "void free_garbage (void )"
+.SS "void free_garbage (\fBt_garbage\fP * garbage)"
 
 .PP
 Free the garbage\&. 
-.SS "void ft_garbageadd_back (\fBt_garbage\fP * garbage, \fBt_element\fP * new)"
-
-.PP
-Adds the 'new' element at the end of stack\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIgarbage\fP garbage structure 
-.br
-\fInew\fP element to add 
-.RE
-.PP
+.SS "void ft_garbageadd_back (\fBt_garbage\fP * stack, \fBt_element\fP * new)"
 
 .SS "void ft_garbageadd_front (\fBt_garbage\fP * garbage, \fBt_element\fP * new)"
 
@@ -173,7 +141,7 @@ t_element* pointer to the element
 .RE
 .PP
 
-.SS "char * ft_strdup_gb (const char * source)"
+.SS "char * ft_strdup_gb (\fBt_garbage\fP * garbage, const char * source)"
 
 .PP
 Create a copy of source into a new pointer NEEDS to be freed\&. 
@@ -189,22 +157,18 @@ char* pointer to the new string
 .RE
 .PP
 
-.SS "void garbage_init (void )"
-
-.PP
-Initialize the garbage and sets the values to 0\&. 
-.SS "\fBt_garbage\fP * get_garbage (void )"
+.SS "void garbage_init (\fBt_garbage\fP * garbage)"
 
 .PP
 Get the garbage object\&. 
 .PP
 \fBReturns\fP
 .RS 4
-t_garbage* garbage access 
+t_garbage* garbage access
 .RE
 .PP
-
-.SS "void * malloc_gb (size_t size)"
+Initialize the garbage and sets the values to 0 
+.SS "void * malloc_gb (\fBt_garbage\fP * garbage, size_t size)"
 
 .PP
 Replace the original malloc by storing the created adresses into a garbage to remove them afterwards\&. 
@@ -220,7 +184,7 @@ void*
 .RE
 .PP
 
-.SS "void print_garbage (void )"
+.SS "void print_garbage (\fBt_garbage\fP * garbage)"
 
 .PP
 Print the garbage collector\&. 

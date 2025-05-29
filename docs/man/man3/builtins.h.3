@@ -6,45 +6,78 @@ inc/builtins.h
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'data_structure\&.h'\fP
+.br
+
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBft_exit\fP (char **array)"
+.RI "int \fBft_exit\fP (\fBt_data\fP *data, char **array)"
 .br
 .RI "Function to exit the program\&. "
 .ti -1c
-.RI "void \fBft_exit_int\fP (int value)"
-.br
-.ti -1c
-.RI "int \fBft_echo\fP (char **array)"
+.RI "int \fBft_echo\fP (\fBt_data\fP *data, char **array)"
 .br
 .RI "Echo with -n option OPTIONS : -n : print without the triling newline\&. "
 .ti -1c
-.RI "int \fBft_which\fP (char **array)"
+.RI "int \fBft_which\fP (\fBt_data\fP *data, char **array)"
 .br
 .RI "Says if the command are built-in commands or not\&. "
 .ti -1c
-.RI "int \fBft_export\fP (char **array)"
+.RI "int \fBft_export\fP (\fBt_data\fP *data, char **array)"
 .br
 .ti -1c
-.RI "int \fBft_env\fP (char **array)"
+.RI "int \fBft_env\fP (\fBt_data\fP *data, char **array)"
 .br
 .ti -1c
-.RI "int \fBft_unset\fP (char **array)"
+.RI "int \fBft_unset\fP (\fBt_data\fP *data, char **array)"
 .br
 .ti -1c
-.RI "int \fBft_cd\fP (char **array)"
+.RI "int \fBft_pwd\fP (\fBt_data\fP *data, char **array)"
+.br
+.RI "Print the current working directory\&. "
+.ti -1c
+.RI "int \fBft_cd\fP (\fBt_data\fP *data, char **array)"
 .br
 .RI "Implementatin of cd builtin of shell\&. "
 .ti -1c
-.RI "int \fBft_pwd\fP (char **array)"
+.RI "void \fBft_exit_int\fP (\fBt_garbage\fP *garbage, int value)"
 .br
-.RI "Print the current working directory\&. "
+.ti -1c
+.RI "void \fBft_exit_int_np\fP (\fBt_garbage\fP *garbage, int value)"
+.br
+.ti -1c
+.RI "void \fBchange_cwd\fP (\fBt_data\fP *data, t_bool is_pwd)"
+.br
+.RI "Change the values of ENV VAR\&. "
+.ti -1c
+.RI "int \fBchange_cwd_to_home\fP (\fBt_env_vars\fP *env)"
+.br
+.ti -1c
+.RI "int \fBchange_cwd_to_previous_cwd\fP (\fBt_env_vars\fP *env)"
+.br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "int ft_cd (char ** array)"
+.SS "void change_cwd (\fBt_data\fP * data, t_bool is_pwd)"
+
+.PP
+Change the values of ENV VAR\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIis_pwd\fP 1 for PWD, 0 for OLD_PWD 
+.RE
+.PP
+
+.SS "int change_cwd_to_home (\fBt_env_vars\fP * env)"
+
+.SS "int change_cwd_to_previous_cwd (\fBt_env_vars\fP * env)"
+
+.SS "int ft_cd (\fBt_data\fP * data, char ** array)"
 
 .PP
 Implementatin of cd builtin of shell\&. 
@@ -60,7 +93,7 @@ int 0 OK, 1 otherwise
 .RE
 .PP
 
-.SS "int ft_echo (char ** array)"
+.SS "int ft_echo (\fBt_data\fP * data, char ** array)"
 
 .PP
 Echo with -n option OPTIONS : -n : print without the triling newline\&. NOTES : you can add any number of n after -n if you want
@@ -77,9 +110,9 @@ int 0 OK, error otherwise
 .RE
 .PP
 
-.SS "int ft_env (char ** array)"
+.SS "int ft_env (\fBt_data\fP * data, char ** array)"
 
-.SS "int ft_exit (char ** array)"
+.SS "int ft_exit (\fBt_data\fP * data, char ** array)"
 
 .PP
 Function to exit the program\&. 
@@ -95,11 +128,13 @@ int value if argument invalid
 .RE
 .PP
 
-.SS "void ft_exit_int (int value)"
+.SS "void ft_exit_int (\fBt_garbage\fP * garbage, int value)"
 
-.SS "int ft_export (char ** array)"
+.SS "void ft_exit_int_np (\fBt_garbage\fP * garbage, int value)"
 
-.SS "int ft_pwd (char ** array)"
+.SS "int ft_export (\fBt_data\fP * data, char ** array)"
+
+.SS "int ft_pwd (\fBt_data\fP * data, char ** array)"
 
 .PP
 Print the current working directory\&. 
@@ -110,9 +145,9 @@ int
 .RE
 .PP
 
-.SS "int ft_unset (char ** array)"
+.SS "int ft_unset (\fBt_data\fP * data, char ** array)"
 
-.SS "int ft_which (char ** tokens)"
+.SS "int ft_which (\fBt_data\fP * data, char ** tokens)"
 
 .PP
 Says if the command are built-in commands or not\&. 

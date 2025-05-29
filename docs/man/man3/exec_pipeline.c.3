@@ -1,0 +1,68 @@
+.TH "src/exec/exec_pipeline.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/exec/exec_pipeline.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'exec\&.h'\fP
+.br
+\fR#include <errno\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+\fR#include <wait\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBexecute_pipeline\fP (\fBt_data\fP *data, pid_t *pids, size_t *count)"
+.br
+.RI "Execute all the command that are followed by pipes\&. "
+.ti -1c
+.RI "void \fBwait_all_childs\fP (\fBt_command\fP *command, pid_t *pids)"
+.br
+.RI "Waits for all the childs with their pids\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void execute_pipeline (\fBt_data\fP * data, pid_t * pids, size_t * count)"
+
+.PP
+Execute all the command that are followed by pipes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIpids\fP array of pids of childs 
+.RE
+.PP
+
+.SS "void wait_all_childs (\fBt_command\fP * command, pid_t * pids)"
+
+.PP
+Waits for all the childs with their pids\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fIpids\fP array of pids of childs 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

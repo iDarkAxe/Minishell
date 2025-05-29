@@ -107,48 +107,58 @@ $(function(){initNavTree('expand__home_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">expand_home.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
 <code>#include &quot;libft.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for expand_home.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="expand__home_8c__incl.png" border="0" usemap="#asrc_2parsing_2expand__home_8c" alt=""/></div>
 <map name="asrc_2parsing_2expand__home_8c" id="asrc_2parsing_2expand__home_8c">
-<area shape="rect" title=" " alt="" coords="255,5,401,45"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="223,93,318,119"/>
-<area shape="poly" title=" " alt="" coords="316,47,289,84,285,80,312,44"/>
-<area shape="rect" title=" " alt="" coords="5,167,64,192"/>
-<area shape="poly" title=" " alt="" coords="293,48,70,163,68,158,290,43"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="342,93,429,119"/>
-<area shape="poly" title=" " alt="" coords="344,44,371,80,367,84,340,47"/>
-<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="453,93,536,119"/>
-<area shape="poly" title=" " alt="" coords="369,43,459,85,457,90,367,48"/>
-<area shape="poly" title=" " alt="" coords="234,121,78,168,76,163,232,116"/>
-<area shape="rect" title=" " alt="" coords="89,167,162,192"/>
-<area shape="poly" title=" " alt="" coords="248,121,162,163,160,158,246,116"/>
-<area shape="rect" title=" " alt="" coords="187,167,261,192"/>
-<area shape="poly" title=" " alt="" coords="265,120,241,157,237,154,261,118"/>
-<area shape="rect" title=" " alt="" coords="285,167,352,192"/>
-<area shape="poly" title=" " alt="" coords="281,118,306,154,301,157,276,121"/>
-<area shape="rect" title=" " alt="" coords="475,167,546,192"/>
-<area shape="poly" title=" " alt="" coords="310,116,463,161,461,166,308,121"/>
-<area shape="rect" title=" " alt="" coords="376,167,451,192"/>
-<area shape="poly" title=" " alt="" coords="295,116,379,158,377,163,292,121"/>
-<area shape="poly" title=" " alt="" coords="407,116,480,157,477,162,404,121"/>
+<area shape="rect" title=" " alt="" coords="403,5,549,45"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="475,93,557,119"/>
+<area shape="poly" title=" " alt="" coords="488,44,506,80,502,82,483,47"/>
+<area shape="rect" title=" " alt="" coords="389,313,448,339"/>
+<area shape="poly" title=" " alt="" coords="475,46,465,94,426,300,421,299,460,93,470,45"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="517,313,603,339"/>
+<area shape="poly" title=" " alt="" coords="513,43,543,64,571,92,594,126,605,166,608,204,601,241,589,275,576,303,571,300,584,273,596,240,602,204,600,167,589,128,567,95,540,69,510,48"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="211,93,306,119"/>
+<area shape="poly" title=" " alt="" coords="425,48,304,91,303,86,423,43"/>
+<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="463,167,591,192"/>
+<area shape="poly" title=" " alt="" coords="520,119,526,153,520,154,515,119"/>
+<area shape="poly" title=" " alt="" coords="520,194,438,304,433,301,516,191"/>
+<area shape="poly" title=" " alt="" coords="540,191,557,212,571,239,574,271,570,300,565,299,569,271,566,241,552,215,536,194"/>
+<area shape="rect" href="env_8h.html" title=" " alt="" coords="498,240,555,265"/>
+<area shape="poly" title=" " alt="" coords="529,192,529,226,524,226,524,192"/>
+<area shape="rect" title=" " alt="" coords="226,387,297,412"/>
+<area shape="poly" title=" " alt="" coords="517,340,311,389,309,384,516,335"/>
+<area shape="poly" title=" " alt="" coords="511,268,449,308,446,303,508,263"/>
+<area shape="poly" title=" " alt="" coords="535,265,551,300,546,302,530,267"/>
+<area shape="rect" title=" " alt="" coords="248,313,323,339"/>
+<area shape="poly" title=" " alt="" coords="498,265,337,312,335,307,497,260"/>
+<area shape="poly" title=" " alt="" coords="302,116,471,161,470,166,301,121"/>
+<area shape="poly" title=" " alt="" coords="267,118,312,190,359,252,401,301,397,305,355,255,307,194,263,121"/>
+<area shape="poly" title=" " alt="" coords="211,115,102,134,53,149,35,158,23,168,14,185,9,201,9,217,13,232,32,263,63,292,101,319,143,343,220,379,218,384,141,348,99,324,60,297,28,267,8,234,3,217,3,200,9,182,19,165,32,154,51,144,101,129,211,110"/>
+<area shape="poly" title=" " alt="" coords="261,119,260,182,268,265,278,300,273,301,263,266,255,182,255,119"/>
+<area shape="rect" title=" " alt="" coords="321,167,388,192"/>
+<area shape="poly" title=" " alt="" coords="276,117,330,156,326,160,273,121"/>
+<area shape="rect" title=" " alt="" coords="33,167,108,192"/>
+<area shape="poly" title=" " alt="" coords="229,121,115,164,113,159,228,116"/>
+<area shape="rect" title=" " alt="" coords="133,167,195,192"/>
+<area shape="poly" title=" " alt="" coords="245,121,192,160,189,156,242,117"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae1f15b6e2943451133d29e5b2d80105f" id="r_ae1f15b6e2943451133d29e5b2d80105f"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1f15b6e2943451133d29e5b2d80105f">expand_tildes_tokens</a> (char **tokens)</td></tr>
-<tr class="memdesc:ae1f15b6e2943451133d29e5b2d80105f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands all the tildes found in array with HOME.  <br /></td></tr>
-<tr class="separator:ae1f15b6e2943451133d29e5b2d80105f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecdaf340d35767406e40e413e4c991da" id="r_aecdaf340d35767406e40e413e4c991da"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecdaf340d35767406e40e413e4c991da">expand_tildes_tokens</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, char **tokens)</td></tr>
+<tr class="memdesc:aecdaf340d35767406e40e413e4c991da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands all the tildes found in array with HOME.  <br /></td></tr>
+<tr class="separator:aecdaf340d35767406e40e413e4c991da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae1f15b6e2943451133d29e5b2d80105f" name="ae1f15b6e2943451133d29e5b2d80105f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1f15b6e2943451133d29e5b2d80105f">&#9670;&#160;</a></span>expand_tildes_tokens()</h2>
+<a id="aecdaf340d35767406e40e413e4c991da" name="aecdaf340d35767406e40e413e4c991da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecdaf340d35767406e40e413e4c991da">&#9670;&#160;</a></span>expand_tildes_tokens()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,8 +166,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char ** expand_tildes_tokens </td>
           <td>(</td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -173,17 +187,15 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="expand__home_8c_ae1f15b6e2943451133d29e5b2d80105f_cgraph.png" border="0" usemap="#aexpand__home_8c_ae1f15b6e2943451133d29e5b2d80105f_cgraph" alt=""/></div>
-<map name="aexpand__home_8c_ae1f15b6e2943451133d29e5b2d80105f_cgraph" id="aexpand__home_8c_ae1f15b6e2943451133d29e5b2d80105f_cgraph">
+<div class="center"><img src="expand__home_8c_aecdaf340d35767406e40e413e4c991da_cgraph.png" border="0" usemap="#aexpand__home_8c_aecdaf340d35767406e40e413e4c991da_cgraph" alt=""/></div>
+<map name="aexpand__home_8c_aecdaf340d35767406e40e413e4c991da_cgraph" id="aexpand__home_8c_aecdaf340d35767406e40e413e4c991da_cgraph">
 <area shape="rect" title="Expands all the tildes found in array with HOME." alt="" coords="5,31,168,56"/>
-<area shape="rect" href="ft__free_8c.html#a81a8163a838ff55d33697de5148af1d4" title="Free array of strings." alt="" coords="216,5,305,31"/>
-<area shape="poly" title=" " alt="" coords="168,29,202,24,203,29,169,34"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="217,55,304,80"/>
-<area shape="poly" title=" " alt="" coords="169,52,204,57,203,62,168,57"/>
-<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="353,5,485,31"/>
-<area shape="poly" title=" " alt="" coords="305,15,339,15,339,21,305,21"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="533,5,636,31"/>
-<area shape="poly" title=" " alt="" coords="485,15,519,15,519,21,485,21"/>
+<area shape="rect" href="ft__free-utils_8c.html#afe86add0935b71f8af32ab5c23bc861a" title="Free array of strings." alt="" coords="227,5,316,31"/>
+<area shape="poly" title=" " alt="" coords="168,30,212,23,213,29,169,35"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="216,55,327,80"/>
+<area shape="poly" title=" " alt="" coords="169,51,203,56,202,61,168,57"/>
+<area shape="rect" href="garbage__utils_8c.html#a1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="375,5,507,31"/>
+<area shape="poly" title=" " alt="" coords="316,15,361,15,361,21,316,21"/>
 </map>
 </div>
 

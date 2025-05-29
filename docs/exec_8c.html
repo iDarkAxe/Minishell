@@ -107,50 +107,124 @@ $(function(){initNavTree('exec_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">exec.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
-<code>#include &quot;libft.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
+<code>#include &quot;libft.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="exec_8h_source.html">exec.h</a>&quot;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;wait.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for exec.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="exec_8c__incl.png" border="0" usemap="#asrc_2exec_2exec_8c" alt=""/></div>
 <map name="asrc_2exec_2exec_8c" id="asrc_2exec_2exec_8c">
-<area shape="rect" title=" " alt="" coords="268,5,388,31"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="223,79,318,104"/>
-<area shape="poly" title=" " alt="" coords="321,33,291,70,287,66,316,29"/>
-<area shape="rect" title=" " alt="" coords="5,152,64,177"/>
-<area shape="poly" title=" " alt="" coords="306,33,71,148,69,143,303,28"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="342,79,429,104"/>
-<area shape="poly" title=" " alt="" coords="340,29,369,66,365,70,335,33"/>
-<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="453,79,536,104"/>
-<area shape="poly" title=" " alt="" coords="356,28,456,71,454,76,354,33"/>
-<area shape="poly" title=" " alt="" coords="234,107,78,153,76,148,232,101"/>
-<area shape="rect" title=" " alt="" coords="89,152,162,177"/>
-<area shape="poly" title=" " alt="" coords="248,106,162,148,160,144,246,102"/>
-<area shape="rect" title=" " alt="" coords="187,152,261,177"/>
-<area shape="poly" title=" " alt="" coords="265,106,241,142,237,139,261,103"/>
-<area shape="rect" title=" " alt="" coords="285,152,352,177"/>
-<area shape="poly" title=" " alt="" coords="281,103,306,139,301,142,276,106"/>
-<area shape="rect" title=" " alt="" coords="475,152,546,177"/>
-<area shape="poly" title=" " alt="" coords="310,101,463,146,461,152,308,107"/>
-<area shape="rect" title=" " alt="" coords="376,152,451,177"/>
-<area shape="poly" title=" " alt="" coords="295,102,379,143,377,148,292,106"/>
-<area shape="poly" title=" " alt="" coords="407,102,480,143,477,147,404,106"/>
+<area shape="rect" title=" " alt="" coords="142,5,262,31"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="63,79,146,104"/>
+<area shape="poly" title=" " alt="" coords="188,33,133,72,130,68,185,29"/>
+<area shape="rect" title=" " alt="" coords="78,299,137,324"/>
+<area shape="poly" title=" " alt="" coords="142,26,112,33,81,43,52,59,28,80,13,103,8,125,11,148,18,177,31,209,49,239,88,287,84,290,44,242,26,211,13,178,5,149,3,125,8,101,24,77,49,54,79,38,110,28,141,21"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="169,299,256,324"/>
+<area shape="poly" title=" " alt="" coords="143,33,95,50,73,64,53,81,34,104,23,126,22,149,31,176,59,215,95,247,134,272,171,291,168,296,132,277,92,251,55,219,26,179,17,150,18,125,30,101,49,77,69,59,93,46,141,28"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="279,79,373,104"/>
+<area shape="poly" title=" " alt="" coords="223,28,295,69,293,74,221,33"/>
+<area shape="rect" title=" " alt="" coords="435,152,510,177"/>
+<area shape="poly" title=" " alt="" coords="260,28,323,47,387,76,427,107,457,139,453,143,423,111,385,81,321,52,259,33"/>
+<area shape="rect" title=" " alt="" coords="535,152,597,177"/>
+<area shape="poly" title=" " alt="" coords="260,28,337,48,420,76,486,109,540,142,537,147,483,114,418,81,336,53,258,33"/>
+<area shape="rect" href="exec_8h.html" title=" " alt="" coords="170,79,234,104"/>
+<area shape="poly" title=" " alt="" coords="205,31,205,65,199,65,199,31"/>
+<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="41,152,169,177"/>
+<area shape="poly" title=" " alt="" coords="107,104,107,138,102,138,102,104"/>
+<area shape="poly" title=" " alt="" coords="108,178,110,285,104,285,102,178"/>
+<area shape="poly" title=" " alt="" coords="116,176,198,286,194,289,111,179"/>
+<area shape="rect" href="env_8h.html" title=" " alt="" coords="244,225,301,251"/>
+<area shape="poly" title=" " alt="" coords="133,175,234,217,232,222,131,180"/>
+<area shape="rect" title=" " alt="" coords="269,372,340,397"/>
+<area shape="poly" title=" " alt="" coords="229,322,281,361,277,366,226,326"/>
+<area shape="poly" title=" " alt="" coords="247,253,148,296,146,291,245,248"/>
+<area shape="poly" title=" " alt="" coords="265,253,233,290,229,286,261,249"/>
+<area shape="rect" title=" " alt="" coords="285,299,359,324"/>
+<area shape="poly" title=" " alt="" coords="283,249,308,286,304,289,279,253"/>
+<area shape="poly" title=" " alt="" coords="291,107,154,150,152,145,290,101"/>
+<area shape="poly" title=" " alt="" coords="304,106,269,127,233,154,200,188,169,225,124,289,119,286,165,221,196,184,230,150,266,122,302,102"/>
+<area shape="poly" title=" " alt="" coords="335,103,355,141,375,197,383,229,386,261,383,294,374,325,358,348,338,366,334,362,354,345,369,323,378,293,380,261,377,229,370,198,350,143,331,106"/>
+<area shape="poly" title=" " alt="" coords="328,104,325,284,320,284,323,104"/>
+<area shape="rect" title=" " alt="" coords="243,152,310,177"/>
+<area shape="poly" title=" " alt="" coords="320,106,295,142,290,139,316,103"/>
+<area shape="poly" title=" " alt="" coords="351,102,438,144,435,148,348,106"/>
+<area shape="poly" title=" " alt="" coords="365,101,522,148,520,153,364,107"/>
+<area shape="poly" title=" " alt="" coords="188,106,133,146,130,141,185,102"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9b41a166a8990409661644c33af4c467" id="r_a9b41a166a8990409661644c33af4c467"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b41a166a8990409661644c33af4c467">prepare_command</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command, int ret)</td></tr>
-<tr class="memdesc:a9b41a166a8990409661644c33af4c467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare the command for <a class="el" href="search__command_8c.html#accacfd1a8d3b7fbdff0d572e6d5736ad" title="Search if command is a builtin or not.">search_command()</a>  <br /></td></tr>
-<tr class="separator:a9b41a166a8990409661644c33af4c467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa12e6d7cfc3b5571e6483e953a2db8df" id="r_aa12e6d7cfc3b5571e6483e953a2db8df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa12e6d7cfc3b5571e6483e953a2db8df">prepare_command_forks</a> (<a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command, int ret)</td></tr>
-<tr class="separator:aa12e6d7cfc3b5571e6483e953a2db8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f88104dd8b2512fec12a75bd3e24921" id="r_a2f88104dd8b2512fec12a75bd3e24921"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f88104dd8b2512fec12a75bd3e24921">prepare_command</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data)</td></tr>
+<tr class="memdesc:a2f88104dd8b2512fec12a75bd3e24921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare the command for <a class="el" href="search__command_8c.html#abddc63e89741f131c56123a3d5b8cb98" title="Search if command is a builtin or not.">search_command()</a>  <br /></td></tr>
+<tr class="separator:a2f88104dd8b2512fec12a75bd3e24921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac85fff88d8f2a9841059252bb313d5bb" id="r_ac85fff88d8f2a9841059252bb313d5bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac85fff88d8f2a9841059252bb313d5bb">fill_toks_into_commands</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="separator:ac85fff88d8f2a9841059252bb313d5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af939d04ead94dff4119d76107ae4f857" id="r_af939d04ead94dff4119d76107ae4f857"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af939d04ead94dff4119d76107ae4f857">search_path</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memdesc:af939d04ead94dff4119d76107ae4f857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search path for the designated command.  <br /></td></tr>
+<tr class="separator:af939d04ead94dff4119d76107ae4f857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adec5648ce02f6feefadbb4b84d997b96" id="r_adec5648ce02f6feefadbb4b84d997b96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adec5648ce02f6feefadbb4b84d997b96">search_paths</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memdesc:adec5648ce02f6feefadbb4b84d997b96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search Path for all commands.  <br /></td></tr>
+<tr class="separator:adec5648ce02f6feefadbb4b84d997b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af96b5fb0d628aaa36ad1f1fdcde3ae24" id="r_af96b5fb0d628aaa36ad1f1fdcde3ae24"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af96b5fb0d628aaa36ad1f1fdcde3ae24">prepare_command_forks</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data)</td></tr>
+<tr class="separator:af96b5fb0d628aaa36ad1f1fdcde3ae24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a9b41a166a8990409661644c33af4c467" name="a9b41a166a8990409661644c33af4c467"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b41a166a8990409661644c33af4c467">&#9670;&#160;</a></span>prepare_command()</h2>
+<a id="ac85fff88d8f2a9841059252bb313d5bb" name="ac85fff88d8f2a9841059252bb313d5bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac85fff88d8f2a9841059252bb313d5bb">&#9670;&#160;</a></span>fill_toks_into_commands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fill_toks_into_commands </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="exec_8c_ac85fff88d8f2a9841059252bb313d5bb_cgraph.png" border="0" usemap="#aexec_8c_ac85fff88d8f2a9841059252bb313d5bb_cgraph" alt=""/></div>
+<map name="aexec_8c_ac85fff88d8f2a9841059252bb313d5bb_cgraph" id="aexec_8c_ac85fff88d8f2a9841059252bb313d5bb_cgraph">
+<area shape="rect" title=" " alt="" coords="5,43,189,68"/>
+<area shape="rect" href="token-utils_8c.html#ae660ae4acf50d9bc04cd300c1096353c" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="237,68,325,93"/>
+<area shape="poly" title=" " alt="" coords="190,65,224,70,224,75,189,71"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="571,5,679,31"/>
+<area shape="poly" title=" " alt="" coords="189,46,556,20,557,25,190,52"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="373,80,500,105"/>
+<area shape="poly" title=" " alt="" coords="326,81,359,84,359,89,325,87"/>
+<area shape="poly" title=" " alt="" coords="462,77,547,40,567,32,569,37,549,44,464,82"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="569,55,680,80"/>
+<area shape="poly" title=" " alt="" coords="500,82,555,74,556,79,501,87"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="548,104,701,129"/>
+<area shape="poly" title=" " alt="" coords="501,98,534,102,534,108,500,103"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="565,153,684,179"/>
+<area shape="poly" title=" " alt="" coords="466,103,549,138,572,146,570,151,547,143,464,108"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="589,203,661,228"/>
+<area shape="poly" title=" " alt="" coords="451,104,492,145,519,169,549,189,576,201,574,206,547,194,516,173,488,149,447,107"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="749,5,872,31"/>
+<area shape="poly" title=" " alt="" coords="679,15,735,15,735,21,679,21"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="771,203,851,228"/>
+<area shape="poly" title=" " alt="" coords="661,213,757,213,757,218,661,218"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2f88104dd8b2512fec12a75bd3e24921" name="a2f88104dd8b2512fec12a75bd3e24921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f88104dd8b2512fec12a75bd3e24921">&#9670;&#160;</a></span>prepare_command()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,20 +232,16 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int prepare_command </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ret</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prepare the command for <a class="el" href="search__command_8c.html#accacfd1a8d3b7fbdff0d572e6d5736ad" title="Search if command is a builtin or not.">search_command()</a> </p>
+<p>Prepare the command for <a class="el" href="search__command_8c.html#abddc63e89741f131c56123a3d5b8cb98" title="Search if command is a builtin or not.">search_command()</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>command structure </td></tr>
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -179,85 +249,146 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="exec_8c_a9b41a166a8990409661644c33af4c467_cgraph.png" border="0" usemap="#aexec_8c_a9b41a166a8990409661644c33af4c467_cgraph" alt=""/></div>
-<map name="aexec_8c_a9b41a166a8990409661644c33af4c467_cgraph" id="aexec_8c_a9b41a166a8990409661644c33af4c467_cgraph">
-<area shape="rect" title="Prepare the command for search_command()" alt="" coords="5,233,149,259"/>
-<area shape="rect" href="token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="421,259,509,284"/>
-<area shape="poly" title=" " alt="" coords="150,248,407,265,407,270,149,253"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="823,135,909,160"/>
-<area shape="poly" title=" " alt="" coords="92,231,137,198,166,182,196,169,281,147,368,132,455,124,541,121,695,126,809,137,809,142,694,131,541,126,456,129,368,137,282,152,198,174,168,187,139,203,95,235"/>
-<area shape="rect" href="ft__free_8c.html#a81a8163a838ff55d33697de5148af1d4" title="Free array of strings." alt="" coords="228,608,317,633"/>
-<area shape="poly" title=" " alt="" coords="88,258,261,595,256,597,83,260"/>
-<area shape="rect" href="ft__dups_8c.html#a557b0a55bf37d0d4004b9fbdf96ad558" title="Create and redirect inputs and outputs needed for the command." alt="" coords="197,5,348,31"/>
-<area shape="poly" title=" " alt="" coords="81,232,95,197,119,148,153,95,196,48,216,34,219,39,199,52,157,98,124,150,100,199,86,234"/>
-<area shape="rect" href="exec__extern_8c.html#a521da36622246e2b19debf611d185614" title="Executes commands that are not builtins." alt="" coords="223,208,322,233"/>
-<area shape="poly" title=" " alt="" coords="150,234,209,226,210,231,150,239"/>
-<area shape="rect" href="command-utils_8c.html#a458910531201e249c945c6658fc553f3" title="Print the command structure with it&#39;s tokens." alt="" coords="211,309,335,335"/>
-<area shape="poly" title=" " alt="" coords="112,256,227,302,225,307,110,261"/>
-<area shape="rect" href="ft__dups_8c.html#a43a6f2349b75aab35340f5afd8326e9d" title="Reset redirections by default values Replace the new redirections by stdin and stdout." alt="" coords="595,209,727,235"/>
-<area shape="poly" title=" " alt="" coords="100,231,144,210,197,193,249,184,303,180,410,181,509,191,590,204,589,209,508,196,410,187,303,186,250,190,198,198,146,215,102,236"/>
-<area shape="rect" href="search__command_8c.html#accacfd1a8d3b7fbdff0d572e6d5736ad" title="Search if command is a builtin or not." alt="" coords="396,483,533,508"/>
-<area shape="poly" title=" " alt="" coords="94,257,139,297,199,344,321,419,426,474,423,479,319,424,196,348,136,301,90,261"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="598,259,725,284"/>
-<area shape="poly" title=" " alt="" coords="509,269,584,269,584,274,509,274"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="1171,308,1279,333"/>
-<area shape="poly" title=" " alt="" coords="714,256,789,243,866,238,943,243,1007,254,1070,269,1175,301,1174,306,1068,275,1006,260,942,249,866,243,790,249,715,261"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1337,359,1439,384"/>
-<area shape="poly" title=" " alt="" coords="693,282,743,308,766,327,776,335,790,342,861,363,936,377,1010,385,1084,389,1219,386,1323,377,1323,383,1219,392,1084,394,1010,390,935,382,860,368,788,347,773,340,763,331,740,312,690,287"/>
-<area shape="poly" title=" " alt="" coords="712,256,740,244,765,223,788,200,833,166,836,170,791,204,768,227,743,248,714,261"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="789,308,943,333"/>
-<area shape="poly" title=" " alt="" coords="715,281,800,302,799,307,714,287"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="807,259,925,284"/>
-<area shape="poly" title=" " alt="" coords="725,269,793,269,793,274,725,274"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="830,409,902,435"/>
-<area shape="poly" title=" " alt="" coords="710,282,743,301,760,324,768,346,775,367,791,388,819,405,816,410,788,392,770,369,763,347,756,326,740,305,708,286"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1327,308,1449,333"/>
-<area shape="poly" title=" " alt="" coords="1279,318,1313,318,1313,323,1279,323"/>
-<area shape="poly" title=" " alt="" coords="1267,331,1334,352,1332,357,1266,336"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="1017,409,1097,435"/>
-<area shape="poly" title=" " alt="" coords="902,419,1002,419,1002,425,902,425"/>
-<area shape="poly" title=" " alt="" coords="1078,407,1189,338,1192,343,1080,411"/>
-<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="991,583,1123,608"/>
-<area shape="poly" title=" " alt="" coords="309,631,387,655,494,681,554,690,616,696,679,697,741,691,817,676,891,654,1012,611,1014,616,893,659,818,681,742,697,680,702,616,701,553,696,493,686,385,660,308,636"/>
-<area shape="poly" title=" " alt="" coords="1075,580,1355,390,1358,394,1078,585"/>
-<area shape="rect" href="file-general_8c.html#a193c0bf8702f604a85edbde26b3f0a8d" title="Opens the files to read and writes." alt="" coords="409,5,520,31"/>
-<area shape="poly" title=" " alt="" coords="348,15,395,15,395,21,348,21"/>
-<area shape="rect" href="file-general_8c.html#a14d33c3540b9d426750b32dee40b3015" title="Open a file with it&#39;s rights (permissions)" alt="" coords="581,5,741,31"/>
-<area shape="poly" title=" " alt="" coords="520,15,568,15,568,21,520,21"/>
-<area shape="poly" title=" " alt="" coords="701,28,743,48,798,86,842,123,839,127,794,90,740,52,699,33"/>
-<area shape="poly" title=" " alt="" coords="322,231,408,254,406,259,321,236"/>
-<area shape="poly" title=" " alt="" coords="323,221,420,230,534,243,590,253,589,259,533,249,420,235,322,227"/>
-<area shape="poly" title=" " alt="" coords="322,209,440,190,581,170,809,149,809,154,582,175,440,195,323,215"/>
-<area shape="poly" title=" " alt="" coords="334,310,418,303,521,302,577,306,634,314,689,327,742,345,758,354,768,365,777,377,791,388,818,402,816,407,788,392,773,380,764,369,755,358,740,350,688,332,633,319,577,312,521,308,418,308,335,316"/>
-<area shape="poly" title=" " alt="" coords="696,207,817,162,818,167,698,212"/>
-<area shape="poly" title=" " alt="" coords="725,233,743,244,763,268,771,291,778,316,792,343,816,373,841,398,837,402,812,376,787,346,773,318,766,293,758,270,740,248,722,237"/>
-<area shape="poly" title=" " alt="" coords="629,211,622,201,626,191,639,185,661,183,688,186,699,195,696,199,686,191,661,188,641,190,630,195,628,200,633,208"/>
-<area shape="rect" href="ft__cd_8c.html#ac9978b56415a76c70d19cb22c56b409d" title="Implementatin of cd builtin of shell." alt="" coords="635,360,688,385"/>
-<area shape="poly" title=" " alt="" coords="476,481,519,439,548,415,580,394,620,379,622,384,583,399,551,419,522,443,479,484"/>
-<area shape="rect" href="ft__echo_8c.html#aef55bfe2924d6b7282b1e3983791da02" title="Echo with &#45;n option OPTIONS : &#45;n : print without the triling newline." alt="" coords="627,607,696,632"/>
-<area shape="poly" title=" " alt="" coords="479,506,522,549,551,572,583,593,615,606,613,611,580,598,548,577,519,553,476,510"/>
-<area shape="rect" href="ft__env_8c.html#a0f7285fc866730bc749d28def603ce57" title=" " alt="" coords="630,508,693,533"/>
-<area shape="poly" title=" " alt="" coords="534,502,617,512,616,518,534,507"/>
-<area shape="rect" href="ft__env_8c.html#abf30ae08f03d6ea8baea636c9cb1b0d2" title=" " alt="" coords="621,557,701,583"/>
-<area shape="poly" title=" " alt="" coords="494,506,582,544,609,553,607,558,580,548,492,511"/>
-<area shape="rect" href="ft__cd_8c.html#afeba101359d0224bf94a9689513e4bfe" title="Print the current working directory." alt="" coords="629,409,694,435"/>
-<area shape="poly" title=" " alt="" coords="494,480,580,445,615,433,617,438,582,450,496,485"/>
-<area shape="rect" href="ft__env_8c.html#a3717e4b670c94940fbc9b0bd7ab5cfd9" title=" " alt="" coords="624,656,699,681"/>
-<area shape="poly" title=" " alt="" coords="475,507,514,572,546,610,583,642,612,656,610,661,580,647,542,614,510,575,470,510"/>
-<area shape="rect" href="ft__which_8c.html#aa7aad378dd77466bd445355193908de3" title="Says if the command are built&#45;in commands or not." alt="" coords="623,459,699,484"/>
-<area shape="poly" title=" " alt="" coords="534,484,609,475,610,480,534,490"/>
-<area shape="poly" title=" " alt="" coords="689,376,817,408,816,413,688,382"/>
-<area shape="poly" title=" " alt="" coords="695,612,718,605,740,593,756,578,766,563,787,526,845,445,849,448,792,529,771,566,760,582,743,598,720,609,697,617"/>
-<area shape="poly" title=" " alt="" coords="695,608,740,593,822,555,901,512,1023,440,1025,444,904,517,825,559,742,598,697,613"/>
-<area shape="poly" title=" " alt="" coords="694,419,816,419,816,425,694,425"/>
-<area shape="poly" title=" " alt="" coords="699,460,816,431,817,436,700,465"/>
+<div class="center"><img src="exec_8c_a2f88104dd8b2512fec12a75bd3e24921_cgraph.png" border="0" usemap="#aexec_8c_a2f88104dd8b2512fec12a75bd3e24921_cgraph" alt=""/></div>
+<map name="aexec_8c_a2f88104dd8b2512fec12a75bd3e24921_cgraph" id="aexec_8c_a2f88104dd8b2512fec12a75bd3e24921_cgraph">
+<area shape="rect" title="Prepare the command for search_command()" alt="" coords="5,183,149,208"/>
+<area shape="rect" href="token-utils_8c.html#ae660ae4acf50d9bc04cd300c1096353c" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="741,208,829,233"/>
+<area shape="poly" title=" " alt="" coords="150,195,728,216,728,221,149,201"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="1876,107,1987,132"/>
+<area shape="poly" title=" " alt="" coords="99,180,157,149,242,111,292,94,343,79,397,70,450,66,1551,66,1635,70,1720,78,1863,102,1862,107,1719,84,1635,75,1551,71,450,71,397,75,345,85,293,99,244,116,160,154,101,185"/>
+<area shape="rect" href="ft__dups_8c.html#a573b960f756c58b9ea82f33de1598229" title="Create and redirect inputs and outputs needed for the command." alt="" coords="197,5,348,31"/>
+<area shape="poly" title=" " alt="" coords="84,181,127,119,159,81,196,48,219,34,221,39,199,52,163,85,131,122,88,184"/>
+<area shape="rect" href="exec__extern_8c.html#ab6485ed7e8a210d99727589be43ad9ee" title="Executes commands that are not builtins." alt="" coords="1127,259,1226,284"/>
+<area shape="poly" title=" " alt="" coords="116,206,179,224,261,245,355,262,450,269,787,269,1113,269,1113,274,787,274,450,274,354,267,260,250,177,230,115,211"/>
+<area shape="rect" href="ft__dups_8c.html#a3b7303cd24cea71aa6f5a6f837633ac5" title="Reset redirections by default values Replace the new redirections by stdin and stdout." alt="" coords="1675,181,1807,207"/>
+<area shape="poly" title=" " alt="" coords="149,185,288,173,450,167,1361,167,1521,173,1661,183,1661,189,1521,178,1361,173,450,173,289,179,150,190"/>
+<area shape="rect" href="search__command_8c.html#abddc63e89741f131c56123a3d5b8cb98" title="Search if command is a builtin or not." alt="" coords="204,912,341,937"/>
+<area shape="poly" title=" " alt="" coords="85,208,267,898,262,899,80,209"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="1677,271,1804,296"/>
+<area shape="poly" title=" " alt="" coords="830,218,1175,218,1361,218,1495,222,1627,245,1694,264,1692,269,1626,250,1495,228,1361,223,1175,223,830,223"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="1877,377,1985,403"/>
+<area shape="poly" title=" " alt="" coords="1766,294,1897,368,1894,373,1763,299"/>
+<area shape="poly" title=" " alt="" coords="1755,268,1903,139,1907,143,1759,272"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="1855,247,2008,272"/>
+<area shape="poly" title=" " alt="" coords="1804,273,1841,268,1841,273,1804,278"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="1872,296,1991,321"/>
+<area shape="poly" title=" " alt="" coords="1804,289,1859,296,1858,302,1804,294"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="1895,1013,1967,1039"/>
+<area shape="poly" title=" " alt="" coords="1749,296,1809,497,1881,791,1927,999,1922,1001,1876,792,1804,499,1744,297"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="2056,377,2179,403"/>
+<area shape="poly" title=" " alt="" coords="1986,387,2042,387,2042,393,1986,393"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="2077,1039,2157,1064"/>
+<area shape="poly" title=" " alt="" coords="1968,1028,2064,1041,2063,1047,1967,1033"/>
+<area shape="rect" href="file-general_8c.html#afa1f958de374a503f07aaa41ef3d45bf" title="Opens the files to read and writes." alt="" coords="396,5,507,31"/>
+<area shape="poly" title=" " alt="" coords="348,15,382,15,382,21,348,21"/>
+<area shape="rect" href="file-general_8c.html#afd25b66c3b3e24c11fddfab02bc5e3dd" title="Open a file with it&#39;s rights (permissions)" alt="" coords="705,5,865,31"/>
+<area shape="poly" title=" " alt="" coords="507,15,691,15,691,21,507,21"/>
+<area shape="poly" title=" " alt="" coords="866,15,1175,15,1551,15,1624,15,1681,18,1737,27,1808,47,1859,70,1903,97,1900,101,1857,75,1806,53,1736,32,1681,23,1624,21,1551,21,1175,21,866,21"/>
+<area shape="rect" href="exec__extern_8c.html#a2984947eed76ef7f9a9ce40f27438853" title=" " alt="" coords="1309,408,1411,433"/>
+<area shape="poly" title=" " alt="" coords="1195,282,1334,397,1331,401,1192,286"/>
+<area shape="rect" href="exec_8c.html#af939d04ead94dff4119d76107ae4f857" title="Search path for the designated command." alt="" coords="1499,259,1600,284"/>
+<area shape="poly" title=" " alt="" coords="1226,269,1485,269,1485,274,1226,274"/>
+<area shape="poly" title=" " alt="" coords="1411,415,1863,391,1864,396,1411,421"/>
+<area shape="rect" href="ft__free-utils_8c.html#afe86add0935b71f8af32ab5c23bc861a" title="Free array of strings." alt="" coords="1505,611,1594,636"/>
+<area shape="poly" title=" " alt="" coords="1369,432,1406,506,1436,550,1474,589,1494,603,1491,607,1470,593,1432,553,1401,508,1364,435"/>
+<area shape="rect" href="garbage__utils_8c.html#a1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="1675,799,1807,824"/>
+<area shape="poly" title=" " alt="" coords="1381,431,1473,494,1519,521,1557,539,1592,561,1629,598,1648,630,1656,659,1663,688,1677,722,1699,756,1721,786,1717,789,1694,759,1672,725,1658,689,1651,660,1643,632,1625,601,1589,565,1554,544,1517,526,1471,499,1378,436"/>
+<area shape="rect" href="signals_8c.html#a5f6c32d2562c571a4c4d359be72564a9" title="Function to ignore certain signals." alt="" coords="1495,308,1604,333"/>
+<area shape="poly" title=" " alt="" coords="1376,406,1418,375,1471,344,1489,336,1491,341,1473,348,1420,380,1379,410"/>
+<area shape="rect" href="signals_8c.html#a6fbea2085fba5553723ef14279ccf3ed" title="Function to reset signals to default." alt="" coords="1472,357,1627,383"/>
+<area shape="poly" title=" " alt="" coords="1408,405,1487,384,1489,389,1409,410"/>
+<area shape="rect" href="signals_8c.html#a158e46ae40ca894b730badc8fbbefb2d" title="Main function for initialising signals." alt="" coords="1505,459,1594,484"/>
+<area shape="poly" title=" " alt="" coords="1409,431,1492,453,1490,458,1408,436"/>
+<area shape="poly" title=" " alt="" coords="1595,630,1628,647,1646,664,1656,682,1677,722,1723,786,1719,789,1672,725,1652,684,1642,668,1625,651,1593,635"/>
+<area shape="rect" href="signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="1682,685,1799,711"/>
+<area shape="poly" title=" " alt="" coords="1565,483,1629,552,1724,672,1719,676,1625,556,1561,486"/>
+<area shape="poly" title=" " alt="" coords="1754,709,1809,786,1875,904,1921,999,1916,1002,1870,907,1804,789,1750,712"/>
+<area shape="poly" title=" " alt="" coords="1600,272,1664,276,1663,281,1600,277"/>
+<area shape="poly" title=" " alt="" coords="1592,281,1877,371,1875,376,1590,287"/>
+<area shape="poly" title=" " alt="" coords="1773,179,1885,134,1887,139,1775,184"/>
+<area shape="poly" title=" " alt="" coords="1762,205,1787,228,1809,258,1834,324,1856,415,1875,521,1892,635,1917,852,1931,999,1925,1000,1912,853,1887,636,1870,522,1851,416,1829,326,1804,261,1783,231,1758,209"/>
+<area shape="poly" title=" " alt="" coords="1709,183,1703,173,1706,163,1719,157,1741,155,1767,158,1778,167,1774,171,1765,163,1741,160,1721,162,1710,167,1708,172,1714,180"/>
+<area shape="rect" href="ft__cd_8c.html#ae4a6965a33e0b238c1a6bc8b0955ccbb" title="Implementatin of cd builtin of shell." alt="" coords="425,811,478,836"/>
+<area shape="poly" title=" " alt="" coords="295,910,415,840,418,845,298,914"/>
+<area shape="rect" href="ft__export_8c.html#a463350d0ae16b33596b9047432e0cc4e" title=" " alt="" coords="745,711,825,736"/>
+<area shape="poly" title=" " alt="" coords="317,909,405,882,506,846,638,790,745,740,747,745,640,795,508,851,406,887,319,914"/>
+<area shape="rect" href="ft__echo_8c.html#a3aac9a67ade6ba3d691865aa79171b1e" title="Echo with &#45;n option OPTIONS : &#45;n : print without the triling newline." alt="" coords="1706,1165,1775,1191"/>
+<area shape="poly" title=" " alt="" coords="282,937,297,970,322,1015,356,1063,398,1104,449,1140,494,1162,542,1173,605,1175,1361,1175,1692,1175,1692,1181,1361,1181,605,1181,541,1178,492,1167,446,1145,394,1108,352,1066,317,1018,292,973,277,939"/>
+<area shape="rect" href="ft__env_8c.html#abe591d82eac3a8a6e9cc226617def808" title=" " alt="" coords="420,975,483,1000"/>
+<area shape="poly" title=" " alt="" coords="311,935,408,970,406,975,309,940"/>
+<area shape="rect" href="ft__exit_8c.html#a4c0fa2ac1186e41631c3c61318ee5ef1" title="Function to exit the program." alt="" coords="1709,509,1772,535"/>
+<area shape="poly" title=" " alt="" coords="274,911,301,814,327,743,362,669,406,598,432,566,461,538,493,514,527,496,564,485,605,481,787,481,1058,485,1322,495,1696,516,1696,522,1322,500,1058,490,787,486,605,486,565,490,529,501,495,519,465,542,436,570,411,601,367,672,332,746,306,815,279,913"/>
+<area shape="rect" href="ft__pwd_8c.html#ae1659a2355d5e1eef0596b0b2ee99c17" title="Print the current working directory." alt="" coords="753,1115,818,1140"/>
+<area shape="poly" title=" " alt="" coords="284,936,328,993,360,1026,397,1054,440,1077,486,1094,533,1107,580,1116,669,1125,739,1127,739,1132,668,1131,579,1121,532,1112,484,1099,438,1082,395,1059,357,1030,324,997,280,939"/>
+<area shape="rect" href="ft__unset_8c.html#aec0db9e36dbf49a3883a88f0d0e94061" title=" " alt="" coords="414,912,489,937"/>
+<area shape="poly" title=" " alt="" coords="342,922,401,922,401,927,342,927"/>
+<area shape="rect" href="ft__which_8c.html#acd0d37b9bc80f6a02374454275a8a154" title="Says if the command are built&#45;in commands or not." alt="" coords="568,1064,644,1089"/>
+<area shape="poly" title=" " alt="" coords="290,935,336,972,397,1010,479,1043,555,1064,554,1069,477,1048,395,1015,333,976,287,940"/>
+<area shape="poly" title=" " alt="" coords="479,831,611,878,710,910,825,942,952,973,1086,999,1223,1017,1359,1023,1551,1023,1881,1023,1881,1029,1551,1029,1359,1029,1222,1022,1085,1004,951,978,824,948,708,915,609,883,477,836"/>
+<area shape="rect" href="ft__cd_8c.html#aad8ea089edca1d8d437bd657dda90744" title="Change the values of ENV VAR." alt="" coords="555,711,657,736"/>
+<area shape="poly" title=" " alt="" coords="471,808,573,741,576,746,474,812"/>
+<area shape="poly" title=" " alt="" coords="612,709,643,658,695,579,767,483,857,380,908,329,963,281,1022,236,1083,197,1148,164,1216,139,1286,122,1359,117,1551,117,1862,117,1862,122,1551,122,1359,122,1287,128,1217,144,1150,169,1086,202,1025,241,966,285,912,333,861,383,771,486,699,582,647,661,617,712"/>
+<area shape="poly" title=" " alt="" coords="657,721,731,721,731,726,657,726"/>
+<area shape="rect" href="ft__build__elements_8c.html#ad5a5a325f8f9fd67c0caf9af5325c8df" title=" " alt="" coords="924,572,1047,597"/>
+<area shape="poly" title=" " alt="" coords="798,709,846,664,912,614,937,601,940,605,915,619,849,668,801,712"/>
+<area shape="rect" href="check__args__export_8c.html#ac166eb337815e6e5d5466e9d8c1ed35b" title=" " alt="" coords="913,711,1057,736"/>
+<area shape="poly" title=" " alt="" coords="826,721,899,721,899,726,826,726"/>
+<area shape="rect" href="ft__exit_8c.html#aaf1c06e38a6a58f7fa91b9b13ef4ebfd" title=" " alt="" coords="1506,660,1593,685"/>
+<area shape="poly" title=" " alt="" coords="825,710,928,687,1076,661,1161,650,1248,643,1337,641,1424,646,1493,657,1492,662,1424,651,1337,647,1249,649,1161,655,1077,666,929,692,826,716"/>
+<area shape="rect" href="sort__env_8c.html#a1f5297dc4afe1fea46062b5b3040adaa" title=" " alt="" coords="923,811,1048,836"/>
+<area shape="poly" title=" " alt="" coords="813,734,948,802,946,807,811,739"/>
+<area shape="rect" href="functions__utils_8c.html#ac7f2fc3327c47f5ca9735bcc235d279f" title=" " alt="" coords="1105,572,1248,597"/>
+<area shape="poly" title=" " alt="" coords="1047,582,1092,582,1092,587,1047,587"/>
+<area shape="rect" href="sort__env_8c.html#a3563e13e22e445599756308722f3a93e" title=" " alt="" coords="1127,811,1226,836"/>
+<area shape="poly" title=" " alt="" coords="1048,821,1114,821,1114,826,1048,826"/>
+<area shape="rect" href="copy__env_8c.html#a2b721a51a3e61d980a5c8ec749a6f1f3" title=" " alt="" coords="1135,736,1219,761"/>
+<area shape="poly" title=" " alt="" coords="1018,808,1130,764,1132,769,1020,813"/>
+<area shape="rect" href="free__env_8c.html#abab23f73a53bac96e2884f3c4eb68756" title=" " alt="" coords="1321,963,1399,988"/>
+<area shape="poly" title=" " alt="" coords="1005,834,1050,864,1106,896,1213,935,1308,961,1307,966,1211,940,1104,900,1047,869,1002,838"/>
+<area shape="rect" href="print__export_8c.html#abbe8d960f0925eb4d7c6801f7ff5d983" title=" " alt="" coords="1126,860,1227,885"/>
+<area shape="poly" title=" " alt="" coords="1036,833,1114,854,1112,859,1035,839"/>
+<area shape="rect" href="functions__utils_8c.html#a1f2ff2312e5994560c9537cd9173be94" title=" " alt="" coords="1508,811,1591,836"/>
+<area shape="poly" title=" " alt="" coords="1226,833,1296,846,1360,850,1424,846,1494,834,1495,839,1424,851,1360,856,1296,851,1225,839"/>
+<area shape="rect" href="swap__env_8c.html#a67fe16908b014c38750bbd944adef152" title=" " alt="" coords="1315,811,1405,836"/>
+<area shape="poly" title=" " alt="" coords="1226,821,1301,821,1301,826,1226,826"/>
+<area shape="poly" title=" " alt="" coords="1406,821,1494,821,1494,826,1406,826"/>
+<area shape="rect" href="garbage_8c.html#ac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="1505,761,1594,787"/>
+<area shape="poly" title=" " alt="" coords="1405,809,1490,786,1492,792,1406,814"/>
+<area shape="poly" title=" " alt="" coords="1567,759,1597,732,1624,697,1647,645,1656,601,1661,555,1672,497,1728,308,1734,310,1677,499,1666,556,1661,602,1652,646,1629,699,1601,736,1570,763"/>
+<area shape="poly" title=" " alt="" coords="1219,744,1313,742,1424,747,1491,758,1490,763,1424,753,1313,748,1219,749"/>
+<area shape="poly" title=" " alt="" coords="1147,737,1140,728,1144,718,1156,712,1177,709,1202,713,1212,722,1209,726,1199,718,1177,715,1158,717,1148,721,1145,727,1151,734"/>
+<area shape="rect" href="manipulation__var_8c.html#a1286489f2b3fcb2da48bc00cc8da7545" title=" " alt="" coords="1296,761,1424,787"/>
+<area shape="poly" title=" " alt="" coords="1219,752,1283,761,1282,766,1219,757"/>
+<area shape="rect" href="manipulation__var_8c.html#acf61091312a04edb68f98a670f3d1bd4" title=" " alt="" coords="1325,660,1395,685"/>
+<area shape="poly" title=" " alt="" coords="1207,733,1315,688,1317,693,1209,738"/>
+<area shape="poly" title=" " alt="" coords="1396,678,1501,705,1565,724,1628,748,1708,789,1706,794,1626,752,1563,729,1500,710,1395,683"/>
+<area shape="poly" title=" " alt="" coords="1396,670,1492,670,1492,675,1396,675"/>
+<area shape="poly" title=" " alt="" coords="1391,683,1425,702,1449,722,1473,740,1501,754,1498,758,1471,744,1446,726,1423,707,1388,688"/>
+<area shape="poly" title=" " alt="" coords="1400,978,1448,981,1506,979,1567,969,1597,960,1625,948,1658,924,1686,894,1725,835,1729,838,1691,897,1662,928,1628,952,1599,965,1569,975,1506,985,1448,986,1399,983"/>
+<area shape="rect" href="free__env_8c.html#a46d357c3397a4ccfea21c03c7534124e" title=" " alt="" coords="1497,912,1601,937"/>
+<area shape="poly" title=" " alt="" coords="1399,962,1488,938,1489,943,1400,968"/>
+<area shape="poly" title=" " alt="" coords="1584,910,1625,890,1672,860,1712,830,1715,835,1675,865,1628,895,1587,914"/>
+<area shape="poly" title=" " alt="" coords="1771,1163,1805,1144,1863,1095,1908,1047,1912,1051,1867,1099,1808,1148,1774,1168"/>
+<area shape="poly" title=" " alt="" coords="1775,1164,2064,1066,2066,1071,1777,1169"/>
+<area shape="rect" href="ft__env_8c.html#a9c5c26c457fd41efcc9a25eaecefc6c6" title=" " alt="" coords="565,1015,647,1040"/>
+<area shape="poly" title=" " alt="" coords="483,993,552,1011,551,1016,482,998"/>
+<area shape="poly" title=" " alt="" coords="1759,507,1899,408,1902,413,1762,511"/>
+<area shape="poly" title=" " alt="" coords="1750,534,1809,673,1877,860,1924,999,1919,1001,1872,861,1804,675,1745,536"/>
+<area shape="poly" title=" " alt="" coords="818,1125,1175,1125,1551,1125,1624,1125,1681,1122,1736,1113,1806,1093,1857,1070,1900,1044,1903,1049,1859,1075,1808,1098,1737,1118,1681,1127,1624,1130,1551,1130,1175,1130,818,1130"/>
+<area shape="rect" href="supp__var__in__env_8c.html#a8ee11170657a6e16d5c992f4b9198760" title=" " alt="" coords="1319,912,1401,937"/>
+<area shape="poly" title=" " alt="" coords="489,922,784,922,987,922,1305,922,1305,927,987,927,784,927,489,927"/>
+<area shape="poly" title=" " alt="" coords="1400,911,1626,846,1688,826,1690,831,1627,851,1402,916"/>
+<area shape="poly" title=" " alt="" coords="1388,909,1423,890,1446,872,1471,853,1498,839,1501,844,1473,858,1449,876,1425,895,1391,914"/>
+<area shape="poly" title=" " alt="" coords="1370,910,1425,845,1470,797,1491,787,1493,791,1474,801,1429,849,1374,914"/>
+<area shape="poly" title=" " alt="" coords="1401,922,1484,922,1484,927,1401,927"/>
+<area shape="poly" title=" " alt="" coords="644,1074,984,1074,1551,1074,1643,1070,1734,1060,1881,1034,1882,1039,1735,1065,1643,1075,1551,1079,984,1079,644,1079"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aa12e6d7cfc3b5571e6483e953a2db8df" name="aa12e6d7cfc3b5571e6483e953a2db8df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa12e6d7cfc3b5571e6483e953a2db8df">&#9670;&#160;</a></span>prepare_command_forks()</h2>
+<a id="af96b5fb0d628aaa36ad1f1fdcde3ae24" name="af96b5fb0d628aaa36ad1f1fdcde3ae24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af96b5fb0d628aaa36ad1f1fdcde3ae24">&#9670;&#160;</a></span>prepare_command_forks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,103 +396,178 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">int prepare_command_forks </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="minishell_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ret</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="exec_8c_aa12e6d7cfc3b5571e6483e953a2db8df_cgraph.png" border="0" usemap="#aexec_8c_aa12e6d7cfc3b5571e6483e953a2db8df_cgraph" alt=""/></div>
-<map name="aexec_8c_aa12e6d7cfc3b5571e6483e953a2db8df_cgraph" id="aexec_8c_aa12e6d7cfc3b5571e6483e953a2db8df_cgraph">
-<area shape="rect" title=" " alt="" coords="5,707,189,732"/>
-<area shape="rect" href="token-utils_8c.html#a670abc1915662e3cfffd3b705224e23d" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="675,708,763,733"/>
-<area shape="poly" title=" " alt="" coords="190,717,661,718,661,723,190,722"/>
-<area shape="rect" href="ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="1055,756,1141,781"/>
-<area shape="poly" title=" " alt="" coords="118,730,170,763,203,779,238,793,313,812,373,819,512,818,720,818,808,814,896,804,1041,779,1042,784,897,809,809,819,720,823,512,823,373,824,312,817,237,798,201,784,168,767,115,734"/>
-<area shape="rect" href="ft__dups__forks_8c.html#a6f6a2e5ead4dddc5928548bb7973509a" title="Change the previous input of pipe to a new redirection." alt="" coords="861,5,959,31"/>
-<area shape="poly" title=" " alt="" coords="96,706,99,628,105,570,116,505,133,435,157,366,191,300,235,242,268,210,304,181,383,132,467,94,554,65,639,44,719,30,847,17,847,23,720,36,640,50,556,70,469,99,385,137,307,185,272,214,239,245,196,303,162,368,138,437,121,506,110,571,104,628,101,706"/>
-<area shape="rect" href="exec__in__forks_8c.html#a6c023b75d59d8711c6aedf7faef9e18c" title="Executes the command in a forks." alt="" coords="243,504,382,529"/>
-<area shape="poly" title=" " alt="" coords="110,705,286,537,290,541,114,709"/>
-<area shape="rect" href="ft__free_8c.html#a81a8163a838ff55d33697de5148af1d4" title="Free array of strings." alt="" coords="268,859,357,884"/>
-<area shape="poly" title=" " alt="" coords="113,730,165,781,201,810,239,837,264,851,262,855,236,842,197,814,162,785,109,734"/>
-<area shape="rect" href="ft__dups_8c.html#a557b0a55bf37d0d4004b9fbdf96ad558" title="Create and redirect inputs and outputs needed for the command." alt="" coords="237,757,388,783"/>
-<area shape="poly" title=" " alt="" coords="153,730,245,752,244,757,152,735"/>
-<area shape="rect" href="command-utils_8c.html#a458910531201e249c945c6658fc553f3" title="Print the command structure with it&#39;s tokens." alt="" coords="251,255,375,280"/>
-<area shape="poly" title=" " alt="" coords="102,705,297,292,302,294,107,707"/>
-<area shape="rect" href="garbage_8c.html#a75d6ee43945d20edad710c8ef61b5940" title="Add a pointer to the garbage list." alt="" coords="847,605,973,631"/>
-<area shape="poly" title=" " alt="" coords="742,706,872,635,874,640,745,710"/>
-<area shape="rect" href="garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="1403,504,1511,529"/>
-<area shape="poly" title=" " alt="" coords="967,603,1021,591,1187,561,1354,533,1389,526,1390,532,1355,538,1188,566,1022,597,968,608"/>
-<area shape="rect" href="garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="1569,705,1671,731"/>
-<area shape="poly" title=" " alt="" coords="938,629,975,651,998,673,1008,682,1022,690,1093,713,1167,728,1241,736,1315,740,1450,736,1555,726,1555,731,1450,742,1315,745,1241,742,1166,733,1092,718,1020,695,1005,687,994,677,972,655,935,633"/>
-<area shape="poly" title=" " alt="" coords="946,628,975,648,992,671,999,693,1007,714,1023,735,1043,748,1040,753,1020,739,1002,716,994,695,987,674,971,652,943,633"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="1021,605,1175,631"/>
-<area shape="poly" title=" " alt="" coords="974,615,1007,615,1007,621,974,621"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="1039,655,1157,680"/>
-<area shape="poly" title=" " alt="" coords="960,628,1036,648,1035,654,958,633"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="1062,205,1134,231"/>
-<area shape="poly" title=" " alt="" coords="922,603,947,576,971,541,1012,459,1046,375,1087,243,1092,245,1051,377,1017,461,976,543,951,579,926,607"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1559,504,1681,529"/>
-<area shape="poly" title=" " alt="" coords="1511,514,1545,514,1545,519,1511,519"/>
-<area shape="poly" title=" " alt="" coords="1471,528,1602,693,1598,696,1466,532"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="1249,205,1329,231"/>
-<area shape="poly" title=" " alt="" coords="1134,215,1234,215,1234,221,1134,221"/>
-<area shape="poly" title=" " alt="" coords="1299,230,1444,491,1439,493,1295,232"/>
-<area shape="poly" title=" " alt="" coords="960,21,1045,37,1151,67,1207,90,1261,118,1312,152,1357,192,1384,228,1406,267,1423,309,1436,351,1451,430,1457,490,1452,490,1446,431,1431,352,1418,310,1401,269,1380,230,1353,196,1309,156,1259,122,1205,95,1150,72,1044,42,959,26"/>
-<area shape="poly" title=" " alt="" coords="944,28,975,48,1010,83,1041,122,1086,192,1081,194,1037,126,1007,87,972,52,941,33"/>
-<area shape="poly" title=" " alt="" coords="364,527,436,539,587,551,704,551,973,539,1202,530,1389,519,1389,524,1202,535,973,545,704,556,587,556,436,545,363,532"/>
-<area shape="rect" href="signals_8c.html#a5f6c32d2562c571a4c4d359be72564a9" title="Function to ignore certain signals." alt="" coords="459,504,568,529"/>
-<area shape="poly" title=" " alt="" coords="382,514,445,514,445,519,382,519"/>
-<area shape="rect" href="exec__extern_8c.html#a521da36622246e2b19debf611d185614" title="Executes commands that are not builtins." alt="" coords="464,631,563,656"/>
-<area shape="poly" title=" " alt="" coords="336,527,482,621,479,626,333,532"/>
-<area shape="rect" href="signals_8c.html#a6fbea2085fba5553723ef14279ccf3ed" title="Function to reset signals to default." alt="" coords="436,455,591,480"/>
-<area shape="poly" title=" " alt="" coords="364,501,447,481,448,486,366,507"/>
-<area shape="rect" href="search__command_8c.html#accacfd1a8d3b7fbdff0d572e6d5736ad" title="Search if command is a builtin or not." alt="" coords="650,279,787,304"/>
-<area shape="poly" title=" " alt="" coords="326,502,372,461,435,416,495,382,558,351,667,306,670,311,561,356,498,386,437,420,375,465,329,506"/>
-<area shape="rect" href="signals_8c.html#a158e46ae40ca894b730badc8fbbefb2d" title="Main function for initialising signals." alt="" coords="674,479,763,504"/>
-<area shape="poly" title=" " alt="" coords="327,502,373,469,403,453,435,441,478,431,513,429,591,441,638,454,681,470,679,475,637,459,590,446,513,434,479,436,437,446,405,458,376,474,330,506"/>
-<area shape="poly" title=" " alt="" coords="549,654,672,701,670,706,547,659"/>
-<area shape="poly" title=" " alt="" coords="563,638,833,620,833,626,563,643"/>
-<area shape="poly" title=" " alt="" coords="564,649,799,694,1042,752,1041,757,798,699,563,654"/>
-<area shape="rect" href="ft__cd_8c.html#ac9978b56415a76c70d19cb22c56b409d" title="Implementatin of cd builtin of shell." alt="" coords="883,205,937,231"/>
-<area shape="poly" title=" " alt="" coords="752,276,869,231,871,236,754,281"/>
-<area shape="rect" href="ft__echo_8c.html#aef55bfe2924d6b7282b1e3983791da02" title="Echo with &#45;n option OPTIONS : &#45;n : print without the triling newline." alt="" coords="875,107,945,132"/>
-<area shape="poly" title=" " alt="" coords="726,277,772,214,806,176,845,142,861,133,864,138,848,147,810,180,776,217,730,280"/>
-<area shape="rect" href="ft__env_8c.html#a0f7285fc866730bc749d28def603ce57" title=" " alt="" coords="879,304,941,329"/>
-<area shape="poly" title=" " alt="" coords="788,298,865,308,865,313,787,303"/>
-<area shape="rect" href="ft__env_8c.html#abf30ae08f03d6ea8baea636c9cb1b0d2" title=" " alt="" coords="870,353,950,379"/>
-<area shape="poly" title=" " alt="" coords="753,302,848,340,864,346,862,351,846,344,751,307"/>
-<area shape="rect" href="ft__cd_8c.html#afeba101359d0224bf94a9689513e4bfe" title="Print the current working directory." alt="" coords="877,255,943,280"/>
-<area shape="poly" title=" " alt="" coords="787,280,863,270,864,276,788,285"/>
-<area shape="rect" href="ft__env_8c.html#a3717e4b670c94940fbc9b0bd7ab5cfd9" title=" " alt="" coords="873,403,947,428"/>
-<area shape="poly" title=" " alt="" coords="735,302,783,344,848,389,861,396,859,401,845,394,780,348,732,306"/>
-<area shape="rect" href="ft__which_8c.html#aa7aad378dd77466bd445355193908de3" title="Says if the command are built&#45;in commands or not." alt="" coords="872,156,948,181"/>
-<area shape="poly" title=" " alt="" coords="732,277,780,236,845,192,859,185,861,189,848,196,784,240,736,281"/>
-<area shape="poly" title=" " alt="" coords="937,215,1048,215,1048,221,937,221"/>
-<area shape="poly" title=" " alt="" coords="946,130,975,142,1067,196,1064,200,972,147,944,135"/>
-<area shape="poly" title=" " alt="" coords="945,126,1236,202,1234,207,944,131"/>
-<area shape="poly" title=" " alt="" coords="942,256,1048,228,1049,233,943,262"/>
-<area shape="poly" title=" " alt="" coords="949,176,1049,203,1048,208,948,181"/>
-<area shape="poly" title=" " alt="" coords="730,503,776,567,810,606,848,641,881,661,909,672,939,681,975,698,999,717,1023,734,1050,748,1048,753,1020,739,996,721,972,703,937,686,908,677,879,666,845,645,806,610,772,571,726,506"/>
-<area shape="poly" title=" " alt="" coords="763,491,810,489,865,482,921,466,947,454,972,439,995,418,1016,394,1050,341,1073,287,1087,244,1092,245,1078,289,1054,343,1020,397,999,422,975,443,950,458,923,471,866,487,810,494,763,496"/>
-<area shape="rect" href="signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="851,504,969,529"/>
-<area shape="poly" title=" " alt="" coords="764,495,838,504,837,510,763,500"/>
-<area shape="poly" title=" " alt="" coords="945,501,972,483,995,454,1017,423,1050,356,1074,293,1088,243,1093,245,1079,294,1055,358,1021,425,1000,457,975,487,948,506"/>
-<area shape="rect" href="garbage__utils_8c.html#a870b150909b291fe325d9dd98d37e175" title="Free an element in the garbage collector." alt="" coords="1223,832,1355,857"/>
-<area shape="poly" title=" " alt="" coords="358,869,717,869,911,869,1070,863,1209,851,1209,856,1070,868,911,874,717,874,358,874"/>
-<area shape="poly" title=" " alt="" coords="1322,829,1572,733,1574,738,1324,834"/>
-<area shape="rect" href="file-general_8c.html#a193c0bf8702f604a85edbde26b3f0a8d" title="Opens the files to read and writes." alt="" coords="458,757,569,783"/>
-<area shape="poly" title=" " alt="" coords="388,767,444,767,444,773,388,773"/>
-<area shape="rect" href="file-general_8c.html#a14d33c3540b9d426750b32dee40b3015" title="Open a file with it&#39;s rights (permissions)" alt="" coords="639,757,799,783"/>
-<area shape="poly" title=" " alt="" coords="569,767,625,767,625,773,569,773"/>
-<area shape="poly" title=" " alt="" coords="799,767,1041,766,1041,772,799,772"/>
-<area shape="poly" title=" " alt="" coords="342,252,426,217,549,171,694,126,770,107,846,93,911,81,940,82,974,93,1009,113,1040,139,1083,192,1079,195,1036,143,1006,117,972,98,939,88,912,87,847,98,772,112,696,131,550,176,428,222,344,257"/>
+<div class="center"><img src="exec_8c_af96b5fb0d628aaa36ad1f1fdcde3ae24_cgraph.png" border="0" usemap="#aexec_8c_af96b5fb0d628aaa36ad1f1fdcde3ae24_cgraph" alt=""/></div>
+<map name="aexec_8c_af96b5fb0d628aaa36ad1f1fdcde3ae24_cgraph" id="aexec_8c_af96b5fb0d628aaa36ad1f1fdcde3ae24_cgraph">
+<area shape="rect" title=" " alt="" coords="5,222,189,247"/>
+<area shape="rect" href="exec-utils_8c.html#a68ff9e66a3ecaf523d293aaec067bd4e" title="Cound the number of commands in the command structure." alt="" coords="469,20,607,46"/>
+<area shape="poly" title=" " alt="" coords="100,220,116,181,143,127,183,73,208,49,236,31,266,18,297,10,361,3,423,6,477,15,476,20,423,12,361,8,298,15,267,23,239,35,211,54,187,76,148,130,121,183,105,222"/>
+<area shape="rect" href="exec__pipeline_8c.html#a295e94f031459c05f5e70d265e820ecd" title="Execute all the command that are followed by pipes." alt="" coords="263,95,395,120"/>
+<area shape="poly" title=" " alt="" coords="113,219,166,180,236,137,271,123,273,128,239,142,169,185,116,224"/>
+<area shape="rect" href="exec_8c.html#ac85fff88d8f2a9841059252bb313d5bb" title=" " alt="" coords="237,246,421,271"/>
+<area shape="poly" title=" " alt="" coords="190,241,224,245,223,250,190,247"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="852,198,960,223"/>
+<area shape="poly" title=" " alt="" coords="124,219,175,198,237,181,320,170,406,164,491,164,574,167,725,180,839,196,838,201,724,185,574,172,491,169,406,170,321,175,238,186,177,203,126,224"/>
+<area shape="rect" href="garbage__utils_8c.html#a1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="263,396,395,422"/>
+<area shape="poly" title=" " alt="" coords="109,246,158,312,196,350,239,383,252,390,249,394,236,387,192,354,154,315,105,249"/>
+<area shape="rect" href="signals_8c.html#a5f6c32d2562c571a4c4d359be72564a9" title="Function to ignore certain signals." alt="" coords="275,446,384,471"/>
+<area shape="poly" title=" " alt="" coords="106,246,123,284,151,334,190,387,213,411,239,432,263,444,260,449,236,437,210,415,186,391,147,337,119,286,101,249"/>
+<area shape="rect" href="garbage_8c.html#ac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="493,347,583,372"/>
+<area shape="poly" title=" " alt="" coords="134,245,238,280,368,316,481,344,480,349,367,321,237,285,132,250"/>
+<area shape="rect" href="exec_8c.html#adec5648ce02f6feefadbb4b84d997b96" title="Search Path for all commands." alt="" coords="275,196,383,222"/>
+<area shape="poly" title=" " alt="" coords="190,222,261,214,262,219,190,227"/>
+<area shape="rect" href="signals_8c.html#a158e46ae40ca894b730badc8fbbefb2d" title="Main function for initialising signals." alt="" coords="285,347,374,372"/>
+<area shape="poly" title=" " alt="" coords="116,245,169,284,239,325,273,340,271,345,236,330,166,288,113,250"/>
+<area shape="rect" href="exec__pipeline_8c.html#a308cb3ae739e2ee3f6c26d3240d60601" title="Waits for all the childs with their pids." alt="" coords="270,46,389,71"/>
+<area shape="poly" title=" " alt="" coords="104,220,154,153,192,114,236,80,256,70,258,75,239,85,195,118,158,157,109,223"/>
+<area shape="rect" href="exec-utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Safely close fd." alt="" coords="493,95,583,120"/>
+<area shape="poly" title=" " alt="" coords="396,105,479,105,479,110,396,110"/>
+<area shape="rect" href="token-utils_8c.html#ae660ae4acf50d9bc04cd300c1096353c" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="494,298,582,323"/>
+<area shape="poly" title=" " alt="" coords="382,269,481,294,480,299,380,274"/>
+<area shape="poly" title=" " alt="" coords="421,248,838,213,838,219,422,253"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="655,298,781,323"/>
+<area shape="poly" title=" " alt="" coords="582,308,641,308,641,313,582,313"/>
+<area shape="poly" title=" " alt="" coords="747,295,780,276,803,254,828,234,843,226,846,230,831,238,807,258,783,281,749,300"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="851,248,961,274"/>
+<area shape="poly" title=" " alt="" coords="766,295,843,275,844,280,768,300"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="829,298,983,323"/>
+<area shape="poly" title=" " alt="" coords="782,308,815,308,815,313,782,313"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="847,347,965,372"/>
+<area shape="poly" title=" " alt="" coords="768,321,844,341,843,346,766,326"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="870,396,942,422"/>
+<area shape="poly" title=" " alt="" coords="736,321,778,351,831,383,858,394,856,399,828,387,775,356,733,325"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="1031,198,1153,223"/>
+<area shape="poly" title=" " alt="" coords="960,208,1017,208,1017,213,960,213"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="1052,396,1132,422"/>
+<area shape="poly" title=" " alt="" coords="942,406,1038,406,1038,412,942,412"/>
+<area shape="poly" title=" " alt="" coords="582,345,657,324,658,329,583,350"/>
+<area shape="rect" href="exec_8c.html#af939d04ead94dff4119d76107ae4f857" title="Search path for the designated command." alt="" coords="487,196,589,222"/>
+<area shape="poly" title=" " alt="" coords="384,206,474,206,474,212,384,212"/>
+<area shape="poly" title=" " alt="" coords="563,220,684,289,681,293,560,224"/>
+<area shape="poly" title=" " alt="" coords="589,207,838,208,838,213,589,212"/>
+<area shape="rect" href="signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="659,396,777,422"/>
+<area shape="poly" title=" " alt="" coords="375,366,470,382,646,401,645,406,469,388,374,371"/>
+<area shape="poly" title=" " alt="" coords="777,406,856,406,856,412,777,412"/>
+<area shape="poly" title=" " alt="" coords="389,49,455,40,456,46,389,54"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af939d04ead94dff4119d76107ae4f857" name="af939d04ead94dff4119d76107ae4f857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af939d04ead94dff4119d76107ae4f857">&#9670;&#160;</a></span>search_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void search_path </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Search path for the designated command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
+    <tr><td class="paramname">command</td><td>command structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="exec_8c_af939d04ead94dff4119d76107ae4f857_cgraph.png" border="0" usemap="#aexec_8c_af939d04ead94dff4119d76107ae4f857_cgraph" alt=""/></div>
+<map name="aexec_8c_af939d04ead94dff4119d76107ae4f857_cgraph" id="aexec_8c_af939d04ead94dff4119d76107ae4f857_cgraph">
+<area shape="rect" title="Search path for the designated command." alt="" coords="5,55,107,80"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="155,80,281,105"/>
+<area shape="poly" title=" " alt="" coords="107,73,141,78,140,83,106,78"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="352,5,460,31"/>
+<area shape="poly" title=" " alt="" coords="106,58,338,25,338,30,107,63"/>
+<area shape="poly" title=" " alt="" coords="244,77,328,40,348,32,350,37,330,44,246,82"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="351,55,461,80"/>
+<area shape="poly" title=" " alt="" coords="281,82,336,74,337,79,282,87"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="329,104,483,129"/>
+<area shape="poly" title=" " alt="" coords="282,98,316,102,315,108,281,103"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="347,153,465,179"/>
+<area shape="poly" title=" " alt="" coords="248,103,330,138,353,146,351,151,328,143,246,108"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="370,203,442,228"/>
+<area shape="poly" title=" " alt="" coords="232,104,273,145,301,169,331,189,357,201,355,206,328,194,297,173,269,149,228,107"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="531,5,653,31"/>
+<area shape="poly" title=" " alt="" coords="460,15,517,15,517,21,460,21"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="552,203,632,228"/>
+<area shape="poly" title=" " alt="" coords="442,213,538,213,538,218,442,218"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adec5648ce02f6feefadbb4b84d997b96" name="adec5648ce02f6feefadbb4b84d997b96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adec5648ce02f6feefadbb4b84d997b96">&#9670;&#160;</a></span>search_paths()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void search_paths </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Search Path for all commands. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
+    <tr><td class="paramname">command</td><td>command structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="exec_8c_adec5648ce02f6feefadbb4b84d997b96_cgraph.png" border="0" usemap="#aexec_8c_adec5648ce02f6feefadbb4b84d997b96_cgraph" alt=""/></div>
+<map name="aexec_8c_adec5648ce02f6feefadbb4b84d997b96_cgraph" id="aexec_8c_adec5648ce02f6feefadbb4b84d997b96_cgraph">
+<area shape="rect" title="Search Path for all commands." alt="" coords="5,55,113,80"/>
+<area shape="rect" href="exec_8c.html#af939d04ead94dff4119d76107ae4f857" title="Search path for the designated command." alt="" coords="161,55,263,80"/>
+<area shape="poly" title=" " alt="" coords="114,65,148,65,148,70,114,70"/>
+<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="311,80,437,105"/>
+<area shape="poly" title=" " alt="" coords="263,73,297,78,296,83,262,78"/>
+<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="508,5,616,31"/>
+<area shape="poly" title=" " alt="" coords="262,58,494,25,494,30,263,63"/>
+<area shape="poly" title=" " alt="" coords="400,77,484,40,504,32,506,37,486,44,402,82"/>
+<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="507,55,617,80"/>
+<area shape="poly" title=" " alt="" coords="437,82,492,74,493,79,438,87"/>
+<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="485,104,639,129"/>
+<area shape="poly" title=" " alt="" coords="438,98,472,102,471,108,437,103"/>
+<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="503,153,621,179"/>
+<area shape="poly" title=" " alt="" coords="404,103,486,138,509,146,507,151,484,143,402,108"/>
+<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="526,203,598,228"/>
+<area shape="poly" title=" " alt="" coords="388,104,429,145,457,169,487,189,513,201,511,206,484,194,453,173,425,149,384,107"/>
+<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="687,5,809,31"/>
+<area shape="poly" title=" " alt="" coords="616,15,673,15,673,21,616,21"/>
+<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="708,203,788,228"/>
+<area shape="poly" title=" " alt="" coords="598,213,694,213,694,218,598,218"/>
 </map>
 </div>
 

@@ -1,0 +1,44 @@
+.TH "src/env/manipulation_var.c" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/env/manipulation_var.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'env\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_var\fP * \fBft_varlast\fP (\fBt_var\fP *var)"
+.br
+.ti -1c
+.RI "void \fBft_varsadd_back\fP (\fBt_var\fP **var, \fBt_var\fP *new)"
+.br
+.ti -1c
+.RI "void \fBft_varsadd_front\fP (\fBt_var\fP **var, \fBt_var\fP *new)"
+.br
+.ti -1c
+.RI "\fBt_var\fP * \fBget_var\fP (\fBt_garbage\fP *garbage, const char *var)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBt_var\fP * ft_varlast (\fBt_var\fP * var)"
+
+.SS "void ft_varsadd_back (\fBt_var\fP ** var, \fBt_var\fP * new)"
+
+.SS "void ft_varsadd_front (\fBt_var\fP ** var, \fBt_var\fP * new)"
+
+.SS "\fBt_var\fP * get_var (\fBt_garbage\fP * garbage, const char * var)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

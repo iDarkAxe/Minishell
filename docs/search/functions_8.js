@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ignore_5fsignal_0',['ignore_signal',['../signals_8c.html#a5f6c32d2562c571a4c4d359be72564a9',1,'ignore_signal(void):&#160;signals.c'],['../minishell_8h.html#a5f6c32d2562c571a4c4d359be72564a9',1,'ignore_signal(void):&#160;signals.c']]],
-  ['is_5foperator_5fchar_1',['is_operator_char',['../lexer-utils_8c.html#aed920c4ccf5ae57509ab4f9ca6fdc2db',1,'is_operator_char(char c):&#160;lexer-utils.c'],['../minishell_8h.html#aed920c4ccf5ae57509ab4f9ca6fdc2db',1,'is_operator_char(char c):&#160;lexer-utils.c']]]
+  ['handle_5fexpand_0',['handle_expand',['../expand__variable_8c.html#ad53ddd25b463fe615059e98b431ecb9e',1,'handle_expand(t_data *data, char *str):&#160;expand_variable.c'],['../parsing_8h.html#ad53ddd25b463fe615059e98b431ecb9e',1,'handle_expand(t_data *data, char *str):&#160;expand_variable.c']]],
+  ['handle_5fredirections_1',['handle_redirections',['../ft__dups_8c.html#a573b960f756c58b9ea82f33de1598229',1,'handle_redirections(t_garbage *garbage, t_command *command, int fd_backup[2]):&#160;ft_dups.c'],['../exec_8h.html#a573b960f756c58b9ea82f33de1598229',1,'handle_redirections(t_garbage *garbage, t_command *command, int fd_backup[2]):&#160;ft_dups.c']]],
+  ['handle_5fredirections_5fforks_2',['handle_redirections_forks',['../ft__dups_8c.html#a915747e5ca3e2fa8aad5d08d662b424c',1,'handle_redirections_forks(t_garbage *garbage, t_command *command):&#160;ft_dups.c'],['../exec_8h.html#a915747e5ca3e2fa8aad5d08d662b424c',1,'handle_redirections_forks(t_garbage *garbage, t_command *command):&#160;ft_dups.c']]]
 ];

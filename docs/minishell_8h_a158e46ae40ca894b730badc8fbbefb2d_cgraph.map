@@ -1,18 +1,9 @@
 <map id="signal_init" name="signal_init">
-<area shape="rect" id="Node000001" title="Main function for initialising signals." alt="" coords="5,56,95,81"/>
-<area shape="rect" id="Node000002" href="$ft__exit_8c.html#ac9b79e1d2c4ae9dfb91fc86415d60937" title=" " alt="" coords="158,5,245,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,53,149,33,151,38,90,58"/>
-<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="308,81,380,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,70,295,87,294,92,95,75"/>
-<area shape="rect" id="Node000008" href="$signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="143,107,260,132"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="90,79,151,100,149,105,88,84"/>
-<area shape="rect" id="Node000004" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="428,81,508,107"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="380,91,414,91,414,97,380,97"/>
-<area shape="rect" id="Node000005" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="556,81,664,107"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="508,91,542,91,542,97,508,97"/>
-<area shape="rect" id="Node000006" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="712,56,835,81"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="664,83,698,78,699,83,665,88"/>
-<area shape="rect" id="Node000007" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="722,105,825,131"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="665,99,709,106,708,111,664,105"/>
-<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="260,106,294,100,295,105,260,112"/>
+<area shape="rect" id="Node000001" title="Main function for initialising signals." alt="" coords="5,5,95,31"/>
+<area shape="rect" id="Node000002" href="$signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="143,5,260,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,15,129,15,129,21,95,21"/>
+<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="308,5,380,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="260,15,294,15,294,21,260,21"/>
+<area shape="rect" id="Node000004" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="428,5,508,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="380,15,414,15,414,21,380,21"/>
 </map>

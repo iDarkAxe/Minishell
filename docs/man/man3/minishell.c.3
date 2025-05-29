@@ -2,43 +2,60 @@
 .ad l
 .nh
 .SH NAME
-src/minishell.c
+src/minishell.c \- : Main program of the Minishell  
+
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
-.br
-\fR#include 'garbage\&.h'\fP
-.br
-\fR#include 'file\&.h'\fP
+\fR#include 'builtins\&.h'\fP
 .br
 \fR#include 'env\&.h'\fP
 .br
-\fR#include 'builtins\&.h'\fP
+\fR#include 'file\&.h'\fP
+.br
+\fR#include 'garbage\&.h'\fP
+.br
+\fR#include 'exec\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
 .br
 \fR#include <readline/history\&.h>\fP
 .br
 \fR#include <readline/readline\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBminishell\fP (char **envp)"
+.RI "int \fBminishell\fP (\fBt_data\fP *data)"
 .br
 .RI "Minishell that handles all the shell functions\&. "
 .in -1c
+.SH "Detailed Description"
+.PP 
+: Main program of the Minishell 
+
+
+.PP
+\fBDate\fP
+.RS 4
+27 avril 2025 
+.RE
+.PP
+
 .SH "Function Documentation"
 .PP 
-.SS "int minishell (char ** envp)"
+.SS "int minishell (\fBt_data\fP * data)"
 
 .PP
 Minishell that handles all the shell functions\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIenvp\fP environmment 
+\fIdata\fP data structure already set 
 .RE
 .PP
 \fBReturns\fP

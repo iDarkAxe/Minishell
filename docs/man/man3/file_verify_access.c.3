@@ -25,7 +25,7 @@ src/file/file_verify_access.c
 .br
 .RI "Return the last file that is not already_searched\&. "
 .ti -1c
-.RI "int \fBverify_access\fP (\fBt_command\fP *command)"
+.RI "int \fBverify_access\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command)"
 .br
 .RI "Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. "
 .in -1c
@@ -49,7 +49,7 @@ t_file* last file begore already_searched
 .RE
 .PP
 
-.SS "int verify_access (\fBt_command\fP * command)"
+.SS "int verify_access (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
 
 .PP
 Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. 

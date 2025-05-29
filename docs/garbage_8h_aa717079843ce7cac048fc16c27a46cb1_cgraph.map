@@ -1,0 +1,5 @@
+<map id="free_garbage" name="free_garbage">
+<area shape="rect" id="Node000001" title="Free the garbage." alt="" coords="5,5,113,31"/>
+<area shape="rect" id="Node000002" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="161,5,284,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,15,148,15,148,21,114,21"/>
+</map>

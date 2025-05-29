@@ -27,13 +27,13 @@ src/prompt.c
 
 .in +1c
 .ti -1c
-.RI "char * \fBget_prompt_message\fP (void)"
+.RI "char * \fBget_prompt_message\fP (\fBt_garbage\fP *garbage)"
 .br
 .RI "Build the prompt message If an error occurs, returns the static default prompt message\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "char * get_prompt_message (void )"
+.SS "char * get_prompt_message (\fBt_garbage\fP * garbage)"
 
 .PP
 Build the prompt message If an error occurs, returns the static default prompt message\&. 

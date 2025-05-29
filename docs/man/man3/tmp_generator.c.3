@@ -6,6 +6,8 @@ src/file/tmp_generator.c
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'file\&.h'\fP
+.br
 \fR#include 'garbage\&.h'\fP
 .br
 \fR#include 'libft\&.h'\fP
@@ -16,20 +18,18 @@ src/file/tmp_generator.c
 .br
 \fR#include <stdlib\&.h>\fP
 .br
-\fR#include 'file\&.h'\fP
-.br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBt_tmp\fP \fBcreate_tmp\fP (char *path, int nbr_try)"
+.RI "\fBt_tmp\fP \fBcreate_tmp\fP (\fBt_garbage\fP *garbage, char *path, int nbr_try)"
 .br
 .RI "Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "\fBt_tmp\fP create_tmp (char * path, int nbr_try)"
+.SS "\fBt_tmp\fP create_tmp (\fBt_garbage\fP * garbage, char * path, int nbr_try)"
 
 .PP
 Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result\&. 

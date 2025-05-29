@@ -23,21 +23,17 @@ src/file/file.c
 .br
 .RI "Build the file using access and check permissions\&. "
 .ti -1c
-.RI "char * \fBft_trim_word\fP (char *str)"
-.br
-.RI "Trim the first word detected and remove all the unnecessary\&. "
-.ti -1c
 .RI "\fBt_file\fP * \fBfile_parser\fP (\fBt_file\fP *file)"
 .br
 .RI "Parse the file structure\&. "
 .ti -1c
-.RI "void * \fBadd_file\fP (\fBt_command\fP *command, \fBt_token\fP *token, \fBt_file\fP **command_file)"
+.RI "void * \fBadd_file\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command, \fBt_token\fP *token, \fBt_file\fP **command_file)"
 .br
 .RI "Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order) "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "void * add_file (\fBt_command\fP * command, \fBt_token\fP * token, \fBt_file\fP ** command_file)"
+.SS "void * add_file (\fBt_garbage\fP * garbage, \fBt_command\fP * command, \fBt_token\fP * token, \fBt_file\fP ** command_file)"
 
 .PP
 Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order) 
@@ -86,22 +82,6 @@ Parse the file structure\&.
 \fBReturns\fP
 .RS 4
 t_file* file given in paramter 
-.RE
-.PP
-
-.SS "char * ft_trim_word (char * str)"
-
-.PP
-Trim the first word detected and remove all the unnecessary\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIstr\fP string to search the word 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char* the word found 
 .RE
 .PP
 

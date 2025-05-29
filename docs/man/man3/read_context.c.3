@@ -6,7 +6,9 @@ src/read_context.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
+\fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'exec\&.h'\fP
 .br
 \fR#include 'file\&.h'\fP
 .br
@@ -14,7 +16,7 @@ src/read_context.c
 .br
 \fR#include 'get_next_line\&.h'\fP
 .br
-\fR#include 'builtins\&.h'\fP
+\fR#include 'minishell\&.h'\fP
 .br
 \fR#include <stdio\&.h>\fP
 .br
@@ -25,40 +27,35 @@ src/read_context.c
 
 .in +1c
 .ti -1c
-.RI "int \fBread_context\fP (char **envp)"
+.RI "int \fBis_interactive\fP (void)"
 .br
-.RI "Function to read the context where this function is called Verify if it's used in a tty or not\&. "
+.RI "Function to read the context where this function is called Verify if it's used in a tty or not,\&. "
 .ti -1c
-.RI "\fB__attribute__\fP ((noreturn))"
+.RI "int \fBshort_minishell_no_tty\fP (\fBt_data\fP *data)"
 .br
 .RI "Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "__attribute__ ((noreturn) )"
+.SS "int is_interactive (void )"
+
+.PP
+Function to read the context where this function is called Verify if it's used in a tty or not,\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, 1 otherwise 
+.RE
+.PP
+
+.SS "int short_minishell_no_tty (\fBt_data\fP * data)"
 
 .PP
 Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIenvp\fP environment 
-.RE
-.PP
-
-.SS "int read_context (char ** envp)"
-
-.PP
-Function to read the context where this function is called Verify if it's used in a tty or not\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIenvp\fP environment 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, 1 otherwise 
+\fIdata\fP data structure already set 
 .RE
 .PP
 

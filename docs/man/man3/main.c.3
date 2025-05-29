@@ -1,44 +1,51 @@
-.TH "tests/src/main.c" 3 "Minishell" \" -*- nroff -*-
+.TH "src/main.c" 3 "Minishell" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-tests/src/main.c
+src/main.c
 .SH SYNOPSIS
 .br
 .PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'builtins\&.h'\fP
+.br
+\fR#include 'env\&.h'\fP
+.br
 \fR#include 'garbage\&.h'\fP
 .br
 \fR#include 'minishell\&.h'\fP
-.br
-\fR#include 'tests\&.h'\fP
-.br
-\fR#include 'unity\&.h'\fP
-.br
-\fR#include 'unity_internals\&.h'\fP
-.br
-\fR#include <stdio\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "void \fBset_up\fP (void)"
+.RI "int \fBmain\fP (int argc, char **argv, char **envp)"
 .br
-.ti -1c
-.RI "void \fBtear_down\fP (void)"
-.br
-.ti -1c
-.RI "int \fBmain\fP (void)"
-.br
+.RI "Main function\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "int main (void )"
+.SS "int main (int argc, char ** argv, char ** envp)"
 
-.SS "void set_up (void )"
-
-.SS "void tear_down (void )"
+.PP
+Main function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargc\fP number of argument 
+.br
+\fIargv\fP array of arguments 
+.br
+\fIenvp\fP environment 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, error otherwise 
+.RE
+.PP
 
 .SH "Author"
 .PP 

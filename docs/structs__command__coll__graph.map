@@ -1,7 +1,7 @@
 <map id="s_command" name="s_command">
-<area shape="rect" id="Node000001" title=" " alt="" coords="63,196,164,221"/>
+<area shape="rect" id="Node000001" title="Structure that handles all the command and there contents." alt="" coords="63,196,164,221"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="179,198,187,202,191,209,182,218,165,221,164,215,180,213,185,208,183,206,177,203"/>
-<area shape="rect" id="Node000002" href="$structs__token.html" title=" " alt="" coords="5,93,77,119"/>
+<area shape="rect" id="Node000002" href="$structs__token.html" title="Basic structure of linked list of strings." alt="" coords="5,93,77,119"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="60,128,107,194,103,198,55,131"/>
 <area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="92,97,100,100,104,106,95,115,78,117,77,111,93,110,99,106,97,104,90,102"/>
 <area shape="rect" id="Node000003" href="$structs__file.html" title=" " alt="" coords="159,93,215,119"/>

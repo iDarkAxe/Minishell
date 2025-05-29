@@ -17,7 +17,7 @@ src/token-utils.c
 
 .in +1c
 .ti -1c
-.RI "char ** \fBcopy_toks\fP (\fBt_command\fP *command)"
+.RI "char ** \fBcopy_toks\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
 .br
 .RI "Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. "
 .ti -1c
@@ -27,7 +27,7 @@ src/token-utils.c
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "char ** copy_toks (\fBt_command\fP * command)"
+.SS "char ** copy_toks (\fBt_data\fP * data, \fBt_command\fP * command)"
 
 .PP
 Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. 

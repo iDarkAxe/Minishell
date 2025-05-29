@@ -6,36 +6,55 @@ src/exec/exec.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'minishell\&.h'\fP
-.br
-\fR#include 'libft\&.h'\fP
+\fR#include 'builtins\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
 .br
-\fR#include 'builtins\&.h'\fP
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include 'exec\&.h'\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+\fR#include <wait\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBprepare_command\fP (\fBt_command\fP *command, int ret)"
+.RI "int \fBprepare_command\fP (\fBt_data\fP *data)"
 .br
 .RI "Prepare the command for \fBsearch_command()\fP "
 .ti -1c
-.RI "int \fBprepare_command_forks\fP (\fBt_command\fP *command, int ret)"
+.RI "void \fBfill_toks_into_commands\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
+.br
+.ti -1c
+.RI "void \fBsearch_path\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
+.br
+.RI "Search path for the designated command\&. "
+.ti -1c
+.RI "void \fBsearch_paths\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
+.br
+.RI "Search Path for all commands\&. "
+.ti -1c
+.RI "int \fBprepare_command_forks\fP (\fBt_data\fP *data)"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "int prepare_command (\fBt_command\fP * command, int ret)"
+.SS "void fill_toks_into_commands (\fBt_data\fP * data, \fBt_command\fP * command)"
+
+.SS "int prepare_command (\fBt_data\fP * data)"
 
 .PP
 Prepare the command for \fBsearch_command()\fP 
 .PP
 \fBParameters\fP
 .RS 4
-\fIcommand\fP command structure 
+\fIdata\fP data structure 
 .RE
 .PP
 \fBReturns\fP
@@ -44,7 +63,33 @@ int
 .RE
 .PP
 
-.SS "int prepare_command_forks (\fBt_command\fP * command, int ret)"
+.SS "int prepare_command_forks (\fBt_data\fP * data)"
+
+.SS "void search_path (\fBt_data\fP * data, \fBt_command\fP * command)"
+
+.PP
+Search path for the designated command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "void search_paths (\fBt_data\fP * data, \fBt_command\fP * command)"
+
+.PP
+Search Path for all commands\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIcommand\fP command structure 
+.RE
+.PP
 
 .SH "Author"
 .PP 

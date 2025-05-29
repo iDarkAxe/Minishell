@@ -19,7 +19,7 @@ src/exec/command-utils.c
 .br
 .RI "Print the command structure with it's tokens\&. "
 .ti -1c
-.RI "ssize_t \fBprint_commands\fP (\fBt_command\fP *command)"
+.RI "ssize_t \fBprint_commands\fP (\fBt_command\fP **command)"
 .br
 .RI "Print the commands structure with it's tokens\&. "
 .in -1c
@@ -41,7 +41,7 @@ ssize_t 0 or positive is OK, otherwise error
 .RE
 .PP
 
-.SS "ssize_t print_commands (\fBt_command\fP * command)"
+.SS "ssize_t print_commands (\fBt_command\fP ** command)"
 
 .PP
 Print the commands structure with it's tokens\&. 

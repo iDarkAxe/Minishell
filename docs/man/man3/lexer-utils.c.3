@@ -6,11 +6,13 @@ src/lexer/lexer-utils.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include <stdlib\&.h>\fP
-.br
 \fR#include 'garbage\&.h'\fP
 .br
 \fR#include 'libft\&.h'\fP
+.br
+\fR#include 'minishell\&.h'\fP
+.br
+\fR#include <stdlib\&.h>\fP
 .br
 
 .SS "Functions"
@@ -21,13 +23,17 @@ src/lexer/lexer-utils.c
 .br
 .RI "Is |, < or > "
 .ti -1c
-.RI "char * \fBft_substr_end\fP (char const *src, unsigned int start, size_t end)"
+.RI "char * \fBft_substr_end_gb\fP (\fBt_garbage\fP *garbage, char const *src, unsigned int start, size_t end)"
 .br
 .RI "Allocate memory for a string and copy the content from src\&. "
+.ti -1c
+.RI "char ** \fBinit_lexer_state\fP (\fBt_garbage\fP *garbage, \fBt_lexer_state\fP *lex_st, const char *line)"
+.br
+.RI "Initialize the lexer structure\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "char * ft_substr_end (char const * src, unsigned int start, size_t end)"
+.SS "char * ft_substr_end_gb (\fBt_garbage\fP * garbage, char const * src, unsigned int start, size_t end)"
 
 .PP
 Allocate memory for a string and copy the content from src\&. 
@@ -44,6 +50,20 @@ Allocate memory for a string and copy the content from src\&.
 \fBReturns\fP
 .RS 4
 char* pointer to the new string 
+.RE
+.PP
+
+.SS "char ** init_lexer_state (\fBt_garbage\fP * garbage, \fBt_lexer_state\fP * lex_st, const char * line)"
+
+.PP
+Initialize the lexer structure\&. Fill the structure with zeros and init the line to search in and allocates the array to the garbage
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlex_st\fP pointer to the lexer structure 
+.br
+\fIline\fP line to verify 
 .RE
 .PP
 

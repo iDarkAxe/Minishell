@@ -21,25 +21,25 @@ src/garbage/garbage_utils.c
 
 .in +1c
 .ti -1c
-.RI "char * \fBft_strndup_gb\fP (const char *source, size_t len)"
+.RI "char * \fBft_strndup_gb\fP (\fBt_garbage\fP *garbage, const char *source, size_t len)"
 .br
 .RI "Create a copy of source into a new pointer of size len NEEDS to be freed\&. "
 .ti -1c
-.RI "char * \fBft_strdup_gb\fP (const char *source)"
+.RI "char * \fBft_strdup_gb\fP (\fBt_garbage\fP *garbage, const char *source)"
 .br
 .RI "Create a copy of source into a new pointer NEEDS to be freed\&. "
 .ti -1c
-.RI "void \fBfree_element_gb\fP (void *ptr)"
+.RI "void \fBfree_element_gb\fP (\fBt_garbage\fP *garbage, void *ptr)"
 .br
 .RI "Free an element in the garbage collector\&. "
 .ti -1c
-.RI "void \fBprint_garbage\fP (void)"
+.RI "void \fBprint_garbage\fP (\fBt_garbage\fP *garbage)"
 .br
 .RI "Print the garbage collector\&. "
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "void free_element_gb (void * ptr)"
+.SS "void free_element_gb (\fBt_garbage\fP * garbage, void * ptr)"
 
 .PP
 Free an element in the garbage collector\&. 
@@ -50,7 +50,7 @@ Free an element in the garbage collector\&.
 .RE
 .PP
 
-.SS "char * ft_strdup_gb (const char * source)"
+.SS "char * ft_strdup_gb (\fBt_garbage\fP * garbage, const char * source)"
 
 .PP
 Create a copy of source into a new pointer NEEDS to be freed\&. 
@@ -66,7 +66,7 @@ char* pointer to the new string
 .RE
 .PP
 
-.SS "char * ft_strndup_gb (const char * source, size_t len)"
+.SS "char * ft_strndup_gb (\fBt_garbage\fP * garbage, const char * source, size_t len)"
 
 .PP
 Create a copy of source into a new pointer of size len NEEDS to be freed\&. 
@@ -84,7 +84,7 @@ char* pointer to the new string
 .RE
 .PP
 
-.SS "void print_garbage (void )"
+.SS "void print_garbage (\fBt_garbage\fP * garbage)"
 
 .PP
 Print the garbage collector\&. 

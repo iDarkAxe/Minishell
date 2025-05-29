@@ -26,6 +26,8 @@ var NAVTREE =
 [
   [ "Minishell", "index.html", [
     [ "Introduction", "index.html#Introduction", null ],
+    [ "Deprecated List", "deprecated.html", null ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -49,7 +51,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"minishell_8h.html#a6c023b75d59d8711c6aedf7faef9e18c"
+"garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

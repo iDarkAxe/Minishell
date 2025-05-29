@@ -6,15 +6,15 @@ src/file/file-general.c
 .SH SYNOPSIS
 .br
 .PP
-\fR#include 'builtins\&.h'\fP
+\fR#include 'minishell\&.h'\fP
 .br
-\fR#include 'fcntl\&.h'\fP
+\fR#include 'builtins\&.h'\fP
 .br
 \fR#include 'file\&.h'\fP
 .br
 \fR#include 'garbage\&.h'\fP
 .br
-\fR#include 'minishell\&.h'\fP
+\fR#include <fcntl\&.h>\fP
 .br
 \fR#include <stdlib\&.h>\fP
 .br
@@ -23,15 +23,15 @@ src/file/file-general.c
 
 .in +1c
 .ti -1c
-.RI "int \fBfiles_management\fP (\fBt_command\fP *command)"
+.RI "int \fBfiles_management\fP (\fBt_data\fP *data)"
 .br
 .RI "Executes all the files redirection tests\&. "
 .ti -1c
-.RI "int \fBopen_file_with_rights\fP (\fBt_file\fP *file, t_bool in_out)"
+.RI "int \fBopen_file_with_rights\fP (\fBt_garbage\fP *garbage, \fBt_file\fP *file, t_bool in_out)"
 .br
 .RI "Open a file with it's rights (permissions) "
 .ti -1c
-.RI "void \fBread_write_to\fP (\fBt_command\fP *command, t_bool in_out)"
+.RI "void \fBread_write_to\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command, t_bool in_out)"
 .br
 .RI "Opens the files to read and writes\&. "
 .ti -1c
@@ -52,14 +52,14 @@ Put the fds in command to there default values\&.
 .RE
 .PP
 
-.SS "int files_management (\fBt_command\fP * command)"
+.SS "int files_management (\fBt_data\fP * data)"
 
 .PP
 Executes all the files redirection tests\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIcommand\fP command structure 
+\fIdata\fP data structure 
 .RE
 .PP
 \fBReturns\fP
@@ -68,7 +68,7 @@ int 0 OK, 1 is at least one file redirection is invalid
 .RE
 .PP
 
-.SS "int open_file_with_rights (\fBt_file\fP * file, t_bool in_out)"
+.SS "int open_file_with_rights (\fBt_garbage\fP * garbage, \fBt_file\fP * file, t_bool in_out)"
 
 .PP
 Open a file with it's rights (permissions) 
@@ -86,7 +86,7 @@ int
 .RE
 .PP
 
-.SS "void read_write_to (\fBt_command\fP * command, t_bool in_out)"
+.SS "void read_write_to (\fBt_garbage\fP * garbage, \fBt_command\fP * command, t_bool in_out)"
 
 .PP
 Opens the files to read and writes\&. 

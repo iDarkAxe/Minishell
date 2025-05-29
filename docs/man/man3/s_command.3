@@ -2,12 +2,13 @@
 .ad l
 .nh
 .SH NAME
-s_command
+s_command \- Structure that handles all the command and there contents\&.  
+
 .SH SYNOPSIS
 .br
 .PP
 .PP
-\fR#include <minishell\&.h>\fP
+\fR#include <data_structure\&.h>\fP
 .SS "Data Fields"
 
 .in +1c
@@ -16,6 +17,12 @@ s_command
 .br
 .ti -1c
 .RI "\fBt_token\fP * \fBtokens\fP"
+.br
+.ti -1c
+.RI "char ** \fBtoks\fP"
+.br
+.ti -1c
+.RI "char * \fBpath\fP"
 .br
 .ti -1c
 .RI "char ** \fBenvp\fP"
@@ -30,9 +37,6 @@ s_command
 .RI "int \fBfd\fP [2]"
 .br
 .ti -1c
-.RI "int \fBfd_backup\fP [2]"
-.br
-.ti -1c
 .RI "t_bool \fBfile_error\fP"
 .br
 .ti -1c
@@ -42,13 +46,14 @@ s_command
 .RI "int \fBreturn_value\fP"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+Structure that handles all the command and there contents\&. 
 .SH "Field Documentation"
 .PP 
 .SS "char** s_command::envp"
 
 .SS "int s_command::fd[2]"
-
-.SS "int s_command::fd_backup[2]"
 
 .SS "t_bool s_command::file_error"
 
@@ -60,9 +65,13 @@ s_command
 
 .SS "t_bool s_command::parse_error"
 
+.SS "char* s_command::path"
+
 .SS "int s_command::return_value"
 
 .SS "\fBt_token\fP* s_command::tokens"
+
+.SS "char** s_command::toks"
 
 
 .SH "Author"

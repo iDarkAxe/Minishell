@@ -8,19 +8,26 @@ src/env/sort_env.c
 .PP
 \fR#include 'env\&.h'\fP
 .br
-\fR#include <string\&.h>\fP
+\fR#include 'libft\&.h'\fP
+.br
+\fR#include <stdio\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBt_env_vars\fP \fBsort_ascii_env\fP (\fBt_env_vars\fP env)"
+.RI "void \fBbubble_sort\fP (\fBt_garbage\fP *garbage, \fBt_var\fP **head)"
+.br
+.ti -1c
+.RI "void \fBsort_ascii_order\fP (\fBt_garbage\fP *garbage, \fBt_env_vars\fP *env)"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "\fBt_env_vars\fP sort_ascii_env (\fBt_env_vars\fP env)"
+.SS "void bubble_sort (\fBt_garbage\fP * garbage, \fBt_var\fP ** head)"
+
+.SS "void sort_ascii_order (\fBt_garbage\fP * garbage, \fBt_env_vars\fP * env)"
 
 .SH "Author"
 .PP 

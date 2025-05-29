@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verify_5faccess_0',['verify_access',['../file__verify__access_8c.html#ac70638e4b2de9819fb99c97318fc767b',1,'verify_access(t_command *command):&#160;file_verify_access.c'],['../file_8h.html#ac70638e4b2de9819fb99c97318fc767b',1,'verify_access(t_command *command):&#160;file_verify_access.c']]]
+  ['tokeniser_0',['tokeniser',['../tokens_8c.html#afcc5b7e533daacfa775b3a1ac953bd31',1,'tokeniser(t_data *data, char **tokens):&#160;tokens.c'],['../minishell_8h.html#afcc5b7e533daacfa775b3a1ac953bd31',1,'tokeniser(t_data *data, char **tokens):&#160;tokens.c']]]
 ];

@@ -1,13 +1,7 @@
 <map id="signal_handler" name="signal_handler">
-<area shape="rect" id="Node000001" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="5,31,123,56"/>
-<area shape="rect" id="Node000002" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="171,31,243,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,41,157,41,157,46,123,46"/>
-<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="291,31,371,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,41,277,41,277,46,243,46"/>
-<area shape="rect" id="Node000004" href="$garbage_8c.html#a7ab54044cc63836f16ba67369aa2b6e9" title="Free the garbage." alt="" coords="419,31,527,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="371,41,405,41,405,46,371,46"/>
-<area shape="rect" id="Node000005" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="575,5,697,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="527,32,561,27,562,32,527,38"/>
-<area shape="rect" id="Node000006" href="$garbage_8c.html#ad13170a7ac1ef5410a4fe3a2bdfee0c7" title="Get the garbage object." alt="" coords="585,55,687,80"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="527,49,571,55,570,60,527,54"/>
+<area shape="rect" id="Node000001" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="5,5,123,31"/>
+<area shape="rect" id="Node000002" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="171,5,243,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,15,157,15,157,21,123,21"/>
+<area shape="rect" id="Node000003" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="291,5,371,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,15,277,15,277,21,243,21"/>
 </map>

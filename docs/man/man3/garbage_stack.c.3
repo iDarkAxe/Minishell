@@ -21,7 +21,7 @@ src/garbage/garbage_stack.c
 .br
 .RI "Adds the 'new' element at the start of stack\&. "
 .ti -1c
-.RI "void \fBft_garbageadd_back\fP (\fBt_garbage\fP *garbage, \fBt_element\fP *new)"
+.RI "\fB__attribute__\fP ((deprecated))"
 .br
 .RI "Adds the 'new' element at the end of stack\&. "
 .ti -1c
@@ -34,12 +34,17 @@ src/garbage/garbage_stack.c
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "void ft_garbage_free_element (\fBt_element\fP * element)\fR [inline]\fP"
-
-.SS "void ft_garbageadd_back (\fBt_garbage\fP * garbage, \fBt_element\fP * new)"
+.SS "__attribute__ ((deprecated) )"
 
 .PP
 Adds the 'new' element at the end of stack\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+not used anywhere as add_front is faster
+.RE
+.PP
+
 .PP
 \fBParameters\fP
 .RS 4
@@ -48,6 +53,8 @@ Adds the 'new' element at the end of stack\&.
 \fInew\fP element to add 
 .RE
 .PP
+
+.SS "void ft_garbage_free_element (\fBt_element\fP * element)\fR [inline]\fP"
 
 .SS "void ft_garbageadd_front (\fBt_garbage\fP * garbage, \fBt_element\fP * new)"
 

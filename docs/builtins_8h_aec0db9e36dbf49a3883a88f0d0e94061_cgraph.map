@@ -1,0 +1,30 @@
+<map id="ft_unset" name="ft_unset">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,80,81"/>
+<area shape="rect" id="Node000002" href="$supp__var__in__env_8c.html#a8ee11170657a6e16d5c992f4b9198760" title=" " alt="" coords="128,56,209,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,66,114,66,114,71,80,71"/>
+<area shape="rect" id="Node000003" href="$garbage__utils_8c.html#a1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="409,5,541,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="185,53,217,33,257,15,292,8,327,5,396,6,396,11,328,10,292,14,258,21,219,37,188,58"/>
+<area shape="rect" id="Node000004" href="$free__env_8c.html#a46d357c3397a4ccfea21c03c7534124e" title=" " alt="" coords="257,31,361,56"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="209,59,243,53,244,58,210,64"/>
+<area shape="rect" id="Node000005" href="$functions__utils_8c.html#a1f2ff2312e5994560c9537cd9173be94" title=" " alt="" coords="268,80,351,105"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="210,73,255,81,254,86,209,78"/>
+<area shape="rect" id="Node000006" href="$garbage_8c.html#ac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="265,129,354,155"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="194,79,259,114,271,121,269,126,256,119,191,84"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="361,33,395,28,396,33,362,38"/>
+<area shape="rect" id="Node000007" href="$garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="412,129,539,155"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="354,139,398,139,398,145,354,145"/>
+<area shape="rect" id="Node000008" href="$garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="612,31,720,56"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="491,127,534,96,588,65,604,58,606,63,591,70,537,101,495,131"/>
+<area shape="rect" id="Node000010" href="$ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="611,80,721,105"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="524,127,602,106,603,112,526,132"/>
+<area shape="rect" id="Node000011" href="$garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="589,129,743,155"/>
+<area shape="poly" id="edge11_Node000007_Node000011" title=" " alt="" coords="539,139,576,139,576,145,539,145"/>
+<area shape="rect" id="Node000012" href="$garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="607,179,725,204"/>
+<area shape="poly" id="edge12_Node000007_Node000012" title=" " alt="" coords="526,152,603,172,602,178,524,157"/>
+<area shape="rect" id="Node000013" href="$ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="630,228,702,253"/>
+<area shape="poly" id="edge13_Node000007_Node000013" title=" " alt="" coords="495,153,537,183,591,214,618,225,616,230,588,219,534,188,491,157"/>
+<area shape="rect" id="Node000009" href="$garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="791,31,913,56"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="720,41,777,41,777,46,720,46"/>
+<area shape="rect" id="Node000014" href="$ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="812,228,892,253"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="702,238,798,238,798,243,702,243"/>
+</map>

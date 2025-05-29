@@ -1,0 +1,15 @@
+<map id="inc/exec.h" name="inc/exec.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="479,5,566,31"/>
+<area shape="rect" id="Node000002" href="$exec_8c.html" title=" " alt="" coords="5,79,125,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="466,31,138,81,126,83,125,78,137,76,466,25"/>
+<area shape="rect" id="Node000003" href="$exec__extern_8c.html" title=" " alt="" coords="150,79,319,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="466,36,282,81,281,76,465,31"/>
+<area shape="rect" id="Node000004" href="$exec__pipeline_8c.html" title=" " alt="" coords="344,79,523,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="499,41,450,81,446,76,496,37"/>
+<area shape="rect" id="Node000005" href="$heredoc_8c.html" title=" " alt="" coords="547,79,679,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="550,37,600,76,597,81,547,41"/>
+<area shape="rect" id="Node000006" href="$minishell_8c.html" title=": Main program of the Minishell" alt="" coords="703,79,819,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="575,32,723,76,722,81,573,37"/>
+<area shape="rect" id="Node000007" href="$read__context_8c.html" title=" " alt="" coords="844,79,985,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="580,27,852,76,851,81,579,32"/>
+</map>

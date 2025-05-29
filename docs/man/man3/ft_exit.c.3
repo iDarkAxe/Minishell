@@ -10,20 +10,23 @@ src/builtins/ft_exit.c
 .br
 \fR#include 'libft\&.h'\fP
 .br
-\fR#include <stdlib\&.h>\fP
-.br
 \fR#include 'minishell\&.h'\fP
+.br
+\fR#include <stdlib\&.h>\fP
 .br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
-.RI "int \fBft_exit\fP (char **array)"
+.RI "int \fBft_exit\fP (\fBt_data\fP *data, char **array)"
 .br
 .RI "Function to exit the program\&. "
 .ti -1c
-.RI "void \fBft_exit_int\fP (int value)"
+.RI "void \fBft_exit_int\fP (\fBt_garbage\fP *garbage, int value)"
+.br
+.ti -1c
+.RI "void \fBft_exit_int_np\fP (\fBt_garbage\fP *garbage, int value)"
 .br
 .ti -1c
 .RI "\fB__attribute__\fP ((noreturn))"
@@ -35,7 +38,8 @@ src/builtins/ft_exit.c
 .SS "__attribute__ ((noreturn) )"
 
 .PP
-Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc\&. 
+Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc\&. Short ft_exit that uses only int but don't say it's name\&.
+
 .PP
 \fBParameters\fP
 .RS 4
@@ -43,7 +47,7 @@ Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-nore
 .RE
 .PP
 
-.SS "int ft_exit (char ** array)"
+.SS "int ft_exit (\fBt_data\fP * data, char ** array)"
 
 .PP
 Function to exit the program\&. 
@@ -59,7 +63,9 @@ int value if argument invalid
 .RE
 .PP
 
-.SS "void ft_exit_int (int value)"
+.SS "void ft_exit_int (\fBt_garbage\fP * garbage, int value)"
+
+.SS "void ft_exit_int_np (\fBt_garbage\fP * garbage, int value)"
 
 .SH "Author"
 .PP 
