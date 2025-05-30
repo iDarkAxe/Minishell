@@ -110,6 +110,7 @@ $(function(){initNavTree('file__verify__access_8c.html',''); initResizable(true)
 <div class="textblock"><code>#include &quot;<a class="el" href="builtins_8h_source.html">builtins.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="file_8h_source.html">file.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;ft_printf.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
 <code>#include &lt;fcntl.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -117,116 +118,56 @@ Include dependency graph for file_verify_access.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="file__verify__access_8c__incl.png" border="0" usemap="#asrc_2file_2file__verify__access_8c" alt=""/></div>
 <map name="asrc_2file_2file__verify__access_8c" id="asrc_2file_2file__verify__access_8c">
-<area shape="rect" title=" " alt="" coords="382,5,515,45"/>
-<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="407,167,490,192"/>
-<area shape="poly" title=" " alt="" coords="451,46,451,153,446,153,446,46"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="429,387,516,412"/>
-<area shape="poly" title=" " alt="" coords="474,44,499,68,524,99,544,136,550,157,552,178,552,254,547,290,532,325,513,354,495,378,491,375,509,351,527,322,541,289,547,254,547,178,545,158,539,139,520,102,495,71,470,47"/>
-<area shape="rect" href="file_8h.html" title=" " alt="" coords="194,93,249,119"/>
-<area shape="poly" title=" " alt="" coords="395,48,263,93,261,88,393,43"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="174,167,269,192"/>
-<area shape="poly" title=" " alt="" coords="422,48,252,161,249,157,419,43"/>
-<area shape="rect" title=" " alt="" coords="588,93,650,119"/>
-<area shape="poly" title=" " alt="" coords="490,43,583,85,581,90,488,48"/>
-<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="384,240,512,265"/>
-<area shape="poly" title=" " alt="" coords="451,192,451,226,446,226,446,192"/>
-<area shape="rect" title=" " alt="" coords="71,387,130,412"/>
-<area shape="poly" title=" " alt="" coords="421,268,141,384,139,379,419,263"/>
-<area shape="poly" title=" " alt="" coords="453,265,471,373,466,373,448,266"/>
-<area shape="rect" href="env_8h.html" title=" " alt="" coords="385,313,442,339"/>
-<area shape="poly" title=" " alt="" coords="445,267,428,302,423,300,440,264"/>
-<area shape="rect" title=" " alt="" coords="149,460,220,485"/>
-<area shape="poly" title=" " alt="" coords="429,414,234,462,232,457,428,409"/>
-<area shape="poly" title=" " alt="" coords="385,336,144,391,143,386,384,331"/>
-<area shape="poly" title=" " alt="" coords="425,337,456,375,452,378,421,341"/>
-<area shape="rect" title=" " alt="" coords="316,387,391,412"/>
-<area shape="poly" title=" " alt="" coords="406,341,374,378,370,374,402,337"/>
-<area shape="poly" title=" " alt="" coords="195,119,156,136,110,162,66,197,47,218,32,241,27,259,27,284,31,312,40,337,55,359,73,376,70,380,51,362,35,340,26,313,21,284,22,258,27,239,43,215,62,193,107,157,154,131,193,114"/>
-<area shape="poly" title=" " alt="" coords="224,119,224,153,219,153,219,119"/>
-<area shape="poly" title=" " alt="" coords="259,189,399,233,398,238,257,195"/>
-<area shape="poly" title=" " alt="" coords="174,185,141,190,105,200,73,217,46,242,39,258,36,275,44,311,62,346,83,375,79,378,57,349,39,313,31,275,33,256,42,238,70,212,103,195,140,184,174,179"/>
-<area shape="poly" title=" " alt="" coords="174,183,137,187,98,197,61,214,32,242,18,264,10,286,8,306,11,327,29,368,61,410,77,426,96,438,137,457,135,461,94,443,74,430,57,414,24,370,6,328,3,306,5,284,13,262,28,238,58,210,96,192,136,182,174,178"/>
-<area shape="poly" title=" " alt="" coords="255,190,291,209,308,222,323,238,340,272,350,308,357,372,352,373,345,309,335,274,318,242,304,226,288,213,253,194"/>
-<area shape="rect" title=" " alt="" coords="56,240,123,265"/>
-<area shape="poly" title=" " alt="" coords="202,194,124,236,122,231,199,190"/>
-<area shape="rect" title=" " alt="" coords="147,240,222,265"/>
-<area shape="poly" title=" " alt="" coords="218,194,199,229,194,227,213,191"/>
-<area shape="rect" title=" " alt="" coords="246,240,309,265"/>
-<area shape="poly" title=" " alt="" coords="233,191,262,228,258,231,229,194"/>
+<area shape="rect" title=" " alt="" coords="547,5,680,45"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="496,167,579,192"/>
+<area shape="poly" title=" " alt="" coords="606,47,552,155,547,153,602,45"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="501,387,588,412"/>
+<area shape="poly" title=" " alt="" coords="619,45,627,104,631,178,631,254,625,291,609,326,589,355,568,379,564,375,584,352,604,323,620,290,626,254,626,178,621,105,614,46"/>
+<area shape="rect" href="file_8h.html" title=" " alt="" coords="398,93,453,119"/>
+<area shape="poly" title=" " alt="" coords="570,48,467,90,465,85,568,43"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="237,167,332,192"/>
+<area shape="poly" title=" " alt="" coords="547,41,468,62,427,77,387,96,342,126,306,159,303,155,339,122,384,91,425,72,467,57,546,36"/>
+<area shape="rect" title=" " alt="" coords="666,93,750,119"/>
+<area shape="poly" title=" " alt="" coords="638,43,685,82,682,86,635,48"/>
+<area shape="rect" title=" " alt="" coords="774,93,837,119"/>
+<area shape="poly" title=" " alt="" coords="661,43,766,86,764,91,659,48"/>
+<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="463,240,591,265"/>
+<area shape="poly" title=" " alt="" coords="539,193,533,227,528,226,533,192"/>
+<area shape="rect" title=" " alt="" coords="374,387,432,412"/>
+<area shape="poly" title=" " alt="" coords="518,267,473,315,422,377,418,374,469,312,514,264"/>
+<area shape="poly" title=" " alt="" coords="536,264,546,286,555,313,557,344,553,374,548,373,552,344,550,314,541,288,531,267"/>
+<area shape="rect" href="env_8h.html" title=" " alt="" coords="482,313,540,339"/>
+<area shape="poly" title=" " alt="" coords="527,266,519,301,514,300,522,265"/>
+<area shape="rect" title=" " alt="" coords="218,460,289,485"/>
+<area shape="poly" title=" " alt="" coords="501,414,303,462,302,457,500,409"/>
+<area shape="poly" title=" " alt="" coords="495,341,434,381,431,377,492,336"/>
+<area shape="poly" title=" " alt="" coords="519,338,536,373,531,375,514,340"/>
+<area shape="rect" title=" " alt="" coords="240,387,315,412"/>
+<area shape="poly" title=" " alt="" coords="483,339,329,385,328,380,481,334"/>
+<area shape="poly" title=" " alt="" coords="427,119,408,373,402,373,422,119"/>
+<area shape="poly" title=" " alt="" coords="404,121,321,163,318,158,402,116"/>
+<area shape="poly" title=" " alt="" coords="324,189,476,234,474,239,323,195"/>
+<area shape="poly" title=" " alt="" coords="289,191,297,225,312,264,349,326,386,375,382,378,345,329,307,266,292,226,284,193"/>
+<area shape="poly" title=" " alt="" coords="237,187,178,194,114,205,58,221,37,231,24,242,14,258,9,273,9,289,12,304,31,335,61,365,98,392,139,416,214,452,211,457,136,420,95,396,57,369,27,339,8,307,3,290,4,273,9,255,20,238,34,226,56,216,113,200,178,189,236,182"/>
+<area shape="poly" title=" " alt="" coords="282,193,268,240,264,289,268,338,274,373,269,373,263,339,259,289,263,240,277,191"/>
+<area shape="rect" title=" " alt="" coords="322,240,388,265"/>
+<area shape="poly" title=" " alt="" coords="298,190,336,228,332,232,294,194"/>
+<area shape="rect" title=" " alt="" coords="34,240,108,265"/>
+<area shape="poly" title=" " alt="" coords="251,195,119,238,118,233,249,189"/>
+<area shape="rect" title=" " alt="" coords="133,240,196,265"/>
+<area shape="poly" title=" " alt="" coords="266,194,197,235,195,230,264,190"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1adf8592e56806396e71d927d3268ff7" id="r_a1adf8592e56806396e71d927d3268ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1adf8592e56806396e71d927d3268ff7">search_last_file</a> (<a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file, <a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *already_searched)</td></tr>
-<tr class="memdesc:a1adf8592e56806396e71d927d3268ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the last file that is not already_searched.  <br /></td></tr>
-<tr class="separator:a1adf8592e56806396e71d927d3268ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb055840f776944a93723c4b25dea107" id="r_afb055840f776944a93723c4b25dea107"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb055840f776944a93723c4b25dea107">verify_access</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
-<tr class="memdesc:afb055840f776944a93723c4b25dea107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0.  <br /></td></tr>
-<tr class="separator:afb055840f776944a93723c4b25dea107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1adf8592e56806396e71d927d3268ff7" id="r_ga1adf8592e56806396e71d927d3268ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Files.html#ga1adf8592e56806396e71d927d3268ff7">search_last_file</a> (<a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *file, <a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *already_searched)</td></tr>
+<tr class="memdesc:ga1adf8592e56806396e71d927d3268ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the last file that is not already_searched.  <br /></td></tr>
+<tr class="separator:ga1adf8592e56806396e71d927d3268ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb055840f776944a93723c4b25dea107" id="r_gafb055840f776944a93723c4b25dea107"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Files.html#gafb055840f776944a93723c4b25dea107">verify_access</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *command)</td></tr>
+<tr class="memdesc:gafb055840f776944a93723c4b25dea107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0.  <br /></td></tr>
+<tr class="separator:gafb055840f776944a93723c4b25dea107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a1adf8592e56806396e71d927d3268ff7" name="a1adf8592e56806396e71d927d3268ff7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1adf8592e56806396e71d927d3268ff7">&#9670;&#160;</a></span>search_last_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> * search_last_file </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#aabd214ff3248265f1f7c83ccb398383a">t_file</a> *</td>          <td class="paramname"><span class="paramname"><em>already_searched</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the last file that is not already_searched. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>file structure </td></tr>
-    <tr><td class="paramname">already_searched</td><td>previous file from search </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>t_file* last file begore already_searched </dd></dl>
-
-</div>
-</div>
-<a id="afb055840f776944a93723c4b25dea107" name="afb055840f776944a93723c4b25dea107"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb055840f776944a93723c4b25dea107">&#9670;&#160;</a></span>verify_access()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int verify_access </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *</td>          <td class="paramname"><span class="paramname"><em>command</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>command structure </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int 0 OK, error otherwise </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

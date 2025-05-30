@@ -10,6 +10,8 @@ src/garbage/garbage.c
 .br
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'libft\&.h'\fP
 .br
 \fR#include 'minishell\&.h'\fP
@@ -41,50 +43,6 @@ src/garbage/garbage.c
 .br
 .RI "Replace the original malloc by storing the created adresses into a garbage to remove them afterwards\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "void add_to_garbage (\fBt_garbage\fP * garbage, void * ptr)"
-
-.PP
-Add a pointer to the garbage list\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIptr\fP pointer to add 
-.RE
-.PP
-
-.SS "void free_garbage (\fBt_garbage\fP * garbage)"
-
-.PP
-Free the garbage\&. 
-.SS "void garbage_init (\fBt_garbage\fP * garbage)"
-
-.PP
-Get the garbage object\&. 
-.PP
-\fBReturns\fP
-.RS 4
-t_garbage* garbage access
-.RE
-.PP
-Initialize the garbage and sets the values to 0 
-.SS "void * malloc_gb (\fBt_garbage\fP * garbage, size_t size)"
-
-.PP
-Replace the original malloc by storing the created adresses into a garbage to remove them afterwards\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIsize\fP number of bytes to allocates 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-void* 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

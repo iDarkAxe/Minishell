@@ -12,6 +12,8 @@ src/file/file-general.c
 .br
 \fR#include 'file\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'garbage\&.h'\fP
 .br
 \fR#include <fcntl\&.h>\fP
@@ -39,64 +41,6 @@ src/file/file-general.c
 .br
 .RI "Put the fds in command to there default values\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "void fd_default (\fBt_command\fP * command)"
-
-.PP
-Put the fds in command to there default values\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-
-.SS "int files_management (\fBt_data\fP * data)"
-
-.PP
-Executes all the files redirection tests\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdata\fP data structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, 1 is at least one file redirection is invalid 
-.RE
-.PP
-
-.SS "int open_file_with_rights (\fBt_garbage\fP * garbage, \fBt_file\fP * file, t_bool in_out)"
-
-.PP
-Open a file with it's rights (permissions) 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfile\fP file structure 
-.br
-\fIin_out\fP 0 = IN, 1 = OUT 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
-.SS "void read_write_to (\fBt_garbage\fP * garbage, \fBt_command\fP * command, t_bool in_out)"
-
-.PP
-Opens the files to read and writes\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIin_out\fP 0 = IN, 1 = OUT 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

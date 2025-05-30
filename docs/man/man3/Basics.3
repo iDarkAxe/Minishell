@@ -1,0 +1,90 @@
+.TH "Basics" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Basics \- Basic functions
+.PP
+ \- Basics functions to execute a minishell properly\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBminishell\fP (\fBt_data\fP *data)"
+.br
+.RI "Minishell that handles all the shell functions\&. "
+.ti -1c
+.RI "int \fBis_interactive\fP (void)"
+.br
+.RI "Function to read the context where this function is called Verify if it's used in a tty or not,\&. "
+.ti -1c
+.RI "int \fBshort_minishell_no_tty\fP (\fBt_data\fP *data)"
+.br
+.RI "Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. "
+.ti -1c
+.RI "char * \fBget_prompt_message\fP (\fBt_garbage\fP *garbage)"
+.br
+.RI "Build the prompt message If an error occurs, returns the static default prompt message\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Basics functions to execute a minishell properly\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "char * get_prompt_message (\fBt_garbage\fP * garbage)"
+
+.PP
+Build the prompt message If an error occurs, returns the static default prompt message\&. 
+.PP
+\fBReturns\fP
+.RS 4
+char* prompt message 
+.RE
+.PP
+
+.SS "int is_interactive (void )"
+
+.PP
+Function to read the context where this function is called Verify if it's used in a tty or not,\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, 1 otherwise 
+.RE
+.PP
+
+.SS "int minishell (\fBt_data\fP * data)"
+
+.PP
+Minishell that handles all the shell functions\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure already set 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int short_minishell_no_tty (\fBt_data\fP * data)"
+
+.PP
+Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure already set 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

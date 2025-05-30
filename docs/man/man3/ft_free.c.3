@@ -37,63 +37,6 @@ src/ft_free.c
 .br
 .RI "Free heredoc structure\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "void free_command (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
-
-.PP
-Free one \fBt_command\fP structure with all that it contains\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP \fBt_command\fP structure 
-.RE
-.PP
-
-.SS "void free_commands (\fBt_garbage\fP * garbage, \fBt_command\fP ** command)"
-
-.PP
-Free \fBt_command\fP linked list structure with all that it contains\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP head of \fBt_command\fP linked list structure 
-.RE
-.PP
-
-.SS "void free_files_struct (\fBt_garbage\fP * garbage, \fBt_file\fP * file)"
-
-.PP
-Free linked list of \fBt_file\fP structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfile\fP head of \fBt_file\fP linked list structure 
-.RE
-.PP
-
-.SS "void free_heredoc (\fBt_garbage\fP * garbage, \fBt_tmp\fP * tmp)"
-
-.PP
-Free heredoc structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItmp\fP heredoc structure 
-.RE
-.PP
-
-.SS "void free_tokens (\fBt_garbage\fP * garbage, \fBt_token\fP * token)"
-
-.PP
-Free t_tokens linked list structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItoken\fP head of t_tokens linked list structure 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

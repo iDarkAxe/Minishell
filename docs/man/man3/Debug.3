@@ -1,0 +1,115 @@
+.TH "Debug" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Debug \- Debug Functions
+.PP
+ \- Functions to help debugging faster\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprint_list_files\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the list of files in the command structure\&. "
+.ti -1c
+.RI "void \fBprint_perm_files\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the list of permissions of files in the command structure\&. "
+.ti -1c
+.RI "void \fBprint_toks\fP (char **tokens)"
+.br
+.RI "Print tokens indexed\&. "
+.ti -1c
+.RI "void \fBprint_command_fd\fP (\fBt_command\fP *command)"
+.br
+.ti -1c
+.RI "ssize_t \fBprint_command\fP (\fBt_command\fP *command)"
+.br
+.RI "Print the command structure with it's tokens\&. "
+.ti -1c
+.RI "ssize_t \fBprint_commands\fP (\fBt_command\fP **command)"
+.br
+.RI "Print the commands structure with it's tokens\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions to help debugging faster\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "ssize_t print_command (\fBt_command\fP * command)"
+
+.PP
+Print the command structure with it's tokens\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t 0 or positive is OK, otherwise error 
+.RE
+.PP
+
+.SS "void print_command_fd (\fBt_command\fP * command)"
+
+.SS "ssize_t print_commands (\fBt_command\fP ** command)"
+
+.PP
+Print the commands structure with it's tokens\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t 0 or positive is OK, otherwise error 
+.RE
+.PP
+
+.SS "void print_list_files (\fBt_command\fP * command)"
+
+.PP
+Print the list of files in the command structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "void print_perm_files (\fBt_command\fP * command)"
+
+.PP
+Print the list of permissions of files in the command structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "void print_toks (char ** tokens)"
+
+.PP
+Print tokens indexed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItokens\fP tokens to print 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

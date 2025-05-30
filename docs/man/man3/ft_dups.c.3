@@ -12,6 +12,8 @@ src/exec/ft_dups.c
 .br
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'minishell\&.h'\fP
 .br
 
@@ -31,53 +33,6 @@ src/exec/ft_dups.c
 .br
 .RI "Create and redirect inputs and outputs needed for the command\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "int handle_redirections (\fBt_garbage\fP * garbage, \fBt_command\fP * command, int fd_backup[2])"
-
-.PP
-Create and redirect inputs and outputs needed for the command\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 or positive OK, negative ERROR 
-.RE
-.PP
-
-.SS "int handle_redirections_forks (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
-
-.PP
-Create and redirect inputs and outputs needed for the command\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 or positive OK, negative ERROR 
-.RE
-.PP
-
-.SS "void reset_redirection (\fBt_garbage\fP * garbage, \fBt_command\fP * command, int fd_backup[2], unsigned char i)"
-
-.PP
-Reset redirections by default values Replace the new redirections by stdin and stdout\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.br
-\fIi\fP value used for recursion 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

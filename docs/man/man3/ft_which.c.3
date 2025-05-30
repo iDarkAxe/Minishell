@@ -10,6 +10,8 @@ src/builtins/ft_which.c
 .br
 \fR#include 'minishell\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include <stddef\&.h>\fP
 .br
 
@@ -21,24 +23,6 @@ src/builtins/ft_which.c
 .br
 .RI "Says if the command are built-in commands or not\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "int ft_which (\fBt_data\fP * data, char ** tokens)"
-
-.PP
-Says if the command are built-in commands or not\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItokens\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 1 if not at least one is not built-in, 0 if all strs built-ins 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

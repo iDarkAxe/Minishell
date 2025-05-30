@@ -10,6 +10,8 @@ src/exec/command-utils.c
 .br
 \fR#include 'stdio\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 
 .SS "Functions"
 
@@ -23,40 +25,6 @@ src/exec/command-utils.c
 .br
 .RI "Print the commands structure with it's tokens\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "ssize_t print_command (\fBt_command\fP * command)"
-
-.PP
-Print the command structure with it's tokens\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ssize_t 0 or positive is OK, otherwise error 
-.RE
-.PP
-
-.SS "ssize_t print_commands (\fBt_command\fP ** command)"
-
-.PP
-Print the commands structure with it's tokens\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ssize_t 0 or positive is OK, otherwise error 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

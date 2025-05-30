@@ -8,6 +8,8 @@ src/garbage/garbage_utils.c
 .PP
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'libft\&.h'\fP
 .br
 \fR#include <stddef\&.h>\fP
@@ -39,33 +41,6 @@ src/garbage/garbage_utils.c
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "void free_element_gb (\fBt_garbage\fP * garbage, void * ptr)"
-
-.PP
-Free an element in the garbage collector\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIptr\fP element to free 
-.RE
-.PP
-
-.SS "char * ft_strdup_gb (\fBt_garbage\fP * garbage, const char * source)"
-
-.PP
-Create a copy of source into a new pointer NEEDS to be freed\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIsource\fP string to copy 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char* pointer to the new string 
-.RE
-.PP
-
 .SS "char * ft_strndup_gb (\fBt_garbage\fP * garbage, const char * source, size_t len)"
 
 .PP
@@ -73,6 +48,8 @@ Create a copy of source into a new pointer of size len NEEDS to be freed\&.
 .PP
 \fBParameters\fP
 .RS 4
+\fIgarbage\fP garbage structure 
+.br
 \fIsource\fP string to copy 
 .br
 \fIlen\fP size of the new string 
@@ -84,10 +61,6 @@ char* pointer to the new string
 .RE
 .PP
 
-.SS "void print_garbage (\fBt_garbage\fP * garbage)"
-
-.PP
-Print the garbage collector\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

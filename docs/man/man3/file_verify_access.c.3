@@ -12,6 +12,8 @@ src/file/file_verify_access.c
 .br
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'minishell\&.h'\fP
 .br
 \fR#include <fcntl\&.h>\fP
@@ -29,42 +31,6 @@ src/file/file_verify_access.c
 .br
 .RI "Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "\fBt_file\fP * search_last_file (\fBt_file\fP * file, \fBt_file\fP * already_searched)"
-
-.PP
-Return the last file that is not already_searched\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfile\fP file structure 
-.br
-\fIalready_searched\fP previous file from search 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-t_file* last file begore already_searched 
-.RE
-.PP
-
-.SS "int verify_access (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
-
-.PP
-Verify that all files are valid if at least one file is invalid, modifies the boolean in command but still return 0\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, error otherwise 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

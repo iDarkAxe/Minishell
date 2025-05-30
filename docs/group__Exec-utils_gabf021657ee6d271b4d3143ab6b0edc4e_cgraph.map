@@ -1,0 +1,7 @@
+<map id="dup_and_close" name="dup_and_close">
+<area shape="rect" id="Node000001" title="Special dup2 that also closes the old fd." alt="" coords="5,5,124,31"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="172,5,280,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,15,158,15,158,21,124,21"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="328,5,451,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,15,314,15,314,21,280,21"/>
+</map>

@@ -17,18 +17,6 @@ inc/parsing.h
 
 .in +1c
 .ti -1c
-.RI "char * \fBft_remove_near_quotes\fP (char const *str, const char character)"
-.br
-.ti -1c
-.RI "char * \fBft_remove_all_near_quotes\fP (const char *str, const char character)"
-.br
-.ti -1c
-.RI "char * \fBclean_string\fP (const char *str)"
-.br
-.ti -1c
-.RI "char * \fBparsing_minishell\fP (\fBt_data\fP *data, const char *str)"
-.br
-.ti -1c
 .RI "char ** \fBft_split_charset\fP (const char *s, char *charset)"
 .br
 .ti -1c
@@ -39,9 +27,6 @@ inc/parsing.h
 .br
 .ti -1c
 .RI "char * \fBsetup_string\fP (\fBt_data\fP *data, char *str)"
-.br
-.ti -1c
-.RI "char * \fBexpand_variables_line\fP (\fBt_data\fP *data, char *str)"
 .br
 .ti -1c
 .RI "char ** \fBexpand_tildes_tokens\fP (\fBt_garbage\fP *garbage, char **tokens)"
@@ -60,50 +45,6 @@ inc/parsing.h
 .RI "size_t \fBft_strlen_choose_c\fP (const char *str, char c)"
 .br
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "char * clean_string (const char * str)"
-
-.SS "t_bool detect_quote (const char * str)"
-
-.SS "char ** expand_tildes_tokens (\fBt_garbage\fP * garbage, char ** tokens)"
-
-.PP
-Expands all the tildes found in array with HOME\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItokens\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char** tokens if OK, NULL otherwise 
-.RE
-.PP
-
-.SS "char * expand_variables_line (\fBt_data\fP * data, char * str)"
-
-.SS "char * fill_string (char * result, char * temp)"
-
-.SS "char * ft_remove_all_near_quotes (const char * str, const char character)"
-
-.SS "char * ft_remove_near_quotes (char const * str, const char character)"
-
-.SS "char ** ft_split_charset (const char * s, char * charset)"
-
-.SS "size_t ft_strlen_charset (const char * str, const char * charset)"
-
-.SS "size_t ft_strlen_choose_c (const char * str, char c)"
-
-.SS "char * handle_expand (\fBt_data\fP * data, char * str)"
-
-.SS "t_bool is_dollar (char * str)"
-
-.SS "char * parsing_minishell (\fBt_data\fP * data, const char * str)"
-
-.SS "char * setup_string (\fBt_data\fP * data, char * str)"
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

@@ -1,0 +1,48 @@
+<map id="prepare_command_forks" name="prepare_command_forks">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,231,189,256"/>
+<area shape="rect" id="Node000002" href="$group__Exec-utils.html#ga68ff9e66a3ecaf523d293aaec067bd4e" title="Cound the number of commands in the command structure." alt="" coords="469,356,607,381"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,254,238,290,359,324,467,350,466,355,358,329,237,295,131,259"/>
+<area shape="rect" id="Node000003" href="$group__Exec-utils.html#ga295e94f031459c05f5e70d265e820ecd" title="Execute all the command that are followed by pipes." alt="" coords="263,5,395,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="101,230,118,192,147,141,186,86,210,61,236,40,249,32,252,37,239,44,213,65,190,90,151,144,123,194,106,232"/>
+<area shape="rect" id="Node000005" href="$group__Exec-utils.html#gac85fff88d8f2a9841059252bb313d5bb" title=" " alt="" coords="237,156,421,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="130,228,237,190,262,183,264,188,238,195,132,233"/>
+<area shape="rect" id="Node000008" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="1031,255,1139,280"/>
+<area shape="poly" id="edge15_Node000001_Node000008" title=" " alt="" coords="108,255,127,285,156,323,194,361,239,392,280,409,316,420,350,425,382,426,450,421,537,417,719,417,770,413,820,402,869,386,915,367,996,324,1054,286,1057,290,999,328,917,372,870,391,821,407,770,418,719,422,537,422,451,426,382,431,349,430,315,425,278,414,236,396,190,366,152,327,123,288,104,258"/>
+<area shape="rect" id="Node000013" href="$group__Garbage.html#ga1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="263,205,395,231"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="190,231,249,224,250,229,190,236"/>
+<area shape="rect" id="Node000014" href="$group__Signal.html#ga5f6c32d2562c571a4c4d359be72564a9" title="Function to ignore certain signals." alt="" coords="275,255,384,280"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="190,250,261,258,261,263,190,256"/>
+<area shape="rect" id="Node000015" href="$group__Garbage.html#gac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="493,105,583,131"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="110,228,162,184,197,160,236,141,300,123,365,114,427,111,479,111,479,117,427,116,365,119,301,129,238,146,200,164,165,188,113,232"/>
+<area shape="rect" id="Node000016" href="$group__Exec-utils.html#gadec5648ce02f6feefadbb4b84d997b96" title="Search Path for all commands." alt="" coords="275,55,383,80"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="106,229,156,167,194,130,236,97,265,82,267,87,239,102,197,134,160,170,110,232"/>
+<area shape="rect" id="Node000018" href="$group__Signal.html#ga158e46ae40ca894b730badc8fbbefb2d" title="Main function for initialising signals." alt="" coords="285,457,374,483"/>
+<area shape="poly" id="edge23_Node000001_Node000018" title=" " alt="" coords="107,255,125,291,153,339,192,391,239,436,273,454,270,458,236,440,188,394,149,342,120,293,102,258"/>
+<area shape="rect" id="Node000020" href="$group__Exec-utils.html#ga308cb3ae739e2ee3f6c26d3240d60601" title="Waits for all the childs with their pids." alt="" coords="270,356,389,381"/>
+<area shape="poly" id="edge25_Node000001_Node000020" title=" " alt="" coords="116,254,169,293,239,334,273,349,271,354,236,339,166,297,113,258"/>
+<area shape="rect" id="Node000004" href="$group__Exec-utils.html#gad6d87adb1f10074bf9c114f9c0bdd040" title="Safely close fd." alt="" coords="493,5,583,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="396,15,479,15,479,21,396,21"/>
+<area shape="rect" id="Node000006" href="$group__Exec.html#gae660ae4acf50d9bc04cd300c1096353c" title="Creates a copy of all tokens that are in a command structure It&#39;s used for forks during exec." alt="" coords="494,155,582,180"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="422,165,480,165,480,170,422,171"/>
+<area shape="poly" id="edge13_Node000005_Node000008" title=" " alt="" coords="385,179,616,231,739,256,830,270,928,274,1017,271,1017,276,928,279,829,275,738,261,615,236,384,184"/>
+<area shape="rect" id="Node000007" href="$group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="655,155,781,180"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="582,165,641,165,641,170,582,170"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="735,178,776,210,802,226,830,239,878,253,927,261,1017,267,1017,272,926,267,876,258,828,245,799,231,773,214,731,182"/>
+<area shape="rect" id="Node000010" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="851,105,961,131"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="766,152,843,132,844,137,768,157"/>
+<area shape="rect" id="Node000011" href="$group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="829,204,983,229"/>
+<area shape="poly" id="edge11_Node000007_Node000011" title=" " alt="" coords="768,177,844,198,843,203,766,183"/>
+<area shape="rect" id="Node000012" href="$group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="847,155,965,180"/>
+<area shape="poly" id="edge12_Node000007_Node000012" title=" " alt="" coords="782,165,832,165,832,170,782,170"/>
+<area shape="rect" id="Node000009" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="1187,255,1309,280"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1139,265,1173,265,1173,270,1139,270"/>
+<area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="962,128,984,140,1012,163,1037,190,1072,242,1068,245,1032,194,1008,167,981,144,960,133"/>
+<area shape="poly" id="edge18_Node000015_Node000007" title=" " alt="" coords="583,127,658,148,657,153,582,133"/>
+<area shape="rect" id="Node000017" href="$group__Exec-utils.html#gaf939d04ead94dff4119d76107ae4f857" title="Search path for the designated command." alt="" coords="487,55,589,80"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="384,65,474,65,474,70,384,70"/>
+<area shape="poly" id="edge21_Node000017_Node000007" title=" " alt="" coords="579,78,608,90,653,117,691,144,688,148,650,121,605,95,577,82"/>
+<area shape="poly" id="edge22_Node000017_Node000008" title=" " alt="" coords="588,53,669,41,772,37,827,40,882,50,935,66,984,90,1004,105,1021,123,1048,163,1067,205,1079,240,1074,242,1062,207,1044,166,1017,126,1000,109,981,95,933,71,880,55,826,46,772,42,670,46,589,59"/>
+<area shape="rect" id="Node000019" href="$signals_8c.html#a6a47bee71ca8c57f1aa3d27530dde646" title="Signal handler Ctrl+C = SIGINT &#45;&gt; print &quot;^C&quot; and displays a new prompt on a new line...." alt="" coords="479,457,597,483"/>
+<area shape="poly" id="edge24_Node000018_Node000019" title=" " alt="" coords="374,467,465,467,465,473,374,473"/>
+<area shape="poly" id="edge26_Node000020_Node000002" title=" " alt="" coords="389,366,456,366,456,371,389,371"/>
+</map>

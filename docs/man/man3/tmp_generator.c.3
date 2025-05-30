@@ -12,6 +12,8 @@ src/file/tmp_generator.c
 .br
 \fR#include 'libft\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'minishell\&.h'\fP
 .br
 \fR#include <fcntl\&.h>\fP
@@ -27,26 +29,6 @@ src/file/tmp_generator.c
 .br
 .RI "Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "\fBt_tmp\fP create_tmp (\fBt_garbage\fP * garbage, char * path, int nbr_try)"
-
-.PP
-Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIpath\fP path where to create the file 
-.br
-\fInbr_try\fP number of try to create a tmp file 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-\fBt_tmp\fP structure with the path+name of created name 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

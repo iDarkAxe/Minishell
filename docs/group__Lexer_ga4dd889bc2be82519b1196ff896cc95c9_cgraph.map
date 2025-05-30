@@ -1,0 +1,16 @@
+<map id="init_lexer_state" name="init_lexer_state">
+<area shape="rect" id="Node000001" title="Initialize the lexer structure." alt="" coords="5,56,128,81"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="176,56,303,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,66,162,66,162,71,128,71"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="552,5,660,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="260,54,301,33,350,15,399,8,449,5,539,8,538,13,449,10,399,13,351,21,303,37,262,58"/>
+<area shape="rect" id="Node000005" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="372,31,483,56"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="303,58,358,50,359,55,303,63"/>
+<area shape="rect" id="Node000006" href="$group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="351,80,504,105"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="303,74,337,78,336,84,303,79"/>
+<area shape="rect" id="Node000007" href="$group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="368,129,487,155"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="269,79,352,114,374,122,372,127,350,119,267,84"/>
+<area shape="rect" id="Node000004" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="708,5,831,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="660,15,694,15,694,21,660,21"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="483,33,538,25,538,30,483,38"/>
+</map>

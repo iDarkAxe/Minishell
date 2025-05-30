@@ -1,9 +1,22 @@
 var searchData=
 [
-  ['data_5fstructure_2eh_0',['data_structure.h',['../data__structure_8h.html',1,'']]],
-  ['default_5fprompt_1',['DEFAULT_PROMPT',['../env_8h.html#a2b7e157b569bfc6ebc29f32ae647359b',1,'env.h']]],
-  ['deprecated_20list_2',['Deprecated List',['../deprecated.html',1,'']]],
-  ['detect_5fequal_3',['detect_equal',['../functions__utils_8c.html#a0cb8a1baadc9060685e22a095f66cc5b',1,'detect_equal(char *str):&#160;functions_utils.c'],['../env_8h.html#a0cb8a1baadc9060685e22a095f66cc5b',1,'detect_equal(char *str):&#160;functions_utils.c']]],
-  ['detect_5fquote_4',['detect_quote',['../functions__utils__parsing_8c.html#a95d7a696fbaebd7f67d8a29478b7c6d2',1,'detect_quote(const char *str):&#160;functions_utils_parsing.c'],['../parsing_8h.html#a95d7a696fbaebd7f67d8a29478b7c6d2',1,'detect_quote(const char *str):&#160;functions_utils_parsing.c']]],
-  ['dup_5fand_5fclose_5',['dup_and_close',['../exec-utils_8c.html#abf021657ee6d271b4d3143ab6b0edc4e',1,'dup_and_close(t_garbage *garbage, int oldfd, int newfd):&#160;exec-utils.c'],['../exec_8h.html#abf021657ee6d271b4d3143ab6b0edc4e',1,'dup_and_close(t_garbage *garbage, int oldfd, int newfd):&#160;exec-utils.c']]]
+  ['env_0',['env',['../structs__data.html#a1a8d8ee8fc736afaf7973ff6b16c6bef',1,'s_data']]],
+  ['env_2eh_1',['env.h',['../env_8h.html',1,'']]],
+  ['env_5fto_5farray_2',['env_to_array',['../env__to__array_8c.html#a1bf8122facec6076c06d86caceb4dcf2',1,'env_to_array(t_data *data):&#160;env_to_array.c'],['../env_8h.html#a1bf8122facec6076c06d86caceb4dcf2',1,'env_to_array(t_data *data):&#160;env_to_array.c']]],
+  ['env_5fto_5farray_2ec_3',['env_to_array.c',['../env__to__array_8c.html',1,'']]],
+  ['envp_4',['envp',['../structs__command.html#addff478eead45b536afc3aab716db164',1,'s_command']]],
+  ['exec_20functions_5',['Exec Functions',['../group__Exec.html',1,'']]],
+  ['exec_20utils_6',['Exec Utils',['../group__Exec-utils.html',1,'']]],
+  ['exec_2dutils_2ec_7',['exec-utils.c',['../exec-utils_8c.html',1,'']]],
+  ['exec_2ec_8',['exec.c',['../exec_8c.html',1,'']]],
+  ['exec_2eh_9',['exec.h',['../exec_8h.html',1,'']]],
+  ['exec_5fextern_2ec_10',['exec_extern.c',['../exec__extern_8c.html',1,'']]],
+  ['exec_5fpipeline_2ec_11',['exec_pipeline.c',['../exec__pipeline_8c.html',1,'']]],
+  ['execute_5fpipeline_12',['execute_pipeline',['../group__Exec-utils.html#ga295e94f031459c05f5e70d265e820ecd',1,'execute_pipeline(t_data *data, pid_t *pids, size_t *count):&#160;exec_pipeline.c'],['../group__Exec-utils.html#ga295e94f031459c05f5e70d265e820ecd',1,'execute_pipeline(t_data *data, pid_t *pids, size_t *count):&#160;exec_pipeline.c']]],
+  ['execve_5ffork_13',['execve_fork',['../group__Exec.html#ga2984947eed76ef7f9a9ce40f27438853',1,'execve_fork(t_data *data, char *path, char **toks, char **envp):&#160;exec_extern.c'],['../group__Exec.html#ga2984947eed76ef7f9a9ce40f27438853',1,'execve_fork(t_data *data, char *path, char **toks, char **envp):&#160;exec_extern.c']]],
+  ['exist_14',['exist',['../structs__file.html#aa00fc724005c9bd0a12169c1761e5d3e',1,'s_file']]],
+  ['exit_20functions_15',['Exit Functions',['../group__Exit.html',1,'']]],
+  ['expand_5fhome_2ec_16',['expand_home.c',['../expand__home_8c.html',1,'']]],
+  ['expand_5ftildes_5ftokens_17',['expand_tildes_tokens',['../group__Parsing.html#gaecdaf340d35767406e40e413e4c991da',1,'expand_tildes_tokens(t_garbage *garbage, char **tokens):&#160;expand_home.c'],['../group__Parsing.html#gaecdaf340d35767406e40e413e4c991da',1,'expand_tildes_tokens(t_garbage *garbage, char **tokens):&#160;expand_home.c']]],
+  ['expand_5fvariable_2ec_18',['expand_variable.c',['../expand__variable_8c.html',1,'']]]
 ];

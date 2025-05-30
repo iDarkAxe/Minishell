@@ -1,0 +1,52 @@
+.TH "CD" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CD \- CD Functions
+.PP
+ \- Functions for CD (change directory)  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBchange_cwd\fP (\fBt_data\fP *data, t_bool is_pwd)"
+.br
+.RI "Change the values of ENV VAR\&. "
+.ti -1c
+.RI "int \fBchange_cwd_to_home\fP (\fBt_env_vars\fP *env)"
+.br
+.ti -1c
+.RI "int \fBchange_cwd_to_previous_cwd\fP (\fBt_env_vars\fP *env)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions for CD (change directory) 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void change_cwd (\fBt_data\fP * data, t_bool is_pwd)"
+
+.PP
+Change the values of ENV VAR\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIis_pwd\fP 1 for PWD, 0 for OLD_PWD 
+.RE
+.PP
+
+.SS "int change_cwd_to_home (\fBt_env_vars\fP * env)"
+
+.SS "int change_cwd_to_previous_cwd (\fBt_env_vars\fP * env)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

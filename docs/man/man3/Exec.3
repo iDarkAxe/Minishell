@@ -1,0 +1,212 @@
+.TH "Exec" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Exec \- Exec Functions
+.PP
+ \- Main functions for executing a command\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char ** \fBcopy_toks\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
+.br
+.RI "Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. "
+.ti -1c
+.RI "int \fBprepare_command\fP (\fBt_data\fP *data)"
+.br
+.RI "Prepare the command for \fBsearch_command()\fP "
+.ti -1c
+.RI "int \fBprepare_command_forks\fP (\fBt_data\fP *data)"
+.br
+.ti -1c
+.RI "int \fBsearch_command\fP (\fBt_data\fP *data, \fBt_command\fP *command, char **tokens)"
+.br
+.RI "Search if command is a builtin or not\&. "
+.ti -1c
+.RI "int \fBnot_builtins\fP (\fBt_data\fP *data, \fBt_command\fP *command, char **tokens)"
+.br
+.RI "Executes commands that are not builtins\&. "
+.ti -1c
+.RI "int \fBhandle_redirections\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command, int fd_backup[2])"
+.br
+.RI "Create and redirect inputs and outputs needed for the command\&. "
+.ti -1c
+.RI "void \fBreset_redirection\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command, int fd_backup[2], unsigned char i)"
+.br
+.RI "Reset redirections by default values Replace the new redirections by stdin and stdout\&. "
+.ti -1c
+.RI "int \fBneeds_to_be_forked\fP (\fBt_command\fP *command)"
+.br
+.RI "Check if it needs to be forked\&. "
+.ti -1c
+.RI "int \fBexecve_fork\fP (\fBt_data\fP *data, char *path, char **toks, char **envp)"
+.br
+.ti -1c
+.RI "int \fBhandle_redirections_forks\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command)"
+.br
+.RI "Create and redirect inputs and outputs needed for the command\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Main functions for executing a command\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "char ** copy_toks (\fBt_data\fP * data, \fBt_command\fP * command)"
+
+.PP
+Creates a copy of all tokens that are in a command structure It's used for forks during exec\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char** copy of tokens 
+.RE
+.PP
+
+.SS "int execve_fork (\fBt_data\fP * data, char * path, char ** toks, char ** envp)"
+
+.SS "int handle_redirections (\fBt_garbage\fP * garbage, \fBt_command\fP * command, int fd_backup[2])"
+
+.PP
+Create and redirect inputs and outputs needed for the command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIcommand\fP command structure 
+.br
+\fIfd_backup\fP pointer of 2 integers for stdin and stdout backup 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 or positive OK, negative ERROR 
+.RE
+.PP
+
+.SS "int handle_redirections_forks (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
+
+.PP
+Create and redirect inputs and outputs needed for the command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 or positive OK, negative ERROR 
+.RE
+.PP
+
+.SS "int needs_to_be_forked (\fBt_command\fP * command)"
+
+.PP
+Check if it needs to be forked\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 NO, 1 YES 
+.RE
+.PP
+
+.SS "int not_builtins (\fBt_data\fP * data, \fBt_command\fP * command, char ** tokens)"
+
+.PP
+Executes commands that are not builtins\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIcommand\fP command structure 
+.br
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int prepare_command (\fBt_data\fP * data)"
+
+.PP
+Prepare the command for \fBsearch_command()\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int prepare_command_forks (\fBt_data\fP * data)"
+
+.SS "void reset_redirection (\fBt_garbage\fP * garbage, \fBt_command\fP * command, int fd_backup[2], unsigned char i)"
+
+.PP
+Reset redirections by default values Replace the new redirections by stdin and stdout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIcommand\fP command structure 
+.br
+\fIfd_backup\fP pointer of 2 integers for stdin and stdout backup 
+.br
+\fIi\fP value used for recursion 
+.RE
+.PP
+
+.SS "int search_command (\fBt_data\fP * data, \fBt_command\fP * command, char ** tokens)"
+
+.PP
+Search if command is a builtin or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIcommand\fP command structure 
+.br
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 if command found, 1 otherwise 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

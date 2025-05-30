@@ -15,6 +15,7 @@ Lexer \- Lexer structure
 .ti -1c
 .RI "struct \fBs_lexer_state\fP"
 .br
+.RI "Structure used by lexer to efficiently have access to a bunch of variables\&. "
 .in -1c
 .SS "Macros"
 
@@ -23,14 +24,131 @@ Lexer \- Lexer structure
 .RI "#define \fBMAX_TOKENS_LEX\fP   1024"
 .br
 .in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char ** \fBinit_lexer_state\fP (\fBt_garbage\fP *garbage, \fBt_lexer_state\fP *lex_st, const char *line)"
+.br
+.RI "Initialize the lexer structure\&. "
+.ti -1c
+.RI "char ** \fBlexer\fP (\fBt_garbage\fP *garbage, const char *line)"
+.br
+.RI "Create tokens (small chunks) a line with the quotes and operators\&. "
+.ti -1c
+.RI "\fBt_command\fP * \fBtokeniser\fP (\fBt_data\fP *data, char **tokens)"
+.br
+.RI "Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. "
+.ti -1c
+.RI "char * \fBft_substr_end_gb\fP (\fBt_garbage\fP *garbage, char const *src, unsigned int start, size_t end)"
+.br
+.RI "Allocate memory for a string and copy the content from src\&. "
+.ti -1c
+.RI "int \fBis_operator_char\fP (char c)"
+.br
+.RI "Is |, < or > "
+.in -1c
 .SH "Detailed Description"
 .PP 
 Core functionality of the lexer\&. 
 
-
+Functions to make a correct use of lexing and tokenisation\&.
 .SH "Macro Definition Documentation"
 .PP 
 .SS "#define MAX_TOKENS_LEX   1024"
+
+.SH "Function Documentation"
+.PP 
+.SS "char * ft_substr_end_gb (\fBt_garbage\fP * garbage, char const * src, unsigned int start, size_t end)"
+
+.PP
+Allocate memory for a string and copy the content from src\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIsrc\fP source string 
+.br
+\fIstart\fP start index to copy from 
+.br
+\fIend\fP end index to copy to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char* pointer to the new string 
+.RE
+.PP
+
+.SS "char ** init_lexer_state (\fBt_garbage\fP * garbage, \fBt_lexer_state\fP * lex_st, const char * line)"
+
+.PP
+Initialize the lexer structure\&. Fill the structure with zeros and init the line to search in and allocates the array to the garbage
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIlex_st\fP pointer to the lexer structure 
+.br
+\fIline\fP line to verify 
+.RE
+.PP
+
+.SS "int is_operator_char (char c)"
+
+.PP
+Is |, < or > 
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP character to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 if c is operator, 0 otherwise 
+.RE
+.PP
+
+.SS "char ** lexer (\fBt_garbage\fP * garbage, const char * line)"
+
+.PP
+Create tokens (small chunks) a line with the quotes and operators\&. Handle spaces, quotes (' and ') and shell operator (|, <, <<, >, >>)\&. Return an array of tokens (strings), NULL terminated\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIline\fP line to tokenise 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Array of strings 
+.RE
+.PP
+
+.SS "\fBt_command\fP * tokeniser (\fBt_data\fP * data, char ** tokens)"
+
+.PP
+Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fItokens\fP tokens 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_command* pointer if OK, NULL if it fails 
+.RE
+.PP
 
 .SH "Author"
 .PP 

@@ -10,6 +10,8 @@ src/signals.c
 .br
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'minishell\&.h'\fP
 .br
 \fR#include <readline/readline\&.h>\fP
@@ -45,14 +47,6 @@ src/signals.c
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "void ignore_signal (void )"
-
-.PP
-Function to ignore certain signals\&. 
-.SS "void reset_signal_default (void )"
-
-.PP
-Function to reset signals to default\&. 
 .SS "void signal_handler (int sig, siginfo_t * info, void * context)"
 
 .PP
@@ -66,17 +60,6 @@ Signal handler Ctrl+C = SIGINT -> print "^C" and displays a new prompt on a new 
 \fIinfo\fP Information about the signal\&. 
 .br
 \fIcontext\fP Context of the signal\&. 
-.RE
-.PP
-
-.SS "int signal_init (void )"
-
-.PP
-Main function for initialising signals\&. 
-.PP
-\fBReturns\fP
-.RS 4
-int 0 if the function ends correctly, -1 otherwise\&. 
 .RE
 .PP
 

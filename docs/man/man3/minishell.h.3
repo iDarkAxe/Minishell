@@ -27,6 +27,7 @@ inc/minishell.h
 .ti -1c
 .RI "#define \fBPROMPT_MESSAGE_CUSTOM\fP   1"
 .br
+.RI "Make the prompt custom (with colors) "
 .ti -1c
 .RI "#define \fBFOLLOW_ZSH\fP   1"
 .br
@@ -48,6 +49,10 @@ inc/minishell.h
 .br
 .RI "Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. "
 .ti -1c
+.RI "char * \fBget_prompt_message\fP (\fBt_garbage\fP *garbage)"
+.br
+.RI "Build the prompt message If an error occurs, returns the static default prompt message\&. "
+.ti -1c
 .RI "int \fBsignal_init\fP (void)"
 .br
 .RI "Main function for initialising signals\&. "
@@ -59,21 +64,6 @@ inc/minishell.h
 .RI "void \fBignore_signal\fP (void)"
 .br
 .RI "Function to ignore certain signals\&. "
-.ti -1c
-.RI "char * \fBget_prompt_message\fP (\fBt_garbage\fP *garbage)"
-.br
-.RI "Build the prompt message If an error occurs, returns the static default prompt message\&. "
-.ti -1c
-.RI "ssize_t \fBprint_fd\fP (int fd, const char *str)"
-.br
-.RI "Function used to write safely and exits if write failed\&. "
-.ti -1c
-.RI "ssize_t \fBprintn_fd\fP (int fd, const char *str, size_t len)"
-.br
-.RI "Function used to write safely and exits if write failed\&. "
-.ti -1c
-.RI "void \fBprint_command_fd\fP (\fBt_command\fP *command)"
-.br
 .ti -1c
 .RI "char ** \fBinit_lexer_state\fP (\fBt_garbage\fP *garbage, \fBt_lexer_state\fP *lex_st, const char *line)"
 .br
@@ -98,10 +88,6 @@ inc/minishell.h
 .RI "char ** \fBparse_line\fP (\fBt_data\fP *data, char *line)"
 .br
 .RI "Prototype for parsing\&. "
-.ti -1c
-.RI "char ** \fBexpand_tildes_tokens\fP (\fBt_garbage\fP *garbage, char **tokens)"
-.br
-.RI "Expands all the tildes found in array with HOME\&. "
 .ti -1c
 .RI "void \fBfree_array\fP (\fBt_garbage\fP *garbage, char **array)"
 .br
@@ -139,6 +125,9 @@ inc/minishell.h
 .br
 .RI "Print tokens indexed\&. "
 .ti -1c
+.RI "void \fBprint_command_fd\fP (\fBt_command\fP *command)"
+.br
+.ti -1c
 .RI "ssize_t \fBprint_command\fP (\fBt_command\fP *command)"
 .br
 .RI "Print the command structure with it's tokens\&. "
@@ -155,362 +144,10 @@ inc/minishell.h
 Follow certain added functionnality of ZSH to minishell\&. 
 .SS "#define PROMPT_MESSAGE_CUSTOM   1"
 
-.SH "Function Documentation"
-.PP 
-.SS "char ** expand_tildes_tokens (\fBt_garbage\fP * garbage, char ** tokens)"
-
 .PP
-Expands all the tildes found in array with HOME\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItokens\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char** tokens if OK, NULL otherwise 
-.RE
-.PP
-
-.SS "void free_array (\fBt_garbage\fP * garbage, char ** array)"
-
-.PP
-Free array of strings\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP array of strings 
-.RE
-.PP
-
-.SS "void free_command (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
-
-.PP
-Free one \fBt_command\fP structure with all that it contains\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP \fBt_command\fP structure 
-.RE
-.PP
-
-.SS "void free_commands (\fBt_garbage\fP * garbage, \fBt_command\fP ** command)"
-
-.PP
-Free \fBt_command\fP linked list structure with all that it contains\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP head of \fBt_command\fP linked list structure 
-.RE
-.PP
-
-.SS "void free_files_struct (\fBt_garbage\fP * garbage, \fBt_file\fP * file)"
-
-.PP
-Free linked list of \fBt_file\fP structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfile\fP head of \fBt_file\fP linked list structure 
-.RE
-.PP
-
-.SS "void free_heredoc (\fBt_garbage\fP * garbage, \fBt_tmp\fP * tmp)"
-
-.PP
-Free heredoc structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItmp\fP heredoc structure 
-.RE
-.PP
-
-.SS "void free_tokens (\fBt_garbage\fP * garbage, \fBt_token\fP * token)"
-
-.PP
-Free t_tokens linked list structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItoken\fP head of t_tokens linked list structure 
-.RE
-.PP
-
-.SS "char * ft_substr_end_gb (\fBt_garbage\fP * garbage, char const * src, unsigned int start, size_t end)"
-
-.PP
-Allocate memory for a string and copy the content from src\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIsrc\fP source string 
-.br
-\fIstart\fP start index to copy from 
-.br
-\fIend\fP end index to copy to 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char* pointer to the new string 
-.RE
-.PP
-
-.SS "char * get_prompt_message (\fBt_garbage\fP * garbage)"
-
-.PP
-Build the prompt message If an error occurs, returns the static default prompt message\&. 
-.PP
-\fBReturns\fP
-.RS 4
-char* prompt message 
-.RE
-.PP
-
-.SS "void ignore_signal (void )"
-
-.PP
-Function to ignore certain signals\&. 
-.SS "char ** init_lexer_state (\fBt_garbage\fP * garbage, \fBt_lexer_state\fP * lex_st, const char * line)"
-
-.PP
-Initialize the lexer structure\&. Fill the structure with zeros and init the line to search in and allocates the array to the garbage
-
-.PP
-\fBParameters\fP
-.RS 4
-\fIlex_st\fP pointer to the lexer structure 
-.br
-\fIline\fP line to verify 
-.RE
-.PP
-
-.SS "int is_interactive (void )"
-
-.PP
-Function to read the context where this function is called Verify if it's used in a tty or not,\&. 
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, 1 otherwise 
-.RE
-.PP
-
-.SS "int is_operator_char (char c)"
-
-.PP
-Is |, < or > 
-.PP
-\fBParameters\fP
-.RS 4
-\fIc\fP character to check 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 1 if c is operator, 0 otherwise 
-.RE
-.PP
-
-.SS "char ** lexer (\fBt_garbage\fP * garbage, const char * line)"
-
-.PP
-Create tokens (small chunks) a line with the quotes and operators\&. Handle spaces, quotes (' and ') and shell operator (|, <, <<, >, >>)\&. Return an array of tokens (strings), NULL terminated\&.
-
-.PP
-\fBParameters\fP
-.RS 4
-\fIline\fP line to tokenise 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-Array of strings 
-.RE
-.PP
-
-.SS "int minishell (\fBt_data\fP * data)"
-
-.PP
-Minishell that handles all the shell functions\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdata\fP data structure already set 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
-.SS "char ** parse_line (\fBt_data\fP * data, char * line)"
-
-.PP
-Prototype for parsing\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIline\fP line to parse 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char** 
-.RE
-.PP
-
-.SS "ssize_t print_command (\fBt_command\fP * command)"
-
-.PP
-Print the command structure with it's tokens\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ssize_t 0 or positive is OK, otherwise error 
-.RE
-.PP
-
-.SS "void print_command_fd (\fBt_command\fP * command)"
-
-.SS "ssize_t print_commands (\fBt_command\fP ** command)"
-
-.PP
-Print the commands structure with it's tokens\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ssize_t 0 or positive is OK, otherwise error 
-.RE
-.PP
-
-.SS "ssize_t print_fd (int fd, const char * str)"
-
-.PP
-Function used to write safely and exits if write failed\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfd\fP file descriptor 
-.br
-\fIstr\fP string to print 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ssize_t number of character printed 
-.RE
-.PP
-
-.SS "void print_list_files (\fBt_command\fP * command)"
-
-.PP
-Print the list of files in the command structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-
-.SS "void print_perm_files (\fBt_command\fP * command)"
-
-.PP
-Print the list of permissions of files in the command structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-
-.SS "void print_toks (char ** tokens)"
-
-.PP
-Print tokens indexed\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItokens\fP tokens to print 
-.RE
-.PP
-
-.SS "ssize_t printn_fd (int fd, const char * str, size_t len)"
-
-.PP
-Function used to write safely and exits if write failed\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfd\fP file descriptor 
-.br
-\fIstr\fP string to print 
-.br
-\fIlen\fP number of character to print 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-ssize_t number of character printed 
-.RE
-.PP
-
-.SS "void reset_signal_default (void )"
-
-.PP
-Function to reset signals to default\&. 
-.SS "int short_minishell_no_tty (\fBt_data\fP * data)"
-
-.PP
-Executes the shell in a restricted area where there is no prompt Should work exactly as the minishell function\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdata\fP data structure already set 
-.RE
-.PP
-
-.SS "int signal_init (void )"
-
-.PP
-Main function for initialising signals\&. 
-.PP
-\fBReturns\fP
-.RS 4
-int 0 if the function ends correctly, -1 otherwise\&. 
-.RE
-.PP
-
-.SS "\fBt_command\fP * tokeniser (\fBt_data\fP * data, char ** tokens)"
-
-.PP
-Creates a \fBt_command\fP structure that contains all the tokens Fills the command with the environment\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdata\fP data structure 
-.br
-\fItokens\fP tokens 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-t_command* pointer if OK, NULL if it fails 
-.RE
+Make the prompt custom (with colors) looks like : "$USER$(hostname):$ colors : - user and hostname + ':'
+.IP "\(bu" 2
+current working directory 
 .PP
 
 .SH "Author"

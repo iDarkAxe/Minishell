@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a647f21a28344e1d9c643f4115516d7c9',1,'main.c']]],
-  ['malloc_5fgb_1',['malloc_gb',['../garbage_8c.html#ac10959a5218b40803fd269019cd8b390',1,'malloc_gb(t_garbage *garbage, size_t size):&#160;garbage.c'],['../garbage_8h.html#ac10959a5218b40803fd269019cd8b390',1,'malloc_gb(t_garbage *garbage, size_t size):&#160;garbage.c']]],
-  ['minishell_2',['minishell',['../minishell_8c.html#a362d7105d55506741336ee58cfbb4fd2',1,'minishell(t_data *data):&#160;minishell.c'],['../minishell_8h.html#a362d7105d55506741336ee58cfbb4fd2',1,'minishell(t_data *data):&#160;minishell.c']]]
+  ['needs_5fto_5fbe_5fforked_0',['needs_to_be_forked',['../group__Exec.html#gae7e5622ddd6021aa2b6b5bbf46294de6',1,'needs_to_be_forked(t_command *command):&#160;exec-utils.c'],['../group__Exec.html#gae7e5622ddd6021aa2b6b5bbf46294de6',1,'needs_to_be_forked(t_command *command):&#160;exec-utils.c']]],
+  ['not_5fbuiltins_1',['not_builtins',['../group__Exec.html#gab6485ed7e8a210d99727589be43ad9ee',1,'not_builtins(t_data *data, t_command *command, char **tokens):&#160;exec_extern.c'],['../group__Exec.html#gab6485ed7e8a210d99727589be43ad9ee',1,'not_builtins(t_data *data, t_command *command, char **tokens):&#160;exec_extern.c']]]
 ];

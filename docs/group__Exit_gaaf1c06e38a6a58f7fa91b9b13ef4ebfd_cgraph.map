@@ -1,0 +1,7 @@
+<map id="ft_exit_int" name="ft_exit_int">
+<area shape="rect" id="Node000001" title="Short ft_exit that uses only int noreturn attribute is to prevent &#45;Wmissing&#45;noreturn flag from flag &#45;..." alt="" coords="5,5,92,31"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="140,5,248,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,15,126,15,126,21,92,21"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="296,5,419,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,15,282,15,282,21,248,21"/>
+</map>

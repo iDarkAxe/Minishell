@@ -8,6 +8,8 @@ src/file/file.c
 .PP
 \fR#include 'file\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'garbage\&.h'\fP
 .br
 \fR#include 'libft\&.h'\fP
@@ -31,60 +33,6 @@ src/file/file.c
 .br
 .RI "Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order) "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "void * add_file (\fBt_garbage\fP * garbage, \fBt_command\fP * command, \fBt_token\fP * token, \fBt_file\fP ** command_file)"
-
-.PP
-Add a file to the stack given in param, each file added is at the beginning of the stack (reverse order) 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.br
-\fItoken\fP token containing str informations 
-.br
-\fIcommand_file\fP stack to assign a file 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-void* NULL if error, command if no stack given, and file if all's good 
-.RE
-.PP
-
-.SS "int build_file_access (\fBt_file\fP * file)"
-
-.PP
-Build the file using access and check permissions\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfile\fP file structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0, OK, -1 error 
-.RE
-.PP
-
-.SS "\fBt_file\fP * file_parser (\fBt_file\fP * file)"
-
-.PP
-Parse the file structure\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIfile\fP file structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-t_file* file given in paramter 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

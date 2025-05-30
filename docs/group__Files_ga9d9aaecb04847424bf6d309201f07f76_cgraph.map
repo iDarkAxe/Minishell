@@ -1,0 +1,31 @@
+<map id="files_management" name="files_management">
+<area shape="rect" id="Node000001" title="Executes all the files redirection tests." alt="" coords="5,155,148,181"/>
+<area shape="rect" id="Node000002" href="$group__Files.html#ga9df4316381acdd90a01028b353b7fbe2" title="Build the data around the files in all commands." alt="" coords="227,30,351,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,153,131,110,162,85,195,64,213,56,215,61,197,69,165,90,135,114,91,157"/>
+<area shape="rect" id="Node000003" href="$group__Files.html#ga550f6fe08adedae27fc01f128c84bd0d" title="Adds files to the file redirection structure." alt="" coords="207,79,372,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,153,195,122,237,107,239,112,197,127,112,158"/>
+<area shape="rect" id="Node000008" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="797,130,908,155"/>
+<area shape="poly" id="edge13_Node000001_Node000008" title=" " alt="" coords="148,163,783,142,784,148,148,168"/>
+<area shape="rect" id="Node000011" href="$group__Files.html#ga6d09e530cadb43f8e7f26f9f5a10ba7d" title="Fill all the heredocs in the correct order." alt="" coords="237,181,341,206"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="149,174,224,183,224,188,148,179"/>
+<area shape="rect" id="Node000013" href="$group__Files.html#ga229554ef8da5cb45506ba94fa117c78f" title="Removes all the tokens of file redirections allready used." alt="" coords="196,230,383,255"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="106,179,197,216,221,224,220,229,195,221,104,183"/>
+<area shape="rect" id="Node000014" href="$group__Files.html#gafb055840f776944a93723c4b25dea107" title="Verify that all files are valid if at least one file is invalid, modifies the boolean in command but ..." alt="" coords="234,279,345,305"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="91,179,135,222,165,246,197,266,222,276,220,281,195,270,162,250,132,226,88,183"/>
+<area shape="rect" id="Node000004" href="$group__Files.html#ga4bac3f464554a4de0252aae544dbc020" title="Add a file to the stack given in param, each file added is at the beginning of the stack (reverse ord..." alt="" coords="455,79,529,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="372,89,441,89,441,95,372,95"/>
+<area shape="rect" id="Node000005" href="$group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="601,79,728,105"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="529,89,587,89,587,95,529,95"/>
+<area shape="rect" id="Node000006" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="977,55,1085,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="678,77,719,45,746,28,775,16,818,6,852,3,887,7,930,16,967,29,1000,46,998,51,965,34,929,21,886,12,852,8,819,11,777,21,748,33,722,49,681,81"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="713,102,792,124,791,129,712,107"/>
+<area shape="rect" id="Node000009" href="$group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="776,31,929,57"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="715,77,788,58,790,63,716,82"/>
+<area shape="rect" id="Node000010" href="$group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="793,81,912,106"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="728,90,779,90,779,96,728,95"/>
+<area shape="rect" id="Node000007" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="1133,55,1256,81"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1086,65,1120,65,1120,71,1086,71"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="894,128,928,115,993,85,995,90,930,120,896,133"/>
+<area shape="rect" id="Node000012" href="$group__Files.html#ga1adf8592e56806396e71d927d3268ff7" title="Return the last file that is not already_searched." alt="" coords="431,181,553,206"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="342,191,417,191,417,196,342,196"/>
+</map>

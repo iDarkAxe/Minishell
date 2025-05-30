@@ -44,9 +44,11 @@ inc/builtins.h
 .ti -1c
 .RI "void \fBft_exit_int\fP (\fBt_garbage\fP *garbage, int value)"
 .br
+.RI "Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc\&. "
 .ti -1c
 .RI "void \fBft_exit_int_np\fP (\fBt_garbage\fP *garbage, int value)"
 .br
+.RI "Short ft_exit that uses only int but don't say it's name\&. "
 .ti -1c
 .RI "void \fBchange_cwd\fP (\fBt_data\fP *data, t_bool is_pwd)"
 .br
@@ -58,111 +60,6 @@ inc/builtins.h
 .RI "int \fBchange_cwd_to_previous_cwd\fP (\fBt_env_vars\fP *env)"
 .br
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "void change_cwd (\fBt_data\fP * data, t_bool is_pwd)"
-
-.PP
-Change the values of ENV VAR\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdata\fP data structure 
-.br
-\fIis_pwd\fP 1 for PWD, 0 for OLD_PWD 
-.RE
-.PP
-
-.SS "int change_cwd_to_home (\fBt_env_vars\fP * env)"
-
-.SS "int change_cwd_to_previous_cwd (\fBt_env_vars\fP * env)"
-
-.SS "int ft_cd (\fBt_data\fP * data, char ** array)"
-
-.PP
-Implementatin of cd builtin of shell\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, 1 otherwise 
-.RE
-.PP
-
-.SS "int ft_echo (\fBt_data\fP * data, char ** array)"
-
-.PP
-Echo with -n option OPTIONS : -n : print without the triling newline\&. NOTES : you can add any number of n after -n if you want
-
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, error otherwise 
-.RE
-.PP
-
-.SS "int ft_env (\fBt_data\fP * data, char ** array)"
-
-.SS "int ft_exit (\fBt_data\fP * data, char ** array)"
-
-.PP
-Function to exit the program\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP argument of the exit function 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int value if argument invalid 
-.RE
-.PP
-
-.SS "void ft_exit_int (\fBt_garbage\fP * garbage, int value)"
-
-.SS "void ft_exit_int_np (\fBt_garbage\fP * garbage, int value)"
-
-.SS "int ft_export (\fBt_data\fP * data, char ** array)"
-
-.SS "int ft_pwd (\fBt_data\fP * data, char ** array)"
-
-.PP
-Print the current working directory\&. 
-.PP
-\fBReturns\fP
-.RS 4
-int 
-.RE
-.PP
-
-.SS "int ft_unset (\fBt_data\fP * data, char ** array)"
-
-.SS "int ft_which (\fBt_data\fP * data, char ** tokens)"
-
-.PP
-Says if the command are built-in commands or not\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItokens\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 1 if not at least one is not built-in, 0 if all strs built-ins 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

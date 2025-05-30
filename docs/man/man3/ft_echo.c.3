@@ -8,6 +8,8 @@ src/builtins/ft_echo.c
 .PP
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'minishell\&.h'\fP
 .br
 \fR#include <stddef\&.h>\fP
@@ -21,25 +23,6 @@ src/builtins/ft_echo.c
 .br
 .RI "Echo with -n option OPTIONS : -n : print without the triling newline\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "int ft_echo (\fBt_data\fP * data, char ** array)"
-
-.PP
-Echo with -n option OPTIONS : -n : print without the triling newline\&. NOTES : you can add any number of n after -n if you want
-
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, error otherwise 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

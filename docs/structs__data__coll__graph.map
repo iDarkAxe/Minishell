@@ -1,8 +1,8 @@
 <map id="s_data" name="s_data">
-<area shape="rect" id="Node000001" title=" " alt="" coords="134,284,199,309"/>
-<area shape="rect" id="Node000002" href="$structs__garbage.html" title=" " alt="" coords="6,196,95,221"/>
+<area shape="rect" id="Node000001" title="General structure that have access to all needed in minishell." alt="" coords="134,284,199,309"/>
+<area shape="rect" id="Node000002" href="$structs__garbage.html" title="Head of the linked list." alt="" coords="6,196,95,221"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,230,106,258,145,282,142,286,102,262,70,234"/>
-<area shape="rect" id="Node000003" href="$structs__element.html" title=" " alt="" coords="5,93,96,119"/>
+<area shape="rect" id="Node000003" href="$structs__element.html" title="Basic node for an element of a linked list." alt="" coords="5,93,96,119"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,133,53,196,48,196,48,133"/>
 <area shape="rect" id="Node000004" href="$structs__env__vars.html" title=" " alt="" coords="119,196,214,221"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,235,169,283,164,283,164,235"/>
@@ -18,9 +18,9 @@
 <area shape="rect" id="Node000008" href="$structs__token.html" title="Basic structure of linked list of strings." alt="" coords="268,93,340,119"/>
 <area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="307,133,307,196,301,196,301,133"/>
 <area shape="poly" id="edge11_Node000008_Node000008" title=" " alt="" coords="355,97,363,100,367,106,358,115,341,117,340,111,356,110,361,106,360,104,353,102"/>
-<area shape="rect" id="Node000009" href="$structs__file.html" title=" " alt="" coords="421,93,477,119"/>
+<area shape="rect" id="Node000009" href="$structs__file.html" title="Structure to handle all the data of a file." alt="" coords="421,93,477,119"/>
 <area shape="poly" id="edge12_Node000007_Node000009" title=" " alt="" coords="424,129,359,174,323,198,320,194,356,170,421,124"/>
 <area shape="poly" id="edge13_Node000009_Node000009" title=" " alt="" coords="492,96,500,99,504,106,495,115,478,117,477,111,493,110,499,106,497,104,490,101"/>
-<area shape="rect" id="Node000010" href="$structs__tmp.html" title=" " alt="" coords="418,5,481,31"/>
+<area shape="rect" id="Node000010" href="$structs__tmp.html" title="Basic structure to help manipulating heredocs (tmp file)" alt="" coords="418,5,481,31"/>
 <area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="452,45,452,93,447,93,447,45"/>
 </map>

@@ -1,0 +1,25 @@
+<map id="lexer" name="lexer">
+<area shape="rect" id="Node000001" title="Create tokens (small chunks) a line with the quotes and operators." alt="" coords="5,80,60,105"/>
+<area shape="rect" id="Node000002" href="$group__Lexer.html#ga20a83b55a84ecb41df4e07bf8bc44592" title="Allocate memory for a string and copy the content from src." alt="" coords="108,29,240,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,81,124,57,126,62,61,86"/>
+<area shape="rect" id="Node000010" href="$group__Lexer.html#ga4dd889bc2be82519b1196ff896cc95c9" title="Initialize the lexer structure." alt="" coords="288,80,411,105"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="60,90,274,90,274,95,60,95"/>
+<area shape="rect" id="Node000011" href="$group__Lexer.html#gaed920c4ccf5ae57509ab4f9ca6fdc2db" title="Is |, &lt; or &gt;" alt="" coords="109,131,239,156"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="61,100,126,123,124,128,59,105"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#gac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="305,31,394,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="240,40,291,40,291,46,240,45"/>
+<area shape="rect" id="Node000004" href="$group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="459,56,585,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="394,47,445,55,445,60,394,52"/>
+<area shape="rect" id="Node000005" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="835,5,943,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="544,53,584,33,633,17,682,9,731,6,821,8,821,14,731,11,682,14,634,22,586,38,546,58"/>
+<area shape="rect" id="Node000007" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="655,31,765,56"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="585,58,640,50,641,55,586,63"/>
+<area shape="rect" id="Node000008" href="$group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="633,80,787,105"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="586,74,620,78,619,84,585,79"/>
+<area shape="rect" id="Node000009" href="$group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="651,129,769,155"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="551,79,634,116,654,123,652,128,632,120,549,84"/>
+<area shape="rect" id="Node000006" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="991,5,1113,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="943,15,977,15,977,21,943,21"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="765,33,820,25,821,30,766,38"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="411,81,444,77,445,82,411,87"/>
+</map>

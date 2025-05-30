@@ -150,75 +150,10 @@ Include dependency graph for lexer.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1fe02dbf2ca6fe4a5cd69e9cdff17969" id="r_a1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fe02dbf2ca6fe4a5cd69e9cdff17969">lexer</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, const char *line)</td></tr>
-<tr class="memdesc:a1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create tokens (small chunks) a line with the quotes and operators.  <br /></td></tr>
-<tr class="separator:a1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1fe02dbf2ca6fe4a5cd69e9cdff17969" id="r_ga1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Lexer.html#ga1fe02dbf2ca6fe4a5cd69e9cdff17969">lexer</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, const char *line)</td></tr>
+<tr class="memdesc:ga1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create tokens (small chunks) a line with the quotes and operators.  <br /></td></tr>
+<tr class="separator:ga1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a1fe02dbf2ca6fe4a5cd69e9cdff17969" name="a1fe02dbf2ca6fe4a5cd69e9cdff17969"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fe02dbf2ca6fe4a5cd69e9cdff17969">&#9670;&#160;</a></span>lexer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char ** lexer </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>line</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create tokens (small chunks) a line with the quotes and operators. </p>
-<p>Handle spaces, quotes (' and ') and shell operator (|, &lt;, &lt;&lt;, &gt;, &gt;&gt;). Return an array of tokens (strings), NULL terminated.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">line</td><td>line to tokenise </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Array of strings </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="lexer_8c_a1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph.png" border="0" usemap="#alexer_8c_a1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph" alt=""/></div>
-<map name="alexer_8c_a1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph" id="alexer_8c_a1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph">
-<area shape="rect" title="Create tokens (small chunks) a line with the quotes and operators." alt="" coords="5,128,60,153"/>
-<area shape="rect" href="lexer-utils_8c.html#a20a83b55a84ecb41df4e07bf8bc44592" title="Allocate memory for a string and copy the content from src." alt="" coords="108,77,240,103"/>
-<area shape="poly" title=" " alt="" coords="59,129,124,105,126,110,61,134"/>
-<area shape="rect" href="lexer-utils_8c.html#a4dd889bc2be82519b1196ff896cc95c9" title="Initialize the lexer structure." alt="" coords="288,128,411,153"/>
-<area shape="poly" title=" " alt="" coords="60,138,274,138,274,143,60,143"/>
-<area shape="rect" href="lexer-utils_8c.html#aed920c4ccf5ae57509ab4f9ca6fdc2db" title="Is |, &lt; or &gt;" alt="" coords="109,179,239,204"/>
-<area shape="poly" title=" " alt="" coords="61,148,126,171,124,176,59,153"/>
-<area shape="rect" href="garbage_8c.html#ac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="305,79,394,104"/>
-<area shape="poly" title=" " alt="" coords="240,88,291,88,291,94,240,93"/>
-<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="459,104,585,129"/>
-<area shape="poly" title=" " alt="" coords="394,95,445,103,445,108,394,100"/>
-<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="656,5,764,31"/>
-<area shape="poly" title=" " alt="" coords="537,102,579,71,632,40,648,33,650,38,635,44,582,76,540,106"/>
-<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="655,55,765,80"/>
-<area shape="poly" title=" " alt="" coords="570,101,647,81,648,86,572,107"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="633,104,787,129"/>
-<area shape="poly" title=" " alt="" coords="586,114,619,114,619,119,586,119"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="651,153,769,179"/>
-<area shape="poly" title=" " alt="" coords="572,127,648,147,647,152,570,132"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="674,203,746,228"/>
-<area shape="poly" title=" " alt="" coords="540,127,582,158,635,189,662,200,660,205,632,194,579,162,537,131"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="835,5,957,31"/>
-<area shape="poly" title=" " alt="" coords="764,15,821,15,821,21,764,21"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="856,203,936,228"/>
-<area shape="poly" title=" " alt="" coords="746,213,842,213,842,218,746,218"/>
-<area shape="poly" title=" " alt="" coords="411,129,444,125,445,130,411,135"/>
-</map>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

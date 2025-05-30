@@ -108,6 +108,7 @@ $(function(){initNavTree('garbage__utils_8c.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<code>#include &quot;ft_printf.h&quot;</code><br />
 <code>#include &quot;libft.h&quot;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -117,17 +118,19 @@ Include dependency graph for garbage_utils.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="garbage__utils_8c__incl.png" border="0" usemap="#asrc_2garbage_2garbage__utils_8c" alt=""/></div>
 <map name="asrc_2garbage_2garbage__utils_8c" id="asrc_2garbage_2garbage__utils_8c">
-<area shape="rect" title=" " alt="" coords="119,5,274,45"/>
+<area shape="rect" title=" " alt="" coords="181,5,335,45"/>
 <area shape="rect" href="garbage_8h.html" title=" " alt="" coords="5,93,92,119"/>
-<area shape="poly" title=" " alt="" coords="162,48,84,89,81,84,160,43"/>
+<area shape="poly" title=" " alt="" coords="209,48,93,91,91,86,207,43"/>
 <area shape="rect" title=" " alt="" coords="53,167,124,192"/>
-<area shape="poly" title=" " alt="" coords="185,47,107,157,103,154,181,44"/>
-<area shape="rect" title=" " alt="" coords="167,93,226,119"/>
-<area shape="poly" title=" " alt="" coords="199,46,199,79,194,79,194,46"/>
-<area shape="rect" title=" " alt="" coords="250,93,325,119"/>
-<area shape="poly" title=" " alt="" coords="220,44,265,82,262,86,217,48"/>
-<area shape="rect" title=" " alt="" coords="349,93,415,119"/>
-<area shape="poly" title=" " alt="" coords="242,43,343,85,341,90,240,48"/>
+<area shape="poly" title=" " alt="" coords="225,48,192,69,158,95,129,126,106,157,102,154,125,123,155,91,189,65,222,43"/>
+<area shape="rect" title=" " alt="" coords="168,93,252,119"/>
+<area shape="poly" title=" " alt="" coords="249,47,227,83,222,80,244,44"/>
+<area shape="rect" title=" " alt="" coords="277,93,335,119"/>
+<area shape="poly" title=" " alt="" coords="272,44,294,80,289,83,267,47"/>
+<area shape="rect" title=" " alt="" coords="359,93,434,119"/>
+<area shape="poly" title=" " alt="" coords="293,43,365,84,363,89,290,48"/>
+<area shape="rect" title=" " alt="" coords="458,93,525,119"/>
+<area shape="poly" title=" " alt="" coords="315,43,446,87,444,92,313,48"/>
 <area shape="poly" title=" " alt="" coords="58,118,78,153,73,156,53,120"/>
 </map>
 </div>
@@ -137,102 +140,17 @@ Functions</h2></td></tr>
 <tr class="memitem:ad586fd8a27ef6d3a1b4dc5665a2ca5a5" id="r_ad586fd8a27ef6d3a1b4dc5665a2ca5a5"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad586fd8a27ef6d3a1b4dc5665a2ca5a5">ft_strndup_gb</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, const char *source, size_t len)</td></tr>
 <tr class="memdesc:ad586fd8a27ef6d3a1b4dc5665a2ca5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy of source into a new pointer of size len NEEDS to be freed.  <br /></td></tr>
 <tr class="separator:ad586fd8a27ef6d3a1b4dc5665a2ca5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2fa3db9bb045e29ea8641462854aeba" id="r_af2fa3db9bb045e29ea8641462854aeba"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2fa3db9bb045e29ea8641462854aeba">ft_strdup_gb</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, const char *source)</td></tr>
-<tr class="memdesc:af2fa3db9bb045e29ea8641462854aeba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy of source into a new pointer NEEDS to be freed.  <br /></td></tr>
-<tr class="separator:af2fa3db9bb045e29ea8641462854aeba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ddfba0b8f36d9fd33ceb57f60193671" id="r_a1ddfba0b8f36d9fd33ceb57f60193671"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ddfba0b8f36d9fd33ceb57f60193671">free_element_gb</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, void *ptr)</td></tr>
-<tr class="memdesc:a1ddfba0b8f36d9fd33ceb57f60193671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free an element in the garbage collector.  <br /></td></tr>
-<tr class="separator:a1ddfba0b8f36d9fd33ceb57f60193671"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a486739b7fb3a9211c87b5e9367124813" id="r_a486739b7fb3a9211c87b5e9367124813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a486739b7fb3a9211c87b5e9367124813">print_garbage</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage)</td></tr>
-<tr class="memdesc:a486739b7fb3a9211c87b5e9367124813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the garbage collector.  <br /></td></tr>
-<tr class="separator:a486739b7fb3a9211c87b5e9367124813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2fa3db9bb045e29ea8641462854aeba" id="r_gaf2fa3db9bb045e29ea8641462854aeba"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Garbage.html#gaf2fa3db9bb045e29ea8641462854aeba">ft_strdup_gb</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, const char *source)</td></tr>
+<tr class="memdesc:gaf2fa3db9bb045e29ea8641462854aeba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a copy of source into a new pointer NEEDS to be freed.  <br /></td></tr>
+<tr class="separator:gaf2fa3db9bb045e29ea8641462854aeba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ddfba0b8f36d9fd33ceb57f60193671" id="r_ga1ddfba0b8f36d9fd33ceb57f60193671"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Garbage.html#ga1ddfba0b8f36d9fd33ceb57f60193671">free_element_gb</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, void *ptr)</td></tr>
+<tr class="memdesc:ga1ddfba0b8f36d9fd33ceb57f60193671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free an element in the garbage collector.  <br /></td></tr>
+<tr class="separator:ga1ddfba0b8f36d9fd33ceb57f60193671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga486739b7fb3a9211c87b5e9367124813" id="r_ga486739b7fb3a9211c87b5e9367124813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Garbage.html#ga486739b7fb3a9211c87b5e9367124813">print_garbage</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage)</td></tr>
+<tr class="memdesc:ga486739b7fb3a9211c87b5e9367124813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the garbage collector.  <br /></td></tr>
+<tr class="separator:ga486739b7fb3a9211c87b5e9367124813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a1ddfba0b8f36d9fd33ceb57f60193671" name="a1ddfba0b8f36d9fd33ceb57f60193671"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ddfba0b8f36d9fd33ceb57f60193671">&#9670;&#160;</a></span>free_element_gb()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void free_element_gb </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Free an element in the garbage collector. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptr</td><td>element to free </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af2fa3db9bb045e29ea8641462854aeba" name="af2fa3db9bb045e29ea8641462854aeba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2fa3db9bb045e29ea8641462854aeba">&#9670;&#160;</a></span>ft_strdup_gb()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char * ft_strdup_gb </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a copy of source into a new pointer NEEDS to be freed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>string to copy </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>char* pointer to the new string </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="garbage__utils_8c_af2fa3db9bb045e29ea8641462854aeba_cgraph.png" border="0" usemap="#agarbage__utils_8c_af2fa3db9bb045e29ea8641462854aeba_cgraph" alt=""/></div>
-<map name="agarbage__utils_8c_af2fa3db9bb045e29ea8641462854aeba_cgraph" id="agarbage__utils_8c_af2fa3db9bb045e29ea8641462854aeba_cgraph">
-<area shape="rect" title="Create a copy of source into a new pointer NEEDS to be freed." alt="" coords="5,104,108,129"/>
-<area shape="rect" href="garbage_8c.html#ac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="156,104,245,129"/>
-<area shape="poly" title=" " alt="" coords="108,114,142,114,142,119,108,119"/>
-<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="293,104,420,129"/>
-<area shape="poly" title=" " alt="" coords="246,114,279,114,279,119,246,119"/>
-<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="491,5,599,31"/>
-<area shape="poly" title=" " alt="" coords="372,102,413,71,467,40,483,33,485,38,469,44,416,76,375,106"/>
-<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="489,55,600,80"/>
-<area shape="poly" title=" " alt="" coords="405,101,481,81,483,86,406,107"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="468,104,621,129"/>
-<area shape="poly" title=" " alt="" coords="420,114,454,114,454,119,420,119"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="485,153,604,179"/>
-<area shape="poly" title=" " alt="" coords="406,127,483,147,481,152,405,132"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="509,203,581,228"/>
-<area shape="poly" title=" " alt="" coords="376,127,417,157,469,188,496,199,494,204,467,192,414,161,373,132"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="669,5,792,31"/>
-<area shape="poly" title=" " alt="" coords="599,15,655,15,655,21,599,21"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="691,203,771,228"/>
-<area shape="poly" title=" " alt="" coords="581,213,677,213,677,218,581,218"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="ad586fd8a27ef6d3a1b4dc5665a2ca5a5" name="ad586fd8a27ef6d3a1b4dc5665a2ca5a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad586fd8a27ef6d3a1b4dc5665a2ca5a5">&#9670;&#160;</a></span>ft_strndup_gb()</h2>
 
@@ -260,6 +178,7 @@ Here is the call graph for this function:</div>
 <p>Create a copy of source into a new pointer of size len NEEDS to be freed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">garbage</td><td>garbage structure </td></tr>
     <tr><td class="paramname">source</td><td>string to copy </td></tr>
     <tr><td class="paramname">len</td><td>size of the new string </td></tr>
   </table>
@@ -271,46 +190,24 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="garbage__utils_8c_ad586fd8a27ef6d3a1b4dc5665a2ca5a5_cgraph.png" border="0" usemap="#agarbage__utils_8c_ad586fd8a27ef6d3a1b4dc5665a2ca5a5_cgraph" alt=""/></div>
 <map name="agarbage__utils_8c_ad586fd8a27ef6d3a1b4dc5665a2ca5a5_cgraph" id="agarbage__utils_8c_ad586fd8a27ef6d3a1b4dc5665a2ca5a5_cgraph">
-<area shape="rect" title="Create a copy of source into a new pointer of size len NEEDS to be freed." alt="" coords="5,104,116,129"/>
-<area shape="rect" href="garbage_8c.html#ac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="164,104,253,129"/>
-<area shape="poly" title=" " alt="" coords="116,114,150,114,150,119,116,119"/>
-<area shape="rect" href="garbage_8c.html#a66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="301,104,428,129"/>
-<area shape="poly" title=" " alt="" coords="254,114,287,114,287,119,254,119"/>
-<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="499,5,607,31"/>
-<area shape="poly" title=" " alt="" coords="380,102,421,71,475,40,491,33,493,38,477,44,424,76,383,106"/>
-<area shape="rect" href="ft__exit_8c.html#a7118f47f0e0a0a07bd90c2538bfc0901" title=" " alt="" coords="497,55,608,80"/>
-<area shape="poly" title=" " alt="" coords="413,101,489,81,491,86,414,107"/>
-<area shape="rect" href="garbage__stack_8c.html#a4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="476,104,629,129"/>
-<area shape="poly" title=" " alt="" coords="428,114,462,114,462,119,428,119"/>
-<area shape="rect" href="garbage__stack_8c.html#a93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="493,153,612,179"/>
-<area shape="poly" title=" " alt="" coords="414,127,491,147,489,152,413,132"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="517,203,589,228"/>
-<area shape="poly" title=" " alt="" coords="384,127,425,157,477,188,504,199,502,204,475,192,422,161,381,132"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="677,5,800,31"/>
-<area shape="poly" title=" " alt="" coords="607,15,663,15,663,21,607,21"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="699,203,779,228"/>
-<area shape="poly" title=" " alt="" coords="589,213,685,213,685,218,589,218"/>
+<area shape="rect" title="Create a copy of source into a new pointer of size len NEEDS to be freed." alt="" coords="5,56,116,81"/>
+<area shape="rect" href="group__Garbage.html#gac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="164,56,253,81"/>
+<area shape="poly" title=" " alt="" coords="116,66,150,66,150,71,116,71"/>
+<area shape="rect" href="group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="301,56,428,81"/>
+<area shape="poly" title=" " alt="" coords="254,66,287,66,287,71,254,71"/>
+<area shape="rect" href="group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="677,5,785,31"/>
+<area shape="poly" title=" " alt="" coords="385,54,426,33,475,15,524,8,574,5,664,8,664,13,574,10,525,13,477,21,428,37,388,58"/>
+<area shape="rect" href="group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="497,31,608,56"/>
+<area shape="poly" title=" " alt="" coords="428,58,483,50,484,55,429,63"/>
+<area shape="rect" href="group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="476,80,629,105"/>
+<area shape="poly" title=" " alt="" coords="429,74,462,78,462,84,428,79"/>
+<area shape="rect" href="group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="493,129,612,155"/>
+<area shape="poly" title=" " alt="" coords="394,79,477,114,500,122,498,127,475,119,392,84"/>
+<area shape="rect" href="group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="833,5,956,31"/>
+<area shape="poly" title=" " alt="" coords="786,15,820,15,820,21,786,21"/>
+<area shape="poly" title=" " alt="" coords="608,33,663,25,664,30,609,38"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a486739b7fb3a9211c87b5e9367124813" name="a486739b7fb3a9211c87b5e9367124813"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a486739b7fb3a9211c87b5e9367124813">&#9670;&#160;</a></span>print_garbage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_garbage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the garbage collector. </p>
 
 </div>
 </div>

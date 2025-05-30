@@ -1,0 +1,7 @@
+<map id="ft_exit" name="ft_exit">
+<area shape="rect" id="Node000001" title="Function to exit the program." alt="" coords="5,5,68,31"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="116,5,224,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,15,103,15,103,21,68,21"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="272,5,395,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="224,15,258,15,258,21,224,21"/>
+</map>

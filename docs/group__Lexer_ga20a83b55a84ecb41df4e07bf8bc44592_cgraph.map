@@ -1,0 +1,18 @@
+<map id="ft_substr_end_gb" name="ft_substr_end_gb">
+<area shape="rect" id="Node000001" title="Allocate memory for a string and copy the content from src." alt="" coords="5,56,137,81"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#gac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="185,56,275,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,66,172,66,172,71,137,71"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="323,56,449,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,66,309,66,309,71,275,71"/>
+<area shape="rect" id="Node000004" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="699,5,807,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="407,54,447,33,497,15,546,8,595,5,685,8,685,13,595,10,546,13,498,21,449,37,409,58"/>
+<area shape="rect" id="Node000006" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="519,31,629,56"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="449,58,504,50,505,55,450,63"/>
+<area shape="rect" id="Node000007" href="$group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="497,80,651,105"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="450,74,484,78,483,84,449,79"/>
+<area shape="rect" id="Node000008" href="$group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="515,129,633,155"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="416,79,498,114,521,122,519,127,496,119,414,84"/>
+<area shape="rect" id="Node000005" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="855,5,977,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="807,15,841,15,841,21,807,21"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="629,33,684,25,685,30,630,38"/>
+</map>

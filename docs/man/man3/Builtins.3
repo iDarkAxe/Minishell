@@ -1,0 +1,144 @@
+.TH "Builtins" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Builtins \- Builtins Functions
+.PP
+ \- Implementation of builtins of a shell\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBft_exit\fP (\fBt_data\fP *data, char **array)"
+.br
+.RI "Function to exit the program\&. "
+.ti -1c
+.RI "int \fBft_echo\fP (\fBt_data\fP *data, char **array)"
+.br
+.RI "Echo with -n option OPTIONS : -n : print without the triling newline\&. "
+.ti -1c
+.RI "int \fBft_which\fP (\fBt_data\fP *data, char **array)"
+.br
+.RI "Says if the command are built-in commands or not\&. "
+.ti -1c
+.RI "int \fBft_export\fP (\fBt_data\fP *data, char **array)"
+.br
+.ti -1c
+.RI "int \fBft_env\fP (\fBt_data\fP *data, char **array)"
+.br
+.ti -1c
+.RI "int \fBft_unset\fP (\fBt_data\fP *data, char **array)"
+.br
+.ti -1c
+.RI "int \fBft_pwd\fP (\fBt_data\fP *data, char **array)"
+.br
+.RI "Print the current working directory\&. "
+.ti -1c
+.RI "int \fBft_cd\fP (\fBt_data\fP *data, char **array)"
+.br
+.RI "Implementatin of cd builtin of shell\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implementation of builtins of a shell\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "int ft_cd (\fBt_data\fP * data, char ** array)"
+
+.PP
+Implementatin of cd builtin of shell\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIarray\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, 1 otherwise 
+.RE
+.PP
+
+.SS "int ft_echo (\fBt_data\fP * data, char ** array)"
+
+.PP
+Echo with -n option OPTIONS : -n : print without the triling newline\&. NOTES : you can add any number of n after -n if you want
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIarray\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, error otherwise 
+.RE
+.PP
+
+.SS "int ft_env (\fBt_data\fP * data, char ** array)"
+
+.SS "int ft_exit (\fBt_data\fP * data, char ** array)"
+
+.PP
+Function to exit the program\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIarray\fP argument of the exit function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int value if argument invalid 
+.RE
+.PP
+
+.SS "int ft_export (\fBt_data\fP * data, char ** array)"
+
+.SS "int ft_pwd (\fBt_data\fP * data, char ** array)"
+
+.PP
+Print the current working directory\&. 
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int ft_unset (\fBt_data\fP * data, char ** array)"
+
+.SS "int ft_which (\fBt_data\fP * data, char ** tokens)"
+
+.PP
+Says if the command are built-in commands or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fItokens\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 if not at least one is not built-in, 0 if all strs built-ins 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

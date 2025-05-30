@@ -1,0 +1,11 @@
+<map id="read_write_to" name="read_write_to">
+<area shape="rect" id="Node000001" title="Opens the files to read and writes." alt="" coords="5,5,116,31"/>
+<area shape="rect" id="Node000002" href="$group__Files.html#gafd25b66c3b3e24c11fddfab02bc5e3dd" title="Open a file with it&#39;s rights (permissions)" alt="" coords="164,5,324,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,15,150,15,150,21,116,21"/>
+<area shape="rect" id="Node000003" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="372,5,483,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="324,15,359,15,359,21,324,21"/>
+<area shape="rect" id="Node000004" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="531,5,639,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="483,15,517,15,517,21,483,21"/>
+<area shape="rect" id="Node000005" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="687,5,809,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="639,15,673,15,673,21,639,21"/>
+</map>

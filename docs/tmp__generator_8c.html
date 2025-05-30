@@ -110,6 +110,7 @@ $(function(){initNavTree('tmp__generator_8c.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;<a class="el" href="file_8h_source.html">file.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
 <code>#include &quot;libft.h&quot;</code><br />
+<code>#include &quot;ft_printf.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
 <code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -118,33 +119,35 @@ Include dependency graph for tmp_generator.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="tmp__generator_8c__incl.png" border="0" usemap="#asrc_2file_2tmp__generator_8c" alt=""/></div>
 <map name="asrc_2file_2tmp__generator_8c" id="asrc_2file_2tmp__generator_8c">
-<area shape="rect" title=" " alt="" coords="562,5,737,31"/>
-<area shape="rect" href="file_8h.html" title=" " alt="" coords="333,79,387,104"/>
-<area shape="poly" title=" " alt="" coords="603,33,402,83,400,77,602,28"/>
+<area shape="rect" title=" " alt="" coords="601,5,775,31"/>
+<area shape="rect" href="file_8h.html" title=" " alt="" coords="342,79,397,104"/>
+<area shape="poly" title=" " alt="" coords="637,33,411,84,409,78,636,28"/>
 <area shape="rect" title=" " alt="" coords="77,372,136,397"/>
-<area shape="poly" title=" " alt="" coords="562,23,401,32,309,41,218,54,136,73,69,97,43,111,24,127,12,144,8,164,8,239,15,276,34,310,58,339,82,361,78,365,54,342,29,313,10,278,3,240,3,163,7,142,20,123,40,107,66,92,134,68,217,49,308,36,400,27,562,18"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="313,152,407,177"/>
-<area shape="poly" title=" " alt="" coords="627,33,396,148,394,143,625,28"/>
+<area shape="poly" title=" " alt="" coords="601,22,430,29,332,37,234,50,146,68,73,93,46,108,25,125,12,143,8,164,8,239,15,276,34,310,58,339,82,361,78,365,54,342,29,313,10,278,3,240,3,163,8,141,21,121,43,103,71,88,144,63,233,45,331,32,430,24,600,17"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="322,152,417,177"/>
+<area shape="poly" title=" " alt="" coords="664,33,408,149,406,144,661,28"/>
 <area shape="rect" href="garbage_8h.html" title=" " alt="" coords="503,372,590,397"/>
-<area shape="poly" title=" " alt="" coords="657,30,678,86,687,124,691,163,691,240,688,262,680,282,654,318,620,347,586,368,583,363,617,342,650,314,675,280,683,260,685,239,685,163,682,125,673,88,652,32"/>
+<area shape="poly" title=" " alt="" coords="691,31,691,163,691,240,688,262,680,282,654,318,620,347,586,368,583,363,617,342,650,314,675,280,683,260,685,239,685,163,685,31"/>
 <area shape="rect" title=" " alt="" coords="602,445,673,471"/>
-<area shape="poly" title=" " alt="" coords="665,29,687,51,712,83,733,121,739,142,741,163,741,313,734,351,715,386,690,416,666,438,662,435,686,412,710,383,729,350,736,312,736,163,734,143,728,123,708,86,683,55,661,33"/>
-<area shape="rect" title=" " alt="" coords="777,79,839,104"/>
-<area shape="poly" title=" " alt="" coords="676,28,771,71,769,75,674,33"/>
-<area shape="poly" title=" " alt="" coords="334,106,293,124,243,150,191,185,146,227,127,258,115,294,110,329,108,358,103,358,105,328,110,292,122,256,142,224,188,181,240,146,290,119,331,101"/>
-<area shape="poly" title=" " alt="" coords="363,104,363,138,357,138,357,104"/>
-<area shape="poly" title=" " alt="" coords="313,172,278,178,241,188,204,204,171,227,147,258,130,293,119,329,112,359,107,358,113,327,125,291,142,255,168,223,201,200,239,183,277,173,312,167"/>
+<area shape="poly" title=" " alt="" coords="697,30,725,86,736,123,741,163,741,313,734,351,715,386,690,416,666,438,662,435,686,412,710,383,729,350,736,312,736,163,731,125,720,87,693,32"/>
+<area shape="rect" title=" " alt="" coords="777,79,861,104"/>
+<area shape="poly" title=" " alt="" coords="710,28,787,70,784,74,708,33"/>
+<area shape="rect" title=" " alt="" coords="885,79,947,104"/>
+<area shape="poly" title=" " alt="" coords="725,28,872,74,871,79,724,33"/>
+<area shape="poly" title=" " alt="" coords="343,105,300,122,247,148,193,183,145,227,125,258,114,294,109,328,108,358,103,358,104,328,109,292,121,256,141,224,189,179,244,144,298,117,341,100"/>
+<area shape="poly" title=" " alt="" coords="372,104,372,138,367,138,367,104"/>
+<area shape="poly" title=" " alt="" coords="322,171,285,176,245,187,205,203,170,227,146,258,129,293,118,329,112,359,107,358,113,327,124,291,141,255,166,223,202,198,243,181,284,171,321,166"/>
 <area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="472,225,600,251"/>
-<area shape="poly" title=" " alt="" coords="389,175,495,218,493,222,387,180"/>
-<area shape="poly" title=" " alt="" coords="408,168,525,187,579,203,600,212,614,223,631,248,642,275,653,333,652,388,646,432,640,431,646,388,647,333,637,276,626,250,610,227,597,217,577,208,524,192,407,173"/>
+<area shape="poly" title=" " alt="" coords="397,175,497,217,495,222,395,180"/>
+<area shape="poly" title=" " alt="" coords="418,169,529,188,581,203,600,213,614,224,631,248,642,275,653,333,652,388,646,432,640,431,646,388,647,333,637,276,626,250,610,227,598,217,579,208,528,193,417,174"/>
 <area shape="rect" title=" " alt="" coords="277,372,352,397"/>
-<area shape="poly" title=" " alt="" coords="313,170,279,175,244,185,211,202,185,227,176,246,177,265,185,284,200,303,239,337,281,363,278,368,236,341,196,306,181,287,172,266,171,245,180,224,208,198,242,180,278,170,312,165"/>
+<area shape="poly" title=" " alt="" coords="322,169,286,173,248,183,213,201,185,227,176,246,177,265,185,284,199,303,239,337,281,363,278,367,236,341,196,306,181,287,172,266,171,245,180,224,210,196,247,178,285,168,321,164"/>
 <area shape="rect" title=" " alt="" coords="195,225,261,251"/>
-<area shape="poly" title=" " alt="" coords="340,180,263,221,260,216,338,175"/>
+<area shape="poly" title=" " alt="" coords="348,180,264,221,262,217,345,175"/>
 <area shape="rect" title=" " alt="" coords="285,225,360,251"/>
-<area shape="poly" title=" " alt="" coords="356,179,337,215,333,212,351,176"/>
+<area shape="poly" title=" " alt="" coords="364,179,340,215,336,212,359,176"/>
 <area shape="rect" title=" " alt="" coords="385,225,447,251"/>
-<area shape="poly" title=" " alt="" coords="371,176,401,213,396,216,367,179"/>
+<area shape="poly" title=" " alt="" coords="379,176,403,212,399,215,375,179"/>
 <area shape="poly" title=" " alt="" coords="503,253,150,372,148,367,501,248"/>
 <area shape="poly" title=" " alt="" coords="540,251,547,358,542,358,534,251"/>
 <area shape="rect" href="env_8h.html" title=" " alt="" coords="427,299,485,324"/>
@@ -158,58 +161,10 @@ Include dependency graph for tmp_generator.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a07474b0cd322a07777aa0a249bb8e6ed" id="r_a07474b0cd322a07777aa0a249bb8e6ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07474b0cd322a07777aa0a249bb8e6ed">create_tmp</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, char *path, int nbr_try)</td></tr>
-<tr class="memdesc:a07474b0cd322a07777aa0a249bb8e6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result.  <br /></td></tr>
-<tr class="separator:a07474b0cd322a07777aa0a249bb8e6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07474b0cd322a07777aa0a249bb8e6ed" id="r_ga07474b0cd322a07777aa0a249bb8e6ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Files.html#ga07474b0cd322a07777aa0a249bb8e6ed">create_tmp</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, char *path, int nbr_try)</td></tr>
+<tr class="memdesc:ga07474b0cd322a07777aa0a249bb8e6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result.  <br /></td></tr>
+<tr class="separator:ga07474b0cd322a07777aa0a249bb8e6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a07474b0cd322a07777aa0a249bb8e6ed" name="a07474b0cd322a07777aa0a249bb8e6ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07474b0cd322a07777aa0a249bb8e6ed">&#9670;&#160;</a></span>create_tmp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> create_tmp </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nbr_try</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a tmp file, verify if it already exist, tries to open it to verify permissions, and returns the result. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>path where to create the file </td></tr>
-    <tr><td class="paramname">nbr_try</td><td>number of try to create a tmp file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="data__structure_8h.html#a7b7541a1dfa9df91f937a1c6ac5fb990">t_tmp</a> structure with the path+name of created name </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="tmp__generator_8c_a07474b0cd322a07777aa0a249bb8e6ed_cgraph.png" border="0" usemap="#atmp__generator_8c_a07474b0cd322a07777aa0a249bb8e6ed_cgraph" alt=""/></div>
-<map name="atmp__generator_8c_a07474b0cd322a07777aa0a249bb8e6ed_cgraph" id="atmp__generator_8c_a07474b0cd322a07777aa0a249bb8e6ed_cgraph">
-<area shape="rect" title="Create a tmp file, verify if it already exist, tries to open it to verify permissions,..." alt="" coords="5,29,101,55"/>
-<area shape="poly" title=" " alt="" coords="26,31,21,21,24,11,35,5,53,3,75,6,85,15,81,19,73,11,53,8,37,10,28,15,26,20,31,28"/>
-<area shape="rect" href="garbage__utils_8c.html#a1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="149,29,281,55"/>
-<area shape="poly" title=" " alt="" coords="102,39,136,39,136,45,102,45"/>
-</map>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

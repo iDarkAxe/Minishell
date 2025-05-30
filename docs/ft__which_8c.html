@@ -109,31 +109,34 @@ $(function(){initNavTree('ft__which_8c.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;libft.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
+<code>#include &quot;ft_printf.h&quot;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ft_which.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ft__which_8c__incl.png" border="0" usemap="#asrc_2builtins_2ft__which_8c" alt=""/></div>
 <map name="asrc_2builtins_2ft__which_8c" id="asrc_2builtins_2ft__which_8c">
-<area shape="rect" title=" " alt="" coords="213,5,376,31"/>
+<area shape="rect" title=" " alt="" coords="412,5,575,31"/>
 <area shape="rect" title=" " alt="" coords="5,299,64,324"/>
-<area shape="poly" title=" " alt="" coords="243,33,192,49,135,74,79,108,55,129,34,153,20,185,17,221,21,255,28,285,23,286,16,256,12,221,15,184,30,151,51,126,76,104,132,69,190,44,241,28"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="247,79,342,104"/>
-<area shape="poly" title=" " alt="" coords="297,31,297,65,292,65,292,31"/>
+<area shape="poly" title=" " alt="" coords="419,33,316,52,200,79,97,113,58,133,33,154,23,168,17,184,14,220,19,255,28,285,22,286,14,256,9,220,12,183,18,166,29,150,56,128,95,109,199,74,315,47,418,28"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="282,79,377,104"/>
+<area shape="poly" title=" " alt="" coords="468,33,370,76,367,71,466,28"/>
 <area shape="rect" title=" " alt="" coords="281,299,356,324"/>
-<area shape="poly" title=" " alt="" coords="377,28,435,42,497,66,554,101,579,124,600,151,608,168,611,184,609,199,602,213,578,237,543,258,500,274,454,288,370,305,369,300,453,283,498,269,540,253,575,233,598,210,604,197,606,184,603,169,595,153,575,128,551,106,494,71,433,47,375,33"/>
-<area shape="poly" title=" " alt="" coords="248,100,135,119,84,135,65,144,53,154,35,184,28,220,28,255,32,285,27,285,23,255,23,219,30,183,49,150,62,139,82,130,134,114,247,95"/>
+<area shape="poly" title=" " alt="" coords="513,29,547,55,584,91,598,112,607,134,608,157,600,179,578,207,552,231,522,251,490,267,427,291,370,305,369,300,425,286,488,262,519,246,548,226,574,203,595,176,603,156,601,135,593,115,580,95,544,59,510,33"/>
+<area shape="rect" title=" " alt="" coords="661,79,745,104"/>
+<area shape="poly" title=" " alt="" coords="528,28,656,72,655,77,526,33"/>
+<area shape="poly" title=" " alt="" coords="282,99,220,105,151,116,90,132,68,142,53,154,35,184,28,219,28,255,32,285,26,285,23,255,23,219,30,182,49,150,65,138,89,127,150,111,219,100,281,94"/>
 <area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="63,152,191,177"/>
-<area shape="poly" title=" " alt="" coords="269,106,168,149,166,144,267,102"/>
+<area shape="poly" title=" " alt="" coords="298,107,173,150,171,145,296,102"/>
 <area shape="rect" title=" " alt="" coords="167,372,238,397"/>
-<area shape="poly" title=" " alt="" coords="294,105,213,360,208,358,289,103"/>
-<area shape="poly" title=" " alt="" coords="299,104,318,284,313,285,293,105"/>
+<area shape="poly" title=" " alt="" coords="327,105,216,360,211,358,322,103"/>
+<area shape="poly" title=" " alt="" coords="330,105,323,152,320,224,320,285,315,285,314,224,317,152,324,104"/>
 <area shape="rect" title=" " alt="" coords="332,152,399,177"/>
-<area shape="poly" title=" " alt="" coords="308,102,346,140,342,144,304,106"/>
+<area shape="poly" title=" " alt="" coords="338,103,356,138,351,141,333,106"/>
 <area shape="rect" title=" " alt="" coords="423,152,497,177"/>
-<area shape="poly" title=" " alt="" coords="322,102,422,144,419,149,320,106"/>
+<area shape="poly" title=" " alt="" coords="352,102,428,143,426,148,349,106"/>
 <area shape="rect" title=" " alt="" coords="522,152,585,177"/>
-<area shape="poly" title=" " alt="" coords="337,101,509,149,508,154,336,107"/>
+<area shape="poly" title=" " alt="" coords="366,101,510,147,508,152,365,107"/>
 <area shape="poly" title=" " alt="" coords="121,179,52,289,47,286,117,176"/>
 <area shape="rect" href="garbage_8h.html" title=" " alt="" coords="119,299,206,324"/>
 <area shape="poly" title=" " alt="" coords="129,178,132,211,139,250,153,286,148,288,133,251,126,211,124,178"/>
@@ -148,53 +151,10 @@ Include dependency graph for ft_which.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acd0d37b9bc80f6a02374454275a8a154" id="r_acd0d37b9bc80f6a02374454275a8a154"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd0d37b9bc80f6a02374454275a8a154">ft_which</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, char **tokens)</td></tr>
-<tr class="memdesc:acd0d37b9bc80f6a02374454275a8a154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Says if the command are built-in commands or not.  <br /></td></tr>
-<tr class="separator:acd0d37b9bc80f6a02374454275a8a154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5def157fa5d8f1456ff340b8e080d38" id="r_gac5def157fa5d8f1456ff340b8e080d38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Builtins.html#gac5def157fa5d8f1456ff340b8e080d38">ft_which</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, char **tokens)</td></tr>
+<tr class="memdesc:gac5def157fa5d8f1456ff340b8e080d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Says if the command are built-in commands or not.  <br /></td></tr>
+<tr class="separator:gac5def157fa5d8f1456ff340b8e080d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="acd0d37b9bc80f6a02374454275a8a154" name="acd0d37b9bc80f6a02374454275a8a154"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd0d37b9bc80f6a02374454275a8a154">&#9670;&#160;</a></span>ft_which()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ft_which </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Says if the command are built-in commands or not. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tokens</td><td>array of strings </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int 1 if not at least one is not built-in, 0 if all strs built-ins </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="ft__which_8c_acd0d37b9bc80f6a02374454275a8a154_cgraph.png" border="0" usemap="#aft__which_8c_acd0d37b9bc80f6a02374454275a8a154_cgraph" alt=""/></div>
-<map name="aft__which_8c_acd0d37b9bc80f6a02374454275a8a154_cgraph" id="aft__which_8c_acd0d37b9bc80f6a02374454275a8a154_cgraph">
-<area shape="rect" title="Says if the command are built&#45;in commands or not." alt="" coords="5,5,81,31"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="129,5,201,31"/>
-<area shape="poly" title=" " alt="" coords="82,15,116,15,116,21,82,21"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="249,5,329,31"/>
-<area shape="poly" title=" " alt="" coords="202,15,236,15,236,21,202,21"/>
-</map>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

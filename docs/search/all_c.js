@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a647f21a28344e1d9c643f4115516d7c9',1,'main.c']]],
-  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
-  ['malloc_5fgb_2',['malloc_gb',['../garbage_8c.html#ac10959a5218b40803fd269019cd8b390',1,'malloc_gb(t_garbage *garbage, size_t size):&#160;garbage.c'],['../garbage_8h.html#ac10959a5218b40803fd269019cd8b390',1,'malloc_gb(t_garbage *garbage, size_t size):&#160;garbage.c']]],
-  ['manipulation_5fparams_2ec_3',['manipulation_params.c',['../manipulation__params_8c.html',1,'']]],
-  ['manipulation_5fvar_2ec_4',['manipulation_var.c',['../manipulation__var_8c.html',1,'']]],
-  ['max_5ftokens_5flex_5',['MAX_TOKENS_LEX',['../group__Lexer.html#gaf3ba9706a8d79ff19eddc44fa5416d82',1,'data_structure.h']]],
-  ['minishell_6',['Minishell',['../index.html',1,'']]],
-  ['minishell_7',['minishell',['../minishell_8c.html#a362d7105d55506741336ee58cfbb4fd2',1,'minishell(t_data *data):&#160;minishell.c'],['../minishell_8h.html#a362d7105d55506741336ee58cfbb4fd2',1,'minishell(t_data *data):&#160;minishell.c']]],
-  ['minishell_2ec_8',['minishell.c',['../minishell_8c.html',1,'']]],
-  ['minishell_2eh_9',['minishell.h',['../minishell_8h.html',1,'']]]
+  ['n_5felements_0',['n_elements',['../structs__garbage.html#abd5f80da18664455af6b6f9716c93ac2',1,'s_garbage']]],
+  ['name_1',['name',['../structs__tmp.html#a0068aa53c1ebd6fa32fbf597f1d4b77c',1,'s_tmp::name'],['../structs__file.html#a4860d9c268bffe4ccd71296c671293eb',1,'s_file::name']]],
+  ['needs_5fto_5fbe_5fforked_2',['needs_to_be_forked',['../group__Exec.html#gae7e5622ddd6021aa2b6b5bbf46294de6',1,'needs_to_be_forked(t_command *command):&#160;exec-utils.c'],['../group__Exec.html#gae7e5622ddd6021aa2b6b5bbf46294de6',1,'needs_to_be_forked(t_command *command):&#160;exec-utils.c']]],
+  ['next_3',['next',['../structs__command.html#afbfe160941a93422267c88c93dec755a',1,'s_command::next'],['../structs__token.html#a5dae434205818bfc83a61809d4a34a29',1,'s_token::next'],['../structs__var.html#aae167fb1913f65e8adbe1d655d9c5ef4',1,'s_var::next'],['../structs__params.html#afae2aee0b5643bc52cee379c1aab9eff',1,'s_params::next'],['../structs__file.html#a5426ba63e9eb635f5673c037d6778fcd',1,'s_file::next'],['../structs__element.html#ae8efdd1c673ce61a6b30383ecfb1d278',1,'s_element::next']]],
+  ['not_5fbuiltins_4',['not_builtins',['../group__Exec.html#gab6485ed7e8a210d99727589be43ad9ee',1,'not_builtins(t_data *data, t_command *command, char **tokens):&#160;exec_extern.c'],['../group__Exec.html#gab6485ed7e8a210d99727589be43ad9ee',1,'not_builtins(t_data *data, t_command *command, char **tokens):&#160;exec_extern.c']]]
 ];

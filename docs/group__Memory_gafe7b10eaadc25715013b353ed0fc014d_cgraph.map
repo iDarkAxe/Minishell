@@ -1,0 +1,16 @@
+<map id="free_commands" name="free_commands">
+<area shape="rect" id="Node000001" title="Free t_command linked list structure with all that it contains." alt="" coords="5,26,132,51"/>
+<area shape="rect" id="Node000002" href="$group__Memory.html#ga93291ca98e33063b2826cabaef2b4e2a" title="Free one t_command structure with all that it contains." alt="" coords="180,26,300,51"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,36,166,36,166,41,132,41"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#ga1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="677,39,809,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="284,23,348,10,427,4,489,4,630,24,680,33,679,39,629,29,489,10,427,9,348,16,285,28"/>
+<area shape="rect" id="Node000004" href="$group__Memory.html#gab61ec892966e8fc33aeec336610bba70" title="Free linked list of t_file structure." alt="" coords="348,26,475,51"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="300,36,334,36,334,41,300,41"/>
+<area shape="rect" id="Node000006" href="$group__Memory.html#gaaaa213794f4341cacf91e5b2d99e055f" title="Free t_tokens linked list structure." alt="" coords="527,114,625,139"/>
+<area shape="poly" id="edge7_Node000002_Node000006" title=" " alt="" coords="290,48,514,108,513,113,289,54"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="475,38,664,46,664,51,475,44"/>
+<area shape="rect" id="Node000005" href="$group__Memory.html#ga575beba51986916f60c67b49f7194d4e" title="Free heredoc structure." alt="" coords="523,64,629,90"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="467,49,510,59,508,64,466,54"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="629,66,663,61,664,66,630,72"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="605,111,700,68,703,72,607,116"/>
+</map>

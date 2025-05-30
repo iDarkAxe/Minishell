@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_5fshlvl_0',['update_shlvl',['../update__shlvl_8c.html#acbf284c4fe78e8ede8eefafb4e779232',1,'update_shlvl(t_garbage *garbage, t_env_vars *env):&#160;update_shlvl.c'],['../env_8h.html#acbf284c4fe78e8ede8eefafb4e779232',1,'update_shlvl(t_garbage *garbage, t_env_vars *env):&#160;update_shlvl.c']]]
+  ['verify_5faccess_0',['verify_access',['../group__Files.html#gafb055840f776944a93723c4b25dea107',1,'verify_access(t_garbage *garbage, t_command *command):&#160;file_verify_access.c'],['../group__Files.html#gafb055840f776944a93723c4b25dea107',1,'verify_access(t_garbage *garbage, t_command *command):&#160;file_verify_access.c']]]
 ];

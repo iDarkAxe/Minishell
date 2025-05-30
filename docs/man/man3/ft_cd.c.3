@@ -8,6 +8,8 @@ src/builtins/ft_cd.c
 .PP
 \fR#include 'garbage\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'minishell\&.h'\fP
 .br
 \fR#include 'builtins\&.h'\fP
@@ -37,41 +39,6 @@ src/builtins/ft_cd.c
 .RI "int \fBchange_cwd_to_previous_cwd\fP (\fBt_env_vars\fP *env)"
 .br
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "void change_cwd (\fBt_data\fP * data, t_bool is_pwd)"
-
-.PP
-Change the values of ENV VAR\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIdata\fP data structure 
-.br
-\fIis_pwd\fP 1 for PWD, 0 for OLD_PWD 
-.RE
-.PP
-
-.SS "int change_cwd_to_home (\fBt_env_vars\fP * env)"
-
-.SS "int change_cwd_to_previous_cwd (\fBt_env_vars\fP * env)"
-
-.SS "int ft_cd (\fBt_data\fP * data, char ** array)"
-
-.PP
-Implementatin of cd builtin of shell\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIarray\fP array of strings 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, 1 otherwise 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

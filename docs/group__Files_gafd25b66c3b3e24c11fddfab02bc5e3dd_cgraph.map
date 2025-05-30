@@ -1,0 +1,9 @@
+<map id="open_file_with_rights" name="open_file_with_rights">
+<area shape="rect" id="Node000001" title="Open a file with it&#39;s rights (permissions)" alt="" coords="5,5,165,31"/>
+<area shape="rect" id="Node000002" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="213,5,324,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,15,200,15,200,21,165,21"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="372,5,480,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="324,15,358,15,358,21,324,21"/>
+<area shape="rect" id="Node000004" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="528,5,651,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="480,15,514,15,514,21,480,21"/>
+</map>

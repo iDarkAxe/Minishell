@@ -1,6 +1,6 @@
 <map id="free_env" name="free_env">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,84,31"/>
-<area shape="rect" id="Node000002" href="$garbage__utils_8c.html#a1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="284,5,416,31"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#ga1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="284,5,416,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,15,270,15,270,21,84,21"/>
 <area shape="rect" id="Node000003" href="$free__env_8c.html#a46d357c3397a4ccfea21c03c7534124e" title=" " alt="" coords="132,31,236,56"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="85,22,119,29,118,34,84,28"/>

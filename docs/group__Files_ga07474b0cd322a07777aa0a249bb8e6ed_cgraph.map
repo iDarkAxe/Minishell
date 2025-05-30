@@ -1,0 +1,6 @@
+<map id="create_tmp" name="create_tmp">
+<area shape="rect" id="Node000001" title="Create a tmp file, verify if it already exist, tries to open it to verify permissions,..." alt="" coords="5,29,101,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="26,31,21,21,24,11,35,5,53,3,75,6,85,15,81,19,73,11,53,8,37,10,28,15,26,20,31,28"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#ga1ddfba0b8f36d9fd33ceb57f60193671" title="Free an element in the garbage collector." alt="" coords="149,29,281,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="102,39,136,39,136,45,102,45"/>
+</map>

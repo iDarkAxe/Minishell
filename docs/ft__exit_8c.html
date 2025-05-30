@@ -107,7 +107,8 @@ $(function(){initNavTree('ft__exit_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">ft_exit.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;ft_printf.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="garbage_8h_source.html">garbage.h</a>&quot;</code><br />
 <code>#include &quot;libft.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="minishell_8h_source.html">minishell.h</a>&quot;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -116,182 +117,52 @@ Include dependency graph for ft_exit.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ft__exit_8c__incl.png" border="0" usemap="#asrc_2builtins_2ft__exit_8c" alt=""/></div>
 <map name="asrc_2builtins_2ft__exit_8c" id="asrc_2builtins_2ft__exit_8c">
-<area shape="rect" title=" " alt="" coords="108,5,257,31"/>
-<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="75,299,162,324"/>
-<area shape="poly" title=" " alt="" coords="178,32,151,83,137,117,127,153,118,224,119,285,114,285,113,224,121,151,132,115,147,81,173,30"/>
-<area shape="rect" title=" " alt="" coords="83,372,154,397"/>
-<area shape="poly" title=" " alt="" coords="147,33,103,52,58,79,38,97,22,116,12,139,8,164,8,239,10,259,16,277,37,311,64,340,91,362,88,366,60,344,33,315,11,279,5,260,3,239,3,163,7,137,18,114,34,93,55,75,101,47,145,28"/>
-<area shape="rect" title=" " alt="" coords="299,299,357,324"/>
-<area shape="poly" title=" " alt="" coords="258,26,368,43,493,69,552,86,604,105,645,126,673,150,684,170,688,189,685,206,676,222,642,248,593,268,536,284,476,296,371,309,371,304,475,291,535,279,591,263,639,243,672,218,680,204,683,189,679,172,669,154,642,131,602,110,550,91,491,75,367,48,257,31"/>
-<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="305,79,399,104"/>
-<area shape="poly" title=" " alt="" coords="211,28,313,71,311,76,209,33"/>
-<area shape="poly" title=" " alt="" coords="121,324,121,358,116,358,116,324"/>
-<area shape="poly" title=" " alt="" coords="380,102,411,121,425,135,436,151,453,191,455,210,453,230,444,250,428,272,371,326,348,343,322,356,268,374,215,383,168,387,168,382,214,378,267,369,320,351,345,338,368,322,424,268,439,247,447,228,450,210,447,193,431,153,421,138,407,125,377,106"/>
-<area shape="poly" title=" " alt="" coords="353,104,345,152,332,285,327,285,340,152,347,104"/>
-<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="152,152,280,177"/>
-<area shape="poly" title=" " alt="" coords="331,106,251,148,249,143,329,102"/>
-<area shape="rect" title=" " alt="" coords="187,299,261,324"/>
-<area shape="poly" title=" " alt="" coords="305,102,209,122,167,136,142,154,134,170,132,188,137,206,146,225,172,260,201,288,197,292,168,263,141,228,132,208,127,188,129,169,138,150,165,132,208,117,304,97"/>
-<area shape="rect" title=" " alt="" coords="355,152,421,177"/>
-<area shape="poly" title=" " alt="" coords="360,103,378,138,374,141,356,106"/>
-<area shape="rect" title=" " alt="" coords="496,152,571,177"/>
-<area shape="poly" title=" " alt="" coords="382,102,492,144,490,149,380,107"/>
-<area shape="rect" title=" " alt="" coords="595,152,658,177"/>
-<area shape="poly" title=" " alt="" coords="397,101,583,149,581,154,396,107"/>
-<area shape="poly" title=" " alt="" coords="210,179,136,289,132,286,206,176"/>
-<area shape="poly" title=" " alt="" coords="228,176,267,224,314,286,310,289,263,227,224,179"/>
-<area shape="rect" href="env_8h.html" title=" " alt="" coords="195,225,253,251"/>
-<area shape="poly" title=" " alt="" coords="220,177,224,212,219,212,215,178"/>
-<area shape="poly" title=" " alt="" coords="209,253,148,293,146,289,206,248"/>
-<area shape="poly" title=" " alt="" coords="242,248,301,288,298,293,239,253"/>
-<area shape="poly" title=" " alt="" coords="227,251,227,285,221,285,221,251"/>
+<area shape="rect" title=" " alt="" coords="103,5,253,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,89,104"/>
+<area shape="poly" title=" " alt="" coords="158,33,82,74,79,70,156,28"/>
+<area shape="rect" href="garbage_8h.html" title=" " alt="" coords="197,299,284,324"/>
+<area shape="poly" title=" " alt="" coords="183,30,238,285,233,286,178,31"/>
+<area shape="rect" title=" " alt="" coords="205,372,276,397"/>
+<area shape="poly" title=" " alt="" coords="173,32,146,87,135,125,130,163,130,239,132,259,138,277,159,311,186,340,213,362,210,366,182,344,155,315,133,279,127,260,125,239,125,163,130,123,141,86,169,30"/>
+<area shape="rect" title=" " alt="" coords="421,299,479,324"/>
+<area shape="poly" title=" " alt="" coords="253,21,391,34,555,57,634,74,703,95,758,120,779,135,795,150,806,170,810,189,807,206,798,222,764,248,715,268,658,284,598,296,493,309,493,304,597,291,657,279,713,263,761,243,794,218,802,204,805,189,801,172,791,154,776,139,756,125,701,100,632,79,554,62,391,39,253,26"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="427,79,521,104"/>
+<area shape="poly" title=" " alt="" coords="226,28,414,73,413,78,225,33"/>
+<area shape="poly" title=" " alt="" coords="243,324,243,358,238,358,238,324"/>
+<area shape="poly" title=" " alt="" coords="502,102,533,121,547,135,558,151,575,191,577,210,575,230,566,250,550,272,493,326,470,343,444,356,390,374,337,383,290,387,290,382,336,378,389,369,442,351,467,338,490,322,546,268,561,247,569,228,572,210,569,193,553,153,543,138,529,125,499,106"/>
+<area shape="poly" title=" " alt="" coords="475,104,467,152,454,285,449,285,462,152,469,104"/>
+<area shape="rect" href="data__structure_8h.html" title=" " alt="" coords="274,152,402,177"/>
+<area shape="poly" title=" " alt="" coords="453,106,373,148,371,143,451,102"/>
+<area shape="rect" title=" " alt="" coords="309,299,383,324"/>
+<area shape="poly" title=" " alt="" coords="427,102,331,122,289,136,264,154,256,170,254,188,259,206,268,225,294,260,323,288,319,292,290,263,263,228,254,208,249,188,251,169,260,150,287,132,330,117,426,97"/>
+<area shape="rect" title=" " alt="" coords="477,152,543,177"/>
+<area shape="poly" title=" " alt="" coords="482,103,500,138,496,141,478,106"/>
+<area shape="rect" title=" " alt="" coords="618,152,693,177"/>
+<area shape="poly" title=" " alt="" coords="504,102,614,144,612,149,502,107"/>
+<area shape="rect" title=" " alt="" coords="717,152,780,177"/>
+<area shape="poly" title=" " alt="" coords="519,101,705,149,703,154,518,107"/>
+<area shape="poly" title=" " alt="" coords="332,179,258,289,254,286,328,176"/>
+<area shape="poly" title=" " alt="" coords="350,176,389,224,436,286,432,289,385,227,346,179"/>
+<area shape="rect" href="env_8h.html" title=" " alt="" coords="317,225,375,251"/>
+<area shape="poly" title=" " alt="" coords="342,177,346,212,341,212,337,178"/>
+<area shape="poly" title=" " alt="" coords="331,253,270,293,268,289,328,248"/>
+<area shape="poly" title=" " alt="" coords="364,248,423,288,420,293,361,253"/>
+<area shape="poly" title=" " alt="" coords="349,251,349,285,343,285,343,251"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4c0fa2ac1186e41631c3c61318ee5ef1" id="r_a4c0fa2ac1186e41631c3c61318ee5ef1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c0fa2ac1186e41631c3c61318ee5ef1">ft_exit</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, char **array)</td></tr>
-<tr class="memdesc:a4c0fa2ac1186e41631c3c61318ee5ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to exit the program.  <br /></td></tr>
-<tr class="separator:a4c0fa2ac1186e41631c3c61318ee5ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf1c06e38a6a58f7fa91b9b13ef4ebfd" id="r_aaf1c06e38a6a58f7fa91b9b13ef4ebfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf1c06e38a6a58f7fa91b9b13ef4ebfd">ft_exit_int</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, int value)</td></tr>
-<tr class="separator:aaf1c06e38a6a58f7fa91b9b13ef4ebfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7118f47f0e0a0a07bd90c2538bfc0901" id="r_a7118f47f0e0a0a07bd90c2538bfc0901"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7118f47f0e0a0a07bd90c2538bfc0901">ft_exit_int_np</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, int value)</td></tr>
-<tr class="separator:a7118f47f0e0a0a07bd90c2538bfc0901"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b6824bfd4ec0404a4f875ed8db0274e" id="r_a1b6824bfd4ec0404a4f875ed8db0274e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b6824bfd4ec0404a4f875ed8db0274e">__attribute__</a> ((noreturn))</td></tr>
-<tr class="memdesc:a1b6824bfd4ec0404a4f875ed8db0274e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc.  <br /></td></tr>
-<tr class="separator:a1b6824bfd4ec0404a4f875ed8db0274e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c0fa2ac1186e41631c3c61318ee5ef1" id="r_ga4c0fa2ac1186e41631c3c61318ee5ef1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Builtins.html#ga4c0fa2ac1186e41631c3c61318ee5ef1">ft_exit</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, char **array)</td></tr>
+<tr class="memdesc:ga4c0fa2ac1186e41631c3c61318ee5ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to exit the program.  <br /></td></tr>
+<tr class="separator:ga4c0fa2ac1186e41631c3c61318ee5ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf1c06e38a6a58f7fa91b9b13ef4ebfd" id="r_gaaf1c06e38a6a58f7fa91b9b13ef4ebfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Exit.html#gaaf1c06e38a6a58f7fa91b9b13ef4ebfd">ft_exit_int</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, int value)</td></tr>
+<tr class="memdesc:gaaf1c06e38a6a58f7fa91b9b13ef4ebfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc.  <br /></td></tr>
+<tr class="separator:gaaf1c06e38a6a58f7fa91b9b13ef4ebfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7118f47f0e0a0a07bd90c2538bfc0901" id="r_ga7118f47f0e0a0a07bd90c2538bfc0901"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901">ft_exit_int_np</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, int value)</td></tr>
+<tr class="memdesc:ga7118f47f0e0a0a07bd90c2538bfc0901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short ft_exit that uses only int but don't say it's name.  <br /></td></tr>
+<tr class="separator:ga7118f47f0e0a0a07bd90c2538bfc0901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a1b6824bfd4ec0404a4f875ed8db0274e" name="a1b6824bfd4ec0404a4f875ed8db0274e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b6824bfd4ec0404a4f875ed8db0274e">&#9670;&#160;</a></span>__attribute__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">__attribute__ </td>
-          <td>(</td>
-          <td class="paramtype">(noreturn)</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc. </p>
-<p>Short ft_exit that uses only int but don't say it's name.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>value </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="ft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph.png" border="0" usemap="#aft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph" alt=""/></div>
-<map name="aft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph" id="aft__exit_8c_a1b6824bfd4ec0404a4f875ed8db0274e_cgraph">
-<area shape="rect" title="Short ft_exit that uses only int noreturn attribute is to prevent &#45;Wmissing&#45;noreturn flag from flag &#45;..." alt="" coords="5,31,112,56"/>
-<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="160,5,268,31"/>
-<area shape="poly" title=" " alt="" coords="112,32,146,26,147,32,113,37"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="178,55,250,80"/>
-<area shape="poly" title=" " alt="" coords="113,49,165,57,164,62,112,54"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="316,5,439,31"/>
-<area shape="poly" title=" " alt="" coords="268,15,302,15,302,21,268,21"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="337,55,417,80"/>
-<area shape="poly" title=" " alt="" coords="250,65,324,65,324,70,250,70"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a4c0fa2ac1186e41631c3c61318ee5ef1" name="a4c0fa2ac1186e41631c3c61318ee5ef1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c0fa2ac1186e41631c3c61318ee5ef1">&#9670;&#160;</a></span>ft_exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ft_exit </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>array</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Function to exit the program. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">array</td><td>argument of the exit function </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int value if argument invalid </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="ft__exit_8c_a4c0fa2ac1186e41631c3c61318ee5ef1_cgraph.png" border="0" usemap="#aft__exit_8c_a4c0fa2ac1186e41631c3c61318ee5ef1_cgraph" alt=""/></div>
-<map name="aft__exit_8c_a4c0fa2ac1186e41631c3c61318ee5ef1_cgraph" id="aft__exit_8c_a4c0fa2ac1186e41631c3c61318ee5ef1_cgraph">
-<area shape="rect" title="Function to exit the program." alt="" coords="5,31,68,56"/>
-<area shape="rect" href="garbage_8c.html#aa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="116,5,224,31"/>
-<area shape="poly" title=" " alt="" coords="68,35,102,28,103,33,69,40"/>
-<area shape="rect" href="ft__print__fd_8c.html#a83d60bda304c83066c08e732475da256" title="Function used to write safely and exits if write failed." alt="" coords="134,55,206,80"/>
-<area shape="poly" title=" " alt="" coords="69,46,121,56,120,61,68,52"/>
-<area shape="rect" href="garbage__stack_8c.html#ae1393d2350a9af999415f8ee4defeb7e" title="Remove all elements from garbage." alt="" coords="272,5,395,31"/>
-<area shape="poly" title=" " alt="" coords="224,15,258,15,258,21,224,21"/>
-<area shape="rect" href="ft__print__fd_8c.html#a40e90cbd3b06c953ed05eef76a5f7d5d" title="Function used to write safely and exits if write failed." alt="" coords="293,55,373,80"/>
-<area shape="poly" title=" " alt="" coords="206,65,280,65,280,70,206,70"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aaf1c06e38a6a58f7fa91b9b13ef4ebfd" name="aaf1c06e38a6a58f7fa91b9b13ef4ebfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf1c06e38a6a58f7fa91b9b13ef4ebfd">&#9670;&#160;</a></span>ft_exit_int()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ft_exit_int </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7118f47f0e0a0a07bd90c2538bfc0901" name="a7118f47f0e0a0a07bd90c2538bfc0901"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7118f47f0e0a0a07bd90c2538bfc0901">&#9670;&#160;</a></span>ft_exit_int_np()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ft_exit_int_np </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

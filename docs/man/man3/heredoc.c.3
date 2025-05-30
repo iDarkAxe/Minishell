@@ -12,6 +12,8 @@ src/file/heredoc.c
 .br
 \fR#include 'exec\&.h'\fP
 .br
+\fR#include 'ft_printf\&.h'\fP
+.br
 \fR#include 'get_next_line\&.h'\fP
 .br
 \fR#include 'minishell\&.h'\fP
@@ -35,42 +37,6 @@ src/file/heredoc.c
 .br
 .RI "Fill all the heredocs in the correct order\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "int fill_heredocs (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
-
-.PP
-Fill all the heredocs in the correct order\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIcommand\fP command structure 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 0 OK, otherwise error 
-.RE
-.PP
-
-.SS "char * read_heredoc (\fBt_tmp\fP * tmp, char * delimitor)"
-
-.PP
-Read from stdin and outputs to a file, stops reading when Ctrl+D or when a delimitor is found\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItmp\fP structure for heredocs 
-.br
-\fIdelimitor\fP string to know when to stop reading 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char* tmp->name if successful, NULL otherwise 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

@@ -104,7 +104,8 @@ $(function(){initNavTree('group__Lexer.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Lexer structure</div></div>
 </div><!--header-->
 <div class="contents">
@@ -115,15 +116,35 @@ $(function(){initNavTree('group__Lexer.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__lexer__state.html">s_lexer_state</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used by lexer to efficiently have access to a bunch of variables.  <a href="structs__lexer__state.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:gaf3ba9706a8d79ff19eddc44fa5416d82" id="r_gaf3ba9706a8d79ff19eddc44fa5416d82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf3ba9706a8d79ff19eddc44fa5416d82">MAX_TOKENS_LEX</a>&#160;&#160;&#160;1024</td></tr>
 <tr class="separator:gaf3ba9706a8d79ff19eddc44fa5416d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga4dd889bc2be82519b1196ff896cc95c9" id="r_ga4dd889bc2be82519b1196ff896cc95c9"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4dd889bc2be82519b1196ff896cc95c9">init_lexer_state</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, <a class="el" href="data__structure_8h.html#af7a6d4aceb096d8d491130ca049caa29">t_lexer_state</a> *lex_st, const char *line)</td></tr>
+<tr class="memdesc:ga4dd889bc2be82519b1196ff896cc95c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the lexer structure.  <br /></td></tr>
+<tr class="separator:ga4dd889bc2be82519b1196ff896cc95c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1fe02dbf2ca6fe4a5cd69e9cdff17969" id="r_ga1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1fe02dbf2ca6fe4a5cd69e9cdff17969">lexer</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, const char *line)</td></tr>
+<tr class="memdesc:ga1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create tokens (small chunks) a line with the quotes and operators.  <br /></td></tr>
+<tr class="separator:ga1fe02dbf2ca6fe4a5cd69e9cdff17969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafcc5b7e533daacfa775b3a1ac953bd31" id="r_gafcc5b7e533daacfa775b3a1ac953bd31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafcc5b7e533daacfa775b3a1ac953bd31">tokeniser</a> (<a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *data, char **tokens)</td></tr>
+<tr class="memdesc:gafcc5b7e533daacfa775b3a1ac953bd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> structure that contains all the tokens Fills the command with the environment.  <br /></td></tr>
+<tr class="separator:gafcc5b7e533daacfa775b3a1ac953bd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20a83b55a84ecb41df4e07bf8bc44592" id="r_ga20a83b55a84ecb41df4e07bf8bc44592"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga20a83b55a84ecb41df4e07bf8bc44592">ft_substr_end_gb</a> (<a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *garbage, char const *src, unsigned int start, size_t end)</td></tr>
+<tr class="memdesc:ga20a83b55a84ecb41df4e07bf8bc44592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate memory for a string and copy the content from src.  <br /></td></tr>
+<tr class="separator:ga20a83b55a84ecb41df4e07bf8bc44592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed920c4ccf5ae57509ab4f9ca6fdc2db" id="r_gaed920c4ccf5ae57509ab4f9ca6fdc2db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaed920c4ccf5ae57509ab4f9ca6fdc2db">is_operator_char</a> (char c)</td></tr>
+<tr class="memdesc:gaed920c4ccf5ae57509ab4f9ca6fdc2db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is |, &lt; or &gt;  <br /></td></tr>
+<tr class="separator:gaed920c4ccf5ae57509ab4f9ca6fdc2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Core functionality of the lexer. </p>
+<p>Functions to make a correct use of lexing and tokenisation.</p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gaf3ba9706a8d79ff19eddc44fa5416d82" name="gaf3ba9706a8d79ff19eddc44fa5416d82"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaf3ba9706a8d79ff19eddc44fa5416d82">&#9670;&#160;</a></span>MAX_TOKENS_LEX</h2>
@@ -136,6 +157,264 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga20a83b55a84ecb41df4e07bf8bc44592" name="ga20a83b55a84ecb41df4e07bf8bc44592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga20a83b55a84ecb41df4e07bf8bc44592">&#9670;&#160;</a></span>ft_substr_end_gb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * ft_substr_end_gb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate memory for a string and copy the content from src. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">garbage</td><td>garbage structure </td></tr>
+    <tr><td class="paramname">src</td><td>source string </td></tr>
+    <tr><td class="paramname">start</td><td>start index to copy from </td></tr>
+    <tr><td class="paramname">end</td><td>end index to copy to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>char* pointer to the new string </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__Lexer_ga20a83b55a84ecb41df4e07bf8bc44592_cgraph.png" border="0" usemap="#agroup__Lexer_ga20a83b55a84ecb41df4e07bf8bc44592_cgraph" alt=""/></div>
+<map name="agroup__Lexer_ga20a83b55a84ecb41df4e07bf8bc44592_cgraph" id="agroup__Lexer_ga20a83b55a84ecb41df4e07bf8bc44592_cgraph">
+<area shape="rect" title="Allocate memory for a string and copy the content from src." alt="" coords="5,56,137,81"/>
+<area shape="rect" href="group__Garbage.html#gac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="185,56,275,81"/>
+<area shape="poly" title=" " alt="" coords="137,66,172,66,172,71,137,71"/>
+<area shape="rect" href="group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="323,56,449,81"/>
+<area shape="poly" title=" " alt="" coords="275,66,309,66,309,71,275,71"/>
+<area shape="rect" href="group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="699,5,807,31"/>
+<area shape="poly" title=" " alt="" coords="407,54,447,33,497,15,546,8,595,5,685,8,685,13,595,10,546,13,498,21,449,37,409,58"/>
+<area shape="rect" href="group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="519,31,629,56"/>
+<area shape="poly" title=" " alt="" coords="449,58,504,50,505,55,450,63"/>
+<area shape="rect" href="group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="497,80,651,105"/>
+<area shape="poly" title=" " alt="" coords="450,74,484,78,483,84,449,79"/>
+<area shape="rect" href="group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="515,129,633,155"/>
+<area shape="poly" title=" " alt="" coords="416,79,498,114,521,122,519,127,496,119,414,84"/>
+<area shape="rect" href="group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="855,5,977,31"/>
+<area shape="poly" title=" " alt="" coords="807,15,841,15,841,21,807,21"/>
+<area shape="poly" title=" " alt="" coords="629,33,684,25,685,30,630,38"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga4dd889bc2be82519b1196ff896cc95c9" name="ga4dd889bc2be82519b1196ff896cc95c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4dd889bc2be82519b1196ff896cc95c9">&#9670;&#160;</a></span>init_lexer_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char ** init_lexer_state </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#af7a6d4aceb096d8d491130ca049caa29">t_lexer_state</a> *</td>          <td class="paramname"><span class="paramname"><em>lex_st</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>line</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize the lexer structure. </p>
+<p>Fill the structure with zeros and init the line to search in and allocates the array to the garbage</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">garbage</td><td>garbage structure </td></tr>
+    <tr><td class="paramname">lex_st</td><td>pointer to the lexer structure </td></tr>
+    <tr><td class="paramname">line</td><td>line to verify </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__Lexer_ga4dd889bc2be82519b1196ff896cc95c9_cgraph.png" border="0" usemap="#agroup__Lexer_ga4dd889bc2be82519b1196ff896cc95c9_cgraph" alt=""/></div>
+<map name="agroup__Lexer_ga4dd889bc2be82519b1196ff896cc95c9_cgraph" id="agroup__Lexer_ga4dd889bc2be82519b1196ff896cc95c9_cgraph">
+<area shape="rect" title="Initialize the lexer structure." alt="" coords="5,56,128,81"/>
+<area shape="rect" href="group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="176,56,303,81"/>
+<area shape="poly" title=" " alt="" coords="128,66,162,66,162,71,128,71"/>
+<area shape="rect" href="group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="552,5,660,31"/>
+<area shape="poly" title=" " alt="" coords="260,54,301,33,350,15,399,8,449,5,539,8,538,13,449,10,399,13,351,21,303,37,262,58"/>
+<area shape="rect" href="group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="372,31,483,56"/>
+<area shape="poly" title=" " alt="" coords="303,58,358,50,359,55,303,63"/>
+<area shape="rect" href="group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="351,80,504,105"/>
+<area shape="poly" title=" " alt="" coords="303,74,337,78,336,84,303,79"/>
+<area shape="rect" href="group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="368,129,487,155"/>
+<area shape="poly" title=" " alt="" coords="269,79,352,114,374,122,372,127,350,119,267,84"/>
+<area shape="rect" href="group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="708,5,831,31"/>
+<area shape="poly" title=" " alt="" coords="660,15,694,15,694,21,660,21"/>
+<area shape="poly" title=" " alt="" coords="483,33,538,25,538,30,483,38"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gaed920c4ccf5ae57509ab4f9ca6fdc2db" name="gaed920c4ccf5ae57509ab4f9ca6fdc2db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaed920c4ccf5ae57509ab4f9ca6fdc2db">&#9670;&#160;</a></span>is_operator_char()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int is_operator_char </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Is |, &lt; or &gt; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>character to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 1 if c is operator, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ga1fe02dbf2ca6fe4a5cd69e9cdff17969" name="ga1fe02dbf2ca6fe4a5cd69e9cdff17969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1fe02dbf2ca6fe4a5cd69e9cdff17969">&#9670;&#160;</a></span>lexer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char ** lexer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a55a47571da84d927095136aef34f99ca">t_garbage</a> *</td>          <td class="paramname"><span class="paramname"><em>garbage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>line</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create tokens (small chunks) a line with the quotes and operators. </p>
+<p>Handle spaces, quotes (' and ') and shell operator (|, &lt;, &lt;&lt;, &gt;, &gt;&gt;). Return an array of tokens (strings), NULL terminated.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">garbage</td><td>garbage structure </td></tr>
+    <tr><td class="paramname">line</td><td>line to tokenise </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Array of strings </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__Lexer_ga1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph.png" border="0" usemap="#agroup__Lexer_ga1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph" alt=""/></div>
+<map name="agroup__Lexer_ga1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph" id="agroup__Lexer_ga1fe02dbf2ca6fe4a5cd69e9cdff17969_cgraph">
+<area shape="rect" title="Create tokens (small chunks) a line with the quotes and operators." alt="" coords="5,80,60,105"/>
+<area shape="rect" href="group__Lexer.html#ga20a83b55a84ecb41df4e07bf8bc44592" title="Allocate memory for a string and copy the content from src." alt="" coords="108,29,240,55"/>
+<area shape="poly" title=" " alt="" coords="59,81,124,57,126,62,61,86"/>
+<area shape="rect" href="group__Lexer.html#ga4dd889bc2be82519b1196ff896cc95c9" title="Initialize the lexer structure." alt="" coords="288,80,411,105"/>
+<area shape="poly" title=" " alt="" coords="60,90,274,90,274,95,60,95"/>
+<area shape="rect" href="group__Lexer.html#gaed920c4ccf5ae57509ab4f9ca6fdc2db" title="Is |, &lt; or &gt;" alt="" coords="109,131,239,156"/>
+<area shape="poly" title=" " alt="" coords="61,100,126,123,124,128,59,105"/>
+<area shape="rect" href="group__Garbage.html#gac10959a5218b40803fd269019cd8b390" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="305,31,394,56"/>
+<area shape="poly" title=" " alt="" coords="240,40,291,40,291,46,240,45"/>
+<area shape="rect" href="group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="459,56,585,81"/>
+<area shape="poly" title=" " alt="" coords="394,47,445,55,445,60,394,52"/>
+<area shape="rect" href="group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="835,5,943,31"/>
+<area shape="poly" title=" " alt="" coords="544,53,584,33,633,17,682,9,731,6,821,8,821,14,731,11,682,14,634,22,586,38,546,58"/>
+<area shape="rect" href="group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="655,31,765,56"/>
+<area shape="poly" title=" " alt="" coords="585,58,640,50,641,55,586,63"/>
+<area shape="rect" href="group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="633,80,787,105"/>
+<area shape="poly" title=" " alt="" coords="586,74,620,78,619,84,585,79"/>
+<area shape="rect" href="group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="651,129,769,155"/>
+<area shape="poly" title=" " alt="" coords="551,79,634,116,654,123,652,128,632,120,549,84"/>
+<area shape="rect" href="group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="991,5,1113,31"/>
+<area shape="poly" title=" " alt="" coords="943,15,977,15,977,21,943,21"/>
+<area shape="poly" title=" " alt="" coords="765,33,820,25,821,30,766,38"/>
+<area shape="poly" title=" " alt="" coords="411,81,444,77,445,82,411,87"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gafcc5b7e533daacfa775b3a1ac953bd31" name="gafcc5b7e533daacfa775b3a1ac953bd31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafcc5b7e533daacfa775b3a1ac953bd31">&#9670;&#160;</a></span>tokeniser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> * tokeniser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="data__structure_8h.html#a24e28e95867f9681b9d87781b1caa65b">t_data</a> *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a <a class="el" href="data__structure_8h.html#a343be1e180affa75a4a3b4bb5b2225e3">t_command</a> structure that contains all the tokens Fills the command with the environment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>data structure </td></tr>
+    <tr><td class="paramname">tokens</td><td>tokens </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>t_command* pointer if OK, NULL if it fails </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__Lexer_gafcc5b7e533daacfa775b3a1ac953bd31_cgraph.png" border="0" usemap="#agroup__Lexer_gafcc5b7e533daacfa775b3a1ac953bd31_cgraph" alt=""/></div>
+<map name="agroup__Lexer_gafcc5b7e533daacfa775b3a1ac953bd31_cgraph" id="agroup__Lexer_gafcc5b7e533daacfa775b3a1ac953bd31_cgraph">
+<area shape="rect" title="Creates a t_command structure that contains all the tokens Fills the command with the environment." alt="" coords="5,5,88,31"/>
+<area shape="rect" href="group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="136,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="88,15,122,15,122,21,88,21"/>
+<area shape="rect" href="group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="295,5,403,31"/>
+<area shape="poly" title=" " alt="" coords="247,15,281,15,281,21,247,21"/>
+<area shape="rect" href="group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="451,5,573,31"/>
+<area shape="poly" title=" " alt="" coords="403,15,437,15,437,21,403,21"/>
+</map>
+</div>
 
 </div>
 </div>

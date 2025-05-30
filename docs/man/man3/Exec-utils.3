@@ -1,0 +1,159 @@
+.TH "Exec-utils" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Exec-utils \- Exec Utils
+.PP
+ \- Functions used in exec that are simple utils\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "size_t \fBcount_commands\fP (\fBt_command\fP *command)"
+.br
+.RI "Cound the number of commands in the command structure\&. "
+.ti -1c
+.RI "int \fBsafe_close\fP (int *fd)"
+.br
+.RI "Safely close fd\&. "
+.ti -1c
+.RI "void \fBdup_and_close\fP (\fBt_garbage\fP *garbage, int oldfd, int newfd)"
+.br
+.RI "Special dup2 that also closes the old fd\&. "
+.ti -1c
+.RI "void \fBexecute_pipeline\fP (\fBt_data\fP *data, pid_t *pids, size_t *count)"
+.br
+.RI "Execute all the command that are followed by pipes\&. "
+.ti -1c
+.RI "void \fBfill_toks_into_commands\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
+.br
+.ti -1c
+.RI "void \fBsearch_path\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
+.br
+.RI "Search path for the designated command\&. "
+.ti -1c
+.RI "void \fBsearch_paths\fP (\fBt_data\fP *data, \fBt_command\fP *command)"
+.br
+.RI "Search Path for all commands\&. "
+.ti -1c
+.RI "void \fBwait_all_childs\fP (\fBt_command\fP *command, pid_t *pids)"
+.br
+.RI "Waits for all the childs with their pids\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions used in exec that are simple utils\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "size_t count_commands (\fBt_command\fP * command)"
+
+.PP
+Cound the number of commands in the command structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+size_t number of commands 
+.RE
+.PP
+
+.SS "void dup_and_close (\fBt_garbage\fP * garbage, int oldfd, int newfd)"
+
+.PP
+Special dup2 that also closes the old fd\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIoldfd\fP fd that will overwrite newfd and will be close 
+.br
+\fInewfd\fP fd to overwrite by oldfd 
+.RE
+.PP
+
+.SS "void execute_pipeline (\fBt_data\fP * data, pid_t * pids, size_t * count)"
+
+.PP
+Execute all the command that are followed by pipes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIpids\fP array of pids of childs 
+.br
+\fIcount\fP pointer to count the number of commands 
+.RE
+.PP
+
+.SS "void fill_toks_into_commands (\fBt_data\fP * data, \fBt_command\fP * command)"
+
+.SS "int safe_close (int * fd)"
+
+.PP
+Safely close fd\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfd\fP file descriptor to close 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 no error, 1 ERROR 
+.RE
+.PP
+
+.SS "void search_path (\fBt_data\fP * data, \fBt_command\fP * command)"
+
+.PP
+Search path for the designated command\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "void search_paths (\fBt_data\fP * data, \fBt_command\fP * command)"
+
+.PP
+Search Path for all commands\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIcommand\fP command structure 
+.RE
+.PP
+
+.SS "void wait_all_childs (\fBt_command\fP * command, pid_t * pids)"
+
+.PP
+Waits for all the childs with their pids\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcommand\fP command structure 
+.br
+\fIpids\fP array of pids of childs 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

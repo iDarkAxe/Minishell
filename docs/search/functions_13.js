@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verify_5faccess_0',['verify_access',['../file__verify__access_8c.html#afb055840f776944a93723c4b25dea107',1,'verify_access(t_garbage *garbage, t_command *command):&#160;file_verify_access.c'],['../file_8h.html#afb055840f776944a93723c4b25dea107',1,'verify_access(t_garbage *garbage, t_command *command):&#160;file_verify_access.c']]]
+  ['wait_5fall_5fchilds_0',['wait_all_childs',['../group__Exec-utils.html#ga308cb3ae739e2ee3f6c26d3240d60601',1,'wait_all_childs(t_command *command, pid_t *pids):&#160;exec_pipeline.c'],['../group__Exec-utils.html#ga308cb3ae739e2ee3f6c26d3240d60601',1,'wait_all_childs(t_command *command, pid_t *pids):&#160;exec_pipeline.c']]]
 ];

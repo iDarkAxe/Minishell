@@ -1,0 +1,13 @@
+<map id="handle_redirections" name="handle_redirections">
+<area shape="rect" id="Node000001" title="Create and redirect inputs and outputs needed for the command." alt="" coords="5,5,156,31"/>
+<area shape="rect" id="Node000002" href="$group__Files.html#gafa1f958de374a503f07aaa41ef3d45bf" title="Opens the files to read and writes." alt="" coords="204,5,315,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,15,190,15,190,21,156,21"/>
+<area shape="rect" id="Node000003" href="$group__Files.html#gafd25b66c3b3e24c11fddfab02bc5e3dd" title="Open a file with it&#39;s rights (permissions)" alt="" coords="363,5,523,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="315,15,349,15,349,21,315,21"/>
+<area shape="rect" id="Node000004" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="571,5,681,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="523,15,557,15,557,21,523,21"/>
+<area shape="rect" id="Node000005" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="729,5,837,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="681,15,716,15,716,21,681,21"/>
+<area shape="rect" id="Node000006" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="885,5,1008,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="838,15,872,15,872,21,838,21"/>
+</map>

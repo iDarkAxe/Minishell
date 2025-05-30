@@ -1,5 +1,5 @@
 <map id="s_garbage" name="s_garbage">
-<area shape="rect" id="Node000001" title=" " alt="" coords="6,93,95,119"/>
-<area shape="rect" id="Node000002" href="$structs__element.html" title=" " alt="" coords="5,5,96,31"/>
+<area shape="rect" id="Node000001" title="Head of the linked list." alt="" coords="6,93,95,119"/>
+<area shape="rect" id="Node000002" href="$structs__element.html" title="Basic node for an element of a linked list." alt="" coords="5,5,96,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,45,53,93,48,93,48,45"/>
 </map>

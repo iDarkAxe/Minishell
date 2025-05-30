@@ -31,58 +31,6 @@ src/lexer/lexer-utils.c
 .br
 .RI "Initialize the lexer structure\&. "
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "char * ft_substr_end_gb (\fBt_garbage\fP * garbage, char const * src, unsigned int start, size_t end)"
-
-.PP
-Allocate memory for a string and copy the content from src\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIsrc\fP source string 
-.br
-\fIstart\fP start index to copy from 
-.br
-\fIend\fP end index to copy to 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-char* pointer to the new string 
-.RE
-.PP
-
-.SS "char ** init_lexer_state (\fBt_garbage\fP * garbage, \fBt_lexer_state\fP * lex_st, const char * line)"
-
-.PP
-Initialize the lexer structure\&. Fill the structure with zeros and init the line to search in and allocates the array to the garbage
-
-.PP
-\fBParameters\fP
-.RS 4
-\fIlex_st\fP pointer to the lexer structure 
-.br
-\fIline\fP line to verify 
-.RE
-.PP
-
-.SS "int is_operator_char (char c)"
-
-.PP
-Is |, < or > 
-.PP
-\fBParameters\fP
-.RS 4
-\fIc\fP character to check 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-int 1 if c is operator, 0 otherwise 
-.RE
-.PP
-
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Minishell from the source code\&.

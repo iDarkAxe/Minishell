@@ -1,9 +1,26 @@
 var searchData=
 [
-  ['bubble_5fsort_0',['bubble_sort',['../sort__env_8c.html#a3563e13e22e445599756308722f3a93e',1,'bubble_sort(t_garbage *garbage, t_var **head):&#160;sort_env.c'],['../env_8h.html#a3563e13e22e445599756308722f3a93e',1,'bubble_sort(t_garbage *garbage, t_var **head):&#160;sort_env.c']]],
-  ['build_5felements_1',['build_elements',['../ft__build__elements_8c.html#ad5a5a325f8f9fd67c0caf9af5325c8df',1,'build_elements(char *str):&#160;ft_build_elements.c'],['../env_8h.html#ad5a5a325f8f9fd67c0caf9af5325c8df',1,'build_elements(char *str):&#160;ft_build_elements.c']]],
-  ['build_5ffile_5faccess_2',['build_file_access',['../file_8c.html#abf541c53187b0e3c1871033c1b47b52f',1,'build_file_access(t_file *file):&#160;file.c'],['../file_8h.html#abf541c53187b0e3c1871033c1b47b52f',1,'build_file_access(t_file *file):&#160;file.c']]],
-  ['build_5ffiles_5fdata_3',['build_files_data',['../file__build_8c.html#a9df4316381acdd90a01028b353b7fbe2',1,'build_files_data(t_command *command):&#160;file_build.c'],['../file_8h.html#a9df4316381acdd90a01028b353b7fbe2',1,'build_files_data(t_command *command):&#160;file_build.c']]],
-  ['build_5ffiles_5fredirection_4',['build_files_redirection',['../file__build_8c.html#a550f6fe08adedae27fc01f128c84bd0d',1,'build_files_redirection(t_data *data):&#160;file_build.c'],['../file_8h.html#a550f6fe08adedae27fc01f128c84bd0d',1,'build_files_redirection(t_data *data):&#160;file_build.c']]],
-  ['builtins_2eh_5',['builtins.h',['../builtins_8h.html',1,'']]]
+  ['cd_20functions_0',['CD Functions',['../group__CD.html',1,'']]],
+  ['change_5fcwd_1',['change_cwd',['../group__CD.html#gaad8ea089edca1d8d437bd657dda90744',1,'change_cwd(t_data *data, t_bool is_pwd):&#160;ft_cd.c'],['../group__CD.html#gaad8ea089edca1d8d437bd657dda90744',1,'change_cwd(t_data *data, t_bool is_pwd):&#160;ft_cd.c']]],
+  ['change_5fcwd_5fto_5fhome_2',['change_cwd_to_home',['../group__CD.html#ga314c99c9e4e911205171f6b1a932bb21',1,'change_cwd_to_home(t_env_vars *env):&#160;ft_cd.c'],['../group__CD.html#ga314c99c9e4e911205171f6b1a932bb21',1,'change_cwd_to_home(t_env_vars *env):&#160;ft_cd.c']]],
+  ['change_5fcwd_5fto_5fprevious_5fcwd_3',['change_cwd_to_previous_cwd',['../group__CD.html#ga9470233c5813fe2ad506876c7931eab8',1,'change_cwd_to_previous_cwd(t_env_vars *env):&#160;ft_cd.c'],['../group__CD.html#ga9470233c5813fe2ad506876c7931eab8',1,'change_cwd_to_previous_cwd(t_env_vars *env):&#160;ft_cd.c']]],
+  ['check_5fargs_5fexport_4',['check_args_export',['../check__args__export_8c.html#ac166eb337815e6e5d5466e9d8c1ed35b',1,'check_args_export(const char *str):&#160;check_args_export.c'],['../env_8h.html#ac166eb337815e6e5d5466e9d8c1ed35b',1,'check_args_export(const char *str):&#160;check_args_export.c']]],
+  ['check_5fargs_5fexport_2ec_5',['check_args_export.c',['../check__args__export_8c.html',1,'']]],
+  ['color_5foff_6',['COLOR_OFF',['../env_8h.html#a8cb8d305059f6c44741bbb4e1c40fd3d',1,'env.h']]],
+  ['command_7',['command',['../structs__data.html#aa2f155b96ea60cefc2486a5f9421a482',1,'s_data']]],
+  ['command_2dutils_2ec_8',['command-utils.c',['../command-utils_8c.html',1,'']]],
+  ['copy_5fenv_9',['copy_env',['../copy__env_8c.html#a2b721a51a3e61d980a5c8ec749a6f1f3',1,'copy_env(t_garbage *garbage, t_env_vars *env):&#160;copy_env.c'],['../env_8h.html#a2b721a51a3e61d980a5c8ec749a6f1f3',1,'copy_env(t_garbage *garbage, t_env_vars *env):&#160;copy_env.c']]],
+  ['copy_5fenv_2ec_10',['copy_env.c',['../copy__env_8c.html',1,'']]],
+  ['copy_5ftoks_11',['copy_toks',['../group__Exec.html#gae660ae4acf50d9bc04cd300c1096353c',1,'copy_toks(t_data *data, t_command *command):&#160;token-utils.c'],['../group__Exec.html#gae660ae4acf50d9bc04cd300c1096353c',1,'copy_toks(t_data *data, t_command *command):&#160;token-utils.c']]],
+  ['count_12',['count',['../structs__env__vars.html#a917592b6cc57d90e40e1cc6587f76175',1,'s_env_vars::count'],['../structs__var.html#a4142082a888e812f328919ef03c9af63',1,'s_var::count']]],
+  ['count_5fcommands_13',['count_commands',['../group__Exec-utils.html#ga68ff9e66a3ecaf523d293aaec067bd4e',1,'count_commands(t_command *command):&#160;exec-utils.c'],['../group__Exec-utils.html#ga68ff9e66a3ecaf523d293aaec067bd4e',1,'count_commands(t_command *command):&#160;exec-utils.c']]],
+  ['count_5fenv_14',['count_env',['../env_8h.html#a46d5a6d642d9b8fa319a737db0057a65',1,'env.h']]],
+  ['create_5fstr_5fwith_5fparams_15',['create_str_with_params',['../create__str__with__params_8c.html#aa82fbf52dc082e70da1ee58fc4eab68b',1,'create_str_with_params(t_garbage *garbage, t_params *params):&#160;create_str_with_params.c'],['../env_8h.html#aa82fbf52dc082e70da1ee58fc4eab68b',1,'create_str_with_params(t_garbage *garbage, t_params *params):&#160;create_str_with_params.c']]],
+  ['create_5fstr_5fwith_5fparams_2ec_16',['create_str_with_params.c',['../create__str__with__params_8c.html',1,'']]],
+  ['create_5ftmp_17',['create_tmp',['../group__Files.html#ga07474b0cd322a07777aa0a249bb8e6ed',1,'create_tmp(t_garbage *garbage, char *path, int nbr_try):&#160;tmp_generator.c'],['../group__Files.html#ga07474b0cd322a07777aa0a249bb8e6ed',1,'create_tmp(t_garbage *garbage, char *path, int nbr_try):&#160;tmp_generator.c']]],
+  ['curr_18',['curr',['../structs__vars.html#a4c2503d2eb5d12183d80ef9150c7d58a',1,'s_vars::curr'],['../structs__supp.html#ae768a3d5b450b78ccab46f1ec0bf774f',1,'s_supp::curr']]],
+  ['curr_5f1_19',['curr_1',['../structs__vars.html#a194a4751bfe74ec8566c62ee359322e9',1,'s_vars']]],
+  ['curr_5fstr_20',['curr_str',['../structs__vars.html#a6bb14348124a3a848f8fc02bd5c8a8cb',1,'s_vars']]],
+  ['curr_5fstr_5f1_21',['curr_str_1',['../structs__vars.html#a9d0219c41827caba0c2b4403952df29d',1,'s_vars']]],
+  ['cyan_5fcolor_22',['CYAN_COLOR',['../env_8h.html#a6f69cb4237739bc9f49ec5f21df72132',1,'env.h']]]
 ];

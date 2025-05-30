@@ -1,0 +1,59 @@
+.TH "Exit" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Exit \- Exit Functions
+.PP
+ \- Functions for exiting\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_exit_int\fP (\fBt_garbage\fP *garbage, int value)"
+.br
+.RI "Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc\&. "
+.ti -1c
+.RI "void \fBft_exit_int_np\fP (\fBt_garbage\fP *garbage, int value)"
+.br
+.RI "Short ft_exit that uses only int but don't say it's name\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions for exiting\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void ft_exit_int (\fBt_garbage\fP * garbage, int value)"
+
+.PP
+Short ft_exit that uses only int noreturn attribute is to prevent -Wmissing-noreturn flag from flag -Weverything of debug-cc\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIvalue\fP value 
+.RE
+.PP
+
+.SS "void ft_exit_int_np (\fBt_garbage\fP * garbage, int value)"
+
+.PP
+Short ft_exit that uses only int but don't say it's name\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIvalue\fP value 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.

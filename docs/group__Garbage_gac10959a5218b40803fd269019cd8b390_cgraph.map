@@ -1,0 +1,16 @@
+<map id="malloc_gb" name="malloc_gb">
+<area shape="rect" id="Node000001" title="Replace the original malloc by storing the created adresses into a garbage to remove them afterwards." alt="" coords="5,56,95,81"/>
+<area shape="rect" id="Node000002" href="$group__Garbage.html#ga66a0b99ff0ecda553d936393650ac374" title="Add a pointer to the garbage list." alt="" coords="143,56,269,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,66,129,66,129,71,95,71"/>
+<area shape="rect" id="Node000003" href="$group__Garbage.html#gaa717079843ce7cac048fc16c27a46cb1" title="Free the garbage." alt="" coords="519,5,627,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="227,54,267,33,317,15,366,8,415,5,505,8,505,13,415,10,366,13,318,21,269,37,229,58"/>
+<area shape="rect" id="Node000005" href="$group__Exit.html#ga7118f47f0e0a0a07bd90c2538bfc0901" title="Short ft_exit that uses only int but don&#39;t say it&#39;s name." alt="" coords="339,31,449,56"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="269,58,324,50,325,55,270,63"/>
+<area shape="rect" id="Node000006" href="$group__Garbage.html#ga4ea53d0f9bc8882d448b29c64a69e614" title="Adds the &#39;new&#39; element at the start of stack." alt="" coords="317,80,471,105"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="270,74,304,78,303,84,269,79"/>
+<area shape="rect" id="Node000007" href="$group__Garbage.html#ga93fa5576142dc45682bcbee1ce1bfc1c" title="Allocates and returns the newly created element &#39;value&#39; is initialised with content &#39;next&#39; is set to ..." alt="" coords="335,129,453,155"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="236,79,318,114,341,122,339,127,316,119,234,84"/>
+<area shape="rect" id="Node000004" href="$group__Garbage.html#ga4f8250b11331fdc4aa79e0b28c67a191" title="Remove all elements from garbage." alt="" coords="675,5,797,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="627,15,661,15,661,21,627,21"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="449,33,504,25,505,30,450,38"/>
+</map>

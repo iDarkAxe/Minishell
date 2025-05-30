@@ -1,0 +1,127 @@
+.TH "Memory" 3 "Minishell" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Memory \- Memory Management
+.PP
+ \- Functions to free the allocated memory when it's not needed anymore\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfree_array\fP (\fBt_garbage\fP *garbage, char **array)"
+.br
+.RI "Free array of strings\&. "
+.ti -1c
+.RI "void \fBfree_command\fP (\fBt_garbage\fP *garbage, \fBt_command\fP *command)"
+.br
+.RI "Free one \fBt_command\fP structure with all that it contains\&. "
+.ti -1c
+.RI "void \fBfree_commands\fP (\fBt_garbage\fP *garbage, \fBt_command\fP **command)"
+.br
+.RI "Free \fBt_command\fP linked list structure with all that it contains\&. "
+.ti -1c
+.RI "void \fBfree_files_struct\fP (\fBt_garbage\fP *garbage, \fBt_file\fP *file)"
+.br
+.RI "Free linked list of \fBt_file\fP structure\&. "
+.ti -1c
+.RI "void \fBfree_heredoc\fP (\fBt_garbage\fP *garbage, \fBt_tmp\fP *tmp)"
+.br
+.RI "Free heredoc structure\&. "
+.ti -1c
+.RI "void \fBfree_tokens\fP (\fBt_garbage\fP *garbage, \fBt_token\fP *token)"
+.br
+.RI "Free t_tokens linked list structure\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions to free the allocated memory when it's not needed anymore\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void free_array (\fBt_garbage\fP * garbage, char ** array)"
+
+.PP
+Free array of strings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIarray\fP array of strings 
+.RE
+.PP
+
+.SS "void free_command (\fBt_garbage\fP * garbage, \fBt_command\fP * command)"
+
+.PP
+Free one \fBt_command\fP structure with all that it contains\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIcommand\fP \fBt_command\fP structure 
+.RE
+.PP
+
+.SS "void free_commands (\fBt_garbage\fP * garbage, \fBt_command\fP ** command)"
+
+.PP
+Free \fBt_command\fP linked list structure with all that it contains\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIcommand\fP head of \fBt_command\fP linked list structure 
+.RE
+.PP
+
+.SS "void free_files_struct (\fBt_garbage\fP * garbage, \fBt_file\fP * file)"
+
+.PP
+Free linked list of \fBt_file\fP structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fIfile\fP head of \fBt_file\fP linked list structure 
+.RE
+.PP
+
+.SS "void free_heredoc (\fBt_garbage\fP * garbage, \fBt_tmp\fP * tmp)"
+
+.PP
+Free heredoc structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fItmp\fP heredoc structure 
+.RE
+.PP
+
+.SS "void free_tokens (\fBt_garbage\fP * garbage, \fBt_token\fP * token)"
+
+.PP
+Free t_tokens linked list structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgarbage\fP garbage structure 
+.br
+\fItoken\fP head of t_tokens linked list structure 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Minishell from the source code\&.
