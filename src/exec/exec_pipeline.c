@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:14:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:28:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void	execute_command_from_pipe(t_data *data, t_command *command,
  *
  * @param data data structure
  * @param pids array of pids of childs
+ * @param count pointer to count the number of commands
  */
 void	execute_pipeline(t_data *data, pid_t *pids, size_t *count)
 {

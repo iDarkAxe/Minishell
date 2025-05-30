@@ -28,5 +28,8 @@
 **/res
 **/resultat
 **/log
+**/doxy-log.txt
+**/doxy-log-err.txt
 
 pipex/lib/libpipex.a
+minishell_tester

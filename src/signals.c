@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:43:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 10:37:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "garbage.h"
+#include "ft_printf.h"
 #include "minishell.h"
 #include <readline/readline.h>
 #include <signal.h>
@@ -58,7 +59,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 	(void)context;
 	if (sig == SIGINT)
 	{
-		print_fd(STDOUT_FILENO, "\n");
+		ft_printf("\n");
 		rl_replace_line("", 0);
 		rl_on_new_line();
 		rl_redisplay();

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 12:11:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:26:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	search_command(t_data *data, t_command *command, char **tokens);
 /**
  * @brief  Search if command is a builtin or not
  *
+ * @param data data structure
  * @param command command structure
  * @param tokens array of strings
  * @return int 0 if command found, 1 otherwise

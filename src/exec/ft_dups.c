@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:18:07 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 12:13:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:28:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "file.h"
 #include "garbage.h"
+#include "ft_printf.h"
 #include "minishell.h"
 
 int		handle_redirections(t_garbage *garbage, t_command *command,
@@ -24,7 +25,9 @@ int		handle_redirections_forks(t_garbage *garbage, t_command *command);
 /**
  * @brief Create and redirect inputs and outputs needed for the command
  *
+ * @param garbage garbage structure
  * @param command command structure
+ * @param fd_backup pointer of 2 integers for stdin and stdout backup
  * @return int 0 or positive OK, negative ERROR
  */
 int	handle_redirections(t_garbage *garbage, t_command *command,
@@ -52,6 +55,7 @@ int	handle_redirections(t_garbage *garbage, t_command *command,
 /**
  * @brief Create and redirect inputs and outputs needed for the command
  *
+ * @param garbage garbage structure
  * @param command command structure
  * @return int 0 or positive OK, negative ERROR
  */
@@ -74,7 +78,9 @@ int	handle_redirections_forks(t_garbage *garbage, t_command *command)
  * @brief Reset redirections by default values
  * Replace the new redirections by stdin and stdout
  *
+ * @param garbage garbage structure
  * @param command command structure
+ * @param fd_backup pointer of 2 integers for stdin and stdout backup
  * @param i value used for recursion
  */
 void	reset_redirection(t_garbage *garbage, t_command *command,
@@ -94,8 +100,8 @@ void	reset_redirection(t_garbage *garbage, t_command *command,
 			perror("minishell: close");
 		if (ret[0] < 0 || ret[1] != 0)
 		{
-			print_fd(1, "minishell: error on dup2 or close\n");
-			ft_exit_int_np(garbage, EXIT_FAILURE);
+			ft_dprintf(2, "minishell: error on dup2 or close\n");
+			ft_exit_int_np(garbage, 1);
 		}
 	}
 	reset_redirection(garbage, command, fd_backup, i + 1);

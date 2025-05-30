@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 11:16:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:26:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
+#include "ft_printf.h"
 #include "minishell.h"
 #include <stddef.h>
 
@@ -25,6 +26,7 @@ int			ft_echo(t_data *data, char **array);
  *
  * NOTES : you can add any number of n after -n if you want
  *
+ * @param data data structure
  * @param array array of strings
  * @return int 0 OK, error otherwise
  */
@@ -39,13 +41,13 @@ int	ft_echo(t_data *data, char **array)
 	final_n = handle_options(array, &index);
 	while (array != NULL && array[index] != NULL)
 	{
-		print_fd(1, array[index]);
+		ft_printf(array[index]);
 		if (array[index + 1] != NULL)
-			printn_fd(1, " ", 1);
+			ft_printf(" ");
 		index++;
 	}
 	if (final_n == 1)
-		print_fd(1, "\n");
+		ft_printf("\n");
 	return (0);
 }
 

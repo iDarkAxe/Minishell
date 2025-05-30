@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:55:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:28:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "builtins.h"
 #include "file.h"
+#include "ft_printf.h"
 #include "garbage.h"
 
 #include <fcntl.h>
@@ -30,20 +31,20 @@ int	files_management(t_data *data)
 		return (1);
 	if (build_files_redirection(data) != 0)
 	{
-		print_fd(2, "minishell: error creating file structure\n");
+		ft_dprintf(2, "minishell: error creating file structure\n");
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
 	build_files_data(data->command);
 	if (fill_heredocs(&data->garbage, data->command) != 0)
 	{
-		print_fd(2, "minishell: error during heredoc creation\n");
+		ft_dprintf(2, "minishell: error during heredoc creation\n");
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
 	if (verify_access(&data->garbage, data->command) != 0)
 		return (1);
 	if (remove_used_file_tokens(data) == NULL)
 	{
-		print_fd(2, "minishell: error removing file tokens\n");
+		ft_dprintf(2, "minishell: error removing file tokens\n");
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
 	return (0);
@@ -52,6 +53,7 @@ int	files_management(t_data *data)
 /**
  * @brief Open a file with it's rights (permissions)
  *
+ * @param garbage garbage structure
  * @param file file structure
  * @param in_out 0 = IN, 1 = OUT
  * @return int
@@ -83,6 +85,8 @@ int	open_file_with_rights(t_garbage *garbage, t_file *file, t_bool in_out)
 /**
  * @brief Opens the files to read and writes
  *
+ * @param garbage garbage structure
+ * @param command command structure
  * @param in_out 0 = IN, 1 = OUT
  */
 void	read_write_to(t_garbage *garbage, t_command *command, t_bool in_out)

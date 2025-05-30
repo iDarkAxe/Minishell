@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:45:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:25:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 /**
  * @brief Free one t_command structure with all that it contains
  *
+ * @param garbage garbage structure
  * @param command t_command structure
  */
 void	free_command(t_garbage *garbage, t_command *command)
@@ -38,6 +39,7 @@ void	free_command(t_garbage *garbage, t_command *command)
 /**
  * @brief Free t_command linked list structure with all that it contains
  *
+ * @param garbage garbage structure
  * @param command head of t_command linked list structure
  */
 void	free_commands(t_garbage *garbage, t_command **command)
@@ -58,6 +60,7 @@ void	free_commands(t_garbage *garbage, t_command **command)
 /**
  * @brief Free t_tokens linked list structure
  *
+ * @param garbage garbage structure
  * @param token head of t_tokens linked list structure
  */
 void	free_tokens(t_garbage *garbage, t_token *token)
@@ -86,6 +89,7 @@ void	free_tokens(t_garbage *garbage, t_token *token)
 /**
  * @brief Free linked list of t_file structure
  *
+ * @param garbage garbage structure
  * @param file head of t_file linked list structure
  */
 void	free_files_struct(t_garbage *garbage, t_file *file)
@@ -114,6 +118,7 @@ void	free_files_struct(t_garbage *garbage, t_file *file)
 /**
  * @brief Free heredoc structure
  *
+ * @param garbage garbage structure
  * @param tmp heredoc structure
  */
 void	free_heredoc(t_garbage *garbage, t_tmp *tmp)

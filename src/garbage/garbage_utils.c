@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/22 18:12:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:27:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
+#include "ft_printf.h"
 #include "libft.h"
 #include <stddef.h>
 #include <stdio.h>
@@ -22,6 +23,7 @@ char	*ft_strndup_gb(t_garbage *garbage, const char *source, size_t len);
  * @brief Create a copy of source into a new pointer
  *	NEEDS to be freed
 
+ * @param garbage garbage structure
  * @param source string to copy
  * @return char* pointer to the new string
  */
@@ -50,6 +52,7 @@ char	*ft_strdup_gb(t_garbage *garbage, const char *source)
  * @brief Create a copy of source into a new pointer of size len
  *	NEEDS to be freed
 
+ * @param garbage garbage structure
  * @param source string to copy
  * @param len size of the new string
  * @return char* pointer to the new string
@@ -75,6 +78,7 @@ char	*ft_strndup_gb(t_garbage *garbage, const char *source, size_t len)
 /**
  * @brief Free an element in the garbage collector
  *
+ * @param garbage garbage structure
  * @param ptr element to free
  */
 void	free_element_gb(t_garbage *garbage, void *ptr)
@@ -117,7 +121,7 @@ void	print_garbage(t_garbage *garbage)
 	element = garbage->head;
 	while (element != NULL)
 	{
-		printf("Element %p has ptr : %p\n", (void *)element, element->ptr);
+		ft_printf("Element %p has ptr : %p\n", (void *)element, element->ptr);
 		element = element->next;
 	}
 }

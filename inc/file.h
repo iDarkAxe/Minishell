@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:57:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:10:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@
 typedef struct s_tmp	t_tmp;
 typedef struct s_file	t_file;
 
-// @deprecated not used anywhere, but could be useful
-// enum							e_file_state
-// {
-// 	FILE_IN = 0,
-// 	FILE_OUT = 1
-// };
-
+/**
+ * @brief Basic structure to help manipulating heredocs (tmp file)
+ * 
+ */
 struct					s_tmp
 {
 	char				*name;
 	int					fd;
 };
 
+/**
+ * @brief Structure to handle all the data of a file
+ * 
+ */
 struct					s_file
 {
 	t_file				*next;
@@ -47,9 +48,13 @@ struct					s_file
 	t_bool				is_append;
 };
 
+/**
+ * @defgroup Files Files functions
+ * @brief Function to manipulate files
+ * @{
+ */
 int						files_management(t_data *data);
 
-// File Management
 int						build_files_redirection(t_data *data);
 void					*add_file(t_garbage *garbage, t_command *command,
 							t_token *token, t_file **command_file);
@@ -69,4 +74,5 @@ int						open_file_with_rights(t_garbage *garbage, t_file *file,
 void					read_write_to(t_garbage *garbage, t_command *command,
 							t_bool in_out);
 void					fd_default(t_command *command);
+/** @} */
 #endif

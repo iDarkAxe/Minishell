@@ -6,19 +6,21 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:07:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:20:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
 #include <stdlib.h>
 
 int			ft_exit(t_data *data, char **array);
-void		ft_exit_int(t_garbage *garbage, int value);
-void		ft_exit_int_np(t_garbage *garbage, int value);
-
+void		ft_exit_int(t_garbage *garbage,
+				int value) __attribute__((noreturn));
+void		ft_exit_int_np(t_garbage *garbage,
+				int value) __attribute__((noreturn));
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
 
@@ -27,21 +29,23 @@ static int	ft_strtoull(char *str);
  * noreturn attribute is to prevent -Wmissing-noreturn flag
  * from flag -Weverything of debug-cc
  *
+ * @param garbage garbage structure
  * @param value value
  */
-__attribute__((noreturn)) void	ft_exit_int(t_garbage *garbage, int value)
+
+void	ft_exit_int(t_garbage *garbage, int value)
 {
 	free_garbage(garbage);
-	print_fd(1, "exit\n");
+	ft_printf("exit\n");
 	exit((unsigned char)value);
 }
 
 /**
  * @brief Short ft_exit that uses only int but don't say it's name
- * 
+ *
+ * @param garbage garbage structure
  * @param value value
  */
-__attribute__ ((noreturn))
 void	ft_exit_int_np(t_garbage *garbage, int value)
 {
 	free_garbage(garbage);
@@ -54,6 +58,7 @@ SET FOLLOW_ZSH to 1 to follow zsh behavior. */
 /**
  * @brief Function to exit the program
  *
+ * @param data data structure
  * @param array argument of the exit function
  * @return int value if argument invalid
  */
@@ -65,12 +70,12 @@ int	ft_exit(t_data *data, char **array)
 	{
 		value = data->ret;
 		free_garbage(&data->garbage);
-		print_fd(1, "exit\n");
+		ft_dprintf(1, "exit\n");
 		exit(value);
 	}
 	if (FOLLOW_ZSH == 1 && array[1] != NULL)
 	{
-		print_fd(2, "minishell: exit: too many arguments\n");
+		ft_dprintf(2, "minishell: exit: too many arguments\n");
 		return (-1);
 	}
 	value = verif_args(array);
@@ -79,7 +84,7 @@ int	ft_exit(t_data *data, char **array)
 	if (value == 0)
 		value = ft_strtoull(array[0]);
 	free_garbage(&data->garbage);
-	print_fd(1, "exit\n");
+	ft_dprintf(1, "exit\n");
 	exit((unsigned char)value);
 }
 
@@ -98,14 +103,14 @@ static int	verif_args(char **array)
 	{
 		if (ft_isspace(array[0][count]) != 0)
 		{
-			print_fd(2, "minishell: exit: too many arguments\n");
+			ft_dprintf(2, "minishell: exit: too many arguments\n");
 			return (-1);
 		}
 		if (ft_isdigit(array[0][count++]) != 1)
 		{
-			print_fd(2, "minishell: exit: ");
-			print_fd(2, array[0]);
-			print_fd(2, ": numeric argument required\n");
+			ft_dprintf(2, "minishell: exit: ");
+			ft_dprintf(2, array[0]);
+			ft_dprintf(2, ": numeric argument required\n");
 			return (2);
 		}
 	}
@@ -134,9 +139,9 @@ static int	ft_strtoull(char *nptr)
 		number = number * 10 + *nptr++ - '0';
 		if (overflow_tester > number)
 		{
-			print_fd(2, "minishell: exit: ");
-			print_fd(2, nptr);
-			print_fd(2, ": numeric argument required\n");
+			ft_dprintf(2, "minishell: exit: ");
+			ft_dprintf(2, nptr);
+			ft_dprintf(2, ": numeric argument required\n");
 			return (2);
 		}
 	}

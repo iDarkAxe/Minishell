@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:45:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:23:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	handle_operator(t_garbage *garbage, t_lexer_state *lex_st);
  * Handle spaces, quotes (' and ') and shell operator (|, <, <<, >, >>).
  * Return an array of tokens (strings), NULL terminated.
  *
+ * @param garbage garbage structure
  * @param line line to tokenise
  * @return Array of strings
  */

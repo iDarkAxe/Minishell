@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 12:10:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:26:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void			print_toks(char **tokens);
  * @brief Creates a copy of all tokens that are in a command structure
  * It's used for forks during exec
  *
+ * @param data data structure
  * @param command command structure
  * @return char** copy of tokens
  */

@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:34:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/27 11:56:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:26:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "minishell.h"
+#include "ft_printf.h"
 #include <stddef.h>
 
 static int	condition_which(char *str);
@@ -20,6 +21,7 @@ int			ft_which(t_data *data, char **tokens);
 /**
  * @brief Says if the command are built-in commands or not
  *
+ * @param data data structure
  * @param tokens array of strings
  * @return int 1 if not at least one is not built-in, 0 if all strs built-ins
  */
@@ -36,15 +38,11 @@ int	ft_which(t_data *data, char **tokens)
 	while (tokens[i] != NULL)
 	{
 		if (condition_which(tokens[i]) == 1)
-		{
-			print_fd(1, tokens[i]);
-			print_fd(1, ": minishell built-in command\n");
-		}
+			ft_printf("%s : minishell built-in command\n", tokens[i]);
 		else
 		{
 			is_not_builtin = 1;
-			print_fd(2, tokens[i]);
-			print_fd(2, ": command not found in built-ins\n");
+			ft_dprintf(2, "%s : command not found in built-ins\n", tokens[i]);
 		}
 		i++;
 	}

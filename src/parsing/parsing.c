@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 12:08:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:26:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /**
  * @brief Prototype for parsing
  *
+ * @param data data structure
  * @param line line to parse
  * @return char**
  */
