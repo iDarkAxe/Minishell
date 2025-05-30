@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 12:51:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:26:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
+#include "ft_printf.h"
 #include "minishell.h"
 #include "builtins.h"
 #include "env.h"
@@ -22,6 +23,7 @@ static int	check_args(t_env_vars *env, char **array);
 /**
  * @brief Implementatin of cd builtin of shell
  *
+ * @param data data structure
  * @param array array of strings
  * @return int 0 OK, 1 otherwise
  */
@@ -38,8 +40,7 @@ int	ft_cd(t_data *data, char **array)
 	ret = chdir(array[0]);
 	if (ret != 0)
 	{
-		print_fd(2, "minishell: cd: '");
-		print_fd(2, array[0]);
+		ft_dprintf(2, "minishell: cd: '%s", array[0]);
 		perror("'");
 		return (ret);
 	}
@@ -89,7 +90,7 @@ static int	check_args(t_env_vars *env, char **array)
 		return (change_cwd_to_previous_cwd(env));
 	if (array[1] != NULL)
 	{
-		print_fd(2, "bash: cd: too many arguments\n");
+		ft_dprintf(2, "minishell: cd: too many arguments\n");
 		return (-1);
 	}
 	return (1);
@@ -103,7 +104,7 @@ int	change_cwd_to_home(t_env_vars *env)
 	path = NULL;
 	var = search_env_var(env, "HOME");
 	if (!var || !var->head_params || !var->head_params->value)
-		print_fd(2, "minishell: cd: HOME not set\n");
+		ft_dprintf(2, "minishell: cd: HOME not set\n");
 	if (var && var->head_params)
 		path = var->head_params->value;
 	if (path == NULL)
@@ -120,7 +121,7 @@ int	change_cwd_to_previous_cwd(t_env_vars *env)
 	path = NULL;
 	var = search_env_var(env, "OLDPWD");
 	if (!var || !var->head_params || !var->head_params->value)
-		print_fd(2, "minishell: cd: OLDPWD not set\n");
+		ft_dprintf(2, "minishell: cd: OLDPWD not set\n");
 	if (var && var->head_params)
 		path = var->head_params->value;
 	if (path == NULL)

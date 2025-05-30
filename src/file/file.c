@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 18:21:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:24:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
+#include "ft_printf.h"
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
@@ -64,15 +65,14 @@ static void	*check_args_and_error(t_command *command, t_token *token,
 	if (token->str && token->next && token->next->str
 		&& (token->next->str[0] == '<' || token->next->str[0] == '>'))
 	{
-		print_fd(2, "minishell: syntax error near unexpected token '");
-		print_fd(2, token->str);
-		print_fd(2, "'\n");
+		ft_dprintf(2,
+			"minishell: syntax error near unexpected token '%s'\n", token->str);
 		command->file_error = 1;
 		return (command);
 	}
 	if (command_file != NULL && token->next == NULL)
 	{
-		print_fd(2,
+		ft_dprintf(2,
 			"minishell: syntax error near unexpected token `newline'\n");
 		command->file_error = 1;
 		return (command);
@@ -84,6 +84,7 @@ static void	*check_args_and_error(t_command *command, t_token *token,
  * @brief Add a file to the stack given in param,
  * each file added is at the beginning of the stack (reverse order)
  *
+ * @param garbage garbage structure
  * @param command command structure
  * @param token token containing str informations
  * @param command_file stack to assign a file

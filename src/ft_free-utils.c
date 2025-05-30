@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:45:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:25:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 /**
  * @brief Free array of strings
  *
+ * @param garbage garbage structure
  * @param array array of strings
  */
 void	free_array(t_garbage *garbage, char **array)

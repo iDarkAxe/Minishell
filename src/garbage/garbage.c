@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 18:04:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:24:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "garbage.h"
+#include "ft_printf.h"
 #include "libft.h"
 #include "minishell.h"
 #include <readline/readline.h>
@@ -44,6 +45,7 @@ void	garbage_init(t_garbage	*garbage)
 /**
  * @brief Add a pointer to the garbage list
  *
+ * @param garbage garbage structure
  * @param ptr pointer to add
  */
 void	add_to_garbage(t_garbage *garbage, void *ptr)
@@ -55,7 +57,8 @@ void	add_to_garbage(t_garbage *garbage, void *ptr)
 	{
 		free(ptr);
 		free_garbage(garbage);
-		print_fd(2, "minishell: garbage: Critical error of malloc, exiting.\n");
+		ft_dprintf(2,
+			"minishell: garbage: Critical error of malloc, exiting.\n");
 		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	ft_garbageadd_front(garbage, temp);
@@ -76,6 +79,7 @@ void	free_garbage(t_garbage *garbage)
  * @brief Replace the original malloc by storing the created adresses
  * into a garbage to remove them afterwards
  *
+ * @param garbage garbage structure
  * @param size number of bytes to allocates
  * @return void*
  */

@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:41:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:16:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:24:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
 #include "garbage.h"
 #include "exec.h"
+#include "ft_printf.h"
 #include "get_next_line.h"
 #include "minishell.h"
 #include <readline/readline.h>
@@ -44,10 +45,10 @@ char	*read_heredoc(t_tmp *tmp, char *delimitor)
 		}
 		if (ft_strncmp(str, delimitor, ft_strlen(delimitor) + 1) == 0)
 			break ;
-		print_fd(tmp->fd, str);
+		ft_dprintf(tmp->fd, str);
 		free(str);
 		str = NULL;
-		print_fd(tmp->fd, "\n");
+		ft_dprintf(tmp->fd, "\n");
 	}
 	if (str != NULL)
 		free(str);
@@ -65,10 +66,10 @@ char	*read_heredoc(t_tmp *tmp, char *delimitor)
  */
 static void	heredoc_error(const char *delimitor)
 {
-	print_fd(2,
+	ft_dprintf(2,
 		"minishell: warning: here-doc delimited by end-of-file (wanted ");
-	print_fd(2, delimitor);
-	print_fd(2, ");\n");
+	ft_dprintf(2, delimitor);
+	ft_dprintf(2, ");\n");
 }
 
 /**
@@ -90,7 +91,7 @@ static int	fill_heredoc(t_garbage *garbage, t_file *file)
 	if (file->tmp->fd == -1)
 	{
 		free_element_gb(garbage, file->tmp);
-		print_fd(2, "Error: tmp file creation\n");
+		ft_dprintf(2, "Error: tmp file creation\n");
 		return (-1);
 	}
 	read_heredoc(file->tmp, file->name);
@@ -100,6 +101,7 @@ static int	fill_heredoc(t_garbage *garbage, t_file *file)
 /**
  * @brief Fill all the heredocs in the correct order
  *
+ * @param garbage garbage structure
  * @param command command structure
  * @return int 0 OK, otherwise error
  */

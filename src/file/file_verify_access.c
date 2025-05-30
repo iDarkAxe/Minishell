@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 10:59:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 11:00:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:24:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "file.h"
 #include "garbage.h"
+#include "ft_printf.h"
 #include "minishell.h"
 #include <fcntl.h>
 
@@ -66,17 +67,13 @@ static int	file_permission_check(t_garbage *garbage, t_file *file,
 	}
 	if (in_out == 0 && file->exist != 1)
 	{
-		print_fd(2, "minishell: ");
-		print_fd(2, file->name);
-		print_fd(2, ": No such file or directory\n");
+		ft_dprintf(2, "minishell: %s: No such file or directory\n", file->name);
 		return (1);
 	}
 	if ((in_out == 0 && file->perm_read != 1) || (in_out == 1
 			&& file->exist == 1 && file->perm_write != 1))
 	{
-		print_fd(2, "minishell: ");
-		print_fd(2, file->name);
-		print_fd(2, ": Permission denied\n");
+		ft_dprintf(2, "minishell: %s: Permission denied\n", file->name);
 		return (1);
 	}
 	return (file_permission_check_outfile(garbage, file, in_out));
@@ -155,6 +152,7 @@ static int	handle_files(t_garbage *garbage, t_command *command)
  * if at least one file is invalid, modifies the boolean in command
  * but still return 0
  *
+ * @param garbage garbage structure
  * @param command command structure
  * @return int 0 OK, error otherwise
  */

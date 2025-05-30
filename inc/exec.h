@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 11:40:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:10:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 # include "data_structure.h"
 
-// Exec
+/**
+ * @defgroup Exec Exec Functions
+ * @brief Main functions for executing a command
+ * @{
+ */
 char		**copy_toks(t_data *data, t_command *command);
 int			prepare_command(t_data *data);
 int			prepare_command_forks(t_data *data);
@@ -28,10 +32,14 @@ void		reset_redirection(t_garbage *garbage, t_command *command,
 				unsigned char i);
 int			needs_to_be_forked(t_command *command);
 int			execve_fork(t_data *data, char *path, char **toks, char **envp);
-int			create_pipe(t_command *command);
 int			handle_redirections_forks(t_garbage *garbage, t_command *command);
+/** @} */
 
-// EXEC UTILS
+/**
+ * @defgroup Exec-utils Exec Utils
+ * @brief Functions used in exec that are simple utils
+ * @{
+ */
 size_t		count_commands(t_command *command);
 int			safe_close(int *fd);
 void		dup_and_close(t_garbage *garbage, int oldfd, int newfd);
@@ -42,5 +50,6 @@ void		fill_toks_into_commands(t_data *data, t_command *command);
 void		search_path(t_data *data, t_command *command);
 void		search_paths(t_data *data, t_command *command);
 void		wait_all_childs(t_command *command, pid_t *pids);
+/** @} */
 
 #endif

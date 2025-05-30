@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:19:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 16:50:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:06:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ typedef struct s_params			t_params;
 typedef struct s_token			t_token;
 typedef struct s_data			t_data;
 
+/**
+ * @brief General structure that have access to all needed in minishell
+ * 
+ */
 struct							s_data
 {
 	t_garbage					garbage;
@@ -83,6 +87,11 @@ struct							s_token
 #  define MAX_TOKENS_LEX 1024
 # endif
 
+/**
+ * @brief Structure used by lexer to efficiently 
+ * have access to a bunch of variables
+ * 
+ */
 struct							s_lexer_state
 {
 	unsigned int				i;

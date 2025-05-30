@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:01:21 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:26:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:23:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_substr_end_gb(t_garbage *garbage, char const *src,
  * Fill the structure with zeros and init the line to search in
  * and allocates the array to the garbage
  *
+ * @param garbage garbage structure
  * @param lex_st pointer to the lexer structure
  * @param line line to verify
  */
@@ -54,6 +55,7 @@ int	is_operator_char(char c)
 /**
  * @brief Allocate memory for a string and copy the content from src
  *
+ * @param garbage garbage structure
  * @param src source string
  * @param start start index to copy from
  * @param end end index to copy to

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:10:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 17:55:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:25:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 static void	change_tildes_by_home(char *result, char *home, char *str);
 static char	*expand_tildes(t_garbage *garbage, char *str);
+char		**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 /**
  * @brief Expands all the tildes found in array with HOME
  *
+ * @param garbage garbage structure
  * @param tokens array of strings
  * @return char** tokens if OK, NULL otherwise
  */

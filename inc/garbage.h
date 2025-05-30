@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 11:50:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:22:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,31 @@
 typedef struct s_element	t_element;
 typedef struct s_garbage	t_garbage;
 
+/**
+ * @brief Basic node for an element of a linked list
+ *
+ */
 struct						s_element
 {
 	void					*ptr;
 	void					*next;
 };
 
+/**
+ * @brief Head of the linked list
+ *
+ */
 struct						s_garbage
 {
 	size_t					n_elements;
 	t_element				*head;
 };
 
+/**
+ * @defgroup Garbage Garbage functions
+ * @brief Functions to simulate a garbage
+ * @{
+ */
 // Function to replace all the malloc by this to use the garbage
 void						*malloc_gb(t_garbage *garbage, size_t size);
 void						add_to_garbage(t_garbage *garbage, void *ptr);
@@ -50,7 +63,7 @@ t_element					*ft_garbagenew(void *ptr);
 void						ft_garbageadd_front(t_garbage *garbage,
 								t_element *new);
 void						ft_garbageadd_back(t_garbage *stack,
-								t_element *new);
+								t_element *new) __attribute__((deprecated));
 int							ft_garbageclear(t_garbage *data);
-
+/** @} */
 #endif

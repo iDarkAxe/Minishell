@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:08:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 18:03:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:22:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	ft_garbageadd_front(t_garbage *garbage, t_element *new)
  * @param garbage garbage structure
  * @param new element to add
  */
-__attribute__((deprecated))
 void	ft_garbageadd_back(t_garbage *garbage, t_element *new)
 {
 	t_element	*last;

@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:10:41 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/23 10:53:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:24:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
 #include "garbage.h"
 #include "libft.h"
+#include "ft_printf.h"
 #include "minishell.h"
 #include <fcntl.h>
 #include <stdlib.h>
@@ -24,6 +25,7 @@ static t_tmp	try_create_tmp(t_garbage *garbage, char *path);
  * @brief Create a tmp file, verify if it already exist,
  * tries to open it to verify permissions, and returns the result
  *
+ * @param garbage garbage structure
  * @param path path where to create the file
  * @param nbr_try number of try to create a tmp file
  * @return t_tmp structure with the path+name of created name
@@ -74,7 +76,7 @@ static t_tmp	try_create_tmp(t_garbage *garbage, char *path)
 	name = ft_random();
 	if (name == NULL)
 	{
-		print_fd(2, "Couldn't generate a random\n");
+		ft_dprintf(2, "Couldn't generate a random\n");
 		tmp.fd = -1;
 		return (tmp);
 	}

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:32:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 11:08:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 11:24:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	safe_close(int *fd)
 /**
  * @brief Special dup2 that also closes the old fd
  * 
+ * @param garbage garbage structure
  * @param oldfd fd that will overwrite newfd and will be close
  * @param newfd fd to overwrite by oldfd
  */
