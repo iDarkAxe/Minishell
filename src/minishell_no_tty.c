@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_context.c                                     :+:      :+:    :+:   */
+/*   minishell_no_tty.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 14:51:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 10:48:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ static char	*read_stdin_gnl(t_garbage *garbage);
 
 /**
  * @brief Function to read the context where this function is called
- * Verify if it's used in a tty or not,
+ * Verify if it's used in a tty or not.
+ * To know, we check if stdin or stdout are attached to files or to the terminal
  * 
- * @return int 0 OK, 1 otherwise
+ * @return int 1 is interactive, 0 is not
  */
 int	is_interactive(void)
 {
-	if (isatty(STDIN_FILENO) != 0 && isatty(STDOUT_FILENO) != 0)
+	if (isatty(STDIN_FILENO) != 0 && isatty(STDOUT_FILENO) != 0
+		&& isatty(STDERR_FILENO) != 0)
 		return (1);
 	return (0);
 }
@@ -40,7 +42,7 @@ int	is_interactive(void)
  *
  * @param data data structure already set
  */
-int	short_minishell_no_tty(t_data *data)
+int	minishell_no_tty(t_data *data)
 {
 	char		*line;
 	char		**tokens;
@@ -82,7 +84,7 @@ static char	*read_stdin_gnl(t_garbage *garbage)
 	{
 		line = get_next_line(STDIN_FILENO);
 		if (line == NULL)
-			ft_exit_int_np(garbage, EXIT_FAILURE);
+			ft_exit_int_np(garbage, EXIT_SUCCESS);
 		if (line[0] == '\0')
 		{
 			free(line);

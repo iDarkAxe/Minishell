@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:20:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 10:47:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static int	ft_strtoull(char *str);
 void	ft_exit_int(t_garbage *garbage, int value)
 {
 	free_garbage(garbage);
-	ft_printf("exit\n");
+	if (is_interactive() == 1)
+		ft_printf("exit\n");
 	exit((unsigned char)value);
 }
 
@@ -70,7 +71,8 @@ int	ft_exit(t_data *data, char **array)
 	{
 		value = data->ret;
 		free_garbage(&data->garbage);
-		ft_dprintf(1, "exit\n");
+		if (is_interactive() == 1)
+			ft_printf("exit\n");
 		exit(value);
 	}
 	if (FOLLOW_ZSH == 1 && array[1] != NULL)
@@ -84,7 +86,8 @@ int	ft_exit(t_data *data, char **array)
 	if (value == 0)
 		value = ft_strtoull(array[0]);
 	free_garbage(&data->garbage);
-	ft_dprintf(1, "exit\n");
+	if (is_interactive() == 1)
+		ft_printf("exit\n");
 	exit((unsigned char)value);
 }
 
