@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 10:14:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 16:40:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,49 +57,6 @@ void	fill_toks_into_commands(t_data *data, t_command *command)
 			exit(EXIT_FAILURE);
 		}
 		current->toks = toks;
-		current = current->next;
-	}
-}
-
-// FIXME IT"S ONLY A PLACEHOLDER DON'T BE CONFUSED
-/**
- * @brief Search path for the designated command
- * 
- * @param data data structure
- * @param command command structure
- */
-void	search_path(t_data *data, t_command *command)
-{
-	if (!command || command->path != NULL)
-		return ;
-	if (!command->toks || !command->toks[0])
-		command->path = ft_strdup("NULL");
-	else
-		command->path = ft_strjoin("/usr/bin/", command->toks[0]);
-	if (command->path == NULL)
-	{
-		free_garbage(&data->garbage);
-		exit(EXIT_FAILURE);
-	}
-	add_to_garbage(&data->garbage, command->path);
-	command = command->next;
-}
-
-// FIXME IT"S ONLY A PLACEHOLDER DON'T BE CONFUSED
-/**
- * @brief Search Path for all commands
- * 
- * @param data data structure
- * @param command command structure
- */
-void	search_paths(t_data *data, t_command *command)
-{
-	t_command	*current;
-
-	current = command;
-	while (current)
-	{
-		search_path(data, current);
 		current = current->next;
 	}
 }

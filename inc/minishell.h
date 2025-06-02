@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 10:48:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 17:06:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,10 @@ void		free_tokens(t_garbage *garbage, t_token *token);
  */
 void		print_list_files(t_command *command);
 void		print_perm_files(t_command *command);
-void		print_toks(char **tokens);
+void		print_tokens(t_token *tokens);
+void		print_toks(char **toks);
+void		print_alltoks(t_command *command);
+void		print_alltokens(t_command *command);
 void		print_command_fd(t_command *command);
 ssize_t		print_command(t_command *command);
 ssize_t		print_commands(t_command **command);

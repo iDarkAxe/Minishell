@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:26:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 16:55:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 static size_t	count_tokens(t_token const *head);
 static char		**fill_toks(t_garbage *garbage, t_token *head, char **tokens);
 char			**copy_toks(t_data *data, t_command *command);
-void			print_toks(char **tokens);
 
 /**
  * @brief Creates a copy of all tokens that are in a command structure
@@ -50,28 +49,6 @@ char	**copy_toks(t_data *data, t_command *command)
 	}
 	fill_toks(&data->garbage, token, tokens);
 	return (tokens);
-}
-
-/**
- * @brief Print tokens indexed
- *
- * @param tokens tokens to print
- */
-void	print_toks(char **tokens)
-{
-	size_t	index;
-
-	if (tokens == NULL)
-	{
-		printf("No toks to print\n");
-		return ;
-	}
-	index = 0;
-	while (tokens[index] != NULL)
-	{
-		printf("toks %zu : %s\n", index, tokens[index]);
-		index++;
-	}
 }
 
 /**

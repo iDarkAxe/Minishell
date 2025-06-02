@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:22:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 17:49:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void						add_to_garbage(t_garbage *garbage, void *ptr);
 void						free_element_gb(t_garbage *garbage, void *ptr);
 char						*ft_strdup_gb(t_garbage *garbage,
 								const char *source);
-char						*ft_strndup_gb(t_garbage *garbage, const char *source, size_t len);
+char						*ft_strndup_gb(t_garbage *garbage,
+								const char *source, size_t len);
 
 // Initialise the garbage and free it's content
 void						garbage_init(t_garbage *garbage);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:26:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 16:42:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	not_builtins(t_data *data, t_command *command, char **tokens)
 
 	if (tokens == NULL || tokens[0] == NULL)
 		return (1);
-	search_path(data, command);
 	ret = execve_fork(data, command->path, command->toks, command->envp);
 	return (ret);
 }

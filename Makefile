@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/02 10:42:00 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/02 17:50:56 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ P_BUILTINS_EXPORT = $(P_BUILTINS)export/
 P_ENV = env/
 P_EXEC = exec/
 
-P_PIPEX = pipex/src/
 P_TESTS = tests/
 
 P_OBJ = .obj/
@@ -48,14 +47,10 @@ P_INC = inc/
 P_INCS = \
 	$(P_INC) \
 	$(P_LIBFT)inc/ \
-	$(P_PIPEX)include/ \
-	$(P_PIPEX)include/
 
 # Libraries directories
 P_LIB = lib/
 P_LIBFT = libft/
-P_PIPEX = pipex/
-P_LIB_PIPEX = pipex/lib/
 P_GET_NEXT_LINE = get_next_line/
 P_FT_PRINTF = ft_printf/
 #############################################################################################
@@ -82,6 +77,7 @@ SRC = \
 	ft_free.c \
 	ft_free-utils.c \
 	minishell.c \
+	print-tokens.c \
 	token-utils.c \
 	minishell_no_tty.c \
 
@@ -135,6 +131,7 @@ EXEC = \
 	ft_dups.c \
 	exec_pipeline.c \
 	search_command.c \
+	search_path.c \
 	exec-utils.c
 
 ENV = \
@@ -153,14 +150,12 @@ ENV = \
 	env_to_array.c \
 
 LIBS = \
-	-L$(P_LIB_PIPEX) -lpipex \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
 	-L$(P_LIBFT) -lft \
 	-lreadline \
 
 LIBFT = $(P_LIBFT)libft.a
-PIPEX = $(P_LIB_PIPEX)libpipex.a
 GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
 FT_PRINTF = $(P_FT_PRINTF)libftprintf.a 
 #############################################################################################
@@ -189,7 +184,6 @@ DEPS = $(OBJS:%.o=%.d) $(OBJS_TEST:%.o=%.d)
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
 		$(P_LIBFT)inc/libft.h \
-		$(P_PIPEX)include/pipex.h \
 		$(P_LIBFT)inc/ft_printf.h \
 		
 #############################################################################################
@@ -201,8 +195,8 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create $(NAME) executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -o $(NAME) $(OBJS) $(LIBS); then \
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(GET_NEXT_LINE)
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -o $(NAME) $(OBJS) $(LIBS); then \
 		echo "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -211,7 +205,7 @@ $(NAME): $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(GET_NEXT_LINE)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_PIPEX)include -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -c $< -o $@; then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_LIBFT)inc -I $(P_GET_NEXT_LINE) -I $(P_FT_PRINTF) -c $< -o $@; then \
 		echo "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
 		echo "$(Red)Error creating $@$(Color_Off)"; \
@@ -222,16 +216,13 @@ force:
 $(LIBFT): force
 	@$(MAKE) -C $(P_LIBFT)
 
-$(PIPEX): force
-	@$(MAKE) -C $(P_PIPEX)
-
 $(GET_NEXT_LINE): force
 	@$(MAKE) -C $(P_GET_NEXT_LINE)
 
 $(FT_PRINTF): force
 	@$(MAKE) -C $(P_FT_PRINTF)
 
-$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(PIPEX) $(FT_PRINTF)
+$(P_LIB)libminishell.a: $(OBJS) $(INCS) $(LIBFT) $(FT_PRINTF)
 	@mkdir -p $(dir $@)
 	@echo "$(Green)Creating library $@$(Color_Off)"
 	@ar -rcs $@ $(OBJS)
@@ -253,7 +244,6 @@ clean:
 clean-lib:
 	rm -rfd $(P_LIB)
 	@$(MAKE) -C $(P_LIBFT) fclean
-	@$(MAKE) -C $(P_PIPEX) fclean
 	@$(MAKE) -C $(P_GET_NEXT_LINE) fclean
 
 clean-bin:
