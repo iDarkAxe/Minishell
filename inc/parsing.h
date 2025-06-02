@@ -37,6 +37,6 @@ size_t	ft_strlen_charset(const char *str, const char *charset);
 t_bool	is_dollar(char *str);
 t_bool	detect_quote(const char *str);
 size_t	ft_strlen_choose_c(const char *str, char c);
-char	*fill_string(t_garbage *garbage, char *result, char *temp);
+char	*fill_string(char *result, char *temp);
 /** @} */
 #endif

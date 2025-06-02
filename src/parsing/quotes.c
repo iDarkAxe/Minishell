@@ -6,17 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/30 10:24:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 14:26:44 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
-#include "libft.h"
-#include "parsing.h"
-#include "minishell.h"
 #include "builtins.h"
 #include "ft_printf.h"
-
+#include "garbage.h"
+#include "libft.h"
+#include "minishell.h"
+#include "parsing.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -34,27 +33,6 @@ static void	handle_quote(const char *str, size_t *i, char *q)
 	}
 }
 
-static void	fill_res(t_data *data, const char *s, char **res, size_t size,
-	char quote)
-{
-	char	*temp;
-	char	*temp_1;
-
-	temp = ft_strndup_gb(&data->garbage, s, size);
-	if (!temp)
-		return ;
-	if ((quote == '"' || quote == 0) && temp[0] == '$')
-	{
-		temp_1 = handle_expand(data, temp);
-		free_element_gb(&data->garbage, temp);
-		if (!temp_1)
-			return ;
-		*res = fill_string(&data->garbage, *res, temp_1);
-	}
-	else
-		*res = fill_string(&data->garbage, *res, temp);
-}
-
 static size_t	compute_size(const char *str, char quote)
 {
 	size_t	size;
@@ -62,7 +40,8 @@ static size_t	compute_size(const char *str, char quote)
 
 	size = 0;
 	i = 0;
-	if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)) && str[0] != '$')
+	if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0))
+		&& str[0] != '$')
 		size = ft_strlen_charset(str, "$\"\'");
 	else if (str[0] == '$' && (str[1] == '"' || str[1] == '\''))
 		size = ft_strlen_charset(str, " \0");
@@ -71,6 +50,29 @@ static size_t	compute_size(const char *str, char quote)
 	else
 		size = ft_strlen_choose_c(str, quote);
 	return (size);
+}
+
+static void	fill_res(t_data *data, const char *s, char **res, char quote)
+{
+	char	*temp;
+	char	*temp_1;
+	size_t	size;
+
+	size = compute_size(s, quote);
+	temp = ft_strndup(s, size);
+	if (!temp)
+		return ;
+	if ((quote == '"' || quote == 0) && temp[0] == '$')
+	{
+		temp_1 = handle_expand(data, temp);
+		if (!temp_1)
+			return ;
+		*res = fill_string(*res, temp_1);
+		free(temp_1);
+	}
+	else
+		*res = fill_string(*res, temp);
+	free(temp);
 }
 
 static char	*remove_quote(t_data *data, const char *str, char *quote)
@@ -88,7 +90,7 @@ static char	*remove_quote(t_data *data, const char *str, char *quote)
 			break ;
 		size = compute_size(&str[i], *quote);
 		if (size != 0)
-			fill_res(data, &str[i], &result, size, *quote);
+			fill_res(data, &str[i], &result, *quote);
 		else
 		{
 			handle_quote(str, &i, quote);
@@ -102,21 +104,18 @@ static char	*remove_quote(t_data *data, const char *str, char *quote)
 
 char	*setup_string(t_data *data, char *str)
 {
-	char	*result;
 	char	*str_expanded;
 	char	quote;
 
 	quote = 0;
-	result = NULL;
 	str_expanded = remove_quote(data, str, &quote);
-	free_element_gb(&data->garbage, str);
 	if (!str_expanded)
 		return (NULL);
-	add_to_garbage(&data->garbage, str_expanded);
 	if (quote != 0)
 	{
 		ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
 		return (NULL);
 	}
+	add_to_garbage(&data->garbage, str_expanded);
 	return (str_expanded);
 }
