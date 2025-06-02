@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 14:44:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 10:48:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv, char **envp)
 	if (is_interactive() == 1)
 		ret = minishell(&data);
 	else
-		ret = short_minishell_no_tty(&data);
+		ret = minishell_no_tty(&data);
 	free_garbage(&data.garbage);
 	return (0);
 }

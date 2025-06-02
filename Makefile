@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/05/30 11:14:34 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/02 10:42:00 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ SRC = \
 	ft_free-utils.c \
 	minishell.c \
 	token-utils.c \
-	read_context.c \
+	minishell_no_tty.c \
 
 GARBAGE = \
 	garbage.c \
