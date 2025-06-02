@@ -39,42 +39,54 @@ char	*search_env_str(t_garbage *garbage, t_env_vars *env, const char *var,
 	return (str);
 }
 
-static char	*expand_variables(t_data *data, char *str, size_t *size, size_t *i)
+static char	*expand_variables(t_data *data, char **str, size_t *size)
 {
 	char	*temp;
 
-	(*i)++;
-	*size = ft_strlen_charset(&str[*i], "$\'\" ");
-	temp = search_env_str(&data->garbage, &data->env, &str[*i], *size);
+	*str += 1;
+	*size = ft_strlen_charset((*str), "$\'\" ");
+	if (*size == 0)
+		return (NULL);
+	temp = search_env_str(&data->garbage, &data->env, (*str), *size);
 	if (!temp)
 		return (NULL);
-	(*i) += *size;
+	(*str) += *size;
 	return (temp);
 }
 
 char	*handle_expand(t_data *data, char *str)
 {
-	size_t	i;
 	size_t	size;
 	char	*result;
 	char	*temp;
 
 	result = NULL;
 	temp = NULL;
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '$')
-			temp = expand_variables(data, str, &size, &i);
+		if (*str == '$' && (ft_isspace(*(str + 1)) == *(str + 1) || *(str + 1) == '\0') && *(str + 1) != '"')
+		{
+			temp = ft_strdup("$");
+			str += 1;
+		}
+		else if (*str == '$' && (*(str + 1) == '"' || *(str + 1) == '\''))
+		{
+			size = ft_strlen_charset(str + 2, "\"\'");
+			temp = ft_strndup(str + 2, size);
+			str += (size + 3);
+		}
+		else if (*str == '$')
+			temp = expand_variables(data, &str, &size);
 		else
 		{
-			size = ft_strlen_charset(&str[i], "$");
-			temp = ft_strndup(&str[i], size);
-			if (!temp)
-				return (NULL);
-			i += size;
+			size = ft_strlen_charset(str, "$");
+			temp = ft_strndup(str, size);
+			str += size;
 		}
-		result = fill_string(result, temp);
+		if (!temp)
+			return (NULL);
+		result = fill_string(&data->garbage, result, temp);
 	}
+	add_to_garbage(&data->garbage, result);
 	return (result);
 }

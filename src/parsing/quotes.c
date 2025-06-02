@@ -40,27 +40,33 @@ static void	fill_res(t_data *data, const char *s, char **res, size_t size,
 	char	*temp;
 	char	*temp_1;
 
-	temp = ft_strndup(s, size);
+	temp = ft_strndup_gb(&data->garbage, s, size);
 	if (!temp)
 		return ;
-	if (quote == '"' || quote == 0)
+	if ((quote == '"' || quote == 0) && temp[0] == '$')
 	{
 		temp_1 = handle_expand(data, temp);
-		free(temp);
+		free_element_gb(&data->garbage, temp);
 		if (!temp_1)
 			return ;
-		*res = fill_string(*res, temp_1);
+		*res = fill_string(&data->garbage, *res, temp_1);
 	}
 	else
-		*res = fill_string(*res, temp);
+		*res = fill_string(&data->garbage, *res, temp);
 }
 
 static size_t	compute_size(const char *str, char quote)
 {
 	size_t	size;
+	size_t	i;
 
 	size = 0;
-	if (quote == 0 || ((detect_quote(str) == TRUE) && quote == 0))
+	i = 0;
+	if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)) && str[0] != '$')
+		size = ft_strlen_charset(str, "$\"\'");
+	else if (str[0] == '$' && (str[1] == '"' || str[1] == '\''))
+		size = ft_strlen_charset(str, " \0");
+	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)))
 		size = ft_strlen_charset(str, "\"\'");
 	else
 		size = ft_strlen_choose_c(str, quote);

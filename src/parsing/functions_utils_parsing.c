@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "garbage.h"
+
 #include <stdlib.h>
 
 t_bool	is_dollar(char *str);
-char	*fill_string(char *result, char *temp);
 t_bool	detect_quote(const char *str);
+char	*fill_string(t_garbage *garbage, char *result, char *temp);
 
 t_bool	is_dollar(char *str)
 {
@@ -45,7 +47,7 @@ t_bool	detect_quote(const char *str)
 	return (FALSE);
 }
 
-char	*fill_string(char *result, char *temp)
+char	*fill_string(t_garbage *garbage, char *result, char *temp)
 {
 	char	*temp_result;
 
@@ -67,6 +69,6 @@ char	*fill_string(char *result, char *temp)
 			return (NULL);
 		free(temp_result);
 	}
-	free(temp);
+	free_element_gb(garbage, temp);
 	return (result);
 }

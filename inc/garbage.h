@@ -49,6 +49,7 @@ void						add_to_garbage(t_garbage *garbage, void *ptr);
 void						free_element_gb(t_garbage *garbage, void *ptr);
 char						*ft_strdup_gb(t_garbage *garbage,
 								const char *source);
+char						*ft_strndup_gb(t_garbage *garbage, const char *source, size_t len);
 
 // Initialise the garbage and free it's content
 void						garbage_init(t_garbage *garbage);

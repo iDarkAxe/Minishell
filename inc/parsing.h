@@ -26,18 +26,17 @@ typedef struct s_data		t_data;
  * @{
  */
 // Functions about quotes
-char	**ft_split_charset(const char *s, char *charset);
-char	*fill_string(char *result, char *temp);
 char	*handle_expand(t_data *data, char *str);
 char	*setup_string(t_data *data, char *str);
 
 char	**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 //Utils
+char	**ft_split_charset(const char *s, char *charset);
 size_t	ft_strlen_charset(const char *str, const char *charset);
 t_bool	is_dollar(char *str);
 t_bool	detect_quote(const char *str);
-char	*fill_string(char *result, char *temp);
 size_t	ft_strlen_choose_c(const char *str, char c);
+char	*fill_string(t_garbage *garbage, char *result, char *temp);
 /** @} */
 #endif
