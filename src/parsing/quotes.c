@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/02 14:26:44 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/03 16:50:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ char	*setup_string(t_data *data, char *str)
 	if (quote != 0)
 	{
 		ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
+		data->command->return_value = 2;
+		data->command->parse_error = 1;
 		return (NULL);
 	}
 	add_to_garbage(&data->garbage, str_expanded);

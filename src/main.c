@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/03 16:24:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 16:54:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,27 @@ int	main(int argc, char **argv, char **envp)
 	{
 		ft_dprintf(2, "Minishell is not made to be used without stdin, \
 			stdout or stderr\n");
-		return (1);
+		return (0);
 	}
 	free_garbage(&data.garbage);
 	return (0);
 }
-// ret = minishell_no_tty(&data);
+
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	t_data	data;
+// 	int		ret;
+
+// 	(void)argc;
+// 	(void)argv;
+// 	garbage_init(&data.garbage);
+// 	signal_init();
+// 	set_env(&data, envp);
+// 	data.ret = 0;
+// 	if (is_interactive() == 1)
+// 		ret = minishell(&data);
+// 	else
+// 		ret = minishell_no_tty(&data);
+// 	free_garbage(&data.garbage);
+// 	return (0);
+// }

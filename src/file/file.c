@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:42:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:24:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 16:49:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	*check_args_and_error(t_command *command, t_token *token,
 		ft_dprintf(2,
 			"minishell: syntax error near unexpected token '%s'\n", token->str);
 		command->file_error = 1;
+		command->return_value = 2;
 		return (command);
 	}
 	if (command_file != NULL && token->next == NULL)
@@ -75,6 +76,7 @@ static void	*check_args_and_error(t_command *command, t_token *token,
 		ft_dprintf(2,
 			"minishell: syntax error near unexpected token `newline'\n");
 		command->file_error = 1;
+		command->return_value = 2;
 		return (command);
 	}
 	return (command);

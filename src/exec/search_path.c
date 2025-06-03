@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:40:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/03 16:33:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 16:53:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,8 @@ void	search_paths(t_data *data, t_command *command)
 			str = current->tokens->next->str;
 		else
 			str = current->tokens->str;
+		if (current->parse_error == 1)
+			break ;
 		if (simple_search_command(data, current, str) == 0)
 			build_path(data, current);
 		current = current->next;
