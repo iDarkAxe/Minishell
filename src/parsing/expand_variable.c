@@ -47,7 +47,10 @@ static char	*expand_variables(t_data *data, char **str, size_t *size)
 	*size = ft_strlen_charset((*str), "$\'\" ");
 	if (*size == 0)
 		return (NULL);
-	temp = search_env_str(&data->garbage, &data->env, (*str), *size);
+	if (**str == '?')
+		temp = ft_itoa(data->ret);
+	else
+		temp = search_env_str(&data->garbage, &data->env, (*str), *size);
 	if (!temp)
 		return (NULL);
 	(*str) += *size;
