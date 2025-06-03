@@ -31,6 +31,7 @@ char	*search_env_str(t_garbage *garbage, t_env_vars *env, const char *var,
 			str = create_str_with_params(garbage, head->head_params);
 			if (!str)
 				return (NULL);
+			return (str);
 		}
 		head = head->next;
 	}
@@ -50,7 +51,7 @@ static char	*expand_variables(t_data *data, char **str, size_t *size)
 	if (**str == '?')
 		temp = ft_itoa(data->ret);
 	else
-		temp = search_env_str(&data->garbage, &data->env, (*str), *size);
+		temp = search_env_str(&data->garbage, &data->env, *str, *size);
 	if (!temp)
 		return (NULL);
 	(*str) += *size;
@@ -76,7 +77,9 @@ static char	*fill_temp(t_data *data, char **str)
 		*str += (size + 3);
 	}
 	else if (**str == '$')
+	{
 		temp = expand_variables(data, str, &size);
+	}
 	else
 	{
 		size = ft_strlen_charset(*str, "$");

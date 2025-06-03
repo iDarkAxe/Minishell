@@ -25,6 +25,29 @@
  * @param envp environment
  * @return int 0 OK, error otherwise
  */
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	t_data	data;
+// 	int		ret;
+//
+// 	(void)argc;
+// 	(void)argv;
+// 	garbage_init(&data.garbage);
+// 	signal_init();
+// 	set_env(&data, envp);
+// 	data.ret = 0;
+// 	if (is_interactive() == 1)
+// 		ret = minishell(&data);
+// 	else
+// 	{
+// 		ft_dprintf(2, "Minishell is not made to be used without stdin, \
+// 			stdout or stderr\n");
+// 		return (0);
+// 	}
+// 	free_garbage(&data.garbage);
+// 	return (0);
+// }
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_data	data;
@@ -39,30 +62,7 @@ int	main(int argc, char **argv, char **envp)
 	if (is_interactive() == 1)
 		ret = minishell(&data);
 	else
-	{
-		ft_dprintf(2, "Minishell is not made to be used without stdin, \
-			stdout or stderr\n");
-		return (0);
-	}
+		ret = minishell_no_tty(&data);
 	free_garbage(&data.garbage);
 	return (0);
 }
-
-// int	main(int argc, char **argv, char **envp)
-// {
-// 	t_data	data;
-// 	int		ret;
-
-// 	(void)argc;
-// 	(void)argv;
-// 	garbage_init(&data.garbage);
-// 	signal_init();
-// 	set_env(&data, envp);
-// 	data.ret = 0;
-// 	if (is_interactive() == 1)
-// 		ret = minishell(&data);
-// 	else
-// 		ret = minishell_no_tty(&data);
-// 	free_garbage(&data.garbage);
-// 	return (0);
-// }
