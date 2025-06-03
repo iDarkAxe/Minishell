@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 16:36:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 16:19:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 char		**copy_toks(t_data *data, t_command *command);
 int			prepare_command(t_data *data);
 int			prepare_command_forks(t_data *data);
+int			simple_search_command(t_data *data, t_command *command,
+				const char *cmd);
 int			search_command(t_data *data, t_command *command, char **tokens);
 int			not_builtins(t_data *data, t_command *command, char **tokens);
 int			handle_redirections(t_garbage *garbage, t_command *command,
@@ -47,7 +49,6 @@ void		dup_and_close(t_garbage *garbage, int oldfd, int newfd);
 void		execute_pipeline(t_data *data, pid_t *pids, size_t *count);
 size_t		count_commands(t_command *command);
 void		fill_toks_into_commands(t_data *data, t_command *command);
-void		build_path(t_data *data, t_command *command);
 void		search_paths(t_data *data, t_command *command);
 void		wait_all_childs(t_command *command, pid_t *pids);
 /** @} */

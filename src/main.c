@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 10:48:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 16:24:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
+#include "ft_printf.h"
 #include "builtins.h"
 #include "env.h"
 #include "garbage.h"
@@ -38,7 +39,12 @@ int	main(int argc, char **argv, char **envp)
 	if (is_interactive() == 1)
 		ret = minishell(&data);
 	else
-		ret = minishell_no_tty(&data);
+	{
+		ft_dprintf(2, "Minishell is not made to be used without stdin, \
+			stdout or stderr\n");
+		return (1);
+	}
 	free_garbage(&data.garbage);
 	return (0);
 }
+// ret = minishell_no_tty(&data);

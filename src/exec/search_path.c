@@ -6,13 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:40:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 17:49:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 16:33:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "minishell.h"
+#include "exec.h"
 #include "parsing.h"
+#include "ft_printf.h"
 
 static void	search_path(t_data *data, t_command *command);
 static void	build_path(t_data *data, t_command *command);
@@ -50,8 +52,6 @@ void	search_path(t_data *data, t_command *command)
 		all_paths[index] = NULL;
 		index++;
 	}
-	if (command->path == NULL)
-		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 }
 
 static char	**get_path(t_data *data)
@@ -131,8 +131,11 @@ void	build_path(t_data *data, t_command *command)
 	else
 		search_path(data, command);
 	if (command->path == NULL)
-		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-	command = command->next;
+	{
+		ft_dprintf(2, "%s: command not found\n", str);
+		command->parse_error = 1;
+		command->return_value = 127;
+	}
 }
 
 /**
@@ -144,11 +147,17 @@ void	build_path(t_data *data, t_command *command)
 void	search_paths(t_data *data, t_command *command)
 {
 	t_command	*current;
+	char		*str;
 
 	current = command;
 	while (current)
 	{
-		build_path(data, current);
+		if (ft_strncmp(current->tokens->str, "|", 2) == 0)
+			str = current->tokens->next->str;
+		else
+			str = current->tokens->str;
+		if (simple_search_command(data, current, str) == 0)
+			build_path(data, current);
 		current = current->next;
 	}
 }

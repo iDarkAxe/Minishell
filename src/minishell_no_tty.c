@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:16:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 10:48:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 16:20:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "file.h"
 #include "garbage.h"
 #include "get_next_line.h"
+#include "ft_printf.h"
 #include "minishell.h"
 #include <stdio.h>
 #include <unistd.h>
@@ -46,11 +47,9 @@ int	minishell_no_tty(t_data *data)
 {
 	char		*line;
 	char		**tokens;
-	char		**envp;
 
 	if (!data)
 		return (-1);
-	envp = NULL;
 	while (1)
 	{
 		line = read_stdin_gnl(&data->garbage);
