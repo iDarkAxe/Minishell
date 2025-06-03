@@ -96,6 +96,7 @@ char	*handle_expand(t_data *data, char *str)
 		if (!temp)
 			return (NULL);
 		result = fill_string(result, temp);
+		free(temp);
 		if (!result)
 			return (NULL);
 	}

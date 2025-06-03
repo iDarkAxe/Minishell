@@ -62,7 +62,7 @@ static void	fill_res(t_data *data, const char *s, char **res, char quote)
 	temp = ft_strndup(s, size);
 	if (!temp)
 		return ;
-	if ((quote == '"' || quote == 0) && temp[0] == '$')
+	if ((quote == '"' || quote == 0))
 	{
 		temp_1 = handle_expand(data, temp);
 		if (!temp_1)
@@ -71,7 +71,9 @@ static void	fill_res(t_data *data, const char *s, char **res, char quote)
 		free(temp_1);
 	}
 	else
+	{
 		*res = fill_string(*res, temp);
+	}
 	free(temp);
 }
 

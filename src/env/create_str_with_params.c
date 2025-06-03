@@ -40,7 +40,7 @@ char	*create_str_with_params(t_garbage *garbage, t_params *params)
 
 	if (!params)
 		return (NULL);
-	str = malloc_gb(garbage, count_size_total_params(params) + 1);
+	str = malloc((count_size_total_params(params) + 1) * sizeof(char));
 	if (!str)
 	{
 		perror("minishell: malloc");
