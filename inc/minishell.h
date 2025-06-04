@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 12:21:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 12:41:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
  * 
  */
 # ifndef FOLLOW_ZSH
-#  define FOLLOW_ZSH 1
+#  define FOLLOW_ZSH 0
 # endif
 
 # include "data_structure.h"

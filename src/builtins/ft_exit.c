@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 10:47:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 12:57:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,10 @@
 #include <stdlib.h>
 
 int			ft_exit(t_data *data, char **array);
-void		ft_exit_int(t_garbage *garbage,
-				int value) __attribute__((noreturn));
-void		ft_exit_int_np(t_garbage *garbage,
-				int value) __attribute__((noreturn));
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
-
-/**
- * @brief Short ft_exit that uses only int
- * noreturn attribute is to prevent -Wmissing-noreturn flag
- * from flag -Weverything of debug-cc
- *
- * @param garbage garbage structure
- * @param value value
- */
-
-void	ft_exit_int(t_garbage *garbage, int value)
-{
-	free_garbage(garbage);
-	if (is_interactive() == 1)
-		ft_printf("exit\n");
-	exit((unsigned char)value);
-}
-
-/**
- * @brief Short ft_exit that uses only int but don't say it's name
- *
- * @param garbage garbage structure
- * @param value value
- */
-void	ft_exit_int_np(t_garbage *garbage, int value)
-{
-	free_garbage(garbage);
-	exit((unsigned char)value);
-}
+static void	ft_strtoull_utils(char **nptr, short int *minus_sign);
+static void	print_exit(int value);
 
 /* Zsh exit if there is more than 1 argument, bash don't.
 SET FOLLOW_ZSH to 1 to follow zsh behavior. */
@@ -71,8 +40,7 @@ int	ft_exit(t_data *data, char **array)
 	{
 		value = data->ret;
 		free_garbage(&data->garbage);
-		if (is_interactive() == 1)
-			ft_printf("exit\n");
+		print_exit(value);
 		exit(value);
 	}
 	if (FOLLOW_ZSH == 1 && array[1] != NULL)
@@ -86,8 +54,7 @@ int	ft_exit(t_data *data, char **array)
 	if (value == 0)
 		value = ft_strtoull(array[0]);
 	free_garbage(&data->garbage);
-	if (is_interactive() == 1)
-		ft_printf("exit\n");
+	print_exit(value);
 	exit((unsigned char)value);
 }
 
@@ -109,13 +76,14 @@ static int	verif_args(char **array)
 			ft_dprintf(2, "minishell: exit: too many arguments\n");
 			return (-1);
 		}
-		if (ft_isdigit(array[0][count++]) != 1)
+		if (ft_isdigit(array[0][count]) != 1 && array[0][count] != '-')
 		{
 			ft_dprintf(2, "minishell: exit: ");
 			ft_dprintf(2, array[0]);
 			ft_dprintf(2, ": numeric argument required\n");
 			return (2);
 		}
+		count++;
 	}
 	return (0);
 }
@@ -131,11 +99,14 @@ static int	ft_strtoull(char *nptr)
 {
 	long long	number;
 	long long	overflow_tester;
+	short int	minus_sign;
 
 	number = 0;
+	minus_sign = 0;
 	while (*nptr != '\0' && (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'
 			|| *nptr == '\r' || *nptr == '\v' || *nptr == '\f'))
 		nptr++;
+	ft_strtoull_utils(&nptr, &minus_sign);
 	while (*nptr != '\0' && *nptr >= '0' && *nptr <= '9')
 	{
 		overflow_tester = number;
@@ -148,29 +119,27 @@ static int	ft_strtoull(char *nptr)
 			return (2);
 		}
 	}
+	if (minus_sign == -1)
+		return ((int)-number);
 	return ((int)number);
 }
 
-// #include <stdio.h>
-// #include <stdlib.h>
-// /*
-// Génère des allocations qui sont attrapées par le garbage collector,
-// il ne devrait pas y a voir de leak.
-// */
+static void	ft_strtoull_utils(char **nptr, short int *minus_sign)
+{
+	if (**nptr == '-' || **nptr == '+')
+	{
+		if (**nptr == '-')
+			*minus_sign = -1;
+		(*nptr)++;
+	}
+}
 
-// int main(void)
-// {
-// 	char	*str;
-// 	size_t	count;
-
-// 	count = 0;
-// 	while (count < 10)
-// 	{
-// 		str = ft_strdup("tsets");
-// 		add_to_garbage(str);
-// 		count++;
-// 	}
-// 	if (ft_exit_int(10) != 0)
-// 		printf("L'exit est annulé  car l\'input est invalide\n");
-// 	free_garbage(garbage);
-// }
+void	print_exit(int value)
+{
+	if (isatty(STDIN_FILENO) == 0)
+		return ;
+	if (value != 0)
+		ft_dprintf(2, "exit\n");
+	else
+		ft_dprintf(1, "exit\n");
+}
