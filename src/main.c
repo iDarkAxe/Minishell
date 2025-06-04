@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 12:28:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 13:34:17 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
  * @param envp environment
  * @return int 0 OK, error otherwise
  */
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_data	data;
