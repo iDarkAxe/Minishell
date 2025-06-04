@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:58:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 12:57:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 19:36:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "garbage.h"
+#include "builtins.h"
 #include "libft.h"
 #include "minishell.h"
 #include <stdlib.h>
@@ -20,7 +21,7 @@ int			ft_exit(t_data *data, char **array);
 static int	verif_args(char **array);
 static int	ft_strtoull(char *str);
 static void	ft_strtoull_utils(char **nptr, short int *minus_sign);
-static void	print_exit(int value);
+void		check_args_exit(t_data *data, char **array);
 
 /* Zsh exit if there is more than 1 argument, bash don't.
 SET FOLLOW_ZSH to 1 to follow zsh behavior. */
@@ -36,17 +37,11 @@ int	ft_exit(t_data *data, char **array)
 {
 	int	value;
 
-	if (array == NULL || array[0] == NULL)
-	{
-		value = data->ret;
-		free_garbage(&data->garbage);
-		print_exit(value);
-		exit(value);
-	}
-	if (FOLLOW_ZSH == 1 && array[1] != NULL)
+	check_args_exit(data, array);
+	if (FOLLOW_ZSH == 1 || array[1] != NULL)
 	{
 		ft_dprintf(2, "minishell: exit: too many arguments\n");
-		return (-1);
+		return (1);
 	}
 	value = verif_args(array);
 	if (value == -1)

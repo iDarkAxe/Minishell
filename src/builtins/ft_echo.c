@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:22:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:26:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 18:24:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_echo(t_data *data, char **array)
 	final_n = handle_options(array, &index);
 	while (array != NULL && array[index] != NULL)
 	{
-		ft_printf(array[index]);
+		ft_printf("%s", array[index]);
 		if (array[index + 1] != NULL)
 			ft_printf(" ");
 		index++;

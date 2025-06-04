@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/03 16:50:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 19:35:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ static size_t	compute_size(const char *str, char quote)
 	i = 0;
 	if (quote != 0)
 		size = ft_strlen_choose_c(str, quote);
+	else if (str[1] == '?')
+		size = 2;
 	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0))
 		&& str[0] != '$')
 		size = ft_strlen_charset(str, "$\"\'");
 	else if (str[0] == '$' && (str[1] == '"' || str[1] == '\''))
 		size = ft_strlen_charset(str, " \0");
 	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)))
-		size = ft_strlen_charset(str, "\"\'");
+		size = ft_strlen_charset(str, "\"\'/%!#&()*+,-.:;<=>{?|}~\\[]`^@");
 	return (size);
 }
 
@@ -61,7 +63,11 @@ static void	fill_res(t_data *data, const char *s, char **res, char quote)
 	size = compute_size(s, quote);
 	temp = ft_strndup(s, size);
 	if (!temp)
-		return ;
+	{
+		ft_dprintf(2,
+			"minishell: malloc: Critical error of malloc, exiting.\n");
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	}
 	if ((quote == '"' || quote == 0))
 	{
 		temp_1 = handle_expand(data, temp);

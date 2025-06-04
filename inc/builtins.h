@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:56:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:08:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 19:29:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int								ft_cd(t_data *data, char **array);
  * @{
  */
 void							ft_exit_int(t_garbage *garbage, int value);
+void							print_exit(int value);
 void							ft_exit_int_np(t_garbage *garbage, int value);
 /** @} */
 

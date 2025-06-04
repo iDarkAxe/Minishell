@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/04 16:05:30 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/04 19:28:27 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ P_PARSING = parsing/
 P_FILE = file/
 P_BUILTINS = builtins/
 P_BUILTINS_EXPORT = $(P_BUILTINS)export/
+P_BUILTINS_EXIT = $(P_BUILTINS)exit/
 P_ENV = env/
 P_EXEC = exec/
 P_DEBUG = debug/
@@ -109,8 +110,6 @@ FILE = \
 	file-general.c \
 
 BUILTINS = \
-	ft_exit.c \
-	ft_exit_alt.c \
 	ft_echo.c \
 	ft_which.c \
 	ft_unset.c \
@@ -118,9 +117,14 @@ BUILTINS = \
 	ft_pwd.c \
 	ft_env.c \
 
+BUILTINS_EXIT = \
+	ft_exit.c \
+	ft_exit_alt.c \
+	ft_exit-utils.c \
+
 BUILTINS_EXPORT = \
-	print_export.c \
 	ft_export.c \
+	print_export.c \
 	check_args_export.c \
 	ft_build_elements.c \
 
@@ -177,6 +181,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_FILE), $(FILE)) \
 	$(addprefix $(P_SRC)$(P_BUILTINS), $(BUILTINS)) \
 	$(addprefix $(P_SRC)$(P_BUILTINS_EXPORT), $(BUILTINS_EXPORT)) \
+	$(addprefix $(P_SRC)$(P_BUILTINS_EXIT), $(BUILTINS_EXIT)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
 	$(addprefix $(P_SRC)$(P_DEBUG), $(DEBUG)) \

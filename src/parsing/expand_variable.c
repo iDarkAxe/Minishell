@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/04 13:34:55 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:59:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "env.h"
 #include "garbage.h"
+#include "ft_printf.h"
 #include "libft.h"
 #include "parsing.h"
 
@@ -98,11 +99,19 @@ char	*handle_expand(t_data *data, char *str)
 	{
 		temp = fill_temp(data, &str);
 		if (!temp)
-			return (NULL);
+		{
+			ft_dprintf(2,
+				"minishell: malloc: Critical error of malloc, exiting.\n");
+			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+		}
 		result = fill_string(result, temp);
 		free(temp);
 		if (!result)
-			return (NULL);
+		{
+			ft_dprintf(2,
+				"minishell: malloc: Critical error of malloc, exiting.\n");
+			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+		}
 	}
 	return (result);
 }

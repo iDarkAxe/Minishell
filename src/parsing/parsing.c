@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 16:10:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 17:16:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
 #include "garbage.h"
+#include "ft_printf.h"
 #include "minishell.h"
 #include "parsing.h"
 
@@ -54,6 +55,14 @@ static char	**remove_quote_tokens(t_data *data, char **tokens)
 	while (tokens[index] != NULL)
 	{
 		tokens[index] = setup_string(data, tokens[index]);
+		if (tokens[index] == NULL)
+			tokens[index] = ft_strdup_gb(&data->garbage, "");
+		if (tokens[index] == NULL)
+		{
+			ft_dprintf(2,
+				"minishell: malloc: Critical error of malloc, exiting.\n");
+			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+		}
 		index++;
 	}
 	return (tokens);
