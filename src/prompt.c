@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:24:58 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/29 12:51:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 11:16:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <string.h>
+#include <errno.h>
+#include "ft_printf.h"
 
 char			*get_prompt_message(t_garbage *garbage);
 static char		*get_hostname(t_garbage *garbage);
@@ -56,13 +59,13 @@ static char	*get_hostname(t_garbage *garbage)
 	fd_hostname = open("/etc/hostname", O_RDONLY);
 	if (fd_hostname == -1)
 	{
-		perror("");
+		ft_dprintf(2, "minishell: open: /etc/hostname: %s\n", strerror(errno));
 		return (NULL);
 	}
 	buf_nbc = read(fd_hostname, buf, 4096 - 1);
 	if (buf_nbc == 0)
 	{
-		perror("");
+		ft_dprintf(2, "minishell: read: /etc/hostname: %s\n", strerror(errno));
 		close(fd_hostname);
 		return (NULL);
 	}

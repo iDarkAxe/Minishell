@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:26:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 11:13:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "env.h"
 #include <linux/limits.h>
 #include <limits.h>
+#include <errno.h>
+#include <string.h>
 
 static int	check_args(t_env_vars *env, char **array);
 
@@ -40,8 +42,7 @@ int	ft_cd(t_data *data, char **array)
 	ret = chdir(array[0]);
 	if (ret != 0)
 	{
-		ft_dprintf(2, "minishell: cd: '%s", array[0]);
-		perror("'");
+		ft_dprintf(2, "minishell: cd: %s: %s\n", array[0], strerror(errno));
 		return (ret);
 	}
 	change_cwd(data, 1);

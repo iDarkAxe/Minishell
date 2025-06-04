@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 16:42:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 11:16:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <errno.h>
 #include <stdio.h>
 #include <sys/wait.h>
+#include "ft_printf.h"
+#include <string.h>
 
 /**
  * @brief Executes commands that are not builtins
@@ -47,11 +49,12 @@ int	execve_fork(t_data *data, char *path, char **toks, char **envp)
 	{
 		reset_signal_default();
 		execve(path, toks, envp);
-		perror("execve");
+		status = errno;
+		ft_dprintf(2, "minishell: %s: %s\n", path, strerror(status));
 		free_garbage(&data->garbage);
-		if (errno == ENOENT)
+		if (status == ENOENT)
 			exit(127);
-		else if (errno == EACCES)
+		else if (status == EACCES)
 			exit(126);
 		else
 			exit(1);

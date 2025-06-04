@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/02 13:59:40 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/04 11:04:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ static char	*fill_temp(t_data *data, char **str)
 		*str += (size + 3);
 	}
 	else if (**str == '$')
-	{
 		temp = expand_variables(data, str, &size);
-	}
 	else
 	{
 		size = ft_strlen_charset(*str, "$");
