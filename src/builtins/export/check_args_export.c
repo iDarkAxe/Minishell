@@ -27,20 +27,31 @@ int	check_args_export(const char *str)
 			-p\n");
 		return (2);
 	}
-	if (ft_isdigit(str[0]) == 1)
+	else if (str[0] == '=' || ft_isdigit(*str) == 1 || str[0] == '?')
 	{
 		ft_dprintf(2, "minishell: export: %s: not a valid identifier\n", str);
 		return (1);
+
 	}
 	while (str[i] && str[i] != '=')
 	{
-		if (str[i] == '@' || str[i] == ' ' || str[i] == '-')
+		if (str[i] == '@' || str[i] == ' ' || str[i] == '-') 
 		{
-			ft_dprintf(2, "minishell: export: %s: not a valid identifier\n",
-				str);
-			return (1);
+				ft_dprintf(2, "minishell: export: %s: not a valid identifier\n",
+					str);
+				return (1);
 		}
 		i++;
 	}
+	// while (str[i] && str[i] == '=')
+	// {
+	// 	if (ft_isdigit(str[i]) == 1)
+	// 	{
+	// 		ft_dprintf(2, "minishell: export: %s: not a valid identifier\n",
+	// 			str);
+	// 		return (1);
+	// 	}
+	// 	i++;
+	// }
 	return (0);
 }
