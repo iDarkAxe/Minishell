@@ -40,15 +40,15 @@ static size_t	compute_size(const char *str, char quote)
 
 	size = 0;
 	i = 0;
-	if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0))
+	if (quote != 0)
+		size = ft_strlen_choose_c(str, quote);
+	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0))
 		&& str[0] != '$')
 		size = ft_strlen_charset(str, "$\"\'");
 	else if (str[0] == '$' && (str[1] == '"' || str[1] == '\''))
 		size = ft_strlen_charset(str, " \0");
 	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)))
 		size = ft_strlen_charset(str, "\"\'");
-	else
-		size = ft_strlen_choose_c(str, quote);
 	return (size);
 }
 
@@ -71,9 +71,7 @@ static void	fill_res(t_data *data, const char *s, char **res, char quote)
 		free(temp_1);
 	}
 	else
-	{
 		*res = fill_string(*res, temp);
-	}
 	free(temp);
 }
 
@@ -113,6 +111,7 @@ char	*setup_string(t_data *data, char *str)
 	str_expanded = remove_quote(data, str, &quote);
 	if (!str_expanded)
 		return (NULL);
+	add_to_garbage(&data->garbage, str_expanded);
 	if (quote != 0)
 	{
 		ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
@@ -120,6 +119,5 @@ char	*setup_string(t_data *data, char *str)
 		data->command->parse_error = 1;
 		return (NULL);
 	}
-	add_to_garbage(&data->garbage, str_expanded);
 	return (str_expanded);
 }
