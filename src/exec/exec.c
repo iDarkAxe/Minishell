@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/03 16:17:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 12:21:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	fill_toks_into_commands(t_data *data, t_command *command)
 }
 
 // FIXME should return the last value of child
-// FIXME should check all parse errors
 int	prepare_command_forks(t_data *data)
 {
 	pid_t		*pids;
@@ -73,8 +72,8 @@ int	prepare_command_forks(t_data *data)
 
 	if (!data || !data->command)
 		return (-400);
-	if (data->command->parse_error == 1)
-		return (data->command->return_value);
+	if (is_commands_valid(data) == 0)
+		return (2);
 	cmd_count = count_commands(data->command);
 	fill_toks_into_commands(data, data->command);
 	pids = malloc_gb(&data->garbage, sizeof(pid_t) * cmd_count);

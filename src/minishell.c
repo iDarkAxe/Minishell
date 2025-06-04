@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 17:49:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 12:20:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@
 #include "env.h"
 #include "file.h"
 #include "garbage.h"
+#include "get_next_line.h"
 #include "exec.h"
 #include "minishell.h"
+#include "ft_printf.h"
 #include <readline/history.h>
 #include <readline/readline.h>
 #include <stdlib.h>
 
 static char	*read_stdin(t_garbage *garbage);
+static char	*read_stdin_gnl(t_garbage *garbage);
 
 /**
  * @brief Minishell that handles all the shell functions
@@ -53,8 +56,9 @@ int	minishell(t_data *data)
 		line = read_stdin(&data->garbage);
 		tokens = parse_line(data, line);
 		data->command = tokeniser(data, tokens);
-		if (data->command->tokens->str == NULL || files_management(data) != 0)
+		if (files_management(data) != 0 || is_commands_valid(data) == 0)
 		{
+			ft_dprintf(2, "An error occurred in parsing, input is invalid\n");
 			free_commands(&data->garbage, &data->command);
 			free_array(&data->garbage, tokens);
 			continue ;
@@ -91,9 +95,9 @@ static int	line_condition(t_garbage *garbage, char *line)
 }
 
 /**
- * @brief Prototype for reading stdin
+ * @brief Function to reaed stdin
  *
- * @return char*
+ * @return char* line rode
  */
 static char	*read_stdin(t_garbage *garbage)
 {
@@ -101,6 +105,8 @@ static char	*read_stdin(t_garbage *garbage)
 	char	*line;
 	int		ret;
 
+	if (isatty(STDIN_FILENO) == 0)
+		return (read_stdin_gnl(garbage));
 	while (1)
 	{
 		prompt = get_prompt_message(garbage);
@@ -116,4 +122,28 @@ static char	*read_stdin(t_garbage *garbage)
 	add_to_garbage(garbage, line);
 	add_history(line);
 	return (line);
+}
+
+/**
+ * @brief Special read_stin using gnl
+ *
+ * @return char* line rode
+ */
+static char	*read_stdin_gnl(t_garbage *garbage)
+{
+	char	*line;
+
+	while (1)
+	{
+		line = get_next_line(STDIN_FILENO);
+		if (line == NULL)
+			ft_exit_int_np(garbage, EXIT_SUCCESS);
+		if (line[0] == '\0')
+		{
+			free(line);
+			continue ;
+		}
+		add_to_garbage(garbage, line);
+		return (line);
+	}
 }

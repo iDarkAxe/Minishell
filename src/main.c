@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:10:29 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/03 16:54:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 12:28:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,6 @@
  * @param envp environment
  * @return int 0 OK, error otherwise
  */
-// int	main(int argc, char **argv, char **envp)
-// {
-// 	t_data	data;
-// 	int		ret;
-//
-// 	(void)argc;
-// 	(void)argv;
-// 	garbage_init(&data.garbage);
-// 	signal_init();
-// 	set_env(&data, envp);
-// 	data.ret = 0;
-// 	if (is_interactive() == 1)
-// 		ret = minishell(&data);
-// 	else
-// 	{
-// 		ft_dprintf(2, "Minishell is not made to be used without stdin, \
-// 			stdout or stderr\n");
-// 		return (0);
-// 	}
-// 	free_garbage(&data.garbage);
-// 	return (0);
-// }
-
 int	main(int argc, char **argv, char **envp)
 {
 	t_data	data;
@@ -55,6 +32,11 @@ int	main(int argc, char **argv, char **envp)
 
 	(void)argc;
 	(void)argv;
+	if (argc != 1)
+	{
+		ft_dprintf(2, "Minishell doesn't take arguments\n");
+		return (EXIT_FAILURE);
+	}
 	garbage_init(&data.garbage);
 	signal_init();
 	set_env(&data, envp);
@@ -62,7 +44,31 @@ int	main(int argc, char **argv, char **envp)
 	if (is_interactive() == 1)
 		ret = minishell(&data);
 	else
-		ret = minishell_no_tty(&data);
+	{
+		ft_dprintf(2, "Minishell is not made to be used");
+		ft_dprintf(2, "without stdin, stdout or stderr !\n");
+		return (EXIT_FAILURE);
+	}
 	free_garbage(&data.garbage);
-	return (0);
+	return (ret);
 }
+
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	t_data	data;
+// 	int		ret;
+
+// 	(void)argv;
+// 	if (argc != 1)
+// 	{
+// 		ft_dprintf(2, "Minishell doesn't take arguments\n");
+// 		return (EXIT_FAILURE);
+// 	}
+// 	garbage_init(&data.garbage);
+// 	signal_init();
+// 	set_env(&data, envp);
+// 	data.ret = 0;
+// 	ret = minishell(&data);
+// 	free_garbage(&data.garbage);
+// 	return (ret);
+// }

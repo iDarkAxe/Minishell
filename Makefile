@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/02 17:50:56 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/04 12:15:26 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ SRC = \
 	minishell.c \
 	print-tokens.c \
 	token-utils.c \
-	minishell_no_tty.c \
+	is_interactive.c \
 
 GARBAGE = \
 	garbage.c \
@@ -98,6 +98,7 @@ PARSING = \
 	expand_variable.c \
 	functions_utils_parsing.c \
 	quotes.c \
+	is_commands_valid.c
 
 FILE = \
 	file.c \

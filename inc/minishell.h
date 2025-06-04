@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 17:06:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 12:21:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int			is_operator_char(char c);
  * @{
  */
 char		**parse_line(t_data *data, char *line);
+t_bool		is_commands_valid(t_data *data);
 /** @} */
 
 /**

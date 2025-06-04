@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:28:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 12:18:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  */
 int	files_management(t_data *data)
 {
-	if (data->command->parse_error == 1)
+	if (data->command->parse_error == 1 || data->command->tokens->str == NULL)
 		return (1);
 	if (build_files_redirection(data) != 0)
 	{
