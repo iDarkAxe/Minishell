@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/03 16:19:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 16:05:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		reset_redirection(t_garbage *garbage, t_command *command,
 int			needs_to_be_forked(t_command *command);
 int			execve_fork(t_data *data, char *path, char **toks, char **envp);
 int			handle_redirections_forks(t_garbage *garbage, t_command *command);
+int			ret_of_last_command(t_data *data);
 /** @} */
 
 /**

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:35:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/26 16:27:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 16:03:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,3 @@ static int	is_redirection(char *str)
 	return (!ft_strncmp(str, "<", 2) || !ft_strncmp(str, ">", 2)
 		|| !ft_strncmp(str, "<<", 3) || !ft_strncmp(str, ">>", 3));
 }
-
-/**
- * @brief Free tokens of redirection with it's name
- *
- * @param token redirection sign token
- */
-// static void	free_token(t_garbage *garbage, t_token *token)
-// {
-// 	if (token && token->str)
-// 		free_element_gb(garbage, token->str);
-// 	if (token && token->next && token->next->str)
-// 		free_element_gb(garbage, token->next->str);
-// 	if (token && token->next)
-// 		free_element_gb(garbage, token->next);
-// 	if (token)
-// 		free_element_gb(garbage, token);
-// 	token = NULL;
-// }

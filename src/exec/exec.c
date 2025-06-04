@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 12:21:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 16:04:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ int	prepare_command_forks(t_data *data)
 	wait_all_childs(data->command, pids);
 	free_element_gb(&data->garbage, pids);
 	signal_init();
-	return (data->ret);
+	return (ret_of_last_command(data));
 }

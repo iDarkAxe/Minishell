@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/04 12:39:08 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/04 16:05:30 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ P_BUILTINS = builtins/
 P_BUILTINS_EXPORT = $(P_BUILTINS)export/
 P_ENV = env/
 P_EXEC = exec/
+P_DEBUG = debug/
 
 P_TESTS = tests/
 
@@ -77,8 +78,6 @@ SRC = \
 	ft_free.c \
 	ft_free-utils.c \
 	minishell.c \
-	print-tokens.c \
-	token-utils.c \
 	is_interactive.c \
 
 GARBAGE = \
@@ -103,7 +102,6 @@ PARSING = \
 FILE = \
 	file.c \
 	file_build.c \
-	file_print.c \
 	file_verify_access.c \
 	heredoc.c \
 	tmp_generator.c \
@@ -129,12 +127,13 @@ BUILTINS_EXPORT = \
 EXEC = \
 	exec.c \
 	exec_extern.c \
-	command-utils.c \
 	ft_dups.c \
 	exec_pipeline.c \
 	search_command.c \
 	search_path.c \
-	exec-utils.c
+	exec-utils.c \
+	token-utils.c \
+	ret_of_last_command.c \
 
 ENV = \
 	functions_utils.c \
@@ -150,6 +149,11 @@ ENV = \
 	free_env.c \
 	update_shlvl.c \
 	env_to_array.c \
+
+DEBUG = \
+	print-tokens.c \
+	file_print.c \
+	command-utils.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \
@@ -175,6 +179,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_BUILTINS_EXPORT), $(BUILTINS_EXPORT)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
+	$(addprefix $(P_SRC)$(P_DEBUG), $(DEBUG)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
