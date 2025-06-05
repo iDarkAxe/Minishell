@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/05 12:33:46 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/05 12:38:56 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	minishell(t_data *data)
 			free_array(&data->garbage, tokens);
 			continue ;
 		}
-		print_toks(tokens);
 		search_paths(data, data->command);
 		if (needs_to_be_forked(data->command) != 0)
 			data->ret = prepare_command_forks(data);
