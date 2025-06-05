@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/05 12:33:09 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/05 12:35:41 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static char	*expand_variables(t_data *data, char **str, size_t *size)
 		temp = ft_itoa(data->ret);
 	else
 		temp = search_env_str(&data->garbage, &data->env, *str, *size);
-	printf("temp : %s\n", temp);
 	if (!temp)
 		return (NULL);
 	(*str) += *size;
