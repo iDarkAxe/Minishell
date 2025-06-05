@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 11:13:54 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 10:58:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_cd(t_data *data, char **array)
 	if (ret == 0)
 		return (0);
 	else if (ret < 0)
-		return (ret);
+		return (-ret);
 	change_cwd(data, 0);
 	ret = chdir(array[0]);
 	if (ret != 0)
@@ -87,13 +87,13 @@ static int	check_args(t_env_vars *env, char **array)
 {
 	if (array == NULL || array[0] == NULL)
 		return (change_cwd_to_home(env));
-	if (array[0] && ft_strncmp(array[0], "-", 2) == 0)
-		return (change_cwd_to_previous_cwd(env));
 	if (array[1] != NULL)
 	{
 		ft_dprintf(2, "minishell: cd: too many arguments\n");
 		return (-1);
 	}
+	if (array[0] && ft_strncmp(array[0], "-", 2) == 0)
+		return (change_cwd_to_previous_cwd(env));
 	return (1);
 }
 
