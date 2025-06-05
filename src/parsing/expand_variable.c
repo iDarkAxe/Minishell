@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_variable.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/04 16:59:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 12:33:09 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ char	*search_env_str(t_garbage *garbage, t_env_vars *env, const char *var,
 	str = NULL;
 	while (head != NULL)
 	{
-		if (ft_strncmp(head->value, var, size) == 0)
+		if (ft_strncmp(head->value, var, size) == 0
+			&& ft_strlen(head->value) == size)
 		{
 			str = create_str_with_params(garbage, head->head_params);
 			if (!str)
@@ -53,6 +54,7 @@ static char	*expand_variables(t_data *data, char **str, size_t *size)
 		temp = ft_itoa(data->ret);
 	else
 		temp = search_env_str(&data->garbage, &data->env, *str, *size);
+	printf("temp : %s\n", temp);
 	if (!temp)
 		return (NULL);
 	(*str) += *size;

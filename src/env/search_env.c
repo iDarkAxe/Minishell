@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 09:53:17 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/29 10:34:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 12:14:42 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ t_var	*search_env_var(t_env_vars *env, char *var)
 	}
 	if (head == NULL)
 		return (NULL);
-	return (head);
+	return (NULL);
 }

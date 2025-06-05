@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/04 19:35:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 12:08:31 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,12 +111,20 @@ static char	*remove_quote(t_data *data, const char *str, char *quote)
 char	*setup_string(t_data *data, char *str)
 {
 	char	*str_expanded;
+	char	*temp;
 	char	quote;
 
 	quote = 0;
-	str_expanded = remove_quote(data, str, &quote);
+	str_expanded = NULL;
+	temp = remove_quote(data, str, &quote);
+	if (!temp)
+		return (NULL);
+	printf("temp : %s\n", temp);
+	str_expanded = remove_quote(data, temp, &quote);
 	if (!str_expanded)
 		return (NULL);
+	free(temp);
+	printf("str expanded : %s\n", str_expanded);
 	add_to_garbage(&data->garbage, str_expanded);
 	if (quote != 0)
 	{
