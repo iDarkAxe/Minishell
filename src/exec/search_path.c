@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:40:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 12:21:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 12:02:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void		search_paths(t_data *data, t_command *command);
 static char	**get_path(t_data *data);
 char		*try_all_paths(t_data *data, char *cmd, char **all_paths);
 
-// FIXME IT"S ONLY A PLACEHOLDER DON'T BE CONFUSED
 /**
  * @brief Search path for the designated command
  * the command needs a path

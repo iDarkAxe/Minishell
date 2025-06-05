@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 16:04:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 12:01:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	fill_toks_into_commands(t_data *data, t_command *command)
 	}
 }
 
-// FIXME should return the last value of child
 int	prepare_command_forks(t_data *data)
 {
 	pid_t		*pids;
