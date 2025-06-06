@@ -12,8 +12,8 @@
 
 #include "minishell.h"
 
-static t_bool	is_command_valid_other_option(t_data *data,
-					t_command *command, t_bool *error);
+static t_bool	is_command_valid_other_option(t_data *data, t_command *command,
+					t_bool *error);
 
 /**
  * @brief Check if all commands are valid or not
@@ -48,7 +48,7 @@ t_bool	is_commands_valid(t_data *data)
 }
 
 t_bool	is_command_valid_other_option(t_data *data, t_command *command,
-	t_bool *error)
+		t_bool *error)
 {
 	if (!data || !command || !error)
 		return (1);

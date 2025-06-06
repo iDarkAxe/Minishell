@@ -19,84 +19,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// static void	handle_quote(const char *str, size_t *i, char *q)
-// {
-// 	if (*q == str[*i])
-// 	{
-// 		*q = 0;
-// 		(*i)++;
-// 	}
-// 	else if (*q == 0 && (str[*i] == '\'' || str[*i] == '"'))
-// 	{
-// 		*q = str[*i];
-// 		(*i)++;
-// 	}
-// }
+size_t	ft_strlen_two_quotes(const char *str, char quote)
+{
+	size_t	count_quote;
+	size_t	size;
+
+	count_quote = 0;
+	size = 0;
+	while (str && *str)
+	{
+		size++;
+		if (*str == quote)
+			count_quote++;
+		if (count_quote == 2)
+			return (size);
+		str++;
+	}
+	return (size);
+}
 
 size_t	compute_size(const char *str, char quote)
 {
 	size_t	size;
 	size_t	i;
 
-	size = 0;
-	i = 0;
-	if (quote != 0)
-		size = ft_strlen_choose_c(str, quote);
-	else if (str[1] == '?')
-		size = 2;
-	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0))
-		&& str[0] != '$')
-		size = ft_strlen_charset(str, "$\"\'");
-	else if (str[0] == '$' && (str[1] == '"' || str[1] == '\''))
-		size = ft_strlen_charset(str, " \0");
-	else if ((quote == 0 || ((detect_quote(str) == TRUE) && quote == 0)))
-		size = ft_strlen_charset(str, "\"\'/%!#&()*+,-.:;<=>{?|}~\\[]`^@");
+	size = ft_strlen(str);
 	return (size);
 }
-
-// static void	fill_res(t_data *data, const char *s, char **res, char quote)
-// {
-// 	char	*temp;
-// 	size_t	size;
-//
-// 	size = compute_size(s, quote);
-// 	temp = ft_strndup(s, size);
-// 	if (!temp)
-// 	{
-// 		ft_dprintf(2,
-// 			"minishell: malloc: Critical error of malloc, exiting.\n");
-// 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-// 	}
-// 	*res = fill_string(*res, temp);
-// 	free(temp);
-// }
-
-// static char	*remove_quote(t_data *data, const char *str, char *quote)
-// {
-// 	char	*result;
-// 	size_t	i;
-// 	size_t	size;
-//
-// 	result = NULL;
-// 	i = 0;
-// 	while (str && str[i])
-// 	{
-// 		handle_quote(str, &i, quote);
-// 		if (str[i] == '\0')
-// 			break ;
-// 		size = compute_size(&str[i], *quote);
-// 		if (size != 0)
-// 			fill_res(data, &str[i], &result, *quote);
-// 		else
-// 		{
-// 			handle_quote(str, &i, quote);
-// 			if (str[i] == '\0')
-// 				break ;
-// 		}
-// 		i += size;
-// 	}
-// 	return (result);
-// }
 
 char	*setup_string(t_data *data, char *str)
 {
@@ -107,12 +56,12 @@ char	*setup_string(t_data *data, char *str)
 	str_expanded = expand_str(data, str, &quote);
 	if (!str_expanded)
 		return (NULL);
-	printf("str_expanded : %s\n", str_expanded);
+	printf("expand_str : %s\n", str_expanded);
 	add_to_garbage(&data->garbage, str_expanded);
 	if (quote != '0')
 	{
 		ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
-		//WARNING CAUSE SEGFAULT BECAUSE DATA COMMAND NO UNINITIALIZED
+		// WARNING CAUSE SEGFAULT BECAUSE DATA COMMAND NO UNINITIALIZED
 		// data->command->return_value = 2;
 		// data->command->parse_error = 1;
 		return (NULL);

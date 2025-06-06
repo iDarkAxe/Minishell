@@ -97,8 +97,9 @@ PARSING = \
 	ft_split_charset.c \
 	expand_variable.c \
 	functions_utils_parsing.c \
+	functions_utils_expand.c \
 	quotes.c \
-	is_commands_valid.c
+	is_commands_valid.c \
 
 FILE = \
 	file.c \
