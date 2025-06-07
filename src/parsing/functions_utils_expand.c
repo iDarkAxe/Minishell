@@ -12,21 +12,27 @@
 
 #include "env.h"
 #include "garbage.h"
+#include "libft.h"
+#include "data_structure.h"
 
-char	*search_env_str(t_garbage *garbage, t_env_vars *env, const char *var,
-		size_t size)
+char	*search_env_str(t_data *data, const char *var, size_t size)
 {
 	char	*str;
 	t_var	*head;
 
-	head = env->head_var;
+	head = data->env.head_var;
 	str = NULL;
+	if (*var == '?')
+	{
+		str = ft_itoa(data->ret);
+		return (str);
+	}
 	while (head != NULL)
 	{
 		if (ft_strncmp(head->value, var, size) == 0
 			&& ft_strlen(head->value) == size)
 		{
-			str = create_str_with_params(garbage, head->head_params);
+			str = create_str_with_params(&data->garbage, head->head_params);
 			if (!str)
 				return (NULL);
 			return (str);
@@ -38,11 +44,35 @@ char	*search_env_str(t_garbage *garbage, t_env_vars *env, const char *var,
 	return (str);
 }
 
-t_bool	is_expandable(const char *s, char quote)
+static void	setup_quote(char *str, char *quote, t_bool *is_expandable)
+{
+	if (*quote == '0' && *str == '"')
+	{
+		*quote = *str;
+		*is_expandable = TRUE;
+	}
+	else if (*quote == '0' && *str == '\'')
+	{
+		*quote = *str;
+		*is_expandable = FALSE;
+	}
+	else if (*quote == *str)
+		*quote = '0';
+	str++;
+	if (*str == '\0')
+		return ;
+	setup_quote(str, quote, is_expandable);
+}
+
+t_bool	is_expandable(char *s)
 {
 	size_t	i;
+	char	quote;
+	t_bool	is_expandable;
 
 	i = 0;
+	quote = '0';
+	is_expandable = TRUE;
 	while (s[i] && s[i] != '$')
 		i++;
 	if (s[i] != '$')
@@ -50,9 +80,9 @@ t_bool	is_expandable(const char *s, char quote)
 	i++;
 	if (ft_isalpha(s[i]) == 1 || s[i] == '?' || s[i] == '\'' || s[i] == '"')
 	{
-		if (quote == '0' || quote == '"')
+		setup_quote(s, &quote, &is_expandable);
+		if (is_expandable == TRUE)
 			return (TRUE);
 	}
-	printf("\n");
 	return (FALSE);
 }

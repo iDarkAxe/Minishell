@@ -51,13 +51,15 @@ char	*fill_string(char *result, char *temp)
 	char	*temp_result;
 
 	temp_result = NULL;
+	if (temp == NULL)
+		return (NULL);
 	if (!result)
 	{
 		result = ft_strdup(temp);
 		if (!result)
 			return (NULL);
 	}
-	else if (result && temp)
+	else if (result)
 	{
 		temp_result = ft_strdup(result);
 		free(result);

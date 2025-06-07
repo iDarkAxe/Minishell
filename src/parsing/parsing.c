@@ -59,8 +59,8 @@ static char	**remove_quote_tokens(t_data *data, char **tokens)
 			tokens[index] = ft_strdup_gb(&data->garbage, "");
 		if (tokens[index] == NULL)
 		{
-			ft_dprintf(2, "minishell: malloc: Critical error of malloc,
-				exiting.\n");
+			ft_dprintf(2,
+				"minishell: malloc: Critical error of malloc, exiting.\n");
 			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 		}
 		index++;

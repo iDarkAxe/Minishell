@@ -46,7 +46,7 @@ static char	*expand_var(t_data *data, char *str, size_t *i)
 	size_t	size;
 
 	size = 0;
-	while (str[*i] && ft_isalpha(str[*i]) == 1)
+	while (str[*i] && (ft_isalnum(str[*i]) == 1 || str[*i] == '_' || str[*i] == '?'))
 	{
 		(*i)++;
 		size++;
@@ -57,7 +57,7 @@ static char	*expand_var(t_data *data, char *str, size_t *i)
 		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
-	temp_1 = search_env_str(&data->garbage, &data->env, temp, ft_strlen(temp));
+	temp_1 = search_env_str(data, temp, ft_strlen(temp));
 	if (!temp_1)
 	{
 		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
@@ -87,20 +87,12 @@ static char	*expand_variables_with_quotes(t_data *data, char *str)
 	return (result);
 }
 
-static void	setup_quote(char *str, char *quote)
-{
-	if (*quote == '0' && (*str == '"' || *str == '\''))
-		*quote = *str;
-	else if (*quote == *str)
-		*quote = '0';
-}
-
-static void	fill_result(t_data *data, char **result, char *temp, char *quote)
+static void	fill_result(t_data *data, char **result, char *temp)
 {
 	char	*temp_1;
 
 	temp_1 = NULL;
-	if (is_expandable(temp, *quote))
+	if (is_expandable(temp))
 	{
 		temp_1 = expand_variables_with_quotes(data, temp);
 		if (!temp_1)
@@ -119,7 +111,7 @@ static void	fill_result(t_data *data, char **result, char *temp, char *quote)
 	}
 }
 
-char	*expand_str(t_data *data, char *str, char *quote)
+char	*expand_str(t_data *data, char *str)
 {
 	char	*result;
 	char	*temp;
@@ -132,16 +124,20 @@ char	*expand_str(t_data *data, char *str, char *quote)
 	size = 0;
 	while (str[i])
 	{
-		setup_quote(str, quote);
-		size = ft_strlen(&str[i]);
-		temp = ft_strndup(&str[i], size);
-		if (!temp)
+		size = ft_strlen_ignore_first_c(&str[i], '$');
+		if (size != 0)
 		{
-			ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
-			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+			temp = ft_strndup(&str[i], size);
+			if (!temp)
+			{
+				ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
+				ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+			}
+			fill_result(data, &result, temp);
+			i += size;
 		}
-		fill_result(data, &result, temp, quote);
-		i += size;
+		else
+			i++;
 	}
 	return (result);
 }
