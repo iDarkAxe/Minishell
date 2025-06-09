@@ -70,5 +70,6 @@ char	*fill_string(char *result, char *temp)
 		if (!result)
 			return (NULL);
 	}
+	free(temp);
 	return (result);
 }

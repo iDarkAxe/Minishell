@@ -19,6 +19,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+size_t	ft_strlen_ignore_first_dollar(const char *str, char c)
+{
+	size_t	count_c;
+	size_t	size;
+
+	count_c = 0;
+	size = 0;
+	while (str && *str)
+	{
+		if (*str == c)
+		{
+			if (count_c == 1 && *(str + 1) == '"')
+			{
+				str++;
+				size++;
+				continue ;
+			}
+			count_c++;
+		}
+		if (count_c == 2)
+			return (size);
+		str++;
+		size++;
+	}
+	return (size);
+}
+
 size_t	ft_strlen_ignore_first_c(const char *str, char c)
 {
 	size_t	count_c;
@@ -90,38 +117,11 @@ char	*remove_quote(t_data *data, char *str, char *quote)
 				ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 			}
 			result = fill_string(result, temp);
-			free(temp);
 		}
 		handle_quote(str, &i, quote);
 		if (str[i] == '\0')
 			break ;
 		i += size;
 	}
-	return (result);
-}
-
-char	*setup_string(t_data *data, char *str)
-{
-	char	*str_expanded;
-	char	*result;
-	char	quote;
-
-	result = NULL;
-	quote = 0;
-	str_expanded = expand_str(data, str);
-	if (!str_expanded)
-		return (NULL);
-	if (detect_quote(str_expanded) == FALSE)
-		return (str_expanded);
-	result = remove_quote(data, str_expanded, &quote);
-	if (quote != 0)
-	{
-		ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
-		// WARNING CAUSE SEGFAULT BECAUSE DATA COMMAND NO UNINITIALIZED
-		// data->command->return_value = 2;
-		// data->command->parse_error = 1;
-		return (NULL);
-	}
-	free(str_expanded);
 	return (result);
 }

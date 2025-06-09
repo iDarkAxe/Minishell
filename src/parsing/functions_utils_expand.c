@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "env.h"
+#include "parsing.h"
 #include "garbage.h"
 #include "libft.h"
 #include "data_structure.h"
@@ -44,45 +45,122 @@ char	*search_env_str(t_data *data, const char *var, size_t size)
 	return (str);
 }
 
+size_t	ft_strlen_ignore_quote(char *str)
+{
+	size_t	i;
+	size_t	size;
+
+	i = 0;
+	size = 0;
+	while (str[i])
+	{
+		if (str[i] != '"' || str[i] == '\'')
+			size++;
+		i++;
+	}
+	return (size);
+}
+
+static char	*ft_strcpy_var_trad(t_data *data, char *str, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	char	*temp;
+
+	i = 0;
+	j = 0;
+	temp = malloc(sizeof(char) * (size + 1));
+	if (!temp)
+	{
+		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	}
+	while (str[i])
+	{
+		if (str[i] != '"' || str[i] == '\'')
+		{
+			temp[j] = str[i];
+			j++;
+		}
+		i++;
+	}
+	temp[j] = '\0';
+	return (temp);
+}
+
+char	*expand_or_trad_var(t_data *data, char *str, size_t size)
+{
+	char	*result;
+	size_t	size_trad_var;
+
+	result = NULL;
+	size_trad_var = 0;
+	if (*str == '"' || *str == '\'')
+	{
+		size = ft_strlen_ignore_quote(str);
+		result = ft_strcpy_var_trad(data, str, size);
+		if (size == 0)
+			result = ft_strdup("");
+	}
+	else
+		result = search_env_str(data, str, size);
+	return (result);
+}
+
 static void	setup_quote(char *str, char *quote, t_bool *is_expandable)
 {
-	if (*quote == '0' && *str == '"')
+	if (*quote == 0 && *str == '"')
 	{
 		*quote = *str;
 		*is_expandable = TRUE;
 	}
-	else if (*quote == '0' && *str == '\'')
+	else if (*quote == 0 && *str == '\'')
 	{
 		*quote = *str;
 		*is_expandable = FALSE;
 	}
 	else if (*quote == *str)
-		*quote = '0';
+	{
+		*is_expandable = TRUE;
+		*quote = 0;
+	}
 	str++;
-	if (*str == '\0')
+	if (*str != '\'' && *str != '"')
 		return ;
 	setup_quote(str, quote, is_expandable);
 }
 
-t_bool	is_expandable(char *s)
+static t_bool detect_dollars(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '$')
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
+}
+
+t_bool	is_expandable(char *str)
 {
 	size_t	i;
 	char	quote;
 	t_bool	is_expandable;
 
 	i = 0;
-	quote = '0';
+	quote = 0;
 	is_expandable = TRUE;
-	while (s[i] && s[i] != '$')
-		i++;
-	if (s[i] != '$')
+	if (detect_dollars(str) == FALSE)
 		return (FALSE);
-	i++;
-	if (ft_isalpha(s[i]) == 1 || s[i] == '?' || s[i] == '\'' || s[i] == '"')
-	{
-		setup_quote(s, &quote, &is_expandable);
-		if (is_expandable == TRUE)
-			return (TRUE);
-	}
+	while (str[i] && str[i] != '\'' && str[i] != '"' && str[i] != '$')
+		i++;
+	if (str[i] == '$')
+		return (TRUE);
+	setup_quote(&str[i], &quote, &is_expandable);
+	if (is_expandable == TRUE)
+		return (TRUE);
 	return (FALSE);
 }

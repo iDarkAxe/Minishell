@@ -49,7 +49,7 @@ char	**init_lexer_state(t_garbage *garbage, t_lexer_state *lex_st,
  */
 int	is_operator_char(char c)
 {
-	return (c == '|' || c == '<' || c == '>' || c == ';');
+	return (c == '|' || c == '<' || c == '>');
 }
 
 /**
