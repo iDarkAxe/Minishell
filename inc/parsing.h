@@ -44,6 +44,6 @@ size_t	ft_strlen_ignore_first_dollar(const char *str, char c);
 // Utils expand
 t_bool	is_expandable(char *s);
 char	*search_env_str(t_data *data, const char *var, size_t size);
-char	*expand_or_trad_var(t_data *data, char *str, size_t size);
+char	*expand_or_trad_var(t_data *data, char *str);
 
 #endif

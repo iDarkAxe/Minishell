@@ -88,13 +88,15 @@ static char	*ft_strcpy_var_trad(t_data *data, char *str, size_t size)
 	return (temp);
 }
 
-char	*expand_or_trad_var(t_data *data, char *str, size_t size)
+char	*expand_or_trad_var(t_data *data, char *str)
 {
 	char	*result;
-	size_t	size_trad_var;
+	size_t	size;
 
 	result = NULL;
-	size_trad_var = 0;
+	size = 0;
+	if (*str == '$')
+		str++;
 	if (*str == '"' || *str == '\'')
 	{
 		size = ft_strlen_ignore_quote(str);
@@ -103,7 +105,10 @@ char	*expand_or_trad_var(t_data *data, char *str, size_t size)
 			result = ft_strdup("");
 	}
 	else
+	{
+		size = ft_strlen(str);
 		result = search_env_str(data, str, size);
+	}
 	return (result);
 }
 
