@@ -13,6 +13,19 @@
 #include "libft.h"
 #include "parsing.h"
 
+// t_bool	ft_special_character(char c)
+// {
+// 	char	special_character[30] = "\"\'/%!#&()*+,-.:;<=>{?|}~\\[]`^@\0";
+//
+// 	while (*special_character !+ '\0')
+// 	{
+// 		if (c == *special_character)
+// 			return (TRUE);
+// 		special_character++;
+// 	}
+// 	return (FALSE);
+// }
+
 size_t	ft_strlen_dollars(char *str)
 {
 	size_t	size;
@@ -25,7 +38,7 @@ size_t	ft_strlen_dollars(char *str)
 		size++;
 		str++;
 	}
-	while (*str && *str != '$' && *str != '\'' && *str != '"' && ft_isalnum(*str) == 1 && ft_isspace(*str) == 0)
+	while (*str && *str != '$' && *str != '\'' && *str != '"' && ft_isspace(*str) == 0)
 	{
 		size++;
 		str++;

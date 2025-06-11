@@ -42,7 +42,6 @@ char	**parse_line(t_data *data, char *line)
 	tokens = remove_quote_tokens(data, tokens);
 	if (tokens == NULL)
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-	print_toks(tokens);
 	return (tokens);
 }
 

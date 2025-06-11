@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:24:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/30 11:14:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/11 14:30:52 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_bool	detect_quote(const char *str);
 char	*fill_string(char *result, char *temp);
 
 // Utils expand
+char	*expand_or_trad_var(t_data *data, char *str, size_t size);
 char	*search_env_str(t_data *data, const char *var, size_t size);
 t_bool	is_expandable(char *s);
 size_t	compute_size_expand_var(char *str);

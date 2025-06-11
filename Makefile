@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/10 16:34:42 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/06/11 14:39:38 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,9 +95,10 @@ PARSING = \
 	parsing.c \
 	expand_home.c \
 	ft_split_charset.c \
-	expand_variable.c \
+	expand_variable/expand_var_trad.c \
+	expand_variable/functions_utils_expand.c \
+	expand_variable/expand_variable.c \
 	functions_utils_parsing.c \
-	functions_utils_expand.c \
 	quotes.c \
 	is_commands_valid.c \
 	strlen.c \

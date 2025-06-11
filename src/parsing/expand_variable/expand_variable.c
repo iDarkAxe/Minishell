@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/11 14:18:58 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/11 14:51:43 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,34 @@ static void	expand_and_fill_result(t_data *data, char **result, char *str, size_
 {
 	char	*temp;
 
-	temp = search_env_str(data, str + 1, size - 1);
+	temp = expand_or_trad_var(data, str, size);
 	if (!temp)
 	{
 		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
 	*result = fill_string(*result, temp);
+}
+
+static char	*build_string(t_data *data, char *str, size_t *i)
+{
+	char	*temp;
+	size_t	size;
+
+	temp = NULL;
+	size = 0;
+	while (str[*i] && (str[*i] == '"' || str[*i] == '\''))
+	{
+		(*i)++;
+		size++;
+	}
+	temp = ft_strndup(&str[*i - size], size);
+	if (!temp)
+	{
+		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	}
+	return (temp);
 }
 
 static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
@@ -55,27 +76,6 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 		free(temp);
 	}
 	return (result);
-}
-
-static char	*build_string(t_data *data, char *str, size_t *i)
-{
-	char	*temp;
-	size_t	size;
-
-	temp = NULL;
-	size = 0;
-	if (str[*i] && str[*i] == '"')
-	{
-		(*i)++;
-		size++;
-	}
-	temp = ft_strndup(&str[*i - size], size);
-	if (!temp)
-	{
-		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
-		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-	}
-	return (temp);
 }
 
 static char	*expand_variables_with_quotes(t_data *data, char *str)
@@ -112,7 +112,7 @@ static void	fill_result(t_data *data, char **result, char *temp)
 	char	*temp_1;
 
 	temp_1 = NULL;
-	if (is_expandable(temp))
+	if (is_expandable(temp) == TRUE)
 	{
 		temp_1 = expand_variables_with_quotes(data, temp);
 		if (!temp_1)
