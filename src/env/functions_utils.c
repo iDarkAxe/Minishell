@@ -6,51 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/23 11:43:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/11 14:12:26 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-size_t			ft_strlen_choose_c(const char *str, char c);
 int				ft_strcmp(const char *s1, const char *s2);
 t_bool			detect_equal(char *str);
-size_t			ft_strlen_charset(const char *str, const char *charset);
-
-static t_bool	is_charset(const char *charset, char c)
-{
-	size_t	i;
-
-	i = 0;
-	while (charset && charset[i])
-	{
-		if (charset[i] == c)
-			return (TRUE);
-		i++;
-	}
-	return (FALSE);
-}
-
-size_t	ft_strlen_charset(const char *str, const char *charset)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && str[i] && is_charset(charset, str[i]) == FALSE)
-		i++;
-	return (i);
-}
-
-size_t	ft_strlen_choose_c(const char *str, char c)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && str[i] && str[i] != c)
-		i++;
-	return (i);
-}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -80,6 +44,17 @@ t_bool	detect_equal(char *str)
 		if (str[i] == '=')
 			return (TRUE);
 		i++;
+	}
+	return (FALSE);
+}
+
+t_bool	detect_dollar_str(char *str)
+{
+	while (str && *str)
+	{
+		if (*str == '$')
+			return (TRUE);
+		str++;
 	}
 	return (FALSE);
 }

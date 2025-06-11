@@ -32,15 +32,23 @@ char	**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 //Utils
 char	**ft_split_charset(const char *s, char *charset);
-size_t	ft_strlen_charset(const char *str, const char *charset);
 t_bool	is_dollar(char *str);
+t_bool	detect_dollar_str(char *str);
 t_bool	detect_quote(const char *str);
-size_t	ft_strlen_choose_c(const char *str, char c);
 char	*fill_string(char *result, char *temp);
-size_t	ft_strlen_ignore_first_c(const char *str, char c);
 
 // Utils expand
 char	*search_env_str(t_data *data, const char *var, size_t size);
 t_bool	is_expandable(char *s);
+size_t	compute_size_expand_var(char *str);
+size_t	compute_size(char *str);
+
+// strlen
+size_t	ft_strlen_charset(const char *str, const char *charset);
+size_t	ft_strlen_ignore_first_c(const char *str, char c);
+size_t	ft_strlen_choose_c(const char *str, char c);
+size_t	ft_strlen_dollars(char *str);
+size_t	ft_strlen_quotes_expand(char *str, char quote);
+size_t	ft_strlen_quotes(char *str);
 
 #endif

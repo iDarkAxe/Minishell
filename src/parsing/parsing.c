@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/05 13:08:08 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/10 17:49:11 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	**parse_line(t_data *data, char *line)
 	tokens = remove_quote_tokens(data, tokens);
 	if (tokens == NULL)
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	print_toks(tokens);
 	return (tokens);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:19:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:06:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/10 16:51:07 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ struct							s_command
 struct							s_token
 {
 	char						*str;
+	t_bool						expanded;
 	struct s_token				*next;
 };
 

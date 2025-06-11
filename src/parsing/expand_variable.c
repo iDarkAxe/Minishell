@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/05 18:34:55 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/11 14:18:58 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,46 @@
 #include "libft.h"
 #include "parsing.h"
 
+static void	expand_and_fill_result(t_data *data, char **result, char *str, size_t size)
+{
+	char	*temp;
+
+	temp = search_env_str(data, str + 1, size - 1);
+	if (!temp)
+	{
+		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	}
+	*result = fill_string(*result, temp);
+}
+
+static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
+{
+	char	*result;
+	char	*temp;
+	size_t	size;
+
+	size = 0;
+	result = NULL;
+	while (str[*i] && str != quote_pointer)
+	{
+		size = compute_size_expand_var(&str[*i]);
+		temp = ft_strndup(&str[*i], size);
+		if (!temp)
+		{
+			ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
+			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+		}
+		if (detect_dollar_str(temp) == TRUE)
+			expand_and_fill_result(data, &result, temp, size);
+		else
+			result = fill_string(result, temp);
+		*i += size;
+		free(temp);
+	}
+	return (result);
+}
+
 static char	*build_string(t_data *data, char *str, size_t *i)
 {
 	char	*temp;
@@ -24,7 +64,7 @@ static char	*build_string(t_data *data, char *str, size_t *i)
 
 	temp = NULL;
 	size = 0;
-	while (str[*i] && str[*i] != '$')
+	if (str[*i] && str[*i] == '"')
 	{
 		(*i)++;
 		size++;
@@ -35,36 +75,7 @@ static char	*build_string(t_data *data, char *str, size_t *i)
 		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
-	(*i)++;
 	return (temp);
-}
-
-static char	*expand_var(t_data *data, char *str, size_t *i)
-{
-	char	*temp;
-	char	*temp_1;
-	size_t	size;
-
-	size = 0;
-	while (str[*i] && (ft_isalnum(str[*i]) == 1 || str[*i] == '_' || str[*i] == '?'))
-	{
-		(*i)++;
-		size++;
-	}
-	temp = ft_strndup(&str[*i - size], size);
-	if (!temp)
-	{
-		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
-		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-	}
-	temp_1 = search_env_str(data, temp, ft_strlen(temp));
-	if (!temp_1)
-	{
-		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
-		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-	}
-	free(temp);
-	return (temp_1);
 }
 
 static char	*expand_variables_with_quotes(t_data *data, char *str)
@@ -72,18 +83,27 @@ static char	*expand_variables_with_quotes(t_data *data, char *str)
 	size_t	i;
 	char	*temp;
 	char	*result;
+	char	*quote_pointer;
 
 	i = 0;
 	result = NULL;
-	temp = build_string(data, str, &i);
+	quote_pointer = NULL;
+	if (detect_quote(str) == TRUE)
+	{
+		quote_pointer = ft_strrchr(str, '"');
+		temp = build_string(data, str, &i);
+		result = fill_string(result, temp);
+		free(temp);
+	}
+	temp = expand_var(data, str, &i, quote_pointer);
 	result = fill_string(result, temp);
 	free(temp);
-	temp = expand_var(data, str, &i);
-	result = fill_string(result, temp);
-	free(temp);
-	temp = build_string(data, str, &i);
-	result = fill_string(result, temp);
-	free(temp);
+	if (detect_quote(str) == TRUE)
+	{
+		temp = build_string(data, str, &i);
+		result = fill_string(result, temp);
+		free(temp);
+	}
 	return (result);
 }
 
@@ -124,7 +144,7 @@ char	*expand_str(t_data *data, char *str)
 	size = 0;
 	while (str[i])
 	{
-		size = ft_strlen_ignore_first_c(&str[i], '$');
+		size = compute_size(&str[i]);
 		if (size != 0)
 		{
 			temp = ft_strndup(&str[i], size);
