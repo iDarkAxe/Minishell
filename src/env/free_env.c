@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   free_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 13:12:06 by lud-adam          #+#    #+#             */
 /*   Updated: 2025/05/22 16:36:09 by ppontet          ###   ########lyon.fr   */

@@ -38,6 +38,12 @@ static char	*build_string(t_data *data, char *str, size_t *i)
 	return (temp);
 }
 
+/**
+ * @brief expand var allow to expand
+ *
+ * @param str, *i, quote_pointer 
+ * @return var environment expand
+ */
 static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 {
 	char	*result;
@@ -65,6 +71,12 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 	return (result);
 }
 
+/**
+ * @brief expand_variables_with_quotes allow to expand with quotes
+ *
+ * @param data, str to expand 
+ * @return string expand with quotes
+ */
 static char	*expand_variables_with_quotes(t_data *data, char *str)
 {
 	size_t	i;
@@ -94,6 +106,12 @@ static char	*expand_variables_with_quotes(t_data *data, char *str)
 	return (result);
 }
 
+/**
+ * @brief fill_result fill the char **result 
+ *
+ * @param data, result, temp 
+ * @return string expand with quotes
+ */
 static void	fill_result(t_data *data, char **result, char *temp)
 {
 	char	*temp_1;
@@ -118,6 +136,12 @@ static void	fill_result(t_data *data, char **result, char *temp)
 	}
 }
 
+/**
+ * @brief expand_str allows to expand variables
+ *
+ * @param str string to expand 
+ * @return string expand with quotes
+ */
 char	*expand_str(t_data *data, char *str)
 {
 	char	*result;

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   is_commands_valid.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 11:44:45 by ppontet           #+#    #+#             */
 /*   Updated: 2025/06/04 19:36:23 by ppontet          ###   ########lyon.fr   */

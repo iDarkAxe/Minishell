@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   quotes.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
 /*   Updated: 2025/06/11 14:37:21 by lud-adam         ###   ########.fr       */
@@ -19,6 +19,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+ /**
+ * @brief ft_strlen_ignore_first_c compute size without quotes 
+ *
+ * @param str string to check, c character to check 
+ * @return size of str 
+ */
 size_t	ft_strlen_ignore_first_c(const char *str, char c)
 {
 	size_t	count_c;
@@ -38,6 +44,11 @@ size_t	ft_strlen_ignore_first_c(const char *str, char c)
 	return (size);
 }
 
+ /**
+ * @brief compute_size_quotes compute size of str for differents cases of quotes 
+ * @param str string to check, quote current quote to give the limit to strlen 
+ * @return size of str 
+ */
 static size_t	compute_size_quotes(const char *str, char quote)
 {
 	size_t	size;
@@ -50,6 +61,11 @@ static size_t	compute_size_quotes(const char *str, char quote)
 	return (size);
 }
 
+ /**
+ * @brief handle_quotes indicate if take off quotes or not
+ * @param str, reference of a str, q quote to indicate the context of the string 
+ * @return 
+ */
 static void	handle_quote(char **str, char *q)
 {
 	if (*q == **str)
@@ -64,6 +80,11 @@ static void	handle_quote(char **str, char *q)
 	}
 }
 
+ /**
+ * @brief create_temp_and_fill_result create a temporary string of str without quotes and fill result with this one
+ * @param result reference of string to fill with str without quotes, str string with quotessize size of str 
+ * @return 
+ */
 static void	create_temp_and_fill_result(t_data *data, char **result, char *str,
 		size_t size)
 {
@@ -80,6 +101,11 @@ static void	create_temp_and_fill_result(t_data *data, char **result, char *str,
 	free(temp);
 }
 
+ /**
+ * @brief remove_quote take off quotes 
+ * @param str string with quotes, reference of char to indicate which quote is it 
+ * @return str without quotes 
+ */
 char	*remove_quote(t_data *data, char *str, char *quote)
 {
 	char	*result;

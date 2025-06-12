@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   create_str_with_params.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:55:14 by lud-adam          #+#    #+#             */
 /*   Updated: 2025/05/28 15:24:49 by ppontet          ###   ########lyon.fr   */

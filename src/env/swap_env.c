@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   swap_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:12:12 by lud-adam          #+#    #+#             */
 /*   Updated: 2025/05/22 17:19:34 by ppontet          ###   ########lyon.fr   */

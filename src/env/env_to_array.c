@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   env_to_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:31:24 by lud-adam          #+#    #+#             */
 /*   Updated: 2025/05/28 14:42:33 by ppontet          ###   ########lyon.fr   */

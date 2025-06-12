@@ -15,6 +15,12 @@
 #include "garbage.h"
 #include "parsing.h"
 
+ /**
+ * @brief expand_and_fill_result
+ *
+ * @param result string to fill, str string allow to fill result, size character allow to do the strdup
+ * @return int 0, nothing checked, 1 is OK line, 2 is read another line
+ */
 void	expand_and_fill_result(t_data *data, char **result, char *str,
 		size_t size)
 {
@@ -30,6 +36,12 @@ void	expand_and_fill_result(t_data *data, char **result, char *str,
 	free(temp);
 }
 
+ /**
+ * @brief ft_strlen_ignore_quote
+ *
+ * @param str to compute size
+ * @return size of str 
+ * */
 static size_t	ft_strlen_ignore_quote(char *str)
 {
 	size_t	i;
@@ -46,6 +58,12 @@ static size_t	ft_strlen_ignore_quote(char *str)
 	return (size);
 }
 
+ /**
+ * @brief expand_or_trad_var expand the traduisible variables
+ *
+ * @param str to expand, size give the size of str
+ * @return size of str 
+ * */
 char	*expand_or_trad_var(t_data *data, char *str, size_t size)
 {
 	char	*result;

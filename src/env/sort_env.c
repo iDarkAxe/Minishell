@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:10:00 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/23 10:40:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/12 17:52:17 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,22 @@
 #include "libft.h"
 #include <stdio.h>
 
-void	bubble_sort(t_garbage *garbage, t_var **head)
+/**
+ * @brief bubble_sort sort algorithm, check all elements one by one to sort in descending order
+ * @param head reference of the head of the environment
+ * @return
+ */
+static void	bubble_sort(t_garbage *garbage, t_var **head)
 {
 	t_var	*current;
 	t_bool	swapped;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
-	swapped = FALSE;
+	swapped = TRUE;
 	while (swapped)
 	{
-		swapped = TRUE;
+		swapped = FALSE;
 		current = *head;
 		while (current && current->next != NULL)
 		{
@@ -38,6 +43,11 @@ void	bubble_sort(t_garbage *garbage, t_var **head)
 	}
 }
 
+/**
+ * @brief sort_ascii_order sort in ascii order with a bubble sort and print  
+ * @param env environment shell 
+ * @return
+ */
 void	sort_ascii_order(t_garbage *garbage, t_env_vars *env)
 {
 	t_env_vars	*c_env;

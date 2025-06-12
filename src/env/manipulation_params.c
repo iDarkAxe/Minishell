@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   manipulation_params.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 10:21:07 by lud-adam          #+#    #+#             */
 /*   Updated: 2025/05/23 11:45:36 by ppontet          ###   ########lyon.fr   */

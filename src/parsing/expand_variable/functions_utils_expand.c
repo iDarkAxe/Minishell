@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:21:20 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/11 14:51:19 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/12 17:35:55 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include "data_structure.h"
 #include "parsing.h"
 
+ /**
+ * @brief search_env_str search inside env the environment variables
+ * @param var variable to search inside env, size var size
+ * @return the associate value of var or nothing if not find inside env
+ * */
 char	*search_env_str(t_data *data, const char *var, size_t size)
 {
 	char	*str;
@@ -45,6 +50,11 @@ char	*search_env_str(t_data *data, const char *var, size_t size)
 	return (str);
 }
 
+ /**
+ * @brief setup_quote allow to know if str is expandable
+ * @param str string to check, quote detect type of quote, is_expandable t_bool to say if ex   pandable or not
+ * @return
+ * */
 static void	setup_quote(char *str, char *quote, t_bool *is_expandable)
 {
 	if (*quote == '0' && *str == '"')
@@ -68,7 +78,12 @@ static void	setup_quote(char *str, char *quote, t_bool *is_expandable)
 	setup_quote(str, quote, is_expandable);
 }
 
-t_bool	is_expandable(char *s)
+/**
+ * @brief is_expandable detect if the string is expandable
+ * @param str string to check if expandable
+ * @return TRUE or FALSE 
+ * */
+t_bool	is_expandable(char *str)
 {
 	size_t	i;
 	char	quote;
@@ -77,18 +92,18 @@ t_bool	is_expandable(char *s)
 	i = 0;
 	quote = '0';
 	is_expandable = TRUE;
-	if (!s)
+	if (!str)
 		return (FALSE);
-	while (s[i] && s[i] != '$')
+	while (str[i] && str[i] != '$')
 		i++;
-	if (s[i] != '$')
+	if (str[i] != '$')
 		return (FALSE);
-	else if (s[i] == '$' && (s[i + 1] == '\'' || s[i + 1] == '"'))
+	else if (str[i] == '$' && (str[i + 1] == '\'' || str[i + 1] == '"'))
 		return (TRUE);
 	i++;
-	if (ft_isalpha(s[i]) == 1 || s[i] == '?' || s[i] == '\'' || s[i] == '"')
+	if (ft_isalpha(str[i]) == 1 || str[i] == '?' || str[i] == '\'' || str[i] == '"')
 	{
-		setup_quote(s, &quote, &is_expandable);
+		setup_quote(str, &quote, &is_expandable);
 		if (is_expandable == TRUE)
 			return (TRUE);
 	}

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   functions_utils_parsing.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:43:45 by lud-adam          #+#    #+#             */
 /*   Updated: 2025/06/03 14:35:39 by lud-adam         ###   ########.fr       */

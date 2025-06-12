@@ -3,16 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_build_elements.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:42:16 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 15:14:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/12 17:32:59 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include <stdlib.h>
 
+/**
+ * @brief build_element_1 create the second array with str  
+ * @param str string to copy, i to track the position inside str, j track the position inside the double array 
+ * @return 
+ */
 static void	build_element_1(char **elements, char *str, size_t j, size_t i)
 {
 	size_t	size_1;
@@ -35,6 +40,11 @@ static void	build_element_1(char **elements, char *str, size_t j, size_t i)
 	}
 }
 
+/**
+ * @brief build_element_0 create the firt array with str  
+ * @param str string to copy, i to track the position inside str, j track the position inside the double array 
+ * @return 
+ */
 static void	build_element_0(char **elements, char *str, size_t size, size_t *i)
 {
 	elements[0] = malloc(sizeof(char) * size + 1);
@@ -49,6 +59,11 @@ static void	build_element_0(char **elements, char *str, size_t size, size_t *i)
 	elements[0][*i] = '\0';
 }
 
+/**
+ * @brief build_elements split str on the equal and put the value in two differents strings  
+ * @param str string to split 
+ * @return an array of strings 
+ */
 char	**build_elements(char *str)
 {
 	char	**elements;

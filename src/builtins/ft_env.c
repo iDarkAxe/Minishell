@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:44:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/29 12:54:02 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/04/22 13:44:08 by lud-adam           #+#    #+#            */
+/*   Updated: 2025/06/12 16:52:26 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 int		ft_env(t_data *data, char **array);
 void	print_env(t_env_vars *env);
 
+/**
+ * @brief print_env allow to display the shell environment 
+ * @param env env is the shell environment
+ * @return 
+ */
 void	print_env(t_env_vars *env)
 {
 	t_var		*var;
@@ -44,6 +49,11 @@ void	print_env(t_env_vars *env)
 	}
 }
 
+/**
+ * @brief ft_env allow to display the shell environment 
+ * @param char **array array of string with arguments for the function
+ * @return int 0 if is ok
+ */
 int	ft_env(t_data *data, char **array)
 {
 	t_env_vars	*env;
