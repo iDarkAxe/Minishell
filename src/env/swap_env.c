@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:12:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 17:19:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/12 22:16:40 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "garbage.h"
 #include <stdio.h>
 
+/**
+ * @brief find_str function to find the string of the two t_var to swap
+ *
+ * @param head reference to the head of the t_vars list to be swapped swap structure compose of multiple t_var to swap str string inside t_var str_1 string inside a t_var to exchange with str
+ * @return
+ */
 static void	find_str(t_vars *swap, t_var **head, char *str, char *str_1)
 {
 	while (swap->curr != NULL)
@@ -40,6 +46,12 @@ static void	find_str(t_vars *swap, t_var **head, char *str, char *str_1)
 	swap->curr = *head;
 }
 
+/**
+ * @brief swap_var swap two t_var
+ *
+ * @param head reference to the head of the t_vars list to be swapped swap structure compose of multiple t_var to swap 
+ * @return
+ */
 static void	swap_var(t_var **head, t_vars *swap)
 {
 	if (swap->prev_str != NULL)
@@ -55,7 +67,12 @@ static void	swap_var(t_var **head, t_vars *swap)
 	swap->curr_str->next = swap->temp;
 }
 
-// CHORES Remplacer la liste de NULL par un ft_bzero ?
+/**
+ * @brief swap_vars allows swap nodes t_vars
+ *
+ * @param head reference to the head of the t_vars list to be swapped, str string inside t_var str_1 string inside a t_var to exchange with str
+ * @return
+ */
 void	swap_vars(t_garbage *garbage, t_var **head, char *str, char *str_1)
 {
 	t_vars	*swap;
@@ -67,8 +84,8 @@ void	swap_vars(t_garbage *garbage, t_var **head, char *str, char *str_1)
 	swap->prev_str_1 = NULL;
 	swap->curr_str = NULL;
 	swap->curr_str_1 = NULL;
-	swap->curr = *head;
 	swap->temp = NULL;
+	swap->curr = *head;
 	if (ft_strcmp(str, str_1) == 0)
 		return ;
 	find_str(swap, head, str, str_1);

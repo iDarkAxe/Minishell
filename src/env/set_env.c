@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/29 10:47:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/12 22:45:54 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 
 static t_var	*fill_var(t_garbage *garbage, char *envp[], size_t *i);
 
+/**
+ * @brief get_var_value fill the string of a t_var
+ * @param envp shell environment of the user, i reference of index to keep the track inside str 
+ * @return t_params or NULL if fail 
+ */
 static char	*get_var_value(t_garbage *garbage, const char *str, size_t *i)
 {
 	char	*var;
@@ -41,6 +46,11 @@ static char	*get_var_value(t_garbage *garbage, const char *str, size_t *i)
 	return (var);
 }
 
+/**
+ * @brief get_sub_params fill params with the content of str 
+ * @param str string to copy, i reference of index to keep the track inside str 
+ * @return t_params or NULL if fail 
+ */
 static t_params	*get_sub_params(t_garbage *garbage, const char *str, size_t *i)
 {
 	t_params	*params;
@@ -70,6 +80,11 @@ static t_params	*get_sub_params(t_garbage *garbage, const char *str, size_t *i)
 	return (params);
 }
 
+/**
+ * @brief get_params fill params of a t_var
+ * @param str string to copy, i reference of index to keep the track inside str 
+ * @return t_params or NULL if fail 
+ */
 static t_params	*get_params(t_garbage *garbage, const char *str, size_t *i)
 {
 	t_params	*params;
@@ -97,6 +112,11 @@ static t_params	*get_params(t_garbage *garbage, const char *str, size_t *i)
 	return (params);
 }
 
+/**
+ * @brief fill_var fill the name of environment variable and content of this one 
+ * @param envp shell environment of the user, i reference of the index to keep a track inside envp
+ * @return t_var 
+ */
 static t_var	*fill_var(t_garbage *garbage, char *envp[], size_t *i)
 {
 	size_t	j;
@@ -116,12 +136,15 @@ static t_var	*fill_var(t_garbage *garbage, char *envp[], size_t *i)
 	j++;
 	new->head_params = get_params(garbage, envp[*i], &j);
 	if (!new->head_params)
-	{
 		return (new);
-	}
 	return (new);
 }
 
+/**
+ * @brief set_env allow to set the shell environment
+ * @param envp shell environment of the user
+ * @return 
+ */
 void	set_env(t_data *data, char *envp[])
 {
 	t_var	*new;

@@ -17,6 +17,11 @@
 #include "libft.h"
 #include "parsing.h"
 
+/**
+ * @brief build_string allow to write the quotes of str
+ * @param str string to copy, i reference of i to keep tack position inside str 
+ * @return string contains quotes 
+ */
 static char	*build_string(t_data *data, char *str, size_t *i)
 {
 	char	*temp;

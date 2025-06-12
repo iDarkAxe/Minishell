@@ -15,6 +15,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * @brief count_size_total_params count the total of params
+ *
+ * @param params params to count 
+ * @return size_t 
+ */
 static size_t	count_size_total_params(t_params *params)
 {
 	size_t	count;
@@ -32,6 +38,12 @@ static size_t	count_size_total_params(t_params *params)
 	return (count);
 }
 
+/**
+ * @brief create_str_with_params transform params into a string 
+ *
+ * @param params params to transform into a string 
+ * @return char *
+ */
 char	*create_str_with_params(t_garbage *garbage, t_params *params)
 {
 	char	*str;

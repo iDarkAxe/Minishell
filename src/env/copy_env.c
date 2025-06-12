@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:41:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/23 12:04:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/12 22:45:28 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,68 @@
 #include "garbage.h"
 #include <stdlib.h>
 
+/**
+ * @brief supp_var function to supp a var in env 
+ *
+ * @param head of t_var to search the var to supp, str allow to identify the var to supp
+ * @return 
+ */
+void	supp_var(t_garbage *garbage, t_var **head, char *str)
+{
+	t_supp	*supp;
+
+	if (!head || !str)
+		return ;
+	supp = malloc_gb(garbage, sizeof(t_supp));
+	if (!supp)
+		return ;
+	supp->curr = *head;
+	supp->prev_str = NULL;
+	while (supp->curr != NULL)
+	{
+		if (ft_strcmp(supp->curr->value, str) == 0)
+		{
+			if (supp->prev_str)
+				supp->prev_str->next = supp->curr->next;
+			else
+				*head = supp->curr->next;
+			free_params(garbage, supp->curr->head_params);
+			free_element_gb(garbage, supp->curr);
+			break ;
+		}
+		supp->prev_str = supp->curr;
+		supp->curr = supp->curr->next;
+	}
+}
+
+/**
+ * @brief search_env_var search an environment variable inside the environment 
+ *
+ * @param env environment to search, var variable to search inside the envrionment 
+ * @return t_var or NULL if no variable find
+ */
+t_var	*search_env_var(t_env_vars *env, char *var)
+{
+	t_var	*head;
+
+	head = env->head_var;
+	while (head != NULL)
+	{
+		if (ft_strcmp(head->value, var) == 0)
+			return (head);
+		head = head->next;
+	}
+	if (head == NULL)
+		return (NULL);
+	return (NULL);
+}
+
+/**
+ * @brief copy_param allow to copy the params of a t_var
+ *
+ * @param var_to_fill var has to fill, content has to copy 
+ * @return
+ */
 static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
 		const t_var *content)
 {
@@ -40,6 +102,12 @@ static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
 	}
 }
 
+/**
+ * @brief free_all_and_exit free and exit
+ *
+ * @param env and c_env elements to free
+ * @return
+ */
 void static	free_all_and_exit(t_garbage *garbage, t_env_vars *env,
 		t_env_vars *c_env)
 {
@@ -48,6 +116,12 @@ void static	free_all_and_exit(t_garbage *garbage, t_env_vars *env,
 	ft_exit_int(garbage, -1);
 }
 
+/**
+ * @brief copy_env allow to copy the env
+ *
+ * @param env environment to copy
+ * @return t_env_vars 
+ */
 t_env_vars	*copy_env(t_garbage *garbage, t_env_vars *env)
 {
 	t_env_vars	*copy_env;

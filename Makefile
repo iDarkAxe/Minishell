@@ -152,8 +152,6 @@ ENV = \
 	copy_env.c \
 	swap_env.c \
 	sort_env.c \
-	search_env.c \
-	supp_var_in_env.c \
 	free_env.c \
 	update_shlvl.c \
 	env_to_array.c \

@@ -6,13 +6,19 @@
 /*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:31:24 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/28 14:42:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/12 22:41:32 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "data_structure.h"
 
+/**
+ * @brief ft_count_var count the number of t_var inside env
+ *
+ * @param data allow to get env 
+ * @return size_t
+ */
 static size_t	ft_count_var(t_data *data)
 {
 	size_t	count;
@@ -28,6 +34,12 @@ static size_t	ft_count_var(t_data *data)
 	return (count);
 }
 
+/**
+ * @brief count_char_of_var count all the characters of a var
+ *
+ * @param var to count, nbr_param reference of a total param number of a var 
+ * @return size_t 
+ */
 static size_t	count_char_of_var(t_var *var, size_t *nbr_param)
 {
 	t_params	*temp;
@@ -57,6 +69,12 @@ static size_t	count_char_of_var(t_var *var, size_t *nbr_param)
 	return (count);
 }
 
+/**
+ * @brief params_to_str paramns to transform into a string
+ *
+ * @param var allow to get the params inside 
+ * @return 
+ */
 static void	params_to_str(char **str, t_var *var, size_t i_str)
 {
 	size_t		i;
@@ -81,6 +99,12 @@ static void	params_to_str(char **str, t_var *var, size_t i_str)
 	(*str)[i_str] = '\0';
 }
 
+/**
+ * @brief var_to_str transform t_var to str
+ *
+ * @param var t_var to transform into string 
+ * @return char *
+ */
 static char	*var_to_str(t_var *var)
 {
 	char	*str;
@@ -110,6 +134,12 @@ static char	*var_to_str(t_var *var)
 	return (str);
 }
 
+/**
+ * @brief env_to_array transform env to a array of string
+ *
+ * @param data structure to get env 
+ * @return char **
+ */
 char	**env_to_array(t_data *data)
 {
 	size_t	i;

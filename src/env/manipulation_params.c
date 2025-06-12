@@ -13,6 +13,11 @@
 #include "env.h"
 #include "garbage.h"
 
+/**
+ * @brief get_param
+ * @param content content to copy inside t_param 
+ * @return
+ */
 t_params	*get_param(t_garbage *garbage, char *content, size_t equal)
 {
 	t_params	*param;
@@ -32,6 +37,11 @@ t_params	*get_param(t_garbage *garbage, char *content, size_t equal)
 	return (param);
 }
 
+/**
+ * @brief replace_param replace params of a t_param
+ * @param var t_var to replace the params, new_content new content to put inside param 
+ * @return
+ */
 void	replace_param(t_garbage *garbage, t_var *var, char *new_content,
 		size_t equal)
 {
@@ -53,6 +63,11 @@ void	replace_param(t_garbage *garbage, t_var *var, char *new_content,
 	}
 }
 
+/**
+ * @brief ft_paramlast go to the end of list of params
+ * @param lst_params list of params
+ * @return t_params 
+ */
 t_params	*ft_paramlast(t_params *lst_params)
 {
 	while (lst_params)
@@ -64,6 +79,11 @@ t_params	*ft_paramlast(t_params *lst_params)
 	return (NULL);
 }
 
+/**
+ * @brief ft_paramsadd_back add sub_params in a param at the end
+ * @param lst_params list of params, new params to add
+ * @return 
+ */
 void	ft_paramsadd_back(t_params **lst_params, t_params *new)
 {
 	t_params	*pt;
