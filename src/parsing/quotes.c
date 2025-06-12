@@ -50,52 +50,54 @@ static size_t	compute_size_quotes(const char *str, char quote)
 	return (size);
 }
 
-static void	handle_quote(const char *str, size_t *i, char *q)
+static void	handle_quote(char **str, char *q)
 {
-	if (*q == str[*i])
+	if (*q == **str)
 	{
 		*q = 0;
-		(*i)++;
+		(*str)++;
 	}
-	else if (*q == 0 && (str[*i] == '\'' || str[*i] == '"'))
+	else if (*q == 0 && (**str == '\'' || **str == '"'))
 	{
-		*q = str[*i];
-		(*i)++;
+		*q = **str;
+		(*str)++;
 	}
+}
+
+static void	create_temp_and_fill_result(t_data *data, char **result, char *str,
+		size_t size)
+{
+	char	*temp;
+
+	temp = ft_strndup(str, size);
+	if (!temp)
+	{
+		ft_dprintf(2,
+			"minishell: malloc: Critical error of malloc, exiting.\n");
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	}
+	*result = fill_string(*result, temp);
+	free(temp);
 }
 
 char	*remove_quote(t_data *data, char *str, char *quote)
 {
-	char	*temp;
 	char	*result;
-	size_t	i;
 	size_t	size;
 
-	temp = NULL;
-	i = 0;
 	result = NULL;
-	while (str && str[i])
+	while (str && *str)
 	{
-		handle_quote(str, &i, quote);
-		if (str[i] == '\0')
+		handle_quote(&str, quote);
+		if (*str == '\0')
 			break ;
-		size = compute_size_quotes(&str[i], *quote);
+		size = compute_size_quotes(str, *quote);
 		if (size != 0)
-		{
-			temp = ft_strndup(&str[i], size);
-			if (!temp)
-			{
-				ft_dprintf(2,
-					"minishell: malloc: Critical error of malloc, exiting.\n");
-				ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-			}
-			result = fill_string(result, temp);
-			free(temp);
-		}
-		handle_quote(str, &i, quote);
-		if (str[i] == '\0')
+			create_temp_and_fill_result(data, &result, str, size);
+		handle_quote(&str, quote);
+		if (*str == '\0')
 			break ;
-		i += size;
+		str += size;
 	}
 	return (result);
 }

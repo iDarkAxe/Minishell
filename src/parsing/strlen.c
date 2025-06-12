@@ -13,19 +13,6 @@
 #include "libft.h"
 #include "parsing.h"
 
-// t_bool	ft_special_character(char c)
-// {
-// 	char	special_character[30] = "\"\'/%!#&()*+,-.:;<=>{?|}~\\[]`^@\0";
-//
-// 	while (*special_character !+ '\0')
-// 	{
-// 		if (c == *special_character)
-// 			return (TRUE);
-// 		special_character++;
-// 	}
-// 	return (FALSE);
-// }
-
 size_t	ft_strlen_dollars(char *str)
 {
 	size_t	size;
@@ -38,7 +25,8 @@ size_t	ft_strlen_dollars(char *str)
 		size++;
 		str++;
 	}
-	while (*str && *str != '$' && *str != '\'' && *str != '"' && ft_isspace(*str) == 0)
+	while (*str && *str != '$' && *str != '\'' && *str != '"'
+		&& ft_isspace(*str) == 0)
 	{
 		size++;
 		str++;
@@ -58,7 +46,8 @@ size_t	ft_strlen_quotes_expand(char *str, char quote)
 		size++;
 		str++;
 	}
-	while (*str && *str != '\'' && *str != '"' && ft_isalnum(*str) == 1 && ft_isspace(*str) == 0)
+	while (*str && *str != '\'' && *str != '"' && ft_isalnum(*str) == 1
+		&& ft_isspace(*str) == 0)
 	{
 		size++;
 		str++;
@@ -81,7 +70,7 @@ size_t	ft_strlen_quotes(char *str)
 	while (str && *str)
 	{
 		size++;
-		if (quote == 0 && (*str == '\''|| *str == '"'))
+		if (quote == 0 && (*str == '\'' || *str == '"'))
 			quote = *str;
 		else if (quote == *str)
 			return (size);
@@ -110,16 +99,6 @@ size_t	ft_strlen_charset(const char *str, const char *charset)
 
 	i = 0;
 	while (str && str[i] && is_charset(charset, str[i]) == FALSE)
-		i++;
-	return (i);
-}
-
-size_t	ft_strlen_choose_c(const char *str, char c)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && str[i] && str[i] != c)
 		i++;
 	return (i);
 }

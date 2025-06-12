@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/11 14:39:38 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/06/12 15:06:51 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,6 +102,7 @@ PARSING = \
 	quotes.c \
 	is_commands_valid.c \
 	strlen.c \
+	compute_size.c \
 
 FILE = \
 	file.c \

@@ -17,20 +17,6 @@
 #include "libft.h"
 #include "parsing.h"
 
-static void	expand_and_fill_result(t_data *data, char **result, char *str, size_t size)
-{
-	char	*temp;
-
-	temp = expand_or_trad_var(data, str, size);
-	if (!temp)
-	{
-		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
-		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
-	}
-	*result = fill_string(*result, temp);
-	free(temp);
-}
-
 static char	*build_string(t_data *data, char *str, size_t *i)
 {
 	char	*temp;
@@ -89,11 +75,12 @@ static char	*expand_variables_with_quotes(t_data *data, char *str)
 	i = 0;
 	result = NULL;
 	quote_pointer = NULL;
-	if (detect_quote(str) == TRUE)
+	if (detect_quote(str) == TRUE && (str[0] == '\'' || str[0] == '"'))
 	{
 		quote_pointer = ft_strrchr(str, '"');
 		temp = build_string(data, str, &i);
 		result = fill_string(result, temp);
+		free(temp);
 	}
 	temp = expand_var(data, str, &i, quote_pointer);
 	result = fill_string(result, temp);
@@ -135,29 +122,27 @@ char	*expand_str(t_data *data, char *str)
 {
 	char	*result;
 	char	*temp;
-	size_t	i;
 	size_t	size;
 
 	result = NULL;
 	temp = NULL;
-	i = 0;
 	size = 0;
-	while (str[i])
+	while (str && *str)
 	{
-		size = compute_size(&str[i]);
+		size = compute_size(str);
 		if (size != 0)
 		{
-			temp = ft_strndup(&str[i], size);
+			temp = ft_strndup(str, size);
 			if (!temp)
 			{
 				ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 				ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 			}
 			fill_result(data, &result, temp);
-			i += size;
+			str += size;
 		}
 		else
-			i++;
+			str++;
 	}
 	return (result);
 }

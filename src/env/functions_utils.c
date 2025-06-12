@@ -13,8 +13,8 @@
 #include "libft.h"
 #include <stddef.h>
 
-int				ft_strcmp(const char *s1, const char *s2);
-t_bool			detect_equal(char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+t_bool	detect_equal(char *str);
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -56,5 +56,23 @@ t_bool	detect_dollar_str(char *str)
 			return (TRUE);
 		str++;
 	}
+	return (FALSE);
+}
+
+size_t	ft_strlen_choose_c(const char *str, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (str && str[i] && str[i] != c)
+		i++;
+	return (i);
+}
+
+t_bool	ft_is_special_character(char c)
+{
+	if ((c >= '!' && c <= '/') || (c >= ':' && c <= '@') || (c >= '['
+			&& c <= '`') || (c >= '{' && c <= '~'))
+		return (TRUE);
 	return (FALSE);
 }

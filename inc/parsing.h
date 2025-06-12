@@ -34,12 +34,14 @@ char	**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 //Utils
 char	**ft_split_charset(const char *s, char *charset);
 t_bool	is_dollar(char *str);
+t_bool	ft_is_special_character(char c);
 t_bool	detect_dollar_str(char *str);
 t_bool	detect_quote(const char *str);
 char	*fill_string(char *result, char *temp);
 
 // Utils expand
 char	*expand_or_trad_var(t_data *data, char *str, size_t size);
+void	expand_and_fill_result(t_data *data, char **result, char *str, size_t size);
 char	*search_env_str(t_data *data, const char *var, size_t size);
 t_bool	is_expandable(char *s);
 size_t	compute_size_expand_var(char *str);
