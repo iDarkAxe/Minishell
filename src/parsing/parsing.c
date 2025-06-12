@@ -18,6 +18,36 @@
 
 static char	**remove_quote_tokens(t_data *data, char **tokens);
 
+char	*setup_string(t_data *data, char *str)
+{
+	char	*str_expanded;
+	char	*result;
+	char	quote;
+
+	result = NULL;
+	quote = 0;
+	str_expanded = expand_str(data, str);
+	free_element_gb(&data->garbage, str);
+	if (!str_expanded)
+		return (NULL);
+	add_to_garbage(&data->garbage, str_expanded);
+	if (detect_quote(str_expanded) == FALSE)
+		return (str_expanded);
+	result = remove_quote(data, str_expanded, &quote);
+	if (!result)
+		return (NULL);
+	add_to_garbage(&data->garbage, result);
+	// if (quote != 0)
+	// {
+	// 	ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
+	// 	// WARNING CAUSE SEGFAULT BECAUSE DATA COMMAND NO UNINITIALIZED
+	// 	// data->command->return_value = 2;
+	// 	// data->command->parse_error = 1;
+	// 	return (NULL);
+	// }
+	return (result);
+}
+
 /**
  * @brief Prototype for parsing
  *

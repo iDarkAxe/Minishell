@@ -28,6 +28,7 @@ static void	expand_and_fill_result(t_data *data, char **result, char *str, size_
 		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 	}
 	*result = fill_string(*result, temp);
+	free(temp);
 }
 
 static char	*build_string(t_data *data, char *str, size_t *i)
@@ -72,8 +73,8 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 			expand_and_fill_result(data, &result, temp, size);
 		else
 			result = fill_string(result, temp);
-		*i += size;
 		free(temp);
+		*i += size;
 	}
 	return (result);
 }
@@ -93,7 +94,6 @@ static char	*expand_variables_with_quotes(t_data *data, char *str)
 		quote_pointer = ft_strrchr(str, '"');
 		temp = build_string(data, str, &i);
 		result = fill_string(result, temp);
-		free(temp);
 	}
 	temp = expand_var(data, str, &i, quote_pointer);
 	result = fill_string(result, temp);
@@ -115,12 +115,12 @@ static void	fill_result(t_data *data, char **result, char *temp)
 	if (is_expandable(temp) == TRUE)
 	{
 		temp_1 = expand_variables_with_quotes(data, temp);
+		free(temp);
 		if (!temp_1)
 		{
 			ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 		}
-		free(temp);
 		*result = fill_string(*result, temp_1);
 		free(temp_1);
 	}

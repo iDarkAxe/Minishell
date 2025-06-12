@@ -52,13 +52,12 @@ size_t	ft_strlen_var_trad(char *str)
 	size = 0;
 	if (!str)
 		return (0);
-	printf("STR inside car trad : %s\n", str);
 	if (*str == '$' && (str[1] == '\'' || str[1] == '"'))
 	{
 		size = 2;
 		str += 2;
 	}
-	while (*str && (*str != '\'' || *str != '"') && *str != '$')
+	while (*str != '\0' && (*str != '\'' && *str != '"'))
 	{
 		size++;	
 		str++;
@@ -67,6 +66,12 @@ size_t	ft_strlen_var_trad(char *str)
 	return (size);
 }
 
+t_bool	ft_is_special_character(char c)
+{
+	if ((c >= '!' && c <= '/') || (c >= ':' && c <= '@') || (c >= '[' && c <= '`') || (c >= '{' && c <= '~'))
+		return (TRUE);
+	return (FALSE);
+}
 size_t	compute_size(char *str)
 {
 	size_t	size;
@@ -76,12 +81,12 @@ size_t	compute_size(char *str)
 		size = 2;
 	else if (*str == '$' && (*(str + 1) == '\'' || *(str + 1) == '"'))
 		size = ft_strlen_var_trad(str);
-	else if (ft_isalnum(*str) == 1 || *str == '/')
-		size = ft_strlen_charset(str, "\'\"$");
 	else if (*str == '$')
 		size = ft_strlen_dollars(str);
 	else if (*str == '\'' || *str == '"')
 		size = ft_strlen_quotes(str);
+	else if (ft_isalnum(*str) == 1 || ft_is_special_character(*str) == TRUE)
+		size = ft_strlen_charset(str, "\'\"$");
 	return (size);
 }
 
@@ -90,6 +95,8 @@ size_t	compute_size_expand_var(char *str)
 	size_t	size;
 
 	size = 0;
+	if (ft_isalnum(*str) == 1 || *str == '/')
+		size = ft_strlen_charset(str, "\'\"$=");
 	if (*str == '$' && *(str + 1) == '?')
 		size = 2;
 	else if (*str == '$' && (*(str + 1) == '\'' || *(str + 1) == '"'))
@@ -122,9 +129,7 @@ static void	setup_quote(char *str, char *quote, t_bool *is_expandable)
 	}
 	str++;
 	if (ft_isalnum(*str) == 1 || *str == '$' || *str == '?')
-	{
 		return ;
-	}
 	setup_quote(str, quote, is_expandable);
 }
 

@@ -28,6 +28,7 @@ typedef struct s_data		t_data;
 // Functions about quotes
 char	*expand_str(t_data *data, char *str);
 char	*setup_string(t_data *data, char *str);
+char	*remove_quote(t_data *data, char *str, char *quote);
 char	**expand_tildes_tokens(t_garbage *garbage, char **tokens);
 
 //Utils

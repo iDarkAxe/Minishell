@@ -51,8 +51,6 @@ char	*fill_string(char *result, char *temp)
 	char	*temp_result;
 
 	temp_result = NULL;
-	if (temp == NULL)
-		return (NULL);
 	if (!result)
 	{
 		result = ft_strdup(temp);
@@ -64,7 +62,10 @@ char	*fill_string(char *result, char *temp)
 		temp_result = ft_strdup(result);
 		free(result);
 		if (!temp_result)
+		{
+			free(temp);
 			return (NULL);
+		}
 		result = ft_strjoin(temp_result, temp);
 		free(temp_result);
 		if (!result)

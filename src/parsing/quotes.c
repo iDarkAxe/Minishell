@@ -99,29 +99,3 @@ char	*remove_quote(t_data *data, char *str, char *quote)
 	}
 	return (result);
 }
-
-char	*setup_string(t_data *data, char *str)
-{
-	char	*str_expanded;
-	char	*result;
-	char	quote;
-
-	result = NULL;
-	quote = 0;
-	str_expanded = expand_str(data, str);
-	if (!str_expanded)
-		return (NULL);
-	if (detect_quote(str_expanded) == FALSE)
-		return (str_expanded);
-	result = remove_quote(data, str_expanded, &quote);
-	// if (quote != 0)
-	// {
-	// 	ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
-	// 	// WARNING CAUSE SEGFAULT BECAUSE DATA COMMAND NO UNINITIALIZED
-	// 	// data->command->return_value = 2;
-	// 	// data->command->parse_error = 1;
-	// 	return (NULL);
-	// }
-	free(str_expanded);
-	return (result);
-}
