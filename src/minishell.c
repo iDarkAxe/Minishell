@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/12 16:04:22 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/12 16:10:33 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	minishell(t_data *data)
 		data->command = tokeniser(data, tokens);
 		if (files_management(data) != 0 || is_commands_valid(data) == 0)
 		{
-			printf("here");
 			ft_dprintf(2, "An error occurred in parsing, input is invalid\n");
 			free_commands(&data->garbage, &data->command);
 			free_array(&data->garbage, tokens);
