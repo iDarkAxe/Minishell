@@ -18,19 +18,19 @@
 
 static char	**remove_quote_tokens(t_data *data, char **tokens);
 
-// static void	check_errors_quotes(char *str, char *quote)
-// {
-// 	if (*quote == '0' && *str == '"')
-// 		*quote = *str;
-// 	else if (*quote == '0' && *str == '\'')
-// 		*quote = *str;
-// 	else if (*quote == *str)
-// 		*quote = '0';
-// 	str++;
-// 	if (*str == '\0')
-// 		return ;
-// 	check_errors_quotes(str, quote);
-// }
+static void	check_errors_quotes(char *str, char *quote)
+{
+	if (*quote == '0' && *str == '"')
+		*quote = *str;
+	else if (*quote == '0' && *str == '\'')
+		*quote = *str;
+	else if (*quote == *str)
+		*quote = '0';
+	str++;
+	if (*str == '\0')
+		return ;
+	check_errors_quotes(str, quote);
+}
 
 char	*setup_string(t_data *data, char *str)
 {
@@ -67,16 +67,13 @@ char	**parse_line(t_data *data, char *line)
 	char	quote;
 
 	quote = '0';
+	check_errors_quotes(line, &quote);
+	if (quote != '0')
+	{
+		ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
+		return (NULL);
+	}
 	tokens = lexer(&data->garbage, line);
-	// check_errors_quotes(line, &quote);
-	// if (quote != '0')
-	// {
-	// 	ft_dprintf(2, "minishell: syntax error: Unclosed quote: `%c'\n", quote);
-	// 	data->command->return_value = 2;
-	// 	data->command->parse_error = 1;
-	// 	free_element_gb(&data->garbage, line);
-	// 	return (NULL);
-	// }
 	if (tokens == NULL)
 	{
 		free_element_gb(&data->garbage, line);
