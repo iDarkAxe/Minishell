@@ -60,6 +60,7 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 	while (str[*i] && str != quote_pointer)
 	{
 		size = compute_size_expand_var(&str[*i]);
+		printf("size :%zu\n", size);
 		temp = ft_strndup(&str[*i], size);
 		if (!temp)
 		{
@@ -167,11 +168,13 @@ char	*expand_str(t_data *data, char *str)
 				ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 				ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 			}
+			printf("temp :%s\n", temp);
 			fill_result(data, &result, temp);
 			str += size;
 		}
 		else
 			str++;
 	}
+	printf("result :%s\n", result);
 	return (result);
 }

@@ -26,7 +26,7 @@ size_t	ft_strlen_dollars(char *str)
 		str++;
 	}
 	while (*str && *str != '$' && *str != '\'' && *str != '"'
-		&& ft_isspace(*str) == 0)
+		&& ft_isspace(*str) == 0 && ft_is_special_character(*str) == FALSE)
 	{
 		size++;
 		str++;

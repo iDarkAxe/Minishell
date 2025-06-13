@@ -74,6 +74,7 @@ char	**parse_line(t_data *data, char *line)
 		return (NULL);
 	}
 	tokens = lexer(&data->garbage, line);
+	print_toks(tokens);
 	if (tokens == NULL)
 	{
 		free_element_gb(&data->garbage, line);
