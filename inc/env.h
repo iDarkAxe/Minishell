@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/28 10:12:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 10:31:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,6 @@ void						supp_var(t_garbage *garbage, t_var **head,
 								char *str);
 void						swap_vars(t_garbage *garbage, t_var **head,
 								char *str, char *str_1);
-
-// Sorting algorithms
-void						bubble_sort(t_garbage *garbage, t_var **head);
 
 // free
 void						free_params(t_garbage *garbage, t_params *element);

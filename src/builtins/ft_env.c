@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:44:08 by lud-adam           #+#    #+#            */
-/*   Updated: 2025/06/12 22:46:23 by lud-adam         ###   ########.fr       */
+/*   Created: 2025/04/22 13:44:08 by lud-adam          #+#    #+#             */
+/*   Updated: 2025/06/13 11:01:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_env(t_data *data, char **array)
 	{
 		ft_dprintf(2, "minishell: env: '%s': No such file or directory\n",
 			array[0]);
-		return (-1);
+		return (127);
 	}
 	print_env(env);
 	return (0);

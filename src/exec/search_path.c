@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:40:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/05 12:02:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 11:14:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	build_path(t_data *data, t_command *command)
 		add_to_garbage(&data->garbage, command->path);
 		return ;
 	}
-	if (ft_strncmp(command->tokens->str, "|", 2) == 0)
+	if (ft_strncmp(command->tokens->str, "|", 2) == 0 || ft_strncmp(command->tokens->str, ";", 2) == 0)
 		str = command->tokens->next->str;
 	else
 		str = command->tokens->str;

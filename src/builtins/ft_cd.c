@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/05 10:58:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 10:51:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ int	ft_cd(t_data *data, char **array)
 	ret = chdir(array[0]);
 	if (ret != 0)
 	{
-		ft_dprintf(2, "minishell: cd: %s: %s\n", array[0], strerror(errno));
-		return (ret);
+		ret = errno;
+		ft_dprintf(2, "minishell: cd: %s: %s\n", array[0], strerror(ret));
+		return (1);
 	}
 	change_cwd(data, 1);
 	return (0);
