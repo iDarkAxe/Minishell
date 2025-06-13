@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:06:05 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:39:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:24:13 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 size_t	ft_strlen_var_trad(char *str);
 
+/**
+ * @brief ft_strlen_var_trad compute the size for translatable variable
+ *
+ * @param str string to compute size 
+ * @return size of str 
+ * */
 size_t	ft_strlen_var_trad(char *str)
 {
 	size_t	size;
@@ -37,6 +43,12 @@ size_t	ft_strlen_var_trad(char *str)
 	return (size);
 }
 
+/**
+ * @brief compute_size compute the size of str in differentes cases.
+ *
+ * @param str string to compute size 
+ * @return size of str 
+ * */
 size_t	compute_size(char *str)
 {
 	size_t	size;
@@ -55,6 +67,13 @@ size_t	compute_size(char *str)
 	return (size);
 }
 
+/**
+ * @brief compute_size_expand_var compute the size of expandable 
+ * variable in differentes cases.
+ *
+ * @param str string to compute size 
+ * @return size of str 
+ * */
 size_t	compute_size_expand_var(char *str)
 {
 	size_t	size;

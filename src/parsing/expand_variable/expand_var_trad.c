@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:23:52 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:35:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:26:08 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static size_t	ft_strlen_ignore_quote(char *str, char quote)
 }
 
 /**
- * @brief expand_or_trad_var expand the traduisible variables
+ * @brief expand_or_trad_var expand the translatable variables
  *
  * @param str to expand, size give the size of str
  * @return size of str 
@@ -71,8 +71,9 @@ char	*expand_or_trad_var(t_data *data, char *str, size_t size)
 	char	quote;
 	size_t	size_ignore_quote;
 
-	if (ft_strlen(str) <= 4 && str[0] == '$' && (str[1] == '"' || str[1] == '\'')
-			&& (str[2] == '$' || str[2] == '\0'))
+	if (ft_strlen(str) <= 4 && str[0] == '$'
+		&& (str[1] == '"' || str[1] == '\'')
+		&& (str[2] == '$' || str[2] == '\0'))
 		result = ft_strdup("$");
 	else if (str[1] == '"' || str[1] == '\'')
 	{

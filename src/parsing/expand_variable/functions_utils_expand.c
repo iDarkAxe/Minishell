@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:21:20 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:58:38 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 14:25:26 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ t_bool	detect_letters(char *str)
 {
 	while (str && *str)
 	{
-		if (isalpha(*str) == 1)
+		if (ft_isalpha(*str) == 1)
 			return (TRUE);
 		str++;
 	}
 	return (FALSE);
 }
 
- /**
+/**
  * @brief search_env_str search inside env the environment variables
  * @param var variable to search inside env, size var size
  * @return the associate value of var or nothing if not find inside env

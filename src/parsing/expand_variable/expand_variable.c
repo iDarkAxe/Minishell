@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:45:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:25:01 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 			ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 		}
-		if (detect_dollar_str(temp) == TRUE) 
+		if (detect_dollar_str(temp) == TRUE)
 			expand_and_fill_result(data, &result, temp, size);
 		else
 			result = fill_string(result, temp);
