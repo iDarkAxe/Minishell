@@ -27,7 +27,7 @@ static void	bubble_sort(t_garbage *garbage, t_var **head)
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
 	swapped = TRUE;
-	while (swapped)
+	while (swapped == TRUE)
 	{
 		swapped = FALSE;
 		current = *head;
@@ -36,7 +36,7 @@ static void	bubble_sort(t_garbage *garbage, t_var **head)
 			if (ft_strcmp(current->value, current->next->value) > 0)
 			{
 				swap_vars(garbage, head, current->value, current->next->value);
-				swapped = FALSE;
+				swapped = TRUE;
 			}
 			current = current->next;
 		}
