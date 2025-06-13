@@ -47,6 +47,7 @@ char	*search_env_str(t_data *data, const char *var, size_t size);
 t_bool	is_expandable(char *s);
 size_t	compute_size_expand_var(char *str);
 size_t	compute_size(char *str);
+t_bool	detect_letters(char *str);
 
 // strlen
 size_t	ft_strlen_charset(const char *str, const char *charset);

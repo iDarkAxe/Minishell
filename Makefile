@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/12 15:06:51 by lud-adam         ###   ########.fr        #
+#    Updated: 2025/06/13 14:43:47 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,6 @@ LEXER = \
 PARSING = \
 	parsing.c \
 	expand_home.c \
-	ft_split_charset.c \
 	expand_variable/expand_var_trad.c \
 	expand_variable/functions_utils_expand.c \
 	expand_variable/expand_variable.c \

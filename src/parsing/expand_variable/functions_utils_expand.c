@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:21:20 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:45:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:25:26 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,22 @@
 #include "libft.h"
 #include "data_structure.h"
 #include "parsing.h"
+
+/**
+ * @brief detect_letters detect letters in a string
+ * @param str to check
+ * @return t_bool
+ */
+t_bool	detect_letters(char *str)
+{
+	while (str && *str)
+	{
+		if (ft_isalpha(*str) == 1)
+			return (TRUE);
+		str++;
+	}
+	return (FALSE);
+}
 
 /**
  * @brief search_env_str search inside env the environment variables

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:45:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:25:01 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 
 	size = 0;
 	result = NULL;
-	while (str[*i] && str != quote_pointer)
+	while (str && str[*i] && str != quote_pointer)
 	{
 		size = compute_size_expand_var(&str[*i]);
 		temp = ft_strndup(&str[*i], size);
