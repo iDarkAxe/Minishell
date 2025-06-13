@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_var_trad.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:23:52 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/11 18:34:35 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:35:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "garbage.h"
 #include "parsing.h"
 
- /**
+/**
  * @brief expand_and_fill_result
  *
- * @param result string to fill, str string allow to fill result, size character allow to do the strdup
- * @return int 0, nothing checked, 1 is OK line, 2 is read another line
+ * @param result string to fill, str string allow to fill result, 
+ * size character allow to do the strdup
  */
 void	expand_and_fill_result(t_data *data, char **result, char *str,
 		size_t size)
@@ -36,7 +36,7 @@ void	expand_and_fill_result(t_data *data, char **result, char *str,
 	free(temp);
 }
 
- /**
+/**
  * @brief ft_strlen_ignore_quote
  *
  * @param str to compute size
@@ -58,7 +58,7 @@ static size_t	ft_strlen_ignore_quote(char *str)
 	return (size);
 }
 
- /**
+/**
  * @brief expand_or_trad_var expand the traduisible variables
  *
  * @param str to expand, size give the size of str

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/12 16:10:33 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:50:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ int	minishell(t_data *data)
 			continue ;
 		}
 		search_paths(data, data->command);
-		if (needs_to_be_forked(data->command) != 0)
-			data->ret = prepare_command_forks(data);
-		else
-			data->ret = prepare_command(data);
+		if (preparation_and_exec(data) != 1)
+			ft_exit_int_np(&data->garbage, 1);
 		free_array(&data->garbage, tokens);
 		free_commands(&data->garbage, &data->command);
 	}
@@ -78,6 +76,7 @@ int	minishell(t_data *data)
 /**
  * @brief Line condition to verify the return value of readline
  *
+ * @param garbage garbage structure
  * @param line line of readline
  * @return int 0, nothing checked, 1 is OK line, 2 is read another line
  */
@@ -97,8 +96,9 @@ static int	line_condition(t_garbage *garbage, char *line)
 }
 
 /**
- * @brief Function to reaed stdin
+ * @brief Function to read stdin
  *
+ * @param garbage structure
  * @return char* line rode
  */
 static char	*read_stdin(t_garbage *garbage)

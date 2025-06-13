@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_variable.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:05:11 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/11 14:51:43 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:45:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ static char	*build_string(t_data *data, char *str, size_t *i)
 /**
  * @brief expand var allow to expand
  *
- * @param str, *i, quote_pointer 
+ * @param data data structure
+ * @param str string
+ * @param i index referencing the position of reading
+ * @param quote_pointer value of quote pointer
  * @return var environment expand
  */
 static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
@@ -60,7 +63,6 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 	while (str[*i] && str != quote_pointer)
 	{
 		size = compute_size_expand_var(&str[*i]);
-		printf("size :%zu\n", size);
 		temp = ft_strndup(&str[*i], size);
 		if (!temp)
 		{
@@ -80,7 +82,8 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 /**
  * @brief expand_variables_with_quotes allow to expand with quotes
  *
- * @param data, str to expand 
+ * @param data data structure
+ * @param str to expand 
  * @return string expand with quotes
  */
 static char	*expand_variables_with_quotes(t_data *data, char *str)
@@ -115,8 +118,9 @@ static char	*expand_variables_with_quotes(t_data *data, char *str)
 /**
  * @brief fill_result fill the char **result 
  *
- * @param data, result, temp 
- * @return string expand with quotes
+ * @param data data structure
+ * @param result array of strings
+ * @param temp current string
  */
 static void	fill_result(t_data *data, char **result, char *temp)
 {
@@ -168,13 +172,11 @@ char	*expand_str(t_data *data, char *str)
 				ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 				ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 			}
-			printf("temp :%s\n", temp);
 			fill_result(data, &result, temp);
 			str += size;
 		}
 		else
 			str++;
 	}
-	printf("result :%s\n", result);
 	return (result);
 }

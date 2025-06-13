@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:44:08 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 11:01:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 13:41:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	print_env(t_env_vars *env);
 /**
  * @brief print_env allow to display the shell environment 
  * @param env env is the shell environment
- * @return 
  */
 void	print_env(t_env_vars *env)
 {
@@ -51,7 +50,8 @@ void	print_env(t_env_vars *env)
 
 /**
  * @brief ft_env allow to display the shell environment 
- * @param char **array array of string with arguments for the function
+ * @param data data structure
+ * @param array array of string with arguments for the function
  * @return int 0 if is ok
  */
 int	ft_env(t_data *data, char **array)

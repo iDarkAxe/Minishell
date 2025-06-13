@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:41:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 22:45:28 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:41:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 /**
  * @brief supp_var function to supp a var in env 
  *
- * @param head of t_var to search the var to supp, str allow to identify the var to supp
- * @return 
+ * @param head of t_var to search the var to supp, 
+ * @param str allow to identify the var to supp
  */
 void	supp_var(t_garbage *garbage, t_var **head, char *str)
 {
@@ -52,7 +52,8 @@ void	supp_var(t_garbage *garbage, t_var **head, char *str)
 /**
  * @brief search_env_var search an environment variable inside the environment 
  *
- * @param env environment to search, var variable to search inside the envrionment 
+ * @param env environment to search,  
+ * @param var variable to search inside the envrionment 
  * @return t_var or NULL if no variable find
  */
 t_var	*search_env_var(t_env_vars *env, char *var)
@@ -74,8 +75,8 @@ t_var	*search_env_var(t_env_vars *env, char *var)
 /**
  * @brief copy_param allow to copy the params of a t_var
  *
- * @param var_to_fill var has to fill, content has to copy 
- * @return
+ * @param var_to_fill var has to fill, 
+ * @param content has to copy 
  */
 static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
 		const t_var *content)
@@ -106,7 +107,6 @@ static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
  * @brief free_all_and_exit free and exit
  *
  * @param env and c_env elements to free
- * @return
  */
 void static	free_all_and_exit(t_garbage *garbage, t_env_vars *env,
 		t_env_vars *c_env)

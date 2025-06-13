@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:10:00 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 22:45:58 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:41:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <stdio.h>
 
 /**
- * @brief bubble_sort sort algorithm, check all elements one by one to sort in descending order
+ * @brief bubble_sort sort algorithm, 
+ * check all elements one by one to sort in descending order
  * @param head reference of the head of the environment
- * @return
  */
 static void	bubble_sort(t_garbage *garbage, t_var **head)
 {
@@ -46,7 +46,6 @@ static void	bubble_sort(t_garbage *garbage, t_var **head)
 /**
  * @brief sort_ascii_order sort in ascii order with a bubble sort and print  
  * @param env environment shell 
- * @return
  */
 void	sort_ascii_order(t_garbage *garbage, t_env_vars *env)
 {

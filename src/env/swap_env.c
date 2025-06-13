@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:12:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 22:16:40 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:43:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 #include <stdio.h>
 
 /**
- * @brief find_str function to find the string of the two t_var to swap
+ * @brief Find_str function to find the string of the two t_var to swap
  *
- * @param head reference to the head of the t_vars list to be swapped swap structure compose of multiple t_var to swap str string inside t_var str_1 string inside a t_var to exchange with str
- * @return
+ * @param head reference to the head of the t_vars list to be swapped swap 
+ * structure compose of multiple t_var to swap str string 
+ * inside t_var str_1 string inside a t_var to exchange with str
  */
 static void	find_str(t_vars *swap, t_var **head, char *str, char *str_1)
 {
@@ -47,10 +48,10 @@ static void	find_str(t_vars *swap, t_var **head, char *str, char *str_1)
 }
 
 /**
- * @brief swap_var swap two t_var
+ * @brief Swap_var swap two t_var
  *
- * @param head reference to the head of the t_vars list to be swapped swap structure compose of multiple t_var to swap 
- * @return
+ * @param head reference to the head of the t_vars list 
+ * to be swapped swap structure compose of multiple t_var to swap 
  */
 static void	swap_var(t_var **head, t_vars *swap)
 {
@@ -68,10 +69,10 @@ static void	swap_var(t_var **head, t_vars *swap)
 }
 
 /**
- * @brief swap_vars allows swap nodes t_vars
+ * @brief Swap_vars allows swap nodes t_vars
  *
- * @param head reference to the head of the t_vars list to be swapped, str string inside t_var str_1 string inside a t_var to exchange with str
- * @return
+ * @param head reference to the head of the t_vars list to be swapped,
+ * str string inside t_var str_1 string inside a t_var to exchange with str
  */
 void	swap_vars(t_garbage *garbage, t_var **head, char *str, char *str_1)
 {

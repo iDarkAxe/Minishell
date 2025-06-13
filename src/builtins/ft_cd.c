@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 10:51:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 13:21:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <errno.h>
 #include <string.h>
 
-static int	check_args(t_env_vars *env, char **array);
+static int	check_args(t_data *data, t_env_vars *env, char **array);
 
 /**
  * @brief Implementatin of cd builtin of shell
@@ -33,7 +33,7 @@ int	ft_cd(t_data *data, char **array)
 {
 	int	ret;
 
-	ret = check_args(&data->env, array);
+	ret = check_args(data, &data->env, array);
 	if (ret == 0)
 		return (0);
 	else if (ret < 0)
@@ -84,21 +84,27 @@ void	change_cwd(t_data *data, t_bool is_pwd)
  * @param array array of strings
  * @return int 0 and 1 OK, -1 is error
  */
-static int	check_args(t_env_vars *env, char **array)
+static int	check_args(t_data *data, t_env_vars *env, char **array)
 {
 	if (array == NULL || array[0] == NULL)
-		return (change_cwd_to_home(env));
+		return (change_cwd_to_home(data, env));
 	if (array[1] != NULL)
 	{
 		ft_dprintf(2, "minishell: cd: too many arguments\n");
 		return (-1);
 	}
 	if (array[0] && ft_strncmp(array[0], "-", 2) == 0)
-		return (change_cwd_to_previous_cwd(env));
+		return (change_cwd_to_previous_cwd(data, env));
 	return (1);
 }
 
-int	change_cwd_to_home(t_env_vars *env)
+/**
+ * @brief Change the current working directory to the previous CWD
+ * 
+ * @param env environment shell 
+ * @return int 0 OK, error otherwise
+ */
+int	change_cwd_to_home(t_data *data, t_env_vars *env)
 {
 	t_var	*var;
 	char	*path;
@@ -111,11 +117,19 @@ int	change_cwd_to_home(t_env_vars *env)
 		path = var->head_params->value;
 	if (path == NULL)
 		return (-1);
+	change_cwd(data, 0);
 	chdir(path);
+	change_cwd(data, 1);
 	return (0);
 }
 
-int	change_cwd_to_previous_cwd(t_env_vars *env)
+/**
+ * @brief Change the current working directory to the previous CWD
+ * 
+ * @param env environment shell 
+ * @return int 0 OK, error otherwise
+ */
+int	change_cwd_to_previous_cwd(t_data *data, t_env_vars *env)
 {
 	t_var	*var;
 	char	*path;
@@ -128,6 +142,8 @@ int	change_cwd_to_previous_cwd(t_env_vars *env)
 		path = var->head_params->value;
 	if (path == NULL)
 		return (-1);
+	change_cwd(data, 0);
 	chdir(path);
+	change_cwd(data, 1);
 	return (0);
 }

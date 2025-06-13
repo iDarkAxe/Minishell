@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:41:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 17:45:49 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:42:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 #include <stdlib.h>
 
 /**
- * @brief add_var_and_param take the name key and value and create a var and param associate to the var and add this inside env
- * @param var string that the name of the t_var, content string to transform in param and add this one to t_var 
- * @return
+ * @brief Add_var_and_param take the name key and value and create a var 
+ * and param associate to the var and add this inside env
+ * @param var string that the name of the t_var
+ * @param content string to transform in param and add this one to t_var 
  */
 static void	add_var_and_param(t_data *data, char *var, char *content,
 		char *array)
@@ -41,9 +42,8 @@ static void	add_var_and_param(t_data *data, char *var, char *content,
 }
 
 /**
- * @brief free_element free a double array
- * @param elements array of string that contains the var and the value to free 
- * @return
+ * @brief Free_element free a double array
+ * @param array array of string that contains the var and the value to free 
  */
 static void	free_element(char **array)
 {
@@ -53,9 +53,8 @@ static void	free_element(char **array)
 }
 
 /**
- * @brief add_or_replace add var if not exist or replace this one
- * @param elements array of string that contains the var and the value to add or replace 
- * @return
+ * @brief Add_or_replace add var if not exist or replace this one
+ * @param elements array of string that contains the var/value to add or replace 
  */
 static void	add_or_replace(t_data *data, char **elements, char **array,
 		size_t i)
@@ -75,8 +74,9 @@ static void	add_or_replace(t_data *data, char **elements, char **array,
 }
 
 /**
- * @brief ft_export allows to export environment variables inside env, if export without arg* uments display env sort in ascii order
- * @param array array of string with the key and value of the var to put inside env
+ * @brief ft_export allows to export environment variables inside env, 
+ * if export without arg* uments display env sort in ascii order
+ * @param array array of string with the key/value of the var to put inside env
  * @return int 0 if is ok
  */
 int	ft_export(t_data *data, char **array)

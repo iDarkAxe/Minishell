@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:56:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 19:29:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 13:23:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
  * @brief Implementation of builtins of a shell
  * @{
  */
-int								ft_exit(t_data *data, char **array);
-int								ft_echo(t_data *data, char **array);
-int								ft_which(t_data *data, char **array);
-int								ft_export(t_data *data, char **array);
-int								ft_env(t_data *data, char **array);
-int								ft_unset(t_data *data, char **array);
-int								ft_pwd(t_data *data, char **array);
-int								ft_cd(t_data *data, char **array);
+int		ft_exit(t_data *data, char **array);
+int		ft_echo(t_data *data, char **array);
+int		ft_which(t_data *data, char **array);
+int		ft_export(t_data *data, char **array);
+int		ft_env(t_data *data, char **array);
+int		ft_unset(t_data *data, char **array);
+int		ft_pwd(t_data *data, char **array);
+int		ft_cd(t_data *data, char **array);
 /** @} */
 
 /**
@@ -35,9 +35,9 @@ int								ft_cd(t_data *data, char **array);
  * @brief Functions for exiting
  * @{
  */
-void							ft_exit_int(t_garbage *garbage, int value);
-void							print_exit(int value);
-void							ft_exit_int_np(t_garbage *garbage, int value);
+void	ft_exit_int(t_garbage *garbage, int value);
+void	print_exit(int value);
+void	ft_exit_int_np(t_garbage *garbage, int value);
 /** @} */
 
 /**
@@ -45,9 +45,9 @@ void							ft_exit_int_np(t_garbage *garbage, int value);
  * @brief Functions for CD (change directory)
  * @{
  */
-void							change_cwd(t_data *data, t_bool is_pwd);
-int								change_cwd_to_home(t_env_vars *env);
-int								change_cwd_to_previous_cwd(t_env_vars *env);
+void	change_cwd(t_data *data, t_bool is_pwd);
+int		change_cwd_to_home(t_data *data, t_env_vars *env);
+int		change_cwd_to_previous_cwd(t_data *data, t_env_vars *env);
 /** @} */
 
 #endif

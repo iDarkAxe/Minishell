@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +#+  +:+       +#+      */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:12:50 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/10 17:49:11 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:26:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ char	**parse_line(t_data *data, char *line)
 		return (NULL);
 	}
 	tokens = lexer(&data->garbage, line);
-	print_toks(tokens);
 	if (tokens == NULL)
 	{
 		free_element_gb(&data->garbage, line);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_to_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:31:24 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 22:41:32 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:41:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ static size_t	count_char_of_var(t_var *var, size_t *nbr_param)
  * @brief params_to_str paramns to transform into a string
  *
  * @param var allow to get the params inside 
- * @return 
  */
 static void	params_to_str(char **str, t_var *var, size_t i_str)
 {

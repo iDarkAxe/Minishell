@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 13:12:06 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 22:27:08 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:43:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
  * @brief free_params free params of a t_var
  *
  * @param element element to free
- * @param 
  */
 void	free_params(t_garbage *garbage, t_params *element)
 {
@@ -36,12 +35,11 @@ void	free_params(t_garbage *garbage, t_params *element)
 	return ;
 }
 
-
 /**
  * @brief free_env function to free env 
  *
+ * @param garbage garbage structure 
  * @param env environment to free 
- * @param 
  */
 void	free_env(t_garbage *garbage, t_env_vars *env)
 {

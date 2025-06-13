@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   compute_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:06:05 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 15:06:25 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:39:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+
+size_t	ft_strlen_var_trad(char *str);
 
 size_t	ft_strlen_var_trad(char *str)
 {

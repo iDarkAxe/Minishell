@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/05 12:01:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 13:50:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,23 @@
 #include "exec.h"
 #include <unistd.h>
 #include <wait.h>
+
+/**
+ * @brief Prepare for execution and Executes
+ * 
+ * @param data data structuer
+ * @return int 1 ok, error otherwise
+ */
+int	preparation_and_exec(t_data *data)
+{
+	if (!data || !data->command)
+		return (0);
+	if (needs_to_be_forked(data->command) != 0)
+		data->ret = prepare_command_forks(data);
+	else
+		data->ret = prepare_command(data);
+	return (1);
+}
 
 /**
  * @brief Prepare the command for search_command()

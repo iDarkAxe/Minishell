@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 16:05:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 13:48:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
  * @{
  */
 char		**copy_toks(t_data *data, t_command *command);
+int			preparation_and_exec(t_data *data);
 int			prepare_command(t_data *data);
 int			prepare_command_forks(t_data *data);
 int			simple_search_command(t_data *data, t_command *command,

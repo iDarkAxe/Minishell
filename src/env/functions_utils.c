@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 22:45:31 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:45:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 int		ft_strcmp(const char *s1, const char *s2);
 t_bool	detect_equal(char *str);
+t_bool	detect_dollar_str(char *str);
+size_t	ft_strlen_choose_c(const char *str, char c);
+t_bool	ft_is_special_character(char c);
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

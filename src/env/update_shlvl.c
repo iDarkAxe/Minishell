@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_shlvl.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:45:33 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 22:33:57 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:43:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void	create_shlvl(t_garbage *garbage, t_env_vars *env);
 /**
  * @brief create_shlvl function to create shlvl if not exist 
  *
+ * @param garbage garbage structure
  * @param env environment to put shlvl inside
- * @return
  */
 static void	create_shlvl(t_garbage *garbage, t_env_vars *env)
 {
@@ -41,7 +41,6 @@ static void	create_shlvl(t_garbage *garbage, t_env_vars *env)
  * @brief update_shlvl function to update the shell lvl
  *
  * @param env environment to search shlvl and update 
- * @return
  */
 void	update_shlvl(t_garbage *garbage, t_env_vars *env)
 {

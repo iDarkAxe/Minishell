@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_build_elements.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:42:16 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/12 17:32:59 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:43:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 /**
  * @brief build_element_1 create the second array with str  
- * @param str string to copy, i to track the position inside str, j track the position inside the double array 
- * @return 
+ * @param str string to copy, 
+ * @param i to track the position inside str, 
+ * @param j track the position inside the double array 
  */
 static void	build_element_1(char **elements, char *str, size_t j, size_t i)
 {
@@ -42,8 +43,8 @@ static void	build_element_1(char **elements, char *str, size_t j, size_t i)
 
 /**
  * @brief build_element_0 create the firt array with str  
- * @param str string to copy, i to track the position inside str, j track the position inside the double array 
- * @return 
+ * @param str string to copy, 
+ * @param i to track the position inside str, 
  */
 static void	build_element_0(char **elements, char *str, size_t size, size_t *i)
 {
@@ -60,7 +61,8 @@ static void	build_element_0(char **elements, char *str, size_t size, size_t *i)
 }
 
 /**
- * @brief build_elements split str on the equal and put the value in two differents strings  
+ * @brief build_elements split str on the equal 
+ * and put the value in two differents strings  
  * @param str string to split 
  * @return an array of strings 
  */
