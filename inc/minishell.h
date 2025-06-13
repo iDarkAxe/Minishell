@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 16:02:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:29:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		ignore_signal(void);
  */
 char		**init_lexer_state(t_garbage *garbage, t_lexer_state *lex_st,
 				const char *line);
+int			verify_token_number(t_garbage *garbage, t_lexer_state *lexer);
 char		**lexer(t_garbage *garbage, const char *line);
 t_command	*tokeniser(t_data *data, char **tokens);
 char		*ft_substr_end_gb(t_garbage *garbage, char const *src,

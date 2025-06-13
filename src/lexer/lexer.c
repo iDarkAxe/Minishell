@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:17:23 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:23:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:30:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ char	**lexer(t_garbage *garbage, const char *line)
 {
 	t_lexer_state	lex_st;
 
-	if (init_lexer_state(garbage, &lex_st, line) == NULL)
+	if (!init_lexer_state(garbage, &lex_st, line))
 		return (NULL);
-	while (lex_st.line[lex_st.i] != '\0')
+	while (lex_st.line[lex_st.i] != '\0' && lex_st.token_limit_exceeded == 0)
 	{
 		if (ft_isspace(lex_st.line[lex_st.i]) && !lex_st.in_single_quote
 			&& !lex_st.in_double_quote)
@@ -50,6 +50,8 @@ char	**lexer(t_garbage *garbage, const char *line)
 		else
 			lex_st.i++;
 	}
+	if (verify_token_number(garbage, &lex_st) != 0)
+		return (NULL);
 	if (lex_st.start < lex_st.i)
 		lex_st.tokens[lex_st.j++] = ft_substr_end_gb(garbage, lex_st.line,
 				lex_st.start, lex_st.i);
@@ -105,6 +107,8 @@ static void	handle_quote(t_lexer_state *lex_st, char quote_type)
  */
 static void	handle_operator(t_garbage *garbage, t_lexer_state *lex_st)
 {
+	if (verify_token_number(garbage, lex_st) != 0)
+		return ;
 	if (lex_st->start < lex_st->i)
 		lex_st->tokens[lex_st->j++] = ft_substr_end_gb(garbage, lex_st->line,
 				lex_st->start, lex_st->i);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:19:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/10 16:51:07 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 14:23:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ struct							s_lexer_state
 	unsigned int				i;
 	unsigned int				j;
 	unsigned int				start;
+	t_bool						token_limit_exceeded;
 	t_bool						in_single_quote;
 	t_bool						in_double_quote;
 	char						**tokens;

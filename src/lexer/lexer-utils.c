@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:01:21 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:23:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:37:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "libft.h"
 #include "minishell.h"
+#include "ft_printf.h"
 #include <stdlib.h>
 
 int		is_operator_char(char c);
@@ -34,7 +35,7 @@ char	**init_lexer_state(t_garbage *garbage, t_lexer_state *lex_st,
 {
 	ft_bzero(lex_st, sizeof(t_lexer_state));
 	lex_st->line = line;
-	lex_st->tokens = malloc(sizeof(char *) * MAX_TOKENS_LEX);
+	lex_st->tokens = ft_calloc(sizeof(char *), MAX_TOKENS_LEX);
 	if (lex_st->tokens == NULL)
 		return (NULL);
 	add_to_garbage(garbage, lex_st->tokens);
@@ -74,4 +75,27 @@ char	*ft_substr_end_gb(t_garbage *garbage, char const *src,
 	ft_memcpy(s, &src[start], len);
 	s[len] = '\0';
 	return (s);
+}
+
+/**
+ * @brief Verify that current token doesn't exceed MAX_TOKEN_LEX value
+ * 
+ * @param lexer lexer structure
+ * @return int 0 ok, error otherwise 
+ */
+int	verify_token_number(t_garbage *garbage, t_lexer_state *lexer)
+{
+	if (!lexer)
+		return (1);
+	if (lexer->token_limit_exceeded == 1)
+		return (2);
+	if (lexer->j >= MAX_TOKENS_LEX - 1)
+	{
+		lexer->token_limit_exceeded = 1;
+		free_array(garbage, lexer->tokens);
+		lexer->tokens = NULL;
+		ft_dprintf(2, "Error: token limit exceeded : %d\n", MAX_TOKENS_LEX);
+		return (3);
+	}
+	return (0);
 }
