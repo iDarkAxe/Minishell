@@ -32,7 +32,6 @@ static void	add_var_and_param(t_data *data, char *var, char *content,
 	new = get_var(&data->garbage, var);
 	if (!new)
 		ft_exit_int(&data->garbage, -1);
-	equal = FALSE;
 	equal = detect_equal(array);
 	if (content != NULL || (equal == TRUE && content == NULL))
 		new->head_params = get_param(&data->garbage, content, equal);

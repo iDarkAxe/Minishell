@@ -47,7 +47,7 @@ void	replace_param(t_garbage *garbage, t_var *var, char *new_content,
 {
 	char	*new_value;
 
-	if (!var)
+	if (!var || (var && !new_content))
 		return ;
 	new_value = ft_strdup_gb(garbage, new_content);
 	var->head_params = get_param(garbage, new_content, equal);
