@@ -17,16 +17,18 @@ size_t	ft_strlen_var_trad(char *str);
 size_t	ft_strlen_var_trad(char *str)
 {
 	size_t	size;
+	char	quote;
 
 	size = 0;
 	if (!str)
 		return (0);
 	if (*str == '$' && (str[1] == '\'' || str[1] == '"'))
 	{
+		quote = str[1];
 		size = 2;
 		str += 2;
 	}
-	while (*str != '\0' && (*str != '\'' && *str != '"'))
+	while (*str != '\0' && *str != quote)
 	{
 		size++;
 		str++;

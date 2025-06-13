@@ -60,7 +60,7 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 
 	size = 0;
 	result = NULL;
-	while (str[*i] && str != quote_pointer)
+	while (str && str[*i] && str != quote_pointer)
 	{
 		size = compute_size_expand_var(&str[*i]);
 		temp = ft_strndup(&str[*i], size);
@@ -69,7 +69,7 @@ static char	*expand_var(t_data *data, char *str, size_t *i, char *quote_pointer)
 			ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");
 			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
 		}
-		if (detect_dollar_str(temp) == TRUE)
+		if (detect_dollar_str(temp) == TRUE) 
 			expand_and_fill_result(data, &result, temp, size);
 		else
 			result = fill_string(result, temp);

@@ -42,19 +42,20 @@ void	expand_and_fill_result(t_data *data, char **result, char *str,
  * @param str to compute size
  * @return size of str 
  * */
-static size_t	ft_strlen_ignore_quote(char *str)
+static size_t	ft_strlen_ignore_quote(char *str, char quote)
 {
 	size_t	i;
 	size_t	size;
 
 	i = 0;
 	size = 0;
-	while (str[i])
+	while (str && str[i])
 	{
-		if (str[i] != '"' && str[i] != '\'')
+		if (str[i] != quote)
 			size++;
 		i++;
 	}
+	size++;
 	return (size);
 }
 
@@ -67,15 +68,17 @@ static size_t	ft_strlen_ignore_quote(char *str)
 char	*expand_or_trad_var(t_data *data, char *str, size_t size)
 {
 	char	*result;
+	char	quote;
 	size_t	size_ignore_quote;
 
-	if (ft_strlen(str) <= 2 && str[0] == '$' && (str[1] == '"'
-			|| str[1] == '\''))
+	if (ft_strlen(str) <= 4 && str[0] == '$' && (str[1] == '"' || str[1] == '\'')
+			&& (str[2] == '$' || str[2] == '\0'))
 		result = ft_strdup("$");
 	else if (str[1] == '"' || str[1] == '\'')
 	{
-		size_ignore_quote = ft_strlen_ignore_quote(str + 2);
-		result = ft_strndup(str + 2, size_ignore_quote);
+		quote = str[1];
+		size_ignore_quote = ft_strlen_ignore_quote(str + 1, quote);
+		result = ft_strndup(str + 1, size_ignore_quote);
 	}
 	else
 		result = search_env_str(data, str + 1, size - 1);
