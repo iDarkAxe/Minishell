@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:10:00 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:41:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:18:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "libft.h"
-#include <stdio.h>
 
 /**
  * @brief bubble_sort sort algorithm, 

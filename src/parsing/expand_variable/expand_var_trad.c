@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:23:52 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 14:26:08 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 16:09:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ static size_t	ft_strlen_ignore_quote(char *str, char quote)
 char	*expand_or_trad_var(t_data *data, char *str, size_t size)
 {
 	char	*result;
-	char	quote;
 	size_t	size_ignore_quote;
 
 	if (ft_strlen(str) <= 4 && str[0] == '$'
@@ -77,12 +76,15 @@ char	*expand_or_trad_var(t_data *data, char *str, size_t size)
 		result = ft_strdup("$");
 	else if (str[1] == '"' || str[1] == '\'')
 	{
-		quote = str[1];
-		size_ignore_quote = ft_strlen_ignore_quote(str + 1, quote);
+		size_ignore_quote = ft_strlen_ignore_quote(str + 1, str[1]);
 		result = ft_strndup(str + 1, size_ignore_quote);
 	}
 	else
+	{
 		result = search_env_str(data, str + 1, size - 1);
+		if (!result)
+			return (strdup_and_check_malloc(&data->garbage));
+	}
 	if (!result)
 	{
 		ft_dprintf(2, "minishell: malloc: Critical error of malloc.\n");

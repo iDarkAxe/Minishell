@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_home.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:10:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 14:08:22 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 15:20:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,8 @@ static char	*expand_tildes(t_garbage *garbage, char *str)
 	if (home == NULL)
 		return (ft_strdup_gb(garbage, str));
 	count_tildes = ft_strlen_char(str, '~');
-	result = malloc(ft_strlen(str) + 1 + count_tildes * ft_strlen(home));
-	if (result == NULL)
-	{
-		free_element_gb(garbage, str);
-		ft_exit_int_np(garbage, EXIT_FAILURE);
-	}
-	add_to_garbage(garbage, result);
+	result = malloc_gb(garbage,
+			ft_strlen(str) + 1 + count_tildes * ft_strlen(home));
 	change_tildes_by_home(result, home, str);
 	free_element_gb(garbage, str);
 	return (result);

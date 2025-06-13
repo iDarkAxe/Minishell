@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/04 11:16:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:16:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "minishell.h"
 #include "exec.h"
 #include <errno.h>
-#include <stdio.h>
+
 #include <sys/wait.h>
 #include "ft_printf.h"
 #include <string.h>

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 13:27:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:24:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:16:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include "minishell.h"
 #include <readline/readline.h>
-#include <stdio.h>
+
 #include <stdlib.h>
 
 /**
@@ -90,6 +90,12 @@ void	*malloc_gb(t_garbage *garbage, size_t size)
 	if (size == 0)
 		return (NULL);
 	ptr = malloc(size);
+	if (ptr == NULL)
+	{
+		ft_dprintf(2,
+			"minishell: malloc: Critical error of malloc, exiting.\n");
+		ft_exit_int_np(garbage, EXIT_FAILURE);
+	}
 	add_to_garbage(garbage, ptr);
 	return (ptr);
 }

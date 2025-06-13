@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:39:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:57:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include "minishell.h"
 #include "parsing.h"
-#include <stdio.h>
+
 #include <stdlib.h>
 
 /**

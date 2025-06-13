@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:24:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:23:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 16:09:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_bool	detect_quote(const char *str);
 char	*fill_string(char *result, char *temp);
 
 // Utils expand
+char	*strdup_and_check_malloc(t_garbage *garbage);
 char	*expand_or_trad_var(t_data *data, char *str, size_t size);
 void	expand_and_fill_result(t_data *data, char **result, char *str,
 			size_t size);

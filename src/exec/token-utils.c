@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 16:55:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:19:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "minishell.h"
-#include <stdio.h>
 
 static size_t	count_tokens(t_token const *head);
 static char		**fill_toks(t_garbage *garbage, t_token *head, char **tokens);
@@ -38,10 +37,7 @@ char	**copy_toks(t_data *data, t_command *command)
 	if (token && token->str != NULL && ft_strncmp(token->str, "|", 2) == 0)
 		token = token->next;
 	count = count_tokens(token);
-	tokens = malloc(sizeof(char *) * (count + 1));
-	if (!tokens)
-		return (NULL);
-	add_to_garbage(&data->garbage, tokens);
+	tokens = malloc_gb(&data->garbage, sizeof(char *) * (count + 1));
 	if (count == 0)
 	{
 		tokens[0] = NULL;

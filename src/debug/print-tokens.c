@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:22:46 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 17:24:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:18:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
 #include "minishell.h"
-#include <stdio.h>
 
 /**
  * @brief Print toks indexed

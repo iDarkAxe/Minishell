@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   create_str_with_params.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:55:14 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/28 15:24:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:18:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
+#include "ft_printf.h"
 #include "env.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * @brief count_size_total_params count the total of params
@@ -53,10 +53,11 @@ char	*create_str_with_params(t_garbage *garbage, t_params *params)
 	if (!params)
 		return (NULL);
 	str = malloc((count_size_total_params(params) + 1) * sizeof(char));
-	if (!str)
+	if (str == NULL)
 	{
-		perror("minishell: malloc");
-		ft_exit_int_np(garbage, 1);
+		ft_dprintf(2,
+			"minishell: malloc: Critical error of malloc, exiting.\n");
+		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	str_len = 0;
 	while (params != NULL)

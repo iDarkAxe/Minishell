@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:12:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:43:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:19:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 #include "garbage.h"
-#include <stdio.h>
 
 /**
  * @brief Find_str function to find the string of the two t_var to swap

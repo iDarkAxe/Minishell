@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:42:16 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 14:11:24 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 16:11:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,17 @@ static void	build_element_1(char **elements, char *str, size_t j, size_t i)
 {
 	size_t	size_1;
 
+	if (!elements || !str)
+		return ;
 	size_1 = ft_strlen(&str[i + 1]);
 	elements[1] = malloc(sizeof(char) * size_1 + 1);
-	if (!elements[1])
+	if (!elements[0])
+	{
+		free(elements[0]);
+		free(elements);
+		elements = NULL;
 		return ;
+	}
 	while (str[++i])
 	{
 		elements[1][j] = str[i];
@@ -48,9 +55,15 @@ static void	build_element_1(char **elements, char *str, size_t j, size_t i)
  */
 static void	build_element_0(char **elements, char *str, size_t size, size_t *i)
 {
+	if (!elements || !str)
+		return ;
 	elements[0] = malloc(sizeof(char) * size + 1);
 	if (!elements[0])
+	{
+		free(elements);
+		elements = NULL;
 		return ;
+	}
 	elements[1] = NULL;
 	while (str[*i] && str[*i] != '=')
 	{
@@ -73,6 +86,8 @@ char	**build_elements(char *str)
 	size_t	i;
 	size_t	j;
 
+	if (!str)
+		return (NULL);
 	elements = malloc(sizeof(char *) * 3);
 	if (!elements)
 		return (NULL);
@@ -80,7 +95,9 @@ char	**build_elements(char *str)
 	i = 0;
 	j = 0;
 	build_element_0(elements, str, size, &i);
-	if (str[i] == '=')
+	if (!elements)
+		return (NULL);
+	if (str[i] == '=' && str[i + 1] != '\0')
 		build_element_1(elements, str, j, i);
 	return (elements);
 }

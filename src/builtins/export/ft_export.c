@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:41:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:42:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:02:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtins.h"
+#include "ft_printf.h"
 #include "env.h"
 #include "libft.h"
 #include "minishell.h"
@@ -96,8 +97,12 @@ int	ft_export(t_data *data, char **array)
 		if (check_errors == 2 || check_errors == 1)
 			return (check_errors);
 		elements = build_elements(array[i]);
-		if (!elements)
-			ft_exit_int(&data->garbage, -1);
+		if (elements == NULL)
+		{
+			ft_dprintf(2,
+				"minishell: malloc: Critical error of malloc, exiting.\n");
+			ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+		}
 		add_or_replace(data, elements, array, i);
 		i++;
 	}

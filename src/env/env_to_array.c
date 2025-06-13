@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:31:24 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:41:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 14:53:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,10 +149,7 @@ char	**env_to_array(t_data *data)
 	i = 0;
 	size = ft_count_var(data) + 1;
 	temp = data->env.head_var;
-	array = malloc(sizeof(char *) * size);
-	if (!array)
-		return (NULL);
-	add_to_garbage(&data->garbage, array);
+	array = malloc_gb(&data->garbage, sizeof(char *) * size);
 	while (temp != NULL)
 	{
 		array[i] = var_to_str(temp);

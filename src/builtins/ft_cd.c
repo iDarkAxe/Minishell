@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 13:21:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:10:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,9 @@ void	change_cwd(t_data *data, t_bool is_pwd)
 	export_arg = ft_strjoins((char *[]){var, path, NULL});
 	if (export_arg == NULL)
 		ft_exit_int_np(&data->garbage, 1);
+	add_to_garbage(&data->garbage, export_arg);
 	ft_export(data, (char *[]){export_arg, NULL});
-	free(export_arg);
+	free_element_gb(&data->garbage, export_arg);
 }
 
 /**

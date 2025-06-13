@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:21:20 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 14:25:26 by lud-adam         ###   ########.fr       */
+/*   Updated: 2025/06/13 16:11:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,23 @@
 #include "garbage.h"
 #include "libft.h"
 #include "data_structure.h"
+#include "builtins.h"
+#include "ft_printf.h"
 #include "parsing.h"
+
+char	*strdup_and_check_malloc(t_garbage *garbage)
+{
+	char	*temp;
+
+	temp = ft_strdup(NULL);
+	if (temp == NULL)
+	{
+		ft_dprintf(2,
+			"minishell: malloc: Critical error of malloc, exiting.\n");
+		ft_exit_int_np(garbage, EXIT_FAILURE);
+	}
+	return (temp);
+}
 
 /**
  * @brief detect_letters detect letters in a string
@@ -54,15 +70,15 @@ char	*search_env_str(t_data *data, const char *var, size_t size)
 		if (ft_strncmp(head->value, var, size) == 0
 			&& ft_strlen(head->value) == size)
 		{
-			str = create_str_with_params(&data->garbage, head->head_params);
-			if (!str)
+			if (!head->head_params)
 				return (NULL);
+			str = create_str_with_params(&data->garbage, head->head_params);
 			return (str);
 		}
 		head = head->next;
 	}
 	if (head == NULL && str == NULL)
-		str = ft_strdup(NULL);
+		str = strdup_and_check_malloc(&data->garbage);
 	return (str);
 }
 

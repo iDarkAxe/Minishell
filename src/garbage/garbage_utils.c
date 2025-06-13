@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:47:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:27:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/13 15:16:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 #include <stddef.h>
-#include <stdio.h>
+
 #include <stdlib.h>
 
 char	*ft_strndup_gb(t_garbage *garbage, const char *source, size_t len);
