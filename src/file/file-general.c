@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 11:34:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:51:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,4 @@ void	read_write_to(t_garbage *garbage, t_command *command, t_bool in_out)
 		perror("minishell");
 		command->file_error = 1;
 	}
-}
-
-/**
- * @brief Put the fds in command to there default values
- *
- * @param command command structure
- */
-void	fd_default(t_command *command)
-{
-	if (!command)
-		return ;
-	command->fd[0] = 0;
-	command->fd[1] = 1;
 }

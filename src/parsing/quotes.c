@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 09:43:27 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 15:57:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:48:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,6 @@
 #include "parsing.h"
 
 #include <stdlib.h>
-
-/**
- * @brief ft_strlen_ignore_first_c compute size without quotes 
- *
- * @param str string to check, c character to check 
- * @return size of str 
- */
-size_t	ft_strlen_ignore_first_c(const char *str, char c)
-{
-	size_t	count_c;
-	size_t	size;
-
-	count_c = 0;
-	size = 0;
-	while (str && *str)
-	{
-		if (*str == c)
-			count_c++;
-		if (count_c == 2)
-			return (size);
-		str++;
-		size++;
-	}
-	return (size);
-}
 
 /**
  * @brief compute_size_quotes compute size of str for differents cases of quotes 

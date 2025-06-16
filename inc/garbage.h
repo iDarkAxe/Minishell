@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/02 17:49:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:50:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ void						print_garbage(t_garbage *garbage);
 t_element					*ft_garbagenew(void *ptr);
 void						ft_garbageadd_front(t_garbage *garbage,
 								t_element *new);
-void						ft_garbageadd_back(t_garbage *stack,
-								t_element *new) __attribute__((deprecated));
 int							ft_garbageclear(t_garbage *data);
 /** @} */
 #endif

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:45:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:54:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ t_bool	detect_equal(char *str)
 
 t_bool	detect_dollar_str(char *str)
 {
-	while (str && *str)
+	if (!str)
+		return (FALSE);
+	while (*str)
 	{
 		if (*str == '$')
 			return (TRUE);
@@ -66,8 +68,10 @@ size_t	ft_strlen_choose_c(const char *str, char c)
 {
 	size_t	i;
 
+	if (str == NULL)
+		return (0);
 	i = 0;
-	while (str && str[i] && str[i] != c)
+	while (str[i] && str[i] != c)
 		i++;
 	return (i);
 }

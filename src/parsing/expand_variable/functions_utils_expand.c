@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:21:20 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 16:11:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:49:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,6 @@ char	*strdup_and_check_malloc(t_garbage *garbage)
 		ft_exit_int_np(garbage, EXIT_FAILURE);
 	}
 	return (temp);
-}
-
-/**
- * @brief detect_letters detect letters in a string
- * @param str to check
- * @return t_bool
- */
-t_bool	detect_letters(char *str)
-{
-	while (str && *str)
-	{
-		if (ft_isalpha(*str) == 1)
-			return (TRUE);
-		str++;
-	}
-	return (FALSE);
 }
 
 /**

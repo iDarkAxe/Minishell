@@ -6,13 +6,13 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/13 14:43:47 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/16 17:55:08 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 CC = cc
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wall -Wextra -Werror
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
@@ -22,7 +22,7 @@ NAME = minishell
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-missing-noreturn
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -155,10 +155,10 @@ ENV = \
 	update_shlvl.c \
 	env_to_array.c \
 
-DEBUG = \
-	print-tokens.c \
-	file_print.c \
-	command-utils.c \
+# DEBUG = \
+# 	print-tokens.c \
+# 	file_print.c \
+# 	command-utils.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \
@@ -185,7 +185,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_BUILTINS_EXIT), $(BUILTINS_EXIT)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
-	$(addprefix $(P_SRC)$(P_DEBUG), $(DEBUG)) \
+# $(addprefix $(P_SRC)$(P_DEBUG), $(DEBUG)) \
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 14:29:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:31:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@
  */
 int			minishell(t_data *data);
 int			is_interactive(void);
-int			minishell_no_tty(t_data *data);
 char		*get_prompt_message(t_garbage *garbage);
 /** @} */
 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 09:22:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/28 14:51:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:51:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ static t_command	*create_command(t_data *data)
 		return (NULL);
 	}
 	command->envp = env_to_array(data);
-	fd_default(command);
+	command->fd[0] = 0;
+	command->fd[1] = 1;
 	return (command);
 }
 

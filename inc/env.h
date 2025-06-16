@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 10:31:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/16 17:53:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,15 @@ struct						s_supp
 int							check_args_export(const char *str);
 size_t						ft_strlen_choose_c(const char *str, char c);
 int							ft_strcmp(const char *s1, const char *s2);
-void						print_env_vars(t_env_vars *env);
 t_bool						detect_equal(char *str);
 char						**build_elements(char *str);
 
 // Utils env
-t_env_vars					*init_env(char **envp);
 t_env_vars					*copy_env(t_garbage *garbage, t_env_vars *env);
 void						set_env(t_data *data, char *envp[]);
 void						sort_ascii_order(t_garbage *garbage,
 								t_env_vars *env);
 t_var						*search_env_var(t_env_vars *env, char *var);
-int							count_env(t_env_vars env);
 void						update_shlvl(t_garbage *garbage, t_env_vars *env);
 char						**env_to_array(t_data *data);
 
