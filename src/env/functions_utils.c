@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:02:53 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/16 17:54:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 11:44:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ size_t	ft_strlen_choose_c(const char *str, char c)
 
 t_bool	ft_is_special_character(char c)
 {
+	if (c == '_')
+		return (FALSE);
 	if ((c >= '!' && c <= '/') || (c >= ':' && c <= '@') || (c >= '['
 			&& c <= '`') || (c >= '{' && c <= '~'))
 		return (TRUE);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 15:10:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 14:05:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	change_cwd(t_data *data, t_bool is_pwd)
 	char	*var;
 	char	*export_arg;
 	char	path[PATH_MAX];
+	int		error;
 
 	if (is_pwd == 1)
 		var = "PWD=";
@@ -68,7 +69,9 @@ void	change_cwd(t_data *data, t_bool is_pwd)
 		var = "OLDPWD=";
 	if (getcwd(path, PATH_MAX) == NULL)
 	{
-		perror("minishell : modify CWD :");
+		error = errno;
+		ft_dprintf(2, "minishell : cd : modify CWD : %s : %s\n", var,
+			strerror(error));
 		return ;
 	}
 	export_arg = ft_strjoins((char *[]){var, path, NULL});
@@ -94,7 +97,8 @@ static int	check_args(t_data *data, t_env_vars *env, char **array)
 		ft_dprintf(2, "minishell: cd: too many arguments\n");
 		return (-1);
 	}
-	if (array[0] && ft_strncmp(array[0], "-", 2) == 0)
+	if (array[0] && (ft_strncmp(array[0], "-", 2) == 0
+			|| ft_strncmp(array[0], "--", 3) == 0))
 		return (change_cwd_to_previous_cwd(data, env));
 	return (1);
 }
@@ -144,6 +148,7 @@ int	change_cwd_to_previous_cwd(t_data *data, t_env_vars *env)
 	if (path == NULL)
 		return (-1);
 	change_cwd(data, 0);
+	ft_printf("%s\n", path);
 	chdir(path);
 	change_cwd(data, 1);
 	return (0);

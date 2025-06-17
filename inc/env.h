@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/16 17:53:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 14:07:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void						ft_varsadd_front(t_var **head, t_var *new);
 void						supp_var(t_garbage *garbage, t_var **head,
 								char *str);
 void						swap_vars(t_garbage *garbage, t_var **head,
-								char *str, char *str_1);
+								char *str, char *str2);
 
 // free
 void						free_params(t_garbage *garbage, t_params *element);

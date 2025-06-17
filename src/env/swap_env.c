@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:12:12 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 15:19:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 14:07:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
  *
  * @param head reference to the head of the t_vars list to be swapped swap 
  * structure compose of multiple t_var to swap str string 
- * inside t_var str_1 string inside a t_var to exchange with str
+ * inside t_var str2 string inside a t_var to exchange with str
  */
-static void	find_str(t_vars *swap, t_var **head, char *str, char *str_1)
+static void	find_str(t_vars *swap, t_var **head, char *str, char *str2)
 {
 	while (swap->curr != NULL)
 	{
@@ -35,7 +35,7 @@ static void	find_str(t_vars *swap, t_var **head, char *str, char *str_1)
 	swap->curr = *head;
 	while (swap->curr != NULL)
 	{
-		if (ft_strcmp(str_1, swap->curr->value) == 0)
+		if (ft_strcmp(str2, swap->curr->value) == 0)
 		{
 			swap->curr_str_1 = swap->curr;
 			break ;
@@ -71,14 +71,14 @@ static void	swap_var(t_var **head, t_vars *swap)
  * @brief Swap_vars allows swap nodes t_vars
  *
  * @param head reference to the head of the t_vars list to be swapped,
- * str string inside t_var str_1 string inside a t_var to exchange with str
+ * str string inside t_var str2 string inside a t_var to exchange with str
  */
-void	swap_vars(t_garbage *garbage, t_var **head, char *str, char *str_1)
+void	swap_vars(t_garbage *garbage, t_var **head, char *str, char *str2)
 {
 	t_vars	*swap;
 
 	swap = malloc_gb(garbage, sizeof(t_vars));
-	if (!swap || !str || !str_1)
+	if (!swap || !str || !str2)
 		return ;
 	swap->prev_str = NULL;
 	swap->prev_str_1 = NULL;
@@ -86,9 +86,9 @@ void	swap_vars(t_garbage *garbage, t_var **head, char *str, char *str_1)
 	swap->curr_str_1 = NULL;
 	swap->temp = NULL;
 	swap->curr = *head;
-	if (ft_strcmp(str, str_1) == 0)
+	if (ft_strcmp(str, str2) == 0)
 		return ;
-	find_str(swap, head, str, str_1);
+	find_str(swap, head, str, str2);
 	if (swap->curr_str == NULL || swap->curr_str_1 == NULL)
 		return ;
 	swap_var(head, swap);

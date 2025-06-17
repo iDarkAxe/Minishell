@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   print_export.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lud-adam <lud-adam@student.42lyon.fr>        +  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:19:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/05/22 15:19:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 11:43:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
+#include "ft_printf.h"
 #include "garbage.h"
 #include "libft.h"
-#include "ft_printf.h"
 #include "minishell.h"
 
 static void	print_var(t_var *var)
 {
-	if (ft_isalpha(var->value[0]) == 1)
+	if (ft_isalpha(var->value[0]) == 1 || !(var->value[0] == '_'
+			&& var->value[1] == '\0'))
 	{
 		if (FOLLOW_ZSH == 0)
 			ft_putstr_fd("declare -x ", 1);
@@ -37,17 +38,12 @@ static void	print_params(t_var *var)
 	ft_printf("\"");
 	while (param && param->value != NULL)
 	{
-		if (ft_isalpha(var->value[0]) == 1)
-		{
-			ft_printf("%s", param->value);
-			if (param->next)
-				ft_printf(":");
-			param = param->next;
-		}
-		else
-			break ;
+		ft_printf("%s", param->value);
+		if (param->next)
+			ft_printf(":");
+		param = param->next;
 	}
-	ft_printf("\"");
+	ft_printf("\"\n");
 }
 
 void	print_export(t_env_vars *env)
@@ -63,10 +59,9 @@ void	print_export(t_env_vars *env)
 	{
 		print_var(var);
 		param = var->head_params;
-		if (param && param->value && ft_isalpha(var->value[0]) == 1)
+		if ((param && param->value && ft_isalpha(var->value[0]) == 1)
+			|| !(var->value[0] == '_' && var->value[1] == '\0'))
 			print_params(var);
-		if (ft_isalpha(var->value[0]) == 1)
-			ft_printf("\n");
 		var = var->next;
 	}
 }

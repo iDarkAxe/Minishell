@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/16 17:51:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 14:06:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_command				*remove_used_file_tokens(t_data *data);
 int						build_file_access(t_file *file);
 t_file					*file_parser(t_file *file);
 t_tmp					create_tmp(t_garbage *garbage, char *path, int nbr_try);
-char					*read_heredoc(t_tmp *tmp, char *delimiteur);
+char					*read_heredoc(t_tmp *tmp, char *delimitor);
 int						verify_access(t_garbage *garbage, t_command *command);
 t_file					*search_last_file(t_file *file,
 							t_file *already_searched);

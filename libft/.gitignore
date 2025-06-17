@@ -1,0 +1,15 @@
+main
+.idea/*
+.vscode/*
+
+**/*.obj
+**/*.o
+**/*.d
+
+**/a.out
+**/*.sw*
+libft.a
+**/*.a
+doxy-log-err.txt
+doxy-log.txt
+test.c
