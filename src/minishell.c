@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 15:06:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 17:41:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@
 #include <readline/readline.h>
 #include <stdlib.h>
 
-static char	*read_stdin(t_garbage *garbage);
-static char	*read_stdin_gnl(t_garbage *garbage);
+static char		*read_stdin(t_garbage *garbage);
+static char		*read_stdin_gnl(t_garbage *garbage);
+static t_bool	is_only_whitespace(const char *str);
 
 /**
  * @brief Minishell that handles all the shell functions
@@ -82,7 +83,13 @@ int	minishell(t_data *data)
  */
 static int	line_condition(t_garbage *garbage, char *line)
 {
-	if ((line != NULL && line[0] != '\0'))
+	if (line != NULL && line[0] != '\0' && is_only_whitespace(line) == TRUE)
+	{
+		free(line);
+		rl_on_new_line();
+		return (2);
+	}
+	if (line != NULL && line[0] != '\0')
 		return (1);
 	if (line == NULL)
 		ft_exit_int(garbage, 1);
@@ -148,4 +155,26 @@ static char	*read_stdin_gnl(t_garbage *garbage)
 		add_to_garbage(garbage, line);
 		return (line);
 	}
+}
+
+/**
+ * @brief Check if the string contains only whitespace characters
+ * 
+ * @param str string to check
+ * @return t_bool 1 all whitespace, 0 otherwise
+ */
+t_bool	is_only_whitespace(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (str == NULL)
+		return (FALSE);
+	while (str[i])
+	{
+		if (!isspace((unsigned char)str[i]))
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
 }

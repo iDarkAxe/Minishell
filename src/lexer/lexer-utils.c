@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:01:21 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 14:37:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/17 17:33:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	**init_lexer_state(t_garbage *garbage, t_lexer_state *lex_st,
  */
 int	is_operator_char(char c)
 {
-	return (c == '|' || c == '<' || c == '>' || c == ';');
+	return (c == '|' || c == '<' || c == '>');
 }
 
 /**
