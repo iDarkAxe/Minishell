@@ -1,4 +1,0 @@
-[submodule "libft"]
-	path = libft
-	url = https://github.com/iDarkAxe/libft
-	branch = master
