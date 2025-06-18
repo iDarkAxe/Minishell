@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/30 11:28:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 12:28:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,7 @@ void	wait_all_childs(t_command *command, pid_t *pids)
 	{
 		if (waitpid(pids[index], &wstatus, 0) == -1)
 			perror("waitpid");
-		if (WIFEXITED(wstatus))
-			current->return_value = WEXITSTATUS(wstatus);
-		else if (WIFSIGNALED(wstatus))
-			current->return_value = 128 + WTERMSIG(wstatus);
+		current->return_value = evaluate_status_code_as_ret(wstatus);
 		index++;
 		current = current->next;
 	}

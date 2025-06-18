@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 13:50:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 12:29:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,20 @@ int	prepare_command_forks(t_data *data)
 	free_element_gb(&data->garbage, pids);
 	signal_init();
 	return (ret_of_last_command(data));
+}
+
+/**
+ * @brief Uses masks to evaluate the real return value of process
+ * 
+ * @param status status to evaluate
+ * @return int return value
+ */
+int	evaluate_status_code_as_ret(int status)
+{
+	if (WIFSIGNALED(status))
+		return (128 + WTERMSIG(status));
+	else if (WIFEXITED(status))
+		return (WEXITSTATUS(status));
+	else
+		return (1);
 }

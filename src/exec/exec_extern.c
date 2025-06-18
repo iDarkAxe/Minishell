@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 15:16:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 12:27:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ int	execve_fork(t_data *data, char *path, char **toks, char **envp)
 	}
 	ignore_signal();
 	waitpid(pid, &status, 0);
-	free_element_gb(&data->garbage, path);
-	free_array(&data->garbage, toks);
 	signal_init();
-	return ((status >> 8) & 0xFF);
+	return (evaluate_status_code_as_ret(status));
 }
