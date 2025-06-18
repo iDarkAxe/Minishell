@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:21:20 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/16 17:49:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 12:54:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include "builtins.h"
 #include "ft_printf.h"
 #include "parsing.h"
+#include "ft_signal.h"
+
+static char	*handle_prev_ret_command_value(int ret);
 
 char	*strdup_and_check_malloc(t_garbage *garbage)
 {
@@ -32,6 +35,20 @@ char	*strdup_and_check_malloc(t_garbage *garbage)
 	return (temp);
 }
 
+char	*handle_prev_ret_command_value(int ret)
+{
+	char	*str;
+
+	if (g_sig != 0)
+	{
+		str = ft_itoa(g_sig);
+		g_sig = 0;
+	}
+	else
+		str = ft_itoa(ret);
+	return (str);
+}
+
 /**
  * @brief search_env_str search inside env the environment variables
  * @param var variable to search inside env, size var size
@@ -45,10 +62,7 @@ char	*search_env_str(t_data *data, const char *var, size_t size)
 	head = data->env.head_var;
 	str = NULL;
 	if (*var == '?')
-	{
-		str = ft_itoa(data->ret);
-		return (str);
-	}
+		return (handle_prev_ret_command_value(data->ret));
 	while (head != NULL)
 	{
 		if (ft_strncmp(head->value, var, size) == 0

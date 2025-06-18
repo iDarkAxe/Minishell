@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 15:16:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 12:55:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 #include "minishell.h"
 #include <readline/readline.h>
 #include <signal.h>
+#include "ft_signal.h"
 #include <stdlib.h>
 #include <unistd.h>
 
 void	signal_handler(int sig, siginfo_t *info, void *context);
+
+sig_atomic_t	g_sig;
 
 /**
  * @brief Main function for initialising signals
@@ -56,6 +59,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 {
 	(void)info;
 	(void)context;
+	g_sig = sig;
 	if (sig == SIGINT)
 	{
 		ft_printf("\n");

@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/16 17:55:08 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/18 12:56:25 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ INC = \
 	builtins.h \
 	parsing.h \
 	data_structure.h \
-	exec.h
+	exec.h \
+	ft_signal.h
 
 # Source files
 SRC = \

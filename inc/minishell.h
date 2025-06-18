@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/16 17:31:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 13:02:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@
  */
 # ifndef FOLLOW_ZSH
 #  define FOLLOW_ZSH 0
+# endif
+
+/**
+ * @brief Enable non-interactive mode
+ * 
+ */
+# ifndef NON_INTERACTIVE_MODE
+#  define NON_INTERACTIVE_MODE 0
 # endif
 
 # include "data_structure.h"
