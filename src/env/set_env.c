@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:50:23 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 15:15:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 16:19:35 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ void	set_env(t_data *data, char *envp[])
 	size_t	i;
 
 	data->env.head_var = NULL;
+	data->last_token = NULL;
 	i = 0;
 	while (envp[i] != NULL)
 	{
@@ -168,5 +169,7 @@ void	set_env(t_data *data, char *envp[])
 		i++;
 	}
 	update_shlvl(&data->garbage, &data->env);
-	change_cwd(data, 0);
+	create_last_tokens_var(&data->garbage, &data->env);
+	change_cwd(data, 1);
+	ft_export(data, (char *[]){"OLDPWD", NULL});
 }

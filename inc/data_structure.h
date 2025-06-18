@@ -47,6 +47,7 @@ struct							s_data
 	t_env_vars					env;
 	t_command					*command;
 	int							ret;
+	char						*last_token;
 };
 
 /**

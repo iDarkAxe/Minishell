@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update_shlvl.c                                     :+:      :+:    :+:   */
+/*   update_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:45:33 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:43:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 11:57:12 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,51 @@ static void	create_shlvl(t_garbage *garbage, t_env_vars *env)
 	return ;
 }
 
+void	create_last_tokens_var(t_garbage *garbage, t_env_vars *env)
+{
+	t_var	*last_tokens_var;
+
+	last_tokens_var = get_var(garbage, "_");
+	if (!last_tokens_var)
+		return ;
+	last_tokens_var->head_params = get_param(garbage, "minishell", TRUE);
+	if (!last_tokens_var->head_params)
+		return ;
+	ft_varsadd_back(&env->head_var, last_tokens_var);
+	return ;
+}
+
+static	char	*choose_content(t_data	*data)
+{
+	t_token	*temp;
+	char	*str2;
+
+	if (!data || !data->command)
+		return (NULL);
+	if (data->command->next)
+		str2 = ft_strdup("minishell");
+	else
+	{
+		temp = data->command->tokens;
+		while (temp->next != NULL)
+			temp = temp->next;
+		str2 = ft_strdup(temp->str);
+	}
+	return (str2);
+}
+
 /**
  * @brief update_last_token function to update _ var
  */
 void	update_last_token(t_data *data)
 {
-	t_token	*temp;
 	char	*str;
+	char	*str2;
 
-	temp = data->command->tokens;
-	while (1)
-	{
-		if (temp->next == NULL)
-			break ;
-		temp = temp->next;
-	}
-	str = ft_strjoin("_=",temp->str);
+	str2 = choose_content(data);
+	if (!str2)
+		return ;
+	str = ft_strjoin("_=", str2);
 	if (!str)
 	{
 		ft_dprintf(2,
@@ -63,6 +92,16 @@ void	update_last_token(t_data *data)
 	}
 	ft_export(data, (char *[]){str, NULL});
 	free(str);
+	if (data->last_token)
+		free_element_gb(&data->garbage, data->last_token);
+	data->last_token = str2;
+	if (!data->last_token)
+	{
+		ft_dprintf(2,
+			"minishell: malloc: Critical error of malloc, exiting.\n");
+		ft_exit_int_np(&data->garbage, EXIT_FAILURE);
+	}
+	add_to_garbage(&data->garbage, data->last_token);
 }
 
 /**

@@ -66,7 +66,6 @@ int	minishell(t_data *data)
 			free_array(&data->garbage, tokens);
 			continue ;
 		}
-		update_last_token(data);
 		search_paths(data, data->command);
 		if (preparation_and_exec(data) != 1)
 			ft_exit_int_np(&data->garbage, 1);

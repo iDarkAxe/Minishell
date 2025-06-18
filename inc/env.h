@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:28:35 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/17 14:07:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 11:14:41 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void						sort_ascii_order(t_garbage *garbage,
 t_var						*search_env_var(t_env_vars *env, char *var);
 void						update_shlvl(t_garbage *garbage, t_env_vars *env);
 void						update_last_token(t_data *data);
+void						create_last_tokens_var(t_garbage *garbage,
+								t_env_vars *env);
 char						**env_to_array(t_data *data);
 
 // Utils params

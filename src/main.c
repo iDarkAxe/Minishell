@@ -37,6 +37,7 @@ int	main(int argc, char **argv, char **envp)
 		ft_dprintf(2, "Minishell doesn't take arguments\n");
 		return (EXIT_FAILURE);
 	}
+	ft_bzero(&data, sizeof(t_data));
 	garbage_init(&data.garbage);
 	g_sig = 0;
 	signal_init();

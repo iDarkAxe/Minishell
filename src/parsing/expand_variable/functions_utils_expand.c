@@ -103,7 +103,7 @@ static void	setup_quote(char *str, char *quote, t_bool *is_expandable)
 		*is_expandable = TRUE;
 	}
 	str++;
-	if (ft_isalnum(*str) == 1 || *str == '$' || *str == '?')
+	if (ft_isalnum(*str) == 1 || *str == '$' || *str == '?' || *str == '_')
 		return ;
 	setup_quote(str, quote, is_expandable);
 }
@@ -132,7 +132,7 @@ t_bool	is_expandable(char *str)
 		return (TRUE);
 	i++;
 	if (ft_isalpha(str[i]) == 1 || str[i] == '?'
-		|| str[i] == '\'' || str[i] == '"')
+		|| str[i] == '\'' || str[i] == '"' || str[i] == '_')
 	{
 		setup_quote(str, &quote, &is_expandable);
 		if (is_expandable == TRUE)
