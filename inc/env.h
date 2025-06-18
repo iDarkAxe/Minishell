@@ -86,6 +86,7 @@ void						sort_ascii_order(t_garbage *garbage,
 								t_env_vars *env);
 t_var						*search_env_var(t_env_vars *env, char *var);
 void						update_shlvl(t_garbage *garbage, t_env_vars *env);
+void						update_last_token(t_data *data);
 char						**env_to_array(t_data *data);
 
 // Utils params
@@ -94,8 +95,6 @@ char						*create_str_with_params(t_garbage *garbage,
 t_params					*get_param(t_garbage *garbage, char *content,
 								size_t detect_equal);
 t_params					*ft_paramlast(t_params *params);
-void						replace_param(t_garbage *garbage, t_var *var,
-								char *new_content, size_t equal);
 void						ft_paramsadd_back(t_params **params, t_params *new);
 void						print_export(t_env_vars *env);
 

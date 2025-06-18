@@ -59,9 +59,10 @@ void	print_export(t_env_vars *env)
 	{
 		print_var(var);
 		param = var->head_params;
-		if ((param && param->value && ft_isalpha(var->value[0]) == 1)
-			|| !(var->value[0] == '_' && var->value[1] == '\0'))
+		if ((param && param->value) && (ft_isalpha(var->value[0]) == 1 || !(var->value[0] == '_' && var->value[1] == '\0')))
 			print_params(var);
+		if (!param)
+			ft_printf("\n");
 		var = var->next;
 	}
 }

@@ -18,6 +18,32 @@
 #include <stdlib.h>
 
 /**
+ * @brief replace_param replace params of a t_param
+ * @param var t_var to replace the params, new_content new content 
+ * to put inside param 
+ */
+static void	replace_param(t_garbage *garbage, t_var *var, char *new_content,
+		size_t equal)
+{
+	char	*new_value;
+
+	if (!var || (var && !new_content && equal == FALSE))
+		return ;
+	new_value = ft_strdup_gb(garbage, new_content);
+	var->head_params = get_param(garbage, new_content, equal);
+	if (var->head_params == NULL && equal == TRUE)
+	{
+		var->head_params->value = new_value;
+		return ;
+	}
+	if (var->head_params != NULL)
+	{
+		free_element_gb(garbage, var->head_params->value);
+		var->head_params->value = new_value;
+	}
+}
+
+/**
  * @brief Add_var_and_param take the name key and value and create a var 
  * and param associate to the var and add this inside env
  * @param var string that the name of the t_var

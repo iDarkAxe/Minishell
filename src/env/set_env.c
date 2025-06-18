@@ -169,5 +169,4 @@ void	set_env(t_data *data, char *envp[])
 	}
 	update_shlvl(&data->garbage, &data->env);
 	change_cwd(data, 0);
-	change_cwd(data, 1);
 }

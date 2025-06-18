@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/18 12:56:25 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/06/18 14:44:36 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -153,7 +153,7 @@ ENV = \
 	swap_env.c \
 	sort_env.c \
 	free_env.c \
-	update_shlvl.c \
+	update_env.c \
 	env_to_array.c \
 
 # DEBUG = \

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/17 17:41:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/18 15:55:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	minishell(t_data *data)
 			free_array(&data->garbage, tokens);
 			continue ;
 		}
+		update_last_token(data);
 		search_paths(data, data->command);
 		if (preparation_and_exec(data) != 1)
 			ft_exit_int_np(&data->garbage, 1);
