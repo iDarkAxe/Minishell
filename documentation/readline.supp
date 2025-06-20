@@ -1,0 +1,12 @@
+{
+   ReadlineSuppressions
+   Memcheck:Leak
+   ...
+   obj:*/libreadline.so*
+}
+{
+	ReadlineHistorySuppressions
+	Memcheck:Leak
+	...
+	fun:add_history
+}

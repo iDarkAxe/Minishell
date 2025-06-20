@@ -1,0 +1,21 @@
+name: 42 Norminette
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Norminette
+        run: python3 -m pip install norminette
+      
+      - name: Run Norminette on SRCS and INCS
+        run: |
+          norminette src inc | tee norm_results.txt
+          if grep -q "Error" norm_results.txt; then exit 1; fi
