@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/18 12:28:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 16:08:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	wait_all_childs(t_command *command, pid_t *pids)
 	current = command;
 	while (index < nbr_cmds && current)
 	{
+		wstatus = 0;
 		if (waitpid(pids[index], &wstatus, 0) == -1)
 			perror("waitpid");
 		current->return_value = evaluate_status_code_as_ret(wstatus);
