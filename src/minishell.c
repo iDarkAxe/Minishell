@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:54:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/18 15:55:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 15:25:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ t_bool	is_only_whitespace(const char *str)
 		return (FALSE);
 	while (str[i])
 	{
-		if (!isspace((unsigned char)str[i]))
+		if (!ft_isspace((unsigned char)str[i]))
 			return (FALSE);
 		i++;
 	}
