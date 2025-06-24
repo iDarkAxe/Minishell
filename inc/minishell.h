@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/06 10:55:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/02/12 11:56:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /**
  * @brief Make the prompt custom (with colors)
- * 
+ *
  * looks like : "$USER@$(hostname):$(pwd)$
  * colors :	- user and hostname + ':'
  *			- current working directory
@@ -27,7 +27,7 @@
 
 /**
  * @brief Follow certain added functionnality of ZSH to minishell
- * 
+ *
  */
 # ifndef FOLLOW_ZSH
 #  define FOLLOW_ZSH 0
@@ -35,7 +35,7 @@
 
 /**
  * @brief Enable non-interactive mode
- * 
+ *
  */
 # ifndef NON_INTERACTIVE_MODE
 #  define NON_INTERACTIVE_MODE 0

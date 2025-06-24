@@ -32,6 +32,7 @@ int	preparation_and_exec(t_data *data)
 		data->ret = prepare_command_forks(data);
 	else
 		data->ret = prepare_command(data);
+	update_last_token(data);
 	return (1);
 }
 

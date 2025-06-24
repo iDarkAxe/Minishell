@@ -23,7 +23,7 @@ typedef struct s_file	t_file;
 
 /**
  * @brief Basic structure to help manipulating heredocs (tmp file)
- * 
+ *
  */
 struct					s_tmp
 {
@@ -33,7 +33,7 @@ struct					s_tmp
 
 /**
  * @brief Structure to handle all the data of a file
- * 
+ *
  */
 struct					s_file
 {

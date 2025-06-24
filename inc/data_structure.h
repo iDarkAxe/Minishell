@@ -13,9 +13,9 @@
 #ifndef DATA_STRUCTURE_H
 # define DATA_STRUCTURE_H
 
-# include "libft.h"
-# include "garbage.h"
 # include "env.h"
+# include "garbage.h"
+# include "libft.h"
 
 // FROM file.h
 typedef struct s_tmp			t_tmp;
@@ -39,7 +39,7 @@ typedef struct s_data			t_data;
 
 /**
  * @brief General structure that have access to all needed in minishell
- * 
+ *
  */
 struct							s_data
 {
@@ -52,7 +52,7 @@ struct							s_data
 
 /**
  * @brief Structure that handles all the command and there contents
- * 
+ *
  */
 struct							s_command
 {
@@ -71,7 +71,7 @@ struct							s_command
 
 /**
  * @brief Basic structure of linked list of strings
- * 
+ *
  */
 struct							s_token
 {
@@ -89,9 +89,9 @@ struct							s_token
 # endif
 
 /**
- * @brief Structure used by lexer to efficiently 
+ * @brief Structure used by lexer to efficiently
  * have access to a bunch of variables
- * 
+ *
  */
 struct							s_lexer_state
 {
