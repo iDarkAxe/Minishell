@@ -15,7 +15,7 @@
 
 /**
  * @brief Make the prompt custom (with colors)
- * 
+ *
  * looks like : "$USER@$(hostname):$(pwd)$
  * colors :	- user and hostname + ':'
  *			- current working directory
@@ -27,7 +27,7 @@
 
 /**
  * @brief Follow certain added functionnality of ZSH to minishell
- * 
+ *
  */
 # ifndef FOLLOW_ZSH
 #  define FOLLOW_ZSH 0
@@ -35,10 +35,10 @@
 
 /**
  * @brief Enable non-interactive mode
- * 
+ *
  */
 # ifndef NON_INTERACTIVE_MODE
-#  define NON_INTERACTIVE_MODE 0
+#  define NON_INTERACTIVE_MODE 1
 # endif
 
 # include "data_structure.h"

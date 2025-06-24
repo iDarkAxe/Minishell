@@ -43,6 +43,9 @@ void	create_last_tokens_var(t_garbage *garbage, t_env_vars *env)
 {
 	t_var	*last_tokens_var;
 
+	last_tokens_var = search_env_var(env, "_", 1);
+	if (last_tokens_var)
+		return ;
 	last_tokens_var = get_var(garbage, "_");
 	if (!last_tokens_var)
 		return ;
@@ -55,20 +58,19 @@ void	create_last_tokens_var(t_garbage *garbage, t_env_vars *env)
 
 static	char	*choose_content(t_data	*data)
 {
-	t_token	*temp;
-	char	*str2;
+	t_token		*temp;
+	t_command	*temp_command;
+	char		*str2;
 
 	if (!data || !data->command)
 		return (NULL);
-	if (data->command->next)
-		str2 = ft_strdup("minishell");
-	else
-	{
-		temp = data->command->tokens;
-		while (temp->next != NULL)
-			temp = temp->next;
-		str2 = ft_strdup(temp->str);
-	}
+	temp_command = data->command;
+	while (temp_command->next != NULL)
+		temp_command = temp_command->next;
+	temp = temp_command->tokens;
+	while (temp->next != NULL)
+		temp = temp->next;
+	str2 = ft_strdup(temp->str);
 	return (str2);
 }
 
@@ -117,7 +119,7 @@ void	update_shlvl(t_garbage *garbage, t_env_vars *env)
 
 	if (!env)
 		return ;
-	shlvl = search_env_var(env, "SHLVL");
+	shlvl = search_env_var(env, "SHLVL", ft_strlen("SHLVL"));
 	if (!shlvl)
 	{
 		create_shlvl(garbage, env);

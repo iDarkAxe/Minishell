@@ -36,7 +36,6 @@ void	search_path(t_data *data, t_command *command)
 	char	**all_paths;
 	size_t	index;
 
-	update_last_token(data);
 	if (ft_strncmp(command->tokens->str, "|", 2) == 0)
 		cmd = command->tokens->next->str;
 	else

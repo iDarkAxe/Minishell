@@ -56,18 +56,19 @@ void	supp_var(t_garbage *garbage, t_var **head, char *str)
  * @param var variable to search inside the envrionment 
  * @return t_var or NULL if no variable find
  */
-t_var	*search_env_var(t_env_vars *env, char *var)
+t_var	*search_env_var(t_env_vars *env, char *var, size_t size)
 {
-	t_var	*head;
+	t_var	*temp;
 
-	head = env->head_var;
-	while (head != NULL)
+	temp = env->head_var;
+	while (temp != NULL)
 	{
-		if (ft_strcmp(head->value, var) == 0)
-			return (head);
-		head = head->next;
+		if (ft_strncmp(temp->value, var, size) == 0
+			&& ft_strlen(temp->value) == size)
+			return (temp);
+		temp = temp->next;
 	}
-	if (head == NULL)
+	if (temp == NULL)
 		return (NULL);
 	return (NULL);
 }

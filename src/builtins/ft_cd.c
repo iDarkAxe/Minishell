@@ -115,7 +115,7 @@ int	change_cwd_to_home(t_data *data, t_env_vars *env)
 	char	*path;
 
 	path = NULL;
-	var = search_env_var(env, "HOME");
+	var = search_env_var(env, "HOME", ft_strlen("HOME"));
 	if (!var || !var->head_params || !var->head_params->value)
 		ft_dprintf(2, "minishell: cd: HOME not set\n");
 	if (var && var->head_params)
@@ -140,7 +140,7 @@ int	change_cwd_to_previous_cwd(t_data *data, t_env_vars *env)
 	char	*path;
 
 	path = NULL;
-	var = search_env_var(env, "OLDPWD");
+	var = search_env_var(env, "OLDPWD", ft_strlen("OLDPWD"));
 	if (!var || !var->head_params || !var->head_params->value)
 		ft_dprintf(2, "minishell: cd: OLDPWD not set\n");
 	if (var && var->head_params)

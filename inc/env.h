@@ -84,7 +84,8 @@ t_env_vars					*copy_env(t_garbage *garbage, t_env_vars *env);
 void						set_env(t_data *data, char *envp[]);
 void						sort_ascii_order(t_garbage *garbage,
 								t_env_vars *env);
-t_var						*search_env_var(t_env_vars *env, char *var);
+t_var						*search_env_var(t_env_vars *env, char *var,
+								size_t size);
 void						update_shlvl(t_garbage *garbage, t_env_vars *env);
 void						update_last_token(t_data *data);
 void						create_last_tokens_var(t_garbage *garbage,
