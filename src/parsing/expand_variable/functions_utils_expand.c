@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:21:20 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/18 15:50:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 10:19:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*handle_prev_ret_command_value(int ret)
 
 	if (g_sig != 0)
 	{
-		str = ft_itoa(g_sig);
+		str = ft_itoa(g_sig + SIG_OFFSET);
 		g_sig = 0;
 	}
 	else

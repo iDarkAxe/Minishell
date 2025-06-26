@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:40:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 13:29:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 10:17:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**get_path(t_data *data)
 		{
 			if (ft_strlen(envp[i]) > 5)
 			{
-				all_path_bins = ft_split(envp[i], ':');
+				all_path_bins = ft_split(&envp[i][5], ':');
 				free_array(&data->garbage, envp);
 				add_to_garbage(&data->garbage, all_path_bins);
 				return (all_path_bins);
