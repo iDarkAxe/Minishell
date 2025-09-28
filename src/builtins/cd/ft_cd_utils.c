@@ -1,60 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cd.c                                            :+:      :+:    :+:   */
+/*   ft_cd_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/17 14:05:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/28 16:21:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "garbage.h"
-#include "ft_printf.h"
-#include "minishell.h"
+#include "data_structure.h"
 #include "builtins.h"
-#include "env.h"
-#include <linux/limits.h>
-#include <limits.h>
+#include "ft_printf.h"
 #include <errno.h>
+#include <limits.h>
 #include <string.h>
-
-static int	check_args(t_data *data, t_env_vars *env, char **array);
-
-/**
- * @brief Implementatin of cd builtin of shell
- *
- * @param data data structure
- * @param array array of strings
- * @return int 0 OK, 1 otherwise
- */
-int	ft_cd(t_data *data, char **array)
-{
-	int	ret;
-
-	ret = check_args(data, &data->env, array);
-	if (ret == 0)
-		return (0);
-	else if (ret < 0)
-		return (-ret);
-	change_cwd(data, 0);
-	ret = chdir(array[0]);
-	if (ret != 0)
-	{
-		ret = errno;
-		ft_dprintf(2, "minishell: cd: %s: %s\n", array[0], strerror(ret));
-		return (1);
-	}
-	change_cwd(data, 1);
-	return (0);
-}
 
 /**
  * @brief Change the values of ENV VAR
- * 
+ *
  * @param data data structure
- * @param is_pwd 1 for PWD, 0 for OLD_PWD 
+ * @param is_pwd 1 for PWD, 0 for OLD_PWD
  */
 void	change_cwd(t_data *data, t_bool is_pwd)
 {
@@ -74,7 +41,7 @@ void	change_cwd(t_data *data, t_bool is_pwd)
 			strerror(error));
 		return ;
 	}
-	export_arg = ft_strjoins((char *[]){var, path, NULL});
+	export_arg = ft_strjoin(var, path);
 	if (export_arg == NULL)
 		ft_exit_int_np(&data->garbage, 1);
 	add_to_garbage(&data->garbage, export_arg);
@@ -83,30 +50,27 @@ void	change_cwd(t_data *data, t_bool is_pwd)
 }
 
 /**
- * @brief Check if args are valid are not
- *
- * @param array array of strings
- * @return int 0 and 1 OK, -1 is error
+ * @brief Change OLDPWD with prev_path
+ * 
+ * @param[in,out] data data structure
+ * @param[in,out] prev_path previous path
  */
-static int	check_args(t_data *data, t_env_vars *env, char **array)
+void	change_cwd_oldpwd(t_data *data, char *prev_path)
 {
-	if (array == NULL || array[0] == NULL)
-		return (change_cwd_to_home(data, env));
-	if (array[1] != NULL)
-	{
-		ft_dprintf(2, "minishell: cd: too many arguments\n");
-		return (-1);
-	}
-	if (array[0] && (ft_strncmp(array[0], "-", 2) == 0
-			|| ft_strncmp(array[0], "--", 3) == 0))
-		return (change_cwd_to_previous_cwd(data, env));
-	return (1);
+	char	*export_arg;
+
+	export_arg = ft_strjoin("OLDPWD=", prev_path);
+	if (export_arg == NULL)
+		ft_exit_int_np(&data->garbage, 1);
+	add_to_garbage(&data->garbage, export_arg);
+	ft_export(data, (char *[]){export_arg, NULL});
+	free_element_gb(&data->garbage, export_arg);
 }
 
 /**
  * @brief Change the current working directory to the previous CWD
- * 
- * @param env environment shell 
+ *
+ * @param env environment shell
  * @return int 0 OK, error otherwise
  */
 int	change_cwd_to_home(t_data *data, t_env_vars *env)
@@ -130,14 +94,15 @@ int	change_cwd_to_home(t_data *data, t_env_vars *env)
 
 /**
  * @brief Change the current working directory to the previous CWD
- * 
- * @param env environment shell 
+ *
+ * @param env environment shell
  * @return int 0 OK, error otherwise
  */
 int	change_cwd_to_previous_cwd(t_data *data, t_env_vars *env)
 {
 	t_var	*var;
 	char	*path;
+	int		ret;
 
 	path = NULL;
 	var = search_env_var(env, "OLDPWD");
@@ -149,7 +114,13 @@ int	change_cwd_to_previous_cwd(t_data *data, t_env_vars *env)
 		return (-1);
 	change_cwd(data, 0);
 	ft_printf("%s\n", path);
-	chdir(path);
+	ret = chdir(path);
+	if (ret != 0)
+	{
+		ret = errno;
+		ft_dprintf(2, "minishell: cd: %s: %s\n", path, strerror(ret));
+		return (1);
+	}
 	change_cwd(data, 1);
 	return (0);
 }

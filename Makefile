@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/06/18 14:44:36 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/09/28 16:16:14 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ P_FILE = file/
 P_BUILTINS = builtins/
 P_BUILTINS_EXPORT = $(P_BUILTINS)export/
 P_BUILTINS_EXIT = $(P_BUILTINS)exit/
+P_BUILTINS_CD = $(P_BUILTINS)cd/
 P_ENV = env/
 P_EXEC = exec/
 P_DEBUG = debug/
@@ -78,7 +79,7 @@ SRC = \
 	prompt.c \
 	signals.c \
 	ft_free.c \
-	ft_free-utils.c \
+	ft_free_utils.c \
 	minishell.c \
 	is_interactive.c \
 
@@ -89,7 +90,7 @@ GARBAGE = \
 
 LEXER = \
 	lexer.c \
-	lexer-utils.c \
+	lexer_utils.c \
 	tokens.c \
 
 PARSING = \
@@ -117,7 +118,6 @@ BUILTINS = \
 	ft_echo.c \
 	ft_which.c \
 	ft_unset.c \
-	ft_cd.c \
 	ft_pwd.c \
 	ft_env.c \
 
@@ -131,6 +131,10 @@ BUILTINS_EXPORT = \
 	print_export.c \
 	check_args_export.c \
 	ft_build_elements.c \
+	
+BUILTINS_CD = \
+	ft_cd.c \
+	ft_cd_utils.c \
 
 EXEC = \
 	exec.c \
@@ -139,8 +143,8 @@ EXEC = \
 	exec_pipeline.c \
 	search_command.c \
 	search_path.c \
-	exec-utils.c \
-	token-utils.c \
+	exec_utils.c \
+	token_utils.c \
 	ret_of_last_command.c \
 
 ENV = \
@@ -184,6 +188,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_BUILTINS), $(BUILTINS)) \
 	$(addprefix $(P_SRC)$(P_BUILTINS_EXPORT), $(BUILTINS_EXPORT)) \
 	$(addprefix $(P_SRC)$(P_BUILTINS_EXIT), $(BUILTINS_EXIT)) \
+	$(addprefix $(P_SRC)$(P_BUILTINS_CD), $(BUILTINS_CD)) \
 	$(addprefix $(P_SRC)$(P_ENV), $(ENV)) \
 	$(addprefix $(P_SRC)$(P_EXEC), $(EXEC)) \
 # $(addprefix $(P_SRC)$(P_DEBUG), $(DEBUG)) \
