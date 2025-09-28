@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:56:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 13:23:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/28 15:43:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_exit_int_np(t_garbage *garbage, int value);
  * @{
  */
 void	change_cwd(t_data *data, t_bool is_pwd);
+void	change_cwd_oldpwd(t_data *data, char *prev_path);
 int		change_cwd_to_home(t_data *data, t_env_vars *env);
 int		change_cwd_to_previous_cwd(t_data *data, t_env_vars *env);
 /** @} */
