@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cd-utils.c                                      :+:      :+:    :+:   */
+/*   ft_cd_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/28 16:12:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/28 16:21:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,7 @@ void	change_cwd(t_data *data, t_bool is_pwd)
 void	change_cwd_oldpwd(t_data *data, char *prev_path)
 {
 	char	*export_arg;
-	char	path[PATH_MAX];
-	int		error;
 
-	if (getcwd(path, PATH_MAX) == NULL)
-	{
-		error = errno;
-		ft_dprintf(2, "minishell : cd : modify CWD : OLDPWD : %s\n",
-			strerror(error));
-		return ;
-	}
 	export_arg = ft_strjoin("OLDPWD=", prev_path);
 	if (export_arg == NULL)
 		ft_exit_int_np(&data->garbage, 1);

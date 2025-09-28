@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:43:42 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/28 16:12:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/28 16:21:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 static int	check_args(t_data *data, t_env_vars *env, char **array);
 
 /**
- * @brief Implementatin of cd builtin of shell
+ * @brief Implementation of cd builtin of shell
  *
  * @param data data structure
  * @param array array of strings
