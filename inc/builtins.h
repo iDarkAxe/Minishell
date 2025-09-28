@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 11:56:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/28 15:43:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/28 17:04:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_env(t_data *data, char **array);
 int		ft_unset(t_data *data, char **array);
 int		ft_pwd(t_data *data, char **array);
 int		ft_cd(t_data *data, char **array);
+int		ft_alias(t_data *data, char **array);
 /** @} */
 
 /**

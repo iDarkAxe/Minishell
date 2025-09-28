@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:32:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/03 16:25:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/28 17:04:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	search_command(t_data *data, t_command *command, char **tokens);
 int	search_command(t_data *data, t_command *command, char **tokens)
 {
 	static char	*command_name[] = {"echo", "env", "which", "unset", "cd",
-		"pwd", "exit", "export", NULL};
+		"pwd", "exit", "export", "alias", NULL};
 	static int	(*cmd[])(t_data *, char **) = {ft_echo, ft_env, ft_which,
-		ft_unset, ft_cd, ft_pwd, ft_exit, ft_export, NULL};
+		ft_unset, ft_cd, ft_pwd, ft_exit, ft_export, ft_alias, NULL};
 	size_t		i;
 
 	if (!data || !command || !tokens || !tokens[0])
@@ -61,7 +61,7 @@ int	search_command(t_data *data, t_command *command, char **tokens)
 int	simple_search_command(t_data *data, t_command *command, const char *cmd)
 {
 	static char	*command_name[] = {"echo", "env", "which", "unset", "cd",
-		"pwd", "exit", "export", NULL};
+		"pwd", "exit", "export", "alias", NULL};
 	size_t		i;
 
 	if (!data || !command || !cmd)

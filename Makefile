@@ -6,7 +6,7 @@
 #    By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 15:48:31 by lud-adam          #+#    #+#              #
-#    Updated: 2025/09/28 16:16:14 by ppontet          ###   ########lyon.fr    #
+#    Updated: 2025/09/28 16:44:49 by ppontet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,6 +120,7 @@ BUILTINS = \
 	ft_unset.c \
 	ft_pwd.c \
 	ft_env.c \
+	ft_alias.c
 
 BUILTINS_EXIT = \
 	ft_exit.c \
