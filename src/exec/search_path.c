@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:40:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 13:29:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/12 16:08:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,12 @@ static char	**get_path(t_data *data)
 	envp = env_to_array(data);
 	while (envp && envp[i] != NULL)
 	{
-		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
+		if (ft_strncmp(envp[i], "PATH=", 5) == 0 && ft_strlen(envp[i]) >= 5)
 		{
-			if (ft_strlen(envp[i]) > 5)
-			{
-				all_path_bins = ft_split(envp[i], ':');
-				free_array(&data->garbage, envp);
-				add_to_garbage(&data->garbage, all_path_bins);
-				return (all_path_bins);
-			}
+			all_path_bins = ft_split(&envp[i][5], ':');
+			free_array(&data->garbage, envp);
+			add_to_garbage(&data->garbage, all_path_bins);
+			return (all_path_bins);
 		}
 		i++;
 	}
