@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:41:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/06/13 13:41:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 20:38:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
  *
  * @param env and c_env elements to free
  */
-void static	free_all_and_exit(t_garbage *garbage, t_env_vars *env,
+static void	free_all_and_exit(t_garbage *garbage, t_env_vars *env,
 		t_env_vars *c_env)
 {
 	free_env(garbage, env);

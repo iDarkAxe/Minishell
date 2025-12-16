@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:32:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/16 17:51:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 20:38:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,8 @@ int	files_management(t_data *data)
  */
 int	open_file_with_rights(t_garbage *garbage, t_file *file, t_bool in_out)
 {
-	int	perms;
 	int	fd;
 
-	perms = 0;
 	if (file == NULL)
 		return (-1);
 	if (file->is_heredoc == 1)
