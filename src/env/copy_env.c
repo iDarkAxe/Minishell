@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:41:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2025/12/16 20:38:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/02/10 09:14:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "env.h"
 #include "garbage.h"
 #include <stdlib.h>
+
+static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
+		const t_var *content);
+void static	free_all_and_exit(t_garbage *garbage, t_env_vars *env,
+		t_env_vars *c_env);
 
 /**
  * @brief supp_var function to supp a var in env 
@@ -78,7 +83,7 @@ t_var	*search_env_var(t_env_vars *env, char *var)
  * @param var_to_fill var has to fill, 
  * @param content has to copy 
  */
-static void	copy_param(t_garbage *garbage, t_var *var_to_fill,
+void	copy_param(t_garbage *garbage, t_var *var_to_fill,
 		const t_var *content)
 {
 	t_params	*new_node;
