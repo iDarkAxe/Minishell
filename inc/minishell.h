@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/18 13:02:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:55:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,7 @@
 
 # include "data_structure.h"
 # include "libft.h"
-# include <stddef.h>
 # include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <wait.h>
 
 /**
  * @defgroup Basics Basic functions

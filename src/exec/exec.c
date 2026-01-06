@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 13:35:28 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/18 12:29:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:54:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "minishell.h"
 #include "exec.h"
 #include <unistd.h>
-#include <wait.h>
+#include <sys/wait.h>
 
 /**
  * @brief Prepare for execution and Executes
