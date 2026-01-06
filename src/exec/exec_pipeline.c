@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:23:30 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/18 12:28:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 10:54:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <wait.h>
+#include <sys/wait.h>
 
 static void	execve_exit(int value)__attribute__((noreturn));
 static void	execute_command_from_pipe(t_data *data, t_command *command,
