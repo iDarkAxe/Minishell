@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:40:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/12 16:08:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/02/10 09:38:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 static void	search_path(t_data *data, t_command *command);
 static void	build_path(t_data *data, t_command *command);
 void		search_paths(t_data *data, t_command *command);
-
-static char	**get_path(t_data *data);
-char		*try_all_paths(t_data *data, char *cmd, char **all_paths);
 
 /**
  * @brief Search path for the designated command
@@ -49,12 +46,12 @@ void	search_path(t_data *data, t_command *command)
 	while (all_paths[index])
 	{
 		free(all_paths[index]);
-		all_paths[index] = NULL;
 		index++;
 	}
+	free(all_paths);
 }
 
-static char	**get_path(t_data *data)
+char	**get_path(t_data *data)
 {
 	size_t	i;
 	char	**envp;
@@ -68,7 +65,6 @@ static char	**get_path(t_data *data)
 		{
 			all_path_bins = ft_split(&envp[i][5], ':');
 			free_array(&data->garbage, envp);
-			add_to_garbage(&data->garbage, all_path_bins);
 			return (all_path_bins);
 		}
 		i++;
