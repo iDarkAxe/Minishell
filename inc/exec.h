@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:09:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/18 12:27:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/02/10 09:41:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void		execute_pipeline(t_data *data, pid_t *pids, size_t *count);
 size_t		count_commands(t_command *command);
 void		fill_toks_into_commands(t_data *data, t_command *command);
 void		search_paths(t_data *data, t_command *command);
+char		**get_path(t_data *data);
+char		*try_all_paths(t_data *data, char *cmd, char **all_paths);
 void		wait_all_childs(t_command *command, pid_t *pids);
 /** @} */
 
