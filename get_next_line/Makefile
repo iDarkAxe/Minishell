@@ -33,6 +33,8 @@ P_INCS = \
 # Headers
 INC = \
 	get_next_line.h \
+
+INC_BONUS = \
 	get_next_line_bonus.h \
 
 # Source files
@@ -63,7 +65,7 @@ OBJS_BONUS = $(subst $(P_SRC), $(P_OBJ), $(SRCS_BONUS:.c=.o))
 P_OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS_BONUS))
 
 # List of depedencies
-DEPS = $(OBJS:%.o=%.d) $(OBJS_BONUS:%.o=%.d)
+DEPS = $(OBJS:%.o=%.d)
 
 # List of header files
 INCS = $(addprefix $(P_INC), $(INC)) \
