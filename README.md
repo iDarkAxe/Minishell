@@ -1,5 +1,7 @@
 # Minishell #
 
+This project has been created as part of the 42 curriculum by lud-adam, ppontet.
+
 ## <a name="introduction-en">📖 Introduction ##
 
 Make your own shell that performs worse than bash but it's yours.
